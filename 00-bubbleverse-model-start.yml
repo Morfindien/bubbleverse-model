@@ -1,0 +1,95 @@
+name: "🧪 BUBBLEVERSE MODEL — START"
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "Command (normal value: test)"
+        required: true
+        default: "test"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bubbleverse-model-campaign
+  cancel-in-progress: false
+
+jobs:
+  q_boundary_and_test:
+    if: ${{ inputs.command == 'test' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      Q_ACCESS_START: Q001
+      Q_ACCESS_END: Q039
+      CURRENT_Q: Q039
+      CANDIDATE_MODEL_VERSION: v0.1-candidate
+      TEST_CAMPAIGN_ID: BV-MODEL-v0.1-CAMPAIGN-0001
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Immutable Q identity gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$Q_ACCESS_START" = "Q001"
+          test "$Q_ACCESS_END" = "Q039"
+          test "$CURRENT_Q" = "Q039"
+          echo "CURRENT_Q_GATE=PASS"
+          echo "Q_ACCESS_FIREWALL_GATE=PASS"
+
+      - name: Preregistered bootstrap campaign
+        run: python tests/programs/model_campaign.py test
+
+      - name: Commit campaign result and promotion state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "bubbleverse-model-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add accepted candidate evidence provenance changelog versions tests release bubbleverse_model_program_registry.json README.md
+          if git diff --cached --quiet; then
+            echo "No repository changes to commit."
+          else
+            git commit -m "Bubbleverse model: run Q039 bootstrap campaign"
+            git push
+          fi
+          echo "REPOSITORY_WRITE_GATE=PASS"
+
+      - name: Final release gate
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("release/MODEL_RELEASE_HANDOFF.json")
+          d=json.loads(p.read_text())
+          required=[
+            d["all_mandatory_green"] is True,
+            d["candidate_promoted"] is True,
+            d["next_word_authorized"] is True,
+            d["candidate_promotion_gate"]=="PASS",
+            d["high_q_contamination_gate"]=="PASS",
+            d["final_audit_gate"]=="PASS",
+          ]
+          if not all(required):
+              raise SystemExit("FINAL_AUDIT_GATE=FAIL")
+          print("FINAL_AUDIT_GATE=PASS")
+          print("NEXT_WORD_AUTHORIZED=TRUE")
+          PY
+
+  invalid_command:
+    if: ${{ inputs.command != 'test' }}
+    runs-on: ubuntu-24.04
+    steps:
+      - run: |
+          echo "Unsupported command. Normal value is: test"
+          exit 2
