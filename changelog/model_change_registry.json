@@ -3,12 +3,64 @@
     {
       "accepted_after": null,
       "candidate": "v0.1-candidate",
+      "change_revision": "R000001",
       "current_q": "Q039",
       "date": "2026-09-08T10:25:00+02:00",
       "model_revision": "R000001",
       "q_access_end": "Q039",
       "q_access_start": "Q001",
       "status": "BOOTSTRAP_CANDIDATE_READY_FOR_TEST"
+    },
+    {
+      "accepted_after": "v0.1",
+      "all_mandatory_green": true,
+      "candidate": "v0.1-candidate",
+      "change_revision": "R000002",
+      "current_q": "Q039",
+      "date": "2026-09-08",
+      "model_revision": "R000001",
+      "q_access_end": "Q039",
+      "q_access_start": "Q001",
+      "scientific_campaign": {
+        "campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
+        "passed": 9,
+        "total": 9
+      },
+      "status": "ACCEPTED_MODEL_PROMOTED"
+    },
+    {
+      "accepted_after": "v0.1",
+      "change_revision": "R000003",
+      "current_q": "Q039",
+      "date": "2026-09-08",
+      "model_revision": "R000001",
+      "q_access_end": "Q039",
+      "q_access_start": "Q001",
+      "repairs": [
+        "ACCEPTED_PATH_ISOLATION",
+        "CANDIDATE_PROMOTION_STATE",
+        "REAL_GIT_PROVENANCE",
+        "FUTURE_PROMOTION_LOGIC"
+      ],
+      "scientific_change": false,
+      "status": "MODEL_INTEGRITY_REPAIR_COMPLETE"
+    },
+    {
+      "accepted_after": "v0.1",
+      "change_revision": "R000004",
+      "current_q": "Q039",
+      "date": "2026-09-08",
+      "formal_model_version": "v0.1-formalization-1",
+      "formal_validation": {
+        "campaign_id": "FORMAL-MODEL-v0.1-001",
+        "passed": 12,
+        "total": 12
+      },
+      "model_revision": "R000001",
+      "q_access_end": "Q039",
+      "q_access_start": "Q001",
+      "scientific_change": false,
+      "status": "FORMAL_MODEL_LAYER_INSTALLED"
     }
   ],
   "schema_version": 1

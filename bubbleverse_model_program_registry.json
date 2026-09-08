@@ -1,13 +1,23 @@
 {
   "programs": {
     "BV-MODEL-CAMPAIGN-V1": {
+      "accepted_model_version": "v0.1",
       "campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
       "command": "test",
+      "command_semantics": "MUTATING_CAMPAIGN_PROMOTION_PATH",
+      "formal_model_version": "v0.1-formalization-1",
+      "formal_validator_path": "tests/programs/formal_model_validate.py",
       "path": "tests/programs/model_campaign.py",
+      "public_workflow_operations": [
+        "test",
+        "validate-model",
+        "campaign"
+      ],
       "q_access_end": "Q039",
       "q_access_start": "Q001",
       "status": "ACTIVE",
-      "workflow_id": "00-bubbleverse-model-start.yml"
+      "validation_command": "validate",
+      "workflow_id": "00-bubbleverse-model-start-public.yml"
     }
   },
   "schema_version": 1
