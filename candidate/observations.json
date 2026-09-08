@@ -53,8 +53,31 @@
       "status": "ACTIVE_BENCHMARK",
       "units": "km s^-1 Mpc^-1",
       "value": 68.51
+    },
+    {
+      "claim": "A common physical CMB-space likelihood can be defined for CamSpec and HiLLiPoP by separately marginalizing each implementation over its own native nuisance parameters while retaining the physical CMB TT spectrum and A_Planck as common coordinates. Native data, covariance, foreground models and priors remain inside their own likelihoods; the likelihoods are not multiplied or subtracted.",
+      "epistemic_level": "methodological computational construction",
+      "evidence_refs": [
+        "EVD-Q040-MANUSCRIPT",
+        "EVD-Q040-RQMC"
+      ],
+      "id": "OBS-Q040-CMB-MARGINAL-001",
+      "q_introduced": "Q040",
+      "status": "SUPPORTED"
+    },
+    {
+      "claim": "The finite defensive randomized quasi-Monte Carlo campaign reached m=16, 393216 nuisance nodes per replicate and implementation, but failed the preregistered numerical-stability tolerance 0.05. Maximum transition changes were approximately 16.59 for CamSpec and 61.13 for HiLLiPoP; independent-bank differences were approximately 28.44 and 63.11. Endpoint cosmological geometry was therefore not executed.",
+      "epistemic_level": "numerical validation result",
+      "evidence_refs": [
+        "EVD-Q040-MANUSCRIPT",
+        "EVD-Q040-RQMC"
+      ],
+      "id": "OBS-Q040-RQMC-VALIDATION-001",
+      "q_introduced": "Q040",
+      "scientific_falsification": false,
+      "status": "TECHNICAL_FAIL"
     }
   ],
-  "q_access_end": "Q039",
+  "q_access_end": "Q040",
   "schema_version": 1
 }

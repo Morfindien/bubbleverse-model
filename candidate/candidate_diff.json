@@ -1,27 +1,31 @@
 {
-  "changes": [
-    {
-      "change_type": "ADD",
-      "reason": "No prior accepted model exists.",
-      "scope": "bootstrap model"
-    },
-    {
-      "change_type": "RESTRICT",
-      "reason": "Validated Q039 single-block and native-foreground interventions are insufficient.",
-      "scope": "Q039 Planck-likelihood implementation explanation space"
-    },
-    {
-      "change_type": "NO_CHANGE",
-      "reason": "Q039 is methodological evidence and does not establish/falsify EDE.",
-      "scope": "n=3 EDE establishment status"
-    }
+  "added": [
+    "Q040 common-CMB marginal-likelihood methodological observation",
+    "Q040 numerical-validation failure observation",
+    "Q040 constraints and robustness records",
+    "formal Q040 marginal-likelihood equation and explicit scope records"
   ],
-  "current_q": "Q039",
-  "from_accepted_model": null,
-  "mode": "BOOTSTRAP",
-  "model_revision": "R000001",
-  "q_access_end": "Q039",
-  "q_access_start": "Q001",
+  "from_version": "v0.1",
+  "modified": [
+    "CamSpec-HiLLiPoP contradiction remains OPEN_NARROWED",
+    "PRED-Q039-COUPLED-001 remains OPEN with Q040 inconclusive attempt recorded",
+    "authorized boundary advances to Q040 only on promotion"
+  ],
+  "new_benchmarks": [],
+  "new_equations": [
+    "EQ-Q040-CMB-NATIVE-MARGINAL"
+  ],
+  "new_parameters": [],
+  "new_public_calculations": [],
+  "new_scientific_domains": [],
+  "preserved": [
+    "H0 inference-chain benchmarks",
+    "Hubble-tension constraints",
+    "n=3 EDE constrained status",
+    "Q039 single-block negative results",
+    "public calculation surface"
+  ],
   "schema_version": 1,
-  "to_candidate_model": "v0.1-candidate"
+  "target_q": "Q040",
+  "to_candidate_version": "v0.2"
 }

@@ -14,11 +14,18 @@
     },
     {
       "future_q_evidence_used": false,
+      "history": [
+        {
+          "note": "A deeper common-latent nuisance-marginalization route was defined, but numerical validation failed before endpoint geometry.",
+          "q": "Q040",
+          "status": "INCONCLUSIVE_PREREQUISITE_ATTEMPT"
+        }
+      ],
       "id": "PRED-Q039-COUPLED-001",
       "statement": "A future preregistered coupled likelihood/data-vector harmonization test can discriminate whether the residual CamSpec-HiLLiPoP geometry difference is removed only by jointly changing multiple implementation layers.",
-      "status": "PROPOSAL_ONLY"
+      "status": "OPEN"
     }
   ],
-  "q_access_end": "Q039",
+  "q_access_end": "Q040",
   "schema_version": 1
 }

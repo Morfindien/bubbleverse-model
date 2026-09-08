@@ -34,8 +34,18 @@
       "finding": "Q039 V1-V4 failures are technical recovery provenance only and are excluded from physical evidence; V5 and FGPROFILE V1 are authoritative.",
       "id": "ROB-TECH-001",
       "status": "ACTIVE"
+    },
+    {
+      "finding": "A common physical CMB-space nuisance-marginalization construction can preserve native CamSpec and HiLLiPoP likelihood structure without a synthetic hybrid likelihood.",
+      "id": "ROB-Q040-CMB-MARGINAL-001",
+      "status": "SUPPORTED_METHODOLOGICALLY"
+    },
+    {
+      "finding": "The tested single-Gaussian compression and finite defensive-RQMC implementation fail numerical validation; this is TECHNICAL_FAIL and not physical falsification.",
+      "id": "ROB-Q040-NUMERIC-001",
+      "status": "TECHNICAL_FAIL"
     }
   ],
-  "q_access_end": "Q039",
+  "q_access_end": "Q040",
   "schema_version": 1
 }

@@ -42,15 +42,25 @@
     },
     {
       "id": "CON-DM-IDENTITY-001",
-      "statement": "The microscopic identity of dark matter remains unresolved through Q039.",
+      "statement": "The microscopic identity of dark matter remains unresolved through Q040.",
       "status": "OPEN"
     },
     {
       "id": "CON-ACCEL-ORIGIN-001",
-      "statement": "The physical origin of late-time acceleration remains unresolved through Q039.",
+      "statement": "The physical origin of late-time acceleration remains unresolved through Q040.",
       "status": "OPEN"
+    },
+    {
+      "id": "CON-Q040-001",
+      "statement": "The Q040 common-CMB nuisance-marginalization bridge cannot establish whether the CamSpec-HiLLiPoP discrepancy disappears or survives physically because numerical validation failed before endpoint geometry was produced.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q040-002",
+      "statement": "Q040 does not establish likelihood defect or superiority, calibration, foreground, covariance or instrumental failure, n=3 EDE preference/falsification, or new physics.",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q039",
+  "q_access_end": "Q040",
   "schema_version": 1
 }
