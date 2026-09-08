@@ -1,0 +1,43 @@
+{
+  "calculation_input_contracts": {
+    "astronomy-catalog-context": "JSON {\"object\":\"Vega\",\"radius_arcsec\":5} OR JSON {\"ra_deg\":...,\"dec_deg\":...,\"radius_arcsec\":5}",
+    "contextualize-result": "JSON {\"quantity\":\"...\",\"value\":number,\"sigma\":optional-number,\"units\":\"...\",\"provenance\":optional}",
+    "difference": "a,b OR JSON {a,b}",
+    "gaussian-tension": "a,sigma_a,b,sigma_b OR JSON object with those keys",
+    "known-results": "blank OR JSON {\"quantity\":\"H0\"} OR JSON {\"quantity\":\"H0\",\"units\":\"...\"}",
+    "percent-shift": "from,to OR JSON {from,to}",
+    "weighted-mean": "value1,sigma1,value2,sigma2,... OR JSON {values:[...],sigmas:[...]}"
+  },
+  "input_fields": [
+    {
+      "name": "input",
+      "purpose": "One user-supplied JSON object or comma-separated numeric input.",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "name": "operation",
+      "purpose": "Select one supported model/calculation operation.",
+      "required": true,
+      "type": "choice"
+    }
+  ],
+  "interface": "GITHUB_WORKFLOW_DISPATCH",
+  "operations": [
+    "test",
+    "gaussian-tension",
+    "difference",
+    "percent-shift",
+    "weighted-mean",
+    "validate-model",
+    "model-status",
+    "contradictions",
+    "provenance",
+    "release-handoff",
+    "campaign",
+    "known-results",
+    "contextualize-result",
+    "astronomy-catalog-context"
+  ],
+  "schema_version": 1
+}
