@@ -1,0 +1,1902 @@
+name: "🧪 BUBBLEVERSE MODEL — START"
+
+on:
+  workflow_dispatch:
+    inputs:
+      input:
+        description: "Input (JSON or numbers; leave blank for test/status/campaign)"
+        required: false
+        default: ""
+        type: string
+      operation:
+        description: "Choose what Bubbleverse Model should do"
+        required: true
+        default: "test"
+        type: choice
+        options:
+          - test
+          - gaussian-tension
+          - difference
+          - percent-shift
+          - weighted-mean
+          - known-results
+          - contextualize-result
+          - astronomy-catalog-context
+          - validate-model
+          - model-status
+          - contradictions
+          - provenance
+          - release-handoff
+          - campaign
+          - install-context-engine
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bubbleverse-model-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Bubbleverse Model operation
+        id: bubbleverse
+        shell: bash
+        env:
+          BV_INPUT: ${{ inputs.input }}
+          BV_OPERATION: ${{ inputs.operation }}
+        run: |
+          set -euo pipefail
+          mkdir -p run-output
+
+          python - <<'PY'
+          from __future__ import annotations
+          import base64
+          import csv
+          import io
+          import json
+          import math
+          import hashlib
+          import os
+          import re
+          import subprocess
+          import sys
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          ROOT = Path.cwd()
+          OUT = ROOT / "run-output"
+          OUT.mkdir(exist_ok=True)
+          USER_INPUT = os.environ.get("BV_INPUT", "").strip()
+          OP = os.environ.get("BV_OPERATION", "test").strip().lower()
+
+          def read_json(path: Path):
+              return json.loads(path.read_text(encoding="utf-8"))
+
+          def write_json(path: Path, obj):
+              path.parent.mkdir(parents=True, exist_ok=True)
+              path.write_text(json.dumps(obj, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+          def write_result(obj):
+              write_json(OUT / "result.json", obj)
+
+          def add_summary(lines):
+              summary = os.environ.get("GITHUB_STEP_SUMMARY")
+              if summary:
+                  with open(summary, "a", encoding="utf-8") as f:
+                      f.write("\n".join(lines) + "\n")
+
+          def parse_numbers(text: str):
+              if not text:
+                  return []
+              parts = [x.strip() for x in text.split(",") if x.strip()]
+              return [float(x) for x in parts]
+
+          def parse_object_or_numbers(text: str):
+              if not text:
+                  return None, []
+              try:
+                  obj = json.loads(text)
+                  if isinstance(obj, dict):
+                      return obj, []
+              except json.JSONDecodeError:
+                  pass
+              return None, parse_numbers(text)
+
+          def parse_json_object(text: str):
+              if not text:
+                  return {}
+              try:
+                  obj = json.loads(text)
+              except json.JSONDecodeError as exc:
+                  raise ValueError("This operation requires JSON input.") from exc
+              if not isinstance(obj, dict):
+                  raise ValueError("Input must be a JSON object.")
+              return obj
+
+          def difference(text: str):
+              obj, nums = parse_object_or_numbers(text)
+              if obj is not None:
+                  a = float(obj["a"])
+                  b = float(obj["b"])
+              else:
+                  if len(nums) != 2:
+                      raise ValueError('difference input: a,b OR {"a":...,"b":...}')
+                  a, b = nums
+              return {"operation": "difference", "a": a, "b": b, "delta": a - b, "absolute_delta": abs(a-b)}
+
+          def gaussian_tension(text: str):
+              obj, nums = parse_object_or_numbers(text)
+              if obj is not None:
+                  a = float(obj["a"])
+                  sa = float(obj["sigma_a"])
+                  b = float(obj["b"])
+                  sb = float(obj["sigma_b"])
+              else:
+                  if len(nums) != 4:
+                      raise ValueError("gaussian-tension input: a,sigma_a,b,sigma_b OR JSON object")
+                  a, sa, b, sb = nums
+              if sa <= 0 or sb <= 0:
+                  raise ValueError("Uncertainties must be > 0")
+              delta = a - b
+              combined = math.sqrt(sa*sa + sb*sb)
+              return {
+                  "operation": "gaussian-tension",
+                  "a": a, "sigma_a": sa, "b": b, "sigma_b": sb,
+                  "delta": delta,
+                  "absolute_delta": abs(delta),
+                  "combined_sigma": combined,
+                  "tension_sigma": abs(delta) / combined,
+                  "note": "Simple independent-Gaussian marginal comparison; not by itself a detection of new physics."
+              }
+
+          def percent_shift(text: str):
+              obj, nums = parse_object_or_numbers(text)
+              if obj is not None:
+                  old = float(obj.get("from", obj.get("old")))
+                  new = float(obj.get("to", obj.get("new")))
+              else:
+                  if len(nums) != 2:
+                      raise ValueError('percent-shift input: from,to OR {"from":...,"to":...}')
+                  old, new = nums
+              if old == 0:
+                  raise ValueError("Reference value cannot be zero")
+              change = new - old
+              pct = 100.0 * change / old
+              return {
+                  "operation": "percent-shift",
+                  "from": old, "to": new,
+                  "change": change,
+                  "percent_change": pct,
+                  "absolute_percent_shift": abs(pct),
+              }
+
+          def weighted_mean(text: str):
+              obj, nums = parse_object_or_numbers(text)
+              if obj is not None:
+                  values = [float(x) for x in obj["values"]]
+                  sigmas = [float(x) for x in obj["sigmas"]]
+              else:
+                  if len(nums) < 4 or len(nums) % 2:
+                      raise ValueError("weighted-mean input: value1,sigma1,value2,sigma2,... OR JSON values/sigmas")
+                  values = nums[0::2]
+                  sigmas = nums[1::2]
+              if len(values) != len(sigmas) or not values:
+                  raise ValueError("values and sigmas must have equal non-zero length")
+              if any(s <= 0 for s in sigmas):
+                  raise ValueError("All uncertainties must be > 0")
+              weights = [1.0/(s*s) for s in sigmas]
+              sw = sum(weights)
+              mean = sum(v*w for v, w in zip(values, weights)) / sw
+              sigma = math.sqrt(1.0/sw)
+              return {
+                  "operation": "weighted-mean",
+                  "values": values,
+                  "sigmas": sigmas,
+                  "weighted_mean": mean,
+                  "weighted_sigma": sigma,
+                  "note": "Inverse-variance weighted mean; assumes the supplied measurements are suitable for this combination."
+              }
+
+          def q_number(value):
+              if value is None:
+                  return None
+              m = re.fullmatch(r"Q-?0*([0-9]{1,5})", str(value), flags=re.I)
+              return int(m.group(1)) if m else None
+
+          def normalize_symbol(value):
+              return re.sub(r"\s+", "", str(value or "")).casefold()
+
+          def normalize_units(value):
+              return re.sub(r"\s+", " ", str(value or "").strip()).casefold()
+
+          def load_result_registry():
+              p = ROOT / "model/result_registry.json"
+              if not p.exists():
+                  raise FileNotFoundError(
+                      "Result context layer is not installed. Run operation 'install-context-engine' once."
+                  )
+              registry = read_json(p)
+              accepted = read_json(ROOT / "accepted/model_state.json")
+              for key in ("q_access_start", "q_access_end"):
+                  if registry.get(key) != accepted.get(key):
+                      raise RuntimeError(
+                          f"Result registry {key}={registry.get(key)!r} does not match accepted state {accepted.get(key)!r}"
+                      )
+              end = q_number(accepted.get("q_access_end"))
+              raw = p.read_text(encoding="utf-8")
+              high = [
+                  int(x)
+                  for x in re.findall(r"\bQ-?0*([0-9]{1,5})\b", raw, flags=re.I)
+                  if end is not None and int(x) > end
+              ]
+              if high:
+                  raise RuntimeError(f"Future-Q contamination in result registry: {sorted(set(high))}")
+              return registry, accepted
+
+          def registered_results():
+              registry, accepted = load_result_registry()
+              results = []
+              for src in registry.get("sources", []):
+                  path = ROOT / src["path"]
+                  if not path.exists():
+                      raise FileNotFoundError(f"Registered result source missing: {src['path']}")
+                  data = read_json(path)
+                  allowed = set(src.get("allowed_statuses", []))
+                  for item in data.get(src["list_key"], []):
+                      status = item.get(src.get("status_field", "status"))
+                      if allowed and status not in allowed:
+                          continue
+                      result = {
+                          "registry_id": src["registry_id"],
+                          "result_id": item[src["id_field"]],
+                          "quantity": item[src["quantity_field"]],
+                          "value": float(item[src["value_field"]]),
+                          "sigma": float(item[src["sigma_field"]]) if item.get(src["sigma_field"]) is not None else None,
+                          "units": item[src["units_field"]],
+                          "status": status,
+                          "source_path": src["path"],
+                          "q_access_end": accepted["q_access_end"],
+                      }
+                      for field in src.get("copy_fields", []):
+                          if field in item:
+                              result[field] = item[field]
+                      results.append(result)
+              return registry, accepted, results
+
+          def known_results(text: str):
+              payload = parse_json_object(text)
+              _, accepted, results = registered_results()
+              quantity = payload.get("quantity")
+              units = payload.get("units")
+              if quantity is not None:
+                  results = [r for r in results if normalize_symbol(r["quantity"]) == normalize_symbol(quantity)]
+              if units is not None:
+                  results = [r for r in results if normalize_units(r["units"]) == normalize_units(units)]
+              return {
+                  "operation": "known-results",
+                  "status": "PASS",
+                  "query": {"quantity": quantity, "units": units},
+                  "registry_status": "MATCHED" if results else "NO_REGISTERED_RESULTS",
+                  "registered_results": results,
+                  "results_count": len(results),
+                  "q_access_start": accepted["q_access_start"],
+                  "q_access_end": accepted["q_access_end"],
+                  "note": (
+                      "These are registered Bubbleverse reference results inside the authorized Q boundary. "
+                      "They are not a universal catalogue of all published results."
+                  ),
+              }
+
+          def next_step(step_id, action, executor, reason):
+              return {"step_id": step_id, "action": action, "executor": executor, "reason": reason}
+
+          def external_lookup_route(reason):
+              return [
+                  next_step(
+                      "NEXT-001",
+                      "Verify the quantity name, units, input provenance and measurement/calculation method.",
+                      "HUMAN_INPUT_VERIFICATION_REQUIRED",
+                      reason,
+                  ),
+                  next_step(
+                      "NEXT-002",
+                      "Search authoritative literature or trusted external data sources for comparable results.",
+                      "RESEARCH_AGENT_OR_HUMAN_REQUIRED",
+                      "Bubbleverse has no comparable registered result inside the current Q boundary.",
+                  ),
+                  next_step(
+                      "NEXT-003",
+                      "If external evidence is relevant, ingest it through the normal Bubbleverse evidence/Q gate before treating it as model knowledge.",
+                      "MODEL_UPDATE_PIPELINE_REQUIRED",
+                      "External lookup must not silently expand accepted scientific state.",
+                  ),
+              ]
+
+          def contextualize_result(text: str):
+              payload = parse_json_object(text)
+              if "quantity" not in payload or "value" not in payload:
+                  raise ValueError('contextualize-result requires JSON with at least "quantity" and "value"')
+
+              quantity = str(payload["quantity"])
+              value = float(payload["value"])
+              sigma = payload.get("sigma")
+              sigma = None if sigma is None else float(sigma)
+              units = payload.get("units")
+              provenance = payload.get("provenance")
+              if sigma is not None and sigma <= 0:
+                  raise ValueError("sigma must be > 0 when supplied")
+
+              _, accepted, all_results = registered_results()
+              quantity_matches = [
+                  r for r in all_results
+                  if normalize_symbol(r["quantity"]) == normalize_symbol(quantity)
+              ]
+
+              base_input = {
+                  "quantity": quantity,
+                  "value": value,
+                  "sigma": sigma,
+                  "units": units,
+                  "provenance": provenance,
+              }
+
+              if not quantity_matches:
+                  return {
+                      "operation": "contextualize-result",
+                      "status": "PASS",
+                      "input_result": base_input,
+                      "registry_match_status": "UNREGISTERED_QUANTITY",
+                      "span_status": "UNKNOWN",
+                      "comparison_status": "NO_COMPARABLE_REGISTERED_RESULT",
+                      "follow_up_recommended": True,
+                      "follow_up_priority": "UNKNOWN",
+                      "next_steps": external_lookup_route("The quantity is not present in the current Bubbleverse result registry."),
+                      "new_physics_claim": "NOT_INFERRED",
+                      "q_access_end": accepted["q_access_end"],
+                      "note": "Absence from the registry means unknown to this model boundary, not unknown to science.",
+                  }
+
+              if units is None:
+                  return {
+                      "operation": "contextualize-result",
+                      "status": "PASS",
+                      "input_result": base_input,
+                      "registry_match_status": "UNITS_REQUIRED",
+                      "available_registered_units": sorted({r["units"] for r in quantity_matches}),
+                      "span_status": "UNKNOWN",
+                      "comparison_status": "NOT_EVALUATED",
+                      "follow_up_recommended": True,
+                      "follow_up_priority": "UNKNOWN",
+                      "next_steps": external_lookup_route("Units are required before scientific comparison."),
+                      "new_physics_claim": "NOT_INFERRED",
+                      "q_access_end": accepted["q_access_end"],
+                  }
+
+              comparable = [
+                  r for r in quantity_matches
+                  if normalize_units(r["units"]) == normalize_units(units)
+              ]
+              if not comparable:
+                  return {
+                      "operation": "contextualize-result",
+                      "status": "PASS",
+                      "input_result": base_input,
+                      "registry_match_status": "UNIT_MISMATCH_OR_UNREGISTERED_UNIT",
+                      "available_registered_units": sorted({r["units"] for r in quantity_matches}),
+                      "span_status": "UNKNOWN",
+                      "comparison_status": "NOT_EVALUATED",
+                      "follow_up_recommended": True,
+                      "follow_up_priority": "UNKNOWN",
+                      "next_steps": external_lookup_route("The quantity exists, but no registered result uses the supplied units."),
+                      "new_physics_claim": "NOT_INFERRED",
+                      "q_access_end": accepted["q_access_end"],
+                  }
+
+              comparisons = []
+              for ref in comparable:
+                  dist = None
+                  if sigma is not None and ref["sigma"] is not None and sigma > 0 and ref["sigma"] > 0:
+                      dist = abs(value - ref["value"]) / math.sqrt(sigma*sigma + ref["sigma"]*ref["sigma"])
+                  comparisons.append({
+                      "result_id": ref["result_id"],
+                      "reference_value": ref["value"],
+                      "reference_sigma": ref["sigma"],
+                      "units": ref["units"],
+                      "absolute_delta": abs(value - ref["value"]),
+                      "gaussian_distance_sigma": dist,
+                      "route": ref.get("route"),
+                      "inference_chain": ref.get("inference_chain"),
+                      "source_observation_id": ref.get("source_observation_id"),
+                  })
+
+              def nearest_key(item):
+                  if item["gaussian_distance_sigma"] is not None:
+                      return (0, item["gaussian_distance_sigma"])
+                  return (1, item["absolute_delta"])
+
+              nearest = min(comparisons, key=nearest_key)
+              min_value = min(r["value"] for r in comparable)
+              max_value = max(r["value"] for r in comparable)
+              inside = min_value <= value <= max_value
+              span_status = "WITHIN_REGISTERED_REFERENCE_SPAN" if inside else "OUTSIDE_REGISTERED_REFERENCE_SPAN"
+
+              nd = nearest["gaussian_distance_sigma"]
+              if nd is None:
+                  comparison_status = "UNCERTAINTY_NOT_AVAILABLE_FOR_GAUSSIAN_DISTANCE"
+                  priority = "MODERATE" if not inside else "LOW"
+              elif nd >= 5:
+                  comparison_status = "STRONGLY_DISAGREES_WITH_NEAREST_REGISTERED_RESULT"
+                  priority = "HIGH"
+              elif nd >= 3:
+                  comparison_status = "ELEVATED_DISAGREEMENT_WITH_NEAREST_REGISTERED_RESULT"
+                  priority = "ELEVATED"
+              elif nd >= 2:
+                  comparison_status = "MODERATE_DISAGREEMENT_WITH_NEAREST_REGISTERED_RESULT"
+                  priority = "MODERATE"
+              else:
+                  comparison_status = "CONSISTENT_WITH_NEAREST_REGISTERED_RESULT_AT_LT_2_SIGMA"
+                  priority = "LOW"
+
+              follow_up = (not inside) or priority in {"HIGH", "ELEVATED"}
+              if follow_up:
+                  steps = [
+                      next_step(
+                          "NEXT-001",
+                          "Verify input meaning, units, uncertainty, source and method.",
+                          "HUMAN_INPUT_VERIFICATION_REQUIRED",
+                          "Unexpected context can be caused by incorrect or incomparable inputs.",
+                      ),
+                      next_step(
+                          "NEXT-002",
+                          "Recompute the comparison against all registered comparable results.",
+                          "MODEL_CAN_EXECUTE",
+                          "The model can independently repeat the numerical context check using its registry.",
+                      ),
+                      next_step(
+                          "NEXT-003",
+                          "Design a reproduction/falsification checklist including independent route, numerical reproduction and systematic-error checks.",
+                          "MODEL_CAN_DESIGN_TEST",
+                          "A persistent outlying result should be attacked before receiving a physical interpretation.",
+                      ),
+                      next_step(
+                          "NEXT-004",
+                          "Check authoritative external literature/data for comparable results not yet present in the Bubbleverse registry.",
+                          "RESEARCH_AGENT_OR_HUMAN_REQUIRED",
+                          "The internal registry is Q-bounded and intentionally incomplete.",
+                      ),
+                      next_step(
+                          "NEXT-005",
+                          "If confirmation requires a new observation, measurement, laboratory test or instrument run, obtain new external data.",
+                          "HUMAN_OR_EXTERNAL_EXPERIMENT_REQUIRED",
+                          "The model cannot manufacture independent empirical evidence.",
+                      ),
+                  ]
+              else:
+                  steps = [
+                      next_step(
+                          "NEXT-001",
+                          "No anomaly escalation is required from registry context alone; retain provenance and continue normal model use.",
+                          "MODEL_CAN_EXECUTE",
+                          "The supplied result is not strongly outlying relative to the nearest registered reference.",
+                      )
+                  ]
+
+              return {
+                  "operation": "contextualize-result",
+                  "status": "PASS",
+                  "input_result": base_input,
+                  "registry_match_status": "MATCHED",
+                  "registered_reference_count": len(comparable),
+                  "registered_reference_span": {"minimum": min_value, "maximum": max_value, "units": units},
+                  "span_status": span_status,
+                  "comparison_status": comparison_status,
+                  "nearest_registered_result": nearest,
+                  "comparisons": comparisons,
+                  "follow_up_recommended": follow_up,
+                  "follow_up_priority": priority,
+                  "next_steps": steps,
+                  "new_physics_claim": "NOT_INFERRED",
+                  "q_access_start": accepted["q_access_start"],
+                  "q_access_end": accepted["q_access_end"],
+                  "caution": (
+                      "The registered reference span is not a physical allowed range and is not a complete survey of science. "
+                      "Being outside it is a follow-up trigger, not evidence of new physics."
+                  ),
+              }
+
+
+          def safe_float(value):
+              if value is None:
+                  return None
+              raw = str(value).strip()
+              if raw == "" or raw.lower() in {"null", "nan", "none"}:
+                  return None
+              try:
+                  return float(raw)
+              except ValueError:
+                  return None
+
+          def adql_escape_string(value):
+              return str(value).replace("'", "''")
+
+          def angular_separation_arcsec(ra1_deg, dec1_deg, ra2_deg, dec2_deg):
+              ra1 = math.radians(float(ra1_deg))
+              dec1 = math.radians(float(dec1_deg))
+              ra2 = math.radians(float(ra2_deg))
+              dec2 = math.radians(float(dec2_deg))
+              cosang = (
+                  math.sin(dec1) * math.sin(dec2)
+                  + math.cos(dec1) * math.cos(dec2) * math.cos(ra1 - ra2)
+              )
+              cosang = max(-1.0, min(1.0, cosang))
+              return math.degrees(math.acos(cosang)) * 3600.0
+
+          def tap_query_csv(endpoint, query, timeout_seconds=30):
+              payload = urllib.parse.urlencode({
+                  "REQUEST": "doQuery",
+                  "LANG": "ADQL",
+                  "FORMAT": "csv",
+                  "QUERY": query,
+              }).encode("utf-8")
+              request = urllib.request.Request(
+                  endpoint,
+                  data=payload,
+                  method="POST",
+                  headers={
+                      "Content-Type": "application/x-www-form-urlencoded",
+                      "User-Agent": "Bubbleverse-Model/astronomy-catalog-context",
+                      "Accept": "text/csv,text/plain,*/*",
+                  },
+              )
+              try:
+                  with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
+                      raw = response.read().decode("utf-8", errors="replace")
+              except urllib.error.HTTPError as exc:
+                  detail = exc.read().decode("utf-8", errors="replace")[:1000]
+                  raise RuntimeError(f"TAP HTTP {exc.code}: {detail}") from exc
+              except urllib.error.URLError as exc:
+                  raise RuntimeError(f"TAP network error: {exc.reason}") from exc
+
+              stripped = raw.lstrip()
+              if stripped.startswith("<"):
+                  raise RuntimeError("TAP service returned XML/HTML instead of requested CSV")
+              reader = csv.DictReader(io.StringIO(raw))
+              if not reader.fieldnames:
+                  raise RuntimeError("TAP service returned no CSV header")
+              return [dict(row) for row in reader]
+
+          def load_external_catalog_registry():
+              path = ROOT / "model/external_catalog_registry.json"
+              if not path.exists():
+                  raise FileNotFoundError(
+                      "External astronomy catalog layer is not installed. "
+                      "Run operation 'install-context-engine' once."
+                  )
+              registry = read_json(path)
+              accepted = read_json(ROOT / "accepted/model_state.json")
+              if registry.get("q_access_start") != accepted.get("q_access_start"):
+                  raise RuntimeError("External catalog registry q_access_start mismatch")
+              if registry.get("q_access_end") != accepted.get("q_access_end"):
+                  raise RuntimeError("External catalog registry q_access_end mismatch")
+              return registry, accepted
+
+          def astronomy_catalog_config_self_test():
+              registry, accepted = load_external_catalog_registry()
+              required = {"SIMBAD", "GAIA_DR3", "VIZIER_2MASS"}
+              services = registry.get("services", {})
+              checks = {
+                  "required_services": required <= set(services),
+                  "boundary_match": (
+                      registry.get("q_access_start") == accepted.get("q_access_start")
+                      and registry.get("q_access_end") == accepted.get("q_access_end")
+                  ),
+                  "https_only": all(
+                      str(services[s].get("endpoint", "")).startswith("https://")
+                      for s in required
+                      if s in services
+                  ),
+                  "external_only": registry.get("model_admission_policy") == "EXTERNAL_REFERENCE_ONLY",
+                  "no_auto_promotion": registry.get("automatic_model_admission") is False,
+              }
+              if not all(checks.values()):
+                  raise AssertionError(checks)
+              return checks
+
+          def _catalog_result(service, status, **kwargs):
+              result = {
+                  "service": service,
+                  "status": status,
+                  "admission_status": "EXTERNAL_REFERENCE_ONLY",
+              }
+              result.update(kwargs)
+              return result
+
+          def astronomy_catalog_context(text):
+              payload = parse_json_object(text)
+              object_name = payload.get("object")
+              ra_supplied = payload.get("ra_deg")
+              dec_supplied = payload.get("dec_deg")
+
+              if not object_name and (ra_supplied is None or dec_supplied is None):
+                  raise ValueError(
+                      'astronomy-catalog-context requires either {"object":"Vega"} '
+                      'or {"ra_deg":...,"dec_deg":...}'
+                  )
+
+              radius_arcsec = float(payload.get("radius_arcsec", 5.0))
+              if not (0.1 <= radius_arcsec <= 300.0):
+                  raise ValueError("radius_arcsec must be between 0.1 and 300")
+              radius_deg = radius_arcsec / 3600.0
+              max_rows = int(payload.get("max_rows", 5))
+              max_rows = max(1, min(max_rows, 20))
+
+              registry, accepted = load_external_catalog_registry()
+              services = registry["services"]
+              accessed_at = datetime.now(timezone.utc).isoformat()
+
+              requested_services = payload.get("services", ["SIMBAD", "GAIA_DR3", "VIZIER_2MASS"])
+              if not isinstance(requested_services, list):
+                  raise ValueError("services must be a JSON list")
+              requested_services = [str(x).upper() for x in requested_services]
+              unknown_services = sorted(set(requested_services) - set(services))
+              if unknown_services:
+                  raise ValueError(f"Unknown astronomy catalog services: {unknown_services}")
+
+              results = {}
+              target_ra = safe_float(ra_supplied)
+              target_dec = safe_float(dec_supplied)
+              target_origin = "USER_COORDINATES" if target_ra is not None and target_dec is not None else None
+
+              # SIMBAD resolves object names and also serves as an independent positional catalogue.
+              if "SIMBAD" in requested_services or object_name:
+                  simbad_cfg = services["SIMBAD"]
+                  try:
+                      if object_name:
+                          ident = adql_escape_string(object_name)
+                          query = (
+                              f"SELECT TOP {max_rows} basic.main_id, basic.otype, basic.ra, basic.dec, "
+                              "basic.plx_value, basic.rvz_radvel, basic.nbref "
+                              "FROM basic JOIN ident ON basic.oid = ident.oidref "
+                              f"WHERE ident.id = '{ident}'"
+                          )
+                      else:
+                          query = (
+                              f"SELECT TOP {max_rows} main_id, otype, ra, dec, plx_value, rvz_radvel, nbref "
+                              "FROM basic "
+                              "WHERE 1=CONTAINS("
+                              "POINT('ICRS',ra,dec),"
+                              f"CIRCLE('ICRS',{target_ra:.12f},{target_dec:.12f},{radius_deg:.12f})"
+                              ")"
+                          )
+                      rows = tap_query_csv(simbad_cfg["endpoint"], query)
+                      parsed = []
+                      for row in rows:
+                          ra = safe_float(row.get("ra"))
+                          dec = safe_float(row.get("dec"))
+                          item = {
+                              "main_id": row.get("main_id"),
+                              "otype": row.get("otype"),
+                              "ra_deg": ra,
+                              "dec_deg": dec,
+                              "parallax_mas": safe_float(row.get("plx_value")),
+                              "radial_velocity_km_s": safe_float(row.get("rvz_radvel")),
+                              "bibliography_reference_count": safe_float(row.get("nbref")),
+                          }
+                          if target_ra is not None and target_dec is not None and ra is not None and dec is not None:
+                              item["separation_arcsec"] = angular_separation_arcsec(
+                                  target_ra, target_dec, ra, dec
+                              )
+                          parsed.append(item)
+                      if object_name and parsed and target_ra is None and target_dec is None:
+                          target_ra = parsed[0]["ra_deg"]
+                          target_dec = parsed[0]["dec_deg"]
+                          target_origin = "SIMBAD_NAME_RESOLUTION"
+                      if target_ra is not None and target_dec is not None:
+                          for item in parsed:
+                              if (
+                                  item.get("separation_arcsec") is None
+                                  and item.get("ra_deg") is not None
+                                  and item.get("dec_deg") is not None
+                              ):
+                                  item["separation_arcsec"] = angular_separation_arcsec(
+                                      target_ra, target_dec, item["ra_deg"], item["dec_deg"]
+                                  )
+                          parsed.sort(key=lambda x: x.get("separation_arcsec", float("inf")))
+                      results["SIMBAD"] = _catalog_result(
+                          "SIMBAD",
+                          "MATCH" if parsed else "NO_MATCH",
+                          rows=parsed,
+                          row_count=len(parsed),
+                          query=payload if registry.get("record_query_inputs") else None,
+                          endpoint=simbad_cfg["endpoint"],
+                      )
+                  except Exception as exc:
+                      results["SIMBAD"] = _catalog_result(
+                          "SIMBAD",
+                          "UNAVAILABLE",
+                          error=f"{type(exc).__name__}: {exc}",
+                          endpoint=simbad_cfg["endpoint"],
+                      )
+
+              if target_ra is None or target_dec is None:
+                  for service in ["GAIA_DR3", "VIZIER_2MASS"]:
+                      if service in requested_services:
+                          results[service] = _catalog_result(
+                              service,
+                              "SKIPPED_TARGET_UNRESOLVED",
+                              reason="A coordinate target is required for cone-search catalogues.",
+                              endpoint=services[service]["endpoint"],
+                          )
+                  return {
+                      "operation": "astronomy-catalog-context",
+                      "status": "PASS",
+                      "catalog_context_status": "TARGET_NOT_RESOLVED",
+                      "input": payload,
+                      "resolved_target": None,
+                      "catalog_results": results,
+                      "automatic_model_admission": False,
+                      "admission_status": "EXTERNAL_REFERENCE_ONLY",
+                      "new_physics_claim": "NOT_INFERRED",
+                      "follow_up_recommended": True,
+                      "next_steps": [
+                          next_step(
+                              "ASTRO-NEXT-001",
+                              "Verify the object identifier or provide ICRS coordinates directly.",
+                              "HUMAN_INPUT_VERIFICATION_REQUIRED",
+                              "The external catalog layer could not establish a sky position.",
+                          ),
+                          next_step(
+                              "ASTRO-NEXT-002",
+                              "Retry authoritative catalogue lookup later if a service was unavailable.",
+                              "MODEL_CAN_EXECUTE",
+                              "Temporary catalogue/network failures must not be interpreted as absence of an object.",
+                          ),
+                      ],
+                      "q_access_end": accepted["q_access_end"],
+                      "accessed_at": accessed_at,
+                  }
+
+              # Query official Gaia DR3 archive.
+              if "GAIA_DR3" in requested_services:
+                  cfg = services["GAIA_DR3"]
+                  try:
+                      query = (
+                          f"SELECT TOP {max_rows} source_id, designation, ra, dec, parallax, "
+                          "parallax_error, pmra, pmdec, radial_velocity, phot_g_mean_mag "
+                          "FROM gaiadr3.gaia_source "
+                          "WHERE 1=CONTAINS("
+                          "POINT('ICRS',ra,dec),"
+                          f"CIRCLE('ICRS',{target_ra:.12f},{target_dec:.12f},{radius_deg:.12f})"
+                          ")"
+                      )
+                      rows = tap_query_csv(cfg["endpoint"], query)
+                      parsed = []
+                      for row in rows:
+                          ra = safe_float(row.get("ra"))
+                          dec = safe_float(row.get("dec"))
+                          item = {
+                              "source_id": row.get("source_id"),
+                              "designation": row.get("designation"),
+                              "ra_deg": ra,
+                              "dec_deg": dec,
+                              "parallax_mas": safe_float(row.get("parallax")),
+                              "parallax_error_mas": safe_float(row.get("parallax_error")),
+                              "pmra_mas_per_yr": safe_float(row.get("pmra")),
+                              "pmdec_mas_per_yr": safe_float(row.get("pmdec")),
+                              "radial_velocity_km_s": safe_float(row.get("radial_velocity")),
+                              "phot_g_mean_mag": safe_float(row.get("phot_g_mean_mag")),
+                          }
+                          if ra is not None and dec is not None:
+                              item["separation_arcsec"] = angular_separation_arcsec(
+                                  target_ra, target_dec, ra, dec
+                              )
+                          parsed.append(item)
+                      parsed.sort(key=lambda x: x.get("separation_arcsec", float("inf")))
+                      results["GAIA_DR3"] = _catalog_result(
+                          "GAIA_DR3",
+                          "MATCH" if parsed else "NO_MATCH",
+                          rows=parsed,
+                          row_count=len(parsed),
+                          endpoint=cfg["endpoint"],
+                          data_release="Gaia DR3",
+                      )
+                  except Exception as exc:
+                      results["GAIA_DR3"] = _catalog_result(
+                          "GAIA_DR3",
+                          "UNAVAILABLE",
+                          error=f"{type(exc).__name__}: {exc}",
+                          endpoint=cfg["endpoint"],
+                      )
+
+              # Query VizieR through a stable, explicit catalogue rather than an unconstrained catalogue sweep.
+              if "VIZIER_2MASS" in requested_services:
+                  cfg = services["VIZIER_2MASS"]
+                  try:
+                      query = (
+                          f'SELECT TOP {max_rows} RAJ2000, DEJ2000, "2MASS", '
+                          "Jmag, e_Jmag, Hmag, e_Hmag, Kmag, e_Kmag, Qflg "
+                          'FROM "II/246/out" '
+                          "WHERE 1=CONTAINS("
+                          "POINT('ICRS',RAJ2000,DEJ2000),"
+                          f"CIRCLE('ICRS',{target_ra:.12f},{target_dec:.12f},{radius_deg:.12f})"
+                          ")"
+                      )
+                      rows = tap_query_csv(cfg["endpoint"], query)
+                      parsed = []
+                      for row in rows:
+                          ra = safe_float(row.get("RAJ2000"))
+                          dec = safe_float(row.get("DEJ2000"))
+                          item = {
+                              "2mass_id": row.get("2MASS"),
+                              "ra_deg": ra,
+                              "dec_deg": dec,
+                              "j_mag": safe_float(row.get("Jmag")),
+                              "j_mag_error": safe_float(row.get("e_Jmag")),
+                              "h_mag": safe_float(row.get("Hmag")),
+                              "h_mag_error": safe_float(row.get("e_Hmag")),
+                              "k_mag": safe_float(row.get("Kmag")),
+                              "k_mag_error": safe_float(row.get("e_Kmag")),
+                              "quality_flag": row.get("Qflg"),
+                          }
+                          if ra is not None and dec is not None:
+                              item["separation_arcsec"] = angular_separation_arcsec(
+                                  target_ra, target_dec, ra, dec
+                              )
+                          parsed.append(item)
+                      parsed.sort(key=lambda x: x.get("separation_arcsec", float("inf")))
+                      results["VIZIER_2MASS"] = _catalog_result(
+                          "VIZIER_2MASS",
+                          "MATCH" if parsed else "NO_MATCH",
+                          rows=parsed,
+                          row_count=len(parsed),
+                          endpoint=cfg["endpoint"],
+                          catalogue="II/246/out",
+                      )
+                  except Exception as exc:
+                      results["VIZIER_2MASS"] = _catalog_result(
+                          "VIZIER_2MASS",
+                          "UNAVAILABLE",
+                          error=f"{type(exc).__name__}: {exc}",
+                          endpoint=cfg["endpoint"],
+                      )
+
+              statuses = [x["status"] for x in results.values()]
+              matches = [name for name, x in results.items() if x["status"] == "MATCH"]
+              unavailable = [name for name, x in results.items() if x["status"] == "UNAVAILABLE"]
+
+              if len(matches) >= 2:
+                  catalog_context_status = "MULTI_CATALOG_MATCH"
+              elif len(matches) == 1:
+                  catalog_context_status = "SINGLE_CATALOG_MATCH"
+              elif unavailable and len(unavailable) == len(results):
+                  catalog_context_status = "EXTERNAL_SERVICES_UNAVAILABLE"
+              elif unavailable:
+                  catalog_context_status = "PARTIAL_EXTERNAL_CONTEXT"
+              else:
+                  catalog_context_status = "NO_CATALOG_MATCH"
+
+              if catalog_context_status == "MULTI_CATALOG_MATCH":
+                  next_steps = [
+                      next_step(
+                          "ASTRO-NEXT-001",
+                          "Compare the supplied result against the returned catalogue properties using compatible units and epochs.",
+                          "MODEL_CAN_EXECUTE",
+                          "Multiple independent catalogue services returned positional matches.",
+                      ),
+                      next_step(
+                          "ASTRO-NEXT-002",
+                          "If the supplied result materially disagrees with catalogue values, design a reproduction and systematic-error check before physical interpretation.",
+                          "MODEL_CAN_DESIGN_TEST",
+                          "Catalogue disagreement should be attacked before escalation.",
+                      ),
+                  ]
+                  follow_up = False
+              elif catalog_context_status in {"SINGLE_CATALOG_MATCH", "PARTIAL_EXTERNAL_CONTEXT"}:
+                  next_steps = [
+                      next_step(
+                          "ASTRO-NEXT-001",
+                          "Retry unavailable catalogues or broaden the cross-check before treating the match as robust.",
+                          "MODEL_CAN_EXECUTE",
+                          "The external context is incomplete.",
+                      ),
+                      next_step(
+                          "ASTRO-NEXT-002",
+                          "Inspect catalogue identifiers, epoch, object type and measurement provenance if the result is scientifically important.",
+                          "RESEARCH_AGENT_OR_HUMAN_REQUIRED",
+                          "A single-catalogue or partial match needs independent context.",
+                      ),
+                  ]
+                  follow_up = True
+              elif catalog_context_status == "NO_CATALOG_MATCH":
+                  next_steps = [
+                      next_step(
+                          "ASTRO-NEXT-001",
+                          "Verify coordinates, epoch and search radius.",
+                          "HUMAN_INPUT_VERIFICATION_REQUIRED",
+                          "A no-match can be caused by target or epoch mismatch.",
+                      ),
+                      next_step(
+                          "ASTRO-NEXT-002",
+                          "Search additional authoritative catalogues or literature before classifying the result as unusual.",
+                          "RESEARCH_AGENT_OR_HUMAN_REQUIRED",
+                          "No match in these services is not evidence that the object or phenomenon is new.",
+                      ),
+                  ]
+                  follow_up = True
+              else:
+                  next_steps = [
+                      next_step(
+                          "ASTRO-NEXT-001",
+                          "Retry catalogue lookup later.",
+                          "MODEL_CAN_EXECUTE",
+                          "Service unavailability is a technical state, not a scientific result.",
+                      )
+                  ]
+                  follow_up = True
+
+              return {
+                  "operation": "astronomy-catalog-context",
+                  "status": "PASS",
+                  "catalog_context_status": catalog_context_status,
+                  "input": payload,
+                  "resolved_target": {
+                      "ra_deg": target_ra,
+                      "dec_deg": target_dec,
+                      "origin": target_origin,
+                      "radius_arcsec": radius_arcsec,
+                  },
+                  "catalog_results": results,
+                  "catalogues_matched": matches,
+                  "catalogues_unavailable": unavailable,
+                  "automatic_model_admission": False,
+                  "admission_status": "EXTERNAL_REFERENCE_ONLY",
+                  "new_physics_claim": "NOT_INFERRED",
+                  "follow_up_recommended": follow_up,
+                  "next_steps": next_steps,
+                  "q_access_start": accepted["q_access_start"],
+                  "q_access_end": accepted["q_access_end"],
+                  "accessed_at": accessed_at,
+                  "caution": (
+                      "External catalogue data are live reference context only. "
+                      "They do not expand the Q firewall, change accepted model state, or become evidence "
+                      "until ingested through the normal Bubbleverse evidence/update pipeline."
+                  ),
+              }
+
+          def load_state():
+              candidates = [ROOT / "accepted/model_state.json", ROOT / "candidate/candidate_state.json"]
+              out = {}
+              for p in candidates:
+                  if p.exists():
+                      out[p.as_posix()] = read_json(p)
+              return out
+
+          def model_status():
+              states = load_state()
+              return {"operation": "model-status", "repository": os.environ.get("GITHUB_REPOSITORY"), "states": states}
+
+          def contradictions():
+              p = ROOT / "candidate/contradictions.json"
+              if not p.exists():
+                  p = ROOT / "accepted/contradictions.json"
+              if not p.exists():
+                  raise FileNotFoundError("No contradictions.json found")
+              return {"operation": "contradictions", "source": p.as_posix(), "data": read_json(p)}
+
+          def provenance():
+              p = ROOT / "evidence/evidence_registry.json"
+              if not p.exists():
+                  raise FileNotFoundError("evidence/evidence_registry.json not found")
+              return {"operation": "provenance", "source": p.as_posix(), "data": read_json(p)}
+
+          def release_handoff():
+              p = ROOT / "release/MODEL_RELEASE_HANDOFF.json"
+              if not p.exists():
+                  p = ROOT / "MODEL_RELEASE_HANDOFF.json"
+              if not p.exists():
+                  raise FileNotFoundError("No release handoff JSON found")
+              return {"operation": "release-handoff", "source": p.as_posix(), "data": read_json(p)}
+
+          def scientific_q_scan(max_q: int):
+              roots = [ROOT / "candidate", ROOT / "evidence"]
+              violations = []
+              scanned = 0
+              pattern = re.compile(r"\bQ-?0*([0-9]{1,5})\b", flags=re.I)
+              for base in roots:
+                  if not base.exists():
+                      continue
+                  for p in base.rglob("*.json"):
+                      scanned += 1
+                      text = p.read_text(encoding="utf-8")
+                      for raw in pattern.findall(text):
+                          n = int(raw)
+                          if n > max_q:
+                              violations.append({"path": p.as_posix(), "q": n})
+              return scanned, violations
+
+          def run_model_validate():
+              p = ROOT / "tests/programs/model_campaign.py"
+              if not p.exists():
+                  return {"available": False, "status": "SKIP", "detail": "No model_campaign.py present"}
+              cp = subprocess.run([sys.executable, str(p), "validate"], cwd=ROOT, text=True, capture_output=True)
+              return {
+                  "available": True,
+                  "status": "PASS" if cp.returncode == 0 else "FAIL",
+                  "returncode": cp.returncode,
+                  "stdout": cp.stdout[-12000:],
+                  "stderr": cp.stderr[-12000:],
+              }
+
+          def context_self_test():
+              checks = {}
+
+              registry, accepted = load_result_registry()
+              checks["registry_boundary"] = (
+                  registry.get("q_access_start") == accepted.get("q_access_start")
+                  and registry.get("q_access_end") == accepted.get("q_access_end")
+              )
+
+              refs = known_results('{"quantity":"H0","units":"km s^-1 Mpc^-1"}')
+              checks["known_h0_results"] = refs["results_count"] >= 1
+
+              exact = contextualize_result(
+                  '{"quantity":"H0","value":73.5,"sigma":0.81,"units":"km s^-1 Mpc^-1"}'
+              )
+              checks["known_reference_match"] = (
+                  exact["span_status"] == "WITHIN_REGISTERED_REFERENCE_SPAN"
+                  and abs(exact["nearest_registered_result"]["gaussian_distance_sigma"]) < 1e-12
+              )
+
+              outlier = contextualize_result(
+                  '{"quantity":"H0","value":1150.0,"sigma":0.81,"units":"km s^-1 Mpc^-1"}'
+              )
+              checks["outlier_followup"] = (
+                  outlier["span_status"] == "OUTSIDE_REGISTERED_REFERENCE_SPAN"
+                  and outlier["follow_up_recommended"] is True
+                  and outlier["new_physics_claim"] == "NOT_INFERRED"
+              )
+
+              unknown = contextualize_result(
+                  '{"quantity":"UNREGISTERED_TEST_QUANTITY","value":1.0,"units":"arb"}'
+              )
+              checks["unknown_routes_external"] = (
+                  unknown["registry_match_status"] == "UNREGISTERED_QUANTITY"
+                  and any(x["executor"] == "RESEARCH_AGENT_OR_HUMAN_REQUIRED" for x in unknown["next_steps"])
+              )
+
+              if not all(checks.values()):
+                  raise AssertionError(checks)
+              return checks
+
+          def full_test():
+              tests = []
+              def check(test_id, name, fn):
+                  try:
+                      detail = fn()
+                      tests.append({"id": test_id, "name": name, "status": "PASS", "detail": detail})
+                  except Exception as e:
+                      tests.append({"id": test_id, "name": name, "status": "FAIL", "detail": f"{type(e).__name__}: {e}"})
+
+              check("SELF-001", "Repository model structure", lambda: all((ROOT/x).exists() for x in ["candidate","accepted","evidence","tests","release"]) or (_ for _ in ()).throw(AssertionError("Required model directories missing")))
+
+              def state_test():
+                  p = ROOT / "candidate/candidate_state.json"
+                  if not p.exists():
+                      raise AssertionError("candidate/candidate_state.json missing")
+                  s = read_json(p)
+                  start, end, cur = map(q_number, [s.get("q_access_start"), s.get("q_access_end"), s.get("current_q")])
+                  if None in (start,end,cur) or not (start <= cur <= end):
+                      raise AssertionError(f"Invalid Q boundary: start={start}, current={cur}, end={end}")
+                  return {"q_access_start": start, "current_q": cur, "q_access_end": end}
+              check("SELF-002", "Dynamic Q-boundary state", state_test)
+
+              def firewall_test():
+                  s = read_json(ROOT / "candidate/candidate_state.json")
+                  end = q_number(s.get("q_access_end"))
+                  if end is None:
+                      raise AssertionError("Cannot parse q_access_end")
+                  scanned, violations = scientific_q_scan(end)
+                  if violations:
+                      raise AssertionError(f"High-Q contamination: {violations[:10]}")
+                  return {"json_files_scanned": scanned, "max_allowed_q": end, "violations": 0}
+              check("SELF-003", "High-Q contamination firewall", firewall_test)
+
+              def json_test():
+                  bad=[]; count=0
+                  for base in [ROOT/"candidate", ROOT/"accepted", ROOT/"evidence", ROOT/"tests", ROOT/"release", ROOT/"model"]:
+                      if not base.exists(): continue
+                      for p in base.rglob("*.json"):
+                          count += 1
+                          try: read_json(p)
+                          except Exception as e: bad.append(f"{p}: {e}")
+                  if bad: raise AssertionError(bad[:10])
+                  return {"json_files_parsed": count}
+              check("SELF-004", "JSON/schema parse health", json_test)
+
+              check("SELF-005", "Difference calculation", lambda: difference("73.5,67.24") if abs(difference("73.5,67.24")["delta"]-6.26) < 1e-10 else (_ for _ in ()).throw(AssertionError("wrong difference")))
+              check("SELF-006", "Gaussian tension calculation", lambda: gaussian_tension("73.50,0.81,67.24,0.35") if abs(gaussian_tension("73.50,0.81,67.24,0.35")["tension_sigma"]-7.094423883870192) < 1e-10 else (_ for _ in ()).throw(AssertionError("wrong tension")))
+              check("SELF-007", "Percent-shift calculation", lambda: percent_shift("147,140") if abs(percent_shift("147,140")["percent_change"]+4.761904761904762) < 1e-10 else (_ for _ in ()).throw(AssertionError("wrong percent shift")))
+              check("SELF-008", "Weighted-mean calculation", lambda: weighted_mean("10,1,20,2") if abs(weighted_mean("10,1,20,2")["weighted_mean"]-12.0) < 1e-10 else (_ for _ in ()).throw(AssertionError("wrong weighted mean")))
+
+              def rejection_test():
+                  rejected = 0
+                  for fn, bad in [(gaussian_tension,"1,0,2,1"),(percent_shift,"0,1"),(weighted_mean,"1,-1,2,1"),(difference,"1,2,3")]:
+                      try: fn(bad)
+                      except Exception: rejected += 1
+                  if rejected != 4: raise AssertionError(f"Only {rejected}/4 invalid inputs rejected")
+                  return {"invalid_inputs_rejected": rejected}
+              check("SELF-009", "Invalid-input rejection", rejection_test)
+
+              check("SELF-010", "Model status reader", lambda: model_status())
+              check("SELF-011", "Contradiction registry reader", lambda: contradictions())
+              check("SELF-012", "Provenance registry reader", lambda: provenance())
+              check("SELF-013", "Release handoff reader", lambda: release_handoff())
+
+              def campaign_validation():
+                  r = run_model_validate()
+                  if r["status"] == "FAIL":
+                      raise AssertionError(r)
+                  return r
+              check("SELF-014", "Current scientific/model campaign validation", campaign_validation)
+
+              def accepted_immutability_test():
+                  state_path = ROOT / "accepted/model_state.json"
+                  if not state_path.exists():
+                      return {"status": "NO_ACCEPTED_MODEL", "detail": "No accepted model exists yet; immutability check not applicable."}
+                  state = read_json(state_path)
+                  if state.get("status") != "ACCEPTED":
+                      return {"status": "NO_ACCEPTED_MODEL", "detail": f"accepted/model_state.json status={state.get('status')}"}
+                  version = state.get("accepted_model_version")
+                  if not version:
+                      raise AssertionError("Accepted model has no accepted_model_version")
+                  snapshot = ROOT / "versions/accepted" / str(version)
+                  if not snapshot.exists():
+                      raise AssertionError(f"Accepted snapshot missing: {snapshot.relative_to(ROOT)}")
+                  names = [
+                      "MODEL_CURRENT.md", "model_state.json", "constraints.json",
+                      "contradictions.json", "mechanisms.json", "observations.json",
+                      "predictions.json", "robustness.json"
+                  ]
+                  checked = []
+                  mismatches = []
+                  for name in names:
+                      live = ROOT / "accepted" / name
+                      frozen = snapshot / name
+                      if not live.exists() or not frozen.exists():
+                          mismatches.append({"file": name, "reason": "missing live or frozen copy"})
+                          continue
+                      live_sha = hashlib.sha256(live.read_bytes()).hexdigest()
+                      frozen_sha = hashlib.sha256(frozen.read_bytes()).hexdigest()
+                      checked.append({"file": name, "sha256": live_sha})
+                      if live_sha != frozen_sha:
+                          mismatches.append({"file": name, "live_sha256": live_sha, "snapshot_sha256": frozen_sha})
+                  if mismatches:
+                      raise AssertionError(f"Accepted model differs from frozen {version} snapshot: {mismatches}")
+                  return {"accepted_version": version, "files_compared": len(checked), "mismatches": 0}
+              check("SELF-015", "Accepted model immutability", accepted_immutability_test)
+
+              def accepted_path_isolation_test():
+                  p = ROOT / "accepted/model_state.json"
+                  if not p.exists():
+                      return {"status": "NO_ACCEPTED_MODEL", "detail": "No accepted model exists yet; path isolation not applicable."}
+                  state = read_json(p)
+                  if state.get("status") != "ACCEPTED":
+                      return {"status": "NO_ACCEPTED_MODEL", "detail": f"accepted/model_state.json status={state.get('status')}"}
+                  layers = state.get("layers")
+                  if not isinstance(layers, dict) or not layers:
+                      raise AssertionError("Accepted model has no layer map")
+                  errors = []
+                  resolved = {}
+                  accepted_root = (ROOT / "accepted").resolve()
+                  for layer, raw in layers.items():
+                      if not isinstance(raw, str) or not raw:
+                          errors.append({"layer": layer, "reason": "empty/non-string path"})
+                          continue
+                      rel = Path(raw)
+                      target = (ROOT / rel).resolve()
+                      resolved[layer] = rel.as_posix()
+                      try:
+                          target.relative_to(accepted_root)
+                      except ValueError:
+                          errors.append({"layer": layer, "path": raw, "reason": "accepted layer escapes accepted/"})
+                          continue
+                      if not target.exists():
+                          errors.append({"layer": layer, "path": raw, "reason": "target missing"})
+                  if errors:
+                      raise AssertionError(f"Accepted layer isolation failed: {errors}")
+                  return {"layers_checked": len(layers), "paths": resolved}
+              check("SELF-016", "Accepted path isolation", accepted_path_isolation_test)
+
+              def promotion_consistency_test():
+                  rp = ROOT / "release/MODEL_RELEASE_HANDOFF.json"
+                  ap = ROOT / "accepted/model_state.json"
+                  cp = ROOT / "candidate/candidate_state.json"
+                  if not rp.exists():
+                      raise AssertionError("release/MODEL_RELEASE_HANDOFF.json missing")
+                  release = read_json(rp)
+                  promoted = bool(release.get("candidate_promoted"))
+                  if not promoted:
+                      return {"candidate_promoted": False, "status": "NO_PROMOTION_RECORDED"}
+                  if not ap.exists() or not cp.exists():
+                      raise AssertionError("Promotion is recorded but accepted/candidate state is missing")
+                  accepted = read_json(ap)
+                  candidate = read_json(cp)
+                  accepted_version = release.get("accepted_model_after")
+                  candidate_version = release.get("candidate_model")
+                  errors = []
+                  if accepted.get("status") != "ACCEPTED":
+                      errors.append(f"accepted.status={accepted.get('status')!r}")
+                  if accepted.get("accepted_model_version") != accepted_version:
+                      errors.append(f"accepted version {accepted.get('accepted_model_version')!r} != release {accepted_version!r}")
+                  if candidate.get("candidate_model_version") != candidate_version:
+                      errors.append(f"candidate version {candidate.get('candidate_model_version')!r} != release {candidate_version!r}")
+                  promotion_status = candidate.get("promotion_status")
+                  allowed = {"PROMOTED", "PROMOTED_TO_ACCEPTED", f"PROMOTED_TO_{accepted_version}"}
+                  if promotion_status not in allowed:
+                      errors.append(f"candidate promotion_status={promotion_status!r}; expected one of {sorted(allowed)}")
+                  if errors:
+                      raise AssertionError("Promotion state inconsistency: " + "; ".join(errors))
+                  return {
+                      "candidate_model": candidate_version,
+                      "accepted_model": accepted_version,
+                      "candidate_promotion_status": promotion_status,
+                      "consistent": True
+                  }
+              check("SELF-017", "Promotion state consistency", promotion_consistency_test)
+
+              def commit_provenance_test():
+                  p = ROOT / "release/MODEL_RELEASE_HANDOFF.json"
+                  if not p.exists():
+                      raise AssertionError("release/MODEL_RELEASE_HANDOFF.json missing")
+                  release = read_json(p)
+                  sha = str(release.get("model_repository_commit") or "").strip()
+                  if not re.fullmatch(r"[0-9a-fA-F]{40}", sha):
+                      raise AssertionError(f"model_repository_commit is not a real 40-hex Git SHA: {sha!r}")
+                  cp = subprocess.run(
+                      ["git", "cat-file", "-e", f"{sha}^{{commit}}"],
+                      cwd=ROOT, text=True, capture_output=True
+                  )
+                  if cp.returncode != 0:
+                      raise AssertionError(f"Recorded model_repository_commit is not present in repository history: {sha}")
+                  return {"model_repository_commit": sha, "reachable_commit": True}
+              check("SELF-018", "Real commit provenance", commit_provenance_test)
+
+              check("SELF-019", "Known-result context and next-step router", context_self_test)
+              check("SELF-020", "External astronomy catalog configuration", astronomy_catalog_config_self_test)
+
+              passed = sum(t["status"] == "PASS" for t in tests)
+              result = {
+                  "operation": "test",
+                  "self_test_version": "2.2",
+                  "tests_total": len(tests),
+                  "tests_passed": passed,
+                  "tests_failed": len(tests)-passed,
+                  "all_green": passed == len(tests),
+                  "tests": tests,
+                  "non_destructive": True,
+              }
+              return result
+
+          def validate_model():
+              r = run_model_validate()
+              if r["status"] == "FAIL":
+                  raise RuntimeError("Current model validation failed")
+              return {"operation": "validate-model", "validation": r}
+
+          def campaign():
+              p = ROOT / "tests/programs/model_campaign.py"
+              if not p.exists():
+                  raise FileNotFoundError("tests/programs/model_campaign.py not found")
+              cp = subprocess.run([sys.executable, str(p), "test"], cwd=ROOT, text=True, capture_output=True)
+              result = {
+                  "operation": "campaign",
+                  "returncode": cp.returncode,
+                  "status": "PASS" if cp.returncode == 0 else "FAIL",
+                  "stdout": cp.stdout[-12000:],
+                  "stderr": cp.stderr[-12000:],
+                  "mutates_model_state": True,
+              }
+              if cp.returncode != 0:
+                  write_result(result)
+                  raise RuntimeError("Model campaign failed")
+              return result
+
+          def install_context_engine():
+              accepted_path = ROOT / "accepted/model_state.json"
+              release_path = ROOT / "release/MODEL_RELEASE_HANDOFF.json"
+              benchmarks_path = ROOT / "model/benchmarks.json"
+              if not accepted_path.exists() or not release_path.exists() or not benchmarks_path.exists():
+                  raise FileNotFoundError("Required accepted/release/benchmark state is missing")
+
+              accepted = read_json(accepted_path)
+              release = read_json(release_path)
+              if accepted.get("status") != "ACCEPTED":
+                  raise RuntimeError("Context layer installation requires an accepted model baseline")
+              if release.get("release_status") != "ALL_GREEN":
+                  raise RuntimeError("Context layer installation requires ALL_GREEN release state")
+              if release.get("candidate_promoted") is not True:
+                  raise RuntimeError("Context layer installation requires a completed candidate promotion")
+
+              # Immutable accepted state fingerprint before structural capability update.
+              protected = []
+              for base in [ROOT / "accepted", ROOT / "versions/accepted"]:
+                  for p in sorted(base.rglob("*")):
+                      if p.is_file():
+                          protected.append((p.relative_to(ROOT).as_posix(), hashlib.sha256(p.read_bytes()).hexdigest()))
+
+              registry = {
+                  "artifact_type": "BUBBLEVERSE_KNOWN_RESULT_REGISTRY",
+                  "schema_version": 1,
+                  "q_access_start": accepted["q_access_start"],
+                  "q_access_end": accepted["q_access_end"],
+                  "classification_policy": {
+                      "registered_reference_span_is_not_physical_allowed_range": True,
+                      "outside_span_means_follow_up_trigger_not_new_physics": True,
+                      "external_results_require_evidence_gate_before_model_admission": True,
+                      "unit_conversion_policy": "NO_IMPLICIT_UNIT_CONVERSION"
+                  },
+                  "executor_classes": [
+                      "MODEL_CAN_EXECUTE",
+                      "MODEL_CAN_DESIGN_TEST",
+                      "HUMAN_INPUT_VERIFICATION_REQUIRED",
+                      "RESEARCH_AGENT_OR_HUMAN_REQUIRED",
+                      "HUMAN_OR_EXTERNAL_EXPERIMENT_REQUIRED",
+                      "MODEL_UPDATE_PIPELINE_REQUIRED"
+                  ],
+                  "sources": [
+                      {
+                          "registry_id": "REG-ACTIVE-BENCHMARKS",
+                          "path": "model/benchmarks.json",
+                          "list_key": "benchmarks",
+                          "id_field": "id",
+                          "quantity_field": "parameter_symbol",
+                          "value_field": "value",
+                          "sigma_field": "sigma",
+                          "units_field": "units",
+                          "status_field": "status",
+                          "allowed_statuses": ["ACTIVE_BENCHMARK"],
+                          "copy_fields": [
+                              "route",
+                              "inference_chain",
+                              "source_observation_id",
+                              "not_raw_measurement"
+                          ]
+                      }
+                  ]
+              }
+              write_json(ROOT / "model/result_registry.json", registry)
+
+              inp_path = ROOT / "model/input_schema.json"
+              inp = read_json(inp_path)
+              for new_op in ["known-results", "contextualize-result", "astronomy-catalog-context"]:
+                  if new_op not in inp["operations"]:
+                      inp["operations"].append(new_op)
+              inp.setdefault("calculation_input_contracts", {})
+              inp["calculation_input_contracts"]["known-results"] = (
+                  'blank OR JSON {"quantity":"H0"} OR JSON {"quantity":"H0","units":"..."}'
+              )
+              inp["calculation_input_contracts"]["contextualize-result"] = (
+                  'JSON {"quantity":"...","value":number,"sigma":optional-number,"units":"...","provenance":optional}'
+              )
+              inp["calculation_input_contracts"]["astronomy-catalog-context"] = (
+                  'JSON {"object":"Vega","radius_arcsec":5} OR JSON {"ra_deg":...,"dec_deg":...,"radius_arcsec":5}'
+              )
+              write_json(inp_path, inp)
+
+              out_path = ROOT / "model/output_schema.json"
+              out = read_json(out_path)
+              out["contextualization_result_types"] = ["known-results", "contextualize-result", "astronomy-catalog-context"]
+              out["contextualization_contract"] = {
+                  "contextualize_result_fields": [
+                      "registry_match_status",
+                      "span_status",
+                      "comparison_status",
+                      "follow_up_recommended",
+                      "follow_up_priority",
+                      "next_steps",
+                      "new_physics_claim"
+                  ],
+                  "new_physics_claim_default": "NOT_INFERRED",
+                  "registered_span_semantics": "REFERENCE_SPAN_NOT_PHYSICAL_ALLOWED_RANGE",
+                  "next_step_executor_field": "executor"
+              }
+              out["external_catalog_context_contract"] = {
+                  "result_type": "astronomy-catalog-context",
+                  "admission_status": "EXTERNAL_REFERENCE_ONLY",
+                  "automatic_model_admission": False,
+                  "service_failure_semantics": "TECHNICAL_UNAVAILABLE_NOT_SCIENTIFIC_NO_MATCH",
+                  "required_fields": [
+                      "catalog_context_status",
+                      "resolved_target",
+                      "catalog_results",
+                      "automatic_model_admission",
+                      "admission_status",
+                      "next_steps"
+                  ]
+              }
+              write_json(out_path, out)
+
+              external_catalog_registry = {
+                  "artifact_type": "BUBBLEVERSE_EXTERNAL_ASTRONOMY_CATALOG_REGISTRY",
+                  "schema_version": 1,
+                  "q_access_start": accepted["q_access_start"],
+                  "q_access_end": accepted["q_access_end"],
+                  "model_admission_policy": "EXTERNAL_REFERENCE_ONLY",
+                  "automatic_model_admission": False,
+                  "record_query_inputs": False,
+                  "catalogue_failure_policy": "SERVICE_UNAVAILABLE_IS_TECHNICAL_NOT_SCIENTIFIC",
+                  "services": {
+                      "SIMBAD": {
+                          "operator": "CDS Strasbourg",
+                          "endpoint": "https://simbad.cds.unistra.fr/simbad/sim-tap/sync",
+                          "protocol": "IVOA TAP / ADQL",
+                          "role": "object identity, coordinates, object type, bibliography and selected measurements",
+                          "documentation": "https://simbad.cds.unistra.fr/Pages/guide/sim-url.htx",
+                          "read_only": True
+                      },
+                      "GAIA_DR3": {
+                          "operator": "European Space Agency / Gaia Archive",
+                          "endpoint": "https://gea.esac.esa.int/tap-server/tap/sync",
+                          "protocol": "TAP+ / ADQL",
+                          "table": "gaiadr3.gaia_source",
+                          "role": "astrometry, proper motion, parallax, photometry and available radial velocity",
+                          "documentation": "https://gea.esac.esa.int/archive/documentation/GDR3/",
+                          "read_only": True
+                      },
+                      "VIZIER_2MASS": {
+                          "operator": "CDS Strasbourg / VizieR",
+                          "endpoint": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync",
+                          "protocol": "IVOA TAP / ADQL",
+                          "table": "II/246/out",
+                          "role": "independent near-infrared catalogue cross-match through the 2MASS All-Sky Point Source Catalogue",
+                          "documentation": "https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=II/246",
+                          "read_only": True
+                      }
+                  }
+              }
+              write_json(ROOT / "model/external_catalog_registry.json", external_catalog_registry)
+
+              manifest_path = ROOT / "model/model_manifest.json"
+              manifest = read_json(manifest_path)
+              if "result_registry.json" not in manifest["formal_files"]:
+                  manifest["formal_files"].append("result_registry.json")
+              if "external_catalog_registry.json" not in manifest["formal_files"]:
+                  manifest["formal_files"].append("external_catalog_registry.json")
+              manifest["formal_model_version"] = "v0.1-formalization-3"
+              manifest["description"] = (
+                  "Machine-readable formalization of the accepted Bubbleverse v0.1 state through the authorized Q boundary, "
+                  "including Q-bounded known-result contextualization, next-step routing and read-only external astronomy catalogue context. "
+                  "No candidate is promoted and no new scientific claim is introduced by this capability layer."
+              )
+              manifest["scientific_change"] = False
+              manifest["formalization_rule"] = "NO_NEW_SCIENTIFIC_CLAIMS_OR_NUMERIC_VALUES"
+              write_json(manifest_path, manifest)
+
+              program_path = ROOT / "bubbleverse_model_program_registry.json"
+              programs = read_json(program_path)
+              campaign_reg = programs.get("programs", {}).get("BV-MODEL-CAMPAIGN-V1")
+              if campaign_reg:
+                  campaign_reg["formal_model_version"] = "v0.1-formalization-3"
+                  ops = campaign_reg.setdefault("public_workflow_operations", [])
+                  for op in ["known-results", "contextualize-result", "astronomy-catalog-context"]:
+                      if op not in ops:
+                          ops.append(op)
+              programs.setdefault("programs", {})["BV-RESULT-CONTEXT-V1"] = {
+                  "accepted_model_version": accepted.get("accepted_model_version"),
+                  "formal_model_version": "v0.1-formalization-3",
+                  "implementation": ".github/workflows/00-bubbleverse-model-start-public.yml",
+                  "operations": ["known-results", "contextualize-result", "astronomy-catalog-context"],
+                  "q_access_start": accepted["q_access_start"],
+                  "q_access_end": accepted["q_access_end"],
+                  "registry_path": "model/result_registry.json",
+                  "status": "ACTIVE",
+                  "scientific_change": False,
+                  "workflow_id": "00-bubbleverse-model-start-public.yml"
+              }
+              programs.setdefault("programs", {})["BV-ASTRONOMY-CATALOG-CONTEXT-V1"] = {
+                  "accepted_model_version": accepted.get("accepted_model_version"),
+                  "formal_model_version": "v0.1-formalization-3",
+                  "implementation": ".github/workflows/00-bubbleverse-model-start-public.yml",
+                  "operation": "astronomy-catalog-context",
+                  "registry_path": "model/external_catalog_registry.json",
+                  "sources": ["SIMBAD", "GAIA_DR3", "VIZIER_2MASS"],
+                  "q_access_start": accepted["q_access_start"],
+                  "q_access_end": accepted["q_access_end"],
+                  "status": "ACTIVE",
+                  "scientific_change": False,
+                  "automatic_model_admission": False
+              }
+              write_json(program_path, programs)
+
+              change_registry_path = ROOT / "changelog/model_change_registry.json"
+              change_registry = read_json(change_registry_path)
+              if not any(x.get("change_revision") == "R000005" for x in change_registry.get("changes", [])):
+                  change_registry["changes"].append({
+                      "accepted_after": accepted.get("accepted_model_version"),
+                      "change_revision": "R000005",
+                      "current_q": accepted.get("current_q"),
+                      "date": datetime.now(timezone.utc).isoformat(),
+                      "formal_model_version": "v0.1-formalization-2",
+                      "model_revision": accepted.get("model_revision"),
+                      "q_access_start": accepted.get("q_access_start"),
+                      "q_access_end": accepted.get("q_access_end"),
+                      "scientific_change": False,
+                      "status": "RESULT_CONTEXT_AND_NEXT_STEP_ROUTER_INSTALLED"
+                  })
+              if not any(x.get("change_revision") == "R000006" for x in change_registry.get("changes", [])):
+                  change_registry["changes"].append({
+                      "accepted_after": accepted.get("accepted_model_version"),
+                      "change_revision": "R000006",
+                      "current_q": accepted.get("current_q"),
+                      "date": datetime.now(timezone.utc).isoformat(),
+                      "formal_model_version": "v0.1-formalization-3",
+                      "model_revision": accepted.get("model_revision"),
+                      "q_access_start": accepted.get("q_access_start"),
+                      "q_access_end": accepted.get("q_access_end"),
+                      "scientific_change": False,
+                      "automatic_model_admission": False,
+                      "status": "EXTERNAL_ASTRONOMY_CATALOG_CONTEXT_INSTALLED"
+                  })
+              write_json(change_registry_path, change_registry)
+
+              human_changelog = ROOT / "changelog/MODEL_CHANGELOG.md"
+              text = human_changelog.read_text(encoding="utf-8")
+              if "## R000005 — result context and next-step router" not in text:
+                  text = text.rstrip() + """
+
+          ## R000005 — result context and next-step router
+          - Added a Q-bounded known-result registry that references canonical model benchmarks instead of duplicating their values.
+          - Added `known-results` and `contextualize-result` public operations.
+          - Added explicit distinction between registered reference span and a physical allowed range.
+          - Results outside the registered span trigger follow-up, not a new-physics claim.
+          - Added next-step executor routing for model-executable checks, model-designed tests, human input verification, literature research, model-update ingestion and external empirical work.
+          - Accepted scientific model, Q boundary, evidence, mechanisms, predictions and immutable accepted snapshots unchanged.
+          - Scientific change: false.
+          """
+                  human_changelog.write_text(text, encoding="utf-8")
+
+              if "## R000006 — external astronomy catalogue context" not in text:
+                  text = text.rstrip() + """
+
+          ## R000006 — external astronomy catalogue context
+          - Added read-only live context from SIMBAD, the ESA Gaia DR3 Archive and VizieR/2MASS.
+          - Added `astronomy-catalog-context` for object-name or coordinate cone searches.
+          - External catalogue responses are classified as `EXTERNAL_REFERENCE_ONLY`.
+          - Catalogue lookup never expands the Q firewall and never promotes data directly into accepted model state.
+          - Service outage is treated as a technical unavailable state, not as a scientific no-match.
+          - Added explicit next-step routing for catalogue cross-checks and unresolved targets.
+          - Accepted scientific model, Q boundary, evidence, mechanisms, predictions and immutable accepted snapshots unchanged.
+          - Scientific change: false.
+          """
+                  human_changelog.write_text(text, encoding="utf-8")
+
+              readme_path = ROOT / "README.md"
+
+              # README is documentation, not scientific state. Cleanup may legitimately remove it.
+              # If it is absent, restore the canonical Bubbleverse guide instead of aborting
+              # the scientific/context installation.
+              if readme_path.exists():
+                  readme = readme_path.read_text(encoding="utf-8")
+                  readme_recovery = "EXISTING_README_UPDATED"
+              else:
+                  readme = base64.b64decode(
+                      "IyBCdWJibGV2ZXJzZSBNb2RlbAoKQXV0b25vbW91cywgUS1ib3VuZGVkIHNjaWVudGlmaWMgc3ludGhlc2lzLCBmb3JtYWxpemF0aW9uLCBjb21wdXRhdGlvbiBhbmQgZmFsc2lmaWNhdGlvbiByZXBvc2l0b3J5LgoKQnViYmxldmVyc2UgTW9kZWwgaXMgdGhlIHZlcnNpb24tY29udHJvbGxlZCBzY2llbnRpZmljIG1vZGVsIHN0YXRlIGRlcml2ZWQgZnJvbSB0aGUgQnViYmxldmVyc2UgcmVzZWFyY2ggcHJvY2Vzcy4KCi0gYE1vcmZpbmRpZW4vQnViYmxldmVyc2VgID0gc2NpZW50aWZpYyBzb3VyY2UgcmVwb3NpdG9yeSwgZXZpZGVuY2UsIG1hbnVzY3JpcHRzLCBudW1lcmljYWwgcmVzdWx0cyBhbmQgUS1oaXN0b3J5LgotIGBNb3JmaW5kaWVuL2J1YmJsZXZlcnNlLW1vZGVsYCA9IGFjY2VwdGVkIG1vZGVsLCBjYW5kaWRhdGUgbW9kZWwsIGZvcm1hbCBtb2RlbCwgdGVzdHMsIHByb3ZlbmFuY2UgYW5kIHZlcnNpb24gaGlzdG9yeS4KClRoZSBtb2RlbCByZXByZXNlbnRzIHRoZSBiZXN0IGN1cnJlbnQgY29tcHJlc3Npb24gb2YgdmFsaWRhdGVkIEJ1YmJsZXZlcnNlIGV2aWRlbmNlIGluc2lkZSB0aGUgYXV0aG9yaXplZCBRIHJhbmdlLiBJdCBpcyBub3QgZXN0YWJsaXNoZWQgdHJ1dGguCgotLS0KCiMjIEN1cnJlbnQgU3RhdGUKCi0gTW9kZTogKipCT09UU1RSQVBfTU9ERSDigJQgYWNjZXB0ZWQgYmFzZWxpbmUgZXN0YWJsaXNoZWQqKgotIEF1dGhvcml6ZWQgc2NpZW50aWZpYyByYW5nZTogKipRMDAx4oCTUTAzOSoqCi0gQ3VycmVudCBROiAqKlEwMzkqKgotIEFjY2VwdGVkIG1vZGVsOiAqKnYwLjEqKgotIENhbmRpZGF0ZSBoaXN0b3J5OiAqKnYwLjEtY2FuZGlkYXRlIOKGkiBwcm9tb3RlZCB0byB2MC4xKioKLSBGb3JtYWwgbW9kZWw6ICoqdjAuMS1mb3JtYWxpemF0aW9uLTEqKgotIFNjaWVudGlmaWMgY2FtcGFpZ246ICoqOSAvIDkgUEFTUyoqCi0gRm9ybWFsLW1vZGVsIHZhbGlkYXRpb246ICoqMTIgLyAxMiBQQVNTKioKLSBSZWxlYXNlIHN0YXR1czogKipBTExfR1JFRU4qKgotIE5leHQgUTogKipBVVRIT1JJWkVEKioKCi0tLQoKIyBRdWljayBTdGFydCBHdWlkZQoKQnViYmxldmVyc2UgTW9kZWwgaXMgZGVzaWduZWQgc28geW91IG5vcm1hbGx5IGRvIG5vdCBuZWVkIHRvIHdvcmsgZGlyZWN0bHkgd2l0aCByZXBvc2l0b3J5IGZpbGVzLgoKIyMgUnVuIHRoZSBtb2RlbAoKMS4gT3BlbiB0aGUgYGJ1YmJsZXZlcnNlLW1vZGVsYCByZXBvc2l0b3J5LgoyLiBQcmVzcyAqKkFjdGlvbnMqKi4KMy4gU2VsZWN0ICoq8J+nqiBCVUJCTEVWRVJTRSBNT0RFTCDigJQgU1RBUlQqKi4KNC4gUHJlc3MgKipSdW4gd29ya2Zsb3cqKi4KNS4gQ2hvb3NlIHRoZSBvcGVyYXRpb24geW91IHdhbnQuCjYuIEZpbGwgaW4gdGhlIGlucHV0IGZpZWxkIG9ubHkgaWYgdGhlIHNlbGVjdGVkIG9wZXJhdGlvbiByZXF1aXJlcyBpbnB1dC4KNy4gUHJlc3MgKipSdW4gd29ya2Zsb3cqKi4KClBlcm1hbmVudCBwdWJsaWMgd29ya2Zsb3c6CgpgYGB0ZXh0Ci5naXRodWIvd29ya2Zsb3dzLzAwLWJ1YmJsZXZlcnNlLW1vZGVsLXN0YXJ0LXB1YmxpYy55bWwKYGBgCgotLS0KCiMjIE1haW4gb3BlcmF0aW9ucwoKIyMjIHRlc3QKClJ1bnMgdGhlIG1vZGVsIGhlYWx0aGNoZWNrLgoKVGhpcyBvcGVyYXRpb24gaXMgbm9uLWRlc3RydWN0aXZlLgoKSXQgZG9lcyBub3Q6CgotIHByb21vdGUgYSBjYW5kaWRhdGUKLSBtb2RpZnkgYWNjZXB0ZWQgbW9kZWwgc3RhdGUKLSBjaGFuZ2UgbW9kZWwgdmVyc2lvbnMKLSBhbHRlciBzY2llbnRpZmljIGNvbnRlbnQKClVzZSB0aGlzIHdoZW4geW91IHNpbXBseSB3YW50IHRvIGNoZWNrIHdoZXRoZXIgdGhlIG1vZGVsIGlzIGhlYWx0aHkuCgotLS0KCiMjIyB2YWxpZGF0ZS1tb2RlbAoKVmFsaWRhdGVzIHRoZSBjdXJyZW50IHNjaWVudGlmaWMgYW5kIGZvcm1hbCBtb2RlbC4KClRoaXMgb3BlcmF0aW9uIGlzIG5vbi1kZXN0cnVjdGl2ZS4KClVzZSBpdCB3aGVuIHlvdSB3YW50IGEgZGlyZWN0IHZhbGlkYXRpb24gb2YgdGhlIGN1cnJlbnQgbW9kZWwgc3RhdGUuCgotLS0KCiMjIyBtb2RlbC1zdGF0dXMKCkRpc3BsYXlzIHRoZSBjdXJyZW50IG1vZGVsIHN0YXRlLgoKVXNlIGl0IHdoZW4geW91IHdhbnQgdG8gc2VlIHdoaWNoIG1vZGVsIHZlcnNpb24gYW5kIFEtcmFuZ2UgYXJlIGN1cnJlbnRseSBhY3RpdmUuCgotLS0KCiMjIyBjb250cmFkaWN0aW9ucwoKRGlzcGxheXMgcmVnaXN0ZXJlZCB1bnJlc29sdmVkIGNvbnRyYWRpY3Rpb25zLCB0ZW5zaW9ucyBhbmQgY29uZmxpY3RzLgoKQSBjb250cmFkaWN0aW9uIGlzIG5vdCBhdXRvbWF0aWNhbGx5IGZvcmNlZCBpbnRvIGEgcmVzb2x1dGlvbi4KCkl0IG1heSByZW1haW4gb3BlbiB1bnRpbCBsYXRlciBldmlkZW5jZSByZXNvbHZlcyBpdC4KCi0tLQoKIyMjIHByb3ZlbmFuY2UKCkRpc3BsYXlzIG1vZGVsIHByb3ZlbmFuY2UgaW5mb3JtYXRpb24uCgpUaGlzIGlzIHVzZWQgdG8gdHJhY2Ugd2hlcmUgc2NpZW50aWZpYyByZXN1bHRzIGFuZCBtb2RlbCBzdGF0ZSBjYW1lIGZyb20uCgotLS0KCiMjIyByZWxlYXNlLWhhbmRvZmYKCkRpc3BsYXlzIHRoZSBjYW5vbmljYWwgY3VycmVudCByZWxlYXNlIHN0YXRlLgoKVXNlIGl0IHRvIGluc3BlY3QgcHJvbW90aW9uIHN0YXR1cywgYWNjZXB0ZWQgdmVyc2lvbiBhbmQgcmVsZWFzZSBnYXRlcy4KCi0tLQoKIyMjIGdhdXNzaWFuLXRlbnNpb24KCkNhbGN1bGF0ZXMgdGhlIHRlbnNpb24gYmV0d2VlbiB0d28gdmFsdWVzIHdpdGggaW5kZXBlbmRlbnQgR2F1c3NpYW4gdW5jZXJ0YWludGllcy4KCklucHV0OgoKYGBgdGV4dAphLHNpZ21hX2EsYixzaWdtYV9iCmBgYAoKRXhhbXBsZToKCmBgYHRleHQKNzMuNTAsMC44MSw2Ny4yNCwwLjM1CmBgYAoKLS0tCgojIyMgZGlmZmVyZW5jZQoKQ2FsY3VsYXRlcyB0aGUgZGlmZmVyZW5jZSBiZXR3ZWVuIHR3byB2YWx1ZXMuCgpJbnB1dDoKCmBgYHRleHQKYSxiCmBgYAoKLS0tCgojIyMgcGVyY2VudC1zaGlmdAoKQ2FsY3VsYXRlcyB0aGUgcGVyY2VudGFnZSBjaGFuZ2UgZnJvbSBvbmUgdmFsdWUgdG8gYW5vdGhlci4KCklucHV0OgoKYGBgdGV4dApmcm9tLHRvCmBgYAoKLS0tCgojIyMgd2VpZ2h0ZWQtbWVhbgoKQ2FsY3VsYXRlcyBhbiBpbnZlcnNlLXZhcmlhbmNlIHdlaWdodGVkIG1lYW4uCgpJbnB1dDoKCmBgYHRleHQKdmFsdWUxLHNpZ21hMSx2YWx1ZTIsc2lnbWEyLC4uLgpgYGAKCi0tLQoKIyMjIGNhbXBhaWduCgpSdW5zIHRoZSBleHBsaWNpdCBtb2RlbCBjYW1wYWlnbi4KClRoaXMgb3BlcmF0aW9uIG1heSBtb2RpZnkgbW9kZWwgc3RhdGUgYW5kIG1heSBwcm9tb3RlIGEgY2FuZGlkYXRlIHdoZW4gYWxsIG1hbmRhdG9yeSBnYXRlcyBwYXNzLgoKRG8gbm90IHVzZSBgY2FtcGFpZ25gIGlmIHlvdSBvbmx5IHdhbnQgdG8gaW5zcGVjdCB0aGUgbW9kZWwuCgpVc2U6CgpgYGB0ZXh0CnRlc3QKYGBgCgpvcjoKCmBgYHRleHQKdmFsaWRhdGUtbW9kZWwKYGBgCgppbnN0ZWFkLgoKLS0tCgojIEhvdyBNb2RlbCBVcGRhdGVzIFdvcmsKCkJ1YmJsZXZlcnNlIE1vZGVsIGZvbGxvd3MgYSBjb250cm9sbGVkIGFjY2VwdGVkL2NhbmRpZGF0ZSB3b3JrZmxvdy4KCmBgYHRleHQKTkVXIENPTVBMRVRFRCBRCiAgICAgICAg4oaTCkFVVEhPUklaRUQgRVZJREVOQ0UKICAgICAgICDihpMKTU9ERUwgRElGRgogICAgICAgIOKGkwpDQU5ESURBVEUgTU9ERUwKICAgICAgICDihpMKRk9STUFMIE1PREVMIFNZTkNIUk9OSVpBVElPTgogICAgICAgIOKGkwpTQ0lFTlRJRklDIFRFU1RTCiAgICAgICAg4oaTCkZPUk1BTCBURVNUUwogICAgICAgIOKGkwpSRUdSRVNTSU9OIC8gSU5URUdSSVRZIFRFU1RTCiAgICAgICAg4oaTClBST01PVElPTiBHQVRFCiAgICAgICAg4oaTCkFDQ0VQVEVEIE1PREVMCiAgICAgICAg4oaTCklNTVVUQUJMRSBWRVJTSU9OIFNOQVBTSE9UCmBgYAoKQWNjZXB0ZWQgbW9kZWwgc3RhdGUgaXMgbm90IHN1cHBvc2VkIHRvIGJlIGVkaXRlZCBkaXJlY3RseSBkdXJpbmcgc2NpZW50aWZpYyBpbnRlZ3JhdGlvbi4KCk5ldyBldmlkZW5jZSBmaXJzdCBlbnRlcnMgdGhlIGNhbmRpZGF0ZSBzdGF0ZS4KCk9ubHkgYSBzdWNjZXNzZnVsIHByb21vdGlvbiBtYXkgY3JlYXRlIGEgbmV3IGFjY2VwdGVkIG1vZGVsIHN0YXRlLgoKLS0tCgojIEFjY2VwdGVkIHZzIENhbmRpZGF0ZQoKIyMgYWNjZXB0ZWQvCgpDb250YWlucyB0aGUgY3VycmVudCBhY2NlcHRlZCBzY2llbnRpZmljIG1vZGVsLgoKVGhpcyBpcyB0aGUgbW9kZWwgc3RhdGUgdGhhdCBoYXMgcGFzc2VkIHRoZSByZXF1aXJlZCBwcm9tb3Rpb24gZ2F0ZXMuCgojIyBjYW5kaWRhdGUvCgpDb250YWlucyB0aGUgcHJvcG9zZWQgbmV4dCBtb2RlbCBzdGF0ZSBhbmQgY2FuZGlkYXRlIGhpc3RvcnkuCgpDYW5kaWRhdGUgY29udGVudCBpcyBub3QgYXV0b21hdGljYWxseSBhY2NlcHRlZCBzY2llbmNlLgoKQSBjYW5kaWRhdGUgbWF5OgoKLSBwYXNzCi0gZmFpbAotIHJlbWFpbiBibG9ja2VkCi0gYmUgcmV2aXNlZAotIGJlIHJlamVjdGVkCi0gYmUgc3VwZXJzZWRlZAoKLS0tCgojIFNjaWVudGlmaWMgUSBGaXJld2FsbAoKQnViYmxldmVyc2UgTW9kZWwgaXMgUS1ib3VuZGVkLgoKVGhlIG1vZGVsIG1heSBvbmx5IHVzZSBldmlkZW5jZSBpbnNpZGUgdGhlIGN1cnJlbnRseSBhdXRob3JpemVkIFEgcmFuZ2UuCgpGb3IgdGhlIGN1cnJlbnQgYmFzZWxpbmU6CgpgYGB0ZXh0CkFVVEhPUklaRUQ6ClEwMDHigJNRMDM5CmBgYAoKRXZpZGVuY2UgYmV5b25kIHRoZSBhdXRob3JpemVkIGJvdW5kYXJ5IG11c3Qgbm90IGluZmx1ZW5jZToKCi0gc2NpZW50aWZpYyBjbGFpbXMKLSBwYXJhbWV0ZXJzCi0gZXF1YXRpb25zCi0gYXNzdW1wdGlvbnMKLSBjb250cmFkaWN0aW9ucwotIG1lY2hhbmlzbXMKLSBwcmVkaWN0aW9ucwotIGNhbGN1bGF0aW9ucwotIGJlbmNobWFya3MKLSBjYW5kaWRhdGUgcmV2aXNpb25zCgpUaGUgUSBib3VuZGFyeSBpcyBleHBhbmRlZCBvbmx5IHRocm91Z2ggYSBjb250cm9sbGVkIG1vZGVsIHVwZGF0ZS4KCi0tLQoKIyBIb3cgUmVzdWx0cyBTaG91bGQgQmUgSW50ZXJwcmV0ZWQKCkJ1YmJsZXZlcnNlIE1vZGVsIGRlbGliZXJhdGVseSBkaXN0aW5ndWlzaGVzIHNjaWVudGlmaWMgc3RhdHVzLgoKRXhhbXBsZXM6CgpgYGB0ZXh0ClNVUFBPUlRFRApgYGAKCmRvZXMgbm90IG1lYW46CgpgYGB0ZXh0ClBST1ZFTgpgYGAKCkEgbGFyZ2UgdGVuc2lvbiBkb2VzIG5vdCBhdXRvbWF0aWNhbGx5IG1lYW46CgpgYGB0ZXh0Ck5FVyBQSFlTSUNTCmBgYAoKQSB0ZWNobmljYWwgZmFpbHVyZSBkb2VzIG5vdCBhdXRvbWF0aWNhbGx5IG1lYW46CgpgYGB0ZXh0ClNDSUVOVElGSUMgRkFMU0lGSUNBVElPTgpgYGAKCkEgY2FuZGlkYXRlIGJlaW5nIHRoZSBiZXN0IHRlc3RlZCBvcHRpb24gZG9lcyBub3QgbWVhbjoKCmBgYHRleHQKQ09SUkVDVCBUSEVPUlkKYGBgCgpVbmtub3duIHF1YW50aXRpZXMgbWF5IHJlbWFpbjoKCmBgYHRleHQKVU5LTk9XTgpgYGAKCm9yOgoKYGBgdGV4dApOT1RfRVNUQUJMSVNIRUQKYGBgCgpTY2llbnRpZmljIGluY29tcGxldGVuZXNzIGlzIHByZWZlcmFibGUgdG8gZmFicmljYXRlZCBjZXJ0YWludHkuCgotLS0KCiMgUmVwb3NpdG9yeSBTdHJ1Y3R1cmUKCiMjIGFjY2VwdGVkLwoKQ3VycmVudCBhY2NlcHRlZCBzY2llbnRpZmljIHN0YXRlLgoKIyMgY2FuZGlkYXRlLwoKQ2FuZGlkYXRlL3N0YWdpbmcgbW9kZWwgYW5kIHByb21vdGlvbiBoaXN0b3J5LgoKIyMgbW9kZWwvCgpNYWNoaW5lLXJlYWRhYmxlIGZvcm1hbCBtb2RlbC4KCkNvbnRhaW5zOgoKLSBwYXJhbWV0ZXJzCi0gZXF1YXRpb25zCi0gYXNzdW1wdGlvbnMKLSB1bmNlcnRhaW50eQotIGJlbmNobWFya3MKLSBkb21haW4gb2YgdmFsaWRpdHkKLSBsaW1pdGF0aW9ucwotIGlucHV0IHNjaGVtYQotIG91dHB1dCBzY2hlbWEKLSBleGVjdXRpb24gZW52aXJvbm1lbnQKCiMjIGV2aWRlbmNlLwoKUmVnaXN0ZXJlZCBCdWJibGV2ZXJzZSBldmlkZW5jZSBhbmQgUS1zcGVjaWZpYyBtb2RlbCB1cGRhdGVzLgoKIyMgcHJvdmVuYW5jZS8KClRyYWNlYWJpbGl0eSBmcm9tIHNvdXJjZSBtYXRlcmlhbCB0byBtb2RlbCBzdGF0ZS4KCiMjIHRlc3RzLwoKU2NpZW50aWZpYyBjYW1wYWlnbiwgZm9ybWFsIHZhbGlkYXRpb24sIGludGVncml0eSB0ZXN0cyBhbmQgcmVncmVzc2lvbiB0ZXN0cy4KCiMjIHZlcnNpb25zL2FjY2VwdGVkLwoKSW1tdXRhYmxlIGFjY2VwdGVkLW1vZGVsIHNuYXBzaG90cy4KCiMjIHJlbGVhc2UvCgpDYW5vbmljYWwgcmVsZWFzZSBoYW5kb2ZmLgoKIyMgY2hhbmdlbG9nLwoKSHVtYW4tcmVhZGFibGUgYW5kIG1hY2hpbmUtcmVhZGFibGUgbW9kZWwgY2hhbmdlIGhpc3RvcnkuCgotLS0KCiMgTW9kZWwgQ2FwYWJpbGl0aWVzCgpUaGUgY3VycmVudCBwdWJsaWMgbW9kZWwgZW5naW5lIGluY2x1ZGVzOgoKYGBgdGV4dAp0ZXN0CmdhdXNzaWFuLXRlbnNpb24KZGlmZmVyZW5jZQpwZXJjZW50LXNoaWZ0CndlaWdodGVkLW1lYW4KdmFsaWRhdGUtbW9kZWwKbW9kZWwtc3RhdHVzCmNvbnRyYWRpY3Rpb25zCnByb3ZlbmFuY2UKcmVsZWFzZS1oYW5kb2ZmCmNhbXBhaWduCmBgYAoKTmV3IGNvbXB1dGF0aW9uYWwgY2FwYWJpbGl0aWVzIG1heSBiZSBhZGRlZCBhcyBCdWJibGV2ZXJzZSBleHBhbmRzIGludG8gYWRkaXRpb25hbCBzY2llbnRpZmljIGRvbWFpbnMuCgpBIG5ldyBjYWxjdWxhdGlvbiBzaG91bGQgbm90IGJlY29tZSBwdWJsaWMgdW50aWwgaXRzIHNjaWVudGlmaWMgZGVmaW5pdGlvbiwgaW5wdXRzLCB1bml0cywgYXNzdW1wdGlvbnMsIHByb3ZlbmFuY2UgYW5kIHRlc3RzIGFyZSBjb21wbGV0ZS4KCi0tLQoKIyBWZXJzaW9uaW5nCgpBY2NlcHRlZCB2ZXJzaW9ucyBhcmUgZnJvemVuIHVuZGVyOgoKYGBgdGV4dAp2ZXJzaW9ucy9hY2NlcHRlZC8KYGBgCgpQcmV2aW91cyBhY2NlcHRlZCB2ZXJzaW9ucyBtdXN0IHJlbWFpbiBpbW11dGFibGUuCgpBIHN1Y2Nlc3NmdWwgcHJvbW90aW9uIHNob3VsZCBwcmVzZXJ2ZToKCi0gbW9kZWwgZGlmZgotIHRlc3QgcmVzdWx0cwotIHByb21vdGlvbiBzdGF0dXMKLSByZWxlYXNlIHN0YXRlCi0gcHJvdmVuYW5jZQotIGFjY2VwdGVkIHNuYXBzaG90Ci0gR2l0IGhpc3RvcnkKClRoZSBwdXJwb3NlIGlzIHRvIG1ha2UgZXZlcnkgYWNjZXB0ZWQgbW9kZWwgdmVyc2lvbiByZWNvbnN0cnVjdGFibGUuCgotLS0KCiMgUHJvdmVuYW5jZSBhbmQgUmVwcm9kdWNpYmlsaXR5CgpBIG1vZGVsIGNoYW5nZSBzaG91bGQgYmUgdHJhY2VhYmxlIHRocm91Z2ggYSBjaGFpbiBsaWtlOgoKYGBgdGV4dApRCuKGkwpTT1VSQ0UK4oaTCkVWSURFTkNFCuKGkwpQUk9HUkFNIC8gUkVTVUxUCuKGkwpDQU5ESURBVEUgQ0hBTkdFCuKGkwpURVNUUwrihpMKUFJPTU9USU9OCuKGkwpBQ0NFUFRFRCBWRVJTSU9OCuKGkwpHSVQgQ09NTUlUCmBgYAoKV2hlcmUgYXZhaWxhYmxlLCBwcm92ZW5hbmNlIG1heSBpbmNsdWRlOgoKLSBzb3VyY2UgZmlsZQotIHNvdXJjZSByZXBvc2l0b3J5IGNvbW1pdAotIGZpbGUgaGFzaAotIHdvcmtmbG93IElECi0gR2l0SHViIHJ1biBJRAotIHByb2dyYW0gSUQKLSByZXN1bHQgSUQKLSBhcnRpZmFjdCBoYXNoCi0gbW9kZWwgcmVwb3NpdG9yeSBjb21taXQKCi0tLQoKIyBLbm93biBMaW1pdGF0aW9ucwoKQnViYmxldmVyc2UgTW9kZWwgaXMgaW5jb21wbGV0ZSBieSBkZXNpZ24uCgpVbmtub3duIHF1YW50aXRpZXMsIHVucmVzb2x2ZWQgY29udHJhZGljdGlvbnMgYW5kIHVuc3VwcG9ydGVkIG1lY2hhbmlzbXMgcmVtYWluIGV4cGxpY2l0IHJhdGhlciB0aGFuIGJlaW5nIGZpbGxlZCBieSBhc3N1bXB0aW9uLgoKRGV0YWlsZWQgc2NpZW50aWZpYyBsaW1pdGF0aW9ucyBhcmUgbWFpbnRhaW5lZCBpbjoKCmBgYHRleHQKbW9kZWwvbGltaXRhdGlvbnMuanNvbgpgYGAKCi0tLQoKIyBEbyBOb3QKCkRvIG5vdCBtYW51YWxseSBtb2RpZnkgZnJvemVuIGFjY2VwdGVkIHNuYXBzaG90cy4KCkRvIG5vdCB0cmVhdCBjYW5kaWRhdGUgc3RhdGUgYXMgYWNjZXB0ZWQgc2NpZW5jZS4KCkRvIG5vdCB3ZWFrZW4gdGVzdHMgc2ltcGx5IHRvIG9idGFpbiBhIGdyZWVuIHJlc3VsdC4KCkRvIG5vdCBpbnNlcnQgZXZpZGVuY2UgYmV5b25kIHRoZSBhdXRob3JpemVkIFEgYm91bmRhcnkuCgpEbyBub3Qgc2lsZW50bHkgZGVsZXRlIHVucmVzb2x2ZWQgY29udHJhZGljdGlvbnMuCgpEbyBub3QgcmVwbGFjZSB1bmtub3duIHZhbHVlcyB3aXRoIHBsYXVzaWJsZSBndWVzc2VzLgoKRG8gbm90IGNyZWF0ZSBkdXBsaWNhdGUgcm9vdC1sZXZlbCBjb3BpZXMgb2YgY2Fub25pY2FsIG1vZGVsIG9yIHJlbGVhc2UgZmlsZXMuCgpEbyBub3Qgb3ZlcndyaXRlIHNjaWVudGlmaWMgaGlzdG9yeSB3aGVuIGEgY29uY2x1c2lvbiBjaGFuZ2VzLgoKU3VwZXJzZWRlIGl0IGV4cGxpY2l0bHkuCgotLS0KCiMgQ29yZSBSdWxlCgpCdWJibGV2ZXJzZSBNb2RlbCBleGlzdHMgdG8gbWFpbnRhaW4gdGhlIGJlc3QgY3VycmVudCBzY2llbnRpZmljIGNvbXByZXNzaW9uIG9mIGF1dGhvcml6ZWQgQnViYmxldmVyc2UgZXZpZGVuY2UuCgpJdCBkb2VzIG5vdCBleGlzdCB0byBwcm90ZWN0IHRoZSBjdXJyZW50IHRoZW9yeS4KClRoZSBtb2RlbCBpcyBhbGxvd2VkIHRvOgoKLSBjaGFuZ2UKLSB3ZWFrZW4KLSByZWplY3QKLSBzdXBlcnNlZGUKLSByZW9wZW4KLSBmYWxzaWZ5Ci0gZGVzdHJveSBwcmV2aW91cyBjb25jbHVzaW9ucwoKd2hlbiB0aGUgZXZpZGVuY2UgcmVxdWlyZXMgaXQuCg=="
+                  ).decode("utf-8")
+                  readme_recovery = "MISSING_README_RESTORED"
+
+              readme = re.sub(
+                  r"\*\*v0\.1-formalization-[0-9]+\*\*",
+                  "**v0.1-formalization-3**",
+                  readme,
+                  count=1,
+              )
+
+              formal_marker = "- Formal model: **v0.1-formalization-3**\n"
+              if "- Result context engine: **ACTIVE**" not in readme:
+                  if formal_marker in readme:
+                      readme = readme.replace(
+                          formal_marker,
+                          formal_marker + "- Result context engine: **ACTIVE**\n",
+                          1,
+                      )
+                  else:
+                      raise RuntimeError("README current-state formal-model marker is missing")
+
+              if "- External astronomy catalog context: **ACTIVE**" not in readme:
+                  readme = readme.replace(
+                      "- Result context engine: **ACTIVE**\n",
+                      "- Result context engine: **ACTIVE**\n"
+                      "- External astronomy catalog context: **ACTIVE**\n",
+                      1,
+                  )
+              if "### known-results" not in readme:
+                  insert = r"""
+          ### known-results
+
+          Looks up results already registered inside the current Bubbleverse Q-boundary.
+
+          Input may be blank to list everything, or:
+
+          ```json
+          {"quantity":"H0"}
+          ```
+
+          You may also specify units.
+
+          The registry is intentionally Q-bounded and is not a complete catalogue of scientific literature.
+
+          ---
+
+          ### contextualize-result
+
+          Compares a supplied result with comparable registered Bubbleverse reference results and recommends what should happen next.
+
+          Example:
+
+          ```json
+          {"quantity":"H0","value":1150.0,"sigma":0.81,"units":"km s^-1 Mpc^-1"}
+          ```
+
+          The result includes:
+
+          - registry match status
+          - registered reference span
+          - nearest registered comparison
+          - Gaussian distance when uncertainties are available
+          - follow-up priority
+          - recommended next steps
+          - who/what should execute each next step
+
+          Executor classes include:
+
+          ```text
+          MODEL_CAN_EXECUTE
+          MODEL_CAN_DESIGN_TEST
+          HUMAN_INPUT_VERIFICATION_REQUIRED
+          RESEARCH_AGENT_OR_HUMAN_REQUIRED
+          HUMAN_OR_EXTERNAL_EXPERIMENT_REQUIRED
+          MODEL_UPDATE_PIPELINE_REQUIRED
+          ```
+
+          Being outside the registered reference span is a reason to investigate. It is **not** automatically evidence for new physics.
+
+          ---
+
+          """
+                  readme = readme.replace("\n### campaign\n", "\n" + insert + "### campaign\n", 1)
+
+              if "### astronomy-catalog-context" not in readme:
+                  astronomy_insert = r"""
+          ### astronomy-catalog-context
+
+          Queries authoritative external astronomical catalogues for a named object or sky position.
+
+          Examples:
+
+          ```json
+          {"object":"Vega","radius_arcsec":5}
+          ```
+
+          or:
+
+          ```json
+          {"ra_deg":279.2347,"dec_deg":38.7837,"radius_arcsec":5}
+          ```
+
+          The engine currently cross-checks:
+
+          ```text
+          SIMBAD
+          ESA Gaia DR3 Archive
+          VizieR / 2MASS All-Sky Point Source Catalogue
+          ```
+
+          SIMBAD can resolve an object name to coordinates. Gaia DR3 and VizieR then perform positional cone searches.
+
+          External catalogue results are always:
+
+          ```text
+          EXTERNAL_REFERENCE_ONLY
+          ```
+
+          They do **not** automatically:
+
+          - expand the Q firewall
+          - become Bubbleverse evidence
+          - modify the accepted model
+          - promote a candidate
+          - imply new physics
+
+          If an external result is scientifically relevant, it must enter through the normal Bubbleverse evidence and model-update pipeline.
+
+          A catalogue service being unavailable is treated as a technical failure, not as evidence that an object does not exist.
+
+          ---
+
+          """
+                  readme = readme.replace("\n### campaign\n", "\n" + astronomy_insert + "### campaign\n", 1)
+
+              caps_old = """weighted-mean
+          validate-model"""
+              caps_new = """weighted-mean
+          known-results
+          contextualize-result
+          astronomy-catalog-context
+          validate-model"""
+              if caps_old in readme and "known-results\ncontextualize-result\nvalidate-model" not in readme:
+                  readme = readme.replace(caps_old, caps_new, 1)
+
+              if "- result registry" not in readme:
+                  readme = readme.replace("- benchmarks\n", "- benchmarks\n- result registry\n", 1)
+              readme_path.write_text(readme, encoding="utf-8")
+
+              # Validate context layer in the working tree.
+              ctx = context_self_test()
+
+              astro_config = astronomy_catalog_config_self_test()
+
+              # Existing validators stay historical and must remain green.
+              formal = subprocess.run(
+                  [sys.executable, "tests/programs/formal_model_validate.py"],
+                  cwd=ROOT, text=True, capture_output=True
+              )
+              if formal.returncode != 0:
+                  raise RuntimeError(f"Formal validator failed after context install:\n{formal.stdout}\n{formal.stderr}")
+
+              model_validation = run_model_validate()
+              if model_validation["status"] == "FAIL":
+                  raise RuntimeError(f"Model validation failed after context install: {model_validation}")
+
+              # Prove accepted and immutable snapshots were untouched.
+              protected_after = []
+              for base in [ROOT / "accepted", ROOT / "versions/accepted"]:
+                  for p in sorted(base.rglob("*")):
+                      if p.is_file():
+                          protected_after.append((p.relative_to(ROOT).as_posix(), hashlib.sha256(p.read_bytes()).hexdigest()))
+              if protected_after != protected:
+                  raise RuntimeError("Accepted model or immutable accepted snapshot changed during context installation")
+
+              return {
+                  "operation": "install-context-engine",
+                  "status": "PASS",
+                  "scientific_change": False,
+                  "accepted_model_changed": False,
+                  "q_boundary_changed": False,
+                  "formal_model_version": "v0.1-formalization-3",
+                  "result_registry": "model/result_registry.json",
+                  "external_catalog_registry": "model/external_catalog_registry.json",
+                  "readme_recovery": readme_recovery,
+                  "new_operations": ["known-results", "contextualize-result", "astronomy-catalog-context"],
+                  "context_self_test": ctx,
+                  "astronomy_catalog_config_self_test": astro_config,
+                  "formal_validation": "PASS",
+                  "model_validation": "PASS",
+                  "note": "Structural/capability update only. Accepted scientific state is unchanged."
+              }
+
+          ROUTES = {
+              "test": lambda: full_test(),
+              "gaussian-tension": lambda: gaussian_tension(USER_INPUT),
+              "difference": lambda: difference(USER_INPUT),
+              "percent-shift": lambda: percent_shift(USER_INPUT),
+              "weighted-mean": lambda: weighted_mean(USER_INPUT),
+              "known-results": lambda: known_results(USER_INPUT),
+              "contextualize-result": lambda: contextualize_result(USER_INPUT),
+              "astronomy-catalog-context": lambda: astronomy_catalog_context(USER_INPUT),
+              "validate-model": lambda: validate_model(),
+              "model-status": lambda: model_status(),
+              "contradictions": lambda: contradictions(),
+              "provenance": lambda: provenance(),
+              "release-handoff": lambda: release_handoff(),
+              "campaign": lambda: campaign(),
+              "install-context-engine": lambda: install_context_engine(),
+          }
+
+          if OP not in ROUTES:
+              raise SystemExit(f"Unknown operation: {OP}")
+
+          try:
+              result = ROUTES[OP]()
+              write_result(result)
+              print(json.dumps(result, indent=2, sort_keys=True))
+
+              lines = [
+                  "# Bubbleverse Model",
+                  "",
+                  f"**Operation:** `{OP}`",
+                  f"**Repository:** `{os.environ.get('GITHUB_REPOSITORY','local')}`",
+                  "",
+              ]
+              if OP == "test":
+                  lines += [
+                      f"**Self-test version:** {result.get('self_test_version','unknown')}",
+                      f"**Tests:** {result['tests_passed']}/{result['tests_total']} PASS",
+                      f"**All green:** {'YES' if result['all_green'] else 'NO'}",
+                      "**Mode:** non-destructive full system test",
+                      "",
+                      "| Test | Status |",
+                      "|---|---|",
+                  ] + [f"| {t['id']} — {t['name']} | {t['status']} |" for t in result["tests"]]
+              elif OP == "astronomy-catalog-context":
+                  lines += [
+                      f"**Catalog context:** {result.get('catalog_context_status')}",
+                      f"**Admission:** {result.get('admission_status')}",
+                      f"**Matched catalogs:** {', '.join(result.get('catalogues_matched', [])) or 'none'}",
+                      f"**New physics inferred:** {result.get('new_physics_claim')}",
+                      "",
+                      "Result written to `run-output/result.json`.",
+                  ]
+              elif OP == "contextualize-result":
+                  lines += [
+                      f"**Registry:** {result.get('registry_match_status')}",
+                      f"**Span status:** {result.get('span_status')}",
+                      f"**Comparison:** {result.get('comparison_status')}",
+                      f"**Follow-up:** {'YES' if result.get('follow_up_recommended') else 'NO'}",
+                      f"**Priority:** {result.get('follow_up_priority')}",
+                      f"**New physics inferred:** {result.get('new_physics_claim')}",
+                      "",
+                      "Result written to `run-output/result.json`.",
+                  ]
+              else:
+                  lines += ["Result written to `run-output/result.json`."]
+              add_summary(lines)
+
+              if OP == "test" and not result["all_green"]:
+                  raise SystemExit(1)
+          except Exception as exc:
+              failure = {"operation": OP, "status": "FAIL", "error": f"{type(exc).__name__}: {exc}"}
+              write_result(failure)
+              add_summary(["# Bubbleverse Model", "", f"**Operation:** `{OP}`", "**Status:** FAIL", f"**Error:** `{failure['error']}`"])
+              print(json.dumps(failure, indent=2))
+              raise
+          PY
+
+      - name: Commit model changes
+        if: ${{ inputs.operation == 'campaign' || inputs.operation == 'install-context-engine' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "bubbleverse-model-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [[ "${{ inputs.operation }}" == "campaign" ]]; then
+            git add accepted candidate evidence provenance changelog versions tests release bubbleverse_model_program_registry.json 2>/dev/null || true
+            MSG="Run Bubbleverse model campaign"
+          else
+            git add model README.md changelog bubbleverse_model_program_registry.json 2>/dev/null || true
+            MSG="Install Bubbleverse result context engine"
+          fi
+
+          if git diff --cached --quiet; then
+            echo "Operation produced no repository changes."
+            exit 0
+          fi
+
+          git commit -m "$MSG"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Upload result
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: bubbleverse-model-${{ inputs.operation }}-${{ github.run_number }}
+          path: run-output/
+          if-no-files-found: warn
