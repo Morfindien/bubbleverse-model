@@ -1,0 +1,296 @@
+name: "🧹 BUBBLEVERSE MODEL — SYNC CURRENT METADATA"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bubbleverse-model-metadata-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify expected current model state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          def load(path):
+              return json.loads(Path(path).read_text(encoding="utf-8"))
+
+          accepted = load("accepted/model_state.json")
+          release = load("release/MODEL_RELEASE_HANDOFF.json")
+          formal = load("model/model_manifest.json")
+
+          assert accepted.get("status") == "ACCEPTED", accepted
+          assert accepted.get("accepted_model_version") == "v0.1", accepted
+          assert accepted.get("q_access_start") == "Q001", accepted
+          assert accepted.get("q_access_end") == "Q039", accepted
+          assert accepted.get("current_q") == "Q039", accepted
+
+          assert release.get("candidate_promoted") is True, release
+          assert release.get("accepted_model_after") == "v0.1", release
+          assert release.get("all_mandatory_green") is True, release
+          assert release.get("release_status") == "ALL_GREEN", release
+
+          assert formal.get("formal_model_version") == "v0.1-formalization-1", formal
+          assert formal.get("scientific_change") is False, formal
+
+          workflow = Path(".github/workflows/00-bubbleverse-model-start-public.yml")
+          assert workflow.exists(), workflow
+
+          print("CURRENT_STATE_GATE=PASS")
+          PY
+
+      - name: Update current metadata files
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          README = """# Bubbleverse Model
+
+          Autonomous, Q-bounded scientific synthesis, formalization, computation and falsification repository.
+
+          ## Current state
+          - Mode: **BOOTSTRAP_MODE — accepted baseline established**
+          - Authorized scientific range: **Q001–Q039**
+          - Current Q: **Q039**
+          - Accepted model: **v0.1**
+          - Candidate history: **v0.1-candidate → promoted to v0.1**
+          - Formal model: **v0.1-formalization-1**
+          - Scientific campaign: **9 / 9 PASS**
+          - Formal-model validation: **12 / 12 PASS**
+          - Release status: **ALL_GREEN**
+          - Next Q: **AUTHORIZED**
+
+          ## Repository roles
+          - `accepted/` — current accepted scientific state.
+          - `candidate/` — candidate/staging state and promotion history.
+          - `model/` — machine-readable formal model: parameters, equations, assumptions, uncertainty, validity domains, limitations, benchmarks and I/O schemas.
+          - `evidence/` and `provenance/` — source and result traceability.
+          - `tests/` — scientific campaign, formal-model validation, regression and integrity tests.
+          - `versions/accepted/` — immutable accepted-model snapshots.
+          - `release/` — canonical release handoff.
+
+          ## Start button
+          Open GitHub Actions → **🧪 BUBBLEVERSE MODEL — START** → **Run workflow**.
+
+          Permanent public workflow:
+          `.github/workflows/00-bubbleverse-model-start-public.yml`
+
+          The public `test` operation is non-destructive. `validate-model` validates the current model without promotion. `campaign` runs the explicit mutating campaign/promotion path.
+
+          The model represents the best current compression of validated Bubbleverse state inside the authorized Q range; it is not established truth and unresolved quantities remain explicit.
+          """
+          # Remove indentation introduced by the Python source formatting.
+          README = "\n".join(line[10:] if line.startswith("          ") else line for line in README.splitlines()).strip() + "\n"
+          Path("README.md").write_text(README, encoding="utf-8")
+
+          program_registry = {
+              "programs": {
+                  "BV-MODEL-CAMPAIGN-V1": {
+                      "accepted_model_version": "v0.1",
+                      "campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
+                      "command": "test",
+                      "command_semantics": "MUTATING_CAMPAIGN_PROMOTION_PATH",
+                      "formal_model_version": "v0.1-formalization-1",
+                      "formal_validator_path": "tests/programs/formal_model_validate.py",
+                      "path": "tests/programs/model_campaign.py",
+                      "public_workflow_operations": [
+                          "test",
+                          "validate-model",
+                          "campaign"
+                      ],
+                      "q_access_end": "Q039",
+                      "q_access_start": "Q001",
+                      "status": "ACTIVE",
+                      "validation_command": "validate",
+                      "workflow_id": "00-bubbleverse-model-start-public.yml"
+                  }
+              },
+              "schema_version": 1
+          }
+          Path("bubbleverse_model_program_registry.json").write_text(
+              json.dumps(program_registry, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+
+          change_registry = {
+              "changes": [
+                  {
+                      "accepted_after": None,
+                      "candidate": "v0.1-candidate",
+                      "change_revision": "R000001",
+                      "current_q": "Q039",
+                      "date": "2026-09-08T10:25:00+02:00",
+                      "model_revision": "R000001",
+                      "q_access_end": "Q039",
+                      "q_access_start": "Q001",
+                      "status": "BOOTSTRAP_CANDIDATE_READY_FOR_TEST"
+                  },
+                  {
+                      "accepted_after": "v0.1",
+                      "all_mandatory_green": True,
+                      "candidate": "v0.1-candidate",
+                      "change_revision": "R000002",
+                      "current_q": "Q039",
+                      "date": "2026-09-08",
+                      "model_revision": "R000001",
+                      "q_access_end": "Q039",
+                      "q_access_start": "Q001",
+                      "scientific_campaign": {
+                          "campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
+                          "passed": 9,
+                          "total": 9
+                      },
+                      "status": "ACCEPTED_MODEL_PROMOTED"
+                  },
+                  {
+                      "accepted_after": "v0.1",
+                      "change_revision": "R000003",
+                      "current_q": "Q039",
+                      "date": "2026-09-08",
+                      "model_revision": "R000001",
+                      "q_access_end": "Q039",
+                      "q_access_start": "Q001",
+                      "scientific_change": False,
+                      "status": "MODEL_INTEGRITY_REPAIR_COMPLETE",
+                      "repairs": [
+                          "ACCEPTED_PATH_ISOLATION",
+                          "CANDIDATE_PROMOTION_STATE",
+                          "REAL_GIT_PROVENANCE",
+                          "FUTURE_PROMOTION_LOGIC"
+                      ]
+                  },
+                  {
+                      "accepted_after": "v0.1",
+                      "change_revision": "R000004",
+                      "current_q": "Q039",
+                      "date": "2026-09-08",
+                      "formal_model_version": "v0.1-formalization-1",
+                      "formal_validation": {
+                          "campaign_id": "FORMAL-MODEL-v0.1-001",
+                          "passed": 12,
+                          "total": 12
+                      },
+                      "model_revision": "R000001",
+                      "q_access_end": "Q039",
+                      "q_access_start": "Q001",
+                      "scientific_change": False,
+                      "status": "FORMAL_MODEL_LAYER_INSTALLED"
+                  }
+              ],
+              "schema_version": 1
+          }
+          Path("changelog/model_change_registry.json").write_text(
+              json.dumps(change_registry, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+
+          print("METADATA_WRITE=PASS")
+          PY
+
+      - name: Validate updated metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          registry = json.loads(Path("bubbleverse_model_program_registry.json").read_text(encoding="utf-8"))
+          changes = json.loads(Path("changelog/model_change_registry.json").read_text(encoding="utf-8"))
+          readme = Path("README.md").read_text(encoding="utf-8")
+
+          program = registry["programs"]["BV-MODEL-CAMPAIGN-V1"]
+
+          assert program["workflow_id"] == "00-bubbleverse-model-start-public.yml"
+          assert program["validation_command"] == "validate"
+          assert program["command"] == "test"
+          assert program["accepted_model_version"] == "v0.1"
+          assert program["formal_model_version"] == "v0.1-formalization-1"
+
+          assert [x["change_revision"] for x in changes["changes"]] == [
+              "R000001", "R000002", "R000003", "R000004"
+          ]
+          assert changes["changes"][1]["accepted_after"] == "v0.1"
+          assert changes["changes"][3]["formal_validation"]["passed"] == 12
+
+          assert "Accepted model: **v0.1**" in readme
+          assert "Release status: **ALL_GREEN**" in readme
+          assert "Accepted model: **none yet**" not in readme
+          assert "NOT AUTHORIZED until all mandatory tests PASS" not in readme
+
+          # Keep future-Q literals out of current metadata.
+          import re
+          for path in [
+              "README.md",
+              "bubbleverse_model_program_registry.json",
+              "changelog/model_change_registry.json",
+          ]:
+              text = Path(path).read_text(encoding="utf-8")
+              bad = [
+                  int(x) for x in re.findall(r"\bQ-?0*([0-9]{1,5})\b", text, flags=re.I)
+                  if int(x) > 39
+              ]
+              assert not bad, (path, bad)
+
+          print("METADATA_VALIDATION=PASS")
+          PY
+
+      - name: Run non-destructive model validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tests/programs/model_campaign.py validate
+
+      - name: Show diff
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff -- README.md bubbleverse_model_program_registry.json changelog/model_change_registry.json
+
+      - name: Commit and push metadata sync
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md \
+                  bubbleverse_model_program_registry.json \
+                  changelog/model_change_registry.json
+
+          if git diff --cached --quiet; then
+            echo "No metadata changes required."
+            exit 0
+          fi
+
+          git commit -m "Sync Bubbleverse model current metadata"
+          git push
+
+          echo "METADATA_SYNC=PASS"
