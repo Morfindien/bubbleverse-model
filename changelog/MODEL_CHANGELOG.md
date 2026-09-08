@@ -46,3 +46,14 @@
 - Added explicit next-step routing for catalogue cross-checks and unresolved targets.
 - Accepted scientific model, Q boundary, evidence, mechanisms, predictions and immutable accepted snapshots unchanged.
 - Scientific change: false.
+
+
+## v0.2 / Q040
+
+- Advanced authorized boundary from Q039 to Q040.
+- Preserved H0 benchmarks and public calculations.
+- Added the native-nuisance marginalized common-CMB equation.
+- Recorded numerical representation failures as TECHNICAL_FAIL, not physical falsification.
+- Kept the CamSpec-HiLLiPoP causal discrepancy open and narrowed.
+- Added no parameter, benchmark, mechanism, scientific domain or public calculation.
+- Promotion commit: `26bfb093bee892ac32b9e1db78c36df3dd43ac3e`.
