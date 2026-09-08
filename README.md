@@ -18,7 +18,7 @@ The model represents the best current compression of validated Bubbleverse evide
 - Current Q: **Q039**
 - Accepted model: **v0.1**
 - Candidate history: **v0.1-candidate → promoted to v0.1**
-- Formal model: **v0.1-formalization-1**
+- Formal model: **v0.1-formalization-3**
 - Scientific campaign: **9 / 9 PASS**
 - Formal-model validation: **12 / 12 PASS**
 - Release status: **ALL_GREEN**
@@ -165,6 +165,105 @@ value1,sigma1,value2,sigma2,...
 
 ---
 
+
+### known-results
+
+Looks up results already registered inside the current Bubbleverse Q-boundary.
+
+Input may be blank to list everything, or:
+
+```json
+{"quantity":"H0"}
+```
+
+You may also specify units.
+
+The registry is intentionally Q-bounded and is not a complete catalogue of scientific literature.
+
+---
+
+### contextualize-result
+
+Compares a supplied result with comparable registered Bubbleverse reference results and recommends what should happen next.
+
+Example:
+
+```json
+{"quantity":"H0","value":1150.0,"sigma":0.81,"units":"km s^-1 Mpc^-1"}
+```
+
+The result includes:
+
+- registry match status
+- registered reference span
+- nearest registered comparison
+- Gaussian distance when uncertainties are available
+- follow-up priority
+- recommended next steps
+- who/what should execute each next step
+
+Executor classes include:
+
+```text
+MODEL_CAN_EXECUTE
+MODEL_CAN_DESIGN_TEST
+HUMAN_INPUT_VERIFICATION_REQUIRED
+RESEARCH_AGENT_OR_HUMAN_REQUIRED
+HUMAN_OR_EXTERNAL_EXPERIMENT_REQUIRED
+MODEL_UPDATE_PIPELINE_REQUIRED
+```
+
+Being outside the registered reference span is a reason to investigate. It is **not** automatically evidence for new physics.
+
+---
+
+
+### astronomy-catalog-context
+
+Queries authoritative external astronomical catalogues for a named object or sky position.
+
+Examples:
+
+```json
+{"object":"Vega","radius_arcsec":5}
+```
+
+or:
+
+```json
+{"ra_deg":279.2347,"dec_deg":38.7837,"radius_arcsec":5}
+```
+
+The engine currently cross-checks:
+
+```text
+SIMBAD
+ESA Gaia DR3 Archive
+VizieR / 2MASS All-Sky Point Source Catalogue
+```
+
+SIMBAD can resolve an object name to coordinates. Gaia DR3 and VizieR then perform positional cone searches.
+
+External catalogue results are always:
+
+```text
+EXTERNAL_REFERENCE_ONLY
+```
+
+They do **not** automatically:
+
+- expand the Q firewall
+- become Bubbleverse evidence
+- modify the accepted model
+- promote a candidate
+- imply new physics
+
+If an external result is scientifically relevant, it must enter through the normal Bubbleverse evidence and model-update pipeline.
+
+A catalogue service being unavailable is treated as a technical failure, not as evidence that an object does not exist.
+
+---
+
 ### campaign
 
 Runs the explicit model campaign.
@@ -274,6 +373,7 @@ Evidence beyond the authorized boundary must not influence:
 - predictions
 - calculations
 - benchmarks
+- result registry
 - candidate revisions
 
 The Q boundary is expanded only through a controlled model update.
@@ -393,6 +493,9 @@ gaussian-tension
 difference
 percent-shift
 weighted-mean
+known-results
+contextualize-result
+astronomy-catalog-context
 validate-model
 model-status
 contradictions

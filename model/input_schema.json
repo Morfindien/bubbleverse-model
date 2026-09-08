@@ -1,7 +1,10 @@
 {
   "calculation_input_contracts": {
+    "astronomy-catalog-context": "JSON {\"object\":\"Vega\",\"radius_arcsec\":5} OR JSON {\"ra_deg\":...,\"dec_deg\":...,\"radius_arcsec\":5}",
+    "contextualize-result": "JSON {\"quantity\":\"...\",\"value\":number,\"sigma\":optional-number,\"units\":\"...\",\"provenance\":optional}",
     "difference": "a,b OR JSON {a,b}",
     "gaussian-tension": "a,sigma_a,b,sigma_b OR JSON object with those keys",
+    "known-results": "blank OR JSON {\"quantity\":\"H0\"} OR JSON {\"quantity\":\"H0\",\"units\":\"...\"}",
     "percent-shift": "from,to OR JSON {from,to}",
     "weighted-mean": "value1,sigma1,value2,sigma2,... OR JSON {values:[...],sigmas:[...]}"
   },
@@ -31,7 +34,10 @@
     "contradictions",
     "provenance",
     "release-handoff",
-    "campaign"
+    "campaign",
+    "known-results",
+    "contextualize-result",
+    "astronomy-catalog-context"
   ],
   "schema_version": 1
 }

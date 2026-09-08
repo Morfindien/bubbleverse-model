@@ -27,3 +27,22 @@
 - Added FORMAL-MODEL-v0.1-001 validator and connected it to the normal model validation gate.
 - Historical nine-test scientific campaign remains unchanged; the formal model gate is an additional integrity/schema gate.
 - Scientific claims and Q001-Q039 evidence state unchanged.
+
+## R000005 — result context and next-step router
+- Added a Q-bounded known-result registry that references canonical model benchmarks instead of duplicating their values.
+- Added `known-results` and `contextualize-result` public operations.
+- Added explicit distinction between registered reference span and a physical allowed range.
+- Results outside the registered span trigger follow-up, not a new-physics claim.
+- Added next-step executor routing for model-executable checks, model-designed tests, human input verification, literature research, model-update ingestion and external empirical work.
+- Accepted scientific model, Q boundary, evidence, mechanisms, predictions and immutable accepted snapshots unchanged.
+- Scientific change: false.
+
+## R000006 — external astronomy catalogue context
+- Added read-only live context from SIMBAD, the ESA Gaia DR3 Archive and VizieR/2MASS.
+- Added `astronomy-catalog-context` for object-name or coordinate cone searches.
+- External catalogue responses are classified as `EXTERNAL_REFERENCE_ONLY`.
+- Catalogue lookup never expands the Q firewall and never promotes data directly into accepted model state.
+- Service outage is treated as a technical unavailable state, not as a scientific no-match.
+- Added explicit next-step routing for catalogue cross-checks and unresolved targets.
+- Accepted scientific model, Q boundary, evidence, mechanisms, predictions and immutable accepted snapshots unchanged.
+- Scientific change: false.

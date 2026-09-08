@@ -1,0 +1,38 @@
+{
+  "artifact_type": "BUBBLEVERSE_EXTERNAL_ASTRONOMY_CATALOG_REGISTRY",
+  "automatic_model_admission": false,
+  "catalogue_failure_policy": "SERVICE_UNAVAILABLE_IS_TECHNICAL_NOT_SCIENTIFIC",
+  "model_admission_policy": "EXTERNAL_REFERENCE_ONLY",
+  "q_access_end": "Q039",
+  "q_access_start": "Q001",
+  "record_query_inputs": false,
+  "schema_version": 1,
+  "services": {
+    "GAIA_DR3": {
+      "documentation": "https://gea.esac.esa.int/archive/documentation/GDR3/",
+      "endpoint": "https://gea.esac.esa.int/tap-server/tap/sync",
+      "operator": "European Space Agency / Gaia Archive",
+      "protocol": "TAP+ / ADQL",
+      "read_only": true,
+      "role": "astrometry, proper motion, parallax, photometry and available radial velocity",
+      "table": "gaiadr3.gaia_source"
+    },
+    "SIMBAD": {
+      "documentation": "https://simbad.cds.unistra.fr/Pages/guide/sim-url.htx",
+      "endpoint": "https://simbad.cds.unistra.fr/simbad/sim-tap/sync",
+      "operator": "CDS Strasbourg",
+      "protocol": "IVOA TAP / ADQL",
+      "read_only": true,
+      "role": "object identity, coordinates, object type, bibliography and selected measurements"
+    },
+    "VIZIER_2MASS": {
+      "documentation": "https://vizier.cds.unistra.fr/viz-bin/VizieR?-source=II/246",
+      "endpoint": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync",
+      "operator": "CDS Strasbourg / VizieR",
+      "protocol": "IVOA TAP / ADQL",
+      "read_only": true,
+      "role": "independent near-infrared catalogue cross-match through the 2MASS All-Sky Point Source Catalogue",
+      "table": "II/246/out"
+    }
+  }
+}

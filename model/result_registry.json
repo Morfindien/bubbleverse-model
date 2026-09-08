@@ -1,0 +1,42 @@
+{
+  "artifact_type": "BUBBLEVERSE_KNOWN_RESULT_REGISTRY",
+  "classification_policy": {
+    "external_results_require_evidence_gate_before_model_admission": true,
+    "outside_span_means_follow_up_trigger_not_new_physics": true,
+    "registered_reference_span_is_not_physical_allowed_range": true,
+    "unit_conversion_policy": "NO_IMPLICIT_UNIT_CONVERSION"
+  },
+  "executor_classes": [
+    "MODEL_CAN_EXECUTE",
+    "MODEL_CAN_DESIGN_TEST",
+    "HUMAN_INPUT_VERIFICATION_REQUIRED",
+    "RESEARCH_AGENT_OR_HUMAN_REQUIRED",
+    "HUMAN_OR_EXTERNAL_EXPERIMENT_REQUIRED",
+    "MODEL_UPDATE_PIPELINE_REQUIRED"
+  ],
+  "q_access_end": "Q039",
+  "q_access_start": "Q001",
+  "schema_version": 1,
+  "sources": [
+    {
+      "allowed_statuses": [
+        "ACTIVE_BENCHMARK"
+      ],
+      "copy_fields": [
+        "route",
+        "inference_chain",
+        "source_observation_id",
+        "not_raw_measurement"
+      ],
+      "id_field": "id",
+      "list_key": "benchmarks",
+      "path": "model/benchmarks.json",
+      "quantity_field": "parameter_symbol",
+      "registry_id": "REG-ACTIVE-BENCHMARKS",
+      "sigma_field": "sigma",
+      "status_field": "status",
+      "units_field": "units",
+      "value_field": "value"
+    }
+  ]
+}

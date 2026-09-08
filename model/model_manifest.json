@@ -2,7 +2,7 @@
   "accepted_model_version": "v0.1",
   "artifact_type": "BUBBLEVERSE_FORMAL_MODEL_LAYER",
   "current_q": "Q039",
-  "description": "Machine-readable formalization of the accepted Bubbleverse v0.1 state through Q039. Unknowns remain explicit and no candidate is promoted by this installation.",
+  "description": "Machine-readable formalization of the accepted Bubbleverse v0.1 state through the authorized Q boundary, including Q-bounded known-result contextualization, next-step routing and read-only external astronomy catalogue context. No candidate is promoted and no new scientific claim is introduced by this capability layer.",
   "evidence_refs": [
     "EVD-MANUSCRIPT-Q001-Q039",
     "EVD-Q039-IMPLBLOCK",
@@ -18,9 +18,11 @@
     "input_schema.json",
     "output_schema.json",
     "benchmarks.json",
-    "environment.json"
+    "environment.json",
+    "result_registry.json",
+    "external_catalog_registry.json"
   ],
-  "formal_model_version": "v0.1-formalization-1",
+  "formal_model_version": "v0.1-formalization-3",
   "formalization_rule": "NO_NEW_SCIENTIFIC_CLAIMS_OR_NUMERIC_VALUES",
   "model_revision": "R000001",
   "q_access_end": "Q039",

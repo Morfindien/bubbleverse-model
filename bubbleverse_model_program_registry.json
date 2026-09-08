@@ -1,22 +1,58 @@
 {
   "programs": {
+    "BV-ASTRONOMY-CATALOG-CONTEXT-V1": {
+      "accepted_model_version": "v0.1",
+      "automatic_model_admission": false,
+      "formal_model_version": "v0.1-formalization-3",
+      "implementation": ".github/workflows/00-bubbleverse-model-start-public.yml",
+      "operation": "astronomy-catalog-context",
+      "q_access_end": "Q039",
+      "q_access_start": "Q001",
+      "registry_path": "model/external_catalog_registry.json",
+      "scientific_change": false,
+      "sources": [
+        "SIMBAD",
+        "GAIA_DR3",
+        "VIZIER_2MASS"
+      ],
+      "status": "ACTIVE"
+    },
     "BV-MODEL-CAMPAIGN-V1": {
       "accepted_model_version": "v0.1",
       "campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
       "command": "test",
       "command_semantics": "MUTATING_CAMPAIGN_PROMOTION_PATH",
-      "formal_model_version": "v0.1-formalization-1",
+      "formal_model_version": "v0.1-formalization-3",
       "formal_validator_path": "tests/programs/formal_model_validate.py",
       "path": "tests/programs/model_campaign.py",
       "public_workflow_operations": [
         "test",
         "validate-model",
-        "campaign"
+        "campaign",
+        "known-results",
+        "contextualize-result",
+        "astronomy-catalog-context"
       ],
       "q_access_end": "Q039",
       "q_access_start": "Q001",
       "status": "ACTIVE",
       "validation_command": "validate",
+      "workflow_id": "00-bubbleverse-model-start-public.yml"
+    },
+    "BV-RESULT-CONTEXT-V1": {
+      "accepted_model_version": "v0.1",
+      "formal_model_version": "v0.1-formalization-3",
+      "implementation": ".github/workflows/00-bubbleverse-model-start-public.yml",
+      "operations": [
+        "known-results",
+        "contextualize-result",
+        "astronomy-catalog-context"
+      ],
+      "q_access_end": "Q039",
+      "q_access_start": "Q001",
+      "registry_path": "model/result_registry.json",
+      "scientific_change": false,
+      "status": "ACTIVE",
       "workflow_id": "00-bubbleverse-model-start-public.yml"
     }
   },
