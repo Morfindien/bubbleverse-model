@@ -1,0 +1,51 @@
+{
+  "q_access_end": "Q039",
+  "schema_version": 1,
+  "uncertainties": [
+    {
+      "benchmark_ref": "BENCH-H0-LOCAL",
+      "id": "UNC-BENCH-H0-LOCAL",
+      "sigma": 0.81,
+      "status": "ACCEPTED_BENCHMARK_UNCERTAINTY",
+      "type": "inference_uncertainty",
+      "units": "km s^-1 Mpc^-1"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-CMB",
+      "id": "UNC-BENCH-H0-CMB",
+      "sigma": 0.35,
+      "status": "ACCEPTED_BENCHMARK_UNCERTAINTY",
+      "type": "inference_uncertainty",
+      "units": "km s^-1 Mpc^-1"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-BAOBBN",
+      "id": "UNC-BENCH-H0-BAOBBN",
+      "sigma": 0.58,
+      "status": "ACCEPTED_BENCHMARK_UNCERTAINTY",
+      "type": "inference_uncertainty",
+      "units": "km s^-1 Mpc^-1"
+    },
+    {
+      "id": "UNC-EDE-GLOBALITY",
+      "source_constraint_id": "CON-GLOBALITY-001",
+      "statement": "Corrected high-H0 EDE basins are best-observed finite-search solutions, not proven global minima.",
+      "status": "OPEN_METHOD_UNCERTAINTY",
+      "type": "optimization_globality"
+    },
+    {
+      "id": "UNC-EDE-LIKELIHOOD",
+      "source_robustness_id": "ROB-EDE-LIKE-001",
+      "statement": "High-H0 EDE viability depends materially on experiment, likelihood, basin, and implementation.",
+      "status": "ACTIVE_MODEL_DEPENDENCE",
+      "type": "likelihood_implementation_dependence"
+    },
+    {
+      "id": "UNC-Q039-STRUCTURAL",
+      "source_robustness_id": "ROB-Q039-001",
+      "statement": "Single tested implementation blocks do not remove the Planck likelihood geometry discrepancy; deeper coupled differences remain unresolved.",
+      "status": "OPEN_STRUCTURAL_UNCERTAINTY",
+      "type": "likelihood_implementation_dependence"
+    }
+  ]
+}

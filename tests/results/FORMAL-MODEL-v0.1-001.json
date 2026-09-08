@@ -1,0 +1,113 @@
+{
+  "all_green": true,
+  "artifact_type": "BUBBLEVERSE_FORMAL_MODEL_TEST_RESULT",
+  "formal_test_campaign": "FORMAL-MODEL-v0.1-001",
+  "tests": [
+    {
+      "detail": {
+        "files_parsed": 11
+      },
+      "name": "Formal model files exist and parse",
+      "status": "PASS",
+      "test_id": "FML-001"
+    },
+    {
+      "detail": {
+        "current_q": 39,
+        "q_access_end": 39,
+        "q_access_start": 1
+      },
+      "name": "Q boundary and contamination firewall",
+      "status": "PASS",
+      "test_id": "FML-002"
+    },
+    {
+      "detail": {
+        "benchmarks_verified": 3
+      },
+      "name": "Benchmarks exactly match accepted observations",
+      "status": "PASS",
+      "test_id": "FML-003"
+    },
+    {
+      "detail": {
+        "parameters_verified": 2
+      },
+      "name": "Parameter registry integrity",
+      "status": "PASS",
+      "test_id": "FML-004"
+    },
+    {
+      "detail": {
+        "equations_verified": 4
+      },
+      "name": "Equation-to-assumption and operation references",
+      "status": "PASS",
+      "test_id": "FML-005"
+    },
+    {
+      "detail": {
+        "uncertainties_verified": 6
+      },
+      "name": "Uncertainty registry and benchmark consistency",
+      "status": "PASS",
+      "test_id": "FML-006"
+    },
+    {
+      "detail": {
+        "assumptions": 7,
+        "domains": 5
+      },
+      "name": "Assumptions and domain-of-validity are explicit",
+      "status": "PASS",
+      "test_id": "FML-007"
+    },
+    {
+      "detail": {
+        "limitations_verified": 5
+      },
+      "name": "Unknowns and limitations remain explicit",
+      "status": "PASS",
+      "test_id": "FML-008"
+    },
+    {
+      "detail": {
+        "calculation_result_types": 4,
+        "operations": 11,
+        "workflow_surface_verified": true
+      },
+      "name": "Input/output schemas cover the public engine",
+      "status": "PASS",
+      "test_id": "FML-009"
+    },
+    {
+      "detail": {
+        "evidence_refs_verified": 3
+      },
+      "name": "Formal model provenance references exist",
+      "status": "PASS",
+      "test_id": "FML-010"
+    },
+    {
+      "detail": {
+        "reachable_commit": "fc244f5001a49d05961ffbd00b84c0165edcd323",
+        "runtime": "3.11.16"
+      },
+      "name": "Execution environment and Git provenance",
+      "status": "PASS",
+      "test_id": "FML-011"
+    },
+    {
+      "detail": {
+        "rule": "NO_NEW_SCIENTIFIC_CLAIMS_OR_NUMERIC_VALUES",
+        "scientific_change": false
+      },
+      "name": "No-new-claim formalization contract",
+      "status": "PASS",
+      "test_id": "FML-012"
+    }
+  ],
+  "tests_failed": 0,
+  "tests_passed": 12,
+  "tests_total": 12
+}

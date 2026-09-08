@@ -1,0 +1,36 @@
+{
+  "limitations": [
+    {
+      "id": "LIM-H0-UNRESOLVED",
+      "source_constraint_id": "CON-H0-001",
+      "statement": "The Hubble-tension inference-chain conflict remains unresolved through Q039.",
+      "status": "UNRESOLVED"
+    },
+    {
+      "id": "LIM-DARK-MATTER-IDENTITY",
+      "source_constraint_id": "CON-DM-IDENTITY-001",
+      "statement": "The microscopic identity of dark matter remains unresolved through Q039.",
+      "status": "OPEN"
+    },
+    {
+      "id": "LIM-LATE-ACCELERATION-ORIGIN",
+      "source_constraint_id": "CON-ACCEL-ORIGIN-001",
+      "statement": "The physical origin of late-time acceleration remains unresolved through Q039.",
+      "status": "OPEN"
+    },
+    {
+      "id": "LIM-EDE-NOT-ESTABLISHED",
+      "source_mechanism_id": "MECH-EDE-N3-001",
+      "statement": "n=3 EDE is constrained and active but is not established as a complete Hubble-tension solution.",
+      "status": "UNRESOLVED"
+    },
+    {
+      "id": "LIM-Q039-CAUSAL",
+      "source_constraint_id": "CON-Q039-002",
+      "statement": "Q039 does not establish a physical calibration error, foreground contamination, covariance defect, instrumental failure, likelihood superiority, EDE detection/falsification, or new physics.",
+      "status": "SCOPE_LIMIT"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

@@ -1,0 +1,43 @@
+{
+  "domains": [
+    {
+      "id": "DOM-MODEL-Q001-Q039",
+      "q_access_end": "Q039",
+      "q_access_start": "Q001",
+      "statement": "This accepted formalization covers Bubbleverse evidence authorized from Q001 through Q039 only; it includes no evidence beyond the authorized Q039 boundary.",
+      "status": "ACTIVE_BOUNDARY"
+    },
+    {
+      "equation_ref": "EQ-GAUSSIAN-TENSION",
+      "id": "DOM-GAUSSIAN-TENSION",
+      "statement": "The gaussian-tension operation is valid only as a simple independent-Gaussian marginal comparison; it is not a general joint-likelihood significance calculator.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "equation_ref": "EQ-IVW-MEAN",
+      "id": "DOM-WEIGHTED-MEAN",
+      "statement": "The weighted-mean operation does not determine whether scientific inputs should be combined; suitability must be established outside the arithmetic operation.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "id": "DOM-Q039-INTERVENTIONS",
+      "source_constraint_ids": [
+        "CON-Q039-001",
+        "CON-Q039-002"
+      ],
+      "statement": "Q039 excludes the tested relative-calibration, native off-diagonal precision, tested combination, and foreground-profiling blocks as sufficient single explanations under locked conditions; it does not identify a unique deeper cause.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "benchmark_refs": [
+        "BENCH-H0-CMB",
+        "BENCH-H0-BAOBBN"
+      ],
+      "id": "DOM-LCDM-BENCHMARKS",
+      "statement": "The accepted CMB and DESI+BBN H0 benchmark numbers are inference-route outputs under their recorded flat-LCDM conditions; they are not universal model-independent measurements.",
+      "status": "SCOPE_LIMIT"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

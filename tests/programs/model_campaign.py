@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, re, shutil, subprocess
+import argparse, json, re, shutil, subprocess, sys
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -218,9 +218,21 @@ def main():
     args=ap.parse_args()
     res=audit()
     failed=[k for k,v in res.items() if v[0]!="PASS"]
+    # BUBBLEVERSE_FORMAL_MODEL_GATE_V1
+    formal=subprocess.run(
+        [sys.executable, str(ROOT/"tests/programs/formal_model_validate.py")],
+        cwd=ROOT, text=True, capture_output=True
+    )
+    print(formal.stdout, end="")
+    if formal.stderr:
+        print(formal.stderr, end="")
+    formal_failed=(formal.returncode != 0)
     for k,(s,d) in res.items(): print(f"{k}={s} {d}")
     if args.command=="validate":
-        raise SystemExit(1 if failed else 0)
+        raise SystemExit(1 if (failed or formal_failed) else 0)
+    if formal_failed:
+        print("FORMAL-MODEL-GATE=FAIL Promotion blocked.")
+        raise SystemExit(1)
     campaign=write_results(res)
     promoted=promote(campaign)
     write_release(campaign,promoted)

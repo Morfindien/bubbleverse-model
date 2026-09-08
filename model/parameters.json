@@ -1,0 +1,29 @@
+{
+  "parameters": [
+    {
+      "benchmark_refs": [
+        "BENCH-H0-LOCAL",
+        "BENCH-H0-CMB",
+        "BENCH-H0-BAOBBN"
+      ],
+      "id": "PAR-H0",
+      "name": "Hubble constant / present expansion-rate parameter",
+      "rule": "Preserve inference-chain identity; do not replace the three accepted benchmarks by one raw measurement.",
+      "symbol": "H0",
+      "units": "km s^-1 Mpc^-1",
+      "value": null,
+      "value_status": "MULTIPLE_ACCEPTED_INFERENCE_CHAINS_NOT_COLLAPSED"
+    },
+    {
+      "id": "PAR-EDE-N-SCF",
+      "name": "n=3 early-dark-energy model index used by the active constrained EDE mechanism",
+      "source_mechanism_id": "MECH-EDE-N3-001",
+      "symbol": "n_scf",
+      "units": "dimensionless",
+      "value": 3,
+      "value_status": "DEFINED_BY_ACCEPTED_MECHANISM"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

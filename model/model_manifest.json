@@ -1,0 +1,39 @@
+{
+  "accepted_model_version": "v0.1",
+  "artifact_type": "BUBBLEVERSE_FORMAL_MODEL_LAYER",
+  "current_q": "Q039",
+  "description": "Machine-readable formalization of the accepted Bubbleverse v0.1 state through Q039. Unknowns remain explicit and no candidate is promoted by this installation.",
+  "evidence_refs": [
+    "EVD-MANUSCRIPT-Q001-Q039",
+    "EVD-Q039-IMPLBLOCK",
+    "EVD-Q039-FGPROFILE"
+  ],
+  "formal_files": [
+    "parameters.json",
+    "equations.json",
+    "assumptions.json",
+    "uncertainty.json",
+    "domain_of_validity.json",
+    "limitations.json",
+    "input_schema.json",
+    "output_schema.json",
+    "benchmarks.json",
+    "environment.json"
+  ],
+  "formal_model_version": "v0.1-formalization-1",
+  "formalization_rule": "NO_NEW_SCIENTIFIC_CLAIMS_OR_NUMERIC_VALUES",
+  "model_revision": "R000001",
+  "q_access_end": "Q039",
+  "q_access_start": "Q001",
+  "schema_version": 1,
+  "scientific_change": false,
+  "source_layers": [
+    "accepted/model_state.json",
+    "accepted/observations.json",
+    "accepted/constraints.json",
+    "accepted/mechanisms.json",
+    "accepted/robustness.json",
+    "evidence/evidence_registry.json",
+    "release/MODEL_RELEASE_HANDOFF.json"
+  ]
+}

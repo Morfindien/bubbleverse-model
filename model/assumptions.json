@@ -1,0 +1,51 @@
+{
+  "assumptions": [
+    {
+      "id": "ASSUMP-INDEPENDENT-GAUSSIAN",
+      "scope": "gaussian-tension calculation only",
+      "statement": "The simple tension calculator treats the supplied marginal uncertainties as independent Gaussian standard deviations.",
+      "status": "EXPLICIT_COMPUTATIONAL_ASSUMPTION"
+    },
+    {
+      "id": "ASSUMP-IVW-COMPATIBILITY",
+      "scope": "weighted-mean calculation only",
+      "statement": "Inverse-variance weighting is meaningful only when the supplied estimates are scientifically suitable to combine and the supplied sigmas represent the relevant uncertainties.",
+      "status": "EXPLICIT_COMPUTATIONAL_ASSUMPTION"
+    },
+    {
+      "id": "ASSUMP-H0-INFERENCE-CHAIN-SEPARATION",
+      "source_constraint_id": "CON-H0-001",
+      "statement": "The three active H0 benchmarks are distinct inference chains and must not be treated as identical raw measurements.",
+      "status": "ACCEPTED_MODEL_CONSTRAINT"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-CMB",
+      "id": "ASSUMP-CMB-BENCH-FLAT-LCDM",
+      "statement": "The accepted combined CMB H0 benchmark is conditional on the flat LCDM inference route recorded in accepted observations.",
+      "status": "BENCHMARK_CONDITION"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-BAOBBN",
+      "id": "ASSUMP-BAOBBN-BENCH-FLAT-LCDM",
+      "statement": "The accepted DESI DR2 + BBN H0 benchmark is conditional on the flat LCDM route recorded in accepted observations.",
+      "status": "BENCHMARK_CONDITION"
+    },
+    {
+      "id": "ASSUMP-EDE-LIKELIHOOD-DEPENDENCE",
+      "source_mechanism_id": "MECH-EDE-N3-001",
+      "statement": "High-H0 n=3 EDE viability is dataset-, likelihood-, basin-, and implementation-dependent in the accepted state.",
+      "status": "ACCEPTED_MODEL_CONSTRAINT"
+    },
+    {
+      "id": "ASSUMP-Q039-LOCKED-SCOPE",
+      "source_constraint_ids": [
+        "CON-Q039-001",
+        "CON-Q039-002"
+      ],
+      "statement": "Q039 conclusions apply to the tested locked interventions and do not establish a unique physical cause for the CamSpec-HiLLiPoP discrepancy.",
+      "status": "ACCEPTED_MODEL_SCOPE"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

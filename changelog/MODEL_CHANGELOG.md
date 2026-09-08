@@ -21,3 +21,9 @@
 - Replaced placeholder model-repository provenance with a real reachable Git commit.
 - Patched campaign promotion logic so these integrity defects are not regenerated.
 - Scientific claims, Q boundary, evidence registry, constraints, mechanisms and predictions unchanged.
+
+## R000004 — formal scientific model layer
+- Added machine-readable parameter, benchmark, equation, assumption, uncertainty, validity-domain, limitation, I/O-schema and execution-environment registries.
+- Added FORMAL-MODEL-v0.1-001 validator and connected it to the normal model validation gate.
+- Historical nine-test scientific campaign remains unchanged; the formal model gate is an additional integrity/schema gate.
+- Scientific claims and Q001-Q039 evidence state unchanged.

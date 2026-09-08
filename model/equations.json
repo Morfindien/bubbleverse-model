@@ -1,0 +1,43 @@
+{
+  "equations": [
+    {
+      "assumption_refs": [],
+      "expression": "delta = a - b",
+      "id": "EQ-DIFFERENCE",
+      "implementation_operation": "difference",
+      "name": "Signed difference",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "assumption_refs": [
+        "ASSUMP-INDEPENDENT-GAUSSIAN"
+      ],
+      "expression": "N_sigma = abs(a-b) / sqrt(sigma_a^2 + sigma_b^2)",
+      "id": "EQ-GAUSSIAN-TENSION",
+      "implementation_operation": "gaussian-tension",
+      "interpretation_limit": "A large N_sigma is not by itself a detection of new physics.",
+      "name": "Simple independent-Gaussian marginal tension",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "assumption_refs": [],
+      "expression": "percent_change = 100 * (to - from) / from",
+      "id": "EQ-PERCENT-SHIFT",
+      "implementation_operation": "percent-shift",
+      "name": "Relative percent change",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "assumption_refs": [
+        "ASSUMP-IVW-COMPATIBILITY"
+      ],
+      "expression": "w_i=1/sigma_i^2; mean=sum(w_i*x_i)/sum(w_i); sigma_mean=sqrt(1/sum(w_i))",
+      "id": "EQ-IVW-MEAN",
+      "implementation_operation": "weighted-mean",
+      "name": "Inverse-variance weighted mean",
+      "status": "IMPLEMENTED"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

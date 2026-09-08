@@ -1,0 +1,31 @@
+{
+  "calculation_result_types": [
+    "difference",
+    "gaussian-tension",
+    "percent-shift",
+    "weighted-mean"
+  ],
+  "common_fields": [
+    "operation"
+  ],
+  "failure_contract": {
+    "required_fields": [
+      "operation",
+      "status",
+      "error"
+    ],
+    "status": "FAIL"
+  },
+  "primary_artifact": "run-output/result.json",
+  "schema_version": 1,
+  "test_contract": {
+    "non_destructive": true,
+    "required_fields": [
+      "tests_total",
+      "tests_passed",
+      "tests_failed",
+      "all_green",
+      "tests"
+    ]
+  }
+}

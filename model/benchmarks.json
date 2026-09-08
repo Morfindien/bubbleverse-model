@@ -1,0 +1,42 @@
+{
+  "benchmarks": [
+    {
+      "id": "BENCH-H0-LOCAL",
+      "inference_chain": "local distance network",
+      "not_raw_measurement": true,
+      "parameter_symbol": "H0",
+      "route": "H0 Distance Network",
+      "sigma": 0.81,
+      "source_observation_id": "OBS-H0-LOCAL-001",
+      "status": "ACTIVE_BENCHMARK",
+      "units": "km s^-1 Mpc^-1",
+      "value": 73.5
+    },
+    {
+      "id": "BENCH-H0-CMB",
+      "inference_chain": "CMB cosmological inference",
+      "not_raw_measurement": true,
+      "parameter_symbol": "H0",
+      "route": "Planck + SPT-3G + ACT DR6, flat LCDM",
+      "sigma": 0.35,
+      "source_observation_id": "OBS-H0-CMB-001",
+      "status": "ACTIVE_BENCHMARK",
+      "units": "km s^-1 Mpc^-1",
+      "value": 67.24
+    },
+    {
+      "id": "BENCH-H0-BAOBBN",
+      "inference_chain": "BAO standard ruler + BBN",
+      "not_raw_measurement": true,
+      "parameter_symbol": "H0",
+      "route": "DESI DR2 + BBN, flat LCDM",
+      "sigma": 0.58,
+      "source_observation_id": "OBS-H0-BAOBBN-001",
+      "status": "ACTIVE_BENCHMARK",
+      "units": "km s^-1 Mpc^-1",
+      "value": 68.51
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}
