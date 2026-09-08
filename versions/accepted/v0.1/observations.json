@@ -1,0 +1,60 @@
+{
+  "observations": [
+    {
+      "claim": "The observable universe is dynamically evolving; redshift, distance, and time relations support an evolving large-scale geometry.",
+      "epistemic_level": "inference from multiple observable relations",
+      "id": "OBS-COSMIC-EVOLUTION-001",
+      "status": "SUPPORTED"
+    },
+    {
+      "claim": "CMB, expansion, and light-element evidence support a hotter and denser early phase; this does not establish a physical singularity.",
+      "epistemic_level": "multi-probe physical inference",
+      "id": "OBS-HOT-DENSE-PAST-001",
+      "status": "SUPPORTED"
+    },
+    {
+      "claim": "Within the standard gravitational framework, observed gravitational behavior requires a substantial non-luminous gravitating component; its microscopic identity is unknown.",
+      "epistemic_level": "phenomenon supported; particle identity unresolved",
+      "id": "OBS-MISSING-MASS-001",
+      "status": "SUPPORTED"
+    },
+    {
+      "claim": "Late-time acceleration is strongly supported within the relevant relativistic cosmological framework; its microscopic cause is unresolved.",
+      "epistemic_level": "model-dependent physical inference",
+      "id": "OBS-LATE-ACCEL-001",
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "OBS-H0-LOCAL-001",
+      "inference_chain": "local distance network",
+      "not_raw_measurement": true,
+      "route": "H0 Distance Network",
+      "sigma": 0.81,
+      "status": "ACTIVE_BENCHMARK",
+      "units": "km s^-1 Mpc^-1",
+      "value": 73.5
+    },
+    {
+      "id": "OBS-H0-CMB-001",
+      "inference_chain": "CMB cosmological inference",
+      "not_raw_measurement": true,
+      "route": "Planck + SPT-3G + ACT DR6, flat LCDM",
+      "sigma": 0.35,
+      "status": "ACTIVE_BENCHMARK",
+      "units": "km s^-1 Mpc^-1",
+      "value": 67.24
+    },
+    {
+      "id": "OBS-H0-BAOBBN-001",
+      "inference_chain": "BAO standard ruler + BBN",
+      "not_raw_measurement": true,
+      "route": "DESI DR2 + BBN, flat LCDM",
+      "sigma": 0.58,
+      "status": "ACTIVE_BENCHMARK",
+      "units": "km s^-1 Mpc^-1",
+      "value": 68.51
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

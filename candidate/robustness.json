@@ -1,0 +1,41 @@
+{
+  "items": [
+    {
+      "finding": "Cosmological parameter estimates must preserve inference-chain provenance and shared dependencies.",
+      "id": "ROB-INF-CHAIN-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "High-H0 n=3 EDE viability is not a generic property of 'the CMB'; Planck, SPT-3G, and ACT respond differently on matched surfaces.",
+      "id": "ROB-EDE-LIKE-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "ACT spectrum/multipole attribution changes materially across corrected basins; the earlier TE/intermediate-l pattern is not basin-independent.",
+      "id": "ROB-EDE-BASIN-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "Historical stable versus non-stable CamSpec basin labels were classifier-dependent; endpoint geometry remains valid while the binary label interpretation changed.",
+      "id": "ROB-CLASSIFIER-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "A material continuous CamSpec-HiLLiPoP endpoint-geometry difference survives common normalized and exact-TT support comparisons and is distributed across multiple coordinates.",
+      "id": "ROB-PLANCK-GEOM-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "Q039 single-block interventions fail to remove the surviving geometry difference; remaining explanatory space is structurally coupled and unresolved.",
+      "id": "ROB-Q039-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "Q039 V1-V4 failures are technical recovery provenance only and are excluded from physical evidence; V5 and FGPROFILE V1 are authoritative.",
+      "id": "ROB-TECH-001",
+      "status": "ACTIVE"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

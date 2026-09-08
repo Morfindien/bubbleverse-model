@@ -1,0 +1,36 @@
+{
+  "contradictions": [
+    {
+      "description": "High local H0 conflicts with lower CMB and BAO+BBN inferences.",
+      "id": "CTR-H0-001",
+      "resolution": "Unresolved through Q039; preserve chain distinctions and dependencies.",
+      "results": [
+        "OBS-H0-LOCAL-001",
+        "OBS-H0-CMB-001",
+        "OBS-H0-BAOBBN-001"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "description": "CamSpec and HiLLiPoP produce materially different fitted endpoint geometry on overlapping Planck PR4/NPIPE information.",
+      "id": "CTR-PLANCK-IMPL-001",
+      "resolution": "Classifier semantics, unequal TT support, relative calibration, off-diagonal precision coupling, tested combined calibration+precision, and native foreground profiling freedom are insufficient single explanations under authorized tests; deeper coupled implementation differences remain unisolated.",
+      "results": [
+        "ROB-PLANCK-GEOM-001",
+        "ROB-Q039-001"
+      ],
+      "status": "OPEN_NARROWED"
+    },
+    {
+      "description": "Historical stable vs later non-stable basin labels appeared contradictory.",
+      "id": "CTR-HIST-BASIN-LABEL-001",
+      "resolution": "Crosswalk showed classifier dependence rather than demonstrated disappearance of classifier-invariant geometry.",
+      "results": [
+        "ROB-CLASSIFIER-001"
+      ],
+      "status": "RESOLVED_METHODOLOGICALLY"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

@@ -1,0 +1,45 @@
+{
+  "current_q": "Q039",
+  "entries": [
+    {
+      "evidence_id": "EVD-MANUSCRIPT-Q001-Q039",
+      "q_range": "Q001-Q039",
+      "sha256": "77c5ad00474110e9935f0e55891b5135911dcb603c24f64c22fdb14d406b6b82",
+      "source": "bubblevers 0.39.docx",
+      "status": "AUTHORIZED",
+      "type": "WORD_MANUSCRIPT_SYNTHESIS"
+    },
+    {
+      "evidence_id": "EVD-Q039-IMPLBLOCK",
+      "head_sha": "365217d4a4ca21e0af3b296c0e6b23df7e07ba60",
+      "program_id": "Q039-IMPLBLOCK-V5",
+      "q_id": "Q039",
+      "result_id": "R-Q039-EDE-IMPLEMENTATION-BLOCK-INTERVENTION-001",
+      "run_id": "34161368438",
+      "scientific_status": "VALIDATED_NEGATIVE_RESULT",
+      "validation_status": "PASS",
+      "workflow_id": "q039-implementation-block-intervention-v5.yml"
+    },
+    {
+      "evidence_id": "EVD-Q039-FGPROFILE",
+      "head_sha": "449fe096e49a793446c0c859cf8caf0fcdaf4c8f",
+      "program_id": "Q039-FGPROFILE-V1",
+      "q_id": "Q039",
+      "result_id": "R-Q039-EDE-NATIVE-FOREGROUND-PROFILE-001",
+      "run_id": "34184346582",
+      "scientific_status": "VALIDATED_NEGATIVE_RESULT",
+      "validation_status": "PASS",
+      "workflow_id": "q039-native-foreground-profile-v1.yml"
+    },
+    {
+      "evidence_id": "EVD-Q039-V1-V4",
+      "q_id": "Q039",
+      "scientific_evidence": false,
+      "status": "SUPERSEDED",
+      "type": "TECHNICAL_RECOVERY_PROVENANCE"
+    }
+  ],
+  "q_access_end": "Q039",
+  "q_access_start": "Q001",
+  "schema_version": 1
+}

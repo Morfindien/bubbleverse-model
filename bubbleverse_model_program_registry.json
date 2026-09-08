@@ -1,0 +1,14 @@
+{
+  "programs": {
+    "BV-MODEL-CAMPAIGN-V1": {
+      "campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
+      "command": "test",
+      "path": "tests/programs/model_campaign.py",
+      "q_access_end": "Q039",
+      "q_access_start": "Q001",
+      "status": "ACTIVE",
+      "workflow_id": "00-bubbleverse-model-start.yml"
+    }
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,81 @@
+{
+  "campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
+  "candidate_model_version": "v0.1-candidate",
+  "q_access_end": "Q039",
+  "q_access_start": "Q001",
+  "schema_version": 1,
+  "tests": [
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "target_component": "Q identity and boundary schema",
+      "test_id": "T-BV-001",
+      "why_test_matters": "Candidate identity must be exactly Q001-Q039 / CURRENT_Q Q039."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "target_component": "High-Q contamination scan",
+      "test_id": "T-BV-002",
+      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q039."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "target_component": "H0 inference-chain invariant",
+      "test_id": "T-BV-003",
+      "why_test_matters": "Three active H0 benchmarks and their distinct inference-chain labels must remain intact."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "target_component": "Q039 provenance invariant",
+      "test_id": "T-BV-004",
+      "why_test_matters": "Both authoritative Q039 result IDs, program IDs, run IDs and PASS validation states must be present."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "target_component": "Technical/scientific separation",
+      "test_id": "T-BV-005",
+      "why_test_matters": "Q039 V1-V4 recovery failures must be explicitly non-scientific and superseded."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "target_component": "Q039 causal conservatism",
+      "test_id": "T-BV-006",
+      "why_test_matters": "Candidate must reject tested single blocks as sufficient without claiming a physical defect or EDE/new-physics verdict."
+    },
+    {
+      "category": "REGRESSION",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "target_component": "Contradiction preservation",
+      "test_id": "T-BV-007",
+      "why_test_matters": "H0 conflict and CamSpec-HiLLiPoP implementation-geometry contradiction must remain explicit."
+    },
+    {
+      "category": "REGRESSION",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "target_component": "Open-question preservation",
+      "test_id": "T-BV-008",
+      "why_test_matters": "Hubble tension, dark-matter identity and origin of acceleration must remain unresolved where the manuscript says unresolved."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "target_component": "JSON/schema/reference integrity",
+      "test_id": "T-BV-009",
+      "why_test_matters": "Required JSON files must parse and IDs must be unique within registries/layers."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "mechanisms": [
+    {
+      "id": "MECH-LCDM-001",
+      "name": "flat LCDM",
+      "scope": "Highly successful compact cosmological description; not identical to underlying reality and does not identify microscopic dark matter/dark energy.",
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "MECH-DYNDE-001",
+      "name": "dynamical dark energy",
+      "scope": "Model-comparison candidate; not directly observed as a changing field.",
+      "status": "ACTIVE"
+    },
+    {
+      "active": true,
+      "id": "MECH-EDE-N3-001",
+      "name": "n=3 early dark energy",
+      "scope": "Can access higher-H0 regions in tested profiles, but viability is strongly dataset-, likelihood-, basin-, and implementation-dependent; not established as a complete Hubble-tension solution.",
+      "status": "CONSTRAINED"
+    },
+    {
+      "active": true,
+      "id": "MECH-ME-001",
+      "name": "varying electron mass",
+      "scope": "Can reduce the drag-epoch ruler and move H0 upward in tested profiles, but transfers positive fit cost notably into BBN/DESI at high H0; not established as a complete solution.",
+      "status": "CONSTRAINED"
+    },
+    {
+      "id": "MECH-LOCAL-SINGLE-CAUSE-001",
+      "name": "tested ordinary local single-cause systematics",
+      "scope": "Can shift local inference but no tested ordinary single cause accounts for the full local/CMB/BAO+BBN discrepancy.",
+      "status": "REJECTED_AS_FULL_EXPLANATION"
+    },
+    {
+      "id": "MECH-Q039-CAL-001",
+      "name": "relative calibration as sole CamSpec-HiLLiPoP geometry explanation",
+      "scope": "Rejected as sufficient under Q039 locked intervention.",
+      "status": "REJECTED_AS_FULL_EXPLANATION"
+    },
+    {
+      "id": "MECH-Q039-PREC-001",
+      "name": "native off-diagonal precision coupling as sole explanation",
+      "scope": "Rejected as sufficient under Q039 locked intervention.",
+      "status": "REJECTED_AS_FULL_EXPLANATION"
+    },
+    {
+      "id": "MECH-Q039-FG-001",
+      "name": "native foreground nuisance profiling freedom as sole explanation",
+      "scope": "Sealed classification NATIVE_FOREGROUND_PROFILE_FREEDOM_REJECTED_AS_SUFFICIENT.",
+      "status": "REJECTED_AS_FULL_EXPLANATION"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

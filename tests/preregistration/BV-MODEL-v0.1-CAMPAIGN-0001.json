@@ -1,0 +1,20 @@
+{
+  "candidate_model_version": "v0.1-candidate",
+  "current_q": "Q039",
+  "failure_rule": "Any FAIL, BLOCKED, TECHNICAL_FAIL, INVALID_RESULT, INCONCLUSIVE, NOT_COMPARABLE, READY or RUNNING among mandatory tests blocks promotion.",
+  "locked_assumptions": [
+    "No Q040+ scientific content.",
+    "No external internet scientific evidence.",
+    "No averaging of incompatible H0 inference chains.",
+    "Q039 V1-V4 are technical provenance only.",
+    "Q039 V5 and FGPROFILE V1 conclusions are negative/narrowing, not detections."
+  ],
+  "locked_at": "2026-09-08T10:25:00+02:00",
+  "q_access_end": "Q039",
+  "q_access_start": "Q001",
+  "schema_version": 1,
+  "scientific_scope": "Bootstrap integration validation only. Reuses already validated Q001-Q039 scientific results; does not reinterpret GitHub workflow success as new observational evidence.",
+  "stop_condition": "Stop immediately on boundary contamination or schema/provenance failure.",
+  "success_rule": "Every T-BV-001 through T-BV-009 must explicitly PASS; otherwise no promotion.",
+  "test_campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001"
+}

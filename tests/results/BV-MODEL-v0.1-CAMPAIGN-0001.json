@@ -1,0 +1,66 @@
+{
+  "all_mandatory_green": true,
+  "candidate_model_version": "v0.1-candidate",
+  "mandatory_tests_passed": 9,
+  "mandatory_tests_total": 9,
+  "q_access_end": "Q039",
+  "q_access_start": "Q001",
+  "schema_version": 1,
+  "test_campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
+  "tests": [
+    {
+      "detail": "Candidate identity and hard Q boundary are exact.",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "test_id": "T-BV-001"
+    },
+    {
+      "detail": "Highest Q identifier in scientific candidate/evidence JSON is Q039.",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "test_id": "T-BV-002"
+    },
+    {
+      "detail": "H0 benchmarks and distinct inference chains preserved.",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "test_id": "T-BV-003"
+    },
+    {
+      "detail": "Authoritative Q039 identities and PASS provenance preserved.",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "test_id": "T-BV-004"
+    },
+    {
+      "detail": "Q039 V1-V4 technical recoveries excluded from scientific evidence.",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "test_id": "T-BV-005"
+    },
+    {
+      "detail": "Q039 narrowing preserved without prohibited causal/new-physics promotion.",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "test_id": "T-BV-006"
+    },
+    {
+      "detail": "Required open contradictions remain explicit.",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "test_id": "T-BV-007"
+    },
+    {
+      "detail": "Major unresolved questions remain unresolved.",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "test_id": "T-BV-008"
+    },
+    {
+      "detail": "Required JSON parses and layer IDs are unique.",
+      "mandatory_for_promotion": true,
+      "status": "PASS",
+      "test_id": "T-BV-009"
+    }
+  ]
+}

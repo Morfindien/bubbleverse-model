@@ -1,0 +1,56 @@
+{
+  "constraints": [
+    {
+      "id": "CON-H0-001",
+      "statement": "The H0 conflict must be preserved as disagreement among distinct inference chains, not averaged into one raw measurement.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-H0-002",
+      "statement": "The H0 Distance Network versus combined CMB benchmark differs by about 7.1 sigma under the manuscript's simple marginal Gaussian comparison; this is not a 7.1 sigma detection of new physics.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-H0-003",
+      "statement": "DESI DR2 + BBN supplies a separate lower-H0 route without CMB anisotropy data, while retaining early-universe and sound-horizon model dependence.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-SYSTEMATICS-001",
+      "statement": "No tested ordinary single systematic in the authorized state reconciles the complete local, CMB, and BAO+BBN evidence by itself.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-EDE-001",
+      "statement": "Moving H0 upward is insufficient; n=3 EDE must satisfy the complete likelihood structure and its viability is experiment- and likelihood-dependent.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-GLOBALITY-001",
+      "statement": "Corrected high-H0 EDE basins are best-observed finite-search solutions, not proven mathematical global minima.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q039-001",
+      "statement": "Relative-calibration neutralization, removal of native off-diagonal precision coupling, their tested combination, and native foreground profiling freedom do not individually remove the CamSpec-HiLLiPoP geometry discrepancy under the locked Q039 conditions.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q039-002",
+      "statement": "Q039 does not identify a physical Planck calibration error, foreground contamination, covariance defect, instrumental failure, likelihood superiority, EDE preference/falsification, or new physics.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-DM-IDENTITY-001",
+      "statement": "The microscopic identity of dark matter remains unresolved through Q039.",
+      "status": "OPEN"
+    },
+    {
+      "id": "CON-ACCEL-ORIGIN-001",
+      "statement": "The physical origin of late-time acceleration remains unresolved through Q039.",
+      "status": "OPEN"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}

@@ -1,0 +1,52 @@
+{
+  "artifact_type": "BUBBLEVERSE_MODEL_LOCAL_PREFLIGHT",
+  "authoritative_for_promotion": false,
+  "campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
+  "current_q": "Q039",
+  "passed": 9,
+  "promotion": "BLOCKED",
+  "q_access_end": "Q039",
+  "q_access_start": "Q001",
+  "reason": "Executed against generated local candidate before repository write. GitHub integration returned 403 on write, so formal repository campaign cannot yet run.",
+  "repository_write_gate": "FAIL",
+  "schema_version": 1,
+  "tests": [
+    {
+      "status": "PASS",
+      "test_id": "T-BV-001"
+    },
+    {
+      "status": "PASS",
+      "test_id": "T-BV-002"
+    },
+    {
+      "status": "PASS",
+      "test_id": "T-BV-003"
+    },
+    {
+      "status": "PASS",
+      "test_id": "T-BV-004"
+    },
+    {
+      "status": "PASS",
+      "test_id": "T-BV-005"
+    },
+    {
+      "status": "PASS",
+      "test_id": "T-BV-006"
+    },
+    {
+      "status": "PASS",
+      "test_id": "T-BV-007"
+    },
+    {
+      "status": "PASS",
+      "test_id": "T-BV-008"
+    },
+    {
+      "status": "PASS",
+      "test_id": "T-BV-009"
+    }
+  ],
+  "total": 9
+}

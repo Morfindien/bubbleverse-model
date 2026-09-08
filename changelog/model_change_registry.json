@@ -1,0 +1,15 @@
+{
+  "changes": [
+    {
+      "accepted_after": null,
+      "candidate": "v0.1-candidate",
+      "current_q": "Q039",
+      "date": "2026-09-08T10:25:00+02:00",
+      "model_revision": "R000001",
+      "q_access_end": "Q039",
+      "q_access_start": "Q001",
+      "status": "BOOTSTRAP_CANDIDATE_READY_FOR_TEST"
+    }
+  ],
+  "schema_version": 1
+}

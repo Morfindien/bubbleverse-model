@@ -1,0 +1,27 @@
+{
+  "changes": [
+    {
+      "change_type": "ADD",
+      "reason": "No prior accepted model exists.",
+      "scope": "bootstrap model"
+    },
+    {
+      "change_type": "RESTRICT",
+      "reason": "Validated Q039 single-block and native-foreground interventions are insufficient.",
+      "scope": "Q039 Planck-likelihood implementation explanation space"
+    },
+    {
+      "change_type": "NO_CHANGE",
+      "reason": "Q039 is methodological evidence and does not establish/falsify EDE.",
+      "scope": "n=3 EDE establishment status"
+    }
+  ],
+  "current_q": "Q039",
+  "from_accepted_model": null,
+  "mode": "BOOTSTRAP",
+  "model_revision": "R000001",
+  "q_access_end": "Q039",
+  "q_access_start": "Q001",
+  "schema_version": 1,
+  "to_candidate_model": "v0.1-candidate"
+}

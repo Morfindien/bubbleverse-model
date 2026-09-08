@@ -1,0 +1,48 @@
+{
+  "provenance": {
+    "source_repository": "Morfindien/Bubbleverse",
+    "word_file": "bubblevers 0.39.docx",
+    "word_sha256": "77c5ad00474110e9935f0e55891b5135911dcb603c24f64c22fdb14d406b6b82"
+  },
+  "q_access_boundary": "Q001-Q039",
+  "q_id": "Q039",
+  "schema_version": 1,
+  "scientific_changes": [
+    {
+      "change_type": "RESTRICT",
+      "conclusion": "Relative calibration, native off-diagonal precision coupling, and their predefined combination are rejected as sufficient single explanations under the locked conditions.",
+      "execution_head": "365217d4a4ca21e0af3b296c0e6b23df7e07ba60",
+      "final_result_gate": "PASS",
+      "program_id": "Q039-IMPLBLOCK-V5",
+      "result_id": "R-Q039-EDE-IMPLEMENTATION-BLOCK-INTERVENTION-001",
+      "run_id": "34161368438",
+      "target": "CTR-PLANCK-IMPL-001"
+    },
+    {
+      "artifact_sha256": "5af2927dd93031aeca432866459f380aa368523eb260fc80f9e5a1b79169b93c",
+      "change_type": "RESTRICT",
+      "classification": "NATIVE_FOREGROUND_PROFILE_FREEDOM_REJECTED_AS_SUFFICIENT",
+      "execution_head": "449fe096e49a793446c0c859cf8caf0fcdaf4c8f",
+      "final_result_gate": "PASS",
+      "jobs_complete": "18/18",
+      "program_id": "Q039-FGPROFILE-V1",
+      "result_id": "R-Q039-EDE-NATIVE-FOREGROUND-PROFILE-001",
+      "run_id": "34184346582",
+      "target": "CTR-PLANCK-IMPL-001"
+    },
+    {
+      "change_type": "NO_CHANGE",
+      "conclusion": "Q039 does not prefer, falsify, or establish n=3 EDE and does not constitute new observational evidence.",
+      "target": "MECH-EDE-N3-001"
+    }
+  ],
+  "status": "VALIDATED_NEGATIVE_AND_NARROWING_RESULTS",
+  "supersession": [
+    {
+      "scientific_evidence": false,
+      "scope": "Q039 V1-V4 implementation-block executions",
+      "status": "SUPERSEDED_TECHNICAL_RECOVERY_ONLY",
+      "superseded_by": "Q039-IMPLBLOCK-V5"
+    }
+  ]
+}

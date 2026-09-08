@@ -1,0 +1,24 @@
+{
+  "predictions": [
+    {
+      "future_q_evidence_used": false,
+      "id": "PRED-H0-INDEPENDENT-001",
+      "statement": "A future roughly one-percent H0 determination nearly independent of both stellar distance-ladder calibration and early-universe sound-horizon calibration would strongly discriminate among current inference chains.",
+      "status": "OPEN"
+    },
+    {
+      "future_q_evidence_used": false,
+      "id": "PRED-EDE-PORTABILITY-001",
+      "statement": "A robust high-H0 n=3 EDE explanation should remain scientifically viable across genuinely matched likelihood implementations rather than only within one favorable construction.",
+      "status": "OPEN"
+    },
+    {
+      "future_q_evidence_used": false,
+      "id": "PRED-Q039-COUPLED-001",
+      "statement": "A future preregistered coupled likelihood/data-vector harmonization test can discriminate whether the residual CamSpec-HiLLiPoP geometry difference is removed only by jointly changing multiple implementation layers.",
+      "status": "PROPOSAL_ONLY"
+    }
+  ],
+  "q_access_end": "Q039",
+  "schema_version": 1
+}
