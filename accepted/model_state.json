@@ -7,12 +7,12 @@
   "current_q": "Q039",
   "knowledge_boundary": "Q001-Q039",
   "layers": {
-    "constraints": "candidate/constraints.json",
-    "contradictions": "candidate/contradictions.json",
-    "mechanisms": "candidate/mechanisms.json",
-    "observations": "candidate/observations.json",
-    "predictions": "candidate/predictions.json",
-    "robustness": "candidate/robustness.json"
+    "constraints": "accepted/constraints.json",
+    "contradictions": "accepted/contradictions.json",
+    "mechanisms": "accepted/mechanisms.json",
+    "observations": "accepted/observations.json",
+    "predictions": "accepted/predictions.json",
+    "robustness": "accepted/robustness.json"
   },
   "mode": "BOOTSTRAP_MODE",
   "model_repository": "Morfindien/Bubbleverse-model",

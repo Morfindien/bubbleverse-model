@@ -14,3 +14,10 @@
 - 9/9 mandatory tests PASS.
 - v0.1-candidate promoted to accepted v0.1.
 - NEXT_WORD_AUTHORIZED = true.
+
+## R000003 — model integrity repair
+- Corrected accepted layer paths from mutable candidate/ paths to accepted/ paths.
+- Added explicit candidate promotion state for v0.1.
+- Replaced placeholder model-repository provenance with a real reachable Git commit.
+- Patched campaign promotion logic so these integrity defects are not regenerated.
+- Scientific claims, Q boundary, evidence registry, constraints, mechanisms and predictions unchanged.

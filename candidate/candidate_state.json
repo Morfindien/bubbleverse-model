@@ -1,5 +1,5 @@
 {
-  "accepted_model_version": null,
+  "accepted_model_version": "v0.1",
   "artifact_type": "BUBBLEVERSE_MODEL_STATE",
   "candidate_model_version": "v0.1-candidate",
   "created_at": "2026-09-08T10:25:00+02:00",
@@ -17,13 +17,14 @@
   "model_repository": "Morfindien/Bubbleverse-model",
   "model_revision": "R000001",
   "processed_through_q": "Q039",
+  "promotion_status": "PROMOTED_TO_v0.1",
   "q_access_end": "Q039",
   "q_access_start": "Q001",
   "schema_version": 1,
   "scientific_rule": "Best current compression of validated Bubbleverse state inside the authorized Q range; not established truth.",
   "source_bubbleverse_commit": "449fe096e49a793446c0c859cf8caf0fcdaf4c8f",
   "source_repository": "Morfindien/Bubbleverse",
-  "status": "CANDIDATE_NOT_YET_ACCEPTED",
+  "status": "CANDIDATE_PROMOTED",
   "word_input_filename": "bubblevers 0.39.docx",
   "word_input_sha256": "77c5ad00474110e9935f0e55891b5135911dcb603c24f64c22fdb14d406b6b82"
 }

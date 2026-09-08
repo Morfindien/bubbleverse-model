@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, re, shutil
+import argparse, json, re, shutil, subprocess
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -123,14 +123,28 @@ def promote(campaign):
     if not campaign["all_mandatory_green"]:
         return False
     cand=load("candidate/candidate_state.json")
+    cand["accepted_model_version"]="v0.1"
+    cand["promotion_status"]="PROMOTED_TO_v0.1"
+    cand["status"]="CANDIDATE_PROMOTED"
+    dump("candidate/candidate_state.json",cand)
+
     accepted=dict(cand)
     accepted["status"]="ACCEPTED"
     accepted["accepted_model_version"]="v0.1"
     accepted["candidate_model_version"]=None
     accepted["accepted_at"]="GITHUB_ACTIONS_CAMPAIGN"
-    dump("accepted/model_state.json",accepted)
+    accepted.pop("promotion_status",None)
+    accepted["layers"]={
+        "constraints":"accepted/constraints.json",
+        "contradictions":"accepted/contradictions.json",
+        "mechanisms":"accepted/mechanisms.json",
+        "observations":"accepted/observations.json",
+        "predictions":"accepted/predictions.json",
+        "robustness":"accepted/robustness.json"
+    }
     for name in ["observations","constraints","mechanisms","predictions","contradictions","robustness"]:
         shutil.copy2(ROOT/f"candidate/{name}.json",ROOT/f"accepted/{name}.json")
+    dump("accepted/model_state.json",accepted)
     md=(ROOT/"candidate/MODEL_CANDIDATE.md").read_text(encoding="utf-8")
     md=md.replace("# BUBBLEVERSE MODEL CANDIDATE","# BUBBLEVERSE ACCEPTED MODEL",1)
     md=md.replace("**NOT YET ACCEPTED**","**ACCEPTED — v0.1**",1)
@@ -147,6 +161,14 @@ def write_release(campaign,promoted):
     total=campaign["mandatory_tests_total"]; passed=campaign["mandatory_tests_passed"]
     allg=campaign["all_mandatory_green"] and promoted
     r=load("release/MODEL_RELEASE_HANDOFF.json")
+    try:
+        model_commit=subprocess.check_output(
+            ["git","rev-parse","HEAD"],cwd=ROOT,text=True,stderr=subprocess.DEVNULL
+        ).strip()
+        if not re.fullmatch(r"[0-9a-fA-F]{40}",model_commit):
+            raise ValueError("git rev-parse did not return a 40-hex SHA")
+    except Exception:
+        model_commit=r.get("model_repository_commit")
     r.update({
       "accepted_model_after":"v0.1" if allg else None,
       "mandatory_tests_passed":passed,
@@ -164,7 +186,7 @@ def write_release(campaign,promoted):
       "next_word_authorized":allg,
       "release_status":"ALL_GREEN" if allg else "BLOCKED",
       "repository_write_gate":"PASS" if allg else r.get("repository_write_gate","PENDING"),
-      "model_repository_commit":"SEE_REPOSITORY_COMMIT_CONTAINING_THIS_HANDOFF" if allg else r.get("model_repository_commit"),
+      "model_repository_commit":model_commit if allg else r.get("model_repository_commit"),
       "blocking_items":[] if allg else [x["test_id"] for x in campaign["tests"] if x["status"]!="PASS"],
       "blocking_reason":None if allg else "One or more mandatory model tests failed."
     })
