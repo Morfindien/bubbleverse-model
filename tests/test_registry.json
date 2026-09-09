@@ -1,13 +1,17 @@
 {
-  "campaign_id": "BV-MODEL-v0.1-CAMPAIGN-0001",
-  "candidate_model_version": "v0.1-candidate",
-  "q_access_end": "Q039",
+  "accepted_model_version": "v0.2",
+  "campaign_id": "BV-MODEL-v0.2-CAMPAIGN-0002",
+  "candidate_model_version": "v0.2",
+  "current_q": "Q040",
+  "mode": "CURRENT_STATE_VALIDATION",
+  "q_access_end": "Q040",
   "q_access_start": "Q001",
   "schema_version": 1,
   "tests": [
     {
       "category": "MANDATORY_PROMOTION",
-      "mandatory_for_promotion": true,
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "Q identity and boundary schema",
       "test_id": "T-BV-001",
@@ -15,7 +19,8 @@
     },
     {
       "category": "MANDATORY_PROMOTION",
-      "mandatory_for_promotion": true,
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "High-Q contamination scan",
       "test_id": "T-BV-002",
@@ -23,7 +28,8 @@
     },
     {
       "category": "MANDATORY_PROMOTION",
-      "mandatory_for_promotion": true,
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "H0 inference-chain invariant",
       "test_id": "T-BV-003",
@@ -31,7 +37,8 @@
     },
     {
       "category": "MANDATORY_PROMOTION",
-      "mandatory_for_promotion": true,
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "Q039 provenance invariant",
       "test_id": "T-BV-004",
@@ -39,7 +46,8 @@
     },
     {
       "category": "MANDATORY_PROMOTION",
-      "mandatory_for_promotion": true,
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "Technical/scientific separation",
       "test_id": "T-BV-005",
@@ -47,7 +55,8 @@
     },
     {
       "category": "MANDATORY_PROMOTION",
-      "mandatory_for_promotion": true,
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "Q039 causal conservatism",
       "test_id": "T-BV-006",
@@ -55,7 +64,8 @@
     },
     {
       "category": "REGRESSION",
-      "mandatory_for_promotion": true,
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "Contradiction preservation",
       "test_id": "T-BV-007",
@@ -63,7 +73,8 @@
     },
     {
       "category": "REGRESSION",
-      "mandatory_for_promotion": true,
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "Open-question preservation",
       "test_id": "T-BV-008",
@@ -71,7 +82,8 @@
     },
     {
       "category": "MANDATORY_PROMOTION",
-      "mandatory_for_promotion": true,
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "JSON/schema/reference integrity",
       "test_id": "T-BV-009",

@@ -86,6 +86,35 @@
       "q_access_start": "Q001",
       "scientific_change": false,
       "status": "EXTERNAL_ASTRONOMY_CATALOG_CONTEXT_INSTALLED"
+    },
+    {
+      "accepted_after": "v0.2",
+      "change_revision": "STRUCT-000007",
+      "current_q": "Q040",
+      "date": "2026-09-09T04:16:01.821842+00:00",
+      "formal_model_version": "v0.2-formalization-1",
+      "metadata_sync": true,
+      "model_revision": "R000002",
+      "q_access_end": "Q040",
+      "q_access_start": "Q001",
+      "repair_status": "Q040_POST_PROMOTION_CONSISTENCY_REPAIRED",
+      "scientific_change": false,
+      "source_bubbleverse_commit": "855a28c58246dbdd52d01cae1f40e0611103d96b",
+      "status": "CURRENT_STATE_METADATA_SYNC"
+    },
+    {
+      "accepted_after": "v0.2",
+      "accepted_state_changed": false,
+      "change_revision": "STRUCT-000008",
+      "current_q": "Q040",
+      "date": "2026-09-09T04:16:01.821859+00:00",
+      "model_revision": "R000002",
+      "model_version_changed": false,
+      "q_access_end": "Q040",
+      "q_access_start": "Q001",
+      "q_boundary_changed": false,
+      "scientific_change": false,
+      "status": "REPOSITORY_CLEANUP"
     }
   ],
   "schema_version": 1

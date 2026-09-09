@@ -69,3 +69,16 @@
 - Replaced the legacy Q039-hardcoded campaign validator with a current-state validator.
 - Completed the frozen v0.2 snapshot with `MODEL_CURRENT.md` and current context registries.
 - Preserved Q040 `TECHNICAL_FAIL` as non-physical falsification.
+
+
+## Repository cleanup — Q040 post-promotion hygiene
+
+- Removed completed one-time Q040 updater and repair infrastructure from the active tree.
+- Removed stale secondary README copy.
+- Synchronized current README, release mirror and current test metadata to canonical accepted state.
+- Preserved accepted snapshots, evidence, provenance and historical test results.
+- Added runtime-clutter ignore rules.
+- Scientific change: false.
+- Accepted state changed: false.
+- Q boundary changed: false.
+- Model version changed: false.

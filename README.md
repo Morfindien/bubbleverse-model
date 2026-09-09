@@ -13,16 +13,18 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-- Mode: **BOOTSTRAP_MODE — accepted baseline established**
-- Authorized scientific range: **Q001–Q039**
-- Current Q: **Q039**
-- Accepted model: **v0.1**
-- Candidate history: **v0.1-candidate → promoted to v0.1**
-- Formal model: **v0.1-formalization-3**
-- Result context engine: **ACTIVE**
-- External astronomy catalog context: **ACTIVE**
+- Mode: **INCREMENTAL_UPDATE — Q040 accepted**
+- Authorized scientific range: **Q001–Q040**
+- Current Q: **Q040**
+- Accepted model: **v0.2**
+- Model revision: **R000002**
+- Candidate state: **promoted record retained**
+- Formal model: **v0.2-formalization-1**
 - Scientific campaign: **9 / 9 PASS**
 - Formal-model validation: **12 / 12 PASS**
+- Public system healthcheck: **20 / 20 PASS**
+- Result context engine: **ACTIVE**
+- External astronomy catalog context: **ACTIVE**
 - Release status: **ALL_GREEN**
 - Next Q: **AUTHORIZED**
 
@@ -268,25 +270,11 @@ A catalogue service being unavailable is treated as a technical failure, not as 
 
 ### campaign
 
-Runs the explicit model campaign.
+Runs the current scientific/model validation campaign and may write a validation record under `tests/results/`.
 
-This operation may modify model state and may promote a candidate when all mandatory gates pass.
+In the current implementation it does **not** promote a candidate, expand the Q boundary, or alter accepted scientific state. Scientific promotion belongs to the controlled model-update pipeline.
 
-Do not use `campaign` if you only want to inspect the model.
-
-Use:
-
-```text
-test
-```
-
-or:
-
-```text
-validate-model
-```
-
-instead.
+Use `test` for the complete non-destructive system healthcheck and `validate-model` for direct model validation.
 
 ---
 
@@ -361,7 +349,7 @@ For the current baseline:
 
 ```text
 AUTHORIZED:
-Q001–Q039
+Q001–Q040
 ```
 
 Evidence beyond the authorized boundary must not influence:

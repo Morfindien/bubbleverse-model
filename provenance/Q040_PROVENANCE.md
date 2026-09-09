@@ -14,3 +14,12 @@
 - Promotion commit: `26bfb093bee892ac32b9e1db78c36df3dd43ac3e`
 - Scientific classification: `INCONCLUSIVE / TECHNICAL_FAIL`
 - Physical falsification: `false`
+
+
+## Model-integration handoff history
+
+- Integration artifact SHA-256: `1cdb34576665d4b91300243ea72b92eab8ee8a24a122fbf118fcd424d891ffc5`
+- Final artifact SHA-256: `450c7a4116eff544d5c8e0f8b209a6ba1f41caa4cb8b89284923d1956b348a62`
+- Initial connected-write attempt: `TECHNICAL_BLOCK_403`; infrastructure failure, not scientific failure.
+- Post-promotion consistency repair status: `Q040_POST_PROMOTION_CONSISTENCY_REPAIRED`.
+- One-time updater/repair infrastructure is preserved by Git history rather than retained as active root/workflow clutter.

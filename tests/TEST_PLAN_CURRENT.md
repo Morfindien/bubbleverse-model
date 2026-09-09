@@ -1,33 +1,33 @@
 # BUBBLEVERSE MODEL — TEST PLAN CURRENT
 
-**Campaign:** BV-MODEL-v0.1-CAMPAIGN-0001  
-**Authorized Q range:** Q001–Q039  
-**Current Q:** Q039  
-**Candidate:** v0.1-candidate  
-**Mode:** BOOTSTRAP validation
+**Campaign:** BV-MODEL-v0.2-CAMPAIGN-0002
+**Authorized Q range:** Q001–Q040
+**Current Q:** Q040
+**Accepted model:** v0.2 / R000002
+**Mode:** current-state validation
 
-This campaign validates the scientific integration of already-authorized and already-validated Bubbleverse evidence. It does **not** pretend to rerun every historical numerical experiment and does not treat workflow success as new observational evidence.
+Historical preregistration and historical results remain preserved under `tests/preregistration/` and `tests/results/`. This file describes the active validator only.
 
-| TEST_ID | Category | Target | Initial status | Promotion |
-|---|---|---|---|---|
-| T-BV-001 | MANDATORY_PROMOTION | Q identity and boundary schema | READY | MANDATORY |
-| T-BV-002 | MANDATORY_PROMOTION | High-Q contamination scan | READY | MANDATORY |
-| T-BV-003 | MANDATORY_PROMOTION | H0 inference-chain invariant | READY | MANDATORY |
-| T-BV-004 | MANDATORY_PROMOTION | Q039 provenance invariant | READY | MANDATORY |
-| T-BV-005 | MANDATORY_PROMOTION | Technical/scientific separation | READY | MANDATORY |
-| T-BV-006 | MANDATORY_PROMOTION | Q039 causal conservatism | READY | MANDATORY |
-| T-BV-007 | REGRESSION | Contradiction preservation | READY | MANDATORY |
-| T-BV-008 | REGRESSION | Open-question preservation | READY | MANDATORY |
-| T-BV-009 | MANDATORY_PROMOTION | JSON/schema/reference integrity | READY | MANDATORY |
+| TEST_ID | Current target | Required |
+|---|---|---|
+| T-BV-001 | Candidate/accepted identity and current Q boundary | YES |
+| T-BV-002 | High-Q contamination firewall | YES |
+| T-BV-003 | H0 inference-chain invariant | YES |
+| T-BV-004 | Authoritative Q039 provenance preservation | YES |
+| T-BV-005 | Q039 technical/scientific separation | YES |
+| T-BV-006 | Q039 narrowing + Q040 technical-vs-physical semantics | YES |
+| T-BV-007 | Contradiction preservation | YES |
+| T-BV-008 | Open-question preservation | YES |
+| T-BV-009 | JSON/schema/reference integrity | YES |
 
-## Locked success rule
-All nine tests must explicitly return PASS. Any non-PASS mandatory state blocks promotion.
+## Success rule
+All nine current tests must explicitly PASS.
 
 ## Q firewall
-All scientific inputs and candidate state are limited to Q001–Q039. No test may ingest Q040+ scientific evidence.
+Current scientific/model state is limited to Q001–Q040. No current-state validation may ingest scientific evidence above Q040.
 
 ## Execution mechanism
-`tests/programs/model_campaign.py` performs deterministic repository audits. The primary workflow `.github/workflows/00-bubbleverse-model-start.yml` accepts one human input, `command`, normally `test`.
+`tests/programs/model_campaign.py validate` performs deterministic current-state validation. The permanent public workflow is `.github/workflows/00-bubbleverse-model-start-public.yml`.
 
-## Promotion
-If and only if every mandatory test passes, the program promotes `v0.1-candidate` to accepted `v0.1`, writes the all-green release handoff, and updates the changelog. Otherwise accepted state stays uninitialized and the release stays blocked.
+## Promotion semantics
+This current validator is non-promoting. It does not create a new accepted model, expand the Q boundary, or revise scientific conclusions. Promotion is handled by the controlled model-update pipeline.
