@@ -1,0 +1,23 @@
+{
+  "accepted_model_version": "v0.2",
+  "all_green": true,
+  "artifact_type": "BUBBLEVERSE_Q040_POST_PROMOTION_REPAIR",
+  "checks": {
+    "accepted_q040": "PASS",
+    "candidate_current_q": "PASS",
+    "candidate_promoted": "PASS",
+    "external_registry_q040": "PASS",
+    "formal_boundary_q040": "PASS",
+    "formalization_no_extra_science": "PASS",
+    "model_campaign_current": "PASS",
+    "promotion_version_consistency": "PASS",
+    "result_registry_q040": "PASS",
+    "snapshot_model_current": "PASS"
+  },
+  "created_at": "2026-09-09T03:47:46+00:00",
+  "errors": [],
+  "model_revision": "R000002",
+  "repair_scope": "STRUCTURAL_METADATA_VALIDATOR_SNAPSHOT_ONLY",
+  "scientific_change": false,
+  "target_q": "Q040"
+}

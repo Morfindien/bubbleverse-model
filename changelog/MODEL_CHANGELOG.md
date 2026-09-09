@@ -57,3 +57,15 @@
 - Kept the CamSpec-HiLLiPoP causal discrepancy open and narrowed.
 - Added no parameter, benchmark, mechanism, scientific domain or public calculation.
 - Promotion commit: `26bfb093bee892ac32b9e1db78c36df3dd43ac3e`.
+
+
+## Q040 post-promotion consistency repair
+
+- Repair type: structural/provenance consistency only; no new scientific claim.
+- Accepted scientific state remains Q040 / v0.2 / R000002.
+- Added missing `current_q` and promotion metadata to the retained candidate record.
+- Aligned formal/context registries with the Q040 firewall.
+- Corrected the formalization-layer `scientific_change` flag to false; the Q040 scientific change is already represented in accepted state.
+- Replaced the legacy Q039-hardcoded campaign validator with a current-state validator.
+- Completed the frozen v0.2 snapshot with `MODEL_CURRENT.md` and current context registries.
+- Preserved Q040 `TECHNICAL_FAIL` as non-physical falsification.

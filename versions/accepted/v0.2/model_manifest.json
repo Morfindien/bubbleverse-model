@@ -1,8 +1,9 @@
 {
   "accepted_model_version": "v0.2",
+  "accepted_state_scientific_revision": "R000002",
   "artifact_type": "BUBBLEVERSE_FORMAL_MODEL_LAYER",
   "current_q": "Q040",
-  "description": "Machine-readable formalization of the accepted Bubbleverse v0.1 state through the authorized Q boundary, including Q-bounded known-result contextualization, next-step routing and read-only external astronomy catalogue context. No candidate is promoted and no new scientific claim is introduced by this capability layer.",
+  "description": "Machine-readable formalization of the accepted Bubbleverse v0.2 state through Q040, including Q-bounded known-result contextualization, next-step routing and read-only external astronomy catalogue context. The formalization introduces no scientific claim beyond the accepted Q040 state.",
   "evidence_refs": [
     "EVD-MANUSCRIPT-Q001-Q039",
     "EVD-Q039-IMPLBLOCK",
@@ -25,12 +26,12 @@
     "external_catalog_registry.json"
   ],
   "formal_model_version": "v0.2-formalization-1",
-  "formalization_rule": "NO_UNSUPPORTED_SCIENTIFIC_CLAIMS_OR_UNVALIDATED_PUBLIC_CALCULATIONS",
+  "formalization_rule": "NO_NEW_SCIENTIFIC_CLAIMS_OR_NUMERIC_VALUES",
   "model_revision": "R000002",
   "q_access_end": "Q040",
   "q_access_start": "Q001",
   "schema_version": 1,
-  "scientific_change": true,
+  "scientific_change": false,
   "source_layers": [
     "accepted/model_state.json",
     "accepted/observations.json",
