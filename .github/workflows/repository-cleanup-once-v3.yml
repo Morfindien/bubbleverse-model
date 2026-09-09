@@ -1,0 +1,119 @@
+name: "🧹 BUBBLEVERSE MODEL — REPOSITORY CLEANUP"
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bubbleverse-model-repository-cleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Configure Git
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Apply audited structural cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          python repository_cleanup.py apply
+
+      - name: Formal model validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tests/programs/formal_model_validate.py
+
+      - name: Current model campaign validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python tests/programs/model_campaign.py validate
+
+      - name: Q-specific regression validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f tests/programs/q040_model_validate.py ]]; then
+            python tests/programs/q040_model_validate.py
+          fi
+
+      - name: Public engine healthcheck
+        shell: bash
+        run: |
+          set -euo pipefail
+          python repository_cleanup.py public-healthcheck
+
+      - name: Verify protected state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python repository_cleanup.py verify
+
+      - name: Scientific diff firewall
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! git diff --quiet -- accepted versions/accepted evidence model candidate tests/programs tests/preregistration tests/results release/MODEL_RELEASE_HANDOFF.json; then
+            echo "::error::Protected scientific/history files changed"
+            git diff -- accepted versions/accepted evidence model candidate tests/programs tests/preregistration tests/results release/MODEL_RELEASE_HANDOFF.json
+            exit 1
+          fi
+
+      - name: Remove one-time cleanup infrastructure
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f repository_cleanup.py
+          rm -f .github/workflows/repository-cleanup-once.yml
+          rm -f .github/workflows/repository-cleanup-once-v2.yml
+
+      - name: Commit validated cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No cleanup changes required."
+            exit 0
+          fi
+          git commit -m "Repository cleanup: remove obsolete files and sync metadata"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "# Bubbleverse repository cleanup"
+            echo
+            echo "- Scientific change: **false**"
+            echo "- Accepted state changed: **false**"
+            echo "- Q boundary changed: **false**"
+            echo "- Model version changed: **false**"
+          } >> "$GITHUB_STEP_SUMMARY"
