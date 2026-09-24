@@ -1,5 +1,6 @@
 {
   "artifact_type": "BUBBLEVERSE_MODEL_CANDIDATE",
+  "candidate_input_commit": "11f161daeb2081b51df9dcffb91a1abce5dec8af",
   "candidate_model_version": "v0.3",
   "candidate_revision": "R000003",
   "current_q": "Q041",
@@ -28,6 +29,7 @@
   "previous_accepted_model_version": "v0.2",
   "previous_accepted_q": "Q040",
   "previous_accepted_revision": "R000002",
+  "promotion_commit": "02c00e6cf3351013197e61b3d05ae0075b068e63",
   "promotion_status": "PROMOTED_TO_v0.3",
   "q_access_end": "Q041",
   "q_access_start": "Q001",

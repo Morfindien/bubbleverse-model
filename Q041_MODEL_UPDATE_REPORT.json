@@ -1,7 +1,5 @@
 {
-  "BLOCKERS": [
-    "Local target-repository promotion transaction not yet committed."
-  ],
+  "BLOCKERS": [],
   "CANDIDATE_INPUT_COMMIT": "11f161daeb2081b51df9dcffb91a1abce5dec8af",
   "CANDIDATE_VERSION": "v0.3",
   "INPUT_DOCUMENTS": [
@@ -106,7 +104,7 @@
   },
   "MODEL_REPOSITORY_START_COMMIT": "6a334efecd6054f0177362b1c21b66149f1fba45",
   "MODEL_REVISION": "R000003",
-  "NEW_ACCEPTED_VERSION": null,
+  "NEW_ACCEPTED_VERSION": "v0.3",
   "NEW_ASSUMPTIONS": [],
   "NEW_AUTHORIZED_Q_RANGE": "Q001-Q041",
   "NEW_BENCHMARKS": [],
@@ -122,7 +120,7 @@
   "NEW_UNCERTAINTIES": [
     "UNC-Q041-POSTERIOR-CONVERGENCE"
   ],
-  "NEXT_Q_AUTHORIZED": false,
+  "NEXT_Q_AUTHORIZED": true,
   "OPEN_CONTRADICTIONS": [
     "CTR-H0-001",
     "CTR-PLANCK-IMPL-001"
@@ -138,9 +136,9 @@
   ],
   "PREVIOUS_ACCEPTED_Q": "Q040",
   "PREVIOUS_MODEL_VERSION": "v0.2",
-  "PROMOTED": false,
-  "PROMOTION_COMMIT": null,
-  "PROMOTION_GATE": "PASS_SCIENTIFICALLY_PENDING_LOCAL_WRITE",
+  "PROMOTED": true,
+  "PROMOTION_COMMIT": "02c00e6cf3351013197e61b3d05ae0075b068e63",
+  "PROMOTION_GATE": "PASS",
   "PROVENANCE": {
     "actual_computed_result": false,
     "candidate_input_commit": "11f161daeb2081b51df9dcffb91a1abce5dec8af",
@@ -189,7 +187,7 @@
     "outcome_type": "CONTROLLED_NO_SCIENTIFIC_RESULT",
     "physical_falsification": false,
     "program_id": "Q041-PLANCKPORT-V19",
-    "promotion_commit": null,
+    "promotion_commit": "02c00e6cf3351013197e61b3d05ae0075b068e63",
     "q041_final_tests_v19_sha256": "95fe1e63c78033de8559f609f0d8a1f4d48ee1b4123f3bb8f845b3ac6e5797ab",
     "q041_final_v19_sha256": "0062874ed3529004f46cfb542a708d5b8e8dde55d1b4fd1c2ac7c394e6c8be79",
     "result_id": "R-Q041-EDE-DOWNSTREAM-PORTABILITY-019",
@@ -212,7 +210,7 @@
   "RESOLVED_CONTRADICTIONS": [
     "CTR-HIST-BASIN-LABEL-001"
   ],
-  "RUN_TIMESTAMP_UTC": "2026-09-24T10:18:17.869903+00:00",
+  "RUN_TIMESTAMP_UTC": "2026-09-24T10:18:17.892892+00:00",
   "SOURCE_REPOSITORY": "Morfindien/Bubbleverse",
   "SOURCE_REPOSITORY_COMMIT": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
   "SOURCE_RESULT": {
@@ -231,15 +229,15 @@
     "status": "PASS",
     "technical_failure": false
   },
-  "STOP_STATE": "TECHNICAL_BLOCK",
+  "STOP_STATE": "PROMOTED",
   "SUPERSEDED_ITEMS": [],
   "TARGET_MODEL_REPOSITORY": "Morfindien/bubbleverse-model",
   "TARGET_Q": "Q041",
   "TEST_RESULTS": {
     "candidate_update_gates": "PASS",
-    "formal_model": "PENDING_LOCAL_PROMOTION_TRANSACTION",
-    "q041_specific": "PENDING_LOCAL_PROMOTION_TRANSACTION",
-    "scientific_regression": "PENDING_LOCAL_PROMOTION_TRANSACTION"
+    "formal_model": "13/13 PASS",
+    "q041_specific": "10/10 PASS",
+    "scientific_regression": "10/10 PASS"
   },
   "UPDATE_CLASS": "EVIDENCE_ONLY_UPDATE",
   "WORD_INPUT_FILENAME": "Bubbleverse_Q-Journals_Q001-Q041(9).pdf",

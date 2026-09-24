@@ -1,6 +1,6 @@
 # Q041 Bubbleverse Model Update Handoff
 
-State: **READY_FOR_LOCAL_PROMOTION**
+State: **PROMOTED**
 
 Q041 uses the supplied PDF publication set as the authorized manuscript input.
 The primary Q-Journal SHA-256 is `fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465`.
