@@ -1,58 +1,119 @@
 {
   "BLOCKERS": [
-    "ChatGPT GitHub connection is read-only; the target-repository transaction must be executed by the installer with the user's Git credentials."
+    "Local target-repository promotion transaction not yet committed."
   ],
-  "CANDIDATE_REVISION": "R000003",
+  "CANDIDATE_INPUT_COMMIT": "11f161daeb2081b51df9dcffb91a1abce5dec8af",
   "CANDIDATE_VERSION": "v0.3",
   "INPUT_DOCUMENTS": [
     {
       "filename": "Bubbleverse_Q-Journals_Q001-Q041(9).pdf",
+      "q_range": "Q001-Q041",
       "role": "PRIMARY_Q_JOURNAL_PDF",
       "sha256": "fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465"
     },
     {
       "filename": "Bubbleverse_Main_Book(4).pdf",
+      "q_boundary": "Q041",
       "role": "MAIN_BOOK_PDF",
       "sha256": "f2304a9010a8a4fbc055e5002def9ca42aac692cf81669c10fd6cc98d14f2130"
     },
     {
       "filename": "Bubbleverse_Technical_Appendices_A-D(4).pdf",
+      "q_boundary": "Q041",
       "role": "TECHNICAL_APPENDICES_PDF",
       "sha256": "878891fd0d0323c2fbfadf3fec5d5d5d0dffbae5e64e3551a34cfdc1da803c76"
     }
   ],
-  "INSTALLER": "install_q041_model_update.py",
-  "INSTALLER_SHA256": "4f1c12d8c046668445388671055ffbe02de1f32352656c22d466982000867f2b",
+  "LIMITATIONS": [
+    "LIM-Q041-DOWNSTREAM-PORTABILITY",
+    "LIM-Q041-CONTRACT-SCOPE"
+  ],
   "MODEL_DIFF": {
-    "ADDED": [
-      "Q041 V19 controlled-no-science computational observation",
+    "added": [
+      "Q041 V19 controlled-no-science observation",
       "Q041 contract-scope observation",
       "Q041 convergence/completeness constraints",
       "Q041 robustness/firewall records",
-      "Q041 convergence uncertainty, validity domain and limitations",
-      "Q041 PDF and V19 provenance"
+      "Q041 convergence uncertainty",
+      "Q041 V19 validity-domain scope",
+      "Q041 unresolved downstream-portability and contract-scope limitations",
+      "Q041 PDF and V19 evidence provenance"
     ],
-    "MODIFIED": [
-      "PRED-EDE-PORTABILITY-001 history extended; status remains OPEN",
+    "assumption_changes": [],
+    "benchmark_changes": [],
+    "equation_changes": [],
+    "from_version": "v0.2",
+    "mechanism_status_changes": [],
+    "modified": [
+      "PRED-EDE-PORTABILITY-001 remains OPEN with Q041 inconclusive history",
       "CTR-PLANCK-IMPL-001 remains OPEN_NARROWED",
-      "formal metadata synchronized during Q041 promotion"
+      "authorized Q boundary advances through Q041 only on promotion",
+      "formal-model metadata synchronized to the new accepted version"
     ],
-    "NEW_ASSUMPTIONS": [],
-    "NEW_BENCHMARKS": [],
-    "NEW_CALCULATIONS": [],
-    "NEW_EQUATIONS": [],
-    "NEW_PARAMETERS": [],
-    "NEW_SCIENTIFIC_DOMAINS": [],
-    "PRESERVED": [
+    "new_assumptions": [],
+    "new_benchmarks": [],
+    "new_computational_capabilities": [],
+    "new_contradiction": [],
+    "new_equations": [],
+    "new_limitations": [
+      "LIM-Q041-DOWNSTREAM-PORTABILITY",
+      "LIM-Q041-CONTRACT-SCOPE"
+    ],
+    "new_mechanisms": [],
+    "new_parameters": [],
+    "new_predictions": [],
+    "new_public_calculations": [],
+    "new_scientific_domains": [],
+    "new_uncertainties": [
+      "UNC-Q041-POSTERIOR-CONVERGENCE"
+    ],
+    "new_validity_domains": [
+      "DOM-Q041-PORTABILITY-V19"
+    ],
+    "no_change": [
+      "parameters",
+      "equations",
+      "assumptions",
+      "benchmarks",
+      "mechanisms",
+      "public operations",
+      "scientific domains"
+    ],
+    "parameter_changes": [],
+    "physical_model_change": "NONE",
+    "prediction_status_changes": [
+      "PRED-EDE-PORTABILITY-001 remains OPEN; history extended"
+    ],
+    "preserved": [
       "H0 inference-chain benchmarks",
-      "n=3 EDE constrained/not-established status",
-      "Q039/Q040 history and safeguards",
+      "Hubble-tension constraints",
+      "n=3 EDE constrained status",
+      "Q039 single-block negative results",
+      "Q040 methodological/numerical provenance",
       "existing public calculation surface",
-      "previous immutable accepted snapshots"
-    ]
+      "all previous accepted snapshots"
+    ],
+    "rejected": [],
+    "reopened": [],
+    "resolved_contradiction": [],
+    "schema_version": 1,
+    "strengthened": [],
+    "superseded": [],
+    "target_q": "Q041",
+    "to_candidate_version": "v0.3",
+    "update_class": "EVIDENCE_ONLY_UPDATE",
+    "weakened": []
   },
+  "MODEL_REPOSITORY_START_COMMIT": "6a334efecd6054f0177362b1c21b66149f1fba45",
+  "MODEL_REVISION": "R000003",
   "NEW_ACCEPTED_VERSION": null,
+  "NEW_ASSUMPTIONS": [],
   "NEW_AUTHORIZED_Q_RANGE": "Q001-Q041",
+  "NEW_BENCHMARKS": [],
+  "NEW_CALCULATIONS": [],
+  "NEW_DOMAINS": [],
+  "NEW_EQUATIONS": [],
+  "NEW_PARAMETERS": [],
   "NEW_TESTS": [
     "T-BV-010",
     "FML-013",
@@ -66,37 +127,124 @@
     "CTR-H0-001",
     "CTR-PLANCK-IMPL-001"
   ],
-  "PHYSICAL_MODEL_CHANGE": "NONE",
+  "PRESERVED_ITEMS": [
+    "H0 inference-chain benchmarks",
+    "Hubble-tension constraints",
+    "n=3 EDE constrained status",
+    "Q039 single-block negative results",
+    "Q040 methodological/numerical provenance",
+    "existing public calculation surface",
+    "all previous accepted snapshots"
+  ],
   "PREVIOUS_ACCEPTED_Q": "Q040",
   "PREVIOUS_MODEL_VERSION": "v0.2",
   "PROMOTED": false,
-  "PROMOTION_DECISION": "SCIENTIFICALLY_READY_FOR_LOCAL_ATOMIC_PROMOTION",
-  "RUN_TIMESTAMP": "2026-09-24T11:52:08+02:00",
+  "PROMOTION_COMMIT": null,
+  "PROMOTION_GATE": "PASS_SCIENTIFICALLY_PENDING_LOCAL_WRITE",
+  "PROVENANCE": {
+    "actual_computed_result": false,
+    "candidate_input_commit": "11f161daeb2081b51df9dcffb91a1abce5dec8af",
+    "execution_head": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
+    "external_locks": {
+      "act_dr6_cmbonly_commit": "880eacb40d66722eb1c32d7b5621e91662b4d808",
+      "act_dr6_lensing_commit": "b386ddbb5821c1216c709f051c9289292f174d30",
+      "class_ede_commit": "5a131c91d657dd9a7c6364cc45b038710f8d0d97",
+      "cobaya_version": "3.5.6",
+      "desi_dr2_bao_data_commit": "b7b8a36e9bccb063081f811f323cada21ab5fbdd",
+      "desi_dr2_cobaya_definition_commit": "b76b6fed2a6c8c5594c6f92d5058bef10079746a",
+      "hillipop_commit": "a09ddde3e7ce11df99f74685feb1f1764cafb251",
+      "q032_parent_execution_commit": "4dc873a5e880d40858d831a3b421456728f0c032",
+      "q032_parent_result_id": "R-Q032-EDE-PLANCK-TT3PAIR-BRIDGE-002",
+      "q032_parent_run_id": "33994305721"
+    },
+    "final_artifact": "q041-final-v19",
+    "final_artifact_id": "10754769330",
+    "final_artifact_sha256": "2284518ecbaaf1ff0d0093977827d5162ec29549ba2b81880f266c250311ca2b",
+    "final_validation_status": "PASS",
+    "github_actions_attempt": 4,
+    "github_actions_run_id": "34979609004",
+    "high_q_data_used": false,
+    "input_document_type": "PDF_AUTHORIZED_SUBSTITUTE",
+    "input_documents": [
+      {
+        "filename": "Bubbleverse_Q-Journals_Q001-Q041(9).pdf",
+        "q_range": "Q001-Q041",
+        "role": "PRIMARY_Q_JOURNAL_PDF",
+        "sha256": "fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465"
+      },
+      {
+        "filename": "Bubbleverse_Main_Book(4).pdf",
+        "q_boundary": "Q041",
+        "role": "MAIN_BOOK_PDF",
+        "sha256": "f2304a9010a8a4fbc055e5002def9ca42aac692cf81669c10fd6cc98d14f2130"
+      },
+      {
+        "filename": "Bubbleverse_Technical_Appendices_A-D(4).pdf",
+        "q_boundary": "Q041",
+        "role": "TECHNICAL_APPENDICES_PDF",
+        "sha256": "878891fd0d0323c2fbfadf3fec5d5d5d0dffbae5e64e3551a34cfdc1da803c76"
+      }
+    ],
+    "no_science_reason": "MAX_SAMPLES_WITHOUT_CONVERGENCE",
+    "outcome_type": "CONTROLLED_NO_SCIENTIFIC_RESULT",
+    "physical_falsification": false,
+    "program_id": "Q041-PLANCKPORT-V19",
+    "promotion_commit": null,
+    "q041_final_tests_v19_sha256": "95fe1e63c78033de8559f609f0d8a1f4d48ee1b4123f3bb8f845b3ac6e5797ab",
+    "q041_final_v19_sha256": "0062874ed3529004f46cfb542a708d5b8e8dde55d1b4fd1c2ac7c394e6c8be79",
+    "result_id": "R-Q041-EDE-DOWNSTREAM-PORTABILITY-019",
+    "schema_version": 1,
+    "scientific_classification": "NO_SCIENTIFIC_RESULT",
+    "source_file_blobs": {
+      "q041_planck_portability_preregister_v19.json": "36bf90f3112a305db0adbf68b8a32339f16acf5c",
+      "q041_planck_portability_source_lock_v19.json": "caabb6cbc573f00bb435e00af8ebf47f64481673",
+      "q041_planck_portability_tests_v19.py": "f88240c5c1f3580d19d7cf213c3b12e354b00850"
+    },
+    "source_input_commit": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
+    "source_repository": "Morfindien/Bubbleverse",
+    "target_q": "Q041",
+    "technical_failure": false,
+    "word_input_filename": "Bubbleverse_Q-Journals_Q001-Q041(9).pdf",
+    "word_input_semantics": "LEGACY_FIELD_NAME_POINTING_TO_AUTHORIZED_PDF_PRIMARY_SOURCE",
+    "word_input_sha256": "fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465",
+    "workflow": ".github/workflows/q041-planck-portability-v19.yml"
+  },
+  "RESOLVED_CONTRADICTIONS": [
+    "CTR-HIST-BASIN-LABEL-001"
+  ],
+  "RUN_TIMESTAMP_UTC": "2026-09-24T10:18:17.869903+00:00",
   "SOURCE_REPOSITORY": "Morfindien/Bubbleverse",
   "SOURCE_REPOSITORY_COMMIT": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
   "SOURCE_RESULT": {
     "actual_computed_result": false,
-    "artifact_id": 10754769330,
-    "artifact_sha256": "2284518ecbaaf1ff0d0093977827d5162ec29549ba2b81880f266c250311ca2b",
-    "classification": "NO_SCIENTIFIC_RESULT",
-    "final_json_sha256": "0062874ed3529004f46cfb542a708d5b8e8dde55d1b4fd1c2ac7c394e6c8be79",
-    "final_tests_sha256": "95fe1e63c78033de8559f609f0d8a1f4d48ee1b4123f3bb8f845b3ac6e5797ab",
-    "github_run_id": 34979609004,
+    "final_outcome_valid": true,
     "no_science_reason": "MAX_SAMPLES_WITHOUT_CONVERGENCE",
     "outcome_type": "CONTROLLED_NO_SCIENTIFIC_RESULT",
-    "program_id": "Q041-PLANCKPORT-V19",
-    "result_id": "R-Q041-EDE-DOWNSTREAM-PORTABILITY-019",
+    "required_gates": {
+      "ALL_RHAT_LE_1P05": "BLOCKED",
+      "BOTH_ARMS_ALL_COMBINATIONS": "BLOCKED",
+      "CHAIN_COMPLETENESS": "BLOCKED",
+      "Q040_FIREWALL": "PASS",
+      "SEGMENTED_RESUME_COMPLETENESS": "CONTROLLED_STOP"
+    },
+    "scientific_classification": "NO_SCIENTIFIC_RESULT",
+    "status": "PASS",
     "technical_failure": false
   },
   "STOP_STATE": "TECHNICAL_BLOCK",
+  "SUPERSEDED_ITEMS": [],
   "TARGET_MODEL_REPOSITORY": "Morfindien/bubbleverse-model",
-  "TARGET_MODEL_REPOSITORY_INSPECTED_COMMIT": "84e43e085c3f71788d6fdd224da1df1282d70ef5",
   "TARGET_Q": "Q041",
+  "TEST_RESULTS": {
+    "candidate_update_gates": "PASS",
+    "formal_model": "PENDING_LOCAL_PROMOTION_TRANSACTION",
+    "q041_specific": "PENDING_LOCAL_PROMOTION_TRANSACTION",
+    "scientific_regression": "PENDING_LOCAL_PROMOTION_TRANSACTION"
+  },
   "UPDATE_CLASS": "EVIDENCE_ONLY_UPDATE",
-  "WORD_DISCOVERY_GATE": "PASS_AUTHORIZED_PDF_SUBSTITUTE",
-  "WORD_HASH_GATE": "PASS_AUTHORIZED_PDF_SUBSTITUTE",
   "WORD_INPUT_FILENAME": "Bubbleverse_Q-Journals_Q001-Q041(9).pdf",
-  "WORD_INPUT_PATH": "/mnt/data/Bubbleverse_Q-Journals_Q001-Q041(9).pdf",
+  "WORD_INPUT_PATH": "operator-provided PDF upload; not persisted in target repository",
+  "WORD_INPUT_SEMANTICS": "legacy report field populated by operator-authorized PDF primary source",
   "WORD_INPUT_SHA256": "fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465",
   "WORD_INPUT_TYPE": "PDF_AUTHORIZED_SUBSTITUTE"
 }

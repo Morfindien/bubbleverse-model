@@ -213,10 +213,33 @@ def run_tests():
         return {"scientific_change": False, "rule": manifest["formalization_rule"]}
     check("FML-012", "No-new-claim formalization contract", no_claim_invention)
 
+    def formal_metadata_consistency():
+        state = load(ROOT / "accepted/model_state.json")
+        manifest = load(MODEL / "model_manifest.json")
+        expected = f"{state['accepted_model_version']}-formalization-1"
+        if manifest.get("accepted_model_version") != state.get("accepted_model_version"):
+            raise AssertionError("Formal manifest accepted_model_version disagrees with accepted state")
+        if manifest.get("model_revision") != state.get("model_revision"):
+            raise AssertionError("Formal manifest model_revision disagrees with accepted state")
+        if manifest.get("formal_model_version") != expected:
+            raise AssertionError(f"Formal model version mismatch: expected {expected}, got {manifest.get('formal_model_version')}")
+        registry = load(ROOT / "bubbleverse_model_program_registry.json").get("programs", {})
+        bad = []
+        for pid, item in registry.items():
+            if item.get("accepted_model_version") == state.get("accepted_model_version"):
+                fm = item.get("formal_model_version")
+                if fm is not None and fm != expected:
+                    bad.append((pid, fm))
+        if bad:
+            raise AssertionError(f"Program-registry formal-model version mismatch: {bad}")
+        return {"formal_model_version": expected, "program_registry_consistent": True}
+
+    check("FML-013", "Formal version metadata matches accepted state", formal_metadata_consistency)
+
     passed = sum(x["status"] == "PASS" for x in tests)
     return {
         "artifact_type": "BUBBLEVERSE_FORMAL_MODEL_TEST_RESULT",
-        "formal_test_campaign": "FORMAL-MODEL-v0.1-001",
+        "formal_test_campaign": f"FORMAL-MODEL-{load(ROOT / 'accepted/model_state.json').get('accepted_model_version','unknown')}-001",
         "tests_total": len(tests),
         "tests_passed": passed,
         "tests_failed": len(tests) - passed,
@@ -234,7 +257,8 @@ def main():
         print(f"{t['test_id']}={t['status']} {t['name']} — {t['detail']}")
     print(f"FORMAL_MODEL_TESTS={result['tests_passed']}/{result['tests_total']}")
     if args.write_result:
-        p = ROOT / "tests/results/FORMAL-MODEL-v0.1-001.json"
+        version = load(ROOT / "accepted/model_state.json").get("accepted_model_version", "unknown")
+        p = ROOT / f"tests/results/FORMAL-MODEL-{version}-001.json"
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     raise SystemExit(0 if result["all_green"] else 1)

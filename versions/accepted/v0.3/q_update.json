@@ -1,0 +1,50 @@
+{
+  "authoritative_computational_result": {
+    "actual_computed_result": false,
+    "artifact_id": "10754769330",
+    "artifact_sha256": "2284518ecbaaf1ff0d0093977827d5162ec29549ba2b81880f266c250311ca2b",
+    "evidence_id": "EVD-Q041-PORTABILITY-V19",
+    "final_result_sha256": "0062874ed3529004f46cfb542a708d5b8e8dde55d1b4fd1c2ac7c394e6c8be79",
+    "final_tests_sha256": "95fe1e63c78033de8559f609f0d8a1f4d48ee1b4123f3bb8f845b3ac6e5797ab",
+    "head_sha": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
+    "no_science_reason": "MAX_SAMPLES_WITHOUT_CONVERGENCE",
+    "outcome_type": "CONTROLLED_NO_SCIENTIFIC_RESULT",
+    "physical_falsification": false,
+    "program_id": "Q041-PLANCKPORT-V19",
+    "q_id": "Q041",
+    "result_id": "R-Q041-EDE-DOWNSTREAM-PORTABILITY-019",
+    "run_id": "34979609004",
+    "scientific_classification": "NO_SCIENTIFIC_RESULT",
+    "scientific_status": "VALID_CONTROLLED_NO_SCIENCE_RESULT",
+    "technical_failure": false,
+    "validation_status": "PASS",
+    "workflow_id": "q041-planck-portability-v19.yml"
+  },
+  "input_documents": [
+    {
+      "filename": "Bubbleverse_Q-Journals_Q001-Q041(9).pdf",
+      "q_range": "Q001-Q041",
+      "role": "PRIMARY_Q_JOURNAL_PDF",
+      "sha256": "fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465"
+    },
+    {
+      "filename": "Bubbleverse_Main_Book(4).pdf",
+      "q_boundary": "Q041",
+      "role": "MAIN_BOOK_PDF",
+      "sha256": "f2304a9010a8a4fbc055e5002def9ca42aac692cf81669c10fd6cc98d14f2130"
+    },
+    {
+      "filename": "Bubbleverse_Technical_Appendices_A-D(4).pdf",
+      "q_boundary": "Q041",
+      "role": "TECHNICAL_APPENDICES_PDF",
+      "sha256": "878891fd0d0323c2fbfadf3fec5d5d5d0dffbae5e64e3551a34cfdc1da803c76"
+    }
+  ],
+  "model_change_summary": "No physical model change. V19 is a valid controlled no-science result; downstream portability remains unresolved and V19 is narrower than the broader original Q041 design.",
+  "physical_model_change": "NONE",
+  "q_id": "Q041",
+  "schema_version": 1,
+  "source_input_commit": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
+  "source_repository": "Morfindien/Bubbleverse",
+  "update_class": "EVIDENCE_ONLY_UPDATE"
+}

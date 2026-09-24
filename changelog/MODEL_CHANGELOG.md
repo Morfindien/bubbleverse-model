@@ -82,3 +82,14 @@
 - Accepted state changed: false.
 - Q boundary changed: false.
 - Model version changed: false.
+
+## v0.3 / Q041 — R000003
+
+- Advanced authorized boundary from Q040 to Q041.
+- Update class: **EVIDENCE_ONLY_UPDATE**; physical model change: **NONE**.
+- Registered V19 as `CONTROLLED_NO_SCIENTIFIC_RESULT`.
+- Kept the portability prediction open and the implementation contradiction open/narrowed.
+- Recorded V19 convergence and scope limitations without manufacturing a physical verdict.
+- Added no parameter, equation, benchmark, mechanism, domain or public calculation.
+- Added Q041 regression and formal-version consistency gates.
+

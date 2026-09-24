@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 10)]
+MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 11)]
 
 
 def load(rel):
@@ -170,6 +170,30 @@ def audit():
         and unique_ids(rob["items"])
     )
     results["T-BV-009"] = passfail(parse_ok and uniq, "Current JSON parses and layer IDs are unique.")
+    q41_ok = True
+    q41_detail = "Q041 controlled-no-science gate is not applicable below Q041."
+    if qmax >= 41:
+        q41 = eids.get("EVD-Q041-PORTABILITY-V19", {})
+        pmap = {x["id"]: x for x in pred["predictions"]}
+        cmap = {x["id"]: x for x in ctr["contradictions"]}
+        rmap = {x["id"]: x for x in rob["items"]}
+        phist = pmap.get("PRED-EDE-PORTABILITY-001", {}).get("history", [])
+        q41_ok = (
+            q41.get("scientific_classification") == "NO_SCIENTIFIC_RESULT"
+            and q41.get("outcome_type") == "CONTROLLED_NO_SCIENTIFIC_RESULT"
+            and q41.get("technical_failure") is False
+            and q41.get("actual_computed_result") is False
+            and q41.get("physical_falsification") is False
+            and q41.get("validation_status") == "PASS"
+            and pmap.get("PRED-EDE-PORTABILITY-001", {}).get("status") == "OPEN"
+            and any(x.get("q") == "Q041" and x.get("status") == "INCONCLUSIVE_COMPUTATIONAL_ATTEMPT" for x in phist)
+            and cmap.get("CTR-PLANCK-IMPL-001", {}).get("status") == "OPEN_NARROWED"
+            and rmap.get("ROB-Q041-CONTROLLED-NOSCIENCE-001", {}).get("status") == "ACTIVE"
+            and rmap.get("ROB-Q041-CONTRACT-SCOPE-001", {}).get("status") == "ACTIVE"
+        )
+        q41_detail = "Q041 controlled-no-science semantics, open portability prediction, open-narrowed contradiction and scope safeguards are preserved."
+    results["T-BV-010"] = passfail(q41_ok, q41_detail)
+
     return results
 
 

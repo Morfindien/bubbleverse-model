@@ -1,10 +1,10 @@
 {
-  "accepted_model_version": "v0.2",
-  "campaign_id": "BV-MODEL-v0.2-CAMPAIGN-0002",
-  "candidate_model_version": "v0.2",
-  "current_q": "Q040",
+  "accepted_model_version": "v0.3",
+  "campaign_id": "BV-MODEL-v0.3-CAMPAIGN-0003",
+  "candidate_model_version": "v0.3",
+  "current_q": "Q041",
   "mode": "CURRENT_STATE_VALIDATION",
-  "q_access_end": "Q040",
+  "q_access_end": "Q041",
   "q_access_start": "Q001",
   "schema_version": 1,
   "tests": [
@@ -15,7 +15,7 @@
       "status": "PASS",
       "target_component": "Q identity and boundary schema",
       "test_id": "T-BV-001",
-      "why_test_matters": "Candidate identity must be exactly Q001-Q039 / CURRENT_Q Q039."
+      "why_test_matters": "Accepted/candidate identity must match Q001-Q041 / CURRENT_Q Q041."
     },
     {
       "category": "MANDATORY_PROMOTION",
@@ -24,43 +24,43 @@
       "status": "PASS",
       "target_component": "High-Q contamination scan",
       "test_id": "T-BV-002",
-      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q039."
+      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q041."
     },
     {
-      "category": "MANDATORY_PROMOTION",
+      "category": "REGRESSION",
       "mandatory_for_current_validation": true,
       "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "H0 inference-chain invariant",
       "test_id": "T-BV-003",
-      "why_test_matters": "Three active H0 benchmarks and their distinct inference-chain labels must remain intact."
+      "why_test_matters": "Three active H0 benchmarks and distinct inference-chain labels must remain intact."
     },
     {
-      "category": "MANDATORY_PROMOTION",
+      "category": "REGRESSION",
       "mandatory_for_current_validation": true,
       "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "Q039 provenance invariant",
       "test_id": "T-BV-004",
-      "why_test_matters": "Both authoritative Q039 result IDs, program IDs, run IDs and PASS validation states must be present."
+      "why_test_matters": "Authoritative Q039 result identities and PASS states remain preserved."
     },
     {
-      "category": "MANDATORY_PROMOTION",
+      "category": "REGRESSION",
       "mandatory_for_current_validation": true,
       "mandatory_for_promotion": false,
       "status": "PASS",
       "target_component": "Technical/scientific separation",
       "test_id": "T-BV-005",
-      "why_test_matters": "Q039 V1-V4 recovery failures must be explicitly non-scientific and superseded."
+      "why_test_matters": "Historical Q039 technical recoveries remain excluded from scientific evidence."
     },
     {
-      "category": "MANDATORY_PROMOTION",
+      "category": "REGRESSION",
       "mandatory_for_current_validation": true,
       "mandatory_for_promotion": false,
       "status": "PASS",
-      "target_component": "Q039 causal conservatism",
+      "target_component": "Q039/Q040 conservatism",
       "test_id": "T-BV-006",
-      "why_test_matters": "Candidate must reject tested single blocks as sufficient without claiming a physical defect or EDE/new-physics verdict."
+      "why_test_matters": "Q039 narrowing and Q040 technical-vs-physical semantics remain preserved."
     },
     {
       "category": "REGRESSION",
@@ -69,7 +69,7 @@
       "status": "PASS",
       "target_component": "Contradiction preservation",
       "test_id": "T-BV-007",
-      "why_test_matters": "H0 conflict and CamSpec-HiLLiPoP implementation-geometry contradiction must remain explicit."
+      "why_test_matters": "H0 conflict and CamSpec-HiLLiPoP implementation contradiction remain explicit."
     },
     {
       "category": "REGRESSION",
@@ -78,7 +78,7 @@
       "status": "PASS",
       "target_component": "Open-question preservation",
       "test_id": "T-BV-008",
-      "why_test_matters": "Hubble tension, dark-matter identity and origin of acceleration must remain unresolved where the manuscript says unresolved."
+      "why_test_matters": "Hubble tension, dark-matter identity and late-time acceleration remain unresolved where required."
     },
     {
       "category": "MANDATORY_PROMOTION",
@@ -87,7 +87,16 @@
       "status": "PASS",
       "target_component": "JSON/schema/reference integrity",
       "test_id": "T-BV-009",
-      "why_test_matters": "Required JSON files must parse and IDs must be unique within registries/layers."
+      "why_test_matters": "Required JSON parses and scientific layer IDs remain unique."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": false,
+      "status": "PASS",
+      "target_component": "Q041 controlled-no-science semantics",
+      "test_id": "T-BV-010",
+      "why_test_matters": "Q041 remains a validated controlled no-science result; portability prediction stays open and no physical verdict is manufactured."
     }
   ]
 }

@@ -13,16 +13,16 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-- Mode: **INCREMENTAL_UPDATE — Q040 accepted**
-- Authorized scientific range: **Q001–Q040**
-- Current Q: **Q040**
-- Accepted model: **v0.2**
-- Model revision: **R000002**
+- Mode: **INCREMENTAL_UPDATE — Q041 accepted**
+- Authorized scientific range: **Q001–Q041**
+- Current Q: **Q041**
+- Accepted model: **v0.3**
+- Model revision: **R000003**
 - Candidate state: **promoted record retained**
-- Formal model: **v0.2-formalization-1**
-- Scientific campaign: **9 / 9 PASS**
-- Formal-model validation: **12 / 12 PASS**
-- Public system healthcheck: **20 / 20 PASS**
+- Formal model: **v0.3-formalization-1**
+- Scientific campaign: **10 / 10 PASS**
+- Formal-model validation: **13 / 13 PASS**
+- Public system healthcheck: **local core validation PASS; remote workflow may be run with `test`**
 - Result context engine: **ACTIVE**
 - External astronomy catalog context: **ACTIVE**
 - Release status: **ALL_GREEN**
@@ -349,7 +349,7 @@ For the current baseline:
 
 ```text
 AUTHORIZED:
-Q001–Q040
+Q001–Q041
 ```
 
 Evidence beyond the authorized boundary must not influence:
