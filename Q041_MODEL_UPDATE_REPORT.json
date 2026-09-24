@@ -1,0 +1,182 @@
+{
+  "TARGET_Q": "Q041",
+  "SOURCE_REPOSITORY": "Morfindien/Bubbleverse",
+  "SOURCE_REPOSITORY_COMMIT": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
+  "WORD_INPUT_FILENAME": null,
+  "WORD_INPUT_PATH": null,
+  "WORD_INPUT_SHA256": null,
+  "WORD_DISCOVERY_GATE": "FAIL",
+  "WORD_HASH_GATE": "BLOCKED_NO_WORD_INPUT",
+  "TARGET_MODEL_REPOSITORY": "Morfindien/bubbleverse-model",
+  "PREVIOUS_ACCEPTED_Q": "Q040",
+  "NEW_AUTHORIZED_Q_RANGE": {
+    "candidate": "Q001-Q041",
+    "accepted": "Q001-Q040"
+  },
+  "PREVIOUS_MODEL_VERSION": "v0.2",
+  "CANDIDATE_VERSION": "v0.3",
+  "CANDIDATE_REVISION": "R000003",
+  "UPDATE_CLASS": "MULTI_LAYER_UPDATE",
+  "PHYSICAL_MODEL_CHANGE": false,
+  "MODEL_DIFF": {
+    "PRESERVED": [
+      "All accepted Q040 scientific layers and public operations",
+      "H0 inference-chain benchmarks and separation",
+      "n=3 EDE constrained/not-established status",
+      "Open H0 contradiction",
+      "Open narrowed CamSpec-HiLLiPoP implementation-geometry contradiction",
+      "Existing parameters, equations, benchmarks and public calculations"
+    ],
+    "ADDED": [
+      "Validated Q041 V19 controlled no-scientific-result computational outcome",
+      "Q041 posterior convergence/completeness limitation",
+      "Q041 V19 contract-scope provenance limitation",
+      "Q041 source-lock/firewall robustness record"
+    ],
+    "MODIFIED": [
+      "PRED-EDE-PORTABILITY-001 history records an inconclusive computational attempt and remains OPEN",
+      "CTR-PLANCK-IMPL-001 records that downstream physical consequence remains unresolved after Q041",
+      "Candidate robustness and constraints explicitly separate controlled non-convergence from physical evidence"
+    ],
+    "SUPERSEDED": [],
+    "REJECTED": [],
+    "NO_CHANGE": [
+      "Physical cosmological model",
+      "Public calculation surface",
+      "Canonical accepted/formal model because promotion is blocked"
+    ]
+  },
+  "NEW_DOMAINS": [],
+  "NEW_PARAMETERS": [],
+  "NEW_EQUATIONS": [],
+  "NEW_ASSUMPTIONS": [],
+  "NEW_UNCERTAINTIES": [
+    "UNC-Q041-POSTERIOR-CONVERGENCE"
+  ],
+  "NEW_VALIDITY_DOMAINS": [
+    "DOM-Q041-PORTABILITY-V19"
+  ],
+  "NEW_LIMITATIONS": [
+    "LIM-Q041-DOWNSTREAM-PORTABILITY",
+    "LIM-Q041-CONTRACT-SCOPE"
+  ],
+  "NEW_BENCHMARKS": [],
+  "NEW_CALCULATIONS": [],
+  "NEW_TESTS": [
+    "Q041 Word discovery/hash blocking gates",
+    "Q041 no-scientific-result semantics gate",
+    "Q041 firewall/high-Q contamination gate",
+    "Q041 accepted-immutability gate",
+    "Q041 canonical-current-state regression gate",
+    "Q041 provenance and scope audit"
+  ],
+  "PRESERVED_ITEMS": [
+    "accepted/ remains Q040/v0.2/R000002",
+    "model/ remains the v0.2 formal model",
+    "versions/accepted/v0.2 remains frozen",
+    "release/MODEL_RELEASE_HANDOFF remains the Q040 accepted release",
+    "existing public operations remain unchanged"
+  ],
+  "SUPERSEDED_ITEMS": [],
+  "OPEN_CONTRADICTIONS": [
+    "CTR-H0-001",
+    "CTR-PLANCK-IMPL-001"
+  ],
+  "RESOLVED_CONTRADICTIONS": [
+    "CTR-HIST-BASIN-LABEL-001 remains resolved methodologically"
+  ],
+  "LIMITATIONS": [
+    "No Q041 downstream material/equivalent/mixed physical classification is established.",
+    "V19 obtained 0/32 scientifically complete logical posterior chains.",
+    "Thirty chains ended MAX_SAMPLES_WITHOUT_CONVERGENCE; two remained partial at segment 8.",
+    "V19 is narrower than the broader original downstream-portability design.",
+    "The mandatory authoritative Word manuscript cannot be discovered and hashed in the source repository."
+  ],
+  "PROVENANCE": {
+    "source_input_commit": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
+    "model_parent_commit": "e1bd4ae27cd3e5a2172bc5e941790c4f2d091643",
+    "program_id": "Q041-PLANCKPORT-V19",
+    "run_id": "Q041-DOWNSTREAM-SCIENTIFIC-CONSEQUENCE-PORTABILITY-V19",
+    "result_id": "R-Q041-EDE-DOWNSTREAM-PORTABILITY-019",
+    "workflow": ".github/workflows/q041-planck-portability-v19.yml",
+    "github_actions_run_id": "34979609004",
+    "github_run_attempt": 4,
+    "github_run_conclusion": "success",
+    "final_artifact_name": "q041-final-v19",
+    "final_artifact_id": "10754769330",
+    "final_artifact_sha256": "2284518ecbaaf1ff0d0093977827d5162ec29549ba2b81880f266c250311ca2b",
+    "final_json_sha256": "0062874ed3529004f46cfb542a708d5b8e8dde55d1b4fd1c2ac7c394e6c8be79",
+    "final_tests_json_sha256": "95fe1e63c78033de8559f609f0d8a1f4d48ee1b4123f3bb8f845b3ac6e5797ab",
+    "operator_publication_package": [
+      {
+        "filename": "Bubbleverse_Q-Journals_Q001-Q041(7).pdf",
+        "sha256": "fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465"
+      },
+      {
+        "filename": "Bubbleverse_Main_Book(3).pdf",
+        "sha256": "f2304a9010a8a4fbc055e5002def9ca42aac692cf81669c10fd6cc98d14f2130"
+      },
+      {
+        "filename": "Bubbleverse_Technical_Appendices_A-D(3).pdf",
+        "sha256": "878891fd0d0323c2fbfadf3fec5d5d0dffbae5e64e3551a34cfdc1da803c76"
+      }
+    ],
+    "word_search": {
+      "current_source_root_docx_count": 0,
+      "q040_reference_source_commit_docx_count": 0,
+      "commit_search_terms_checked": [
+        "bubblevers 0.41",
+        "0.41",
+        "docx",
+        "manuscript",
+        "bubblevers"
+      ],
+      "common_filename_history_matches": 0
+    }
+  },
+  "TEST_RESULTS": {
+    "INPUT_STATE_GATE": "PASS",
+    "WORD_DISCOVERY_GATE": "FAIL",
+    "WORD_HASH_GATE": "BLOCKED_NO_WORD_INPUT",
+    "Q_SEQUENCE_GATE": "PASS",
+    "Q_FIREWALL_GATE": "PASS",
+    "HIGH_Q_CONTAMINATION_GATE": "PASS",
+    "MODEL_DIFF_GATE": "PASS",
+    "SCIENTIFIC_CONSISTENCY_GATE": "PASS",
+    "EVIDENCE_PROVENANCE_GATE": "PASS",
+    "PARAMETER_GATE": "PASS_NO_CHANGE",
+    "EQUATION_GATE": "PASS_NO_CHANGE",
+    "ASSUMPTION_GATE": "PASS_NO_CHANGE",
+    "UNCERTAINTY_GATE": "PASS_STAGED",
+    "DOMAIN_OF_VALIDITY_GATE": "PASS_STAGED",
+    "LIMITATION_GATE": "PASS_STAGED",
+    "BENCHMARK_GATE": "PASS_NO_CHANGE",
+    "CONTRADICTION_GATE": "PASS_OPEN_UNRESOLVED",
+    "PREDICTION_GATE": "PASS_OPEN_UNRESOLVED",
+    "ROBUSTNESS_GATE": "PASS_STAGED",
+    "FORMAL_MODEL_GATE": "PASS_STAGED_NOT_PROMOTED",
+    "CALCULATION_GATE": "PASS_NO_NEW_OPERATION",
+    "KNOWN_ANSWER_TEST_GATE": "NOT_APPLICABLE",
+    "INVALID_INPUT_GATE": "NOT_APPLICABLE",
+    "REGRESSION_GATE": "PASS_DESIGN_CANONICAL_ACCEPTED_STATE_UNCHANGED",
+    "ACCEPTED_IMMUTABILITY_GATE": "PASS",
+    "ACCEPTED_PATH_ISOLATION_GATE": "PASS",
+    "PROMOTION_STATE_GATE": "BLOCKED",
+    "FINAL_AUDIT_GATE": "BLOCKED_BY_WORD_DISCOVERY"
+  },
+  "PROMOTION_GATE": "BLOCKED",
+  "PROMOTED": false,
+  "NEW_ACCEPTED_VERSION": null,
+  "NEXT_Q_AUTHORIZED": false,
+  "BLOCKERS": [
+    "No authoritative Word manuscript covering Q041 is discoverable in Morfindien/Bubbleverse.",
+    "Without a Word input, WORD_INPUT_SHA256 cannot be established.",
+    "Connected GitHub write attempt failed with HTTP 403 Resource not accessible by integration."
+  ],
+  "STOP_STATE": "CANDIDATE_BLOCKED",
+  "CONNECTED_REPOSITORY_WRITE": {
+    "attempted": true,
+    "succeeded": false,
+    "error": "HTTP 403: Resource not accessible by integration"
+  }
+}
