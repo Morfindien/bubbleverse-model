@@ -3,7 +3,7 @@
     "BV-ASTRONOMY-CATALOG-CONTEXT-V1": {
       "accepted_model_version": "v0.2",
       "automatic_model_admission": false,
-      "formal_model_version": "v0.2-formalization-1",
+      "formal_model_version": "v0.1-formalization-3",
       "implementation": ".github/workflows/00-bubbleverse-model-start-public.yml",
       "operation": "astronomy-catalog-context",
       "q_access_end": "Q040",
@@ -22,7 +22,7 @@
       "campaign_id": "BV-MODEL-v0.2-CAMPAIGN-0002",
       "command": "test",
       "command_semantics": "CURRENT_STATE_VALIDATION_AND_TEST_RECORD",
-      "formal_model_version": "v0.2-formalization-1",
+      "formal_model_version": "v0.1-formalization-3",
       "formal_validator_path": "tests/programs/formal_model_validate.py",
       "path": "tests/programs/model_campaign.py",
       "public_workflow_operations": [
@@ -41,7 +41,7 @@
     },
     "BV-RESULT-CONTEXT-V1": {
       "accepted_model_version": "v0.2",
-      "formal_model_version": "v0.2-formalization-1",
+      "formal_model_version": "v0.1-formalization-3",
       "implementation": ".github/workflows/00-bubbleverse-model-start-public.yml",
       "operations": [
         "known-results",
