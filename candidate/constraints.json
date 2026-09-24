@@ -59,8 +59,26 @@
       "id": "CON-Q040-002",
       "statement": "Q040 does not establish likelihood defect or superiority, calibration, foreground, covariance or instrumental failure, n=3 EDE preference/falsification, or new physics.",
       "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q041-001",
+      "q_introduced": "Q041",
+      "statement": "No MATERIAL_DOWNSTREAM_DIFFERENCE, SCIENTIFICALLY_EQUIVALENT_CONSTRAINTS, or CONSTRAINED_MIXED conclusion may be assigned from V19 because the chain-completeness, hard-Rhat, and both-arms/all-combinations science gates were not satisfied.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q041-002",
+      "q_introduced": "Q041",
+      "statement": "Q041 non-convergence and a green workflow terminal state are not physical evidence for CamSpec-HiLLiPoP agreement or disagreement, likelihood superiority, EDE preference or falsification, or new physics.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q041-003",
+      "q_introduced": "Q041",
+      "statement": "Q041 conclusions are restricted to the preregistered V19 EDE-only campaign and must not be generalized to the broader original downstream contract.",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q040",
+  "q_access_end": "Q041",
   "schema_version": 1
 }

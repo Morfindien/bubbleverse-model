@@ -1,31 +1,76 @@
 {
   "added": [
-    "Q040 common-CMB marginal-likelihood methodological observation",
-    "Q040 numerical-validation failure observation",
-    "Q040 constraints and robustness records",
-    "formal Q040 marginal-likelihood equation and explicit scope records"
+    "Q041 V19 controlled-no-science observation",
+    "Q041 contract-scope observation",
+    "Q041 convergence/completeness constraints",
+    "Q041 robustness/firewall records",
+    "Q041 convergence uncertainty",
+    "Q041 V19 validity-domain scope",
+    "Q041 unresolved downstream-portability and contract-scope limitations",
+    "Q041 PDF and V19 evidence provenance"
   ],
-  "from_version": "v0.1",
+  "assumption_changes": [],
+  "benchmark_changes": [],
+  "equation_changes": [],
+  "from_version": "v0.2",
+  "mechanism_status_changes": [],
   "modified": [
-    "CamSpec-HiLLiPoP contradiction remains OPEN_NARROWED",
-    "PRED-Q039-COUPLED-001 remains OPEN with Q040 inconclusive attempt recorded",
-    "authorized boundary advances to Q040 only on promotion"
+    "PRED-EDE-PORTABILITY-001 remains OPEN with Q041 inconclusive history",
+    "CTR-PLANCK-IMPL-001 remains OPEN_NARROWED",
+    "authorized Q boundary advances through Q041 only on promotion",
+    "formal-model metadata synchronized to the new accepted version"
   ],
+  "new_assumptions": [],
   "new_benchmarks": [],
-  "new_equations": [
-    "EQ-Q040-CMB-NATIVE-MARGINAL"
+  "new_computational_capabilities": [],
+  "new_contradiction": [],
+  "new_equations": [],
+  "new_limitations": [
+    "LIM-Q041-DOWNSTREAM-PORTABILITY",
+    "LIM-Q041-CONTRACT-SCOPE"
   ],
+  "new_mechanisms": [],
   "new_parameters": [],
+  "new_predictions": [],
   "new_public_calculations": [],
   "new_scientific_domains": [],
+  "new_uncertainties": [
+    "UNC-Q041-POSTERIOR-CONVERGENCE"
+  ],
+  "new_validity_domains": [
+    "DOM-Q041-PORTABILITY-V19"
+  ],
+  "no_change": [
+    "parameters",
+    "equations",
+    "assumptions",
+    "benchmarks",
+    "mechanisms",
+    "public operations",
+    "scientific domains"
+  ],
+  "parameter_changes": [],
+  "physical_model_change": "NONE",
+  "prediction_status_changes": [
+    "PRED-EDE-PORTABILITY-001 remains OPEN; history extended"
+  ],
   "preserved": [
     "H0 inference-chain benchmarks",
     "Hubble-tension constraints",
     "n=3 EDE constrained status",
     "Q039 single-block negative results",
-    "public calculation surface"
+    "Q040 methodological/numerical provenance",
+    "existing public calculation surface",
+    "all previous accepted snapshots"
   ],
+  "rejected": [],
+  "reopened": [],
+  "resolved_contradiction": [],
   "schema_version": 1,
-  "target_q": "Q040",
-  "to_candidate_version": "v0.2"
+  "strengthened": [],
+  "superseded": [],
+  "target_q": "Q041",
+  "to_candidate_version": "v0.3",
+  "update_class": "EVIDENCE_ONLY_UPDATE",
+  "weakened": []
 }

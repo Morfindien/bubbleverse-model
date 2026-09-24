@@ -44,8 +44,26 @@
       "finding": "The tested single-Gaussian compression and finite defensive-RQMC implementation fail numerical validation; this is TECHNICAL_FAIL and not physical falsification.",
       "id": "ROB-Q040-NUMERIC-001",
       "status": "TECHNICAL_FAIL"
+    },
+    {
+      "finding": "The Q041 V19 workflow reaches a valid controlled no-science terminal state: workflow success validates control flow, not a cosmological portability result. The convergence and completeness firewall prevents physical interpretation.",
+      "id": "ROB-Q041-CONTROLLED-NOSCIENCE-001",
+      "q_introduced": "Q041",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "The Q041 V19 source lock forbids Q040 scientific products as Q041 scientific inputs, and the final source-result firewall gate passes.",
+      "id": "ROB-Q041-FIREWALL-001",
+      "q_introduced": "Q041",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "The executed V19 contract is narrower than the broader original Q041 downstream design; its controlled no-science result is valid for V19 but cannot stand in for that broader test.",
+      "id": "ROB-Q041-CONTRACT-SCOPE-001",
+      "q_introduced": "Q041",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q040",
+  "q_access_end": "Q041",
   "schema_version": 1
 }

@@ -1,0 +1,31 @@
+{
+  "accepted_pre_candidate_digest": "b38ad3ce77e07dee3b98d1b63bffa33dbe4ef1e13f48574f5441a6882308b40a",
+  "all_green": true,
+  "created_at": "2026-09-24T10:18:17.530322+00:00",
+  "schema_version": 1,
+  "source_science_gate_semantics": "Blocked V19 inference gates are the validated content of the controlled no-science outcome; they are not model-updater technical failures.",
+  "source_science_gates": {
+    "ALL_RHAT_LE_1P05": "BLOCKED",
+    "BOTH_ARMS_ALL_COMBINATIONS": "BLOCKED",
+    "CHAIN_COMPLETENESS": "BLOCKED",
+    "Q040_FIREWALL": "PASS",
+    "SEGMENTED_RESUME_COMPLETENESS": "CONTROLLED_STOP"
+  },
+  "target_q": "Q041",
+  "tests": {
+    "ACCEPTED_IMMUTABILITY_GATE": "PASS",
+    "CONTRACT_SCOPE_GATE": "PASS",
+    "CONTROLLED_NO_SCIENCE_SEMANTICS_GATE": "PASS",
+    "EVIDENCE_PROVENANCE_GATE": "PASS",
+    "HIGH_Q_CONTAMINATION_GATE": "PASS",
+    "INPUT_DOCUMENT_GATE": "PASS_AUTHORIZED_PDF_SUBSTITUTE",
+    "INPUT_DOCUMENT_HASH_GATE": "PASS",
+    "MODEL_DIFF_GATE": "PASS",
+    "PHYSICAL_MODEL_CONSERVATISM_GATE": "PASS",
+    "PUBLIC_CALCULATION_GATE": "PASS_NO_NEW_OPERATION",
+    "Q_FIREWALL_GATE": "PASS",
+    "Q_SEQUENCE_GATE": "PASS",
+    "SCIENTIFIC_CONSISTENCY_GATE": "PASS",
+    "TECHNICAL_VS_SCIENTIFIC_FAILURE_GATE": "PASS"
+  }
+}

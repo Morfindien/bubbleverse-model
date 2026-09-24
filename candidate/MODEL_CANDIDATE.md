@@ -1,20 +1,19 @@
 # BUBBLEVERSE MODEL CANDIDATE RECORD
 
-**PROMOTED TO ACCEPTED v0.2**
+**Q041 EVIDENCE-ONLY CANDIDATE — READY FOR PROMOTION GATES**
 
-- Candidate version: **v0.2**
-- Candidate revision: **R000002**
-- Authorized Q range: **Q001-Q040**
-- Current Q: **Q040**
-- Promotion status: **PROMOTED_TO_v0.2**
+- Candidate version: **v0.3**
+- Candidate revision: **R000003**
+- Authorized Q range: **Q001-Q041**
+- Current Q: **Q041**
+- Update class: **EVIDENCE_ONLY_UPDATE**
+- Physical model change: **NONE**
 
-Q040 introduced a methodologically legitimate common physical CMB-space
-native-nuisance marginalization construction for CamSpec and HiLLiPoP.
+The authoritative V19 downstream portability campaign ended in a valid
+`CONTROLLED_NO_SCIENTIFIC_RESULT` state. The complete converged posterior matrix
+required for scientific classification was not obtained, so no material, equivalent,
+or mixed downstream portability class is accepted.
 
-The tested single-Gaussian and defensive randomized quasi-Monte Carlo
-representations failed mandatory numerical validation before endpoint geometry
-was accepted. This remains a **TECHNICAL_FAIL**, not physical falsification.
-
-The causal origin of the CamSpec-HiLLiPoP fitted-geometry difference remains
-unresolved. This candidate record is retained as promotion history; the active
-scientific state is `accepted/`.
+This is not a technical crash and not physical falsification. n=3 EDE remains
+constrained and not established as new physics. The CamSpec–HiLLiPoP geometry
+contradiction remains open and narrowed, and the V19 scope limitation is explicit.

@@ -76,8 +76,31 @@
       "q_introduced": "Q040",
       "scientific_falsification": false,
       "status": "TECHNICAL_FAIL"
+    },
+    {
+      "claim": "The preregistered Q041 V19 downstream CamSpec-HiLLiPoP portability campaign reached a valid controlled terminal state without a complete converged posterior matrix. Thirty logical chains reached the frozen 20,000-sample limit and two remained partial through the eighth compute segment; 0 of 32 logical chains were documented COMPLETE. The mandatory completeness and Rhat science gates were blocked and no downstream portability class was scientifically issued.",
+      "epistemic_level": "validated computational non-result",
+      "evidence_refs": [
+        "EVD-Q041-PORTABILITY-V19",
+        "EVD-Q041-QJOURNAL-PDF"
+      ],
+      "id": "OBS-Q041-PORTABILITY-V19-001",
+      "q_introduced": "Q041",
+      "scientific_falsification": false,
+      "status": "INCONCLUSIVE_CONTROLLED_NO_SCIENTIFIC_RESULT"
+    },
+    {
+      "claim": "The executed V19 campaign is scientifically narrower than the broader original Q041 downstream design: V19 is n=3 EDE-only, omits a separate LCDM matrix and the common supernova block, uses three leave-one-out combinations rather than four, and uses its own preregistered decision rule. This does not invalidate V19, but V19 cannot substitute for the broader design.",
+      "epistemic_level": "provenance and scope audit",
+      "evidence_refs": [
+        "EVD-Q041-QJOURNAL-PDF",
+        "EVD-Q041-MAINBOOK-PDF"
+      ],
+      "id": "OBS-Q041-CONTRACT-SCOPE-001",
+      "q_introduced": "Q041",
+      "status": "SUPPORTED_PROVENANCE_SCOPE"
     }
   ],
-  "q_access_end": "Q040",
+  "q_access_end": "Q041",
   "schema_version": 1
 }

@@ -8,6 +8,13 @@
     },
     {
       "future_q_evidence_used": false,
+      "history": [
+        {
+          "note": "V19 reached a valid controlled no-science terminal state because convergence and completeness gates were not met; no portability class was issued.",
+          "q": "Q041",
+          "status": "INCONCLUSIVE_COMPUTATIONAL_ATTEMPT"
+        }
+      ],
       "id": "PRED-EDE-PORTABILITY-001",
       "statement": "A robust high-H0 n=3 EDE explanation should remain scientifically viable across genuinely matched likelihood implementations rather than only within one favorable construction.",
       "status": "OPEN"
@@ -26,6 +33,6 @@
       "status": "OPEN"
     }
   ],
-  "q_access_end": "Q040",
+  "q_access_end": "Q041",
   "schema_version": 1
 }
