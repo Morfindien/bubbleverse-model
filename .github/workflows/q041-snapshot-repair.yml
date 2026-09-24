@@ -1,0 +1,97 @@
+name: "🛠️ BUBBLEVERSE MODEL — Q041 SNAPSHOT REPAIR"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bubbleverse-model-q041-snapshot-repair
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Verify Q041 accepted state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          state = json.loads(Path("accepted/model_state.json").read_text(encoding="utf-8"))
+
+          assert state["current_q"] == "Q041", state
+          assert state["q_access_end"] == "Q041", state
+          assert state["accepted_model_version"] == "v0.3", state
+          assert state["model_revision"] == "R000003", state
+
+          snap = Path("versions/accepted/v0.3/MODEL_CURRENT.md")
+          assert snap.exists(), "Missing versions/accepted/v0.3/MODEL_CURRENT.md"
+
+          print("Q041_ACCEPTED_STATE_GATE=PASS")
+          PY
+
+      - name: Repair accepted MODEL_CURRENT mirror
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          cp versions/accepted/v0.3/MODEL_CURRENT.md accepted/MODEL_CURRENT.md
+
+          LIVE="$(sha256sum accepted/MODEL_CURRENT.md | awk '{print $1}')"
+          SNAP="$(sha256sum versions/accepted/v0.3/MODEL_CURRENT.md | awk '{print $1}')"
+
+          echo "accepted/MODEL_CURRENT.md sha256=${LIVE}"
+          echo "versions/accepted/v0.3/MODEL_CURRENT.md sha256=${SNAP}"
+
+          test "${LIVE}" = "${SNAP}"
+
+          echo "ACCEPTED_MODEL_IMMUTABILITY_MIRROR_GATE=PASS"
+
+      - name: Run scientific and formal validation
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python tests/programs/q041_model_validate.py
+          python tests/programs/model_campaign.py validate
+
+      - name: Verify exact snapshot mirror
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          cmp --silent             accepted/MODEL_CURRENT.md             versions/accepted/v0.3/MODEL_CURRENT.md
+
+          echo "SELF_015_REPAIR_GATE=PASS"
+
+      - name: Commit repair
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet -- accepted/MODEL_CURRENT.md; then
+            echo "No repair required; files already match."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add accepted/MODEL_CURRENT.md
+          git commit -m "Repair Q041 accepted snapshot mirror"
+          git push origin HEAD:main
+
+          echo "Q041_SNAPSHOT_REPAIR=PASS"
