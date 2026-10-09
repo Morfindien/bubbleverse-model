@@ -65,6 +65,21 @@ class Q043Guards(unittest.TestCase):
     def test_inherited_source_loss_rejected(self):
         self.mutate('candidate/evidence/sources/Q042/ingestion_decision.json', lambda d: d['source_register'].pop(), 'Q043_SOURCE_CONTINUITY_GATE')
 
+    def test_empty_source_hash_inventory_rejected(self):
+        self.mutate('candidate/Q043_PROVENANCE.json', lambda d: d.update(source_files=[]), 'Q043_SOURCE_HASH_GATE')
+
+    def test_duplicate_source_hash_inventory_rejected(self):
+        self.mutate('candidate/Q043_PROVENANCE.json', lambda d: d['source_files'].append(d['source_files'][0]), 'Q043_SOURCE_HASH_GATE')
+
+    def test_production_in_update_metadata_rejected(self):
+        self.mutate('candidate/evidence/q_updates/Q043.json', lambda d: d.update(production_restart_authorized=True), 'Q043_QUALIFICATION_GATE')
+
+    def test_physical_claim_in_supporting_pdf_evidence_rejected(self):
+        def inject(data):
+            item = next(x for x in data['entries'] if x['evidence_id'] == 'EVD-Q043-APPENDICES-PDF')
+            item.update(physical_falsification=True,actual_computed_cosmological_result=True)
+        self.mutate('candidate/evidence/evidence_registry.json', inject, 'Q043_QUALIFICATION_GATE')
+
     def test_old_snapshot_mutation_rejected(self):
         self.mutate('versions/accepted/v0.4/model_state.json', lambda d: d.update(current_q='Q041'), 'Q043_ACCEPTED_IMMUTABILITY_GATE')
 
@@ -74,6 +89,22 @@ class Q043Guards(unittest.TestCase):
         self.result()
         after = {p: hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in before}
         self.assertEqual(before, after)
+
+    def test_mutating_live_and_frozen_state_together_is_rejected(self):
+        if json.loads((ROOT/'accepted/model_state.json').read_text())['current_q'] != 'Q043':
+            self.skipTest('Snapshot hash check applies to projected or promoted Q043')
+        paths = [ROOT/'accepted/model_state.json', ROOT/'versions/accepted/v0.5/model_state.json']
+        original = [p.read_bytes() for p in paths]
+        try:
+            for p, data in zip(paths,original):
+                altered = json.loads(data)
+                altered['injected_metadata'] = 'unrecorded mutation'
+                p.write_text(json.dumps(altered,indent=2,sort_keys=True)+'\n')
+            rows = {x['id']:x for x in self.result()['tests']}
+            self.assertEqual(rows['Q043_ACCEPTED_IMMUTABILITY_GATE']['status'],'FAIL')
+        finally:
+            for p,data in zip(paths,original):
+                p.write_bytes(data)
 
 
 if __name__ == '__main__':

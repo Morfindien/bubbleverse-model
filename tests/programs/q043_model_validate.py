@@ -51,6 +51,10 @@ def run_tests(root=ROOT, candidate=False):
     gate('Q043_SEQUENCE_GATE', sequence)
 
     def sources():
+        required = {'integration_result.json','cumulative_journal.md','q_journal.pdf','appendices.pdf','main_book.pdf','q_journal.txt','appendices.txt','main_book.txt'}
+        inventory = [s['archived_name'] for s in provenance['source_files']]
+        require(len(inventory) == len(required) and set(inventory) == required, 'source hash inventory missing, duplicated or retargeted')
+        require(digest(evidence/'sources/Q043/integration_result.json') == '4486e5173ba8ef3ac659c743bb578284c93446ce9e5b3d0dae71728beadbb9ff', 'original result bytes differ from pinned authority')
         for s in provenance['source_files']:
             p = evidence/'sources/Q043'/s['archived_name']
             require(digest(p) == s['sha256'] and p.stat().st_size == s['bytes'], 'source bytes changed: '+s['archived_name'])
@@ -70,12 +74,18 @@ def run_tests(root=ROOT, candidate=False):
         require(state['production_restart_authorized'] is False and s['production_restart_authorized'] is False, 'production authorized')
         require(state['physical_model_change'] is False, 'physical model changed')
         entries = {x['evidence_id']:x for x in load(evidence/'evidence_registry.json')['entries']}
-        for eid in ['EVD-Q043-RESULT', 'EVD-Q043-JOURNAL']:
+        source_ids = {'EVD-Q043-RESULT':'integration_result.json', 'EVD-Q043-JOURNAL':'cumulative_journal.md', 'EVD-Q043-QJOURNAL-PDF':'q_journal.pdf', 'EVD-Q043-APPENDICES-PDF':'appendices.pdf', 'EVD-Q043-MAINBOOK-PDF':'main_book.pdf'}
+        q43_entries = [x for x in entries.values() if x.get('q_id') == 'Q043']
+        require({x['evidence_id'] for x in q43_entries} == set(source_ids), 'Q043 evidence inventory differs')
+        for eid, filename in source_ids.items():
             e = entries[eid]
             require(e['scientific_classification'] == s['actual_result'], 'evidence scope differs')
-            require(e['independent_cosmological_evidence'] is False and e['physical_falsification'] is False and e['production_restart_authorized'] is False, 'internal evidence elevated to physics')
+            require(e['independent_cosmological_evidence'] is False and e['physical_falsification'] is False and e['production_restart_authorized'] is False and e['actual_computed_cosmological_result'] is False and e['new_scientific_inference'] is False, 'internal evidence elevated to physics')
+            require(e['result_id'] == s['result_id'] and e['remote_sync_in_original_result'] == 'NOT_PERFORMED', 'historical source/result semantics changed')
+            require(e['source'] == 'evidence/sources/Q043/'+filename and e['sha256'] == digest(evidence/'sources/Q043'/filename), 'evidence source mapping/hash invalid')
         update = load(evidence/'q_updates/Q043.json')
         require(update['historical_state_is_current_state'] is False and update['source_repository_modified'] is False, 'historical/current state conflated')
+        require(update['production_restart_authorized'] is False and update['physical_model_change'] is False and update['result'] == s['actual_result'] and update['authoritative_result_id'] == s['result_id'], 'update qualification overstated')
         return 'Original local-only result preserved; no physics or production inferred'
     gate('Q043_QUALIFICATION_GATE', qualification)
 
@@ -144,6 +154,11 @@ def run_tests(root=ROOT, candidate=False):
             require(digest(root/relative) == expected, 'protected input changed: '+relative)
         if not candidate:
             snap = root/'versions/accepted/v0.5'
+            frozen = load(root/'provenance/Q043_SNAPSHOT_MANIFEST.json')
+            require(frozen['accepted_version'] == 'v0.5' and frozen['target_q'] == 'Q043', 'snapshot manifest identity mismatch')
+            require({p.name for p in snap.iterdir() if p.is_file()} == set(frozen['sha256']), 'snapshot file set mutated')
+            for name, expected in frozen['sha256'].items():
+                require(digest(snap/name) == expected, 'frozen snapshot hash mismatch: '+name)
             for p in (root/'accepted').iterdir():
                 require(digest(p) == digest(snap/p.name), 'accepted snapshot mismatch')
             for p in formal.glob('*.json'):
