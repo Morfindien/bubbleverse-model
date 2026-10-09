@@ -14,7 +14,7 @@
       "mandatory_for_promotion": false,
       "target_component": "Q identity and boundary schema",
       "test_id": "T-BV-001",
-      "why_test_matters": "Accepted/candidate identity must match Q001-Q043 / CURRENT_Q Q042."
+      "why_test_matters": "Accepted/candidate identity must match Q001-Q043 / CURRENT_Q Q043."
     },
     {
       "category": "MANDATORY_PROMOTION",
