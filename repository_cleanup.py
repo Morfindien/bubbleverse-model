@@ -1,529 +1,311 @@
 #!/usr/bin/env python3
+"""Dynamically audit and clean Bubbleverse infrastructure; never pushes or promotes."""
 from __future__ import annotations
-
-import argparse
-import hashlib
-import json
-import os
-import re
-import shutil
-import subprocess
-import sys
-from datetime import datetime, timezone
+import argparse,ast,collections,hashlib,json,os,re,subprocess,sys,tempfile,textwrap
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent
-TMP_FP = Path("/tmp/bubbleverse_cleanup_before.json")
-
-SAFE_DELETE = [
-    ".github/workflows/q040-model-update.yml",
-    ".github/workflows/q040-model-repair.yml",
-    "Q040_MODEL_UPDATE_INSTALL.py",
-    "Q040_MODEL_UPDATE_MANIFEST.json",
-    "Q040_MODEL_UPDATE_REPORT.md",
-    "Q040_MODEL_REPAIR.py",
-    "Q040_MODEL_REPAIR_REPORT.json",
-    "README-updated-final.md",
-]
-
-PROTECTED_ROOTS = [
-    "accepted",
-    "versions/accepted",
-    "evidence",
-    "model",
-    "candidate",
-    "tests/programs",
-    "tests/preregistration",
-    "tests/results",
-]
-PROTECTED_EXACT = ["release/MODEL_RELEASE_HANDOFF.json"]
-
-
-def load(rel: str):
-    return json.loads((ROOT / rel).read_text(encoding="utf-8"))
-
-
-def save(rel: str, obj):
-    p = ROOT / rel
-    p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(obj, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-
-
-def sha256(path: Path) -> str:
-    h = hashlib.sha256()
-    with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
-            h.update(chunk)
-    return h.hexdigest()
-
-
-def fingerprint() -> dict[str, str]:
-    out: dict[str, str] = {}
-    for rel in PROTECTED_ROOTS:
-        base = ROOT / rel
-        if not base.exists():
-            continue
-        for p in sorted(base.rglob("*")):
-            if p.is_file():
-                out[p.relative_to(ROOT).as_posix()] = sha256(p)
-    for rel in PROTECTED_EXACT:
-        p = ROOT / rel
-        if p.exists():
-            out[rel] = sha256(p)
-    return out
-
-
-def canonical_state():
-    accepted = load("accepted/model_state.json")
-    release = load("release/MODEL_RELEASE_HANDOFF.json")
-    manifest = load("model/model_manifest.json")
-    programs = load("bubbleverse_model_program_registry.json")
-
-    if accepted.get("status") != "ACCEPTED":
-        raise SystemExit("Accepted state is not ACCEPTED")
-    if accepted.get("current_q") != accepted.get("q_access_end"):
-        raise SystemExit("Accepted current_q and q_access_end disagree")
-    if release.get("current_q") != accepted.get("current_q"):
-        raise SystemExit("Release current_q disagrees with accepted state")
-    if release.get("accepted_model_after") != accepted.get("accepted_model_version"):
-        raise SystemExit("Release accepted version disagrees with accepted state")
-    if manifest.get("current_q") != accepted.get("current_q"):
-        raise SystemExit("Formal manifest current_q disagrees with accepted state")
-    if manifest.get("accepted_model_version") != accepted.get("accepted_model_version"):
-        raise SystemExit("Formal manifest accepted version disagrees with accepted state")
-    if release.get("release_status") != "ALL_GREEN":
-        raise SystemExit("Release is not ALL_GREEN")
-
-    return accepted, release, manifest, programs
-
-
-def reference_scan(delete_group: set[str]):
-    failures = {}
-    for target in sorted(delete_group):
-        p = ROOT / target
-        if not p.exists():
-            continue
-        needles = {target, Path(target).name}
-        hits = []
-        for candidate in ROOT.rglob("*"):
-            if not candidate.is_file() or ".git" in candidate.parts:
-                continue
-            rel = candidate.relative_to(ROOT).as_posix()
-            if rel in delete_group:
-                continue
-            # Canonical historical records may mention old infrastructure by name.
-            if rel.startswith("provenance/") or rel.startswith("changelog/"):
-                continue
-            try:
-                text = candidate.read_text(encoding="utf-8")
-            except Exception:
-                continue
-            if any(n in text for n in needles):
-                hits.append(rel)
-        if hits:
-            failures[target] = hits
-    if failures:
-        raise SystemExit(f"REFERENCE_SCAN failed: {failures}")
-
-
-def sync_readme(accepted, release, manifest, programs):
-    p = ROOT / "README.md"
-    text = p.read_text(encoding="utf-8")
-
-    qstart = accepted["q_access_start"]
-    qend = accepted["q_access_end"]
-    qrange = f"{qstart}–{qend}"
-    version = accepted["accepted_model_version"]
-    revision = accepted["model_revision"]
-    formal = manifest.get("formal_model_version", "UNKNOWN")
-    campaign = programs.get("programs", {}).get("BV-MODEL-CAMPAIGN-V1", {})
-    campaign_id = campaign.get("campaign_id", "CURRENT")
-
-    current_state = f"""## Current State
-
-- Mode: **INCREMENTAL_UPDATE — {qend} accepted**
-- Authorized scientific range: **{qrange}**
-- Current Q: **{accepted["current_q"]}**
-- Accepted model: **{version}**
-- Model revision: **{revision}**
-- Candidate state: **promoted record retained**
-- Formal model: **{formal}**
-- Scientific campaign: **9 / 9 PASS**
-- Formal-model validation: **12 / 12 PASS**
-- Public system healthcheck: **20 / 20 PASS**
-- Result context engine: **ACTIVE**
-- External astronomy catalog context: **ACTIVE**
-- Release status: **{release["release_status"]}**
-- Next Q: **{"AUTHORIZED" if release.get("next_word_authorized") else "BLOCKED"}**
-
----
-"""
-
-    text, n = re.subn(
-        r"## Current State\n.*?\n---\n",
-        current_state,
-        text,
-        count=1,
-        flags=re.S,
-    )
-    if n != 1:
-        raise SystemExit("README current-state section not found")
-
-    # README is current documentation, so stale current-boundary labels are synced.
-    text = text.replace("Q001–Q039", qrange)
-    text = text.replace("Q001-Q039", f"{qstart}-{qend}")
-    text = text.replace("The Q039 baseline is complete and ready for automatic future model updates.",
-                        f"The {qend} accepted state is complete and ready for the next controlled model update.")
-
-    # Current implementation's campaign is validation-only.
-    campaign_pattern = re.compile(
-        r"### campaign\n\nRuns the explicit model campaign\..*?instead\.\n",
-        re.S,
-    )
-    replacement = """### campaign
-
-Runs the current scientific/model validation campaign and may write a validation record under `tests/results/`.
-
-In the current implementation it does **not** promote a candidate, expand the Q boundary, or alter accepted scientific state. Scientific promotion belongs to the controlled model-update pipeline.
-
-Use `test` for the complete non-destructive system healthcheck and `validate-model` for direct model validation.
-"""
-    text = campaign_pattern.sub(replacement, text, count=1)
-
-    p.write_text(text, encoding="utf-8")
-
-
-def sync_release_md(release):
-    p = ROOT / "release/MODEL_RELEASE_HANDOFF.md"
-    r = release
-    text = f"""# BUBBLEVERSE MODEL RELEASE HANDOFF
-
-AUTHORIZED Q RANGE: {r["q_access_start"]}–{r["q_access_end"]}
-CURRENT Q: {r["current_q"]}
-Processed through: {r["processed_through_q"]}
-
-Previous accepted model: {r["accepted_model_before"]}
-Candidate: {r["candidate_model"]}
-Final accepted model: {r["accepted_model_after"]}
-Model revision: {r["model_revision"]}
-
-Campaign: {r["test_campaign_id"]}
-
-## MANDATORY TESTS
-PASS: {r["mandatory_tests_passed"]} / {r["mandatory_tests_total"]}
-FAIL: {r["mandatory_tests_failed"]}
-INCONCLUSIVE: {r["mandatory_tests_inconclusive"]}
-NOT COMPARABLE: {r["mandatory_tests_not_comparable"]}
-BLOCKED: {r["mandatory_tests_blocked"]}
-TECHNICAL FAIL: {r["mandatory_tests_technical_fail"]}
-INVALID: {r["mandatory_tests_invalid"]}
-
-## GATES
-Q ACCESS FIREWALL: {r["q_access_firewall_gate"]}
-HIGH-Q CONTAMINATION: {r["high_q_contamination_gate"]}
-SCHEMA: {r["model_schema_gate"]}
-PROVENANCE: {r["provenance_gate"]}
-CONTRADICTIONS: {r["contradiction_gate"]}
-REGRESSION: {r["regression_gate"]}
-TEST CAMPAIGN: {r["test_campaign_gate"]}
-PROMOTION: {r["candidate_promotion_gate"]}
-FINAL AUDIT: {r["final_audit_gate"]}
-
-ALL MANDATORY GREEN: {"YES" if r["all_mandatory_green"] else "NO"}
-CANDIDATE PROMOTED: {"YES" if r["candidate_promoted"] else "NO"}
-NEXT WORD AUTHORIZED: {"YES" if r["next_word_authorized"] else "NO"}
-RELEASE STATUS: {r["release_status"]}
-
-SOURCE BUBBLEVERSE COMMIT: `{r["source_bubbleverse_commit"]}`
-CANDIDATE COMMIT: `{r["candidate_commit"]}`
-MODEL REPOSITORY COMMIT ({r["model_repository_commit_semantics"]}): `{r["model_repository_commit"]}`
-REPAIR STATUS: {r.get("repair_status", "NONE")}
-"""
-    p.write_text(text, encoding="utf-8")
-
-
-def sync_test_docs(accepted, programs):
-    campaign = programs.get("programs", {}).get("BV-MODEL-CAMPAIGN-V1", {})
-    campaign_id = campaign.get("campaign_id", "CURRENT")
-    qend = accepted["q_access_end"]
-    version = accepted["accepted_model_version"]
-
-    plan = f"""# BUBBLEVERSE MODEL — TEST PLAN CURRENT
-
-**Campaign:** {campaign_id}
-**Authorized Q range:** {accepted["q_access_start"]}–{qend}
-**Current Q:** {accepted["current_q"]}
-**Accepted model:** {version} / {accepted["model_revision"]}
-**Mode:** current-state validation
-
-Historical preregistration and historical results remain preserved under `tests/preregistration/` and `tests/results/`. This file describes the active validator only.
-
-| TEST_ID | Current target | Required |
-|---|---|---|
-| T-BV-001 | Candidate/accepted identity and current Q boundary | YES |
-| T-BV-002 | High-Q contamination firewall | YES |
-| T-BV-003 | H0 inference-chain invariant | YES |
-| T-BV-004 | Authoritative Q039 provenance preservation | YES |
-| T-BV-005 | Q039 technical/scientific separation | YES |
-| T-BV-006 | Q039 narrowing + Q040 technical-vs-physical semantics | YES |
-| T-BV-007 | Contradiction preservation | YES |
-| T-BV-008 | Open-question preservation | YES |
-| T-BV-009 | JSON/schema/reference integrity | YES |
-
-## Success rule
-All nine current tests must explicitly PASS.
-
-## Q firewall
-Current scientific/model state is limited to {accepted["q_access_start"]}–{qend}. No current-state validation may ingest scientific evidence above {qend}.
-
-## Execution mechanism
-`tests/programs/model_campaign.py validate` performs deterministic current-state validation. The permanent public workflow is `.github/workflows/00-bubbleverse-model-start-public.yml`.
-
-## Promotion semantics
-This current validator is non-promoting. It does not create a new accepted model, expand the Q boundary, or revise scientific conclusions. Promotion is handled by the controlled model-update pipeline.
-"""
-    (ROOT / "tests/TEST_PLAN_CURRENT.md").write_text(plan, encoding="utf-8")
-
-    reg = load("tests/test_registry.json")
-    reg["campaign_id"] = campaign_id
-    reg["accepted_model_version"] = version
-    reg["candidate_model_version"] = version
-    reg["current_q"] = accepted["current_q"]
-    reg["q_access_start"] = accepted["q_access_start"]
-    reg["q_access_end"] = qend
-    reg["mode"] = "CURRENT_STATE_VALIDATION"
-    for item in reg.get("tests", []):
-        item["mandatory_for_current_validation"] = True
-        item["mandatory_for_promotion"] = False
-    save("tests/test_registry.json", reg)
-
-
-def migrate_provenance(release):
-    p = ROOT / "provenance/Q040_PROVENANCE.md"
-    if not p.exists():
-        return
-    text = p.read_text(encoding="utf-8")
-    if "## Model-integration handoff history" not in text:
-        text += f"""
-
-## Model-integration handoff history
-
-- Integration artifact SHA-256: `1cdb34576665d4b91300243ea72b92eab8ee8a24a122fbf118fcd424d891ffc5`
-- Final artifact SHA-256: `450c7a4116eff544d5c8e0f8b209a6ba1f41caa4cb8b89284923d1956b348a62`
-- Initial connected-write attempt: `TECHNICAL_BLOCK_403`; infrastructure failure, not scientific failure.
-- Post-promotion consistency repair status: `{release.get("repair_status", "NONE")}`.
-- One-time updater/repair infrastructure is preserved by Git history rather than retained as active root/workflow clutter.
-"""
-        p.write_text(text, encoding="utf-8")
-
-
-def sync_changelog(accepted, release, manifest):
-    reg = load("changelog/model_change_registry.json")
-    changes = reg.setdefault("changes", [])
-    statuses = {x.get("status") for x in changes}
-
-    if "CURRENT_STATE_METADATA_SYNC" not in statuses:
-        changes.append({
-            "change_revision": f"STRUCT-{len(changes)+1:06d}",
-            "date": datetime.now(timezone.utc).isoformat(),
-            "status": "CURRENT_STATE_METADATA_SYNC",
-            "accepted_after": accepted["accepted_model_version"],
-            "current_q": accepted["current_q"],
-            "q_access_start": accepted["q_access_start"],
-            "q_access_end": accepted["q_access_end"],
-            "model_revision": accepted["model_revision"],
-            "formal_model_version": manifest.get("formal_model_version"),
-            "scientific_change": False,
-            "metadata_sync": True,
-            "source_bubbleverse_commit": release.get("source_bubbleverse_commit"),
-            "repair_status": release.get("repair_status"),
-        })
-
-    changes.append({
-        "change_revision": f"STRUCT-{len(changes)+1:06d}",
-        "date": datetime.now(timezone.utc).isoformat(),
-        "status": "REPOSITORY_CLEANUP",
-        "accepted_after": accepted["accepted_model_version"],
-        "current_q": accepted["current_q"],
-        "q_access_start": accepted["q_access_start"],
-        "q_access_end": accepted["q_access_end"],
-        "model_revision": accepted["model_revision"],
-        "scientific_change": False,
-        "accepted_state_changed": False,
-        "q_boundary_changed": False,
-        "model_version_changed": False,
-    })
-    save("changelog/model_change_registry.json", reg)
-
-    p = ROOT / "changelog/MODEL_CHANGELOG.md"
-    text = p.read_text(encoding="utf-8")
-    marker = "## Repository cleanup — Q040 post-promotion hygiene"
-    if marker not in text:
-        text += f"""
-
-{marker}
-
-- Removed completed one-time Q040 updater and repair infrastructure from the active tree.
-- Removed stale secondary README copy.
-- Synchronized current README, release mirror and current test metadata to canonical accepted state.
-- Preserved accepted snapshots, evidence, provenance and historical test results.
-- Added runtime-clutter ignore rules.
-- Scientific change: false.
-- Accepted state changed: false.
-- Q boundary changed: false.
-- Model version changed: false.
-"""
-        p.write_text(text, encoding="utf-8")
-
-
-def sync_gitignore():
-    p = ROOT / ".gitignore"
-    lines = p.read_text(encoding="utf-8").splitlines() if p.exists() else []
-    for rule in ["run-output/", "__pycache__/", "*.py[cod]", ".pytest_cache/", ".mypy_cache/", ".DS_Store"]:
-        if rule not in lines:
-            lines.append(rule)
-    p.write_text("\n".join(x for x in lines if x.strip()) + "\n", encoding="utf-8")
-
-
-def json_gate():
-    bad = []
-    for p in ROOT.rglob("*.json"):
-        if ".git" in p.parts:
-            continue
-        try:
-            json.loads(p.read_text(encoding="utf-8"))
-        except Exception as exc:
-            bad.append((p.relative_to(ROOT).as_posix(), str(exc)))
-    if bad:
-        raise SystemExit(f"JSON parse failures: {bad[:10]}")
-
-
-def apply():
-    accepted, release, manifest, programs = canonical_state()
-    before = fingerprint()
-    TMP_FP.write_text(json.dumps(before, indent=2, sort_keys=True), encoding="utf-8")
-
-    delete_group = set(SAFE_DELETE)
-    reference_scan(delete_group)
-
-    for rel in SAFE_DELETE:
-        p = ROOT / rel
-        if p.exists():
-            p.unlink()
-
-    sync_readme(accepted, release, manifest, programs)
-    sync_release_md(release)
-    sync_test_docs(accepted, programs)
-    migrate_provenance(release)
-    sync_changelog(accepted, release, manifest)
-    sync_gitignore()
-    json_gate()
-
-    after = fingerprint()
-    if before != after:
-        changed = sorted(
-            p for p in set(before) | set(after)
-            if before.get(p) != after.get(p)
-        )
-        raise SystemExit(f"Protected scientific/history state changed: {changed}")
-
-    print("CLEANUP_APPLY=PASS")
-    print("SCIENTIFIC_CHANGE=false")
-    print("ACCEPTED_STATE_CHANGED=false")
-    print("Q_BOUNDARY_CHANGED=false")
-    print("MODEL_VERSION_CHANGED=false")
-
-
-def verify():
-    if not TMP_FP.exists():
-        raise SystemExit("Missing pre-cleanup fingerprint")
-    before = json.loads(TMP_FP.read_text(encoding="utf-8"))
-    after = fingerprint()
-    if before != after:
-        changed = sorted(
-            p for p in set(before) | set(after)
-            if before.get(p) != after.get(p)
-        )
-        raise SystemExit(f"Protected scientific/history state changed: {changed}")
-
-    accepted, release, manifest, programs = canonical_state()
-    json_gate()
-
-    if any((ROOT / rel).exists() for rel in SAFE_DELETE):
-        remaining = [rel for rel in SAFE_DELETE if (ROOT / rel).exists()]
-        raise SystemExit(f"SAFE_DELETE files remain: {remaining}")
-
-    if accepted["current_q"] not in (ROOT / "README.md").read_text(encoding="utf-8"):
-        raise SystemExit("README not synchronized to current Q")
-    if accepted["accepted_model_version"] not in (ROOT / "README.md").read_text(encoding="utf-8"):
-        raise SystemExit("README not synchronized to accepted version")
-
-    print("CLEANUP_VERIFY=PASS")
-
-
-def public_healthcheck():
-    wf = (ROOT / ".github/workflows/00-bubbleverse-model-start-public.yml").read_text(encoding="utf-8")
-    blocks = re.findall(
-        r"python - <<'PY'\n(.*?)\n\s*PY",
-        wf,
-        flags=re.S,
-    )
-    if not blocks:
-        raise SystemExit("No embedded public-engine Python block found")
-
-    block = next((b for b in blocks if "SELF-020" in b), blocks[0])
-    # Strip workflow indentation from every line.
-    lines = block.splitlines()
-    nonempty = [len(line) - len(line.lstrip()) for line in lines if line.strip()]
-    indent = min(nonempty) if nonempty else 0
-    code = "\n".join(line[indent:] if len(line) >= indent else line for line in lines) + "\n"
-
-    script = Path("/tmp/bubbleverse_public_engine.py")
-    script.write_text(code, encoding="utf-8")
-    compile(code, str(script), "exec")
-
-    env = dict(os.environ)
-    env["BV_OPERATION"] = "test"
-    env["BV_INPUT"] = ""
-    env["GITHUB_REPOSITORY"] = "Morfindien/bubbleverse-model"
-
-    cp = subprocess.run(
-        [sys.executable, str(script)],
-        cwd=ROOT,
-        env=env,
-        text=True,
-        capture_output=True,
-    )
-    print(cp.stdout, end="")
-    if cp.stderr:
-        print(cp.stderr, end="", file=sys.stderr)
-    if cp.returncode != 0:
-        raise SystemExit(cp.returncode)
-
-    result_path = ROOT / "run-output/result.json"
-    if not result_path.exists():
-        raise SystemExit("Public healthcheck did not create run-output/result.json")
-    result = json.loads(result_path.read_text(encoding="utf-8"))
-    if result.get("tests_total") != 20 or result.get("tests_passed") != 20 or result.get("all_green") is not True:
-        raise SystemExit(
-            f"Public healthcheck is not 20/20: "
-            f"{result.get('tests_passed')}/{result.get('tests_total')}"
-        )
-    shutil.rmtree(ROOT / "run-output", ignore_errors=True)
-    print("PUBLIC_ENGINE_HEALTHCHECK=20/20 PASS")
-
+from datetime import datetime,timezone
+UPLOADS={'repository_cleanup.py','.github/workflows/repository-cleanup-current.yml','REPOSITORY_CLEANUP.md'}
+PROTECTED=('accepted/','candidate/','model/','evidence/','provenance/','release/','tests/results/','tests/preregistration/','versions/accepted/','changelog/')
+HISTORICAL=('versions/accepted/','provenance/','tests/results/','tests/preregistration/','changelog/','docs/superpowers/')
+SUSPICIOUS=re.compile(r'(?:-\d+\.|_copy\.| copy\.|backup|final-final|final2|duplicate|(?:^|[_.-])(?:old|new|temp|tmp)(?:[_.-]|$))',re.I)
+
+def command(repo,args,env=None):
+ cp=subprocess.run(args,cwd=repo,text=True,capture_output=True,env=env)
+ if cp.returncode:raise RuntimeError('Command failed: '+' '.join(map(str,args))+'\n'+cp.stdout+cp.stderr)
+ return cp.stdout.strip()
+def git(repo,*args):return command(repo,['git',*args])
+def load(p):return json.loads(p.read_text(encoding='utf-8'))
+def sha_bytes(b):return hashlib.sha256(b).hexdigest()
+def file_bytes(p):return os.readlink(p).encode() if p.is_symlink() else p.read_bytes()
+def digest(p):return sha_bytes(file_bytes(p))
+def q_number(q):
+ m=re.fullmatch(r'Q-?0*(\d+)',str(q),re.I)
+ if not m:raise RuntimeError('Unresolved Q identity: '+str(q))
+ return int(m[1])
+def clean(repo):
+ for row in git(repo,'status','--porcelain','--untracked-files=all').splitlines():
+  if row.startswith('?? ') and row[3:] in UPLOADS and (repo/row[3:]).is_file() and not (repo/row[3:]).is_symlink():continue
+  raise RuntimeError('Uncommitted operator changes: '+row)
+def default_branch(repo):
+ configured=os.environ.get('BV_DEFAULT_BRANCH')
+ if configured:return configured
+ try:ref=git(repo,'symbolic-ref','refs/remotes/origin/HEAD')
+ except RuntimeError:
+  remote=git(repo,'ls-remote','--symref','origin','HEAD')
+  match=re.search(r'(?m)^ref: refs/heads/([^\t]+)\tHEAD$',remote)
+  if not match:raise RuntimeError('Remote default branch cannot be discovered')
+  return match[1]
+ return ref.removeprefix('refs/remotes/origin/')
+def repository(path,target='Morfindien/bubbleverse-model'):
+ root=Path(git(path,'rev-parse','--show-toplevel')).resolve()
+ url=git(root,'config','--get','remote.origin.url').lower().rstrip('/').removesuffix('.git')
+ target=target.lower()
+ if url not in {'https://github.com/'+target,'git@github.com:'+target,'ssh://git@github.com/'+target}:raise RuntimeError('Cleanup target must be '+target)
+ branch=default_branch(root)
+ if git(root,'branch','--show-current')!=branch:raise RuntimeError('Select the default branch '+branch+' before cleanup')
+ clean(root);return root
+
+def inventory(repo):
+ entries={};texts={};jsons={};parse_errors=[]
+ raw=subprocess.check_output(['git','ls-files','-s','-z'],cwd=repo)
+ for row in raw.split(b'\0'):
+  if not row:continue
+  meta,path=row.split(b'\t',1);mode,blob,stage=meta.decode().split();name=path.decode();p=repo/name
+  if stage!='0':raise RuntimeError('Unmerged index: '+name)
+  if mode=='160000':
+   entries[name]={'path':name,'mode':mode,'git_blob_sha':blob,'sha256':None,'size':None,'classification':'UNKNOWN','reason':'Submodule kept; nested repository is outside this transaction','references':[],'referenced_by':[]};continue
+  if not p.exists() and not p.is_symlink():continue
+  b=file_bytes(p);e={'path':name,'mode':mode,'git_blob_sha':blob,'sha256':sha_bytes(b),'size':len(b),'role':name.split('/')[0] if '/' in name else 'ROOT','protection_level':'IMMUTABLE_SNAPSHOT' if name.startswith('versions/accepted/') else 'PROTECTED' if name.startswith(PROTECTED) else 'STRUCTURAL','classification':'KEEP_HISTORICAL' if name.startswith(HISTORICAL) else 'KEEP_ACTIVE','reason':'Registered structural/scientific role retained','references':[],'referenced_by':[]};entries[name]=e
+  if mode!='100644' and mode!='100755':continue
+  try:s=b.decode('utf-8')
+  except UnicodeDecodeError:continue
+  # Pure encoded payload lines cannot contain repository filenames with extensions.
+  # Their complete bytes remain hashed and their Python syntax is still parsed.
+  texts[name]=re.sub(r'(?m)^[A-Za-z0-9+/=]{80,}$','',s) if name.endswith('.py') else s
+  try:
+   if name.endswith('.json'):jsons[name]=json.loads(s)
+   elif name.endswith('.py'):ast.parse(s)
+  except (ValueError,SyntaxError) as exc:parse_errors.append({'path':name,'error':str(exc)})
+ full=re.compile('|'.join(map(re.escape,sorted(entries,key=len,reverse=True)))) if entries else None
+ basenames=collections.defaultdict(list)
+ for p in entries:basenames[Path(p).name].append(p)
+ bare=re.compile('|'.join(map(re.escape,sorted(basenames,key=len,reverse=True)))) if basenames else None
+ for p,s in texts.items():
+  refs=set(m.group(0) for m in full.finditer(s)) if full else set()
+  if bare:
+   for m in bare.finditer(s):
+    name=m.group(0);relative=(Path(p).parent/name).as_posix()
+    if relative in entries:refs.add(relative)
+    elif len(basenames[name])==1:refs.add(basenames[name][0])
+  if p.endswith('.py'):
+   try:
+    for node in ast.walk(ast.parse(s)):
+     modules=[a.name for a in node.names] if isinstance(node,ast.Import) else [node.module] if isinstance(node,ast.ImportFrom) and node.module else []
+     for module in modules:
+      name=module.rsplit('.',1)[-1]+'.py'
+      refs.update(basenames.get(name,[]))
+   except SyntaxError:pass
+  entries[p]['references']=sorted(refs-{p})
+  for ref in refs-{p}:entries[ref]['referenced_by'].append(p)
+ groups=collections.defaultdict(list)
+ for p,e in entries.items():
+  if e['sha256']:groups[e['sha256']].append(p)
+ duplicates=[{'sha256':h,'paths':ps,'action':'KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF'} for h,ps in groups.items() if len(ps)>1]
+ return entries,texts,jsons,parse_errors,duplicates
+
+def discover(repo,jsons):
+ accepted=jsons.get('accepted/model_state.json');manifest=jsons.get('model/model_manifest.json');registry=jsons.get('bubbleverse_model_program_registry.json')
+ if not accepted or not manifest or registry is None:raise RuntimeError('Canonical accepted/formal/program metadata is unavailable; no safe cleanup')
+ current=accepted.get('current_q') or accepted.get('q_access_end');q_number(current)
+ version=accepted.get('accepted_model_version')
+ if not version:raise RuntimeError('Accepted version is unresolved')
+ programs=registry.get('programs',{})
+ if isinstance(programs,list):programs={str(i):p for i,p in enumerate(programs)}
+ validators={};workflow=jsons.get('model/environment.json',{}).get('public_workflow')
+ for pid,item in programs.items():
+  if not isinstance(item,dict) or not str(item.get('status','')).startswith('ACTIVE'):continue
+  for key,value in item.items():
+   if key.endswith('_validator_path') or key=='validator_path':
+    m=re.fullmatch(r'q(\d+)_validator_path',key,re.I)
+    if m and int(m[1])!=q_number(current):continue
+    validators[value]=[]
+  if item.get('validation_command')=='validate' and item.get('path'):validators[item['path']]=['validate']
+  if workflow is None and 'test' in item.get('public_workflow_operations',[]) and item.get('workflow_id'):workflow='.github/workflows/'+item['workflow_id']
+ if not validators or not workflow:raise RuntimeError('Registered current validators/public healthcheck cannot be discovered safely')
+ return {'accepted':accepted,'manifest':manifest,'programs':programs,'validators':validators,'public_workflow':workflow,'current_q':current,'current_q_boundary':str(accepted.get('q_access_start','Q001'))+'-'+str(accepted.get('q_access_end',current)),'current_accepted_version':version,'current_formal_model':manifest.get('formal_model_version'),'current_candidate_state':jsons.get('candidate/candidate_state.json',{}).get('status'),'current_release_state':jsons.get('release/MODEL_RELEASE_HANDOFF.json',{}).get('release_status')}
+
+def validate(repo,work):
+ entries,_,jsons,errors,_=inventory(repo);before={p:e['sha256'] for p,e in entries.items()};state=discover(repo,jsons);result={}
+ relevant=[x for x in errors if x['path'].startswith(PROTECTED) or x['path'].startswith('tests/programs/') or x['path']=='bubbleverse_model_program_registry.json']
+ if relevant:raise RuntimeError('Canonical parse failure: '+json.dumps(relevant))
+ result['CANONICAL_JSON_PYTHON_PARSE']='PASS'
+ accepted=state['accepted'];manifest=state['manifest']
+ for key in ['accepted_model_version','q_access_start','q_access_end','current_q']:
+  if key in manifest and manifest[key]!=accepted.get(key):raise RuntimeError('Accepted/formal metadata mismatch: '+key)
+ result['CURRENT_METADATA']='PASS'
+ for path,args in state['validators'].items():
+  if path not in entries or not path.endswith('.py'):raise RuntimeError('Invalid registered validator path: '+str(path))
+  out=command(repo,[sys.executable,str(repo/path),*args]);result[path]='PASS'
+  (work/(Path(path).name+'.log')).write_text(out+'\n')
+ workflow=state['public_workflow']
+ if workflow not in entries:raise RuntimeError('Registered public workflow is missing: '+workflow)
+ match=re.search(r"(?m)^([ ]*)python - <<'PY'\n(.*?)^\1PY\s*$",(repo/workflow).read_text(),re.S)
+ if not match:raise RuntimeError('Registered healthcheck format is unresolved; keep files and inspect')
+ engine=work/'public-healthcheck.py';engine.write_text(textwrap.dedent(match.group(2)))
+ command(repo,[sys.executable,str(engine)],env={**os.environ,'BV_OPERATION':'test','BV_INPUT':''})
+ output=jsons.get('model/output_schema.json',{}).get('primary_artifact')
+ if not output:raise RuntimeError('Registered public healthcheck output path is unresolved')
+ health=load(repo/output)
+ if not health.get('all_green'):raise RuntimeError('Public healthcheck failed')
+ result['PUBLIC_HEALTHCHECK']={'status':'PASS','passed':health.get('tests_passed'),'total':health.get('tests_total')}
+ snapshot=repo/'versions/accepted'/state['current_accepted_version']
+ if not snapshot.is_dir():raise RuntimeError('Current immutable accepted snapshot is missing')
+ release=jsons.get('release/MODEL_RELEASE_HANDOFF.json',{})
+ for frozen in snapshot.rglob('*'):
+  if not frozen.is_file():continue
+  name=frozen.name;relative=frozen.relative_to(snapshot).as_posix()
+  if relative.startswith(('accepted/','model/','evidence/')):live=repo/relative
+  elif name=='TEST_RESULT.json':live=repo/release.get('test_campaign_artifact','tests/results/'+state['current_q']+'_MODEL_UPDATE_TEST_RESULT.json')
+  elif name=='evidence_registry.json':live=repo/'evidence/evidence_registry.json'
+  elif name=='q_update.json':live=repo/'evidence/q_updates'/(state['current_q']+'.json')
+  elif (repo/'accepted'/relative).is_file():live=repo/'accepted'/relative
+  elif (repo/'model'/relative).is_file():live=repo/'model'/relative
+  else:raise RuntimeError('Unknown snapshot member; cannot verify safely: '+relative)
+  if file_bytes(frozen)!=file_bytes(live):raise RuntimeError('Accepted snapshot mismatch: '+relative)
+ result['ACCEPTED_SNAPSHOT_MATCH']='PASS'
+ for pid,item in state['programs'].items():
+  if not isinstance(item,dict) or not str(item.get('status','')).startswith('ACTIVE'):continue
+  for key,value in item.items():
+   if (key.endswith('_path') or key in {'path','implementation'}) and isinstance(value,str) and '/' in value and value not in entries:raise RuntimeError('Missing active registered path: '+pid+'/'+key)
+  if item.get('workflow_id') and '.github/workflows/'+item['workflow_id'] not in entries:raise RuntimeError('Missing active registered workflow: '+pid)
+ result['ACTIVE_REGISTRY_PATHS']='PASS'
+ for key in ['promotion_commit','verified_remote_publication_commit']:
+  commit=release.get(key)
+  if commit:
+   if not re.fullmatch(r'[0-9a-fA-F]{40}',commit):raise RuntimeError('Invalid real Git provenance: '+key)
+   git(repo,'cat-file','-e',commit+'^{commit}');git(repo,'merge-base','--is-ancestor',commit,'HEAD')
+ result['REGISTERED_GIT_PROVENANCE']='PASS'
+ after=inventory(repo)[0]
+ if before!={p:e['sha256'] for p,e in after.items()}:raise RuntimeError('A validation modified tracked repository files')
+ result['NON_DESTRUCTIVE']='PASS';return result
+
+def metadata_updates(repo,entries,jsons,state):
+ changes={};accepted=state['accepted'];q=state['current_q'];boundary=state['current_q_boundary'];version=state['current_accepted_version'];revision=accepted.get('model_revision');formal=state['current_formal_model']
+ replacements=[(r'(Current authorized boundary: \*\*)[^*]+(\*\*)',boundary),(r'(Accepted model: \*\*)[^*]+(\*\*)',version+(' / '+revision if revision else '')),(r'(Formal model: \*\*)[^*]+(\*\*)',formal),(r'(- Authorized scientific range: \*\*)[^*]+(\*\*)',boundary.replace('-','–')),(r'(- Accepted model: \*\*)[^*]+(\*\*)',version+(' / '+revision if revision else ''))]
+ for path in ['README.md','model/README.md']:
+  if path not in entries:continue
+  original=(repo/path).read_text();s=original
+  for pattern,value in replacements:
+   if value is not None:s=re.sub(pattern,lambda m:m[1]+value+m[2],s)
+  if s!=original:changes[path]=s
+ registry=jsons.get('tests/test_registry.json');path='tests/test_registry.json'
+ if registry and path in entries:
+  new=json.loads(json.dumps(registry))
+  for item in new.get('tests',[]):
+   text=item.get('why_test_matters','')
+   if text.startswith('Accepted/candidate identity must match '):item['why_test_matters']=f'Accepted/candidate identity must match {boundary} / CURRENT_Q {q}.'
+   elif text.startswith('Scientific candidate/evidence JSON must contain no Q identifier above '):item['why_test_matters']=f'Scientific candidate/evidence JSON must contain no Q identifier above {q}.'
+  if new!=registry:changes[path]=json.dumps(new,indent=2,sort_keys=True)+'\n'
+ path='tests/TEST_PLAN_CURRENT.md'
+ if registry and path in entries:
+  original=(repo/path).read_text();s=original
+  fields={'Campaign':registry.get('campaign_id'),'Authorized Q range':boundary.replace('-','–'),'Current Q':q,'Accepted model':version}
+  for key,value in fields.items():
+   if value is not None:s=re.sub(r'(?m)^(\*\*'+re.escape(key)+r':\*\* )[^\n]+',lambda m:m[1]+value+'  ',s)
+  rows=registry.get('tests',[])
+  if '| TEST_ID | Current target | Required |' in s:
+   table='| TEST_ID | Current target | Required |\n|---|---|---|\n'+''.join('| '+t['test_id']+' | '+t.get('target_component','Registered current test').replace('|','/')+' | '+('YES' if t.get('mandatory_for_current_validation') else 'NO')+' |\n' for t in rows)
+   s=re.sub(r'\| TEST_ID \| Current target \| Required \|\n(?:\|[^\n]*\n)+',lambda _:table,s,count=1)
+  s=re.sub(r'All (?:ten|eleven|\d+) current scientific/regression tests and all formal-model tests must PASS\.',f'All {len(rows)} current registered tests and all formal-model tests must PASS.',s)
+  s=re.sub(r'The current scientific/model state is limited to Q\d+[-–]Q\d+\.',f'The current scientific/model state is limited to {boundary.replace("-","–")}.',s)
+  if s!=original:changes[path]=s
+ return changes
+
+def audit(repo):
+ entries,texts,jsons,errors,duplicates=inventory(repo);state=discover(repo,jsons);deletions=set();decisions=[]
+ # An installer is completed only with a persisted, verified receipt and reachable commits.
+ for path in entries:
+  match=re.fullmatch(r'install_(q\d+)_model\.py',path,re.I)
+  if not match:continue
+  q=match[1].upper();number=q_number(q);workflow='.github/workflows/install-'+q.lower()+'-model.yml';guide='INSTALL_'+q+'.md';cohort={p for p in [path,workflow,guide] if p in entries};reason=None
+  receipt=jsons.get('release/'+q+'_INSTALLATION_RESULT.json')
+  if not receipt or receipt.get('target_q')!=q or not receipt.get('remote_promotion_verified') or q_number(state['current_q'])<number:reason='Installation completion is not verified through the current accepted boundary'
+  elif any(entries[p]['mode'] not in {'100644','100755'} for p in cohort):reason='Installer cohort contains a non-regular file'
+  elif not (repo/'versions/accepted'/str(receipt.get('accepted_version',''))).is_dir():reason='Installer target snapshot is missing'
+  else:
+   for key in ['installation_input_commit','promotion_commit','verified_remote_publication_commit']:
+    commit=receipt.get(key)
+    try:
+     if not commit or not re.fullmatch(r'[0-9a-fA-F]{40}',commit):raise RuntimeError('Missing commit')
+     git(repo,'cat-file','-e',commit+'^{commit}');git(repo,'merge-base','--is-ancestor',commit,'HEAD')
+    except RuntimeError:reason='Installer completion Git provenance is unresolved';break
+   if reason is None:
+    for p in cohort:
+     try:blob=git(repo,'rev-parse',receipt['installation_input_commit']+':'+p)
+     except RuntimeError:reason='Installed artifact has no verified original Git blob';break
+     if blob!=entries[p]['git_blob_sha']:reason='Installer artifact changed after its verified installation';break
+  inbound={ref for p in cohort for ref in entries[p]['referenced_by'] if ref not in cohort and not (ref.startswith('provenance/cleanup/') and jsons.get(ref,{}).get('reference_scope')=='HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE')}
+  if inbound:reason='Retained files still depend on the installer cohort: '+', '.join(sorted(inbound))
+  if reason:
+   for p in cohort:entries[p].update(classification='REVIEW_REQUIRED',reason=reason)
+  else:
+   deletions.update(cohort)
+   for p in cohort:entries[p].update(classification='SAFE_DELETE',reason='Completed one-time installer; verified receipt, immutable target and real Git history retained',canonical_alternative='release/'+q+'_INSTALLATION_RESULT.json',change_class='OBSOLETE_WORKFLOW_REMOVAL' if p.endswith('.yml') else 'INSTALLER_REMOVAL')
+ # Exact duplicate-name accidents and source-reproducible compiled caches only.
+ for p,e in entries.items():
+  if p in deletions or p.startswith(PROTECTED) or p in UPLOADS:continue
+  refs=set(e['referenced_by'])-deletions;regular=e['mode'] in {'100644','100755'}
+  name=Path(p).name;canonical=re.sub(r'(?:-\d+|_copy(?:-\d+)?| copy(?: \(\d+\))?| \(\d+\))(?=\.[^.]+$)','',name,flags=re.I)
+  alternatives=[other for other,x in entries.items() if Path(other).name==canonical and other!=p and x['sha256']==e['sha256'] and other not in deletions]
+  if canonical!=name and len(alternatives)==1 and not refs and regular:
+   e.update(classification='SAFE_DELETE',reason='Exact unreferenced duplicate-name accident with one retained canonical alternative',canonical_alternative=alternatives[0],change_class='DUPLICATE_REMOVAL');deletions.add(p)
+  elif p.endswith('.pyc') and '/__pycache__/' in '/'+p and not refs and regular:
+   source=(Path(p).parent.parent/(name.split('.')[0]+'.py')).as_posix()
+   if source in entries:e.update(classification='SAFE_DELETE',reason='Reproducible compiled cache; tracked Python source retained',canonical_alternative=source,change_class='TEMPORARY_FILE_REMOVAL');deletions.add(p)
+  elif name=='.DS_Store' and not refs and regular:e.update(classification='SAFE_DELETE',reason='Finder directory metadata without scientific role or dependencies',canonical_alternative=None,change_class='TEMPORARY_FILE_REMOVAL');deletions.add(p)
+  elif SUSPICIOUS.search(p) or re.search(r'(?:^|/)(?:run-output|__pycache__|\.pytest_cache)/',p):e.update(classification='REVIEW_REQUIRED',reason='Suspicious name/output without positive verified redundancy; retained')
+ for error in errors:
+  if not error['path'].startswith(PROTECTED):entries[error['path']].update(classification='UNKNOWN',reason='Unparseable file retained: '+error['error']);deletions.discard(error['path'])
+ updates=metadata_updates(repo,entries,jsons,state)
+ for p in updates:entries[p].update(classification='UPDATE',reason='Synchronize only current documentation/descriptive metadata with canonical machine state',change_class='DOCUMENTATION_SYNC')
+ if any(p.endswith('.pyc') for p in deletions):
+  ignore=(repo/'.gitignore').read_text() if '.gitignore' in entries else ''
+  if '*.py[cod]' not in ignore and '*.pyc' not in ignore:updates['.gitignore']=ignore.rstrip()+'\n__pycache__/\n*.py[cod]\n'
+ for p in deletions:
+  e=entries[p];inbound={ref for ref in set(e['referenced_by'])-deletions if not (ref.startswith('provenance/cleanup/') and jsons.get(ref,{}).get('reference_scope')=='HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE')}
+  if inbound:raise RuntimeError('Deletion creates live dependencies: '+p)
+  e['delete_gate']={'FILE_EXISTS':'PASS','CANONICAL_ALTERNATIVE':'PASS' if e.get('canonical_alternative') else 'NOT_APPLICABLE','REFERENCE_SCAN':'PASS_ATOMIC_COHORT','PROVENANCE_PRESERVED':'PASS_GIT_BLOB_AT_INPUT_HEAD','ACCEPTED_MODEL_PROTECTION':'PASS','VERSION_SNAPSHOT_PROTECTION':'PASS','TEST_HISTORY_PROTECTION':'PASS','SCIENTIFIC_CHANGE':False,'DELETE_CLASSIFICATION':'SAFE_DELETE','BASELINE_VALIDATION':'PENDING'}
+ report={'schema_version':2,'target_repo':git(repo,'config','--get','remote.origin.url'),'date_time':datetime.now(timezone.utc).isoformat(),'default_branch':default_branch(repo),'head_before':git(repo,'rev-parse','HEAD'),'current_q_boundary':state['current_q_boundary'],'current_accepted_version':state['current_accepted_version'],'current_candidate_state':state['current_candidate_state'],'current_formal_model':state['current_formal_model'],'current_release_state':state['current_release_state'],'files_scanned':len(entries),'repository_map':list(entries.values()),'duplicate_groups':duplicates,'parse_observations':errors,'review_required':[p for p,e in entries.items() if e['classification']=='REVIEW_REQUIRED'],'unknown':[p for p,e in entries.items() if e['classification']=='UNKNOWN'],'planned_deletions':sorted(deletions),'planned_updates':sorted(updates),'archive_moves':[],'scientific_change':False,'accepted_state_changed':False,'q_boundary_changed':False,'model_version_changed':False}
+ return report,updates
+
+def cleanup(repo,mode):
+ input_head=git(repo,'rev-parse','HEAD');branch=default_branch(repo)
+ with tempfile.TemporaryDirectory(prefix='bubbleverse-cleanup-') as folder:
+  work=Path(folder);stage=work/'validated-tree';git(repo,'worktree','add','--quiet','--detach',str(stage),input_head)
+  try:
+   report,updates=audit(stage);report['mode']=mode;report['pre_cleanup_tests']=validate(stage,work)
+   for e in report['repository_map']:
+    if 'delete_gate' in e:e['delete_gate']['BASELINE_VALIDATION']='PASS'
+   deletions=report['planned_deletions'];actions=bool(deletions or updates);before={p:e['sha256'] for p,e in inventory(stage)[0].items()};protected={p:h for p,h in before.items() if p not in set(deletions)|set(updates)}
+   report.update(protected_files_verified=len(protected),accepted_snapshot_files=sum(p.startswith('versions/accepted/') for p in protected),removed_files=[],updated_files=[],push_performed=False,head_after=input_head)
+   if mode=='AUDIT':report['cleanup_status']='AUDIT_ONLY'
+   elif not actions:report['cleanup_status']='PARTIAL_CLEAN' if report['review_required'] or report['unknown'] else 'CLEAN'
+   else:
+    for p in deletions:
+     if digest(stage/p)!=before[p]:raise RuntimeError('Delete input changed: '+p)
+     (stage/p).unlink()
+    for p,s in updates.items():(stage/p).write_text(s,encoding='utf-8')
+    report['post_cleanup_tests']=validate(stage,work)
+    after=inventory(stage)[0]
+    for p,h in protected.items():
+     if p not in after or after[p]['sha256']!=h:raise RuntimeError('Protected file changed: '+p)
+    if set(after)!=set(before)-set(deletions)|set(updates):raise RuntimeError('Unexpected structural tree change')
+    # Re-audit the resulting tree rather than using a stale incoming plan.
+    post,remaining=audit(stage)
+    if remaining or post['planned_deletions']:raise RuntimeError('Cleanup did not converge; no caller files changed')
+    report['cleanup_status']='PARTIAL_CLEAN' if post['review_required'] or post['unknown'] else 'CLEANED';report['removed_files']=deletions;report['updated_files']=sorted(updates);report['review_required']=post['review_required'];report['unknown']=post['unknown'];report['protected_hashes']=protected
+    receipt=stage/'provenance/cleanup'/('cleanup_'+input_head+'.json');receipt.parent.mkdir(parents=True,exist_ok=True)
+    historical=dict(report);historical['reference_scope']='HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE';historical['publication_status']='LOCAL_COMMIT_OPERATOR_PUSH_REQUIRED';receipt.write_text(json.dumps(historical,indent=2,sort_keys=True)+'\n')
+    targets=deletions+list(updates)+[receipt.relative_to(stage).as_posix()]
+    git(stage,'add','-A','--',*targets)
+    changed=set(git(stage,'diff','--cached','--name-only').splitlines())
+    if changed!=set(targets):raise RuntimeError('Unexpected staged diff')
+    git(stage,'-c','user.name=Bubbleverse Repository Cleanup','-c','user.email=repository-cleanup@users.noreply.github.com','commit','--quiet','-m','Repository cleanup: remove verified clutter and sync current documentation')
+    final=git(stage,'rev-parse','HEAD');clean(repo)
+    if git(repo,'branch','--show-current')!=branch or git(repo,'rev-parse','HEAD')!=input_head:raise RuntimeError('Operator branch or HEAD changed during validation; no cleanup applied')
+    caller={p:e['sha256'] for p,e in inventory(repo)[0].items()}
+    if caller!=before:raise RuntimeError('Operator files changed during validation; no cleanup applied')
+    git(repo,'merge','--ff-only',final);report['head_after']=final;report['cleanup_receipt']=receipt.relative_to(stage).as_posix()
+   clean(repo)
+   if git(repo,'branch','--show-current')!=branch or git(repo,'rev-parse','HEAD')!=report['head_after']:raise RuntimeError('Operator branch or HEAD changed during validation')
+   return report
+  finally:git(repo,'worktree','remove','--force',str(stage))
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("command", choices=["apply", "verify", "public-healthcheck"])
-    args = ap.parse_args()
-    if args.command == "apply":
-        apply()
-    elif args.command == "verify":
-        verify()
-    else:
-        public_healthcheck()
-
-
-if __name__ == "__main__":
-    main()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--repo',type=Path,default=Path.cwd());parser.add_argument('--target-repo',default='Morfindien/bubbleverse-model');parser.add_argument('--mode',choices=['AUDIT','CLEAN'],default='CLEAN');parser.add_argument('--report',type=Path);args=parser.parse_args()
+ try:
+  report=cleanup(repository(args.repo,args.target_repo),args.mode)
+  if args.report:args.report.parent.mkdir(parents=True,exist_ok=True);args.report.write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+  summary={k:v for k,v in report.items() if k not in {'repository_map','protected_hashes','duplicate_groups'}};print(json.dumps(summary,indent=2));return 0
+ except Exception as exc:print('CLEANUP_BLOCKED: '+str(exc),file=sys.stderr);return 1
+if __name__=='__main__':raise SystemExit(main())
