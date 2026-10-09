@@ -84,6 +84,7 @@
   "previous_accepted_revision": "R000004",
   "processed_through_q": "Q043",
   "production_restart_authorized": false,
+  "promotion_commit_semantics": "LOCAL_PROMOTION_ONLY; REMOTE_PUBLICATION_BLOCKED",
   "promotion_projection_only": false,
   "promotion_status": "PROMOTED_TO_v0.5",
   "q042_investigation_status": "CLOSED_INCONCLUSIVE_GENERAL_FEASIBILITY",

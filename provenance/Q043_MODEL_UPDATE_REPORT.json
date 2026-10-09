@@ -3,7 +3,9 @@
   "AVAILABLE_CHATGPT_SETUP": "Code/tool-capable GPT-6-based assistant; exact user-facing preset name not exposed or verified",
   "AVAILABLE_MODE": "ChatGPT Work Mode with file, shell and connected-app tools",
   "AVAILABLE_REASONING_LEVEL": "Exact selected UI label not exposed; no model/effort switch performed",
-  "BLOCKERS": [],
+  "BLOCKERS": [
+    "Git CLI push cannot authenticate; connected GitHub create-blob API returned HTTP 403 Resource not accessible by integration. No branch/ref update or remote model write succeeded."
+  ],
   "CANDIDATE_BUILD_COMMIT": "f72240153161bd565243f241ef4c3b7d0a4620aa",
   "CANDIDATE_VERSION": "v0.5/R000005",
   "CAPABILITY_LIMITATIONS": [
@@ -21,6 +23,7 @@
     "Original optimizer trajectories were not recalculated",
     "No Word manuscript discovered; original PDFs and structured source bytes provide explicit input provenance"
   ],
+  "LOCAL_PROMOTION_COMPLETED": true,
   "MANUSCRIPT_SUBSTITUTION": "Explicit operator-provided PDF manuscript and exact original structured result; accepted repository already uses PDF-authorized-substitute convention",
   "MODEL_DIFF": {
     "added": [
@@ -68,7 +71,7 @@
   },
   "MODEL_INPUT_COMMIT": "14eacce7a93e4ac780d59b1e86dc0cb9060f38ad",
   "MODEL_SELECTION_REASON": "Multi-layer incremental evidence admission, immutable history, current/historical state separation, failure injection and repository promotion demand reliable reasoning and tool orchestration. No model brand is treated as evidence.",
-  "NEW_ACCEPTED_VERSION": "v0.5/R000005",
+  "NEW_ACCEPTED_VERSION": null,
   "NEW_ASSUMPTIONS": [],
   "NEW_AUTHORIZED_Q_RANGE": "Q001-Q043",
   "NEW_BENCHMARKS": [],
@@ -140,8 +143,8 @@
   ],
   "PREVIOUS_ACCEPTED_Q": "Q042",
   "PREVIOUS_MODEL_VERSION": "v0.4/R000004",
-  "PROMOTED": "LOCAL_ONLY_REMOTE_PENDING",
-  "PROMOTION_GATE": "PASS_LOCAL_GATES; REMOTE_PUBLICATION_PENDING",
+  "PROMOTED": false,
+  "PROMOTION_GATE": "PASS_LOCAL_SCIENTIFIC_AND_TECHNICAL_GATES; REMOTE_PUBLICATION_BLOCKED",
   "PROMOTION_GATES": [
     {
       "detail": "",
@@ -355,9 +358,9 @@
     },
     {
       "detail": "",
-      "evidence": "Remote publication still to be performed and independently verified",
+      "evidence": "Git CLI authentication failure and connected GitHub create_blob HTTP 403; main remains pinned Q042 baseline",
       "gate": "REPOSITORY_WRITE_GATE",
-      "status": "PENDING"
+      "status": "BLOCKED"
     }
   ],
   "PROVENANCE": {
@@ -387,6 +390,8 @@
   "RECOMMENDED_EXECUTION_TIER": "TIER 3",
   "RECOMMENDED_MODE": "Work Mode with code execution and GitHub integration",
   "RECOMMENDED_REASONING_LEVEL": "High or maximum appropriate available reasoning for promotion/integrity audit",
+  "REMOTE_ACCEPTED_Q": "Q042",
+  "REMOTE_ACCEPTED_VERSION": "v0.4/R000004",
   "REMOTE_WORKFLOW_DISPATCHED": false,
   "RESOLVED_CONTRADICTIONS": [],
   "SCIENTIFIC_RESULT_UNCHANGED": true,
@@ -488,7 +493,7 @@
   "SOURCE_REPOSITORY_COMMIT": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
   "SOURCE_REPOSITORY_COMMIT_SEMANTICS": "Verified execution/source inspection HEAD; uploaded Q043 artifacts are not claimed to be tracked at this commit",
   "SOURCE_REPOSITORY_MODIFIED": false,
-  "STOP_STATE": "AWAITING_REMOTE_VERIFICATION",
+  "STOP_STATE": "TECHNICAL_BLOCK",
   "SUPERSEDED_ITEMS": [],
   "TARGET_MODEL_REPOSITORY": "Morfindien/bubbleverse-model",
   "TARGET_Q": "Q043",
@@ -555,6 +560,16 @@
       "failure": "Auxiliary writing-good-tests resource unavailable",
       "impact": "Optional reference only; primary TDD instructions read and RED/GREEN tests completed",
       "tool": "skill child-resource read"
+    },
+    {
+      "failure": "No authenticated Git credential; could not read Username",
+      "impact": "Remote write failed; exact local candidate retained",
+      "tool": "Git CLI push"
+    },
+    {
+      "failure": "HTTP 403 Resource not accessible by integration",
+      "impact": "Required atomic repository publication blocked; no object/branch write succeeded",
+      "tool": "GitHub create_blob"
     }
   ],
   "TOOL_PURPOSES": {
@@ -565,6 +580,7 @@
     "review": "Read-only independent technical code/integrity review; not independent physical evidence"
   },
   "UPDATE_CLASS": "EVIDENCE_ONLY_UPDATE",
+  "VERIFIED_AT": "2026-10-09T11:16:45.528698+00:00",
   "WORD_INPUT_FILENAME": null,
   "WORD_INPUT_PATH": null,
   "WORD_INPUT_SHA256": null

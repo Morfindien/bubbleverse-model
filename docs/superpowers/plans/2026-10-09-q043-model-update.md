@@ -42,3 +42,5 @@
 Discovery complete: original Q043 result digest verified; baseline 13 formal + 11 campaign + 11 Q042 checks and 4 regressions pass. Source/target roles and write scope verified.
 
 Review: two Important gaps (source inventory and qualification coverage) reproduced RED, fixed GREEN; snapshot simultaneous-mutation guard added RED/GREEN. Reviewer confirmed no remaining Critical/Important issue. Projected 22 regression, 20 public, 13 formal, 12 campaign and both 11-gate suites pass; all 117 protected baseline files stayed unchanged until promotion.
+
+Publication blocked: Git CLI lacks credentials; GitHub integration create_blob returned HTTP 403 Resource not accessible by integration. Remote accepted state remains Q042/v0.4. Exact tested candidate, binary patch and portable Git-history bundle will be delivered; no source repository write.

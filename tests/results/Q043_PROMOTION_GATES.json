@@ -212,13 +212,14 @@
     },
     {
       "detail": "",
-      "evidence": "Remote publication still to be performed and independently verified",
+      "evidence": "GitHub integration denied create_blob HTTP 403; no remote model update",
       "gate": "REPOSITORY_WRITE_GATE",
-      "status": "PENDING"
+      "status": "BLOCKED"
     }
   ],
   "remote_publication_verified": false,
   "scientific_gates_passed": true,
   "scope": "TARGET_MODEL_REPOSITORY_UPDATE; SOURCE_REPOSITORY_READ_ONLY",
+  "stop_state": "TECHNICAL_BLOCK",
   "target_q": "Q043"
 }

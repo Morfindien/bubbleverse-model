@@ -28,7 +28,8 @@ The model represents the best current compression of validated Bubbleverse evide
 - Source repository README/program-registry synchronization: **separate pending task**
 - Source archives: `evidence/sources/Q042/` and `evidence/sources/Q043/`; all 91 inherited source objects and claim maps retained verbatim.
 - Validation: 13/13 formal, 12/12 campaign, 11/11 Q043, 11/11 historical Q042, 22/22 regressions and 20/20 public healthcheck, executed locally. Counts overlap.
-- Repository/model publication status: `release/Q043_INSTALLATION_RESULT.json` after remote verification.
+- Local candidate promotion: **PASSED**; remote publication: **BLOCKED by integration permission**. Remote main remains v0.4/Q042 until this prepared branch is installed.
+- Publication status: `release/MODEL_RELEASE_HANDOFF.json`; no successful remote installation receipt exists.
 - Full update report: `provenance/Q043_MODEL_UPDATE_REPORT.json`.
 
 ---
