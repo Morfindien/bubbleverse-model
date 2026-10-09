@@ -1,0 +1,1947 @@
+{
+  "artifact_type": "Q044_MODEL_UPDATE_TEST_RESULT",
+  "campaign": {
+    "T-BV-001": [
+      "PASS",
+      "Candidate/accepted identity and hard Q boundary match current accepted state."
+    ],
+    "T-BV-002": [
+      "PASS",
+      "Highest Q identifier in current scientific candidate/evidence JSON is Q044."
+    ],
+    "T-BV-003": [
+      "PASS",
+      "H0 benchmarks and distinct inference chains preserved."
+    ],
+    "T-BV-004": [
+      "PASS",
+      "Authoritative Q039 identities and PASS provenance preserved."
+    ],
+    "T-BV-005": [
+      "PASS",
+      "Q039 V1-V4 technical recoveries remain excluded from scientific evidence."
+    ],
+    "T-BV-006": [
+      "PASS",
+      "Q039 narrowing and Q040 technical-vs-physical semantics are preserved."
+    ],
+    "T-BV-007": [
+      "PASS",
+      "Required open contradictions remain explicit."
+    ],
+    "T-BV-008": [
+      "PASS",
+      "Major unresolved questions remain unresolved."
+    ],
+    "T-BV-009": [
+      "PASS",
+      "Current JSON parses and layer IDs are unique."
+    ],
+    "T-BV-010": [
+      "PASS",
+      "Q041 controlled-no-science semantics, open portability prediction, open-narrowed contradiction and scope safeguards are preserved."
+    ],
+    "T-BV-011": [
+      "PASS",
+      "Q042 closure, no-production, source continuity and conditional certificate gates: PASS"
+    ],
+    "T-BV-012": [
+      "PASS",
+      "Q043 source identity, local-only qualification, physical preservation and snapshot gates: PASS"
+    ],
+    "T-BV-013": [
+      "PASS",
+      "Q044 conditional component, source continuity, inference firewall and snapshot gates: PASS"
+    ]
+  },
+  "environment": {
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "python": "3.12.14"
+  },
+  "formal": {
+    "all_green": true,
+    "artifact_type": "BUBBLEVERSE_FORMAL_MODEL_TEST_RESULT",
+    "formal_test_campaign": "FORMAL-MODEL-v0.6-001",
+    "tests": [
+      {
+        "detail": {
+          "files_parsed": 11
+        },
+        "name": "Formal model files exist and parse",
+        "status": "PASS",
+        "test_id": "FML-001"
+      },
+      {
+        "detail": {
+          "current_q": 44,
+          "q_access_end": 44,
+          "q_access_start": 1
+        },
+        "name": "Q boundary and contamination firewall",
+        "status": "PASS",
+        "test_id": "FML-002"
+      },
+      {
+        "detail": {
+          "benchmarks_verified": 3
+        },
+        "name": "Benchmarks exactly match accepted observations",
+        "status": "PASS",
+        "test_id": "FML-003"
+      },
+      {
+        "detail": {
+          "parameters_verified": 2
+        },
+        "name": "Parameter registry integrity",
+        "status": "PASS",
+        "test_id": "FML-004"
+      },
+      {
+        "detail": {
+          "equations_verified": 6
+        },
+        "name": "Equation-to-assumption and operation references",
+        "status": "PASS",
+        "test_id": "FML-005"
+      },
+      {
+        "detail": {
+          "uncertainties_verified": 13
+        },
+        "name": "Uncertainty registry and benchmark consistency",
+        "status": "PASS",
+        "test_id": "FML-006"
+      },
+      {
+        "detail": {
+          "assumptions": 13,
+          "domains": 9
+        },
+        "name": "Assumptions and domain-of-validity are explicit",
+        "status": "PASS",
+        "test_id": "FML-007"
+      },
+      {
+        "detail": {
+          "limitations_verified": 14
+        },
+        "name": "Unknowns and limitations remain explicit",
+        "status": "PASS",
+        "test_id": "FML-008"
+      },
+      {
+        "detail": {
+          "calculation_result_types": 4,
+          "operations": 14,
+          "workflow_surface_verified": true
+        },
+        "name": "Input/output schemas cover the public engine",
+        "status": "PASS",
+        "test_id": "FML-009"
+      },
+      {
+        "detail": {
+          "evidence_refs_verified": 27
+        },
+        "name": "Formal model provenance references exist",
+        "status": "PASS",
+        "test_id": "FML-010"
+      },
+      {
+        "detail": {
+          "reachable_commit": "dd7575e7146382957d206e87274ca6246c2587b7",
+          "runtime": "3.12.14"
+        },
+        "name": "Execution environment and Git provenance",
+        "status": "PASS",
+        "test_id": "FML-011"
+      },
+      {
+        "detail": {
+          "rule": "NO_NEW_SCIENTIFIC_CLAIMS_OR_NUMERIC_VALUES",
+          "scientific_change": false
+        },
+        "name": "No-new-claim formalization contract",
+        "status": "PASS",
+        "test_id": "FML-012"
+      },
+      {
+        "detail": {
+          "formal_model_version": "v0.6-formalization-1",
+          "program_registry_consistent": true
+        },
+        "name": "Formal version metadata matches accepted state",
+        "status": "PASS",
+        "test_id": "FML-013"
+      }
+    ],
+    "tests_failed": 0,
+    "tests_passed": 13,
+    "tests_total": 13
+  },
+  "installation_state_only": true,
+  "public_healthcheck": {
+    "all_green": true,
+    "non_destructive": true,
+    "operation": "test",
+    "self_test_version": "2.2",
+    "tests": [
+      {
+        "detail": true,
+        "id": "SELF-001",
+        "name": "Repository model structure",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "current_q": 44,
+          "q_access_end": 44,
+          "q_access_start": 1
+        },
+        "id": "SELF-002",
+        "name": "Dynamic Q-boundary state",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "json_files_scanned": 67,
+          "max_allowed_q": 44,
+          "violations": 0
+        },
+        "id": "SELF-003",
+        "name": "High-Q contamination firewall",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "json_files_parsed": 100
+        },
+        "id": "SELF-004",
+        "name": "JSON/schema parse health",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "a": 73.5,
+          "absolute_delta": 6.260000000000005,
+          "b": 67.24,
+          "delta": 6.260000000000005,
+          "operation": "difference"
+        },
+        "id": "SELF-005",
+        "name": "Difference calculation",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "a": 73.5,
+          "absolute_delta": 6.260000000000005,
+          "b": 67.24,
+          "combined_sigma": 0.8823831367382312,
+          "delta": 6.260000000000005,
+          "note": "Simple independent-Gaussian marginal comparison; not by itself a detection of new physics.",
+          "operation": "gaussian-tension",
+          "sigma_a": 0.81,
+          "sigma_b": 0.35,
+          "tension_sigma": 7.094423883870192
+        },
+        "id": "SELF-006",
+        "name": "Gaussian tension calculation",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "absolute_percent_shift": 4.761904761904762,
+          "change": -7.0,
+          "from": 147.0,
+          "operation": "percent-shift",
+          "percent_change": -4.761904761904762,
+          "to": 140.0
+        },
+        "id": "SELF-007",
+        "name": "Percent-shift calculation",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "note": "Inverse-variance weighted mean; assumes the supplied measurements are suitable for this combination.",
+          "operation": "weighted-mean",
+          "sigmas": [
+            1.0,
+            2.0
+          ],
+          "values": [
+            10.0,
+            20.0
+          ],
+          "weighted_mean": 12.0,
+          "weighted_sigma": 0.8944271909999159
+        },
+        "id": "SELF-008",
+        "name": "Weighted-mean calculation",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "invalid_inputs_rejected": 4
+        },
+        "id": "SELF-009",
+        "name": "Invalid-input rejection",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "operation": "model-status",
+          "repository": null,
+          "states": {
+            "/workspace/scratch/2f38c02a805c/q044-installation/accepted/model_state.json": {
+              "accepted_at": "2026-10-09T18:16:05.013111+00:00",
+              "accepted_model_version": "v0.6",
+              "artifact_type": "BUBBLEVERSE_ACCEPTED_MODEL_STATE",
+              "candidate_input_commit": "635ab12f427b4a35ba72ac7ac0f896f1838e746e",
+              "candidate_model_version": "v0.6",
+              "candidate_revision": "R000006",
+              "created_at": "2026-10-09T18:01:12.588059+00:00",
+              "current_q": "Q044",
+              "high_q_data_used": false,
+              "input_document_type": "PDF_AUTHORIZED_SUBSTITUTE_WITH_ORIGINAL_STRUCTURED_RESULT",
+              "input_documents": [
+                {
+                  "archived_name": "Q044_SPLINE_INGESTION_RESULT.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 12189,
+                  "filename": "Q044_SPLINE_INGESTION_RESULT(1).json",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_INGESTION_RESULT.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_INGESTION_RESULT",
+                  "scientific_ingestion": true,
+                  "sha256": "9382cb198ab7d519f377e41f29fb8dad3339bde067e3ee16194536cd52e2b7ec",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 61895,
+                  "filename": "Q044_ENDPOINT_SOURCE_EVIDENCE(1).json",
+                  "path": "evidence/sources/Q044/Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_ENDPOINT_AUDIT",
+                  "scientific_ingestion": true,
+                  "sha256": "a20cc688457114503bd06351a9137297bf44136eaf075956fff0d4d50e40f43d",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_VALIDATE.py",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 3890,
+                  "filename": "Q044_SPLINE_VALIDATE(1).py",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_VALIDATE.py",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_VALIDATOR_SOURCE",
+                  "scientific_ingestion": true,
+                  "sha256": "5363a1b7ce437c0c87f195b9cbd7d58685d0f785da22236e09337503d1918d67",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_RESULT.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 2446688,
+                  "filename": "Q044_SPLINE_RESULT(1).json",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_RESULT.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+                  "scientific_ingestion": true,
+                  "sha256": "25638274b3898d97f63d1ecbb06739797396659d02270ab80e37d4bdf5b2354e",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_INPUTS.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 314958,
+                  "filename": "Q044_SPLINE_INPUTS(1).json",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_INPUTS.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+                  "scientific_ingestion": true,
+                  "sha256": "f26da12d32eb40c2ae7a8ff618180bb3e495b5f3d183a16f65c09ff97f98fa0c",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_CHECKS.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 7425,
+                  "filename": "Q044_SPLINE_CHECKS(1).json",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_CHECKS.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+                  "scientific_ingestion": true,
+                  "sha256": "5300cd20e40c2ff43ee48ec1a0ad1b9ef487639bd2aa2fae7d1ce9911861948f",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_ADJOINT.py",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 9603,
+                  "filename": "Q044_SPLINE_ADJOINT(1).py",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_ADJOINT.py",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_CODE",
+                  "scientific_ingestion": true,
+                  "sha256": "bbd93f22e0da56be9c74fb109e60ddd1dab1f31a76641ab47e2a735d232147fd",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_NATIVE_REPLAY.c",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 4306,
+                  "filename": "Q044_NATIVE_REPLAY(1).c",
+                  "path": "evidence/sources/Q044/Q044_NATIVE_REPLAY.c",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_CODE",
+                  "scientific_ingestion": true,
+                  "sha256": "56c92da28d7200c8b9b88dff8f1fe7e9a0b1dc21cc464d17e39b4fe48eef3641",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_V29_RECOVERY.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 3145,
+                  "filename": "Q044_V29_RECOVERY(1).json",
+                  "path": "evidence/sources/Q044/Q044_V29_RECOVERY.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_RECOVERY_RECEIPT",
+                  "scientific_ingestion": true,
+                  "sha256": "46f66fba8405a1d9ddf8a08911a8b404ca24586aa88d9a2b4f1e47e52275212c",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "q042_interval_v29.py",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 14617,
+                  "filename": "q042_interval_v29.py",
+                  "path": "evidence/sources/Q044/q042_interval_v29.py",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_DEPENDENCY",
+                  "scientific_ingestion": true,
+                  "sha256": "558592e20969dbfc063570f2224c36b4e8d7dca37db20009cb5dd2a993e0d160",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "cumulative_journal_original.md",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 524236,
+                  "filename": "Q044_SAMLET_JOURNAL(1).md",
+                  "path": "provenance/input_archives/Q044/cumulative_journal_original.md",
+                  "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                  "role": "MIXED_BOUNDARY_ORIGINAL_JOURNAL",
+                  "scientific_ingestion": false,
+                  "sha256": "adb6413db7f00d2f5e0f3d8536e082661ac1881cfdf147156a5c90df1e373280",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "cumulative_journal_authorized.md",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 460270,
+                  "derivation": "Exact original bytes after the preserved-incoming-journal marker; prior source register and claim maps retained verbatim.",
+                  "filename": "Q044_SAMLET_JOURNAL(1).md",
+                  "path": "evidence/sources/Q044/cumulative_journal_authorized.md",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "EXACT_AUTHORIZED_HISTORICAL_TAIL",
+                  "scientific_ingestion": true,
+                  "sha256": "3b75872a0d4d3aece1ba628525b94ac5efed12829083a8178837b68860c68f18",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "q_journal.pdf",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 1121030,
+                  "filename": "Bubbleverse_Q-Journals_Q001-Q044_UPDATED.pdf",
+                  "path": "provenance/input_archives/Q044/q_journal.pdf",
+                  "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                  "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+                  "scientific_ingestion": false,
+                  "sha256": "c53081f8b4184b3220024ea5f5e5767bdc079d74c0895d903fb9c6132f57f222",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "q_journal_authorized.txt",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 2391,
+                  "extraction_line_range_1_based": [
+                    4945,
+                    4972
+                  ],
+                  "filename": "Bubbleverse_Q-Journals_Q001-Q044_UPDATED.pdf",
+                  "path": "evidence/sources/Q044/q_journal_authorized.txt",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+                  "scientific_ingestion": true,
+                  "sha256": "d6017b0bd3a18c99842b51660c9de94e32bc80923c9ea10719df350d70c1eab4",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "appendices.pdf",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 595925,
+                  "filename": "Bubbleverse_Technical_Appendices_A-D_UPDATED.pdf",
+                  "path": "provenance/input_archives/Q044/appendices.pdf",
+                  "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                  "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+                  "scientific_ingestion": false,
+                  "sha256": "5b251d555558957c1f9a4af7dbeddc524e8f426388de8aa8ee8d7368b1c34891",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "appendices_authorized.txt",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 2438,
+                  "extraction_line_range_1_based": [
+                    2365,
+                    2394
+                  ],
+                  "filename": "Bubbleverse_Technical_Appendices_A-D_UPDATED.pdf",
+                  "path": "evidence/sources/Q044/appendices_authorized.txt",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+                  "scientific_ingestion": true,
+                  "sha256": "938d0806f063c368a4fc93466f6ca77467063c6833728d76d2bc4932fc560029",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "main_book.pdf",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 1331592,
+                  "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+                  "path": "provenance/input_archives/Q044/main_book.pdf",
+                  "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                  "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+                  "scientific_ingestion": false,
+                  "sha256": "c3dc6c1bf99ff865a518fa5a76d37c49c9b55290270f751b234edeca05a0136a",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "main_book_authorized.txt",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 1055,
+                  "extraction_line_range_1_based": [
+                    1965,
+                    1977
+                  ],
+                  "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+                  "path": "evidence/sources/Q044/main_book_authorized.txt",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+                  "scientific_ingestion": true,
+                  "sha256": "2cb43ec79127e1f60b25d45dddbb55127f8ffbb93da1bfd7f6f0e90bff820370",
+                  "source_repository_commit": null
+                }
+              ],
+              "knowledge_boundary": "Q001-Q044",
+              "layers": {
+                "constraints": "accepted/constraints.json",
+                "contradictions": "accepted/contradictions.json",
+                "mechanisms": "accepted/mechanisms.json",
+                "observations": "accepted/observations.json",
+                "predictions": "accepted/predictions.json",
+                "robustness": "accepted/robustness.json"
+              },
+              "local_installation_state": true,
+              "mode": "INCREMENTAL_UPDATE",
+              "model_repository": "Morfindien/bubbleverse-model",
+              "model_revision": "R000006",
+              "new_scientific_q_allocated": false,
+              "physical_model_change": false,
+              "previous_accepted_model_version": "v0.5",
+              "previous_accepted_q": "Q043",
+              "previous_accepted_revision": "R000005",
+              "processed_through_q": "Q044",
+              "production_restart_authorized": false,
+              "promotion_status": "PROMOTED_LOCAL_INSTALLATION_STATE",
+              "q042_investigation_status": "CLOSED_INCONCLUSIVE_GENERAL_FEASIBILITY",
+              "q043_investigation_status": "CLOSED_LOCAL_PREPARATION_AND_VALIDATION",
+              "q043_result": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
+              "q044_component_status": "ACCEPTED_WITH_SCOPE_LIMITS",
+              "q044_investigation_status": "CLOSED_EPISTEMICALLY_INCONCLUSIVE",
+              "q044_result": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+              "q_access_end": "Q044",
+              "q_access_start": "Q001",
+              "schema_version": 1,
+              "scientific_rule": "Best current compression of validated Bubbleverse state inside the authorized Q range; not established truth.",
+              "source_bubbleverse_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+              "source_repository": "Morfindien/Bubbleverse",
+              "source_repository_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+              "source_repository_sync_required": true,
+              "status": "ACCEPTED",
+              "target_q": "Q044",
+              "update_class": "MULTI_LAYER_UPDATE",
+              "word_input_filename": null,
+              "word_input_semantics": "NO_WORD_DOCUMENT_DISCOVERED; AUTHORITATIVE_PDF_AND_ORIGINAL_STRUCTURED_RESULTS_USED",
+              "word_input_sha256": null
+            },
+            "/workspace/scratch/2f38c02a805c/q044-installation/candidate/candidate_state.json": {
+              "accepted_at": "2026-10-09T11:09:50.022279+00:00",
+              "accepted_model_version": "v0.6",
+              "artifact_type": "BUBBLEVERSE_MODEL_CANDIDATE",
+              "candidate_input_commit": "635ab12f427b4a35ba72ac7ac0f896f1838e746e",
+              "candidate_model_version": "v0.6",
+              "candidate_revision": "R000006",
+              "created_at": "2026-10-09T18:01:12.588059+00:00",
+              "current_q": "Q044",
+              "high_q_data_used": false,
+              "input_document_type": "PDF_AUTHORIZED_SUBSTITUTE_WITH_ORIGINAL_STRUCTURED_RESULT",
+              "input_documents": [
+                {
+                  "archived_name": "Q044_SPLINE_INGESTION_RESULT.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 12189,
+                  "filename": "Q044_SPLINE_INGESTION_RESULT(1).json",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_INGESTION_RESULT.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_INGESTION_RESULT",
+                  "scientific_ingestion": true,
+                  "sha256": "9382cb198ab7d519f377e41f29fb8dad3339bde067e3ee16194536cd52e2b7ec",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 61895,
+                  "filename": "Q044_ENDPOINT_SOURCE_EVIDENCE(1).json",
+                  "path": "evidence/sources/Q044/Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_ENDPOINT_AUDIT",
+                  "scientific_ingestion": true,
+                  "sha256": "a20cc688457114503bd06351a9137297bf44136eaf075956fff0d4d50e40f43d",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_VALIDATE.py",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 3890,
+                  "filename": "Q044_SPLINE_VALIDATE(1).py",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_VALIDATE.py",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_VALIDATOR_SOURCE",
+                  "scientific_ingestion": true,
+                  "sha256": "5363a1b7ce437c0c87f195b9cbd7d58685d0f785da22236e09337503d1918d67",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_RESULT.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 2446688,
+                  "filename": "Q044_SPLINE_RESULT(1).json",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_RESULT.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+                  "scientific_ingestion": true,
+                  "sha256": "25638274b3898d97f63d1ecbb06739797396659d02270ab80e37d4bdf5b2354e",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_INPUTS.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 314958,
+                  "filename": "Q044_SPLINE_INPUTS(1).json",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_INPUTS.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+                  "scientific_ingestion": true,
+                  "sha256": "f26da12d32eb40c2ae7a8ff618180bb3e495b5f3d183a16f65c09ff97f98fa0c",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_CHECKS.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 7425,
+                  "filename": "Q044_SPLINE_CHECKS(1).json",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_CHECKS.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+                  "scientific_ingestion": true,
+                  "sha256": "5300cd20e40c2ff43ee48ec1a0ad1b9ef487639bd2aa2fae7d1ce9911861948f",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_SPLINE_ADJOINT.py",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 9603,
+                  "filename": "Q044_SPLINE_ADJOINT(1).py",
+                  "path": "evidence/sources/Q044/Q044_SPLINE_ADJOINT.py",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_CODE",
+                  "scientific_ingestion": true,
+                  "sha256": "bbd93f22e0da56be9c74fb109e60ddd1dab1f31a76641ab47e2a735d232147fd",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_NATIVE_REPLAY.c",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 4306,
+                  "filename": "Q044_NATIVE_REPLAY(1).c",
+                  "path": "evidence/sources/Q044/Q044_NATIVE_REPLAY.c",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_CODE",
+                  "scientific_ingestion": true,
+                  "sha256": "56c92da28d7200c8b9b88dff8f1fe7e9a0b1dc21cc464d17e39b4fe48eef3641",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "Q044_V29_RECOVERY.json",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 3145,
+                  "filename": "Q044_V29_RECOVERY(1).json",
+                  "path": "evidence/sources/Q044/Q044_V29_RECOVERY.json",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_RECOVERY_RECEIPT",
+                  "scientific_ingestion": true,
+                  "sha256": "46f66fba8405a1d9ddf8a08911a8b404ca24586aa88d9a2b4f1e47e52275212c",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "q042_interval_v29.py",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 14617,
+                  "filename": "q042_interval_v29.py",
+                  "path": "evidence/sources/Q044/q042_interval_v29.py",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "ORIGINAL_COMPONENT_DEPENDENCY",
+                  "scientific_ingestion": true,
+                  "sha256": "558592e20969dbfc063570f2224c36b4e8d7dca37db20009cb5dd2a993e0d160",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "cumulative_journal_original.md",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 524236,
+                  "filename": "Q044_SAMLET_JOURNAL(1).md",
+                  "path": "provenance/input_archives/Q044/cumulative_journal_original.md",
+                  "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                  "role": "MIXED_BOUNDARY_ORIGINAL_JOURNAL",
+                  "scientific_ingestion": false,
+                  "sha256": "adb6413db7f00d2f5e0f3d8536e082661ac1881cfdf147156a5c90df1e373280",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "cumulative_journal_authorized.md",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 460270,
+                  "derivation": "Exact original bytes after the preserved-incoming-journal marker; prior source register and claim maps retained verbatim.",
+                  "filename": "Q044_SAMLET_JOURNAL(1).md",
+                  "path": "evidence/sources/Q044/cumulative_journal_authorized.md",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "EXACT_AUTHORIZED_HISTORICAL_TAIL",
+                  "scientific_ingestion": true,
+                  "sha256": "3b75872a0d4d3aece1ba628525b94ac5efed12829083a8178837b68860c68f18",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "q_journal.pdf",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 1121030,
+                  "filename": "Bubbleverse_Q-Journals_Q001-Q044_UPDATED.pdf",
+                  "path": "provenance/input_archives/Q044/q_journal.pdf",
+                  "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                  "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+                  "scientific_ingestion": false,
+                  "sha256": "c53081f8b4184b3220024ea5f5e5767bdc079d74c0895d903fb9c6132f57f222",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "q_journal_authorized.txt",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 2391,
+                  "extraction_line_range_1_based": [
+                    4945,
+                    4972
+                  ],
+                  "filename": "Bubbleverse_Q-Journals_Q001-Q044_UPDATED.pdf",
+                  "path": "evidence/sources/Q044/q_journal_authorized.txt",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+                  "scientific_ingestion": true,
+                  "sha256": "d6017b0bd3a18c99842b51660c9de94e32bc80923c9ea10719df350d70c1eab4",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "appendices.pdf",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 595925,
+                  "filename": "Bubbleverse_Technical_Appendices_A-D_UPDATED.pdf",
+                  "path": "provenance/input_archives/Q044/appendices.pdf",
+                  "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                  "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+                  "scientific_ingestion": false,
+                  "sha256": "5b251d555558957c1f9a4af7dbeddc524e8f426388de8aa8ee8d7368b1c34891",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "appendices_authorized.txt",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 2438,
+                  "extraction_line_range_1_based": [
+                    2365,
+                    2394
+                  ],
+                  "filename": "Bubbleverse_Technical_Appendices_A-D_UPDATED.pdf",
+                  "path": "evidence/sources/Q044/appendices_authorized.txt",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+                  "scientific_ingestion": true,
+                  "sha256": "938d0806f063c368a4fc93466f6ca77467063c6833728d76d2bc4932fc560029",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "main_book.pdf",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 1331592,
+                  "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+                  "path": "provenance/input_archives/Q044/main_book.pdf",
+                  "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                  "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+                  "scientific_ingestion": false,
+                  "sha256": "c3dc6c1bf99ff865a518fa5a76d37c49c9b55290270f751b234edeca05a0136a",
+                  "source_repository_commit": null
+                },
+                {
+                  "archived_name": "main_book_authorized.txt",
+                  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                  "bytes": 1055,
+                  "extraction_line_range_1_based": [
+                    1965,
+                    1977
+                  ],
+                  "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+                  "path": "evidence/sources/Q044/main_book_authorized.txt",
+                  "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                  "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+                  "scientific_ingestion": true,
+                  "sha256": "2cb43ec79127e1f60b25d45dddbb55127f8ffbb93da1bfd7f6f0e90bff820370",
+                  "source_repository_commit": null
+                }
+              ],
+              "knowledge_boundary": "Q001-Q044",
+              "layers": {
+                "constraints": "candidate/constraints.json",
+                "contradictions": "candidate/contradictions.json",
+                "mechanisms": "candidate/mechanisms.json",
+                "observations": "candidate/observations.json",
+                "predictions": "candidate/predictions.json",
+                "robustness": "candidate/robustness.json"
+              },
+              "mode": "INCREMENTAL_UPDATE",
+              "model_repository": "Morfindien/bubbleverse-model",
+              "model_revision": "R000006",
+              "new_scientific_q_allocated": false,
+              "physical_model_change": false,
+              "previous_accepted_model_version": "v0.5",
+              "previous_accepted_q": "Q043",
+              "previous_accepted_revision": "R000005",
+              "processed_through_q": "Q044",
+              "production_restart_authorized": false,
+              "promotion_status": "PROMOTED_LOCAL_INSTALLATION_STATE",
+              "q042_investigation_status": "CLOSED_INCONCLUSIVE_GENERAL_FEASIBILITY",
+              "q043_investigation_status": "CLOSED_LOCAL_PREPARATION_AND_VALIDATION",
+              "q043_result": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
+              "q044_component_status": "ACCEPTED_WITH_SCOPE_LIMITS",
+              "q044_investigation_status": "CLOSED_EPISTEMICALLY_INCONCLUSIVE",
+              "q044_result": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+              "q_access_end": "Q044",
+              "q_access_start": "Q001",
+              "schema_version": 1,
+              "scientific_rule": "Best current compression of validated Bubbleverse state inside the authorized Q range; not established truth.",
+              "source_bubbleverse_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+              "source_repository": "Morfindien/Bubbleverse",
+              "source_repository_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+              "source_repository_sync_required": true,
+              "status": "SCIENTIFICALLY_VALIDATED_INSTALLATION_PREPARED",
+              "target_q": "Q044",
+              "update_class": "MULTI_LAYER_UPDATE",
+              "word_input_filename": null,
+              "word_input_semantics": "NO_WORD_DOCUMENT_DISCOVERED; AUTHORITATIVE_PDF_AND_ORIGINAL_STRUCTURED_RESULTS_USED",
+              "word_input_sha256": null
+            }
+          }
+        },
+        "id": "SELF-010",
+        "name": "Model status reader",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "data": {
+            "contradictions": [
+              {
+                "description": "High local H0 conflicts with lower CMB and BAO+BBN inferences.",
+                "id": "CTR-H0-001",
+                "resolution": "Unresolved through Q040; preserve chain distinctions and dependencies.",
+                "results": [
+                  "OBS-H0-LOCAL-001",
+                  "OBS-H0-CMB-001",
+                  "OBS-H0-BAOBBN-001"
+                ],
+                "status": "OPEN"
+              },
+              {
+                "description": "CamSpec and HiLLiPoP produce materially different fitted endpoint geometry on overlapping Planck PR4/NPIPE information.",
+                "history": [
+                  {
+                    "note": "Feasibility closure gives no physical downstream verdict; methodological implementation tension preserved.",
+                    "q": "Q042",
+                    "status": "OPEN_NARROWED"
+                  }
+                ],
+                "id": "CTR-PLANCK-IMPL-001",
+                "resolution": "Q039 excludes several simple single-block explanations. Q040 identifies a legitimate common physical CMB-space nuisance-marginalization route, but tested finite numerical representations fail validation before endpoint geometry. Q041 V19 then attempts direct downstream portability with matched external data, but the required complete converged posterior matrix is not obtained, so no physical downstream class is issued. The causal origin and downstream scientific significance remain unresolved; V19 is also narrower than the broader original Q041 contract.",
+                "results": [
+                  "ROB-PLANCK-GEOM-001",
+                  "ROB-Q039-001",
+                  "ROB-Q040-CMB-MARGINAL-001",
+                  "ROB-Q040-NUMERIC-001",
+                  "ROB-Q041-CONTROLLED-NOSCIENCE-001",
+                  "ROB-Q041-FIREWALL-001",
+                  "ROB-Q041-CONTRACT-SCOPE-001"
+                ],
+                "status": "OPEN_NARROWED"
+              },
+              {
+                "description": "Historical stable vs later non-stable basin labels appeared contradictory.",
+                "id": "CTR-HIST-BASIN-LABEL-001",
+                "resolution": "Crosswalk showed classifier dependence rather than demonstrated disappearance of classifier-invariant geometry.",
+                "results": [
+                  "ROB-CLASSIFIER-001"
+                ],
+                "status": "RESOLVED_METHODOLOGICALLY"
+              }
+            ],
+            "q_access_end": "Q044",
+            "schema_version": 1
+          },
+          "operation": "contradictions",
+          "source": "/workspace/scratch/2f38c02a805c/q044-installation/candidate/contradictions.json"
+        },
+        "id": "SELF-011",
+        "name": "Contradiction registry reader",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "data": {
+            "current_q": "Q044",
+            "entries": [
+              {
+                "evidence_id": "EVD-MANUSCRIPT-Q001-Q039",
+                "q_range": "Q001-Q039",
+                "sha256": "77c5ad00474110e9935f0e55891b5135911dcb603c24f64c22fdb14d406b6b82",
+                "source": "bubblevers 0.39.docx",
+                "status": "AUTHORIZED",
+                "type": "WORD_MANUSCRIPT_SYNTHESIS"
+              },
+              {
+                "evidence_id": "EVD-Q039-IMPLBLOCK",
+                "head_sha": "365217d4a4ca21e0af3b296c0e6b23df7e07ba60",
+                "program_id": "Q039-IMPLBLOCK-V5",
+                "q_id": "Q039",
+                "result_id": "R-Q039-EDE-IMPLEMENTATION-BLOCK-INTERVENTION-001",
+                "run_id": "34161368438",
+                "scientific_status": "VALIDATED_NEGATIVE_RESULT",
+                "validation_status": "PASS",
+                "workflow_id": "q039-implementation-block-intervention-v5.yml"
+              },
+              {
+                "evidence_id": "EVD-Q039-FGPROFILE",
+                "head_sha": "449fe096e49a793446c0c859cf8caf0fcdaf4c8f",
+                "program_id": "Q039-FGPROFILE-V1",
+                "q_id": "Q039",
+                "result_id": "R-Q039-EDE-NATIVE-FOREGROUND-PROFILE-001",
+                "run_id": "34184346582",
+                "scientific_status": "VALIDATED_NEGATIVE_RESULT",
+                "validation_status": "PASS",
+                "workflow_id": "q039-native-foreground-profile-v1.yml"
+              },
+              {
+                "evidence_id": "EVD-Q039-V1-V4",
+                "q_id": "Q039",
+                "scientific_evidence": false,
+                "status": "SUPERSEDED",
+                "type": "TECHNICAL_RECOVERY_PROVENANCE"
+              },
+              {
+                "evidence_id": "EVD-Q040-MANUSCRIPT",
+                "q_range": "Q001-Q040",
+                "sha256": "d389095fea2bd65ca5424a77cf22a4240581f1966eff3575ddabddfd0dd54397",
+                "source": "bubblevers 0.40m.docx",
+                "status": "AUTHORIZED",
+                "type": "WORD_MANUSCRIPT_SYNTHESIS"
+              },
+              {
+                "evidence_id": "EVD-Q040-RQMC",
+                "head_sha": "855a28c58246dbdd52d01cae1f40e0611103d96b",
+                "physical_falsification": false,
+                "program_id": "Q040-RQMC-V4",
+                "q_id": "Q040",
+                "result_ids": [
+                  "R-Q040-EDE-CMBSPACE-COUPLED-BRIDGE-005",
+                  "R-Q040-MATH-DEFENSIVE-MARGINAL-001",
+                  "R-Q040-EDE-DEFENSIVE-RQMC-CMB-MARGINAL-004"
+                ],
+                "run_id": "34258155387",
+                "scientific_status": "INCONCLUSIVE_TECHNICAL_FAIL",
+                "validation_status": "NUMERICAL_VALIDATION_FAIL",
+                "workflow_id": "q040-defensive-rqmc-v4.yml"
+              },
+              {
+                "evidence_id": "EVD-Q041-QJOURNAL-PDF",
+                "q_range": "Q001-Q041",
+                "sha256": "fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465",
+                "source": "Bubbleverse_Q-Journals_Q001-Q041(9).pdf",
+                "status": "AUTHORIZED",
+                "type": "PDF_Q_JOURNAL_SYNTHESIS"
+              },
+              {
+                "evidence_id": "EVD-Q041-MAINBOOK-PDF",
+                "q_boundary": "Q041",
+                "sha256": "f2304a9010a8a4fbc055e5002def9ca42aac692cf81669c10fd6cc98d14f2130",
+                "source": "Bubbleverse_Main_Book(4).pdf",
+                "status": "AUTHORIZED",
+                "type": "PDF_MAIN_BOOK_SYNTHESIS"
+              },
+              {
+                "evidence_id": "EVD-Q041-APPENDICES-PDF",
+                "q_boundary": "Q041",
+                "sha256": "878891fd0d0323c2fbfadf3fec5d5d5d0dffbae5e64e3551a34cfdc1da803c76",
+                "source": "Bubbleverse_Technical_Appendices_A-D(4).pdf",
+                "status": "AUTHORIZED",
+                "type": "PDF_TECHNICAL_APPENDICES_SYNTHESIS"
+              },
+              {
+                "actual_computed_result": false,
+                "artifact_id": "10754769330",
+                "artifact_sha256": "2284518ecbaaf1ff0d0093977827d5162ec29549ba2b81880f266c250311ca2b",
+                "evidence_id": "EVD-Q041-PORTABILITY-V19",
+                "final_result_sha256": "0062874ed3529004f46cfb542a708d5b8e8dde55d1b4fd1c2ac7c394e6c8be79",
+                "final_tests_sha256": "95fe1e63c78033de8559f609f0d8a1f4d48ee1b4123f3bb8f845b3ac6e5797ab",
+                "head_sha": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
+                "no_science_reason": "MAX_SAMPLES_WITHOUT_CONVERGENCE",
+                "outcome_type": "CONTROLLED_NO_SCIENTIFIC_RESULT",
+                "physical_falsification": false,
+                "program_id": "Q041-PLANCKPORT-V19",
+                "q_id": "Q041",
+                "result_id": "R-Q041-EDE-DOWNSTREAM-PORTABILITY-019",
+                "run_id": "34979609004",
+                "scientific_classification": "NO_SCIENTIFIC_RESULT",
+                "scientific_status": "VALID_CONTROLLED_NO_SCIENCE_RESULT",
+                "technical_failure": false,
+                "validation_status": "PASS",
+                "workflow_id": "q041-planck-portability-v19.yml"
+              },
+              {
+                "evidence_id": "EVD-Q042-QJOURNAL-PDF",
+                "physical_falsification": false,
+                "q": "Q042",
+                "role": "PRIMARY_AUTHORIZED_Q_JOURNAL",
+                "scientific_authority_class": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "sha256": "fec49ca2e1f652f55aa1d7bb3ddea3b8daf539eb14bfec782251c19e903ffbac",
+                "source_file": "evidence/sources/Q042/q_journal.pdf",
+                "validation_status": "INPUT_HASH_AND_SCOPE_VERIFIED"
+              },
+              {
+                "evidence_id": "EVD-Q042-MAINBOOK-PDF",
+                "physical_falsification": false,
+                "q": "Q042",
+                "role": "AUTHORIZED_MAIN_BOOK",
+                "scientific_authority_class": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "sha256": "b42e92563bc3769b682b40bbe007d6b58b1b17deec64ac7b45a474fb84e0f6fa",
+                "source_file": "evidence/sources/Q042/main_book.pdf",
+                "validation_status": "INPUT_HASH_AND_SCOPE_VERIFIED"
+              },
+              {
+                "evidence_id": "EVD-Q042-INGESTION-V31",
+                "physical_falsification": false,
+                "q": "Q042",
+                "role": "INTERNAL_CLOSURE_AND_91_SOURCE_REGISTER",
+                "scientific_authority_class": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "sha256": "7a5c606fadc974dcad740e481b16c6bf828c3f3baefcf6a132ec7e1385864933",
+                "source_file": "evidence/sources/Q042/ingestion_decision.json",
+                "validation_status": "INPUT_HASH_AND_SCOPE_VERIFIED"
+              },
+              {
+                "evidence_id": "EVD-Q042-CAP-CERTIFICATE",
+                "physical_falsification": false,
+                "q": "Q042",
+                "role": "CONDITIONAL_MATHEMATICAL_CERTIFICATE",
+                "scientific_authority_class": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "sha256": "8d3aa141558d6c561821ee3d4401ef8acc1aa32bc77189162b0cdbb5980d6ba0",
+                "source_file": "evidence/sources/Q042/functional_cap_certificate.json",
+                "validation_status": "INPUT_HASH_AND_SCOPE_VERIFIED"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "actual_support_spline_tau_pipeline": "NOT_EXECUTED",
+                "class_source_commit": "5a131c91d657dd9a7c6364cc45b038710f8d0d97",
+                "evidence_id": "EVD-Q042-CLOSURE-001",
+                "incoming_result_id": "R-Q042-COMPARISON-V31-001",
+                "numerical_final_result": "UNRESOLVED",
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q": "Q042",
+                "reference_truth": "BLOCKED",
+                "result_id": "R-Q042-V31-INGESTION-001",
+                "scientific_specification_sha256": "41e4d8f026933f64dbe41048f894002f479ba2b504432b33dc155f4dfe71378c",
+                "source_evidence_refs": [
+                  "EVD-Q042-QJOURNAL-PDF",
+                  "EVD-Q042-INGESTION-V31",
+                  "EVD-Q042-CAP-CERTIFICATE"
+                ],
+                "source_ids": [
+                  "I-Q042-COMPARISON-DESIGN-001",
+                  "I-Q042-COMPARISON-V31-001",
+                  "I-Q042-COMPARISON-V31-VALIDATION-001",
+                  "I-Q042-V31-INGESTION-001"
+                ],
+                "status": "CLOSED_INCONCLUSIVE_GENERAL_FEASIBILITY",
+                "v29_execution_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+                "v29_role": "PREREQUISITE_ONLY",
+                "v29_run_id": 37362125253,
+                "v31_config_sha256": "2f7a5d08e7566c613de93328fe4d4d6760d8ede81f6c3b789e230f64ca202dd1",
+                "v31_execution": "LOCAL_NOT_COMMITTED_AS_WORKFLOW_RESULT",
+                "whole_history": "PARTIAL"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q043-RESULT",
+                "independent_cosmological_evidence": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q043",
+                "remote_sync_in_original_result": "NOT_PERFORMED",
+                "result_id": "R-Q043-REPOSITORY-INTEGRATION-001",
+                "scientific_classification": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
+                "sha256": "4486e5173ba8ef3ac659c743bb578284c93446ce9e5b3d0dae71728beadbb9ff",
+                "source": "evidence/sources/Q043/integration_result.json",
+                "source_commit_status": "DOCUMENTED_RESULT_ARTIFACT_NOT_TRACKED_AT_SOURCE_HEAD",
+                "source_repository_commit": null,
+                "status": "AUTHORIZED",
+                "type": "INTERNAL_TECHNICAL_VALIDATION",
+                "verified_source_repository_inspection_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q043-JOURNAL",
+                "independent_cosmological_evidence": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q043",
+                "remote_sync_in_original_result": "NOT_PERFORMED",
+                "result_id": "R-Q043-REPOSITORY-INTEGRATION-001",
+                "scientific_classification": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
+                "sha256": "b952c3e80e58dc6290e16b432ef20040e32bb111aea56d97e4fbf7892836b42c",
+                "source": "evidence/sources/Q043/cumulative_journal.md",
+                "source_commit_status": "DOCUMENTED_RESULT_ARTIFACT_NOT_TRACKED_AT_SOURCE_HEAD",
+                "source_repository_commit": null,
+                "status": "AUTHORIZED",
+                "type": "BUBBLEVERSE_DOCUMENTED_SYNTHESIS",
+                "verified_source_repository_inspection_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q043-QJOURNAL-PDF",
+                "independent_cosmological_evidence": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q043",
+                "remote_sync_in_original_result": "NOT_PERFORMED",
+                "result_id": "R-Q043-REPOSITORY-INTEGRATION-001",
+                "scientific_classification": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
+                "sha256": "c87270ed88b5b0994cd83d94305d915c55a4783c650c321ce784f5904447eb04",
+                "source": "evidence/sources/Q043/q_journal.pdf",
+                "source_commit_status": "DOCUMENTED_RESULT_ARTIFACT_NOT_TRACKED_AT_SOURCE_HEAD",
+                "source_repository_commit": null,
+                "status": "AUTHORIZED",
+                "type": "BUBBLEVERSE_DOCUMENTED_SYNTHESIS",
+                "verified_source_repository_inspection_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q043-APPENDICES-PDF",
+                "independent_cosmological_evidence": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q043",
+                "remote_sync_in_original_result": "NOT_PERFORMED",
+                "result_id": "R-Q043-REPOSITORY-INTEGRATION-001",
+                "scientific_classification": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
+                "sha256": "e3c21469cc7a53c51a2800146396c2cfcd8872154b6701d9f88668d965c833a7",
+                "source": "evidence/sources/Q043/appendices.pdf",
+                "source_commit_status": "DOCUMENTED_RESULT_ARTIFACT_NOT_TRACKED_AT_SOURCE_HEAD",
+                "source_repository_commit": null,
+                "status": "AUTHORIZED",
+                "type": "BUBBLEVERSE_DOCUMENTED_SYNTHESIS",
+                "verified_source_repository_inspection_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q043-MAINBOOK-PDF",
+                "independent_cosmological_evidence": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q043",
+                "remote_sync_in_original_result": "NOT_PERFORMED",
+                "result_id": "R-Q043-REPOSITORY-INTEGRATION-001",
+                "scientific_classification": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
+                "sha256": "507945a2549c26e56f894a4fca5e9115682c242fcccda66f7b9b6b89dae33b05",
+                "source": "evidence/sources/Q043/main_book.pdf",
+                "source_commit_status": "DOCUMENTED_RESULT_ARTIFACT_NOT_TRACKED_AT_SOURCE_HEAD",
+                "source_repository_commit": null,
+                "status": "AUTHORIZED",
+                "type": "BUBBLEVERSE_DOCUMENTED_SYNTHESIS",
+                "verified_source_repository_inspection_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q044-INGESTION",
+                "independent_cosmological_evidence": false,
+                "native_binary_rounding_certified": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q044",
+                "result_id": "R-Q044-SPLINE-INGESTION-002",
+                "scientific_classification": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+                "sha256": "9382cb198ab7d519f377e41f29fb8dad3339bde067e3ee16194536cd52e2b7ec",
+                "source": "evidence/sources/Q044/Q044_SPLINE_INGESTION_RESULT.json",
+                "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q044-COMPONENT",
+                "independent_cosmological_evidence": false,
+                "native_binary_rounding_certified": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q044",
+                "result_id": "R-Q044-SPLINE-ADJOINT-001",
+                "scientific_classification": "CONDITIONAL_MATHEMATICAL_COMPONENT",
+                "sha256": "25638274b3898d97f63d1ecbb06739797396659d02270ab80e37d4bdf5b2354e",
+                "source": "evidence/sources/Q044/Q044_SPLINE_RESULT.json",
+                "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q044-CHECKS",
+                "independent_cosmological_evidence": false,
+                "native_binary_rounding_certified": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q044",
+                "result_id": "R-Q044-SPLINE-ADJOINT-001",
+                "scientific_classification": "CONDITIONAL_MATHEMATICAL_COMPONENT",
+                "sha256": "5300cd20e40c2ff43ee48ec1a0ad1b9ef487639bd2aa2fae7d1ce9911861948f",
+                "source": "evidence/sources/Q044/Q044_SPLINE_CHECKS.json",
+                "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q044-ENDPOINT-AUDIT",
+                "independent_cosmological_evidence": false,
+                "native_binary_rounding_certified": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q044",
+                "result_id": "R-Q044-SPLINE-INGESTION-002",
+                "scientific_classification": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+                "sha256": "a20cc688457114503bd06351a9137297bf44136eaf075956fff0d4d50e40f43d",
+                "source": "evidence/sources/Q044/Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+                "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q044-JOURNAL",
+                "independent_cosmological_evidence": false,
+                "native_binary_rounding_certified": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q044",
+                "result_id": "R-Q044-SPLINE-INGESTION-002",
+                "scientific_classification": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+                "sha256": "3b75872a0d4d3aece1ba628525b94ac5efed12829083a8178837b68860c68f18",
+                "source": "evidence/sources/Q044/cumulative_journal_authorized.md",
+                "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q044-QJOURNAL-PDF",
+                "independent_cosmological_evidence": false,
+                "native_binary_rounding_certified": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q044",
+                "result_id": "R-Q044-SPLINE-INGESTION-002",
+                "scientific_classification": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+                "sha256": "d6017b0bd3a18c99842b51660c9de94e32bc80923c9ea10719df350d70c1eab4",
+                "source": "evidence/sources/Q044/q_journal_authorized.txt",
+                "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q044-APPENDICES-PDF",
+                "independent_cosmological_evidence": false,
+                "native_binary_rounding_certified": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q044",
+                "result_id": "R-Q044-SPLINE-INGESTION-002",
+                "scientific_classification": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+                "sha256": "938d0806f063c368a4fc93466f6ca77467063c6833728d76d2bc4932fc560029",
+                "source": "evidence/sources/Q044/appendices_authorized.txt",
+                "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE"
+              },
+              {
+                "actual_computed_cosmological_result": false,
+                "evidence_id": "EVD-Q044-MAINBOOK-PDF",
+                "independent_cosmological_evidence": false,
+                "native_binary_rounding_certified": false,
+                "new_scientific_inference": false,
+                "physical_falsification": false,
+                "production_restart_authorized": false,
+                "q_id": "Q044",
+                "result_id": "R-Q044-SPLINE-INGESTION-002",
+                "scientific_classification": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+                "sha256": "2cb43ec79127e1f60b25d45dddbb55127f8ffbb93da1bfd7f6f0e90bff820370",
+                "source": "evidence/sources/Q044/main_book_authorized.txt",
+                "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE"
+              }
+            ],
+            "q_access_end": "Q044",
+            "q_access_start": "Q001",
+            "schema_version": 1
+          },
+          "operation": "provenance",
+          "source": "/workspace/scratch/2f38c02a805c/q044-installation/evidence/evidence_registry.json"
+        },
+        "id": "SELF-012",
+        "name": "Provenance registry reader",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "data": {
+            "accepted_model_after": "v0.6",
+            "accepted_model_before": "v0.5",
+            "all_mandatory_green": false,
+            "artifact_type": "BUBBLEVERSE_MODEL_RELEASE_HANDOFF",
+            "campaign_input_commit": "635ab12f427b4a35ba72ac7ac0f896f1838e746e",
+            "candidate_commit": "635ab12f427b4a35ba72ac7ac0f896f1838e746e",
+            "candidate_model": "v0.6",
+            "candidate_promoted": false,
+            "candidate_promotion_gate": "PASS_PENDING_INSTALLATION_AUDIT",
+            "current_q": "Q044",
+            "input_documents": [
+              {
+                "archived_name": "Q044_SPLINE_INGESTION_RESULT.json",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 12189,
+                "filename": "Q044_SPLINE_INGESTION_RESULT(1).json",
+                "path": "evidence/sources/Q044/Q044_SPLINE_INGESTION_RESULT.json",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_INGESTION_RESULT",
+                "scientific_ingestion": true,
+                "sha256": "9382cb198ab7d519f377e41f29fb8dad3339bde067e3ee16194536cd52e2b7ec",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 61895,
+                "filename": "Q044_ENDPOINT_SOURCE_EVIDENCE(1).json",
+                "path": "evidence/sources/Q044/Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_ENDPOINT_AUDIT",
+                "scientific_ingestion": true,
+                "sha256": "a20cc688457114503bd06351a9137297bf44136eaf075956fff0d4d50e40f43d",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "Q044_SPLINE_VALIDATE.py",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 3890,
+                "filename": "Q044_SPLINE_VALIDATE(1).py",
+                "path": "evidence/sources/Q044/Q044_SPLINE_VALIDATE.py",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_VALIDATOR_SOURCE",
+                "scientific_ingestion": true,
+                "sha256": "5363a1b7ce437c0c87f195b9cbd7d58685d0f785da22236e09337503d1918d67",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "Q044_SPLINE_RESULT.json",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 2446688,
+                "filename": "Q044_SPLINE_RESULT(1).json",
+                "path": "evidence/sources/Q044/Q044_SPLINE_RESULT.json",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+                "scientific_ingestion": true,
+                "sha256": "25638274b3898d97f63d1ecbb06739797396659d02270ab80e37d4bdf5b2354e",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "Q044_SPLINE_INPUTS.json",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 314958,
+                "filename": "Q044_SPLINE_INPUTS(1).json",
+                "path": "evidence/sources/Q044/Q044_SPLINE_INPUTS.json",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+                "scientific_ingestion": true,
+                "sha256": "f26da12d32eb40c2ae7a8ff618180bb3e495b5f3d183a16f65c09ff97f98fa0c",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "Q044_SPLINE_CHECKS.json",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 7425,
+                "filename": "Q044_SPLINE_CHECKS(1).json",
+                "path": "evidence/sources/Q044/Q044_SPLINE_CHECKS.json",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+                "scientific_ingestion": true,
+                "sha256": "5300cd20e40c2ff43ee48ec1a0ad1b9ef487639bd2aa2fae7d1ce9911861948f",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "Q044_SPLINE_ADJOINT.py",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 9603,
+                "filename": "Q044_SPLINE_ADJOINT(1).py",
+                "path": "evidence/sources/Q044/Q044_SPLINE_ADJOINT.py",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_COMPONENT_CODE",
+                "scientific_ingestion": true,
+                "sha256": "bbd93f22e0da56be9c74fb109e60ddd1dab1f31a76641ab47e2a735d232147fd",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "Q044_NATIVE_REPLAY.c",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 4306,
+                "filename": "Q044_NATIVE_REPLAY(1).c",
+                "path": "evidence/sources/Q044/Q044_NATIVE_REPLAY.c",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_COMPONENT_CODE",
+                "scientific_ingestion": true,
+                "sha256": "56c92da28d7200c8b9b88dff8f1fe7e9a0b1dc21cc464d17e39b4fe48eef3641",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "Q044_V29_RECOVERY.json",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 3145,
+                "filename": "Q044_V29_RECOVERY(1).json",
+                "path": "evidence/sources/Q044/Q044_V29_RECOVERY.json",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_RECOVERY_RECEIPT",
+                "scientific_ingestion": true,
+                "sha256": "46f66fba8405a1d9ddf8a08911a8b404ca24586aa88d9a2b4f1e47e52275212c",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "q042_interval_v29.py",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 14617,
+                "filename": "q042_interval_v29.py",
+                "path": "evidence/sources/Q044/q042_interval_v29.py",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "ORIGINAL_COMPONENT_DEPENDENCY",
+                "scientific_ingestion": true,
+                "sha256": "558592e20969dbfc063570f2224c36b4e8d7dca37db20009cb5dd2a993e0d160",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "cumulative_journal_original.md",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 524236,
+                "filename": "Q044_SAMLET_JOURNAL(1).md",
+                "path": "provenance/input_archives/Q044/cumulative_journal_original.md",
+                "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                "role": "MIXED_BOUNDARY_ORIGINAL_JOURNAL",
+                "scientific_ingestion": false,
+                "sha256": "adb6413db7f00d2f5e0f3d8536e082661ac1881cfdf147156a5c90df1e373280",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "cumulative_journal_authorized.md",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 460270,
+                "derivation": "Exact original bytes after the preserved-incoming-journal marker; prior source register and claim maps retained verbatim.",
+                "filename": "Q044_SAMLET_JOURNAL(1).md",
+                "path": "evidence/sources/Q044/cumulative_journal_authorized.md",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "EXACT_AUTHORIZED_HISTORICAL_TAIL",
+                "scientific_ingestion": true,
+                "sha256": "3b75872a0d4d3aece1ba628525b94ac5efed12829083a8178837b68860c68f18",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "q_journal.pdf",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 1121030,
+                "filename": "Bubbleverse_Q-Journals_Q001-Q044_UPDATED.pdf",
+                "path": "provenance/input_archives/Q044/q_journal.pdf",
+                "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+                "scientific_ingestion": false,
+                "sha256": "c53081f8b4184b3220024ea5f5e5767bdc079d74c0895d903fb9c6132f57f222",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "q_journal_authorized.txt",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 2391,
+                "extraction_line_range_1_based": [
+                  4945,
+                  4972
+                ],
+                "filename": "Bubbleverse_Q-Journals_Q001-Q044_UPDATED.pdf",
+                "path": "evidence/sources/Q044/q_journal_authorized.txt",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+                "scientific_ingestion": true,
+                "sha256": "d6017b0bd3a18c99842b51660c9de94e32bc80923c9ea10719df350d70c1eab4",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "appendices.pdf",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 595925,
+                "filename": "Bubbleverse_Technical_Appendices_A-D_UPDATED.pdf",
+                "path": "provenance/input_archives/Q044/appendices.pdf",
+                "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+                "scientific_ingestion": false,
+                "sha256": "5b251d555558957c1f9a4af7dbeddc524e8f426388de8aa8ee8d7368b1c34891",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "appendices_authorized.txt",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 2438,
+                "extraction_line_range_1_based": [
+                  2365,
+                  2394
+                ],
+                "filename": "Bubbleverse_Technical_Appendices_A-D_UPDATED.pdf",
+                "path": "evidence/sources/Q044/appendices_authorized.txt",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+                "scientific_ingestion": true,
+                "sha256": "938d0806f063c368a4fc93466f6ca77467063c6833728d76d2bc4932fc560029",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "main_book.pdf",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 1331592,
+                "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+                "path": "provenance/input_archives/Q044/main_book.pdf",
+                "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+                "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+                "scientific_ingestion": false,
+                "sha256": "c3dc6c1bf99ff865a518fa5a76d37c49c9b55290270f751b234edeca05a0136a",
+                "source_repository_commit": null
+              },
+              {
+                "archived_name": "main_book_authorized.txt",
+                "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+                "bytes": 1055,
+                "extraction_line_range_1_based": [
+                  1965,
+                  1977
+                ],
+                "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+                "path": "evidence/sources/Q044/main_book_authorized.txt",
+                "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+                "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+                "scientific_ingestion": true,
+                "sha256": "2cb43ec79127e1f60b25d45dddbb55127f8ffbb93da1bfd7f6f0e90bff820370",
+                "source_repository_commit": null
+              }
+            ],
+            "local_installation_state_prepared": true,
+            "model_repository_commit": "635ab12f427b4a35ba72ac7ac0f896f1838e746e",
+            "model_repository_commit_semantics": "Real candidate input commit; prepared installation identified by subsequent Git commit",
+            "model_revision": "R000006",
+            "new_scientific_q_allocated": false,
+            "next_q_authorized": false,
+            "next_word_authorized": false,
+            "numerical_final_result": "UNRESOLVED",
+            "original_result_remains_historical": true,
+            "physical_model_change": false,
+            "processed_through_q": "Q044",
+            "production_restart_authorized": false,
+            "projection_only": true,
+            "promoted_at": null,
+            "q043_original_remote_sync": "NOT_PERFORMED",
+            "q043_original_result": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
+            "q_access_end": "Q044",
+            "q_access_start": "Q001",
+            "reference_truth": "BLOCKED",
+            "release_status": "VALIDATED_INSTALLATION_PENDING",
+            "remote_accepted_model": "v0.5",
+            "remote_accepted_q": "Q043",
+            "remote_promotion_verified": false,
+            "repository_write_gate": "BLOCKED_INTEGRATION_403_AND_MISSING_GIT_CREDENTIALS",
+            "schema_version": 1,
+            "source_bubbleverse_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+            "source_input_type": "PDF_AUTHORIZED_SUBSTITUTE_WITH_ORIGINAL_STRUCTURED_RESULT",
+            "source_manuscript_commit": null,
+            "source_repository_modified": false,
+            "source_repository_sync_required": true,
+            "stop_state": "TECHNICAL_BLOCK",
+            "test_campaign_artifact": "tests/results/Q044_MODEL_UPDATE_TEST_RESULT.json",
+            "test_count_semantics": "Nested/overlapping suites; counts are not independent scientific confirmations",
+            "tests": {},
+            "word_input_filename": null,
+            "word_input_hash": null
+          },
+          "operation": "release-handoff",
+          "source": "/workspace/scratch/2f38c02a805c/q044-installation/release/MODEL_RELEASE_HANDOFF.json"
+        },
+        "id": "SELF-013",
+        "name": "Release handoff reader",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "available": true,
+          "returncode": 0,
+          "status": "PASS",
+          "stderr": "",
+          "stdout": "FML-001=PASS Formal model files exist and parse \u2014 {'files_parsed': 11}\nFML-002=PASS Q boundary and contamination firewall \u2014 {'q_access_start': 1, 'current_q': 44, 'q_access_end': 44}\nFML-003=PASS Benchmarks exactly match accepted observations \u2014 {'benchmarks_verified': 3}\nFML-004=PASS Parameter registry integrity \u2014 {'parameters_verified': 2}\nFML-005=PASS Equation-to-assumption and operation references \u2014 {'equations_verified': 6}\nFML-006=PASS Uncertainty registry and benchmark consistency \u2014 {'uncertainties_verified': 13}\nFML-007=PASS Assumptions and domain-of-validity are explicit \u2014 {'assumptions': 13, 'domains': 9}\nFML-008=PASS Unknowns and limitations remain explicit \u2014 {'limitations_verified': 14}\nFML-009=PASS Input/output schemas cover the public engine \u2014 {'operations': 14, 'calculation_result_types': 4, 'workflow_surface_verified': True}\nFML-010=PASS Formal model provenance references exist \u2014 {'evidence_refs_verified': 27}\nFML-011=PASS Execution environment and Git provenance \u2014 {'reachable_commit': 'dd7575e7146382957d206e87274ca6246c2587b7', 'runtime': '3.12.14'}\nFML-012=PASS No-new-claim formalization contract \u2014 {'scientific_change': False, 'rule': 'NO_NEW_SCIENTIFIC_CLAIMS_OR_NUMERIC_VALUES'}\nFML-013=PASS Formal version metadata matches accepted state \u2014 {'formal_model_version': 'v0.6-formalization-1', 'program_registry_consistent': True}\nFORMAL_MODEL_TESTS=13/13\nT-BV-001=PASS Candidate/accepted identity and hard Q boundary match current accepted state.\nT-BV-002=PASS Highest Q identifier in current scientific candidate/evidence JSON is Q044.\nT-BV-003=PASS H0 benchmarks and distinct inference chains preserved.\nT-BV-004=PASS Authoritative Q039 identities and PASS provenance preserved.\nT-BV-005=PASS Q039 V1-V4 technical recoveries remain excluded from scientific evidence.\nT-BV-006=PASS Q039 narrowing and Q040 technical-vs-physical semantics are preserved.\nT-BV-007=PASS Required open contradictions remain explicit.\nT-BV-008=PASS Major unresolved questions remain unresolved.\nT-BV-009=PASS Current JSON parses and layer IDs are unique.\nT-BV-010=PASS Q041 controlled-no-science semantics, open portability prediction, open-narrowed contradiction and scope safeguards are preserved.\nT-BV-011=PASS Q042 closure, no-production, source continuity and conditional certificate gates: PASS\nT-BV-012=PASS Q043 source identity, local-only qualification, physical preservation and snapshot gates: PASS\nT-BV-013=PASS Q044 conditional component, source continuity, inference firewall and snapshot gates: PASS\n"
+        },
+        "id": "SELF-014",
+        "name": "Current scientific/model campaign validation",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "accepted_version": "v0.6",
+          "files_compared": 8,
+          "mismatches": 0
+        },
+        "id": "SELF-015",
+        "name": "Accepted model immutability",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "layers_checked": 6,
+          "paths": {
+            "constraints": "accepted/constraints.json",
+            "contradictions": "accepted/contradictions.json",
+            "mechanisms": "accepted/mechanisms.json",
+            "observations": "accepted/observations.json",
+            "predictions": "accepted/predictions.json",
+            "robustness": "accepted/robustness.json"
+          }
+        },
+        "id": "SELF-016",
+        "name": "Accepted path isolation",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "candidate_promoted": false,
+          "status": "NO_PROMOTION_RECORDED"
+        },
+        "id": "SELF-017",
+        "name": "Promotion state consistency",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "model_repository_commit": "635ab12f427b4a35ba72ac7ac0f896f1838e746e",
+          "reachable_commit": true
+        },
+        "id": "SELF-018",
+        "name": "Real commit provenance",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "known_h0_results": true,
+          "known_reference_match": true,
+          "outlier_followup": true,
+          "registry_boundary": true,
+          "unknown_routes_external": true
+        },
+        "id": "SELF-019",
+        "name": "Known-result context and next-step router",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "boundary_match": true,
+          "external_only": true,
+          "https_only": true,
+          "no_auto_promotion": true,
+          "required_services": true
+        },
+        "id": "SELF-020",
+        "name": "External astronomy catalog configuration",
+        "status": "PASS"
+      }
+    ],
+    "tests_failed": 0,
+    "tests_passed": 20,
+    "tests_total": 20
+  },
+  "q042_historical": {
+    "all_green": true,
+    "artifact_type": "Q042_MODEL_UPDATE_VALIDATION",
+    "mode": "CURRENT_ACCEPTED",
+    "non_destructive": true,
+    "target_q": "Q042",
+    "tests": [
+      {
+        "detail": "Q041 -> Q042 exact historical sequence; active evidence boundary matches accepted",
+        "id": "Q_SEQUENCE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "verified_source_files": 7
+        },
+        "id": "SOURCE_HASH_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "claim_maps_preserved": true,
+          "source_objects": 91
+        },
+        "id": "SOURCE_CONTINUITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Closed investigation; unresolved reference/numerical result; no physical verdict",
+        "id": "CLOSURE_QUALIFICATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Exact-dyadic retained-witness/tail inequalities checked; conditional policy failure only",
+        "id": "CONDITIONAL_CERTIFICATE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Parameters, equations, benchmarks and mechanisms unchanged",
+        "id": "PHYSICAL_MODEL_PRESERVATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Original predictions and open contradictions preserved",
+        "id": "PREDICTION_CONTRADICTION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Frozen construction, missing accuracy budgets, partial history and no restart explicit",
+        "id": "FORMAL_SCOPE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "No scientific evidence beyond accepted Q044; Q042 source identity remains hashed",
+        "id": "Q_FIREWALL_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "accepted_checked_before_promotion": false,
+          "protected_input_files": 64
+        },
+        "id": "ACCEPTED_IMMUTABILITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "reachable_model_input_commit": "10fa83797b2f7740519d4e43b1bebf0a6e35bada"
+        },
+        "id": "REAL_COMMIT_PROVENANCE_GATE",
+        "status": "PASS"
+      }
+    ],
+    "tests_passed": 11,
+    "tests_total": 11
+  },
+  "q043_historical": {
+    "all_green": true,
+    "artifact_type": "Q043_MODEL_UPDATE_VALIDATION",
+    "mode": "CURRENT_ACCEPTED",
+    "non_destructive": true,
+    "target_q": "Q043",
+    "tests": [
+      {
+        "detail": "Q042/v0.4 -> Q043/v0.5, no missing Q",
+        "id": "Q043_SEQUENCE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "verified_source_files": 8
+        },
+        "id": "Q043_SOURCE_HASH_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Original local-only result preserved; no physics or production inferred",
+        "id": "Q043_QUALIFICATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "91 source objects, both claim-map trees and all inherited evidence preserved",
+        "id": "Q043_SOURCE_CONTINUITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Physical/formal entries and public calculation definitions unchanged",
+        "id": "Q043_PHYSICAL_PRESERVATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "All original predictions, statuses and contradictions unchanged",
+        "id": "Q043_PREDICTION_CONTRADICTION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Only traceable internal technical evidence/robustness and Q metadata added",
+        "id": "Q043_DIFF_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "maximum_authorized_q": 43,
+          "pdf_text_source_hashes_verified": true,
+          "scanned_files": 32
+        },
+        "id": "Q043_FIREWALL_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Old snapshots and source bytes immutable; accepted untouched before promotion",
+        "id": "Q043_ACCEPTED_IMMUTABILITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Formal identity, anti-invention rule and references coherent",
+        "id": "Q043_FORMAL_SYNC_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Real reachable input commit; no fabricated manuscript commit",
+        "id": "Q043_REAL_PROVENANCE_GATE",
+        "status": "PASS"
+      }
+    ],
+    "tests_passed": 11,
+    "tests_total": 11
+  },
+  "q044": {
+    "all_green": true,
+    "artifact_type": "Q044_MODEL_UPDATE_VALIDATION",
+    "mode": "CURRENT_ACCEPTED",
+    "non_destructive": true,
+    "target_q": "Q044",
+    "tests": [
+      {
+        "detail": "Q043/v0.5 -> Q044/v0.6; no missing question",
+        "id": "Q_SEQUENCE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "hashed_sources": 18,
+          "original_pins_verified": 4
+        },
+        "id": "SOURCE_HASH_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Conditional component accepted; downstream inference unavailable; no physical verdict or production",
+        "id": "QUALIFICATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "fresh_component_replay": false,
+          "recorded_native_diagnostics": 18,
+          "recorded_rational_fixtures": 64,
+          "support_cells_verified": 3140
+        },
+        "id": "COMPONENT_AGGREGATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Physical parameters, all original histories and public operations preserved; traceable scoped additions only",
+        "id": "REGRESSION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Exact authorized additions agree with diff; physical histories and predictions admit no new claims",
+        "id": "MODEL_DIFF_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Scoped equation, units, assumptions, evidence and validity references resolve",
+        "id": "FORMAL_REFERENCE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "maximum_authorized_q": 44,
+          "mixed_boundary_originals": "HASHED_PROVENANCE_ONLY",
+          "scanned_files": 52
+        },
+        "id": "Q_FIREWALL_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Exact authorized journal tail, 91 source objects and original claim maps preserved",
+        "id": "SOURCE_CONTINUITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Accepted untouched before promotion; previous and current snapshots immutable",
+        "id": "ACCEPTED_IMMUTABILITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Reachable real model input; separate real source inspection pin; no fabricated manuscript commit",
+        "id": "REAL_COMMIT_PROVENANCE_GATE",
+        "status": "PASS"
+      }
+    ],
+    "tests_passed": 11,
+    "tests_total": 11
+  },
+  "regression": {
+    "discovered": 40,
+    "failed": 0,
+    "passed": 40,
+    "skipped": 0
+  },
+  "remote_promotion_verified": false,
+  "source_boundary": "Q001-Q044",
+  "target_q": "Q044",
+  "test_count_semantics": "Nested and overlapping integrity suites, not independent scientific confirmations."
+}

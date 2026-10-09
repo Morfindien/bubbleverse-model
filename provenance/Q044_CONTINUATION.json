@@ -1,0 +1,20 @@
+{
+  "authorization_required_for_new_science": true,
+  "completed": [
+    "source recovery and exact boundary extraction",
+    "diff and candidate",
+    "formal synchronization",
+    "all scoped tests and regression",
+    "independent scientific review",
+    "frozen installation snapshot"
+  ],
+  "firewall": "Q001-Q044",
+  "phase": "VALIDATED_INSTALLATION_PREPARED_REMOTE_BLOCKED",
+  "remaining": [
+    "authenticated optimistic installation/publication",
+    "verify remote main and accepted snapshot",
+    "record real publication receipt"
+  ],
+  "restart_science_analysis_required": false,
+  "target_q": "Q044"
+}

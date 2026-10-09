@@ -13,24 +13,19 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-- Authorized scientific range: **Q001–Q043**
-- Accepted model: **v0.5 / R000005**
-- Q043: **CLOSED — PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY**
-- Q042: **CLOSED — INCONCLUSIVE GENERAL FEASIBILITY**
-- Q043 admission: **internal technical evidence only; no new physical inference**
-- Original Q043 remote-sync/no-promotion statements: **historical and preserved verbatim**
-- Physical model, parameters, equations and H0 benchmarks: **UNCHANGED**
-- Reference truth: **BLOCKED**
-- Numerical final result: **UNRESOLVED**
-- Production restart: **NOT AUTHORIZED**
-- Model update: Q043 evidence-only admission; physical model unchanged
-- New scientific Q: **NOT ALLOCATED**
-- Source repository README/program-registry synchronization: **separate pending task**
-- Source archives: `evidence/sources/Q042/` and `evidence/sources/Q043/`; all 91 inherited source objects and claim maps retained verbatim.
-- Validation: 13/13 formal, 12/12 campaign, 11/11 Q043, 11/11 historical Q042, 22/22 regressions and 20/20 public healthcheck, executed locally. Counts overlap.
-- Repository installation: **VERIFIED**; remote accepted model **v0.5 / R000005 through Q043**. Historical local-preparation reports are preserved.
-- Publication status: `provenance/Q043_REMOTE_INSTALLATION_RECEIPT.json`. `release/MODEL_RELEASE_HANDOFF.json` preserves the earlier preparation-time publication status.
-- Full update report: `provenance/Q043_MODEL_UPDATE_REPORT.json`.
+- Prepared installation state: **v0.6 / R000006 through Q044**
+- Last verified remote accepted state: **v0.5 / R000005 through Q043**
+- Q044: **INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION**
+- Conditional support-specific spline component admitted with scope limits.
+- Physical parameters, H0 benchmarks, original predictions and contradictions: **UNCHANGED**
+- No downstream cosmological qualification, physical falsification or production restart.
+- Public calculations and all 14 operations preserved; no new public operation.
+- Original diagnostics retained as historical reports; no fresh component/C replay claimed.
+- New equation, assumptions, uncertainties and validity/limitations trace to authorized Q044 sources.
+- Remote publication: **BLOCKED** by integration permission (HTTP 403) and missing Git credentials.
+- Frozen installation snapshot: `versions/accepted/v0.6/`; older accepted snapshots remain immutable.
+- Source repository synchronization remains a separate pending task.
+- Full report: `provenance/Q044_MODEL_UPDATE_REPORT.json`.
 
 ---
 

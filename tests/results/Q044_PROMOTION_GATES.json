@@ -1,0 +1,148 @@
+{
+  "gates": {
+    "ACCEPTED_IMMUTABILITY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "ACCEPTED_PATH_ISOLATION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "ASSUMPTION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "BENCHMARK_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "CALCULATION_GATE": {
+      "evidence": "No new public calculation admitted; archived equation is a qualified component only. Existing 14 public operations retained and tested.",
+      "status": "NOT_APPLICABLE"
+    },
+    "CONTRADICTION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "DOMAIN_OF_VALIDITY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "EQUATION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "EVIDENCE_PROVENANCE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "EXTERNAL_SOURCE_AUTHORITY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "FINAL_AUDIT_GATE": {
+      "evidence": "Independent review resolved two validation defects and diff omission; accepted-mode installation and historical snapshots pass. External-write blocker remains explicit.",
+      "status": "PASS"
+    },
+    "FORMAL_MODEL_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "HIGH_Q_CONTAMINATION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "INPUT_STATE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "INVALID_INPUT_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "KNOWN_ANSWER_TEST_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "LIMITATION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "MODEL_DIFF_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PARAMETER_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PLUGIN_DEPENDENCY_GATE": {
+      "evidence": "No new scientific runtime plugin/dependency introduced; healthcheck uses Python standard library.",
+      "status": "NOT_APPLICABLE"
+    },
+    "PLUGIN_FIREWALL_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PLUGIN_PROVENANCE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PREDICTION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PROMOTION_STATE_GATE": {
+      "evidence": "Prepared installation only; candidate_promoted=false, projection_only=true and remote_promotion_verified=false. Active external state and candidate-root accepted stay Q043/v0.5.",
+      "status": "PASS"
+    },
+    "Q_FIREWALL_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "Q_SEQUENCE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "REAL_COMMIT_PROVENANCE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "REGRESSION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "REPOSITORY_WRITE_GATE": {
+      "evidence": "Git push has no credentials; GitHub create_blob returned HTTP 403 Resource not accessible by integration. No ref write or remote promotion occurred.",
+      "status": "BLOCKED"
+    },
+    "REPRODUCIBILITY_GATE": {
+      "evidence": "Original source bytes, SHA256, exact bounded excerpts, independent reviewed-addition pins, real Git inputs, code and tests retained. Reproduces this admission/aggregation, not an unqualified physical simulation.",
+      "status": "PASS"
+    },
+    "ROBUSTNESS_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "SCIENTIFIC_CONSISTENCY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "UNCERTAINTY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "WORD_DISCOVERY_GATE": {
+      "evidence": "No .docx/.doc found in current source tree or reachable source history. Established PDF substitution plus original structured results used; not attributed to source Git commit.",
+      "status": "PASS"
+    },
+    "WORD_HASH_GATE": {
+      "evidence": "No Word input. All 18 substitute/provenance source files hashed; authoritative originals pinned independently.",
+      "status": "NOT_APPLICABLE"
+    }
+  },
+  "promoted": false,
+  "promotion_blocked": true,
+  "scientific_gates_green": true,
+  "target_q": "Q044"
+}

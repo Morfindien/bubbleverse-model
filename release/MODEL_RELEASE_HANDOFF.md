@@ -1,3 +1,3 @@
-# Q043 model release
+# Q044 release handoff
 
-v0.5/R000005 through Q043. Evidence-only admission of internal local preparation validation. No numerical/physical inference or production authorization. Original Q043 source statements are historical and retained. Source repository sync remains separate. Consult the JSON release and remote verification receipt for actual publication status.
+v0.6/R000006 through Q044 is a locally prepared installation state. The remote accepted state remains v0.5/R000005 through Q043. Publication failed: missing Git credentials and GitHub integration HTTP 403. No remote promotion is claimed. Component admission is conditional; physical parameters and original predictions/contradictions are preserved. Production restart and a new scientific question remain unauthorized. See the Q044 report and installation bundle.

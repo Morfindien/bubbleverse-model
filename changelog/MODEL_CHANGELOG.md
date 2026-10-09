@@ -101,3 +101,7 @@ Integrates documented inconclusive feasibility closure, partial V31 history and 
 ## Q043 - v0.5/R000005
 
 Admitted the original Q043 local-preparation validation result as internal technical evidence. Physical entries, predictions and contradictions unchanged; original historical no-remote-sync/no-promotion statements retained. Previous snapshots and all 91 source objects preserved. Extended the current campaign with Q043 qualification/source/snapshot gates and historical Q042 sequence validation. No new calculation, physical result, production restart or source-repository write.
+
+## Q044 prepared installation — v0.6 / R000006
+
+Conditional fixed-knot native-plus spline component and epistemic inconclusive closure. Eight source evidence entries; one support adjoint definition, three assumptions, two uncertainties, one validity domain and two limitations. No physical parameter, benchmark, prediction, contradiction or public-operation change. New read-only Q044 gates and failure-injection guards; historical Q043 snapshot validation repaired. Remote publication is blocked; no external accepted-model update is claimed.
