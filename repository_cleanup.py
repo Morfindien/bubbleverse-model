@@ -165,9 +165,52 @@ def validate(repo,work):
    if not re.fullmatch(r'[0-9a-fA-F]{40}',commit):raise RuntimeError('Invalid real Git provenance: '+key)
    git(repo,'cat-file','-e',commit+'^{commit}');git(repo,'merge-base','--is-ancestor',commit,'HEAD')
  result['REGISTERED_GIT_PROVENANCE']='PASS'
+ regression=subprocess.run([sys.executable,'-m','unittest','discover','-s','tests/programs','-p','test*.py'],cwd=repo,text=True,capture_output=True)
+ regression_log=regression.stdout+regression.stderr;(work/'regressions.log').write_text(regression_log)
+ if regression.returncode:raise RuntimeError('Regression tests failed:\n'+regression_log)
+ count=re.search(r'Ran (\d+) tests?',regression_log)
+ result['REGRESSION_TESTS']={'status':'PASS','tests_run':int(count[1]) if count else None}
  after=inventory(repo)[0]
  if before!={p:e['sha256'] for p,e in after.items()}:raise RuntimeError('A validation modified tracked repository files')
  result['NON_DESTRUCTIVE']='PASS';return result
+
+def verified_installation_receipt(repo,q,receipt,state):
+ if not isinstance(receipt,dict) or receipt.get('target_q')!=q or receipt.get('stop_state')!='PROMOTED' or receipt.get('remote_promotion_verified') is not True:raise RuntimeError('A verified successful remote installation receipt is missing')
+ if q_number(q)>q_number(state['current_q']):raise RuntimeError('Installation lies beyond the current accepted boundary')
+ version=receipt.get('accepted_version')
+ if not isinstance(version,str) or '/' in version or version in {'','.','..'} or not (repo/'versions/accepted'/version).is_dir():raise RuntimeError('Installed immutable snapshot is missing')
+ for key in ['baseline_commit','initial_main_commit','package_commit','promotion_commit']:
+  commit=receipt.get(key)
+  if not isinstance(commit,str) or not re.fullmatch(r'[0-9a-fA-F]{40}',commit):raise RuntimeError('Missing real installation Git identity: '+key)
+  git(repo,'cat-file','-e',commit+'^{commit}');git(repo,'merge-base','--is-ancestor',commit,'HEAD')
+ installed=json.loads(git(repo,'show',receipt['promotion_commit']+':accepted/model_state.json'))
+ if installed.get('current_q')!=q or installed.get('accepted_model_version')!=version:raise RuntimeError('Promotion commit does not contain the claimed installed state')
+ return receipt
+
+def bundle_installers(repo,entries,jsons,state):
+ rows=[]
+ for workflow in entries:
+  m=re.fullmatch(r'\.github/workflows/(q\d+)-install-model\.yml',workflow,re.I)
+  if not m:continue
+  q=m[1].upper();bundle=q+'_model_update.bundle';guide=q+'_INSTALL_ACTIONS.md'
+  cohort={p for p in [workflow,bundle,guide] if p in entries};receipt_path='provenance/'+q+'_REMOTE_INSTALLATION_RECEIPT.json';reason=None
+  try:
+   receipt=verified_installation_receipt(repo,q,jsons.get(receipt_path),state)
+   if bundle not in entries:raise RuntimeError('Bundle payload is unavailable for a complete history audit')
+   if any(entries[p]['mode'] not in {'100644','100755'} for p in cohort):raise RuntimeError('Installation artifact is not a regular file')
+   if digest(repo/bundle)!=receipt.get('bundle_sha256'):raise RuntimeError('Bundle differs from the successful installation receipt')
+   git(repo,'bundle','verify',bundle)
+   for line in git(repo,'bundle','list-heads',bundle).splitlines():
+    commit=line.split()[0];git(repo,'cat-file','-e',commit+'^{commit}');git(repo,'merge-base','--is-ancestor',commit,'HEAD')
+   for p in cohort:
+    original=subprocess.check_output(['git','show',receipt['initial_main_commit']+':'+p],cwd=repo)
+    if git(repo,'rev-parse',receipt['initial_main_commit']+':'+p)!=entries[p]['git_blob_sha'] or digest(repo/p)!=sha_bytes(original):
+     raise RuntimeError('Installation artifact changed after verified input: '+p)
+   inbound={ref for p in cohort for ref in entries[p]['referenced_by'] if ref not in cohort and not (ref.startswith('provenance/cleanup/') and jsons.get(ref,{}).get('reference_scope')=='HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE')}
+   if inbound:raise RuntimeError('Retained files depend on installer artifacts: '+', '.join(sorted(inbound)))
+  except (RuntimeError,ValueError,KeyError,TypeError,subprocess.CalledProcessError) as exc:reason=str(exc)
+  rows.append({'q':q,'cohort':cohort,'receipt_path':receipt_path,'reason':reason})
+ return rows
 
 def metadata_updates(repo,entries,jsons,state):
  changes={};accepted=state['accepted'];q=state['current_q'];boundary=state['current_q_boundary'];version=state['current_accepted_version'];revision=accepted.get('model_revision');formal=state['current_formal_model']
@@ -178,6 +221,17 @@ def metadata_updates(repo,entries,jsons,state):
   for pattern,value in replacements:
    if value is not None:s=re.sub(pattern,lambda m:m[1]+value+m[2],s)
   if s!=original:changes[path]=s
+ # A later installation receipt augments the immutable historical preparation report.
+ receipt_path='provenance/'+q+'_REMOTE_INSTALLATION_RECEIPT.json'
+ try:
+  receipt=verified_installation_receipt(repo,q,jsons.get(receipt_path),state)
+  if receipt['accepted_version']!=version:raise RuntimeError('Receipt is for another accepted version')
+ except (RuntimeError,ValueError,KeyError,TypeError):receipt=None
+ if receipt and 'README.md' in entries:
+  original=(repo/'README.md').read_text();s=changes.get('README.md',original)
+  s=re.sub(r'(?m)^- (?:Local candidate promotion|Repository installation): .*$',f'- Repository installation: **VERIFIED**; remote accepted model **{version} / {revision} through {q}**. Historical local-preparation reports are preserved.',s)
+  s=re.sub(r'(?m)^- Publication status: .*$',f'- Publication status: `{receipt_path}`. `release/MODEL_RELEASE_HANDOFF.json` preserves the earlier preparation-time publication status.',s)
+  if s!=original:changes['README.md']=s
  registry=jsons.get('tests/test_registry.json');path='tests/test_registry.json'
  if registry and path in entries:
   new=json.loads(json.dumps(registry))
@@ -203,6 +257,12 @@ def metadata_updates(repo,entries,jsons,state):
 
 def audit(repo):
  entries,texts,jsons,errors,duplicates=inventory(repo);state=discover(repo,jsons);deletions=set();decisions=[]
+ for row in bundle_installers(repo,entries,jsons,state):
+  for p in row['cohort']:
+   if row['reason']:entries[p].update(classification='REVIEW_REQUIRED',reason=row['reason'])
+   else:
+    deletions.add(p)
+    entries[p].update(classification='SAFE_DELETE',reason='Completed bundle installation; exact input artifacts, successful receipt, immutable target and all bundled Git heads preserved',canonical_alternative=row['receipt_path'],change_class='OBSOLETE_WORKFLOW_REMOVAL' if p.endswith('.yml') else 'INSTALLER_REMOVAL')
  # An installer is completed only with a persisted, verified receipt and reachable commits.
  for path in entries:
   match=re.fullmatch(r'install_(q\d+)_model\.py',path,re.I)

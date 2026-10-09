@@ -1,0 +1,81 @@
+name: Repository cleanup
+
+on:
+  push:
+    paths:
+      - 'accepted/**'
+      - 'candidate/**'
+      - 'model/**'
+      - 'release/**'
+      - 'evidence/**'
+      - 'versions/accepted/**'
+      - 'bubbleverse_model_program_registry.json'
+      - 'repository_cleanup.py'
+      - '.github/workflows/repository-cleanup-current.yml'
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'CLEAN audits current HEAD then removes only verified clutter; AUDIT checks only'
+        required: true
+        default: CLEAN
+        type: choice
+        options:
+          - CLEAN
+          - AUDIT
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bubbleverse-model-state-installation
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    if: github.repository == 'Morfindien/bubbleverse-model' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Read current model and full Git history
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify supplied cleanup engine
+        shell: bash
+        run: |
+          echo '6da5317cd6dca8fc12199869f24a8085d7145f30972e623ea8d1f4e99a00ab79  repository_cleanup.py' | sha256sum --check
+      - name: Discover current state, audit, validate and clean
+        shell: bash
+        env:
+          CLEANUP_MODE: ${{ inputs.mode || 'CLEAN' }}
+          BV_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          python repository_cleanup.py --repo . --mode "$CLEANUP_MODE" --report "$RUNNER_TEMP/bubbleverse-cleanup-report.json"
+      - name: Publish structural cleanup
+        env:
+          BV_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        if: github.event_name != 'workflow_dispatch' || inputs.mode == 'CLEAN'
+        shell: bash
+        run: |
+          git push origin "HEAD:refs/heads/$BV_DEFAULT_BRANCH"
+          local_head="$(git rev-parse HEAD)"
+          remote_head="$(git ls-remote origin "refs/heads/$BV_DEFAULT_BRANCH" | cut -f1)"
+          test "$local_head" = "$remote_head"
+      - name: Final read-only verification
+        env:
+          BV_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        shell: bash
+        run: |
+          python repository_cleanup.py --repo . --mode AUDIT
+          {
+            echo '## Repository cleanup verified'
+            echo 'Scientific state, accepted model, Q boundary and scientific version unchanged.'
+            echo "Repository commit: $(git rev-parse HEAD)"
+          } >> "$GITHUB_STEP_SUMMARY"
