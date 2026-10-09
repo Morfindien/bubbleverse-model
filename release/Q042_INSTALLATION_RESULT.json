@@ -6,7 +6,7 @@
   "patch_sha256": "a8954661839b6d644c430bc47819566be8f9749749e3fbd7b25751ccc2192834",
   "production_restart_authorized": false,
   "promotion_commit": "a078a61ae7b851dd47f1596898df0e7ba31db3fa",
-  "remote_promotion_verified": false,
+  "remote_promotion_verified": true,
   "revision": "R000004",
   "schema_version": 1,
   "scientific_input_commit": "10fa83797b2f7740519d4e43b1bebf0a6e35bada",
@@ -19,5 +19,7 @@
     "non_destructive": true,
     "public_healthcheck": "20/20 PASS",
     "regression": "11/11 PASS"
-  }
+  },
+  "verified_at": "2026-10-09T07:23:46.348231+00:00",
+  "verified_remote_publication_commit": "fdbb605440c5aa443e65b16db9c221bffd10e0f8"
 }
