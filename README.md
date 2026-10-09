@@ -13,17 +13,23 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-- Authorized scientific range: **Q001–Q042**
-- Accepted model: **v0.4 / R000004**
+- Authorized scientific range: **Q001–Q043**
+- Accepted model: **v0.5 / R000005**
+- Q043: **CLOSED — PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY**
 - Q042: **CLOSED — INCONCLUSIVE GENERAL FEASIBILITY**
+- Q043 admission: **internal technical evidence only; no new physical inference**
+- Original Q043 remote-sync/no-promotion statements: **historical and preserved verbatim**
 - Physical model, parameters, equations and H0 benchmarks: **UNCHANGED**
 - Reference truth: **BLOCKED**
 - Numerical final result: **UNRESOLVED**
 - Production restart: **NOT AUTHORIZED**
-- Model update: evidence and qualification limits only
+- Model update: Q043 evidence-only admission; physical model unchanged
 - New scientific Q: **NOT ALLOCATED**
 - Source repository README/program-registry synchronization: **separate pending task**
-- Current source archive: `evidence/sources/Q042/`; 91 source objects and inherited claim maps retained verbatim.
+- Source archives: `evidence/sources/Q042/` and `evidence/sources/Q043/`; all 91 inherited source objects and claim maps retained verbatim.
+- Validation: 13/13 formal, 12/12 campaign, 11/11 Q043, 11/11 historical Q042, 22/22 regressions and 20/20 public healthcheck, executed locally. Counts overlap.
+- Repository/model publication status: `release/Q043_INSTALLATION_RESULT.json` after remote verification.
+- Full update report: `provenance/Q043_MODEL_UPDATE_REPORT.json`.
 
 ---
 
@@ -346,7 +352,7 @@ For the current baseline:
 
 ```text
 AUTHORIZED:
-Q001–Q042
+Q001–Q043
 ```
 
 Evidence beyond the authorized boundary must not influence:

@@ -1,13 +1,10 @@
 {
-  "artifact_type": "BUBBLEVERSE_MODEL_CANDIDATE",
-  "candidate_build_commit": "f72240153161bd565243f241ef4c3b7d0a4620aa",
-  "candidate_input_commit": "14eacce7a93e4ac780d59b1e86dc0cb9060f38ad",
-  "candidate_model_version": "v0.5",
-  "candidate_revision": "R000005",
-  "created_at": "2026-10-09T10:55:49.771933+00:00",
-  "current_q": "Q043",
-  "high_q_data_used": false,
-  "input_document_type": "PDF_AUTHORIZED_SUBSTITUTE_WITH_ORIGINAL_STRUCTURED_RESULT",
+  "authoritative_result_id": "R-Q043-REPOSITORY-INTEGRATION-001",
+  "case_id": null,
+  "case_id_status": "NOT_DOCUMENTED",
+  "current_verified_model_head": "14eacce7a93e4ac780d59b1e86dc0cb9060f38ad",
+  "historical_model_head": "10fa83797b2f7740519d4e43b1bebf0a6e35bada",
+  "historical_state_is_current_state": false,
   "input_documents": [
     {
       "archived_name": "integration_result.json",
@@ -65,40 +62,60 @@
       "source_repository_commit": null
     }
   ],
-  "knowledge_boundary": "Q001-Q043",
-  "layers": {
-    "constraints": "candidate/constraints.json",
-    "contradictions": "candidate/contradictions.json",
-    "mechanisms": "candidate/mechanisms.json",
-    "observations": "candidate/observations.json",
-    "predictions": "candidate/predictions.json",
-    "robustness": "candidate/robustness.json"
+  "model_change_summary": {
+    "added": [
+      {
+        "category": "ROBUSTNESS_UPDATE",
+        "evidence_refs": [
+          "EVD-Q043-RESULT",
+          "EVD-Q043-JOURNAL"
+        ],
+        "id": "ROB-Q043-LOCAL-VALIDATION-001",
+        "statement": "Internal local preparation validation with historical remote boundaries retained."
+      }
+    ],
+    "evidence_refs": [
+      "EVD-Q043-RESULT",
+      "EVD-Q043-JOURNAL",
+      "EVD-Q043-QJOURNAL-PDF",
+      "EVD-Q043-APPENDICES-PDF",
+      "EVD-Q043-MAINBOOK-PDF"
+    ],
+    "from_version": "v0.4",
+    "modified": [
+      "Controlled metadata boundary Q001-Q043 after promotion; historical Q043 statements remain verbatim."
+    ],
+    "new_assumptions": [],
+    "new_benchmarks": [],
+    "new_calculations": [],
+    "new_domains": [],
+    "new_equations": [],
+    "new_parameters": [],
+    "new_uncertainties": [],
+    "physical_model_change": false,
+    "preserved": [
+      "All existing physical observations, constraints, mechanisms, predictions and contradictions",
+      "All parameter, equation, benchmark, assumption, uncertainty and domain entries",
+      "All prior accepted snapshots, Q042 evidence bytes, 91 source objects and inherited claim maps",
+      "All 14 existing public operations and calculation schemas"
+    ],
+    "resolved_contradictions": [],
+    "schema_version": 1,
+    "superseded": [],
+    "target_q": "Q043",
+    "to_candidate_version": "v0.5",
+    "update_class": "EVIDENCE_ONLY_UPDATE"
   },
-  "mode": "INCREMENTAL_UPDATE",
-  "model_repository": "Morfindien/Bubbleverse-model",
-  "model_revision": "R000005",
-  "new_scientific_q_allocated": false,
   "physical_model_change": false,
-  "previous_accepted_model_version": "v0.4",
-  "previous_accepted_q": "Q042",
-  "previous_accepted_revision": "R000004",
-  "processed_through_q": "Q043",
   "production_restart_authorized": false,
-  "promotion_projection_only": false,
-  "promotion_status": "PROMOTED_TO_v0.5",
-  "q042_investigation_status": "CLOSED_INCONCLUSIVE_GENERAL_FEASIBILITY",
-  "q043_result": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
-  "q_access_end": "Q043",
-  "q_access_start": "Q001",
+  "q_id": "Q043",
+  "result": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
   "schema_version": 1,
-  "scientific_rule": "Best current compression of validated Bubbleverse state inside the authorized Q range; not established truth.",
-  "source_bubbleverse_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+  "source_manuscript_commit": null,
   "source_repository": "Morfindien/Bubbleverse",
-  "source_repository_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
-  "status": "CANDIDATE_PROMOTED",
-  "target_q": "Q043",
-  "update_class": "EVIDENCE_ONLY_UPDATE",
-  "word_input_filename": null,
-  "word_input_semantics": "NO_WORD_DOCUMENT_DISCOVERED; AUTHORITATIVE_PDF_AND_STRUCTURED_RESULT_USED",
-  "word_input_sha256": null
+  "source_repository_inspection_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+  "source_repository_modified": false,
+  "source_repository_sync_required": true,
+  "target_input_commit": "14eacce7a93e4ac780d59b1e86dc0cb9060f38ad",
+  "update_class": "EVIDENCE_ONLY_UPDATE"
 }

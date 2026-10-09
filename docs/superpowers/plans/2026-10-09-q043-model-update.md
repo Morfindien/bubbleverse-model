@@ -30,13 +30,15 @@
 
 ## Tasks
 
-- [ ] Stage source bytes/hashes, structured diff, candidate scientific layers, formal metadata and provenance.
-- [ ] Add a Q043 read-only validator and public campaign integration with failure-injection tests; verify RED then GREEN.
-- [ ] Extend Q042 validation to read frozen historical sequence while protecting current evidence boundary; keep all prior scope checks.
-- [ ] Execute candidate, projected scientific/formal/public healthchecks, invalid-input checks and regression suite; hash protected files before/after.
-- [ ] Promote atomically only after all mandatory gates pass; create v0.5/R000005 frozen snapshot and release metadata.
+- [x] Stage source bytes/hashes, structured diff, candidate scientific layers, formal metadata and provenance.
+- [x] Add a Q043 read-only validator and public campaign integration with failure-injection tests; verify RED then GREEN.
+- [x] Extend Q042 validation to read frozen historical sequence while protecting current evidence boundary; keep all prior scope checks.
+- [x] Execute candidate, projected scientific/formal/public healthchecks, invalid-input checks and regression suite; hash protected files before/after.
+- [x] Promote atomically only after all mandatory gates pass; create v0.5/R000005 frozen snapshot and release metadata.
 - [ ] Publish to target repository, reread exact remote commit and contents, run fresh checks, and record full update report.
 
 ## Progress ledger
 
 Discovery complete: original Q043 result digest verified; baseline 13 formal + 11 campaign + 11 Q042 checks and 4 regressions pass. Source/target roles and write scope verified.
+
+Review: two Important gaps (source inventory and qualification coverage) reproduced RED, fixed GREEN; snapshot simultaneous-mutation guard added RED/GREEN. Reviewer confirmed no remaining Critical/Important issue. Projected 22 regression, 20 public, 13 formal, 12 campaign and both 11-gate suites pass; all 117 protected baseline files stayed unchanged until promotion.

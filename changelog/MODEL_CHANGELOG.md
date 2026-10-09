@@ -97,3 +97,7 @@
 ## v0.4 / R000004 — Q042 closure
 
 Integrates documented inconclusive feasibility closure, partial V31 history and scoped cap32 policy failure. Preserves all physical parameters/equations/benchmarks/mechanisms, open predictions, contradictions, 91 source objects and every previous accepted snapshot. No production restart.
+
+## Q043 - v0.5/R000005
+
+Admitted the original Q043 local-preparation validation result as internal technical evidence. Physical entries, predictions and contradictions unchanged; original historical no-remote-sync/no-promotion statements retained. Previous snapshots and all 91 source objects preserved. Extended the current campaign with Q043 qualification/source/snapshot gates and historical Q042 sequence validation. No new calculation, physical result, production restart or source-repository write.

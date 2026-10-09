@@ -1,0 +1,571 @@
+{
+  "AUTHORIZED_SCIENTIFIC_RANGE": "Q001-Q043",
+  "AVAILABLE_CHATGPT_SETUP": "Code/tool-capable GPT-6-based assistant; exact user-facing preset name not exposed or verified",
+  "AVAILABLE_MODE": "ChatGPT Work Mode with file, shell and connected-app tools",
+  "AVAILABLE_REASONING_LEVEL": "Exact selected UI label not exposed; no model/effort switch performed",
+  "BLOCKERS": [],
+  "CANDIDATE_BUILD_COMMIT": "f72240153161bd565243f241ef4c3b7d0a4620aa",
+  "CANDIDATE_VERSION": "v0.5/R000005",
+  "CAPABILITY_LIMITATIONS": [
+    "Exact context capacity, selectable UI preset, selected reasoning budget and usage budget not exposed",
+    "No remote hosted workflow run was dispatched; actual public workflow Python was executed locally"
+  ],
+  "CURRENT_SETUP_ADEQUACY": "SUFFICIENT",
+  "DATE_TIME": "2026-10-09T13:11:47.720350+02:00",
+  "EXTERNAL_VERIFICATION_USED": false,
+  "LIMITATIONS": [
+    "Q043 establishes internal local preparation consistency only, not cosmological data or independent physical validation",
+    "Original Q043 remote no-sync/no-promotion statements remain historical; this model admission is a distinct tested transaction",
+    "Source repository README/program registry synchronization is separately pending and outside this run's write authorization",
+    "Reference truth remains BLOCKED; numerical final result UNRESOLVED; production restart NOT AUTHORIZED",
+    "Original optimizer trajectories were not recalculated",
+    "No Word manuscript discovered; original PDFs and structured source bytes provide explicit input provenance"
+  ],
+  "MANUSCRIPT_SUBSTITUTION": "Explicit operator-provided PDF manuscript and exact original structured result; accepted repository already uses PDF-authorized-substitute convention",
+  "MODEL_DIFF": {
+    "added": [
+      {
+        "category": "ROBUSTNESS_UPDATE",
+        "evidence_refs": [
+          "EVD-Q043-RESULT",
+          "EVD-Q043-JOURNAL"
+        ],
+        "id": "ROB-Q043-LOCAL-VALIDATION-001",
+        "statement": "Internal local preparation validation with historical remote boundaries retained."
+      }
+    ],
+    "evidence_refs": [
+      "EVD-Q043-RESULT",
+      "EVD-Q043-JOURNAL",
+      "EVD-Q043-QJOURNAL-PDF",
+      "EVD-Q043-APPENDICES-PDF",
+      "EVD-Q043-MAINBOOK-PDF"
+    ],
+    "from_version": "v0.4",
+    "modified": [
+      "Controlled metadata boundary Q001-Q043 after promotion; historical Q043 statements remain verbatim."
+    ],
+    "new_assumptions": [],
+    "new_benchmarks": [],
+    "new_calculations": [],
+    "new_domains": [],
+    "new_equations": [],
+    "new_parameters": [],
+    "new_uncertainties": [],
+    "physical_model_change": false,
+    "preserved": [
+      "All existing physical observations, constraints, mechanisms, predictions and contradictions",
+      "All parameter, equation, benchmark, assumption, uncertainty and domain entries",
+      "All prior accepted snapshots, Q042 evidence bytes, 91 source objects and inherited claim maps",
+      "All 14 existing public operations and calculation schemas"
+    ],
+    "resolved_contradictions": [],
+    "schema_version": 1,
+    "superseded": [],
+    "target_q": "Q043",
+    "to_candidate_version": "v0.5",
+    "update_class": "EVIDENCE_ONLY_UPDATE"
+  },
+  "MODEL_INPUT_COMMIT": "14eacce7a93e4ac780d59b1e86dc0cb9060f38ad",
+  "MODEL_SELECTION_REASON": "Multi-layer incremental evidence admission, immutable history, current/historical state separation, failure injection and repository promotion demand reliable reasoning and tool orchestration. No model brand is treated as evidence.",
+  "NEW_ACCEPTED_VERSION": "v0.5/R000005",
+  "NEW_ASSUMPTIONS": [],
+  "NEW_AUTHORIZED_Q_RANGE": "Q001-Q043",
+  "NEW_BENCHMARKS": [],
+  "NEW_CALCULATIONS": [],
+  "NEW_DOMAINS": [],
+  "NEW_EQUATIONS": [],
+  "NEW_PARAMETERS": [],
+  "NEW_TESTS": [
+    "11-gate read-only Q043 validator",
+    "Mandatory public campaign Q043 gate T-BV-012",
+    "18 new regression tests, including historical-sequence extension, local-only qualification, empty/duplicate source inventory, snapshot/live simultaneous mutation; total suite 22"
+  ],
+  "NEW_UNCERTAINTIES": [],
+  "NEXT_Q_AUTHORIZED": false,
+  "NUMERICAL_DISPATCHES": 0,
+  "OPEN_CONTRADICTIONS": [
+    {
+      "description": "High local H0 conflicts with lower CMB and BAO+BBN inferences.",
+      "id": "CTR-H0-001",
+      "resolution": "Unresolved through Q040; preserve chain distinctions and dependencies.",
+      "results": [
+        "OBS-H0-LOCAL-001",
+        "OBS-H0-CMB-001",
+        "OBS-H0-BAOBBN-001"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "description": "CamSpec and HiLLiPoP produce materially different fitted endpoint geometry on overlapping Planck PR4/NPIPE information.",
+      "history": [
+        {
+          "note": "Feasibility closure gives no physical downstream verdict; methodological implementation tension preserved.",
+          "q": "Q042",
+          "status": "OPEN_NARROWED"
+        }
+      ],
+      "id": "CTR-PLANCK-IMPL-001",
+      "resolution": "Q039 excludes several simple single-block explanations. Q040 identifies a legitimate common physical CMB-space nuisance-marginalization route, but tested finite numerical representations fail validation before endpoint geometry. Q041 V19 then attempts direct downstream portability with matched external data, but the required complete converged posterior matrix is not obtained, so no physical downstream class is issued. The causal origin and downstream scientific significance remain unresolved; V19 is also narrower than the broader original Q041 contract.",
+      "results": [
+        "ROB-PLANCK-GEOM-001",
+        "ROB-Q039-001",
+        "ROB-Q040-CMB-MARGINAL-001",
+        "ROB-Q040-NUMERIC-001",
+        "ROB-Q041-CONTROLLED-NOSCIENCE-001",
+        "ROB-Q041-FIREWALL-001",
+        "ROB-Q041-CONTRACT-SCOPE-001"
+      ],
+      "status": "OPEN_NARROWED"
+    },
+    {
+      "description": "Historical stable vs later non-stable basin labels appeared contradictory.",
+      "id": "CTR-HIST-BASIN-LABEL-001",
+      "resolution": "Crosswalk showed classifier dependence rather than demonstrated disappearance of classifier-invariant geometry.",
+      "results": [
+        "ROB-CLASSIFIER-001"
+      ],
+      "status": "RESOLVED_METHODOLOGICALLY"
+    }
+  ],
+  "OPTIONAL_TOOL_RECOMMENDATIONS": [],
+  "PENDING_SEPARATE_TASKS": [
+    "Source repository control-state synchronization; no source writes performed"
+  ],
+  "PRESERVED_ITEMS": [
+    "All existing physical observations, constraints, mechanisms, predictions and contradictions",
+    "All parameter, equation, benchmark, assumption, uncertainty and domain entries",
+    "All prior accepted snapshots, Q042 evidence bytes, 91 source objects and inherited claim maps",
+    "All 14 existing public operations and calculation schemas"
+  ],
+  "PREVIOUS_ACCEPTED_Q": "Q042",
+  "PREVIOUS_MODEL_VERSION": "v0.4/R000004",
+  "PROMOTED": "LOCAL_ONLY_REMOTE_PENDING",
+  "PROMOTION_GATE": "PASS_LOCAL_GATES; REMOTE_PUBLICATION_PENDING",
+  "PROMOTION_GATES": [
+    {
+      "detail": "",
+      "evidence": "Verified live main baseline Q042/v0.4 and current local Q043/v0.5; original artifacts hashed",
+      "gate": "INPUT_STATE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_SEQUENCE_GATE: exact Q042 -> Q043",
+      "gate": "Q_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_FIREWALL_GATE: text sources and all active layers scanned",
+      "gate": "Q_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_FIREWALL_GATE and T-BV-002",
+      "gate": "HIGH_Q_CONTAMINATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Bounded direct file/repository retrieval; Q043_FIREWALL_GATE",
+      "gate": "PLUGIN_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_DIFF_GATE",
+      "gate": "MODEL_DIFF_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_PHYSICAL_PRESERVATION_GATE, historical Q042 gates and current campaign",
+      "gate": "SCIENTIFIC_CONSISTENCY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_SOURCE_HASH_GATE, Q043_SOURCE_CONTINUITY_GATE, Q043_QUALIFICATION_GATE",
+      "gate": "EVIDENCE_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-004; Q043_PHYSICAL_PRESERVATION_GATE",
+      "gate": "PARAMETER_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-005; Q043_PHYSICAL_PRESERVATION_GATE",
+      "gate": "EQUATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-005/FML-007; exact unchanged entries",
+      "gate": "ASSUMPTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-006; exact unchanged entries",
+      "gate": "UNCERTAINTY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-007; exact unchanged domains",
+      "gate": "DOMAIN_OF_VALIDITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-008; all prior unresolved limitations preserved",
+      "gate": "LIMITATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-003; existing inference chains and values unchanged",
+      "gate": "BENCHMARK_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_PREDICTION_CONTRADICTION_GATE and T-BV-007",
+      "gate": "CONTRADICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_PREDICTION_CONTRADICTION_GATE",
+      "gate": "PREDICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_DIFF_GATE: exact inherited prefix, one traceable local-validation entry",
+      "gate": "ROBUSTNESS_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "13/13 current formal checks plus Q043_FORMAL_SYNC_GATE",
+      "gate": "FORMAL_MODEL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Public SELF-005 through SELF-009 and unchanged calculation definitions",
+      "gate": "CALCULATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Existing public SELF-005, SELF-006, SELF-007, SELF-008 PASS",
+      "gate": "KNOWN_ANSWER_TEST_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Public SELF-009: 4/4 invalid input cases rejected",
+      "gate": "INVALID_INPUT_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "22/22 unittest regressions; historical Q042 11/11",
+      "gate": "REGRESSION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Exact original result and input documents archived; repository heads recorded",
+      "gate": "PLUGIN_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Python standard library and Git runtime; PDF text pre-extracted and hashed, no Poppler dependency added to public healthcheck",
+      "gate": "PLUGIN_DEPENDENCY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "117 baseline file digests unchanged before promotion; all old snapshot bytes protected; new frozen digest manifest tested",
+      "gate": "ACCEPTED_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Public SELF-016: all accepted layers resolve inside accepted/",
+      "gate": "ACCEPTED_PATH_ISOLATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Public SELF-017: accepted/candidate/release version agreement",
+      "gate": "PROMOTION_STATE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_REAL_PROVENANCE_GATE and SELF-018; reachable baseline and campaign commits",
+      "gate": "REAL_COMMIT_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Original bytes, extracted source text, source inventory, code, tests, old snapshots and real input commits archived",
+      "gate": "REPRODUCIBILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Fresh post-promotion current/campaign/formal/public/failure-injection checks; code review resolved",
+      "gate": "FINAL_AUDIT_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "No Word manuscript exists in inspected repository; operator supplied PDF manuscript and original structured Q043 result. Existing accepted PDF-substitute convention used; Word identity/hash remain null.",
+      "evidence": "Full current source tree and Git history searched for .doc/.docx",
+      "gate": "WORD_DISCOVERY_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "No Word hash fabricated; substitute source digests are explicit.",
+      "evidence": "PDF source bytes hashed by Q043_SOURCE_HASH_GATE",
+      "gate": "WORD_HASH_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "",
+      "evidence": "No external scientific source introduced",
+      "gate": "EXTERNAL_SOURCE_AUTHORITY_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "",
+      "evidence": "No new domain module or execution plugin introduced",
+      "gate": "DOMAIN_PLUGIN_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "",
+      "evidence": "Remote publication still to be performed and independently verified",
+      "gate": "REPOSITORY_WRITE_GATE",
+      "status": "PENDING"
+    }
+  ],
+  "PROVENANCE": {
+    "candidate_build_commit": "f72240153161bd565243f241ef4c3b7d0a4620aa",
+    "model_input_commit": "14eacce7a93e4ac780d59b1e86dc0cb9060f38ad",
+    "new_snapshot": "versions/accepted/v0.5",
+    "new_snapshot_digest_manifest": "provenance/Q043_SNAPSHOT_MANIFEST.json",
+    "original_result_id": "R-Q043-REPOSITORY-INTEGRATION-001",
+    "previous_snapshots_preserved": [
+      "v0.1",
+      "v0.2",
+      "v0.3",
+      "v0.4"
+    ],
+    "protected_pre_promotion_file_count": 117,
+    "source_inspection_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+    "source_manuscript_commit": null,
+    "source_result_sha256": "4486e5173ba8ef3ac659c743bb578284c93446ce9e5b3d0dae71728beadbb9ff",
+    "tool_authority_classes": [
+      "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "COMPUTATIONAL_TOOL_OUTPUT",
+      "TECHNICAL_DOCUMENTATION"
+    ],
+    "write_scope": "TARGET_MODEL_REPOSITORY_ONLY"
+  },
+  "RECOMMENDED_CHATGPT_SETUP": "Reasoning-capable coding/repository setup with reliable long-task execution; current setup sufficient",
+  "RECOMMENDED_EXECUTION_TIER": "TIER 3",
+  "RECOMMENDED_MODE": "Work Mode with code execution and GitHub integration",
+  "RECOMMENDED_REASONING_LEVEL": "High or maximum appropriate available reasoning for promotion/integrity audit",
+  "REMOTE_WORKFLOW_DISPATCHED": false,
+  "RESOLVED_CONTRADICTIONS": [],
+  "SCIENTIFIC_RESULT_UNCHANGED": true,
+  "SOURCE_DOCUMENTS": [
+    {
+      "archived_name": "integration_result.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 102151,
+      "filename": "q043_integration_result(1).json",
+      "origin": "ORIGINAL_BUBBLEVERSE_RESULT_FROM_RESOLVED_FILE_REFERENCE",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "ORIGINAL_STRUCTURED_RESULT",
+      "sha256": "4486e5173ba8ef3ac659c743bb578284c93446ce9e5b3d0dae71728beadbb9ff",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "cumulative_journal.md",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 105684,
+      "filename": "Q043_SAMLET_JOURNAL(1).md",
+      "origin": "ORIGINAL_BUBBLEVERSE_RESULT_FROM_RESOLVED_FILE_REFERENCE",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "ORIGINAL_CUMULATIVE_JOURNAL",
+      "sha256": "b952c3e80e58dc6290e16b432ef20040e32bb111aea56d97e4fbf7892836b42c",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "q_journal.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1192715,
+      "filename": "Bubbleverse_Q-Journals_Q001-Q042.pdf",
+      "origin": "OPERATOR_SUPPLIED_PDF",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "PRIMARY_Q_JOURNAL_PDF",
+      "sha256": "c87270ed88b5b0994cd83d94305d915c55a4783c650c321ce784f5904447eb04",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "appendices.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 635977,
+      "filename": "Bubbleverse_Technical_Appendices_A-D.pdf",
+      "origin": "OPERATOR_SUPPLIED_PDF",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "SUPPORTING_APPENDICES_PDF",
+      "sha256": "e3c21469cc7a53c51a2800146396c2cfcd8872154b6701d9f88668d965c833a7",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "main_book.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1370169,
+      "filename": "Bubbleverse_Main_Book.pdf",
+      "origin": "OPERATOR_SUPPLIED_PDF",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "SUPPORTING_MAIN_BOOK_PDF",
+      "sha256": "507945a2549c26e56f894a4fca5e9115682c242fcccda66f7b9b6b89dae33b05",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "q_journal.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 220289,
+      "filename": "q_journal.txt",
+      "origin": "PDFTOTEXT_EXTRACTION_VERIFIED_AT_CANDIDATE_INPUT",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "VERIFIED_DERIVED_MANUSCRIPT_TEXT",
+      "sha256": "cc8e0833ad97f44af07050a0992523a88e0a5a03e10bb95943cd017688db14b6",
+      "source_pdf_sha256": "c87270ed88b5b0994cd83d94305d915c55a4783c650c321ce784f5904447eb04",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "appendices.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 148050,
+      "filename": "appendices.txt",
+      "origin": "PDFTOTEXT_EXTRACTION_VERIFIED_AT_CANDIDATE_INPUT",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "VERIFIED_DERIVED_MANUSCRIPT_TEXT",
+      "sha256": "40942b8cf28d664aa50010024a3ce8675bbc215e0ae5230fd08aab38882c2c68",
+      "source_pdf_sha256": "e3c21469cc7a53c51a2800146396c2cfcd8872154b6701d9f88668d965c833a7",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "main_book.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 128735,
+      "filename": "main_book.txt",
+      "origin": "PDFTOTEXT_EXTRACTION_VERIFIED_AT_CANDIDATE_INPUT",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "VERIFIED_DERIVED_MANUSCRIPT_TEXT",
+      "sha256": "5f5ce3cd5e6e676397dbddf3f91056248f611306ed40da1200a187c4ee56f16c",
+      "source_pdf_sha256": "507945a2549c26e56f894a4fca5e9115682c242fcccda66f7b9b6b89dae33b05",
+      "source_repository_commit": null
+    }
+  ],
+  "SOURCE_MANUSCRIPT_COMMIT": null,
+  "SOURCE_REPOSITORY": "Morfindien/Bubbleverse",
+  "SOURCE_REPOSITORY_COMMIT": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+  "SOURCE_REPOSITORY_COMMIT_SEMANTICS": "Verified execution/source inspection HEAD; uploaded Q043 artifacts are not claimed to be tracked at this commit",
+  "SOURCE_REPOSITORY_MODIFIED": false,
+  "STOP_STATE": "AWAITING_REMOTE_VERIFICATION",
+  "SUPERSEDED_ITEMS": [],
+  "TARGET_MODEL_REPOSITORY": "Morfindien/bubbleverse-model",
+  "TARGET_Q": "Q043",
+  "TASK_COMPLEXITY": "HIGH",
+  "TECHNICAL_REVIEW": {
+    "critical_findings": 0,
+    "fixes": "Both initial review findings reproduced RED and fixed GREEN; extra frozen-snapshot simultaneous-mutation regression added",
+    "important_findings_remaining": 0,
+    "initial_important_findings": 2,
+    "scope": "Technical integrity only, not independent cosmological validation"
+  },
+  "TEST_COUNT_SEMANTICS": "Suites overlap and include nested checks; do not add counts as independent confirmations. All listed counts are fresh local execution. Historical Q043 source test counts are not reused as new passes.",
+  "TEST_RESULTS": {
+    "campaign": {
+      "all_green": true,
+      "passed": 12,
+      "total": 12
+    },
+    "formal": {
+      "all_green": true,
+      "passed": 13,
+      "total": 13
+    },
+    "public_healthcheck": {
+      "all_green": true,
+      "passed": 20,
+      "total": 20
+    },
+    "q042_historical": {
+      "all_green": true,
+      "passed": 11,
+      "total": 11
+    },
+    "q043": {
+      "all_green": true,
+      "passed": 11,
+      "total": 11
+    },
+    "regression": {
+      "all_green": true,
+      "passed": 22,
+      "total": 22
+    }
+  },
+  "TOOLS_AVAILABLE": [
+    "GitHub metadata/file/commit/read/write integration",
+    "Python and shell execution",
+    "Local file access and hashing",
+    "PDF text extraction",
+    "Connected persistent-file access",
+    "Web research capability (unused)",
+    "Computer/browser capability (unused)"
+  ],
+  "TOOLS_USED": [
+    "GitHub connector",
+    "Git CLI",
+    "Python 3.12.14 standard library",
+    "pdftotext during source extraction only",
+    "Connected file read/materialization for original Q043 result and cumulative journal",
+    "Review subagent required by requesting-code-review skill"
+  ],
+  "TOOL_FAILURES": [
+    {
+      "failure": "Auxiliary writing-good-tests resource unavailable",
+      "impact": "Optional reference only; primary TDD instructions read and RED/GREEN tests completed",
+      "tool": "skill child-resource read"
+    }
+  ],
+  "TOOL_PURPOSES": {
+    "Connected files": "Recover original structured result and cumulative journal by known resolved IDs",
+    "Git/Python": "Build isolated candidate, calculate hashes, test, preserve snapshots and commit",
+    "GitHub": "Verify exact repository roles, permissions, heads, tree inventories and final publication",
+    "pdftotext": "Extract and verify authorized PDF source text; no document edits",
+    "review": "Read-only independent technical code/integrity review; not independent physical evidence"
+  },
+  "UPDATE_CLASS": "EVIDENCE_ONLY_UPDATE",
+  "WORD_INPUT_FILENAME": null,
+  "WORD_INPUT_PATH": null,
+  "WORD_INPUT_SHA256": null
+}
