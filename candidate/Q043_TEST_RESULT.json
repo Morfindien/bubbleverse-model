@@ -1,0 +1,73 @@
+{
+  "all_green": true,
+  "artifact_type": "Q043_MODEL_UPDATE_VALIDATION",
+  "mode": "CANDIDATE",
+  "non_destructive": true,
+  "target_q": "Q043",
+  "test_result_scope": "FRESH_LOCAL_CANDIDATE_VALIDATION; NOT_REMOTE_WORKFLOW_OR_COSMOLOGICAL_VALIDATION",
+  "tests": [
+    {
+      "detail": "Q042/v0.4 -> Q043/v0.5, no missing Q",
+      "id": "Q043_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "verified_source_files": 8
+      },
+      "id": "Q043_SOURCE_HASH_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Original local-only result preserved; no physics or production inferred",
+      "id": "Q043_QUALIFICATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "91 source objects, both claim-map trees and all inherited evidence preserved",
+      "id": "Q043_SOURCE_CONTINUITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Physical/formal entries and public calculation definitions unchanged",
+      "id": "Q043_PHYSICAL_PRESERVATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "All original predictions, statuses and contradictions unchanged",
+      "id": "Q043_PREDICTION_CONTRADICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Only traceable internal technical evidence/robustness and Q metadata added",
+      "id": "Q043_DIFF_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "maximum_authorized_q": 43,
+        "pdf_text_source_hashes_verified": true,
+        "scanned_files": 74
+      },
+      "id": "Q043_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Old snapshots and source bytes immutable; accepted untouched before promotion",
+      "id": "Q043_ACCEPTED_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Formal identity, anti-invention rule and references coherent",
+      "id": "Q043_FORMAL_SYNC_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Real reachable input commit; no fabricated manuscript commit",
+      "id": "Q043_REAL_PROVENANCE_GATE",
+      "status": "PASS"
+    }
+  ],
+  "tests_passed": 11,
+  "tests_total": 11
+}

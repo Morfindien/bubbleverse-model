@@ -1,0 +1,94 @@
+{
+  "q_access_end": "Q043",
+  "schema_version": 1,
+  "uncertainties": [
+    {
+      "benchmark_ref": "BENCH-H0-LOCAL",
+      "id": "UNC-BENCH-H0-LOCAL",
+      "sigma": 0.81,
+      "status": "ACCEPTED_BENCHMARK_UNCERTAINTY",
+      "type": "inference_uncertainty",
+      "units": "km s^-1 Mpc^-1"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-CMB",
+      "id": "UNC-BENCH-H0-CMB",
+      "sigma": 0.35,
+      "status": "ACCEPTED_BENCHMARK_UNCERTAINTY",
+      "type": "inference_uncertainty",
+      "units": "km s^-1 Mpc^-1"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-BAOBBN",
+      "id": "UNC-BENCH-H0-BAOBBN",
+      "sigma": 0.58,
+      "status": "ACCEPTED_BENCHMARK_UNCERTAINTY",
+      "type": "inference_uncertainty",
+      "units": "km s^-1 Mpc^-1"
+    },
+    {
+      "id": "UNC-EDE-GLOBALITY",
+      "source_constraint_id": "CON-GLOBALITY-001",
+      "statement": "Corrected high-H0 EDE basins are best-observed finite-search solutions, not proven global minima.",
+      "status": "OPEN_METHOD_UNCERTAINTY",
+      "type": "optimization_globality"
+    },
+    {
+      "id": "UNC-EDE-LIKELIHOOD",
+      "source_robustness_id": "ROB-EDE-LIKE-001",
+      "statement": "High-H0 EDE viability depends materially on experiment, likelihood, basin, and implementation.",
+      "status": "ACTIVE_MODEL_DEPENDENCE",
+      "type": "likelihood_implementation_dependence"
+    },
+    {
+      "id": "UNC-Q039-STRUCTURAL",
+      "source_robustness_id": "ROB-Q039-001",
+      "statement": "Single tested implementation blocks do not remove the Planck likelihood geometry discrepancy; deeper coupled differences remain unresolved.",
+      "status": "OPEN_STRUCTURAL_UNCERTAINTY",
+      "type": "likelihood_implementation_dependence"
+    },
+    {
+      "id": "UNC-Q040-MARGINAL-NUMERIC",
+      "statement": "Tested finite representations fail mandatory stability validation; marginalized endpoint geometry is not established.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "numerical_integration_and_compression"
+    },
+    {
+      "id": "UNC-Q040-CAUSAL",
+      "statement": "The causal origin of the CamSpec-HiLLiPoP fitted-geometry difference remains unresolved.",
+      "status": "OPEN_STRUCTURAL_UNCERTAINTY",
+      "type": "likelihood_implementation_dependence"
+    },
+    {
+      "id": "UNC-Q041-POSTERIOR-CONVERGENCE",
+      "q_introduced": "Q041",
+      "statement": "Under the frozen Q041 V19 sampler and compute budget, the complete converged posterior matrix required for downstream portability classification was not obtained. This blocks physical classification but is not physical falsification.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "finite_sampling_and_convergence"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "UNC-Q042-REFERENCE-QUALIFICATION",
+      "q_introduced": "Q042",
+      "statement": "Original binary arithmetic, upstream physical/table accuracy, original switched-RHS solution properties and downstream prediction/likelihood error budget remain unresolved or not documented. Reference truth is BLOCKED.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "structural_and_numerical_qualification"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "UNC-Q042-KILLED-TAIL",
+      "q_introduced": "Q042",
+      "statement": "V31 histories are partial. Final committed endpoints, counters and peak RSS after the parent kill are NOT DOCUMENTED; no complete tau value exists.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "incomplete_execution_reporting"
+    }
+  ]
+}

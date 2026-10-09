@@ -1,7 +1,3 @@
-# Bubbleverse accepted model v0.4
+# Bubbleverse Q043 candidate v0.5 / R000005
 
-Authorized range: Q001-Q042. Revision: R000004.
-
-Q042: CLOSED — INCONCLUSIVE GENERAL FEASIBILITY. Reference truth BLOCKED; numerical final result UNRESOLVED. Production restart is not authorized. Physical parameters, equations, H0 benchmarks and mechanisms are unchanged.
-
-Promotion record retained.
+Internal local preparation validation only. Physical model unchanged. No production authorized. Candidate is not accepted until every promotion gate passes.

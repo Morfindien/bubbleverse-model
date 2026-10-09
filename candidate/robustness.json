@@ -84,8 +84,18 @@
       "id": "ROB-Q042-CAP-SCOPE-001",
       "q_introduced": "Q042",
       "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q043-RESULT",
+        "EVD-Q043-JOURNAL"
+      ],
+      "finding": "Q043 validates local candidate/control preparation at pinned historical bases only. It is internal technical consistency evidence, not independent physical validation, remote synchronization, numerical production or model acceptance.",
+      "id": "ROB-Q043-LOCAL-VALIDATION-001",
+      "q_introduced": "Q043",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q042",
+  "q_access_end": "Q043",
   "schema_version": 1
 }

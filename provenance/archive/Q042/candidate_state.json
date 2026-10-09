@@ -1,0 +1,53 @@
+{
+  "artifact_type": "BUBBLEVERSE_MODEL_CANDIDATE",
+  "candidate_input_commit": "10fa83797b2f7740519d4e43b1bebf0a6e35bada",
+  "candidate_model_version": "v0.4",
+  "candidate_revision": "R000004",
+  "created_at": "2026-10-07T12:51:57.785747+00:00",
+  "current_q": "Q042",
+  "high_q_data_used": false,
+  "input_document_type": "PDF_AUTHORIZED_SUBSTITUTE",
+  "input_documents": [
+    {
+      "archived_name": "q_journal.pdf",
+      "bytes": 2688228,
+      "filename": "Bubbleverse_Q-Journals_Q001-Q042_UPDATED%20(1).pdf",
+      "q_range": "Q001-Q042",
+      "role": "PRIMARY_Q_JOURNAL_PDF",
+      "sha256": "fec49ca2e1f652f55aa1d7bb3ddea3b8daf539eb14bfec782251c19e903ffbac"
+    },
+    {
+      "archived_name": "q_journal_copy.pdf",
+      "bytes": 2688228,
+      "filename": "Bubbleverse_Q-Journals_Q001-Q042_UPDATED%20(2).pdf",
+      "q_range": "Q001-Q042",
+      "role": "Q_JOURNAL_DUPLICATE_TEXT",
+      "sha256": "5b8cd52d71ab43cd6d22c5ae715a0bb97e1e4f48f5f47891d71753c9f43894ec"
+    },
+    {
+      "archived_name": "main_book.pdf",
+      "bytes": 2363330,
+      "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+      "q_range": "Q001-Q042",
+      "role": "MAIN_BOOK_PDF",
+      "sha256": "b42e92563bc3769b682b40bbe007d6b58b1b17deec64ac7b45a474fb84e0f6fa"
+    }
+  ],
+  "previous_accepted_model_version": "v0.3",
+  "previous_accepted_q": "Q041",
+  "previous_accepted_revision": "R000003",
+  "promotion_commit": "a078a61ae7b851dd47f1596898df0e7ba31db3fa",
+  "promotion_commit_semantics": "Actual reachable local promotion commit",
+  "promotion_status": "PROMOTED_TO_v0.4",
+  "q_access_end": "Q042",
+  "q_access_start": "Q001",
+  "schema_version": 1,
+  "source_repository": "Morfindien/Bubbleverse",
+  "source_repository_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+  "status": "CANDIDATE_PROMOTED",
+  "target_q": "Q042",
+  "update_class": "EVIDENCE_ONLY_UPDATE",
+  "word_input_filename": "Bubbleverse_Q-Journals_Q001-Q042_UPDATED%20(1).pdf",
+  "word_input_semantics": "LEGACY_FIELD_NAME_POINTING_TO_AUTHORIZED_PDF_PRIMARY_SOURCE",
+  "word_input_sha256": "fec49ca2e1f652f55aa1d7bb3ddea3b8daf539eb14bfec782251c19e903ffbac"
+}

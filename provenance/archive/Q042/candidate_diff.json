@@ -1,0 +1,39 @@
+{
+  "added": [
+    "Q042 documented inconclusive closure",
+    "Partial V31 and conditional cap-policy observations",
+    "Frozen-policy assumption and explicit qualification/validity limitations"
+  ],
+  "evidence_refs": [
+    "EVD-Q042-QJOURNAL-PDF",
+    "EVD-Q042-INGESTION-V31",
+    "EVD-Q042-CAP-CERTIFICATE"
+  ],
+  "from_version": "v0.3",
+  "modified": [
+    "Q boundary to Q042 on successful promotion only",
+    "Portability prediction history extended; status remains OPEN",
+    "Methodological contradiction history extended; status remains OPEN_NARROWED"
+  ],
+  "new_benchmarks": [],
+  "new_calculations": [],
+  "new_domains": [],
+  "new_equations": [],
+  "new_parameters": [],
+  "physical_model_change": false,
+  "preserved": [
+    "All physical parameters, equations, H0 benchmarks and mechanisms",
+    "Original predictions and histories",
+    "Open methodological/physical contradictions",
+    "All previous accepted snapshots",
+    "All 91 source objects and inherited claim maps",
+    "Existing public operations and schemas"
+  ],
+  "schema_version": 1,
+  "superseded": [
+    "Operational treatment of Q042 as an active unchanged campaign; historical records retained"
+  ],
+  "target_q": "Q042",
+  "to_candidate_version": "v0.4",
+  "update_class": "EVIDENCE_ONLY_UPDATE"
+}
