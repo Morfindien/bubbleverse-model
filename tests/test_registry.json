@@ -15,7 +15,7 @@
       "status": "PASS",
       "target_component": "Q identity and boundary schema",
       "test_id": "T-BV-001",
-      "why_test_matters": "Accepted/candidate identity must match Q001-Q041 / CURRENT_Q Q041."
+      "why_test_matters": "Accepted/candidate identity must match Q001-Q042 / CURRENT_Q Q042."
     },
     {
       "category": "MANDATORY_PROMOTION",
@@ -24,7 +24,7 @@
       "status": "PASS",
       "target_component": "High-Q contamination scan",
       "test_id": "T-BV-002",
-      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q041."
+      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q042."
     },
     {
       "category": "REGRESSION",

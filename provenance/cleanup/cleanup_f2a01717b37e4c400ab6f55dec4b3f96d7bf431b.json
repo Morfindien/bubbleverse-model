@@ -1,0 +1,3724 @@
+{
+  "accepted_snapshot_files": 80,
+  "accepted_state_changed": false,
+  "archive_moves": [],
+  "cleanup_status": "CLEANED",
+  "current_accepted_version": "v0.4",
+  "current_candidate_state": "CANDIDATE_PROMOTED",
+  "current_formal_model": "v0.4-formalization-1",
+  "current_q_boundary": "Q001-Q042",
+  "current_release_state": "ALL_GREEN",
+  "date_time": "2026-10-09T10:19:09.719724+00:00",
+  "default_branch": "main",
+  "duplicate_groups": [
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "accepted/MODEL_CURRENT.md",
+        "versions/accepted/v0.4/MODEL_CURRENT.md"
+      ],
+      "sha256": "08757a8c55b911ae057d8e51dc6d848c67039250079a5bb8bdf13a1614f90a7a"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "accepted/constraints.json",
+        "candidate/constraints.json",
+        "versions/accepted/v0.4/constraints.json"
+      ],
+      "sha256": "7421c3c0dbafcc47060d72ed55e3d8a1176d02e37715ad66ad2617c60609b667"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "accepted/contradictions.json",
+        "candidate/contradictions.json",
+        "versions/accepted/v0.4/contradictions.json"
+      ],
+      "sha256": "b1c3b7b899d924e5597bcd79f6ee38e5ddd565310033ff34ce09bba199c8e0a9"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "accepted/mechanisms.json",
+        "candidate/mechanisms.json",
+        "versions/accepted/v0.4/mechanisms.json"
+      ],
+      "sha256": "9834b83c9a5b7e56009f6db56fd306011ef19cbceacf39df1bfe9827c41d9b70"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "accepted/model_state.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "sha256": "e54306ac67384055a18f3b57cb792dc40d2696489ae69626bf76d6b824a3a41a"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "accepted/observations.json",
+        "candidate/observations.json",
+        "versions/accepted/v0.4/observations.json"
+      ],
+      "sha256": "10dcc6d0253a15772c616f11c75d150961c4264540bb7d411904c615caabad71"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "accepted/predictions.json",
+        "candidate/predictions.json",
+        "versions/accepted/v0.4/predictions.json"
+      ],
+      "sha256": "9261a918b30092ff04e38760e300faf0c34b63669096fb0cccd8c9e03f76f211"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "accepted/robustness.json",
+        "candidate/robustness.json",
+        "versions/accepted/v0.4/robustness.json"
+      ],
+      "sha256": "da0acb439902cd7985049273bae3c64782a4c0f1405b9e8d153cc2129ce54d60"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "candidate/Q041_TEST_RESULT.json",
+        "tests/results/Q041_MODEL_UPDATE_TEST_RESULT.json",
+        "versions/accepted/v0.3/TEST_RESULT.json"
+      ],
+      "sha256": "0042a262727f1eb04843416711cffd9992aecf196fbe845f3832fc92327d455f"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "evidence/evidence_registry.json",
+        "versions/accepted/v0.4/evidence_registry.json"
+      ],
+      "sha256": "9cc502a51dc3e5d719bef3c1ab323e7715040a77b9d103af92350fcd873894b4"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "evidence/q_updates/Q040.json",
+        "versions/accepted/v0.2/q_update.json"
+      ],
+      "sha256": "0e726bb756b8d4d7e3f311e55a8507e86b9d8b7ee38fda82ac12e4bbe3302f66"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "evidence/q_updates/Q041.json",
+        "versions/accepted/v0.3/q_update.json"
+      ],
+      "sha256": "7f3598302f59bc1fb116d7b3cd2acb57707fe3062d80b8a9d4f668d61992f280"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "evidence/q_updates/Q042.json",
+        "versions/accepted/v0.4/q_update.json"
+      ],
+      "sha256": "9dbc5a4cbd227b34a293e59841f84baf494000fb8d349486a642dcc347f08764"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/assumptions.json",
+        "versions/accepted/v0.4/assumptions.json"
+      ],
+      "sha256": "3e411847e06e159ad98eb0b998dbcb5a9937d2ead2e6211ca21b0cdaa72ffc44"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/benchmarks.json",
+        "versions/accepted/v0.4/benchmarks.json"
+      ],
+      "sha256": "687f4a5e450498378815e83936689ea75cfad05ea140dc7533759e0a8183bc9d"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/domain_of_validity.json",
+        "versions/accepted/v0.4/domain_of_validity.json"
+      ],
+      "sha256": "1b256436d81362f43e5aa58f20d1e894715791c8039176cf1785b6969deddc46"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/environment.json",
+        "versions/accepted/v0.4/environment.json"
+      ],
+      "sha256": "36e9f97c789aa36e3ef214538cb114579212b20a312ef6d08161527c46659961"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/equations.json",
+        "versions/accepted/v0.4/equations.json"
+      ],
+      "sha256": "6c02004b0e4fea2fb39ca59d58ae7ffadb9a272062194f4af3c552ce254cf85e"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/external_catalog_registry.json",
+        "versions/accepted/v0.4/external_catalog_registry.json"
+      ],
+      "sha256": "6bdbf257790dc3a231773995bb867851a8c96b5a2def3fd9beacd1a44cb34726"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/input_schema.json",
+        "versions/accepted/v0.2/input_schema.json",
+        "versions/accepted/v0.3/input_schema.json",
+        "versions/accepted/v0.4/input_schema.json"
+      ],
+      "sha256": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/limitations.json",
+        "versions/accepted/v0.4/limitations.json"
+      ],
+      "sha256": "7b0ea88ac56c412350104a78e399290df2f7e378a62c69dc5615a5c5e967091f"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/model_manifest.json",
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "sha256": "57c473ff58d62eda1192961d478a422435129dacac84fb0273a40714f94bef15"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/output_schema.json",
+        "versions/accepted/v0.2/output_schema.json",
+        "versions/accepted/v0.3/output_schema.json",
+        "versions/accepted/v0.4/output_schema.json"
+      ],
+      "sha256": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/parameters.json",
+        "versions/accepted/v0.4/parameters.json"
+      ],
+      "sha256": "c472d8fe1049ff3df6d61253cadb95c027ec093211d93423e165aa4c2980365a"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/result_registry.json",
+        "versions/accepted/v0.4/result_registry.json"
+      ],
+      "sha256": "f5f4f5581f5bc34bbabbcf47aa951e4590b69d1014470b930958344a026df813"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "model/uncertainty.json",
+        "versions/accepted/v0.4/uncertainty.json"
+      ],
+      "sha256": "b0688512382bd89de20de769151d56ee8a4ed7dd9e4ffbb66b8d3fd2d8cb97ac"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "tests/results/Q040_MODEL_UPDATE_TEST_RESULT.json",
+        "versions/accepted/v0.2/TEST_RESULT.json"
+      ],
+      "sha256": "59981279fe433191c0663d1b1673a235fe95e657cd9d7bfaf2914949244581e2"
+    },
+    {
+      "action": "KEEP_UNLESS_POSITIVE_ACCIDENTAL_DUPLICATE_PROOF",
+      "paths": [
+        "tests/results/Q042_MODEL_UPDATE_TEST_RESULT.json",
+        "versions/accepted/v0.4/TEST_RESULT.json"
+      ],
+      "sha256": "963c4808c87223abd690bcfd4b3889c3e48eabfd0a80fa91eaf71bc0488edc79"
+    }
+  ],
+  "files_scanned": 169,
+  "head_after": "f2a01717b37e4c400ab6f55dec4b3f96d7bf431b",
+  "head_before": "f2a01717b37e4c400ab6f55dec4b3f96d7bf431b",
+  "mode": "CLEAN",
+  "model_version_changed": false,
+  "parse_observations": [],
+  "planned_deletions": [
+    ".github/workflows/install-q042-model.yml",
+    "INSTALL_Q042.md",
+    "install_q042_model.py"
+  ],
+  "planned_updates": [
+    "model/README.md",
+    "tests/TEST_PLAN_CURRENT.md",
+    "tests/test_registry.json"
+  ],
+  "post_cleanup_tests": {
+    "ACCEPTED_SNAPSHOT_MATCH": "PASS",
+    "ACTIVE_REGISTRY_PATHS": "PASS",
+    "CANONICAL_JSON_PYTHON_PARSE": "PASS",
+    "CURRENT_METADATA": "PASS",
+    "NON_DESTRUCTIVE": "PASS",
+    "PUBLIC_HEALTHCHECK": {
+      "passed": 20,
+      "status": "PASS",
+      "total": 20
+    },
+    "REGISTERED_GIT_PROVENANCE": "PASS",
+    "tests/programs/formal_model_validate.py": "PASS",
+    "tests/programs/model_campaign.py": "PASS",
+    "tests/programs/q042_model_validate.py": "PASS"
+  },
+  "pre_cleanup_tests": {
+    "ACCEPTED_SNAPSHOT_MATCH": "PASS",
+    "ACTIVE_REGISTRY_PATHS": "PASS",
+    "CANONICAL_JSON_PYTHON_PARSE": "PASS",
+    "CURRENT_METADATA": "PASS",
+    "NON_DESTRUCTIVE": "PASS",
+    "PUBLIC_HEALTHCHECK": {
+      "passed": 20,
+      "status": "PASS",
+      "total": 20
+    },
+    "REGISTERED_GIT_PROVENANCE": "PASS",
+    "tests/programs/formal_model_validate.py": "PASS",
+    "tests/programs/model_campaign.py": "PASS",
+    "tests/programs/q042_model_validate.py": "PASS"
+  },
+  "protected_files_verified": 163,
+  "protected_hashes": {
+    ".gitattributes": "bb0f30907448ac13c2c29ffd06ec182d5a67d1ca07d14ac4d5a91ca233153dfe",
+    ".github/workflows/00-bubbleverse-model-start-public.yml": "db2dfd2cea08ad58ae7d6bc3bdb6cd997e6989b1ff0d8f87db5ca38751bb3b63",
+    ".github/workflows/repository-cleanup-current.yml": "b9f77e80dc524ad149c363886d6d8d9980b173a0299239cf5e863aa2d1152a0d",
+    ".gitignore": "c6e7fc4bc47bafd605d7b208ac876f43c7d97b60ee62882298be657cd90fdb28",
+    "README.md": "283b21cedf5d169b4283bf50089cd87472ed673ea822d9d253e4076a487da5c2",
+    "accepted/MODEL_CURRENT.md": "08757a8c55b911ae057d8e51dc6d848c67039250079a5bb8bdf13a1614f90a7a",
+    "accepted/constraints.json": "7421c3c0dbafcc47060d72ed55e3d8a1176d02e37715ad66ad2617c60609b667",
+    "accepted/contradictions.json": "b1c3b7b899d924e5597bcd79f6ee38e5ddd565310033ff34ce09bba199c8e0a9",
+    "accepted/mechanisms.json": "9834b83c9a5b7e56009f6db56fd306011ef19cbceacf39df1bfe9827c41d9b70",
+    "accepted/model_state.json": "e54306ac67384055a18f3b57cb792dc40d2696489ae69626bf76d6b824a3a41a",
+    "accepted/observations.json": "10dcc6d0253a15772c616f11c75d150961c4264540bb7d411904c615caabad71",
+    "accepted/predictions.json": "9261a918b30092ff04e38760e300faf0c34b63669096fb0cccd8c9e03f76f211",
+    "accepted/robustness.json": "da0acb439902cd7985049273bae3c64782a4c0f1405b9e8d153cc2129ce54d60",
+    "bubbleverse_model_program_registry.json": "d79ddb95e7da482a33190a7f942911e14459912e9c1eac219e4559cf7bb3de83",
+    "candidate/MODEL_CANDIDATE.md": "d8bbf92df446390a09f36fa67f433c674b6da1b2bce81788b22f1265eb5b77ba",
+    "candidate/Q040_PROVENANCE.json": "2d1dc9b1488c272f2ec30683906599b3ed6f3278e0099fc61e1f267ba99c304a",
+    "candidate/Q040_TEST_RESULT.json": "cd7bf70c7aa45185f2447dfac17188e25c5f95bf54cafbefbaff29acd8b05a7b",
+    "candidate/Q041_PROVENANCE.json": "b298aabd7ef66efca19a4eb4753b7c045693c0464d744aac229bedbf189fca7d",
+    "candidate/Q041_TEST_RESULT.json": "0042a262727f1eb04843416711cffd9992aecf196fbe845f3832fc92327d455f",
+    "candidate/Q042_PROVENANCE.json": "c484bcf5a62bbbb433219b846290c299e92c5afb165cde7fc84c106fea76c489",
+    "candidate/Q042_TEST_RESULT.json": "8b1f7b34405cc90d4e4dcf0dc6d840ad12d59cb27a1750d720caf7b8b0dfc117",
+    "candidate/candidate_diff.json": "b020362d1f23fae3311babb85460eec5bb196534be916817127ffeb7b9322a07",
+    "candidate/candidate_state.json": "295ee3839157e21baf27d1d790659e3969c34316342b7f638c4b9b3693e12ae0",
+    "candidate/constraints.json": "7421c3c0dbafcc47060d72ed55e3d8a1176d02e37715ad66ad2617c60609b667",
+    "candidate/contradictions.json": "b1c3b7b899d924e5597bcd79f6ee38e5ddd565310033ff34ce09bba199c8e0a9",
+    "candidate/mechanisms.json": "9834b83c9a5b7e56009f6db56fd306011ef19cbceacf39df1bfe9827c41d9b70",
+    "candidate/observations.json": "10dcc6d0253a15772c616f11c75d150961c4264540bb7d411904c615caabad71",
+    "candidate/predictions.json": "9261a918b30092ff04e38760e300faf0c34b63669096fb0cccd8c9e03f76f211",
+    "candidate/robustness.json": "da0acb439902cd7985049273bae3c64782a4c0f1405b9e8d153cc2129ce54d60",
+    "changelog/MODEL_CHANGELOG.md": "eff7401388cf824a2fc7c8b5f2021120798e8afaccc872636eb7043b4157940f",
+    "changelog/model_change_registry.json": "7b3583465ba3c3f858cd05b072204dfa5e1245112054f026076bcd6a68c94664",
+    "docs/superpowers/plans/2026-10-07-q042-model-sync.md": "4b15d738506a0f6a33a6f5078657e1d945ade4521c73eaed64d8e68e9802521a",
+    "docs/superpowers/plans/q042-progress.md": "e35991b974465d2bccf8344cc06c1da5062635608f4213802a46baf8ffe74c28",
+    "evidence/evidence_registry.json": "9cc502a51dc3e5d719bef3c1ab323e7715040a77b9d103af92350fcd873894b4",
+    "evidence/q_updates/Q039.json": "2dd3a828eebc686241b3d37ebc9522f0128166155c765613b816c15bd11ef670",
+    "evidence/q_updates/Q040.json": "0e726bb756b8d4d7e3f311e55a8507e86b9d8b7ee38fda82ac12e4bbe3302f66",
+    "evidence/q_updates/Q041.json": "7f3598302f59bc1fb116d7b3cd2acb57707fe3062d80b8a9d4f668d61992f280",
+    "evidence/q_updates/Q042.json": "9dbc5a4cbd227b34a293e59841f84baf494000fb8d349486a642dcc347f08764",
+    "evidence/sources/Q042/functional_cap_certificate.json": "8d3aa141558d6c561821ee3d4401ef8acc1aa32bc77189162b0cdbb5980d6ba0",
+    "evidence/sources/Q042/functional_cap_checks.json": "2390be294e70b3fdb330dcf79f8e0292b9608aee75c638ca5dd270601b6224f7",
+    "evidence/sources/Q042/ingestion_audit.json": "122f78f9ebb5b78ac3eaf891cc0ebc83c41b47e6f7c3d21cf7649d87bd6bbe7b",
+    "evidence/sources/Q042/ingestion_decision.json": "7a5c606fadc974dcad740e481b16c6bf828c3f3baefcf6a132ec7e1385864933",
+    "evidence/sources/Q042/main_book.pdf": "b42e92563bc3769b682b40bbe007d6b58b1b17deec64ac7b45a474fb84e0f6fa",
+    "evidence/sources/Q042/q_journal.pdf": "fec49ca2e1f652f55aa1d7bb3ddea3b8daf539eb14bfec782251c19e903ffbac",
+    "evidence/sources/Q042/q_journal_copy.pdf": "5b8cd52d71ab43cd6d22c5ae715a0bb97e1e4f48f5f47891d71753c9f43894ec",
+    "model/assumptions.json": "3e411847e06e159ad98eb0b998dbcb5a9937d2ead2e6211ca21b0cdaa72ffc44",
+    "model/benchmarks.json": "687f4a5e450498378815e83936689ea75cfad05ea140dc7533759e0a8183bc9d",
+    "model/domain_of_validity.json": "1b256436d81362f43e5aa58f20d1e894715791c8039176cf1785b6969deddc46",
+    "model/environment.json": "36e9f97c789aa36e3ef214538cb114579212b20a312ef6d08161527c46659961",
+    "model/equations.json": "6c02004b0e4fea2fb39ca59d58ae7ffadb9a272062194f4af3c552ce254cf85e",
+    "model/external_catalog_registry.json": "6bdbf257790dc3a231773995bb867851a8c96b5a2def3fd9beacd1a44cb34726",
+    "model/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "model/limitations.json": "7b0ea88ac56c412350104a78e399290df2f7e378a62c69dc5615a5c5e967091f",
+    "model/model_manifest.json": "57c473ff58d62eda1192961d478a422435129dacac84fb0273a40714f94bef15",
+    "model/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "model/parameters.json": "c472d8fe1049ff3df6d61253cadb95c027ec093211d93423e165aa4c2980365a",
+    "model/result_registry.json": "f5f4f5581f5bc34bbabbcf47aa951e4590b69d1014470b930958344a026df813",
+    "model/uncertainty.json": "b0688512382bd89de20de769151d56ee8a4ed7dd9e4ffbb66b8d3fd2d8cb97ac",
+    "provenance/Q039_PROVENANCE.md": "68593f288e667366d43380327e46fe8f6f19b9dc0a181b950b96787a5a15eebd",
+    "provenance/Q040_PROVENANCE.md": "9a5f4ecd2dbc7a2e1eb1633c7215207cc7ac926902f382de47fdbb7d406d1b14",
+    "provenance/Q041_PROVENANCE.md": "018f20791d215c7de0962ed88a788666ad464ecde2091d9021f3f263cd9658ca",
+    "provenance/Q042_PROVENANCE.md": "fe6b4f20e92fe0b6744e31032844d04aa1448e936bdedbfbba219fbd6bf5092e",
+    "provenance/archive/Q041_MODEL_UPDATE_REPORT.json": "09dd28a8b264045288adde77978a7bcf0a09d933fc9a22c60371538607d01fc4",
+    "provenance/archive/Q041_candidate_diff.json": "7f4bfb8839ec43859ea39c5fede085e887280952e1da32bed967bb0b1ffc099f",
+    "provenance/archive/Q041_candidate_state.json": "a0a1d241bbe6f8baff22b5733af3bbca5988cc3983054c2139ee82d07df7daa8",
+    "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md": "34120b7bca5c8e7238f879e745e10512aa82db144600e1485efcb0a7f3db12d4",
+    "release/MODEL_RELEASE_HANDOFF.json": "5163ec40be48ca1c482f7da8507b3cc36698bd7820df22db55d2c73eec6d83b2",
+    "release/MODEL_RELEASE_HANDOFF.md": "f17848fcf39dddf6823daa1195575ae3d3c0965876b41fe73f44b3da3d07a6cf",
+    "release/Q042_INSTALLATION_RESULT.json": "0602ca529f1345b09e406382b95daa955c9fe598fda31635c30be01b63c35555",
+    "repository_cleanup.py": "16b7931356028382d26a27ea051776808aecd22d1a37d772cc3ec06a7363567d",
+    "tests/preregistration/BV-MODEL-v0.1-CAMPAIGN-0001.json": "6d8a5bb30ed3145448aaf39074f625d5d2622961b8477001cf3301a0588e5471",
+    "tests/programs/formal_model_validate.py": "b8c908b980913dd709ea3a8a7022dd3f239d1a8551c5e5f831fb9826d97cf48f",
+    "tests/programs/model_campaign.py": "1b582329595476a73d3af6db4f38dac9eca51056b0d4a80de2aa1bb655888ce2",
+    "tests/programs/q040_model_validate.py": "17b993c8c91521cce3aeb905f180ae1a87edc6b078282f7d6892062d8bdd30b8",
+    "tests/programs/q041_model_validate.py": "0632a478df4d8ae8afc1540c6dce8b728580ce2e55e39623688a4fb077675ab7",
+    "tests/programs/q042_model_validate.py": "02152d685163f7513bf658a767abf06f6846e4693ca907a15f766c6eedc8dfae",
+    "tests/programs/test_q042_campaign_guard.py": "3ac66fd097dc46f822299e6c1f26e340cd80fb1e7abac1911e43e1493847090f",
+    "tests/results/BV-MODEL-v0.1-CAMPAIGN-0001.json": "54a60fd5bcc6688f846a3caa55a477b4f23b292dfc001f63bc96c350e174aa3f",
+    "tests/results/FORMAL-MODEL-v0.1-001.json": "add46d2a326995c0a8f74637232a78f6aad5bc2abbb0372dddbf45db6931bdf2",
+    "tests/results/LOCAL_PREFLIGHT_Q039.json": "94fe7fce18d3795e42a78d87886d007a4a172ef449aa2cbabfdb8721db6ca318",
+    "tests/results/Q040_MODEL_UPDATE_TEST_RESULT.json": "59981279fe433191c0663d1b1673a235fe95e657cd9d7bfaf2914949244581e2",
+    "tests/results/Q041_MODEL_UPDATE_TEST_RESULT.json": "0042a262727f1eb04843416711cffd9992aecf196fbe845f3832fc92327d455f",
+    "tests/results/Q042_MODEL_UPDATE_TEST_RESULT.json": "963c4808c87223abd690bcfd4b3889c3e48eabfd0a80fa91eaf71bc0488edc79",
+    "versions/accepted/v0.1/MODEL_CURRENT.md": "95bbc95ba347ecb85353330a17b131775746df5a7d8d6bd4882aedab047afa34",
+    "versions/accepted/v0.1/constraints.json": "b522a88883e7bc29f7e87db1a121520d18222698ffc8314a4ff6c9724c9c1e33",
+    "versions/accepted/v0.1/contradictions.json": "8d5efa75722ce6f82b2069be1e2e5ca361c9fd984423ee88b8e121e3600455d1",
+    "versions/accepted/v0.1/mechanisms.json": "d678731b120a531216ba601f84e2262eb9b611498fd605a018100fb9a6485a47",
+    "versions/accepted/v0.1/model_state.json": "6b1f2387d7bb04b388d43207e54d74940f427ac0be4b1efbf85bee2e9893b0d0",
+    "versions/accepted/v0.1/observations.json": "6b2a3d25d4a25b8396524b9b4d12d8f4f1158e9123f89b8c4853c1f26f4cd1fd",
+    "versions/accepted/v0.1/predictions.json": "c77ab1f1529fdf41e5abb135e7de8007842a19290606a24a8e00ec27576421a7",
+    "versions/accepted/v0.1/robustness.json": "897984982a36b96051aeb1e4b8080b5e8f3cefdfa1801ba111a5ce2907aea046",
+    "versions/accepted/v0.2/MODEL_CURRENT.md": "0698b87585a5e09d724f9fd79660f429df53739881d366790d64665c620c05a0",
+    "versions/accepted/v0.2/TEST_RESULT.json": "59981279fe433191c0663d1b1673a235fe95e657cd9d7bfaf2914949244581e2",
+    "versions/accepted/v0.2/assumptions.json": "ee9ffb1a6b7845a9ae3f453c620359beb45fe6b0a745d7f19757d06d2be7dc76",
+    "versions/accepted/v0.2/benchmarks.json": "7166e700d1dacd2467a4e73223cc50933982604d1e676e8cafd51c6b79b83747",
+    "versions/accepted/v0.2/constraints.json": "f88d8a9c6a85381483b28279db9c9e5dfa52e75bc0021b71fa9ffc0bfafc70e0",
+    "versions/accepted/v0.2/contradictions.json": "ea45d09a4788fcabd627dfba546bdf8cff911ac337dc7eedfd45c79cb7845184",
+    "versions/accepted/v0.2/domain_of_validity.json": "691eed611aab61e403def7f2043ae76c6e7be5c25539a8124ee81ca6da330f10",
+    "versions/accepted/v0.2/environment.json": "e797ddbef2dba8d5ebade5c3143caff29009c98bd30f76ff97843d66ef312923",
+    "versions/accepted/v0.2/equations.json": "fbda44c815bdc0a7cfd86b206ad85adff632e74748e0087d0330d1f7b456f46a",
+    "versions/accepted/v0.2/evidence_registry.json": "9fde07fc4b36e641e16d2563c79afd1b38f3de1ff7163f68759c8907f647cd83",
+    "versions/accepted/v0.2/external_catalog_registry.json": "0dd06f30294fe1cde8364d3ecc0bcf532f7a2eef899e87fc06c0f954f6b17095",
+    "versions/accepted/v0.2/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "versions/accepted/v0.2/limitations.json": "9a82f50981aa727cca16ba633244c4596cef283fbe50c472e97db2583ff98d66",
+    "versions/accepted/v0.2/mechanisms.json": "7ccebea25da99df54e58b2acf0f523d2221f50cd9a42e1c5a55191e218e51539",
+    "versions/accepted/v0.2/model_manifest.json": "6aa4538464c729405ed3cb9aac55db93c903014885935a052a0d2301e69b95a8",
+    "versions/accepted/v0.2/model_state.json": "08ee93a7b2fca62e444de678fb19815f1bbc12eb386344372a9df60b2313949c",
+    "versions/accepted/v0.2/observations.json": "d4d10377f66fa3ee2b27ef5a2cf1943e042fbfd7a3fc024293786f4e7d4b7c85",
+    "versions/accepted/v0.2/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "versions/accepted/v0.2/parameters.json": "8f0f6bc10f818e354cf718164a06a88ae086c23539759bf49619e15952ad23c6",
+    "versions/accepted/v0.2/predictions.json": "e705a76b0bec6d006f2c0fe163ca733f590574d9bc2569166f14708b11d0ff56",
+    "versions/accepted/v0.2/q_update.json": "0e726bb756b8d4d7e3f311e55a8507e86b9d8b7ee38fda82ac12e4bbe3302f66",
+    "versions/accepted/v0.2/result_registry.json": "605999c6ed1add5233c89084e6e263cfe747e057691a7f8f9a3e4f43470372a5",
+    "versions/accepted/v0.2/robustness.json": "8892281049391ab98524e2b164be00eeadbf63d0bbfb8233e4b624cb8b566c69",
+    "versions/accepted/v0.2/uncertainty.json": "1830396f243fbe97e192206390cecda1b2f0e19884b234eb836107f8f60356d1",
+    "versions/accepted/v0.3/MODEL_CURRENT.md": "e8f3efa93efe70929e97287c9bfe1c3829ef0c847ce087eaf24c734ffa9035eb",
+    "versions/accepted/v0.3/TEST_RESULT.json": "0042a262727f1eb04843416711cffd9992aecf196fbe845f3832fc92327d455f",
+    "versions/accepted/v0.3/assumptions.json": "1287a5c1ffba973d4734c38eac3ec6723189d5e06e3cc731099325839ea792e6",
+    "versions/accepted/v0.3/benchmarks.json": "45ce20c4241fa6d2296415df0475ed692b7e2ad974353776521675c1506314e5",
+    "versions/accepted/v0.3/constraints.json": "000db55c9b394937396cf8a5dedac2a3bf1fc7e56f47ec756bb567f1a6c88d20",
+    "versions/accepted/v0.3/contradictions.json": "11209c6f74d407ecbac62ef9422788c0aaab249dba868c2bf7df65a74f400364",
+    "versions/accepted/v0.3/domain_of_validity.json": "81722e8588f11559deb2b61db858d9710ae165e26bdc69efd5ceace51609230a",
+    "versions/accepted/v0.3/environment.json": "4538649ed4eb6d0484c6ab84d646daabdfc2de5bb90dcd669ad85ac2724f3f24",
+    "versions/accepted/v0.3/equations.json": "ded5ef7896360cbee67fc4c0d070389313b8688b95cdab6a09cb85618b7ac2fa",
+    "versions/accepted/v0.3/evidence_registry.json": "e8435223166a95cf6ffade81c2b205c3d0db6d7d5c3aa08b56cd47c2b12227bb",
+    "versions/accepted/v0.3/external_catalog_registry.json": "560d10ae3df33bbc103bfb140f7cd0a19559211e1578ec62192b7328933171ea",
+    "versions/accepted/v0.3/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "versions/accepted/v0.3/limitations.json": "cca466dab9200e1845640437d6dc6b587f71a115b149950a255dc188daa15930",
+    "versions/accepted/v0.3/mechanisms.json": "78cae3ed35a5cf8cf07a6ec511bb8132899d981987245397fc1129c8f0188b89",
+    "versions/accepted/v0.3/model_manifest.json": "d0fc163f439fb032779212af925aed290f36dc2245f89c60cdaa8d442797df3e",
+    "versions/accepted/v0.3/model_state.json": "9114490ec4a79dffb21db2d76f29384cdb2dea4a9a507007aa3cc238460af196",
+    "versions/accepted/v0.3/observations.json": "105278c56473034afdd06957471d221675f6b34aa49de2dba4f1585e588d5b7b",
+    "versions/accepted/v0.3/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "versions/accepted/v0.3/parameters.json": "adc794d649bd04dc5b9de32a5e25e6e7301633f30e900d5c08fadcbe91f967bb",
+    "versions/accepted/v0.3/predictions.json": "133f85967adb7c5708c6a2ac38afeabc2f14496849be93003865c6eba4b0c0bb",
+    "versions/accepted/v0.3/q_update.json": "7f3598302f59bc1fb116d7b3cd2acb57707fe3062d80b8a9d4f668d61992f280",
+    "versions/accepted/v0.3/result_registry.json": "fa9468fc1c3b7810d785747e5c1bec6abf7784929c726cba63e9cfffdbe90e6a",
+    "versions/accepted/v0.3/robustness.json": "9ead493522d4e9dbe73c7453d82a83cc1b57ea441278419c16d5a9c66346b411",
+    "versions/accepted/v0.3/uncertainty.json": "a502d870bcea5f40f73fdefbe6b4f66fe86d2eae34c678c3c8144e9f6392a051",
+    "versions/accepted/v0.4/MODEL_CURRENT.md": "08757a8c55b911ae057d8e51dc6d848c67039250079a5bb8bdf13a1614f90a7a",
+    "versions/accepted/v0.4/TEST_RESULT.json": "963c4808c87223abd690bcfd4b3889c3e48eabfd0a80fa91eaf71bc0488edc79",
+    "versions/accepted/v0.4/assumptions.json": "3e411847e06e159ad98eb0b998dbcb5a9937d2ead2e6211ca21b0cdaa72ffc44",
+    "versions/accepted/v0.4/benchmarks.json": "687f4a5e450498378815e83936689ea75cfad05ea140dc7533759e0a8183bc9d",
+    "versions/accepted/v0.4/constraints.json": "7421c3c0dbafcc47060d72ed55e3d8a1176d02e37715ad66ad2617c60609b667",
+    "versions/accepted/v0.4/contradictions.json": "b1c3b7b899d924e5597bcd79f6ee38e5ddd565310033ff34ce09bba199c8e0a9",
+    "versions/accepted/v0.4/domain_of_validity.json": "1b256436d81362f43e5aa58f20d1e894715791c8039176cf1785b6969deddc46",
+    "versions/accepted/v0.4/environment.json": "36e9f97c789aa36e3ef214538cb114579212b20a312ef6d08161527c46659961",
+    "versions/accepted/v0.4/equations.json": "6c02004b0e4fea2fb39ca59d58ae7ffadb9a272062194f4af3c552ce254cf85e",
+    "versions/accepted/v0.4/evidence_registry.json": "9cc502a51dc3e5d719bef3c1ab323e7715040a77b9d103af92350fcd873894b4",
+    "versions/accepted/v0.4/external_catalog_registry.json": "6bdbf257790dc3a231773995bb867851a8c96b5a2def3fd9beacd1a44cb34726",
+    "versions/accepted/v0.4/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "versions/accepted/v0.4/limitations.json": "7b0ea88ac56c412350104a78e399290df2f7e378a62c69dc5615a5c5e967091f",
+    "versions/accepted/v0.4/mechanisms.json": "9834b83c9a5b7e56009f6db56fd306011ef19cbceacf39df1bfe9827c41d9b70",
+    "versions/accepted/v0.4/model_manifest.json": "57c473ff58d62eda1192961d478a422435129dacac84fb0273a40714f94bef15",
+    "versions/accepted/v0.4/model_state.json": "e54306ac67384055a18f3b57cb792dc40d2696489ae69626bf76d6b824a3a41a",
+    "versions/accepted/v0.4/observations.json": "10dcc6d0253a15772c616f11c75d150961c4264540bb7d411904c615caabad71",
+    "versions/accepted/v0.4/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "versions/accepted/v0.4/parameters.json": "c472d8fe1049ff3df6d61253cadb95c027ec093211d93423e165aa4c2980365a",
+    "versions/accepted/v0.4/predictions.json": "9261a918b30092ff04e38760e300faf0c34b63669096fb0cccd8c9e03f76f211",
+    "versions/accepted/v0.4/q_update.json": "9dbc5a4cbd227b34a293e59841f84baf494000fb8d349486a642dcc347f08764",
+    "versions/accepted/v0.4/result_registry.json": "f5f4f5581f5bc34bbabbcf47aa951e4590b69d1014470b930958344a026df813",
+    "versions/accepted/v0.4/robustness.json": "da0acb439902cd7985049273bae3c64782a4c0f1405b9e8d153cc2129ce54d60",
+    "versions/accepted/v0.4/uncertainty.json": "b0688512382bd89de20de769151d56ee8a4ed7dd9e4ffbb66b8d3fd2d8cb97ac"
+  },
+  "publication_status": "LOCAL_COMMIT_OPERATOR_PUSH_REQUIRED",
+  "push_performed": false,
+  "q_boundary_changed": false,
+  "reference_scope": "HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE",
+  "removed_files": [
+    ".github/workflows/install-q042-model.yml",
+    "INSTALL_Q042.md",
+    "install_q042_model.py"
+  ],
+  "repository_map": [
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "59c312d5ef5624f2a227fec989bd109fd043a51e",
+      "mode": "100644",
+      "path": ".gitattributes",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "ROOT",
+      "sha256": "bb0f30907448ac13c2c29ffd06ec182d5a67d1ca07d14ac4d5a91ca233153dfe",
+      "size": 94
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "5940ff4042e6e295ce69ccc72d2813ba7a354b82",
+      "mode": "100644",
+      "path": ".github/workflows/00-bubbleverse-model-start-public.yml",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "README.md",
+        "bubbleverse_model_program_registry.json",
+        "install_q042_model.py",
+        "model/environment.json",
+        "tests/programs/formal_model_validate.py",
+        "versions/accepted/v0.2/environment.json",
+        "versions/accepted/v0.3/environment.json",
+        "versions/accepted/v0.4/environment.json"
+      ],
+      "references": [
+        "README.md",
+        "accepted/contradictions.json",
+        "accepted/model_state.json",
+        "bubbleverse_model_program_registry.json",
+        "candidate/candidate_state.json",
+        "candidate/contradictions.json",
+        "changelog/MODEL_CHANGELOG.md",
+        "changelog/model_change_registry.json",
+        "evidence/evidence_registry.json",
+        "model/benchmarks.json",
+        "model/external_catalog_registry.json",
+        "model/input_schema.json",
+        "model/model_manifest.json",
+        "model/output_schema.json",
+        "model/result_registry.json",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "tests/programs/formal_model_validate.py",
+        "tests/programs/model_campaign.py"
+      ],
+      "role": ".github",
+      "sha256": "db2dfd2cea08ad58ae7d6bc3bdb6cd997e6989b1ff0d8f87db5ca38751bb3b63",
+      "size": 107533
+    },
+    {
+      "canonical_alternative": "release/Q042_INSTALLATION_RESULT.json",
+      "change_class": "OBSOLETE_WORKFLOW_REMOVAL",
+      "classification": "SAFE_DELETE",
+      "delete_gate": {
+        "ACCEPTED_MODEL_PROTECTION": "PASS",
+        "BASELINE_VALIDATION": "PASS",
+        "CANONICAL_ALTERNATIVE": "PASS",
+        "DELETE_CLASSIFICATION": "SAFE_DELETE",
+        "FILE_EXISTS": "PASS",
+        "PROVENANCE_PRESERVED": "PASS_GIT_BLOB_AT_INPUT_HEAD",
+        "REFERENCE_SCAN": "PASS_ATOMIC_COHORT",
+        "SCIENTIFIC_CHANGE": false,
+        "TEST_HISTORY_PROTECTION": "PASS",
+        "VERSION_SNAPSHOT_PROTECTION": "PASS"
+      },
+      "git_blob_sha": "f5f7ed79edbb9e51abb9b5ef7091df48b751a7d5",
+      "mode": "100644",
+      "path": ".github/workflows/install-q042-model.yml",
+      "protection_level": "STRUCTURAL",
+      "reason": "Completed one-time installer; verified receipt, immutable target and real Git history retained",
+      "referenced_by": [
+        "INSTALL_Q042.md",
+        "install_q042_model.py"
+      ],
+      "references": [
+        "install_q042_model.py",
+        "tests/programs/q042_model_validate.py"
+      ],
+      "role": ".github",
+      "sha256": "49f0c7194853bb4685ab2171b5717b8a6c74a4671dac025e1567b95a8abac043",
+      "size": 1860
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "38edb0c8f5952e3203043bc84673fd319e7e2898",
+      "mode": "100644",
+      "path": ".github/workflows/repository-cleanup-current.yml",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "repository_cleanup.py"
+      ],
+      "references": [
+        "bubbleverse_model_program_registry.json",
+        "repository_cleanup.py"
+      ],
+      "role": ".github",
+      "sha256": "b9f77e80dc524ad149c363886d6d8d9980b173a0299239cf5e863aa2d1152a0d",
+      "size": 2821
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "6fab4e8b23e9a7fb851d8a27d9139186e9787642",
+      "mode": "100644",
+      "path": ".gitignore",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "repository_cleanup.py"
+      ],
+      "references": [],
+      "role": "ROOT",
+      "sha256": "c6e7fc4bc47bafd605d7b208ac876f43c7d97b60ee62882298be657cd90fdb28",
+      "size": 73
+    },
+    {
+      "canonical_alternative": "release/Q042_INSTALLATION_RESULT.json",
+      "change_class": "INSTALLER_REMOVAL",
+      "classification": "SAFE_DELETE",
+      "delete_gate": {
+        "ACCEPTED_MODEL_PROTECTION": "PASS",
+        "BASELINE_VALIDATION": "PASS",
+        "CANONICAL_ALTERNATIVE": "PASS",
+        "DELETE_CLASSIFICATION": "SAFE_DELETE",
+        "FILE_EXISTS": "PASS",
+        "PROVENANCE_PRESERVED": "PASS_GIT_BLOB_AT_INPUT_HEAD",
+        "REFERENCE_SCAN": "PASS_ATOMIC_COHORT",
+        "SCIENTIFIC_CHANGE": false,
+        "TEST_HISTORY_PROTECTION": "PASS",
+        "VERSION_SNAPSHOT_PROTECTION": "PASS"
+      },
+      "git_blob_sha": "a5fd344440c4165adb214a6197b968b0384cec3c",
+      "mode": "100644",
+      "path": "INSTALL_Q042.md",
+      "protection_level": "STRUCTURAL",
+      "reason": "Completed one-time installer; verified receipt, immutable target and real Git history retained",
+      "referenced_by": [
+        "install_q042_model.py"
+      ],
+      "references": [
+        ".github/workflows/install-q042-model.yml",
+        "README.md",
+        "install_q042_model.py",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "release/Q042_INSTALLATION_RESULT.json"
+      ],
+      "role": "ROOT",
+      "sha256": "77d615794578567f58896ca73b6a46176401d296c3428054b799eb3cc285faa8",
+      "size": 4766
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "b6be8ee032c04c79f900a9fec830c058139716b9",
+      "mode": "100644",
+      "path": "README.md",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "INSTALL_Q042.md",
+        "evidence/sources/Q042/ingestion_audit.json",
+        "evidence/sources/Q042/ingestion_decision.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "repository_cleanup.py"
+      ],
+      "references": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "model/limitations.json"
+      ],
+      "role": "ROOT",
+      "sha256": "283b21cedf5d169b4283bf50089cd87472ed673ea822d9d253e4076a487da5c2",
+      "size": 11313
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "923bd66c5594503c6bc716ff234d3d278cebe42d",
+      "mode": "100644",
+      "path": "accepted/MODEL_CURRENT.md",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "accepted",
+      "sha256": "08757a8c55b911ae057d8e51dc6d848c67039250079a5bb8bdf13a1614f90a7a",
+      "size": 309
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "94e0c8b622d2e77e75fa00179c30ee791eb5f255",
+      "mode": "100644",
+      "path": "accepted/constraints.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "model/model_manifest.json",
+        "versions/accepted/v0.1/model_state.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/model_state.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/model_state.json",
+        "versions/accepted/v0.4/model_manifest.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "accepted",
+      "sha256": "7421c3c0dbafcc47060d72ed55e3d8a1176d02e37715ad66ad2617c60609b667",
+      "size": 4896
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "cffef2b2d8c8386d8b71bf78ee596f48425ba8a4",
+      "mode": "100644",
+      "path": "accepted/contradictions.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "tests/programs/q041_model_validate.py",
+        "versions/accepted/v0.1/model_state.json",
+        "versions/accepted/v0.2/model_state.json",
+        "versions/accepted/v0.3/model_state.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "accepted",
+      "sha256": "b1c3b7b899d924e5597bcd79f6ee38e5ddd565310033ff34ce09bba199c8e0a9",
+      "size": 2130
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "f1c6fc769c32198c045ad7d8b6cd9fc802650e94",
+      "mode": "100644",
+      "path": "accepted/mechanisms.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "model/model_manifest.json",
+        "versions/accepted/v0.1/model_state.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/model_state.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/model_state.json",
+        "versions/accepted/v0.4/model_manifest.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "accepted",
+      "sha256": "9834b83c9a5b7e56009f6db56fd306011ef19cbceacf39df1bfe9827c41d9b70",
+      "size": 2267
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "77d69522e687d654d9d413eadd16a1b59f70b5e3",
+      "mode": "100644",
+      "path": "accepted/model_state.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "candidate/Q042_PROVENANCE.json",
+        "install_q042_model.py",
+        "model/model_manifest.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "repository_cleanup.py",
+        "tests/programs/formal_model_validate.py",
+        "tests/programs/model_campaign.py",
+        "tests/programs/q040_model_validate.py",
+        "tests/programs/q041_model_validate.py",
+        "tests/programs/q042_model_validate.py",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [
+        "accepted/constraints.json",
+        "accepted/contradictions.json",
+        "accepted/mechanisms.json",
+        "accepted/observations.json",
+        "accepted/predictions.json",
+        "accepted/robustness.json",
+        "evidence/sources/Q042/main_book.pdf",
+        "evidence/sources/Q042/q_journal.pdf",
+        "evidence/sources/Q042/q_journal_copy.pdf"
+      ],
+      "role": "accepted",
+      "sha256": "e54306ac67384055a18f3b57cb792dc40d2696489ae69626bf76d6b824a3a41a",
+      "size": 2485
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "fbf07febaa5e893b2156ade102cd15d1d1c87486",
+      "mode": "100644",
+      "path": "accepted/observations.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "model/model_manifest.json",
+        "tests/programs/formal_model_validate.py",
+        "tests/programs/q041_model_validate.py",
+        "versions/accepted/v0.1/model_state.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/model_state.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/model_state.json",
+        "versions/accepted/v0.4/model_manifest.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "accepted",
+      "sha256": "10dcc6d0253a15772c616f11c75d150961c4264540bb7d411904c615caabad71",
+      "size": 7365
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "fabc5141d66cbccf2cb40d30c8c3a66df7deebed",
+      "mode": "100644",
+      "path": "accepted/predictions.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "tests/programs/q041_model_validate.py",
+        "versions/accepted/v0.1/model_state.json",
+        "versions/accepted/v0.2/model_state.json",
+        "versions/accepted/v0.3/model_state.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "accepted",
+      "sha256": "9261a918b30092ff04e38760e300faf0c34b63669096fb0cccd8c9e03f76f211",
+      "size": 1870
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "438caa42eedb6af3db8a65dac4f7f41f59482bd4",
+      "mode": "100644",
+      "path": "accepted/robustness.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "model/model_manifest.json",
+        "tests/programs/q040_model_validate.py",
+        "tests/programs/q041_model_validate.py",
+        "versions/accepted/v0.1/model_state.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/model_state.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/model_state.json",
+        "versions/accepted/v0.4/model_manifest.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "accepted",
+      "sha256": "da0acb439902cd7985049273bae3c64782a4c0f1405b9e8d153cc2129ce54d60",
+      "size": 4092
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "491ca1ef8fa551d114c4d9a28fa6e94615908506",
+      "mode": "100644",
+      "path": "bubbleverse_model_program_registry.json",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        ".github/workflows/repository-cleanup-current.yml",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "repository_cleanup.py",
+        "tests/programs/formal_model_validate.py"
+      ],
+      "references": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "model/external_catalog_registry.json",
+        "model/result_registry.json",
+        "tests/programs/formal_model_validate.py",
+        "tests/programs/model_campaign.py",
+        "tests/programs/q042_model_validate.py"
+      ],
+      "role": "ROOT",
+      "sha256": "d79ddb95e7da482a33190a7f942911e14459912e9c1eac219e4559cf7bb3de83",
+      "size": 2090
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "211999385167e6201413db8331a7e7f73030b34b",
+      "mode": "100644",
+      "path": "candidate/MODEL_CANDIDATE.md",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "candidate",
+      "sha256": "d8bbf92df446390a09f36fa67f433c674b6da1b2bce81788b22f1265eb5b77ba",
+      "size": 337
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "43a579c9fc8bc32a99c9e6cbb4fcfc5d9b5f71c7",
+      "mode": "100644",
+      "path": "candidate/Q040_PROVENANCE.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "candidate",
+      "sha256": "2d1dc9b1488c272f2ec30683906599b3ed6f3278e0099fc61e1f267ba99c304a",
+      "size": 981
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "45e6057b1c45774e8604c6708fffb044c3d5367c",
+      "mode": "100644",
+      "path": "candidate/Q040_TEST_RESULT.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "candidate",
+      "sha256": "cd7bf70c7aa45185f2447dfac17188e25c5f95bf54cafbefbaff29acd8b05a7b",
+      "size": 329
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "029b0db4249e7daabea527cd5ca3297e02d62565",
+      "mode": "100644",
+      "path": "candidate/Q041_PROVENANCE.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "candidate",
+      "sha256": "b298aabd7ef66efca19a4eb4753b7c045693c0464d744aac229bedbf189fca7d",
+      "size": 3293
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "8fb811ea02e2e57a7406a61cdb2172c33eea0a59",
+      "mode": "100644",
+      "path": "candidate/Q041_TEST_RESULT.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "candidate",
+      "sha256": "0042a262727f1eb04843416711cffd9992aecf196fbe845f3832fc92327d455f",
+      "size": 2073
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "a4b93c2ac3ebe3ca4f1b10be54f13d36efca47f7",
+      "mode": "100644",
+      "path": "candidate/Q042_PROVENANCE.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "docs/superpowers/plans/2026-10-07-q042-model-sync.md",
+        "install_q042_model.py",
+        "provenance/Q042_PROVENANCE.md",
+        "tests/programs/q042_model_validate.py"
+      ],
+      "references": [
+        "accepted/MODEL_CURRENT.md",
+        "accepted/constraints.json",
+        "accepted/contradictions.json",
+        "accepted/mechanisms.json",
+        "accepted/model_state.json",
+        "accepted/observations.json",
+        "accepted/predictions.json",
+        "accepted/robustness.json",
+        "candidate/constraints.json",
+        "candidate/contradictions.json",
+        "candidate/mechanisms.json",
+        "candidate/observations.json",
+        "candidate/predictions.json",
+        "candidate/robustness.json",
+        "evidence/sources/Q042/functional_cap_certificate.json",
+        "evidence/sources/Q042/functional_cap_checks.json",
+        "evidence/sources/Q042/ingestion_audit.json",
+        "evidence/sources/Q042/ingestion_decision.json",
+        "evidence/sources/Q042/main_book.pdf",
+        "evidence/sources/Q042/q_journal.pdf",
+        "evidence/sources/Q042/q_journal_copy.pdf",
+        "versions/accepted/v0.1/MODEL_CURRENT.md",
+        "versions/accepted/v0.1/constraints.json",
+        "versions/accepted/v0.1/contradictions.json",
+        "versions/accepted/v0.1/mechanisms.json",
+        "versions/accepted/v0.1/model_state.json",
+        "versions/accepted/v0.1/observations.json",
+        "versions/accepted/v0.1/predictions.json",
+        "versions/accepted/v0.1/robustness.json",
+        "versions/accepted/v0.2/MODEL_CURRENT.md",
+        "versions/accepted/v0.2/TEST_RESULT.json",
+        "versions/accepted/v0.2/assumptions.json",
+        "versions/accepted/v0.2/benchmarks.json",
+        "versions/accepted/v0.2/constraints.json",
+        "versions/accepted/v0.2/contradictions.json",
+        "versions/accepted/v0.2/domain_of_validity.json",
+        "versions/accepted/v0.2/environment.json",
+        "versions/accepted/v0.2/equations.json",
+        "versions/accepted/v0.2/evidence_registry.json",
+        "versions/accepted/v0.2/external_catalog_registry.json",
+        "versions/accepted/v0.2/input_schema.json",
+        "versions/accepted/v0.2/limitations.json",
+        "versions/accepted/v0.2/mechanisms.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/model_state.json",
+        "versions/accepted/v0.2/observations.json",
+        "versions/accepted/v0.2/output_schema.json",
+        "versions/accepted/v0.2/parameters.json",
+        "versions/accepted/v0.2/predictions.json",
+        "versions/accepted/v0.2/q_update.json",
+        "versions/accepted/v0.2/result_registry.json",
+        "versions/accepted/v0.2/robustness.json",
+        "versions/accepted/v0.2/uncertainty.json",
+        "versions/accepted/v0.3/MODEL_CURRENT.md",
+        "versions/accepted/v0.3/TEST_RESULT.json",
+        "versions/accepted/v0.3/assumptions.json",
+        "versions/accepted/v0.3/benchmarks.json",
+        "versions/accepted/v0.3/constraints.json",
+        "versions/accepted/v0.3/contradictions.json",
+        "versions/accepted/v0.3/domain_of_validity.json",
+        "versions/accepted/v0.3/environment.json",
+        "versions/accepted/v0.3/equations.json",
+        "versions/accepted/v0.3/evidence_registry.json",
+        "versions/accepted/v0.3/external_catalog_registry.json",
+        "versions/accepted/v0.3/input_schema.json",
+        "versions/accepted/v0.3/limitations.json",
+        "versions/accepted/v0.3/mechanisms.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/model_state.json",
+        "versions/accepted/v0.3/observations.json",
+        "versions/accepted/v0.3/output_schema.json",
+        "versions/accepted/v0.3/parameters.json",
+        "versions/accepted/v0.3/predictions.json",
+        "versions/accepted/v0.3/q_update.json",
+        "versions/accepted/v0.3/result_registry.json",
+        "versions/accepted/v0.3/robustness.json",
+        "versions/accepted/v0.3/uncertainty.json"
+      ],
+      "role": "candidate",
+      "sha256": "c484bcf5a62bbbb433219b846290c299e92c5afb165cde7fc84c106fea76c489",
+      "size": 10799
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "6b08976bc6c1844b7321d107829a27f7737d9e3d",
+      "mode": "100644",
+      "path": "candidate/Q042_TEST_RESULT.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "candidate",
+      "sha256": "8b1f7b34405cc90d4e4dcf0dc6d840ad12d59cb27a1750d720caf7b8b0dfc117",
+      "size": 1990
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "6edb9e0c1797e32b4169043aca56e5ffad451962",
+      "mode": "100644",
+      "path": "candidate/candidate_diff.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "candidate",
+      "sha256": "b020362d1f23fae3311babb85460eec5bb196534be916817127ffeb7b9322a07",
+      "size": 1289
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "23e8eff01c60f9ee087f0f73d7da29bebb08dfb1",
+      "mode": "100644",
+      "path": "candidate/candidate_state.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "install_q042_model.py",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "repository_cleanup.py",
+        "tests/programs/model_campaign.py",
+        "tests/programs/q042_model_validate.py"
+      ],
+      "references": [
+        "evidence/sources/Q042/main_book.pdf",
+        "evidence/sources/Q042/q_journal.pdf",
+        "evidence/sources/Q042/q_journal_copy.pdf"
+      ],
+      "role": "candidate",
+      "sha256": "295ee3839157e21baf27d1d790659e3969c34316342b7f638c4b9b3693e12ae0",
+      "size": 2129
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "94e0c8b622d2e77e75fa00179c30ee791eb5f255",
+      "mode": "100644",
+      "path": "candidate/constraints.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "tests/programs/model_campaign.py"
+      ],
+      "references": [],
+      "role": "candidate",
+      "sha256": "7421c3c0dbafcc47060d72ed55e3d8a1176d02e37715ad66ad2617c60609b667",
+      "size": 4896
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "cffef2b2d8c8386d8b71bf78ee596f48425ba8a4",
+      "mode": "100644",
+      "path": "candidate/contradictions.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "candidate/Q042_PROVENANCE.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "tests/programs/model_campaign.py"
+      ],
+      "references": [],
+      "role": "candidate",
+      "sha256": "b1c3b7b899d924e5597bcd79f6ee38e5ddd565310033ff34ce09bba199c8e0a9",
+      "size": 2130
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "f1c6fc769c32198c045ad7d8b6cd9fc802650e94",
+      "mode": "100644",
+      "path": "candidate/mechanisms.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "tests/programs/model_campaign.py"
+      ],
+      "references": [],
+      "role": "candidate",
+      "sha256": "9834b83c9a5b7e56009f6db56fd306011ef19cbceacf39df1bfe9827c41d9b70",
+      "size": 2267
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "fbf07febaa5e893b2156ade102cd15d1d1c87486",
+      "mode": "100644",
+      "path": "candidate/observations.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "tests/programs/model_campaign.py"
+      ],
+      "references": [],
+      "role": "candidate",
+      "sha256": "10dcc6d0253a15772c616f11c75d150961c4264540bb7d411904c615caabad71",
+      "size": 7365
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "fabc5141d66cbccf2cb40d30c8c3a66df7deebed",
+      "mode": "100644",
+      "path": "candidate/predictions.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "tests/programs/model_campaign.py"
+      ],
+      "references": [],
+      "role": "candidate",
+      "sha256": "9261a918b30092ff04e38760e300faf0c34b63669096fb0cccd8c9e03f76f211",
+      "size": 1870
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "438caa42eedb6af3db8a65dac4f7f41f59482bd4",
+      "mode": "100644",
+      "path": "candidate/robustness.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "tests/programs/model_campaign.py"
+      ],
+      "references": [],
+      "role": "candidate",
+      "sha256": "da0acb439902cd7985049273bae3c64782a4c0f1405b9e8d153cc2129ce54d60",
+      "size": 4092
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "3aad2e3867c7e5d33091b6446494d36d7c4cbb5f",
+      "mode": "100644",
+      "path": "changelog/MODEL_CHANGELOG.md",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "changelog",
+      "sha256": "eff7401388cf824a2fc7c8b5f2021120798e8afaccc872636eb7043b4157940f",
+      "size": 5854
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "057365a1913d5a6512452d64128709f6e6a64718",
+      "mode": "100644",
+      "path": "changelog/model_change_registry.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "changelog",
+      "sha256": "7b3583465ba3c3f858cd05b072204dfa5e1245112054f026076bcd6a68c94664",
+      "size": 4775
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "b9084998f110f8c4684a931776c62863f28f8f50",
+      "mode": "100644",
+      "path": "docs/superpowers/plans/2026-10-07-q042-model-sync.md",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [
+        "candidate/Q042_PROVENANCE.json",
+        "tests/programs/model_campaign.py",
+        "tests/programs/q042_model_validate.py"
+      ],
+      "role": "docs",
+      "sha256": "4b15d738506a0f6a33a6f5078657e1d945ade4521c73eaed64d8e68e9802521a",
+      "size": 2878
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "fc96944d5b7eca43575d141162173c4d257f4c56",
+      "mode": "100644",
+      "path": "docs/superpowers/plans/q042-progress.md",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "docs",
+      "sha256": "e35991b974465d2bccf8344cc06c1da5062635608f4213802a46baf8ffe74c28",
+      "size": 2378
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "01560d54936edb9c8d6d0f78c9d751f14d2bd885",
+      "mode": "100644",
+      "path": "evidence/evidence_registry.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "install_q042_model.py",
+        "model/model_manifest.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "repository_cleanup.py",
+        "tests/programs/formal_model_validate.py",
+        "tests/programs/model_campaign.py",
+        "tests/programs/q040_model_validate.py",
+        "tests/programs/q041_model_validate.py",
+        "tests/programs/test_q042_campaign_guard.py",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [
+        "evidence/sources/Q042/functional_cap_certificate.json",
+        "evidence/sources/Q042/ingestion_decision.json",
+        "evidence/sources/Q042/main_book.pdf",
+        "evidence/sources/Q042/q_journal.pdf"
+      ],
+      "role": "evidence",
+      "sha256": "9cc502a51dc3e5d719bef3c1ab323e7715040a77b9d103af92350fcd873894b4",
+      "size": 7459
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "ecc529ede645b406dad3b6b09b022835873ab706",
+      "mode": "100644",
+      "path": "evidence/q_updates/Q039.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "evidence",
+      "sha256": "2dd3a828eebc686241b3d37ebc9522f0128166155c765613b816c15bd11ef670",
+      "size": 1861
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "0e49980916eb29fa3835e784ca5ad75934ae4631",
+      "mode": "100644",
+      "path": "evidence/q_updates/Q040.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "evidence",
+      "sha256": "0e726bb756b8d4d7e3f311e55a8507e86b9d8b7ee38fda82ac12e4bbe3302f66",
+      "size": 669
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "6bcf382555788dd41ac476807f9277198dd25fd4",
+      "mode": "100644",
+      "path": "evidence/q_updates/Q041.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "evidence",
+      "sha256": "7f3598302f59bc1fb116d7b3cd2acb57707fe3062d80b8a9d4f668d61992f280",
+      "size": 2172
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "f885501d78aa81e44b6bafd6029df9f9378e76fd",
+      "mode": "100644",
+      "path": "evidence/q_updates/Q042.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "install_q042_model.py"
+      ],
+      "references": [
+        "evidence/sources/Q042/main_book.pdf",
+        "evidence/sources/Q042/q_journal.pdf",
+        "evidence/sources/Q042/q_journal_copy.pdf"
+      ],
+      "role": "evidence",
+      "sha256": "9dbc5a4cbd227b34a293e59841f84baf494000fb8d349486a642dcc347f08764",
+      "size": 2664
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "9bdaf40778e001d74e32e10a318b65fbb43df8c8",
+      "mode": "100644",
+      "path": "evidence/sources/Q042/functional_cap_certificate.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "evidence/evidence_registry.json",
+        "evidence/sources/Q042/ingestion_decision.json",
+        "tests/programs/q042_model_validate.py",
+        "versions/accepted/v0.4/evidence_registry.json"
+      ],
+      "references": [],
+      "role": "evidence",
+      "sha256": "8d3aa141558d6c561821ee3d4401ef8acc1aa32bc77189162b0cdbb5980d6ba0",
+      "size": 77016
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "88a317cb65b0e32c701393d5189ffff2cee1b8a8",
+      "mode": "100644",
+      "path": "evidence/sources/Q042/functional_cap_checks.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "evidence/sources/Q042/ingestion_decision.json",
+        "tests/programs/q042_model_validate.py"
+      ],
+      "references": [],
+      "role": "evidence",
+      "sha256": "2390be294e70b3fdb330dcf79f8e0292b9608aee75c638ca5dd270601b6224f7",
+      "size": 373
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "9ed43e57e3d73be5463d68bdd55a8dc3951a7f06",
+      "mode": "100644",
+      "path": "evidence/sources/Q042/ingestion_audit.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "evidence/sources/Q042/ingestion_decision.json",
+        "provenance/Q042_PROVENANCE.md",
+        "tests/programs/q042_model_validate.py"
+      ],
+      "references": [
+        "README.md",
+        "evidence/sources/Q042/ingestion_decision.json"
+      ],
+      "role": "evidence",
+      "sha256": "122f78f9ebb5b78ac3eaf891cc0ebc83c41b47e6f7c3d21cf7649d87bd6bbe7b",
+      "size": 242504
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "e978c6d08def7ba6fa3c37ffbea9d6b05c219357",
+      "mode": "100644",
+      "path": "evidence/sources/Q042/ingestion_decision.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "evidence/evidence_registry.json",
+        "evidence/sources/Q042/ingestion_audit.json",
+        "provenance/Q042_PROVENANCE.md",
+        "tests/programs/q042_model_validate.py",
+        "versions/accepted/v0.4/evidence_registry.json"
+      ],
+      "references": [
+        "README.md",
+        "evidence/sources/Q042/functional_cap_certificate.json",
+        "evidence/sources/Q042/functional_cap_checks.json",
+        "evidence/sources/Q042/ingestion_audit.json"
+      ],
+      "role": "evidence",
+      "sha256": "7a5c606fadc974dcad740e481b16c6bf828c3f3baefcf6a132ec7e1385864933",
+      "size": 101289
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "d73ef2433c088e2c582e781d3d54a3238eefea62",
+      "mode": "100644",
+      "path": "evidence/sources/Q042/main_book.pdf",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "candidate/candidate_state.json",
+        "evidence/evidence_registry.json",
+        "evidence/q_updates/Q042.json",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "versions/accepted/v0.4/evidence_registry.json",
+        "versions/accepted/v0.4/model_state.json",
+        "versions/accepted/v0.4/q_update.json"
+      ],
+      "references": [],
+      "role": "evidence",
+      "sha256": "b42e92563bc3769b682b40bbe007d6b58b1b17deec64ac7b45a474fb84e0f6fa",
+      "size": 2363330
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "2e0454ff3623914ebba42cb5b1bc7248a004593b",
+      "mode": "100644",
+      "path": "evidence/sources/Q042/q_journal.pdf",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "candidate/candidate_state.json",
+        "evidence/evidence_registry.json",
+        "evidence/q_updates/Q042.json",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "versions/accepted/v0.4/evidence_registry.json",
+        "versions/accepted/v0.4/model_state.json",
+        "versions/accepted/v0.4/q_update.json"
+      ],
+      "references": [],
+      "role": "evidence",
+      "sha256": "fec49ca2e1f652f55aa1d7bb3ddea3b8daf539eb14bfec782251c19e903ffbac",
+      "size": 2688228
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "b9eeea41150e722d43edbece155c8ef3cb1d5546",
+      "mode": "100644",
+      "path": "evidence/sources/Q042/q_journal_copy.pdf",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "candidate/candidate_state.json",
+        "evidence/q_updates/Q042.json",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "versions/accepted/v0.4/model_state.json",
+        "versions/accepted/v0.4/q_update.json"
+      ],
+      "references": [],
+      "role": "evidence",
+      "sha256": "5b8cd52d71ab43cd6d22c5ae715a0bb97e1e4f48f5f47891d71753c9f43894ec",
+      "size": 2688228
+    },
+    {
+      "canonical_alternative": "release/Q042_INSTALLATION_RESULT.json",
+      "change_class": "INSTALLER_REMOVAL",
+      "classification": "SAFE_DELETE",
+      "delete_gate": {
+        "ACCEPTED_MODEL_PROTECTION": "PASS",
+        "BASELINE_VALIDATION": "PASS",
+        "CANONICAL_ALTERNATIVE": "PASS",
+        "DELETE_CLASSIFICATION": "SAFE_DELETE",
+        "FILE_EXISTS": "PASS",
+        "PROVENANCE_PRESERVED": "PASS_GIT_BLOB_AT_INPUT_HEAD",
+        "REFERENCE_SCAN": "PASS_ATOMIC_COHORT",
+        "SCIENTIFIC_CHANGE": false,
+        "TEST_HISTORY_PROTECTION": "PASS",
+        "VERSION_SNAPSHOT_PROTECTION": "PASS"
+      },
+      "git_blob_sha": "35aa242f32bea332265cff6ac2cf97247a4789f6",
+      "mode": "100644",
+      "path": "install_q042_model.py",
+      "protection_level": "STRUCTURAL",
+      "reason": "Completed one-time installer; verified receipt, immutable target and real Git history retained",
+      "referenced_by": [
+        ".github/workflows/install-q042-model.yml",
+        "INSTALL_Q042.md"
+      ],
+      "references": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        ".github/workflows/install-q042-model.yml",
+        "INSTALL_Q042.md",
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "candidate/candidate_state.json",
+        "evidence/evidence_registry.json",
+        "evidence/q_updates/Q042.json",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "release/Q042_INSTALLATION_RESULT.json",
+        "tests/programs/model_campaign.py",
+        "tests/programs/q042_model_validate.py",
+        "tests/programs/test_q042_campaign_guard.py",
+        "tests/results/Q042_MODEL_UPDATE_TEST_RESULT.json"
+      ],
+      "role": "ROOT",
+      "sha256": "a25ab060a0b9d734d571cfff47b4f88e71187366dbe9f883683c5dc057276dee",
+      "size": 7857174
+    },
+    {
+      "change_class": "DOCUMENTATION_SYNC",
+      "classification": "UPDATE",
+      "git_blob_sha": "3c7f1dc7babebffedbc23cd5e8552aa8ef65e822",
+      "mode": "100644",
+      "path": "model/README.md",
+      "protection_level": "PROTECTED",
+      "reason": "Synchronize only current documentation/descriptive metadata with canonical machine state",
+      "referenced_by": [
+        "repository_cleanup.py"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "8d05e088e5a608e2062b8cb627ad95afaab2600e30312058fbbf9d9b29fd21ce",
+      "size": 663
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "6592010eabf3746400067674b379bb1eeb04b137",
+      "mode": "100644",
+      "path": "model/assumptions.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "model/model_manifest.json"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "3e411847e06e159ad98eb0b998dbcb5a9937d2ead2e6211ca21b0cdaa72ffc44",
+      "size": 3541
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "7fec7ab0f66e77cac43a1ff5928773707f1d3b24",
+      "mode": "100644",
+      "path": "model/benchmarks.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "model/model_manifest.json",
+        "model/result_registry.json",
+        "versions/accepted/v0.2/result_registry.json",
+        "versions/accepted/v0.3/result_registry.json",
+        "versions/accepted/v0.4/result_registry.json"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "687f4a5e450498378815e83936689ea75cfad05ea140dc7533759e0a8183bc9d",
+      "size": 1183
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "4524439c7c2c052defb4d6740892d4e4956a5ca7",
+      "mode": "100644",
+      "path": "model/domain_of_validity.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "model/model_manifest.json",
+        "tests/programs/q041_model_validate.py"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "1b256436d81362f43e5aa58f20d1e894715791c8039176cf1785b6969deddc46",
+      "size": 2938
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "5c9f7ef98c50853a8042cb9bf784715a84e10512",
+      "mode": "100644",
+      "path": "model/environment.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "model/model_manifest.json",
+        "repository_cleanup.py"
+      ],
+      "references": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml"
+      ],
+      "role": "model",
+      "sha256": "36e9f97c789aa36e3ef214538cb114579212b20a312ef6d08161527c46659961",
+      "size": 613
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "d771f0f6bc32e10caa5b2000d500a2862621792a",
+      "mode": "100644",
+      "path": "model/equations.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "model/model_manifest.json",
+        "tests/programs/q040_model_validate.py",
+        "tests/programs/q041_model_validate.py"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "6c02004b0e4fea2fb39ca59d58ae7ffadb9a272062194f4af3c552ce254cf85e",
+      "size": 1801
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "737d84fcdda83514d8b14b1cbe86449e56746969",
+      "mode": "100644",
+      "path": "model/external_catalog_registry.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "bubbleverse_model_program_registry.json",
+        "model/model_manifest.json"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "6bdbf257790dc3a231773995bb867851a8c96b5a2def3fd9beacd1a44cb34726",
+      "size": 1601
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "aaf6f040036d8ec478f4ada0ac442d81befeb67c",
+      "mode": "100644",
+      "path": "model/input_schema.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "model/model_manifest.json",
+        "tests/programs/q040_model_validate.py"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+      "size": 1433
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "7f0c2b73b0010bd5ad7ea1dfdf430fc3d746f620",
+      "mode": "100644",
+      "path": "model/limitations.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "README.md",
+        "model/model_manifest.json",
+        "tests/programs/q041_model_validate.py"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "7b0ea88ac56c412350104a78e399290df2f7e378a62c69dc5615a5c5e967091f",
+      "size": 3646
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "125eb46059104cd736c733203182a3c3ea254732",
+      "mode": "100644",
+      "path": "model/model_manifest.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "repository_cleanup.py"
+      ],
+      "references": [
+        "accepted/constraints.json",
+        "accepted/mechanisms.json",
+        "accepted/model_state.json",
+        "accepted/observations.json",
+        "accepted/robustness.json",
+        "evidence/evidence_registry.json",
+        "model/assumptions.json",
+        "model/benchmarks.json",
+        "model/domain_of_validity.json",
+        "model/environment.json",
+        "model/equations.json",
+        "model/external_catalog_registry.json",
+        "model/input_schema.json",
+        "model/limitations.json",
+        "model/output_schema.json",
+        "model/parameters.json",
+        "model/result_registry.json",
+        "model/uncertainty.json",
+        "release/MODEL_RELEASE_HANDOFF.json"
+      ],
+      "role": "model",
+      "sha256": "57c473ff58d62eda1192961d478a422435129dacac84fb0273a40714f94bef15",
+      "size": 1654
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "e697f7073bd4ba3da43831e152df948e0d3a4fc5",
+      "mode": "100644",
+      "path": "model/output_schema.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "model/model_manifest.json",
+        "repository_cleanup.py"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+      "size": 1572
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "d838d81b03119d7d91f1f230b6f98db87cd6c21e",
+      "mode": "100644",
+      "path": "model/parameters.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "model/model_manifest.json",
+        "tests/programs/q041_model_validate.py"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "c472d8fe1049ff3df6d61253cadb95c027ec093211d93423e165aa4c2980365a",
+      "size": 873
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "11d57be7d9fab23523e87588c4befa44c65ada17",
+      "mode": "100644",
+      "path": "model/result_registry.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "bubbleverse_model_program_registry.json",
+        "model/model_manifest.json"
+      ],
+      "references": [
+        "model/benchmarks.json"
+      ],
+      "role": "model",
+      "sha256": "f5f4f5581f5bc34bbabbcf47aa951e4590b69d1014470b930958344a026df813",
+      "size": 1227
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "4f1f8a62cffd0ec23e40bd27e46fee0257e947ef",
+      "mode": "100644",
+      "path": "model/uncertainty.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "model/model_manifest.json",
+        "tests/programs/q041_model_validate.py"
+      ],
+      "references": [],
+      "role": "model",
+      "sha256": "b0688512382bd89de20de769151d56ee8a4ed7dd9e4ffbb66b8d3fd2d8cb97ac",
+      "size": 3765
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "c4d54255ba203dcb9f056f9e9475c754f722f0c1",
+      "mode": "100644",
+      "path": "provenance/Q039_PROVENANCE.md",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "provenance",
+      "sha256": "68593f288e667366d43380327e46fe8f6f19b9dc0a181b950b96787a5a15eebd",
+      "size": 1178
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "23cb5d511251f65b3d8aa4ccfb3f2bee77213cec",
+      "mode": "100644",
+      "path": "provenance/Q040_PROVENANCE.md",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "provenance",
+      "sha256": "9a5f4ecd2dbc7a2e1eb1633c7215207cc7ac926902f382de47fdbb7d406d1b14",
+      "size": 1324
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "4859dd0a54ba234489e795c8bfc4dbe833562559",
+      "mode": "100644",
+      "path": "provenance/Q041_PROVENANCE.md",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "provenance",
+      "sha256": "018f20791d215c7de0962ed88a788666ad464ecde2091d9021f3f263cd9658ca",
+      "size": 1029
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "49782d55e8ae31024300f80868bc4b986443f71f",
+      "mode": "100644",
+      "path": "provenance/Q042_PROVENANCE.md",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [
+        "candidate/Q042_PROVENANCE.json",
+        "evidence/sources/Q042/ingestion_audit.json",
+        "evidence/sources/Q042/ingestion_decision.json"
+      ],
+      "role": "provenance",
+      "sha256": "fe6b4f20e92fe0b6744e31032844d04aa1448e936bdedbfbba219fbd6bf5092e",
+      "size": 696
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "78810708400dcde12680da636f3b225c7227c139",
+      "mode": "100644",
+      "path": "provenance/archive/Q041_MODEL_UPDATE_REPORT.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "provenance",
+      "sha256": "09dd28a8b264045288adde77978a7bcf0a09d933fc9a22c60371538607d01fc4",
+      "size": 9349
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "fd663cd38a217bcee36cb29062ec5739fc8cc395",
+      "mode": "100644",
+      "path": "provenance/archive/Q041_candidate_diff.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "provenance",
+      "sha256": "7f4bfb8839ec43859ea39c5fede085e887280952e1da32bed967bb0b1ffc099f",
+      "size": 2194
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "77994ca44221db8c7934307d699114dd036fa266",
+      "mode": "100644",
+      "path": "provenance/archive/Q041_candidate_state.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "provenance",
+      "sha256": "a0a1d241bbe6f8baff22b5733af3bbca5988cc3983054c2139ee82d07df7daa8",
+      "size": 1767
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "52f1e3f6abbfd5171018f7256adf5b9215fc8073",
+      "mode": "100644",
+      "path": "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [
+        "README.md",
+        "accepted/MODEL_CURRENT.md",
+        "accepted/model_state.json",
+        "bubbleverse_model_program_registry.json",
+        "candidate/MODEL_CANDIDATE.md",
+        "candidate/candidate_diff.json",
+        "candidate/candidate_state.json",
+        "candidate/constraints.json",
+        "candidate/contradictions.json",
+        "candidate/mechanisms.json",
+        "candidate/observations.json",
+        "candidate/predictions.json",
+        "candidate/robustness.json",
+        "changelog/MODEL_CHANGELOG.md",
+        "changelog/model_change_registry.json",
+        "evidence/evidence_registry.json",
+        "evidence/q_updates/Q039.json",
+        "provenance/Q039_PROVENANCE.md",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "release/MODEL_RELEASE_HANDOFF.md",
+        "tests/TEST_PLAN_CURRENT.md",
+        "tests/preregistration/BV-MODEL-v0.1-CAMPAIGN-0001.json",
+        "tests/programs/model_campaign.py",
+        "tests/results/LOCAL_PREFLIGHT_Q039.json",
+        "tests/test_registry.json"
+      ],
+      "role": "provenance",
+      "sha256": "34120b7bca5c8e7238f879e745e10512aa82db144600e1485efcb0a7f3db12d4",
+      "size": 3201
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "00f515fa2fd362510bcd7c1d55389230b069b610",
+      "mode": "100644",
+      "path": "release/MODEL_RELEASE_HANDOFF.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "INSTALL_Q042.md",
+        "install_q042_model.py",
+        "model/model_manifest.json",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "repository_cleanup.py",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [
+        "evidence/sources/Q042/main_book.pdf",
+        "evidence/sources/Q042/q_journal.pdf",
+        "evidence/sources/Q042/q_journal_copy.pdf",
+        "tests/results/Q042_MODEL_UPDATE_TEST_RESULT.json"
+      ],
+      "role": "release",
+      "sha256": "5163ec40be48ca1c482f7da8507b3cc36698bd7820df22db55d2c73eec6d83b2",
+      "size": 3525
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "6f1d18f6e14a1b2dd526b8b93b2b29cb9dc52ea2",
+      "mode": "100644",
+      "path": "release/MODEL_RELEASE_HANDOFF.md",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "release",
+      "sha256": "f17848fcf39dddf6823daa1195575ae3d3c0965876b41fe73f44b3da3d07a6cf",
+      "size": 340
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "863cce366a034c78659ca14fe5e2b79fb9ccc769",
+      "mode": "100644",
+      "path": "release/Q042_INSTALLATION_RESULT.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "INSTALL_Q042.md",
+        "install_q042_model.py"
+      ],
+      "references": [],
+      "role": "release",
+      "sha256": "0602ca529f1345b09e406382b95daa955c9fe598fda31635c30be01b63c35555",
+      "size": 954
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "c859785172e93c9502f891591153ac9966d901f7",
+      "mode": "100644",
+      "path": "repository_cleanup.py",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/repository-cleanup-current.yml"
+      ],
+      "references": [
+        ".github/workflows/repository-cleanup-current.yml",
+        ".gitignore",
+        "README.md",
+        "accepted/model_state.json",
+        "bubbleverse_model_program_registry.json",
+        "candidate/candidate_state.json",
+        "evidence/evidence_registry.json",
+        "model/README.md",
+        "model/environment.json",
+        "model/model_manifest.json",
+        "model/output_schema.json",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "tests/TEST_PLAN_CURRENT.md",
+        "tests/test_registry.json"
+      ],
+      "role": "ROOT",
+      "sha256": "16b7931356028382d26a27ea051776808aecd22d1a37d772cc3ec06a7363567d",
+      "size": 26398
+    },
+    {
+      "change_class": "DOCUMENTATION_SYNC",
+      "classification": "UPDATE",
+      "git_blob_sha": "cb355170c48ec87a2a3c1a7e85b47d75735a9b82",
+      "mode": "100644",
+      "path": "tests/TEST_PLAN_CURRENT.md",
+      "protection_level": "STRUCTURAL",
+      "reason": "Synchronize only current documentation/descriptive metadata with canonical machine state",
+      "referenced_by": [
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "repository_cleanup.py"
+      ],
+      "references": [],
+      "role": "tests",
+      "sha256": "fe701e87c030e6d43b5f143381eaa9a4eefd8b13d54f158ff9201492991c32ce",
+      "size": 984
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "c76ad008a5e91f372541b33add8e0c9a0203cd6a",
+      "mode": "100644",
+      "path": "tests/preregistration/BV-MODEL-v0.1-CAMPAIGN-0001.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "tests",
+      "sha256": "6d8a5bb30ed3145448aaf39074f625d5d2622961b8477001cf3301a0588e5471",
+      "size": 1101
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "6cc048c099a4cbd2c3c5ea019d2c9f8019310a96",
+      "mode": "100644",
+      "path": "tests/programs/formal_model_validate.py",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "bubbleverse_model_program_registry.json",
+        "tests/programs/model_campaign.py"
+      ],
+      "references": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "accepted/model_state.json",
+        "accepted/observations.json",
+        "bubbleverse_model_program_registry.json",
+        "evidence/evidence_registry.json"
+      ],
+      "role": "tests",
+      "sha256": "b8c908b980913dd709ea3a8a7022dd3f239d1a8551c5e5f831fb9826d97cf48f",
+      "size": 13893
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "0bf347374b89cbdee6c8d5ee15c93670f6b13ce0",
+      "mode": "100644",
+      "path": "tests/programs/model_campaign.py",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml",
+        "bubbleverse_model_program_registry.json",
+        "docs/superpowers/plans/2026-10-07-q042-model-sync.md",
+        "install_q042_model.py",
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "tests/programs/test_q042_campaign_guard.py"
+      ],
+      "references": [
+        "accepted/model_state.json",
+        "candidate/candidate_state.json",
+        "candidate/constraints.json",
+        "candidate/contradictions.json",
+        "candidate/mechanisms.json",
+        "candidate/observations.json",
+        "candidate/predictions.json",
+        "candidate/robustness.json",
+        "evidence/evidence_registry.json",
+        "tests/programs/formal_model_validate.py",
+        "tests/programs/q042_model_validate.py"
+      ],
+      "role": "tests",
+      "sha256": "1b582329595476a73d3af6db4f38dac9eca51056b0d4a80de2aa1bb655888ce2",
+      "size": 10254
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "9cbe2f5a1734f87e0a41784652177e1f5d49f399",
+      "mode": "100644",
+      "path": "tests/programs/q040_model_validate.py",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [
+        "accepted/model_state.json",
+        "accepted/robustness.json",
+        "evidence/evidence_registry.json",
+        "model/equations.json",
+        "model/input_schema.json"
+      ],
+      "role": "tests",
+      "sha256": "17b993c8c91521cce3aeb905f180ae1a87edc6b078282f7d6892062d8bdd30b8",
+      "size": 2074
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "d34cd0b90d648f642a2154ccfae0ef4bbc98c81e",
+      "mode": "100644",
+      "path": "tests/programs/q041_model_validate.py",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [
+        "accepted/contradictions.json",
+        "accepted/model_state.json",
+        "accepted/observations.json",
+        "accepted/predictions.json",
+        "accepted/robustness.json",
+        "evidence/evidence_registry.json",
+        "model/domain_of_validity.json",
+        "model/equations.json",
+        "model/limitations.json",
+        "model/parameters.json",
+        "model/uncertainty.json"
+      ],
+      "role": "tests",
+      "sha256": "0632a478df4d8ae8afc1540c6dce8b728580ce2e55e39623688a4fb077675ab7",
+      "size": 3981
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "e27990287517b2c3406bf39bd6d2a9bda090ba0f",
+      "mode": "100644",
+      "path": "tests/programs/q042_model_validate.py",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        ".github/workflows/install-q042-model.yml",
+        "bubbleverse_model_program_registry.json",
+        "docs/superpowers/plans/2026-10-07-q042-model-sync.md",
+        "install_q042_model.py",
+        "tests/programs/model_campaign.py"
+      ],
+      "references": [
+        "accepted/model_state.json",
+        "candidate/Q042_PROVENANCE.json",
+        "candidate/candidate_state.json",
+        "evidence/sources/Q042/functional_cap_certificate.json",
+        "evidence/sources/Q042/functional_cap_checks.json",
+        "evidence/sources/Q042/ingestion_audit.json",
+        "evidence/sources/Q042/ingestion_decision.json",
+        "versions/accepted/v0.3/mechanisms.json",
+        "versions/accepted/v0.3/predictions.json"
+      ],
+      "role": "tests",
+      "sha256": "02152d685163f7513bf658a767abf06f6846e4693ca907a15f766c6eedc8dfae",
+      "size": 10172
+    },
+    {
+      "classification": "KEEP_ACTIVE",
+      "git_blob_sha": "8132948a4d17b4abb2c8110b67d1402baea79f43",
+      "mode": "100644",
+      "path": "tests/programs/test_q042_campaign_guard.py",
+      "protection_level": "STRUCTURAL",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "install_q042_model.py"
+      ],
+      "references": [
+        "evidence/evidence_registry.json",
+        "tests/programs/model_campaign.py"
+      ],
+      "role": "tests",
+      "sha256": "3ac66fd097dc46f822299e6c1f26e340cd80fb1e7abac1911e43e1493847090f",
+      "size": 2180
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "ecefd721166a56b5d864c5be1e05431e5d44c9f7",
+      "mode": "100644",
+      "path": "tests/results/BV-MODEL-v0.1-CAMPAIGN-0001.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "tests",
+      "sha256": "54a60fd5bcc6688f846a3caa55a477b4f23b292dfc001f63bc96c350e174aa3f",
+      "size": 1910
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "18f61c3547af9cc83a746bd92fd312f78fadb4cb",
+      "mode": "100644",
+      "path": "tests/results/FORMAL-MODEL-v0.1-001.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "tests",
+      "sha256": "add46d2a326995c0a8f74637232a78f6aad5bc2abbb0372dddbf45db6931bdf2",
+      "size": 2671
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "00ccd5c6f7f48bd24413f5ffa427aed60f21a686",
+      "mode": "100644",
+      "path": "tests/results/LOCAL_PREFLIGHT_Q039.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md"
+      ],
+      "references": [],
+      "role": "tests",
+      "sha256": "94fe7fce18d3795e42a78d87886d007a4a172ef449aa2cbabfdb8721db6ca318",
+      "size": 1110
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "545e377528fe60851c9e6f4d21f1269f705c7fdb",
+      "mode": "100644",
+      "path": "tests/results/Q040_MODEL_UPDATE_TEST_RESULT.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "tests",
+      "sha256": "59981279fe433191c0663d1b1673a235fe95e657cd9d7bfaf2914949244581e2",
+      "size": 563
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "8fb811ea02e2e57a7406a61cdb2172c33eea0a59",
+      "mode": "100644",
+      "path": "tests/results/Q041_MODEL_UPDATE_TEST_RESULT.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "tests",
+      "sha256": "0042a262727f1eb04843416711cffd9992aecf196fbe845f3832fc92327d455f",
+      "size": 2073
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "05b72d1452afd8a6abe03da0f290b16e2a469059",
+      "mode": "100644",
+      "path": "tests/results/Q042_MODEL_UPDATE_TEST_RESULT.json",
+      "protection_level": "PROTECTED",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "install_q042_model.py",
+        "release/MODEL_RELEASE_HANDOFF.json"
+      ],
+      "references": [],
+      "role": "tests",
+      "sha256": "963c4808c87223abd690bcfd4b3889c3e48eabfd0a80fa91eaf71bc0488edc79",
+      "size": 5027
+    },
+    {
+      "change_class": "DOCUMENTATION_SYNC",
+      "classification": "UPDATE",
+      "git_blob_sha": "3c7eca566906c027e6132072fd435715ae36d050",
+      "mode": "100644",
+      "path": "tests/test_registry.json",
+      "protection_level": "STRUCTURAL",
+      "reason": "Synchronize only current documentation/descriptive metadata with canonical machine state",
+      "referenced_by": [
+        "provenance/bootstrap/Q039_BOOTSTRAP_MANIFEST.md",
+        "repository_cleanup.py"
+      ],
+      "references": [],
+      "role": "tests",
+      "sha256": "25e3718dce68ed7c44644bbf720ede28d0b4e08ab91bef16d6fb1a6ecb20b4a7",
+      "size": 4270
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "a1edf433aa6920a2cd16c8398165279b7076f46e",
+      "mode": "100644",
+      "path": "versions/accepted/v0.1/MODEL_CURRENT.md",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "95bbc95ba347ecb85353330a17b131775746df5a7d8d6bd4882aedab047afa34",
+      "size": 2655
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "3d2b11a09b19f48769da5de743fb5fd1ac8fca25",
+      "mode": "100644",
+      "path": "versions/accepted/v0.1/constraints.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.1/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "b522a88883e7bc29f7e87db1a121520d18222698ffc8314a4ff6c9724c9c1e33",
+      "size": 2424
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "4b4d6b9b818398e03949f92f7f836d4c63c5f2c2",
+      "mode": "100644",
+      "path": "versions/accepted/v0.1/contradictions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.1/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "8d5efa75722ce6f82b2069be1e2e5ca361c9fd984423ee88b8e121e3600455d1",
+      "size": 1446
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "e864a9aa908367b0089cf6dad29fe6c2669380ee",
+      "mode": "100644",
+      "path": "versions/accepted/v0.1/mechanisms.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.1/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "d678731b120a531216ba601f84e2262eb9b611498fd605a018100fb9a6485a47",
+      "size": 2267
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "18156746192f270047f9d86857dacb37573b497f",
+      "mode": "100644",
+      "path": "versions/accepted/v0.1/model_state.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [
+        "accepted/constraints.json",
+        "accepted/contradictions.json",
+        "accepted/mechanisms.json",
+        "accepted/observations.json",
+        "accepted/predictions.json",
+        "accepted/robustness.json",
+        "versions/accepted/v0.1/constraints.json",
+        "versions/accepted/v0.1/contradictions.json",
+        "versions/accepted/v0.1/mechanisms.json",
+        "versions/accepted/v0.1/observations.json",
+        "versions/accepted/v0.1/predictions.json",
+        "versions/accepted/v0.1/robustness.json"
+      ],
+      "role": "versions",
+      "sha256": "6b1f2387d7bb04b388d43207e54d74940f427ac0be4b1efbf85bee2e9893b0d0",
+      "size": 1224
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "49eff8f850fe37d843d58712e3ecba2f82062012",
+      "mode": "100644",
+      "path": "versions/accepted/v0.1/observations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.1/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "6b2a3d25d4a25b8396524b9b4d12d8f4f1158e9123f89b8c4853c1f26f4cd1fd",
+      "size": 2175
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "98e588258a9f88dc5d367a3ac2ef3789c427181d",
+      "mode": "100644",
+      "path": "versions/accepted/v0.1/predictions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.1/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "c77ab1f1529fdf41e5abb135e7de8007842a19290606a24a8e00ec27576421a7",
+      "size": 1098
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "f18e9e2c3b77856a4bba4f6f22ae07e6321499a3",
+      "mode": "100644",
+      "path": "versions/accepted/v0.1/robustness.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.1/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "897984982a36b96051aeb1e4b8080b5e8f3cefdfa1801ba111a5ce2907aea046",
+      "size": 1699
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "54d18ad20467d61450e6b8a3b1bf882c295b1d1e",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/MODEL_CURRENT.md",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "0698b87585a5e09d724f9fd79660f429df53739881d366790d64665c620c05a0",
+      "size": 681
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "545e377528fe60851c9e6f4d21f1269f705c7fdb",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/TEST_RESULT.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "59981279fe433191c0663d1b1673a235fe95e657cd9d7bfaf2914949244581e2",
+      "size": 563
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "22337984fb207e6933ee86a5f39d0fd906fdf8fd",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/assumptions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "ee9ffb1a6b7845a9ae3f453c620359beb45fe6b0a745d7f19757d06d2be7dc76",
+      "size": 2827
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "a8ef5e04a72cbd8926fe117cd428a018884adb0b",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/benchmarks.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/result_registry.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "7166e700d1dacd2467a4e73223cc50933982604d1e676e8cafd51c6b79b83747",
+      "size": 1183
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "7913e680194d869e8d4503ad19fd944768493e1c",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/constraints.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "f88d8a9c6a85381483b28279db9c9e5dfa52e75bc0021b71fa9ffc0bfafc70e0",
+      "size": 2988
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "bbfaf2836414e11a7544da3fce2b6393cca41ad2",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/contradictions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "ea45d09a4788fcabd627dfba546bdf8cff911ac337dc7eedfd45c79cb7845184",
+      "size": 1484
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "a5287f3f05bd8c07d0c0c185500286b74813c971",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/domain_of_validity.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "691eed611aab61e403def7f2043ae76c6e7be5c25539a8124ee81ca6da330f10",
+      "size": 2090
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "5353baaf6b1a15003b6dae4089b2228a33e83b49",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/environment.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml"
+      ],
+      "role": "versions",
+      "sha256": "e797ddbef2dba8d5ebade5c3143caff29009c98bd30f76ff97843d66ef312923",
+      "size": 624
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "31867b888b7d283e69394f03564844a04309f292",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/equations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "fbda44c815bdc0a7cfd86b206ad85adff632e74748e0087d0330d1f7b456f46a",
+      "size": 1801
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "4029d78848d9a098049840d181f59b99ecae2be2",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/evidence_registry.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "9fde07fc4b36e641e16d2563c79afd1b38f3de1ff7163f68759c8907f647cd83",
+      "size": 2335
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "9e64ea9285815ae6302945ae5536aa7befa601ff",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/external_catalog_registry.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "0dd06f30294fe1cde8364d3ecc0bcf532f7a2eef899e87fc06c0f954f6b17095",
+      "size": 1601
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "aaf6f040036d8ec478f4ada0ac442d81befeb67c",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/input_schema.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+      "size": 1433
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "b54cbfc6ec125df674f6ab3e1fb41dcf96c85b0c",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/limitations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "9a82f50981aa727cca16ba633244c4596cef283fbe50c472e97db2583ff98d66",
+      "size": 1830
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "4cb33b0b405312e2deee7e917f5b63b0410077ba",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/mechanisms.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "7ccebea25da99df54e58b2acf0f523d2221f50cd9a42e1c5a55191e218e51539",
+      "size": 2267
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "cefbe6c8a672dac420a0d614c93b663638ec52f7",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/model_manifest.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [
+        "accepted/constraints.json",
+        "accepted/mechanisms.json",
+        "accepted/model_state.json",
+        "accepted/observations.json",
+        "accepted/robustness.json",
+        "evidence/evidence_registry.json",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "versions/accepted/v0.2/assumptions.json",
+        "versions/accepted/v0.2/benchmarks.json",
+        "versions/accepted/v0.2/constraints.json",
+        "versions/accepted/v0.2/domain_of_validity.json",
+        "versions/accepted/v0.2/environment.json",
+        "versions/accepted/v0.2/equations.json",
+        "versions/accepted/v0.2/evidence_registry.json",
+        "versions/accepted/v0.2/external_catalog_registry.json",
+        "versions/accepted/v0.2/input_schema.json",
+        "versions/accepted/v0.2/limitations.json",
+        "versions/accepted/v0.2/mechanisms.json",
+        "versions/accepted/v0.2/model_state.json",
+        "versions/accepted/v0.2/observations.json",
+        "versions/accepted/v0.2/output_schema.json",
+        "versions/accepted/v0.2/parameters.json",
+        "versions/accepted/v0.2/result_registry.json",
+        "versions/accepted/v0.2/robustness.json",
+        "versions/accepted/v0.2/uncertainty.json"
+      ],
+      "role": "versions",
+      "sha256": "6aa4538464c729405ed3cb9aac55db93c903014885935a052a0d2301e69b95a8",
+      "size": 1494
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "6b37407197a72191f556990eba1f29ffbd61b432",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/model_state.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [
+        "accepted/constraints.json",
+        "accepted/contradictions.json",
+        "accepted/mechanisms.json",
+        "accepted/observations.json",
+        "accepted/predictions.json",
+        "accepted/robustness.json",
+        "versions/accepted/v0.2/constraints.json",
+        "versions/accepted/v0.2/contradictions.json",
+        "versions/accepted/v0.2/mechanisms.json",
+        "versions/accepted/v0.2/observations.json",
+        "versions/accepted/v0.2/predictions.json",
+        "versions/accepted/v0.2/robustness.json"
+      ],
+      "role": "versions",
+      "sha256": "08ee93a7b2fca62e444de678fb19815f1bbc12eb386344372a9df60b2313949c",
+      "size": 1232
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "feb01cf8473324ccd4efbbd01aa2688f1277dc7a",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/observations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "d4d10377f66fa3ee2b27ef5a2cf1943e042fbfd7a3fc024293786f4e7d4b7c85",
+      "size": 3583
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "e697f7073bd4ba3da43831e152df948e0d3a4fc5",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/output_schema.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+      "size": 1572
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "30b1d2b5c98312c3ab98e6b15e3efb2c00fc7942",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/parameters.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "8f0f6bc10f818e354cf718164a06a88ae086c23539759bf49619e15952ad23c6",
+      "size": 873
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "aadd924a176d65ee99b6d127466e288ae93018d6",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/predictions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "e705a76b0bec6d006f2c0fe163ca733f590574d9bc2569166f14708b11d0ff56",
+      "size": 1362
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "0e49980916eb29fa3835e784ca5ad75934ae4631",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/q_update.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "0e726bb756b8d4d7e3f311e55a8507e86b9d8b7ee38fda82ac12e4bbe3302f66",
+      "size": 669
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "a9e88f69a6ec287ef486e86dad9185e151dca73b",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/result_registry.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [
+        "model/benchmarks.json",
+        "versions/accepted/v0.2/benchmarks.json"
+      ],
+      "role": "versions",
+      "sha256": "605999c6ed1add5233c89084e6e263cfe747e057691a7f8f9a3e4f43470372a5",
+      "size": 1227
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "1b583f82b6ee0c7e462a8163ff948d123d409cf1",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/robustness.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json",
+        "versions/accepted/v0.2/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "8892281049391ab98524e2b164be00eeadbf63d0bbfb8233e4b624cb8b566c69",
+      "size": 2249
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "a37ba0518d877fbaa677a26a8c0ad9421dcddcff",
+      "mode": "100644",
+      "path": "versions/accepted/v0.2/uncertainty.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.2/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "1830396f243fbe97e192206390cecda1b2f0e19884b234eb836107f8f60356d1",
+      "size": 2279
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "0df427aff2fbe32508ee9e32ad854557d2e70a35",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/MODEL_CURRENT.md",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "e8f3efa93efe70929e97287c9bfe1c3829ef0c847ce087eaf24c734ffa9035eb",
+      "size": 633
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "8fb811ea02e2e57a7406a61cdb2172c33eea0a59",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/TEST_RESULT.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "0042a262727f1eb04843416711cffd9992aecf196fbe845f3832fc92327d455f",
+      "size": 2073
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "ae93c7d25ba1a21220e4d8dea912c1fbdcf28264",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/assumptions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "1287a5c1ffba973d4734c38eac3ec6723189d5e06e3cc731099325839ea792e6",
+      "size": 2827
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "1571acc401a54fa613de1469b0f7d1e1883c741c",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/benchmarks.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/result_registry.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "45ce20c4241fa6d2296415df0475ed692b7e2ad974353776521675c1506314e5",
+      "size": 1183
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "9695490e253075eeede77928e0413ed47d65a0cf",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/constraints.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "000db55c9b394937396cf8a5dedac2a3bf1fc7e56f47ec756bb567f1a6c88d20",
+      "size": 3933
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "b2e735090a7797f508cd4d9807f99e956fcb1dcc",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/contradictions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "11209c6f74d407ecbac62ef9422788c0aaab249dba868c2bf7df65a74f400364",
+      "size": 1895
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "7f462801b008a35c7e6c0ee3307e50b311b093f4",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/domain_of_validity.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "81722e8588f11559deb2b61db858d9710ae165e26bdc69efd5ceace51609230a",
+      "size": 2440
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "b5c998f04a771da56b749074efd0c39742cde4a9",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/environment.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml"
+      ],
+      "role": "versions",
+      "sha256": "4538649ed4eb6d0484c6ab84d646daabdfc2de5bb90dcd669ad85ac2724f3f24",
+      "size": 624
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "7a823333acd98d7ccfb927af6b314f37fc6f0b09",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/equations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "ded5ef7896360cbee67fc4c0d070389313b8688b95cdab6a09cb85618b7ac2fa",
+      "size": 1801
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "f8b308abf855fa6a53a3f539ffabbfb28c107b0e",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/evidence_registry.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "e8435223166a95cf6ffade81c2b205c3d0db6d7d5c3aa08b56cd47c2b12227bb",
+      "size": 4290
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "1385ceb7312cbd914be72f7e6761e6c6a70d5eb8",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/external_catalog_registry.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "560d10ae3df33bbc103bfb140f7cd0a19559211e1578ec62192b7328933171ea",
+      "size": 1601
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "aaf6f040036d8ec478f4ada0ac442d81befeb67c",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/input_schema.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+      "size": 1433
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "163c690f96ed8987b18bb186fbc5e0da574b2361",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/limitations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "cca466dab9200e1845640437d6dc6b587f71a115b149950a255dc188daa15930",
+      "size": 2476
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "cd5026ba3ccfac629867506833967a75c8727172",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/mechanisms.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "tests/programs/q042_model_validate.py",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "78cae3ed35a5cf8cf07a6ec511bb8132899d981987245397fc1129c8f0188b89",
+      "size": 2267
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "eee49cd4b502f54b39cbe79aefa64cfa90ec440d",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/model_manifest.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [
+        "accepted/constraints.json",
+        "accepted/mechanisms.json",
+        "accepted/model_state.json",
+        "accepted/observations.json",
+        "accepted/robustness.json",
+        "evidence/evidence_registry.json",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "versions/accepted/v0.3/assumptions.json",
+        "versions/accepted/v0.3/benchmarks.json",
+        "versions/accepted/v0.3/constraints.json",
+        "versions/accepted/v0.3/domain_of_validity.json",
+        "versions/accepted/v0.3/environment.json",
+        "versions/accepted/v0.3/equations.json",
+        "versions/accepted/v0.3/evidence_registry.json",
+        "versions/accepted/v0.3/external_catalog_registry.json",
+        "versions/accepted/v0.3/input_schema.json",
+        "versions/accepted/v0.3/limitations.json",
+        "versions/accepted/v0.3/mechanisms.json",
+        "versions/accepted/v0.3/model_state.json",
+        "versions/accepted/v0.3/observations.json",
+        "versions/accepted/v0.3/output_schema.json",
+        "versions/accepted/v0.3/parameters.json",
+        "versions/accepted/v0.3/result_registry.json",
+        "versions/accepted/v0.3/robustness.json",
+        "versions/accepted/v0.3/uncertainty.json"
+      ],
+      "role": "versions",
+      "sha256": "d0fc163f439fb032779212af925aed290f36dc2245f89c60cdaa8d442797df3e",
+      "size": 1548
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "acb39fbe778bf918647ca228618c71fd9199d1c8",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/model_state.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [
+        "accepted/constraints.json",
+        "accepted/contradictions.json",
+        "accepted/mechanisms.json",
+        "accepted/observations.json",
+        "accepted/predictions.json",
+        "accepted/robustness.json",
+        "versions/accepted/v0.3/constraints.json",
+        "versions/accepted/v0.3/contradictions.json",
+        "versions/accepted/v0.3/mechanisms.json",
+        "versions/accepted/v0.3/observations.json",
+        "versions/accepted/v0.3/predictions.json",
+        "versions/accepted/v0.3/robustness.json"
+      ],
+      "role": "versions",
+      "sha256": "9114490ec4a79dffb21db2d76f29384cdb2dea4a9a507007aa3cc238460af196",
+      "size": 2082
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "a6b165e03f47a20561d41807e5f1db31fb111072",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/observations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "105278c56473034afdd06957471d221675f6b34aa49de2dba4f1585e588d5b7b",
+      "size": 5089
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "e697f7073bd4ba3da43831e152df948e0d3a4fc5",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/output_schema.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+      "size": 1572
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "aa50c302abcabef45d153a41084cb4375e693691",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/parameters.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "adc794d649bd04dc5b9de32a5e25e6e7301633f30e900d5c08fadcbe91f967bb",
+      "size": 873
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "91d4a112596a025ab7a01e6f2cb2c90cad9790cf",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/predictions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "tests/programs/q042_model_validate.py",
+        "versions/accepted/v0.3/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "133f85967adb7c5708c6a2ac38afeabc2f14496849be93003865c6eba4b0c0bb",
+      "size": 1658
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "6bcf382555788dd41ac476807f9277198dd25fd4",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/q_update.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "7f3598302f59bc1fb116d7b3cd2acb57707fe3062d80b8a9d4f668d61992f280",
+      "size": 2172
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "cdef24c679b67d8ca701db9f22f02c0b579be8f6",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/result_registry.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [
+        "model/benchmarks.json",
+        "versions/accepted/v0.3/benchmarks.json"
+      ],
+      "role": "versions",
+      "sha256": "fa9468fc1c3b7810d785747e5c1bec6abf7784929c726cba63e9cfffdbe90e6a",
+      "size": 1227
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "8693078d3522ccc899928f5e371a8f54170297be",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/robustness.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json",
+        "versions/accepted/v0.3/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "9ead493522d4e9dbe73c7453d82a83cc1b57ea441278419c16d5a9c66346b411",
+      "size": 3190
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "ece98dec6de43519f63f2aabc0d622ee44783714",
+      "mode": "100644",
+      "path": "versions/accepted/v0.3/uncertainty.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "candidate/Q042_PROVENANCE.json",
+        "versions/accepted/v0.3/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "a502d870bcea5f40f73fdefbe6b4f66fe86d2eae34c678c3c8144e9f6392a051",
+      "size": 2718
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "923bd66c5594503c6bc716ff234d3d278cebe42d",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/MODEL_CURRENT.md",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "versions",
+      "sha256": "08757a8c55b911ae057d8e51dc6d848c67039250079a5bb8bdf13a1614f90a7a",
+      "size": 309
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "05b72d1452afd8a6abe03da0f290b16e2a469059",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/TEST_RESULT.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [],
+      "role": "versions",
+      "sha256": "963c4808c87223abd690bcfd4b3889c3e48eabfd0a80fa91eaf71bc0488edc79",
+      "size": 5027
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "6592010eabf3746400067674b379bb1eeb04b137",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/assumptions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "3e411847e06e159ad98eb0b998dbcb5a9937d2ead2e6211ca21b0cdaa72ffc44",
+      "size": 3541
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "7fec7ab0f66e77cac43a1ff5928773707f1d3b24",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/benchmarks.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json",
+        "versions/accepted/v0.4/result_registry.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "687f4a5e450498378815e83936689ea75cfad05ea140dc7533759e0a8183bc9d",
+      "size": 1183
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "94e0c8b622d2e77e75fa00179c30ee791eb5f255",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/constraints.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "7421c3c0dbafcc47060d72ed55e3d8a1176d02e37715ad66ad2617c60609b667",
+      "size": 4896
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "cffef2b2d8c8386d8b71bf78ee596f48425ba8a4",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/contradictions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "b1c3b7b899d924e5597bcd79f6ee38e5ddd565310033ff34ce09bba199c8e0a9",
+      "size": 2130
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "4524439c7c2c052defb4d6740892d4e4956a5ca7",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/domain_of_validity.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "1b256436d81362f43e5aa58f20d1e894715791c8039176cf1785b6969deddc46",
+      "size": 2938
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "5c9f7ef98c50853a8042cb9bf784715a84e10512",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/environment.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [
+        ".github/workflows/00-bubbleverse-model-start-public.yml"
+      ],
+      "role": "versions",
+      "sha256": "36e9f97c789aa36e3ef214538cb114579212b20a312ef6d08161527c46659961",
+      "size": 613
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "d771f0f6bc32e10caa5b2000d500a2862621792a",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/equations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "6c02004b0e4fea2fb39ca59d58ae7ffadb9a272062194f4af3c552ce254cf85e",
+      "size": 1801
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "01560d54936edb9c8d6d0f78c9d751f14d2bd885",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/evidence_registry.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [
+        "evidence/sources/Q042/functional_cap_certificate.json",
+        "evidence/sources/Q042/ingestion_decision.json",
+        "evidence/sources/Q042/main_book.pdf",
+        "evidence/sources/Q042/q_journal.pdf"
+      ],
+      "role": "versions",
+      "sha256": "9cc502a51dc3e5d719bef3c1ab323e7715040a77b9d103af92350fcd873894b4",
+      "size": 7459
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "737d84fcdda83514d8b14b1cbe86449e56746969",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/external_catalog_registry.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "6bdbf257790dc3a231773995bb867851a8c96b5a2def3fd9beacd1a44cb34726",
+      "size": 1601
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "aaf6f040036d8ec478f4ada0ac442d81befeb67c",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/input_schema.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+      "size": 1433
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "7f0c2b73b0010bd5ad7ea1dfdf430fc3d746f620",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/limitations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "7b0ea88ac56c412350104a78e399290df2f7e378a62c69dc5615a5c5e967091f",
+      "size": 3646
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "f1c6fc769c32198c045ad7d8b6cd9fc802650e94",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/mechanisms.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "9834b83c9a5b7e56009f6db56fd306011ef19cbceacf39df1bfe9827c41d9b70",
+      "size": 2267
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "125eb46059104cd736c733203182a3c3ea254732",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/model_manifest.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [
+        "accepted/constraints.json",
+        "accepted/mechanisms.json",
+        "accepted/model_state.json",
+        "accepted/observations.json",
+        "accepted/robustness.json",
+        "evidence/evidence_registry.json",
+        "release/MODEL_RELEASE_HANDOFF.json",
+        "versions/accepted/v0.4/assumptions.json",
+        "versions/accepted/v0.4/benchmarks.json",
+        "versions/accepted/v0.4/constraints.json",
+        "versions/accepted/v0.4/domain_of_validity.json",
+        "versions/accepted/v0.4/environment.json",
+        "versions/accepted/v0.4/equations.json",
+        "versions/accepted/v0.4/evidence_registry.json",
+        "versions/accepted/v0.4/external_catalog_registry.json",
+        "versions/accepted/v0.4/input_schema.json",
+        "versions/accepted/v0.4/limitations.json",
+        "versions/accepted/v0.4/mechanisms.json",
+        "versions/accepted/v0.4/model_state.json",
+        "versions/accepted/v0.4/observations.json",
+        "versions/accepted/v0.4/output_schema.json",
+        "versions/accepted/v0.4/parameters.json",
+        "versions/accepted/v0.4/result_registry.json",
+        "versions/accepted/v0.4/robustness.json",
+        "versions/accepted/v0.4/uncertainty.json"
+      ],
+      "role": "versions",
+      "sha256": "57c473ff58d62eda1192961d478a422435129dacac84fb0273a40714f94bef15",
+      "size": 1654
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "77d69522e687d654d9d413eadd16a1b59f70b5e3",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/model_state.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [
+        "accepted/constraints.json",
+        "accepted/contradictions.json",
+        "accepted/mechanisms.json",
+        "accepted/observations.json",
+        "accepted/predictions.json",
+        "accepted/robustness.json",
+        "evidence/sources/Q042/main_book.pdf",
+        "evidence/sources/Q042/q_journal.pdf",
+        "evidence/sources/Q042/q_journal_copy.pdf",
+        "versions/accepted/v0.4/constraints.json",
+        "versions/accepted/v0.4/contradictions.json",
+        "versions/accepted/v0.4/mechanisms.json",
+        "versions/accepted/v0.4/observations.json",
+        "versions/accepted/v0.4/predictions.json",
+        "versions/accepted/v0.4/robustness.json"
+      ],
+      "role": "versions",
+      "sha256": "e54306ac67384055a18f3b57cb792dc40d2696489ae69626bf76d6b824a3a41a",
+      "size": 2485
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "fbf07febaa5e893b2156ade102cd15d1d1c87486",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/observations.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "10dcc6d0253a15772c616f11c75d150961c4264540bb7d411904c615caabad71",
+      "size": 7365
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "e697f7073bd4ba3da43831e152df948e0d3a4fc5",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/output_schema.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+      "size": 1572
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "d838d81b03119d7d91f1f230b6f98db87cd6c21e",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/parameters.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "c472d8fe1049ff3df6d61253cadb95c027ec093211d93423e165aa4c2980365a",
+      "size": 873
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "fabc5141d66cbccf2cb40d30c8c3a66df7deebed",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/predictions.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "9261a918b30092ff04e38760e300faf0c34b63669096fb0cccd8c9e03f76f211",
+      "size": 1870
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "f885501d78aa81e44b6bafd6029df9f9378e76fd",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/q_update.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [],
+      "references": [
+        "evidence/sources/Q042/main_book.pdf",
+        "evidence/sources/Q042/q_journal.pdf",
+        "evidence/sources/Q042/q_journal_copy.pdf"
+      ],
+      "role": "versions",
+      "sha256": "9dbc5a4cbd227b34a293e59841f84baf494000fb8d349486a642dcc347f08764",
+      "size": 2664
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "11d57be7d9fab23523e87588c4befa44c65ada17",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/result_registry.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [
+        "model/benchmarks.json",
+        "versions/accepted/v0.4/benchmarks.json"
+      ],
+      "role": "versions",
+      "sha256": "f5f4f5581f5bc34bbabbcf47aa951e4590b69d1014470b930958344a026df813",
+      "size": 1227
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "438caa42eedb6af3db8a65dac4f7f41f59482bd4",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/robustness.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json",
+        "versions/accepted/v0.4/model_state.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "da0acb439902cd7985049273bae3c64782a4c0f1405b9e8d153cc2129ce54d60",
+      "size": 4092
+    },
+    {
+      "classification": "KEEP_HISTORICAL",
+      "git_blob_sha": "4f1f8a62cffd0ec23e40bd27e46fee0257e947ef",
+      "mode": "100644",
+      "path": "versions/accepted/v0.4/uncertainty.json",
+      "protection_level": "IMMUTABLE_SNAPSHOT",
+      "reason": "Registered structural/scientific role retained",
+      "referenced_by": [
+        "versions/accepted/v0.4/model_manifest.json"
+      ],
+      "references": [],
+      "role": "versions",
+      "sha256": "b0688512382bd89de20de769151d56ee8a4ed7dd9e4ffbb66b8d3fd2d8cb97ac",
+      "size": 3765
+    }
+  ],
+  "review_required": [],
+  "schema_version": 2,
+  "scientific_change": false,
+  "target_repo": "https://github.com/Morfindien/bubbleverse-model",
+  "unknown": [],
+  "updated_files": [
+    "model/README.md",
+    "tests/TEST_PLAN_CURRENT.md",
+    "tests/test_registry.json"
+  ]
+}
