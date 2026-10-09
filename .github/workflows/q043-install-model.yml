@@ -126,13 +126,17 @@ jobs:
               require(initial_head == remote_head(), 'main moved since checkout; rerun on current main')
               require(ancestor(BASE, initial_head), 'Required baseline is not an ancestor')
               already_current = ancestor(PACKAGE, initial_head)
-              allowed = {INSTALLER, str(BUNDLE)}
+              guide = Path('Q043_INSTALL_ACTIONS.md')
+              if guide.exists():
+                  require(hashlib.sha256(guide.read_bytes()).hexdigest() == '618460bfec8ded316408f4df635236e5a3c657d4e57a1c047a2f06b720373d41',
+                          'Installation guide bytes differ from the delivered guide')
+              allowed = {INSTALLER, str(BUNDLE), str(guide)}
               if already_current:
                   require(changed(PACKAGE,initial_head) <= allowed | {RECEIPT},
                           'Model differs from the reviewed Q043 package; needs a fresh review')
               else:
                   require(changed(BASE,initial_head) <= allowed,
-                          'Model baseline changed; only the installer and bundle uploads are permitted')
+                          'Model baseline changed; only the installer, bundle and verified guide uploads are permitted')
                   run('git','config','user.name','github-actions[bot]')
                   run('git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
                   run('git','merge','--no-ff','--no-commit',PACKAGE)
