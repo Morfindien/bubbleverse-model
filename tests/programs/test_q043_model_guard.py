@@ -2,6 +2,7 @@
 import importlib.util
 import json
 import unittest
+from guard_fixture import isolated_repository
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -18,25 +19,28 @@ def validator():
 
 
 class Q043Guards(unittest.TestCase):
+    def setUp(self):
+        self.root=isolated_repository(self,ROOT)
+
     def result(self):
-        accepted = json.loads((ROOT/'accepted/model_state.json').read_text())
-        return validator().run_tests(ROOT, candidate=accepted['current_q'] == 'Q042')
+        accepted = json.loads((self.root/'accepted/model_state.json').read_text())
+        return validator().run_tests(self.root, candidate=accepted['current_q'] == 'Q042')
 
     def mutate(self, relative, change, gate):
-        pending = json.loads((ROOT/'candidate/candidate_state.json').read_text())['current_q']
+        pending = json.loads((self.root/'candidate/candidate_state.json').read_text())['current_q']
         if int(pending[1:]) > 43:
             relative = relative.replace('candidate/formal/', 'versions/accepted/v0.5/').replace('candidate/evidence/', 'evidence/')
             if relative in ['candidate/robustness.json','candidate/predictions.json']:
                 relative = relative.replace('candidate/', 'versions/accepted/v0.5/')
             if relative == 'candidate/candidate_state.json':
                 relative = 'versions/accepted/v0.5/model_state.json' if gate == 'Q043_QUALIFICATION_GATE' else 'provenance/archive/Q043/candidate_state.json'
-        elif json.loads((ROOT/'accepted/model_state.json').read_text())['current_q'] == 'Q043':
+        elif json.loads((self.root/'accepted/model_state.json').read_text())['current_q'] == 'Q043':
             relative = relative.replace('candidate/formal/', 'model/').replace('candidate/evidence/', 'evidence/')
             if relative in ['candidate/robustness.json','candidate/predictions.json']:
                 relative = relative.replace('candidate/', 'accepted/')
             if relative == 'candidate/candidate_state.json' and gate == 'Q043_QUALIFICATION_GATE':
                 relative = 'accepted/model_state.json'
-        path = ROOT / relative
+        path = self.root / relative
         original = path.read_bytes()
         try:
             data = json.loads(original)
@@ -92,15 +96,15 @@ class Q043Guards(unittest.TestCase):
 
     def test_tests_do_not_write_scientific_state(self):
         import hashlib
-        before = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for b in ['candidate', 'accepted', 'model', 'evidence', 'versions', 'release'] for p in (ROOT/b).rglob('*') if p.is_file()}
+        before = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for b in ['candidate', 'accepted', 'model', 'evidence', 'versions', 'release'] for p in (self.root/b).rglob('*') if p.is_file()}
         self.result()
         after = {p: hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in before}
         self.assertEqual(before, after)
 
     def test_mutating_live_and_frozen_state_together_is_rejected(self):
-        if json.loads((ROOT/'accepted/model_state.json').read_text())['current_q'] != 'Q043':
+        if json.loads((self.root/'accepted/model_state.json').read_text())['current_q'] not in ['Q043','Q044']:
             self.skipTest('Snapshot hash check applies to projected or promoted Q043')
-        paths = [ROOT/'accepted/model_state.json', ROOT/'versions/accepted/v0.5/model_state.json']
+        paths = [self.root/'accepted/model_state.json', self.root/'versions/accepted/v0.5/model_state.json']
         original = [p.read_bytes() for p in paths]
         try:
             for p, data in zip(paths,original):

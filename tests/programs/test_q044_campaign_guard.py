@@ -2,6 +2,7 @@ import importlib.util
 import json
 import tempfile
 import unittest
+from guard_fixture import isolated_repository
 from pathlib import Path
 from q043_model_validate import run_tests
 
@@ -21,11 +22,12 @@ class Q044CampaignGuard(unittest.TestCase):
             self.assertEqual(rows['Q043_SEQUENCE_GATE']['status'],'PASS',rows['Q043_SEQUENCE_GATE'])
 
     def test_historical_snapshot_survives_live_q044_state(self):
-        path=ROOT/'accepted/model_state.json';before=path.read_bytes()
+        root=isolated_repository(self,ROOT)
+        path=root/'accepted/model_state.json';before=path.read_bytes()
         try:
             state=json.loads(before);state.update(current_q='Q044',q_access_end='Q044',accepted_model_version='v0.6',model_revision='R000006')
             path.write_text(json.dumps(state))
-            rows={r['id']:r for r in run_tests(ROOT)['tests']}
+            rows={r['id']:r for r in run_tests(root)['tests']}
             self.assertEqual(rows['Q043_ACCEPTED_IMMUTABILITY_GATE']['status'],'PASS',rows['Q043_ACCEPTED_IMMUTABILITY_GATE'])
         finally:path.write_bytes(before)
 
