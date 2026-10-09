@@ -1,0 +1,28 @@
+Q044 | Closed research journal | 9 October 2026
+Research question and classification
+Q-ID: Q044. STATUS: CLOSED — epistemically inconclusive. Original scientific classifier: NOT_AVAILABLE.
+Under the frozen Q041 matched-data and prior contract, does the CamSpec–HiLLiPoP implementation difference
+materially alter H0 constraints or the n_scf = 3 EDE-versus-Lambda-CDM conclusion once numerical prediction
+accuracy and posterior convergence are qualified?
+ANSWER: No qualified downstream cosmological classification is available. The scoped component analysis
+yields a conditional mathematical result, not a validated H0 or model-preference inference.
+Methods, evidence and quantitative result
+A support-specific adjoint real-arithmetic enclosure was obtained under the inherited hydrogen source rails and
+fixed knots. UPPER: 138 supports (3195–3332), native-plus hull [0.70676532823050475, 0.7067869701940579].
+LOWER: 3002 supports (331–3332), hull [0.0016297839913017342, 0.0018091545475532051]. The received
+checks included 64 rational fixtures, 18 native-C diagnostics and 17 V29 recovery matches. The current
+publication edit did not rerun those diagnostics.
+Limitations: conditional source rails, correlated source inputs, incomplete physical histories, unqualified
+native-binary rounding, no validated prediction/likelihood error budget and no converged original 20-cell matrix.
+No cosmological parameter benchmark changes.
+Scientific state, negative results and provenance
+The representation/storage problem is partially cleared. The historical plus-versus-minus optical-depth functional
+difference remains physically unqualified. No physical hypothesis is falsified or newly confirmed. Q041 V19
+non-convergence and Q042 incomplete feasibility remain numerical limitations rather than physical verdicts.
+Accepted remote model: v0.5 / R000005 through Q043, following technical installation run 37927147545. Q044
+local evidence has not been remotely admitted. No repository write, workflow dispatch or production restart was
+authorized by the supplied Motor 14 revision.
+Provenance: R-Q044-SPLINE-ADJOINT-001; R-Q044-SPLINE-INGESTION-002; I-Q044-SPLINE-CHECKS-001;
+I-Q044-CONTRACT-001; I-Q044-M14-REPOSITORY-001. Repository pins: model
+dd7575e7146382957d206e87274ca6246c2587b7; execution 72cf9e92fc794c122f593a77b6a555e6e97f6a2e;
+native 5a131c91d657dd9a7c6364cc45b038710f8d0d97.

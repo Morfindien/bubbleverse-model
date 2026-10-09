@@ -94,8 +94,27 @@
       "id": "ROB-Q043-LOCAL-VALIDATION-001",
       "q_introduced": "Q043",
       "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-COMPONENT",
+        "EVD-Q044-CHECKS"
+      ],
+      "finding": "Scoped component acceptance does not certify uniform native-binary rounding, complete physical histories, CMB predictions, likelihood accuracy or converged posteriors. Received 64 rational fixtures and 18 native-C diagnostics are reported historical tests; they were not rerun in this update.",
+      "id": "ROB-Q044-COMPONENT-001",
+      "q_introduced": "Q044",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-INGESTION"
+      ],
+      "finding": "Epistemic closure leaves physical predictions and contradictions open. The native-plus versus cubic-minus distinction is not a measured physical bias or physical falsification. Production remains unauthorized.",
+      "id": "ROB-Q044-CLOSURE-001",
+      "q_introduced": "Q044",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q043",
+  "q_access_end": "Q044",
   "schema_version": 1
 }

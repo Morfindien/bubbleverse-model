@@ -1,0 +1,13 @@
+{
+  "accepted_model_version": "v0.5",
+  "calculator_dependency_profile": "PYTHON_STANDARD_LIBRARY_ONLY",
+  "model_repository": "Morfindien/bubbleverse-model",
+  "model_repository_commit": "dd7575e7146382957d206e87274ca6246c2587b7",
+  "model_repository_commit_semantics": "q043_candidate_input_commit",
+  "public_workflow": ".github/workflows/00-bubbleverse-model-start-public.yml",
+  "runtime_family": "Python 3.11 GitHub Actions",
+  "schema_version": 1,
+  "source_bubbleverse_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+  "source_repository": "Morfindien/Bubbleverse",
+  "validated_runtime": "3.12.14"
+}

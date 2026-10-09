@@ -23,7 +23,14 @@ class Q043Guards(unittest.TestCase):
         return validator().run_tests(ROOT, candidate=accepted['current_q'] == 'Q042')
 
     def mutate(self, relative, change, gate):
-        if json.loads((ROOT/'accepted/model_state.json').read_text())['current_q'] == 'Q043':
+        pending = json.loads((ROOT/'candidate/candidate_state.json').read_text())['current_q']
+        if int(pending[1:]) > 43:
+            relative = relative.replace('candidate/formal/', 'versions/accepted/v0.5/').replace('candidate/evidence/', 'evidence/')
+            if relative in ['candidate/robustness.json','candidate/predictions.json']:
+                relative = relative.replace('candidate/', 'versions/accepted/v0.5/')
+            if relative == 'candidate/candidate_state.json':
+                relative = 'versions/accepted/v0.5/model_state.json' if gate == 'Q043_QUALIFICATION_GATE' else 'provenance/archive/Q043/candidate_state.json'
+        elif json.loads((ROOT/'accepted/model_state.json').read_text())['current_q'] == 'Q043':
             relative = relative.replace('candidate/formal/', 'model/').replace('candidate/evidence/', 'evidence/')
             if relative in ['candidate/robustness.json','candidate/predictions.json']:
                 relative = relative.replace('candidate/', 'accepted/')

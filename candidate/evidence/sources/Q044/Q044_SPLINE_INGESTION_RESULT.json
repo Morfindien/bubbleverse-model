@@ -1,0 +1,294 @@
+{
+  "q": "Q044",
+  "case_id": "NOT DOCUMENTED",
+  "exact_question": "Under the original Q041 matched-data and prior contract, does the CamSpec\u2013HiLLiPoP implementation difference produce a material difference in H0 constraints or the n_scf = 3 EDE-versus-\u039bCDM conclusion once numerical prediction accuracy and posterior convergence are qualified, or is the downstream result equivalent or conditional on the external dataset combination?",
+  "result_id": "R-Q044-SPLINE-INGESTION-002",
+  "date_utc": "2026-10-09T16:53:38.281918+00:00",
+  "date_local": "2026-10-09T18:53:38.281918+02:00",
+  "status": "QUESTION RESOLVED",
+  "closure_type": "EPISTEMIC_CLOSURE_AT_DOCUMENTED_EVIDENCE_BOUNDARY",
+  "final_answer": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+  "physical_portability_verdict": "NOT ESTABLISHED",
+  "scientific_contract_class": "NOT_AVAILABLE",
+  "selected_next_engine": "BUBBLEVERSE \u2014 MOTOR 14: AUTONOMOUS UNIVERSE REVISION",
+  "exactly_one_next_engine": true,
+  "received_result_id": "R-Q044-SPLINE-ADJOINT-001",
+  "received_component_status": "ACCEPTED_WITH_SCOPE_LIMITS",
+  "received_reported_validation_status": "PASS_COMPONENT_SCOPE_ONLY",
+  "independent_program_or_C_replay_rerun_in_this_ingestion": false,
+  "audit": {
+    "inputs": [
+      {
+        "file": "q042_interval_v29.py",
+        "bytes": 14617,
+        "sha256": "558592e20969dbfc063570f2224c36b4e8d7dca37db20009cb5dd2a993e0d160",
+        "matches_declared_hash": true
+      },
+      {
+        "file": "Q044_NATIVE_REPLAY.c",
+        "bytes": 4306,
+        "sha256": "56c92da28d7200c8b9b88dff8f1fe7e9a0b1dc21cc464d17e39b4fe48eef3641",
+        "matches_declared_hash": true
+      },
+      {
+        "file": "Q044_SPLINE_VALIDATE.py",
+        "bytes": 3890,
+        "sha256": "5363a1b7ce437c0c87f195b9cbd7d58685d0f785da22236e09337503d1918d67",
+        "matches_declared_hash": true
+      },
+      {
+        "file": "Q044_SPLINE_ADJOINT.py",
+        "bytes": 9603,
+        "sha256": "bbd93f22e0da56be9c74fb109e60ddd1dab1f31a76641ab47e2a735d232147fd",
+        "matches_declared_hash": true
+      },
+      {
+        "file": "Q044_SPLINE_INPUTS.json",
+        "bytes": 314958,
+        "sha256": "f26da12d32eb40c2ae7a8ff618180bb3e495b5f3d183a16f65c09ff97f98fa0c",
+        "matches_declared_hash": true
+      },
+      {
+        "file": "Q044_MATHEMATICS_HANDOFF.md",
+        "bytes": 21899,
+        "sha256": "07d481bc6b7ff18b171b781f882058fe4054ebbfdc4021442df9b3100aa4fadc",
+        "matches_declared_hash": "no separate declared hash"
+      },
+      {
+        "file": "Q044_V29_RECOVERY.json",
+        "bytes": 3145,
+        "sha256": "46f66fba8405a1d9ddf8a08911a8b404ca24586aa88d9a2b4f1e47e52275212c",
+        "matches_declared_hash": true
+      },
+      {
+        "file": "Q044_SPLINE_RESULT.json",
+        "bytes": 2446688,
+        "sha256": "25638274b3898d97f63d1ecbb06739797396659d02270ab80e37d4bdf5b2354e",
+        "matches_declared_hash": true
+      },
+      {
+        "file": "Q044_SAMLET_JOURNAL.md",
+        "bytes": 218195,
+        "sha256": "0034b4dc90a7e99da1eb99733a74331414755c8b482f37eed9a4c4fdc91a85c3",
+        "matches_declared_hash": "no separate declared hash"
+      },
+      {
+        "file": "Q044_SPLINE_CHECKS.json",
+        "bytes": 7425,
+        "sha256": "5300cd20e40c2ff43ee48ec1a0ad1b9ef487639bd2aa2fae7d1ce9911861948f",
+        "matches_declared_hash": true
+      }
+    ],
+    "source_register_count": 91,
+    "source_register_unique_ids": 91,
+    "embedded_json_count": 6,
+    "preserved_prior_tail_sha256": "e9363e8a236a955ab1fe258e27c09c4484771540bb19948f838d271c1b2bc26d",
+    "trials": [
+      {
+        "trial": "UPPER",
+        "candidate_count": 138,
+        "exact_support_coverage": true,
+        "hull_aggregation_matches": true,
+        "bounds": [
+          0.7067653282305048,
+          0.7067869701940579
+        ],
+        "width": 2.164196355314285e-05
+      },
+      {
+        "trial": "LOWER",
+        "candidate_count": 3002,
+        "exact_support_coverage": true,
+        "hull_aggregation_matches": true,
+        "bounds": [
+          0.0016297839913017342,
+          0.0018091545475532051
+        ],
+        "width": 0.00017937055625147098
+      }
+    ]
+  },
+  "new_source_records": [
+    {
+      "source_id": "I-Q044-SPLINE-INGESTION-002",
+      "type": "BUBBLEVERSE INTERNAL RESULT INGESTION / QUALIFICATION ANALYSIS",
+      "title": "Support-adjoint component ingestion and epistemic Q044 closure",
+      "authors": "Bubbleverse Result Ingestion & Routing Engine",
+      "year": 2026,
+      "date_utc": "2026-10-09T16:53:38.281918+00:00",
+      "result_id": "R-Q044-SPLINE-INGESTION-002",
+      "received_result": "R-Q044-SPLINE-ADJOINT-001",
+      "supports": "Input identities, support/hull aggregation, journal continuity, scoped acceptance and insufficient-evidence closure. No new cosmological computation."
+    },
+    {
+      "source_id": "I-Q044-ENDPOINT-CONTRACT-AUDIT-001",
+      "type": "BUBBLEVERSE INTERNAL SOURCE AUDIT OF PINNED TECHNICAL CONTRACTS",
+      "title": "Frozen decision rules and available endpoint/reference qualification audit",
+      "authors": "Bubbleverse Result Ingestion & Routing Engine; underlying project source authors NOT DOCUMENTED",
+      "year": 2026,
+      "date_utc": "2026-10-09T16:53:38.281918+00:00",
+      "repository": "Morfindien/Bubbleverse",
+      "commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+      "file": "Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+      "sha256": "a20cc688457114503bd06351a9137297bf44136eaf075956fff0d4d50e40f43d",
+      "underlying_sources": [
+        {
+          "role": "science",
+          "url": "https://github.com/Morfindien/Bubbleverse/blob/72cf9e92fc794c122f593a77b6a555e6e97f6a2e/q042_production_spec_v1.json",
+          "git_blob_sha": "9b70e5c9d62adcf43f8f48f85b7ffb628c1dd84b",
+          "sha256": "41e4d8f026933f64dbe41048f894002f479ba2b504432b33dc155f4dfe71378c"
+        },
+        {
+          "role": "design",
+          "url": "https://github.com/Morfindien/Bubbleverse/blob/72cf9e92fc794c122f593a77b6a555e6e97f6a2e/q042_treatment_design_motor.md",
+          "git_blob_sha": "bdde4eee62f8e14fe8125b2ed37ef253e9a3865c",
+          "sha256": "409e31572137da8210c7cd360878edea03a7afa2c9d2f50dd87d2fc61ac45bd9"
+        },
+        {
+          "role": "readiness",
+          "url": "https://github.com/Morfindien/Bubbleverse/blob/72cf9e92fc794c122f593a77b6a555e6e97f6a2e/q042_treatment_readiness.json",
+          "git_blob_sha": "a10a182906efc268ceb62640eb794ad8c9e102a4",
+          "sha256": "319d4d6fd058e095871bd6f9fed2f4b8abda0556b8485ff88587cc65cb67e507"
+        },
+        {
+          "role": "context_contract",
+          "url": "https://github.com/Morfindien/Bubbleverse/blob/72cf9e92fc794c122f593a77b6a555e6e97f6a2e/q042_context_contract_v29.json",
+          "git_blob_sha": "3b560832a1b193dd5a68c1d97cc54c3ce157bdea",
+          "sha256": "383216c96027a481c3aa649af83d5ee4f79fa79710e27b5199c1a2c8f6772b1e"
+        }
+      ],
+      "supports": "Original thresholds present; the inspected science/readiness/context contracts do not provide a qualified end-to-end error bridge. No exhaustive absence theorem."
+    }
+  ],
+  "new_claim_to_source_map": {
+    "C-Q044-I06": {
+      "claim": "Accept intact all-support component with its original conditions.",
+      "sources": [
+        "I-Q044-SPLINE-INGESTION-002",
+        "I-Q044-SPLINE-ADJOINT-001",
+        "I-Q044-SPLINE-CHECKS-001"
+      ]
+    },
+    "C-Q044-I07": {
+      "claim": "No qualified scalar-to-full-prediction/likelihood/posterior bridge was recovered in the inspected contracts.",
+      "sources": [
+        "I-Q044-ENDPOINT-CONTRACT-AUDIT-001",
+        "I-Q044-CONTRACT-001",
+        "I-Q044-SPLINE-ADJOINT-001"
+      ]
+    },
+    "C-Q044-I08": {
+      "claim": "Close Q044 epistemically INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION; original scientific class NOT_AVAILABLE.",
+      "sources": [
+        "I-Q044-SPLINE-INGESTION-002",
+        "I-Q044-ENDPOINT-CONTRACT-AUDIT-001",
+        "I-Q044-SPLINE-ADJOINT-001"
+      ]
+    },
+    "C-Q044-I09": {
+      "claim": "Physical predictions remain OPEN; no model preference, equivalence or physics failure is inferred.",
+      "sources": [
+        "I-Q044-SPLINE-INGESTION-002",
+        "I-Q044-CONTRACT-001",
+        "I-Q044-SPLINE-ADJOINT-001"
+      ]
+    },
+    "C-Q044-I10": {
+      "claim": "Repeating the completed component cannot supply missing end-to-end evidence; future qualified inference requires new evidence.",
+      "sources": [
+        "I-Q044-SPLINE-INGESTION-002",
+        "I-Q044-ENDPOINT-CONTRACT-AUDIT-001"
+      ]
+    }
+  },
+  "missing_critical_evidence": [
+    "independently valid matched full-history/prediction/likelihood references",
+    "applicable full error envelope including native arithmetic and history/grid accuracy",
+    "quantified prediction-to-likelihood/posterior/model-preference bridge over relevant inference domain",
+    "complete qualified and converged original20-cell downstream comparison"
+  ],
+  "journal_actions": {
+    "KEEP": [
+      "all inherited sources and claim maps",
+      "Q035\u2013Q043 histories",
+      "original matched-data/prior contract and decision rules",
+      "C-036-IMPL OPEN_NARROWED",
+      "all open physical predictions",
+      "rejected/superseded paths"
+    ],
+    "ADD": [
+      "scoped ingestion and endpoint audit",
+      "documented insufficient-evidence closure"
+    ],
+    "UPDATE": [
+      "Q044 workflow CONTINUES -> CLOSED INCONCLUSIVE",
+      "current destination -> MOTOR14"
+    ],
+    "UNCHANGED": [
+      "physical model",
+      "H0 parameters",
+      "EDE/LCDM preference",
+      "physical truth status",
+      "production authorization"
+    ]
+  },
+  "completion_gate": {
+    "epistemic_documentation": "PASS_INCONCLUSIVE_AT_CURRENT_EVIDENCE_BOUNDARY",
+    "numerical_final_result": "UNRESOLVED",
+    "physical_materiality_equivalence_or_dataset_conditional_verdict": "NOT_AVAILABLE",
+    "basis": "Current evidence supports a conditional component, not any physical alternative. No executable-ready qualified endpoint bridge was recovered in inspected material. Repeated generic mathematics/design/tests cannot supply missing evidence objects. Closure does not exclude future new evidence or numerical methods."
+  },
+  "material_reversal_test": {
+    "repeat_hull_or_component_tests": "NO materially informative scientific change expected",
+    "guess_accuracy_tolerance_or_use_sampler_setting": "INVALID",
+    "new_independently_qualified_reference_and_full_inference": "YES could change future scientific answer; future new-evidence study with its own prerequisites"
+  },
+  "source_research": {
+    "performed": true,
+    "kind": "TARGETED_READ_ONLY_PRIMARY_TECHNICAL_SOURCE_AUDIT",
+    "new_external_cosmological_evidence": false,
+    "retrieved_files": [
+      "science",
+      "design",
+      "readiness",
+      "context_contract"
+    ],
+    "current_execution_head": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+    "exhaustive_global_search_claimed": false
+  },
+  "anomaly_status": {
+    "C-036-IMPL": "OPEN_NARROWED",
+    "native_plus_vs_cubic_minus": "PRESERVED KNOWN TECHNICAL DISTINCTION",
+    "new_scientific_anomaly": false
+  },
+  "recommended_profile": {
+    "model_mode": "strong reasoning in Work/Codex; GPT-6.1 Sol High if selectable",
+    "reasoning": "High",
+    "classes": [
+      "C",
+      "E"
+    ],
+    "actual_exact_model_variant": "NOT VERIFIED",
+    "exposed_candidates": [
+      "GPT-6.1 Sol",
+      "GPT-6 Astra",
+      "GPT-6 Sol",
+      "GPT-5.6 Sol",
+      "GPT-6 Luna"
+    ],
+    "fallback": "strongest equivalent available reasoning setup",
+    "tools": [
+      "complete journal and files",
+      "read-only GitHub if materially useful"
+    ],
+    "model_switch_claimed": false,
+    "subagents_used": false
+  },
+  "production_restart_authorized": false,
+  "workflow_dispatch_performed": false,
+  "repository_mutation_performed": false,
+  "new_numerical_production_performed": false,
+  "new_program_id": null,
+  "canonical_Q_registration": "NOT PERFORMED",
+  "journal_scope": "entire supplied cumulative journal preserved; separately absent global master material remains NOT RECOVERED"
+}

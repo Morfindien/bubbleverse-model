@@ -1,0 +1,92 @@
+{
+  "equations": [
+    {
+      "assumption_refs": [],
+      "expression": "delta = a - b",
+      "id": "EQ-DIFFERENCE",
+      "implementation_operation": "difference",
+      "name": "Signed difference",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "assumption_refs": [
+        "ASSUMP-INDEPENDENT-GAUSSIAN"
+      ],
+      "expression": "N_sigma = abs(a-b) / sqrt(sigma_a^2 + sigma_b^2)",
+      "id": "EQ-GAUSSIAN-TENSION",
+      "implementation_operation": "gaussian-tension",
+      "interpretation_limit": "A large N_sigma is not by itself a detection of new physics.",
+      "name": "Simple independent-Gaussian marginal tension",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "assumption_refs": [],
+      "expression": "percent_change = 100 * (to - from) / from",
+      "id": "EQ-PERCENT-SHIFT",
+      "implementation_operation": "percent-shift",
+      "name": "Relative percent change",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "assumption_refs": [
+        "ASSUMP-IVW-COMPATIBILITY"
+      ],
+      "expression": "w_i=1/sigma_i^2; mean=sum(w_i*x_i)/sum(w_i); sigma_mean=sqrt(1/sum(w_i))",
+      "id": "EQ-IVW-MEAN",
+      "implementation_operation": "weighted-mean",
+      "name": "Inverse-variance weighted mean",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "assumption_refs": [
+        "ASSUMP-Q040-NATIVE-NUISANCE",
+        "ASSUMP-Q040-COMMON-CMB"
+      ],
+      "expression": "L_i^CMB(s,A_Planck) = integral L_i(d_i | s,A_Planck,eta_i) pi_i(eta_i) d eta_i",
+      "id": "EQ-Q040-CMB-NATIVE-MARGINAL",
+      "implementation_operation": null,
+      "name": "Native-nuisance marginalized common CMB-space likelihood",
+      "q_introduced": "Q040",
+      "status": "SCIENTIFICALLY_DEFINED_NOT_PUBLICLY_IMPLEMENTED"
+    },
+    {
+      "assumption_refs": [
+        "ASSUMP-Q044-FIXED-KNOTS",
+        "ASSUMP-Q044-SOURCE-RAILS",
+        "ASSUMP-Q044-REAL-ARITHMETIC"
+      ],
+      "domain_ref": "DOM-Q044-SUPPORT-COMPONENT",
+      "evidence_refs": [
+        "EVD-Q044-JOURNAL",
+        "EVD-Q044-COMPONENT"
+      ],
+      "expression": "T_N(y)=-(t_N^T y+c_N^T A_N^{-1}B_N y)=a_N^T y; A_N^T lambda_N=c_N; a_N=-t_N-B_N^T lambda_N",
+      "id": "EQ-Q044-SUPPORT-ADJOINT",
+      "implementation_operation": null,
+      "implementation_status": "ARCHIVED_COMPONENT_PROGRAM_ONLY_NOT_PUBLIC_OPERATION",
+      "name": "Support-specific native-plus spline adjoint",
+      "q_introduced": "Q044",
+      "source": "evidence/sources/Q044/cumulative_journal_authorized.md#j-044-21",
+      "symbols": {
+        "A": "symmetric tridiagonal spline system in Mpc",
+        "B": "linear ordinate-to-curvature RHS map",
+        "T": "dimensionless native-plus real-arithmetic functional",
+        "a": "support-specific weights in Mpc",
+        "c": "sum of adjacent h^3/24 in Mpc^3",
+        "h": "negative adjacent knot spacing in Mpc",
+        "lambda": "adjoint in Mpc^2",
+        "t": "sum of adjacent h/2 in Mpc",
+        "x": "conformal time in Mpc",
+        "y": "dkappa in Mpc^-1"
+      },
+      "tests": [
+        "SOURCE_HASH_GATE",
+        "COMPONENT_AGGREGATION_GATE"
+      ],
+      "units": "dimensionless",
+      "validity": "Fixed knots and inherited source boxes only; not a physical optical-depth reference or inference likelihood."
+    }
+  ],
+  "q_access_end": "Q044",
+  "schema_version": 1
+}

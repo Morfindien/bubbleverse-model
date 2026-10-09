@@ -1,0 +1,30 @@
+Technical supplement | Q044
+Scope of the mathematical result
+Q044 is CLOSED with an inconclusive / insufficient-scientific-qualification outcome for the original matched-data
+CamSpec–HiLLiPoP H0/EDE question. The accepted local result R-Q044-SPLINE-ADJOINT-001 bounds a
+support-specific real-arithmetic functional under inherited source rails, fixed knots and stated source witnesses. It
+does not certify uniform native-binary rounding, a complete physical reionization history, or a
+reference-to-likelihood error envelope.
+UPPER: 138 supports, indices 3195–3332; conditional native-plus enclosure [0.70676532823050475,
+0.7067869701940579], width 2.1641963553142851e-05. LOWER: 3002 supports, indices 331–3332; enclosure
+[0.0016297839913017342, 0.0018091545475532051], width 0.00017937055625147098. These are
+dimensionless component bounds, not measured Thomson optical depths. Physically correlated source boxes
+can make independent-box extrema unattainable.
+The received evidence reports 64 rational fixtures, 18 native-C diagnostics and 17 recovered V29 members;
+these tests were not independently rerun for this publication update. Finite diagnostics do not constitute a uniform
+arithmetic theorem.
+Qualification and inference firewall
+The frozen CLASS_EDE optical-depth integration uses a historical plus curvature correction whereas the ordinary
+cubic integral uses minus. The functional difference alone does not establish the physical bias of the frozen
+executable. The necessary dependency chain is complete-history qualification, physical reference accuracy, CMB
+TT/TE/EE accuracy, native likelihood transport, then converged posterior/model-decision qualification.
+Q041 V19 produced no documented complete converged chains (0/32); Q042 did not qualify the original 20-cell
+inference matrix. Technical non-convergence is not physical falsification. Q043 subsequent repository installation
+establishes accepted v0.5/R000005 through Q043; Q044 is not remotely admitted. No production restart is
+authorized.
+Reproducibility identifiers and next controlled test
+Model repository: Morfindien/bubbleverse-model, inspected pin
+dd7575e7146382957d206e87274ca6246c2587b7. Execution repository: Morfindien/Bubbleverse, pin
+72cf9e92fc794c122f593a77b6a555e6e97f6a2e. Native CLASS_EDE pin
+5a131c91d657dd9a7c6364cc45b038710f8d0d97. Installation run 37927147545 is a technical installation receipt,
+not independent cosmological evidence.

@@ -100,8 +100,18 @@
       "q_introduced": "Q042",
       "statement": "Unchanged V31 reruns, more time alone and retrospective cap increases are not a sufficient qualified repair. A materially different design requires a new-case or explicit reopening decision; none is authorized here.",
       "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-INGESTION",
+        "EVD-Q044-ENDPOINT-AUDIT"
+      ],
+      "id": "CON-Q044-NO-DOWNSTREAM-001",
+      "q_introduced": "Q044",
+      "statement": "Q044 closes epistemically INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION. Neither material H0/EDE portability, equivalence nor dataset-conditional behavior is established. The original scientific classifier is NOT_AVAILABLE.",
+      "status": "UNRESOLVED"
     }
   ],
-  "q_access_end": "Q043",
+  "q_access_end": "Q044",
   "schema_version": 1
 }

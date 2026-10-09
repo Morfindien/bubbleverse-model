@@ -1,0 +1,262 @@
+{
+  "q": "Q044",
+  "validation_id": "I-Q044-SPLINE-CHECKS-001",
+  "status": "PASS_COMPONENT_SCOPE_ONLY",
+  "rational_checks": {
+    "status": "PASS",
+    "exact_rational_fixture_cases": 64,
+    "quadratic_native_plus": "10/3",
+    "quadratic_cubic_minus": "8/3",
+    "max_fixture_enclosure_width": 5.450715434562881e-10,
+    "seed": 44044
+  },
+  "native_replay_cases": [
+    {
+      "trial": "UPPER",
+      "support": 3195,
+      "ordinate": "midpoint",
+      "native_binary64_value": 0.7067702302869019,
+      "exact_real_enclosure": [
+        0.706770227058416,
+        0.7067702335153888
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "UPPER",
+      "support": 3195,
+      "ordinate": "min_sign_vertex",
+      "native_binary64_value": 0.7067653314589223,
+      "exact_real_enclosure": [
+        0.7067653282305048,
+        0.7067653346873355
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "UPPER",
+      "support": 3195,
+      "ordinate": "max_sign_vertex",
+      "native_binary64_value": 0.7067751291148854,
+      "exact_real_enclosure": [
+        0.706775125886327,
+        0.706775132343442
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "UPPER",
+      "support": 3264,
+      "ordinate": "midpoint",
+      "native_binary64_value": 0.7067740209394868,
+      "exact_real_enclosure": [
+        0.7067740176073753,
+        0.706774024271599
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "UPPER",
+      "support": 3264,
+      "ordinate": "min_sign_vertex",
+      "native_binary64_value": 0.7067664405809764,
+      "exact_real_enclosure": [
+        0.7067664372489798,
+        0.7067664439129685
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "UPPER",
+      "support": 3264,
+      "ordinate": "max_sign_vertex",
+      "native_binary64_value": 0.7067816012980009,
+      "exact_real_enclosure": [
+        0.7067815979657709,
+        0.7067816046302294
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "UPPER",
+      "support": 3332,
+      "ordinate": "midpoint",
+      "native_binary64_value": 0.7067767167049177,
+      "exact_real_enclosure": [
+        0.7067767132696101,
+        0.7067767201402261
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "UPPER",
+      "support": 3332,
+      "ordinate": "min_sign_vertex",
+      "native_binary64_value": 0.7067664666512575,
+      "exact_real_enclosure": [
+        0.7067664632161171,
+        0.7067664700863944
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "UPPER",
+      "support": 3332,
+      "ordinate": "max_sign_vertex",
+      "native_binary64_value": 0.7067869667585818,
+      "exact_real_enclosure": [
+        0.7067869633231032,
+        0.7067869701940579
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "LOWER",
+      "support": 331,
+      "ordinate": "midpoint",
+      "native_binary64_value": 0.001632849923461031,
+      "exact_real_enclosure": [
+        0.001632849923460715,
+        0.0016328499234613473
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "LOWER",
+      "support": 331,
+      "ordinate": "min_sign_vertex",
+      "native_binary64_value": 0.001629783991302047,
+      "exact_real_enclosure": [
+        0.0016297839913017342,
+        0.0016297839913023636
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "LOWER",
+      "support": 331,
+      "ordinate": "max_sign_vertex",
+      "native_binary64_value": 0.0016359158556200134,
+      "exact_real_enclosure": [
+        0.0016359158556196961,
+        0.0016359158556203308
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "LOWER",
+      "support": 1832,
+      "ordinate": "midpoint",
+      "native_binary64_value": 0.0016674755675304233,
+      "exact_real_enclosure": [
+        0.00166747556751033,
+        0.0016674755675505132
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "LOWER",
+      "support": 1832,
+      "ordinate": "min_sign_vertex",
+      "native_binary64_value": 0.0016305307638574723,
+      "exact_real_enclosure": [
+        0.0016305307638540825,
+        0.0016305307638608724
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "LOWER",
+      "support": 1832,
+      "ordinate": "max_sign_vertex",
+      "native_binary64_value": 0.0017044203712033661,
+      "exact_real_enclosure": [
+        0.0017044203711665783,
+        0.001704420371240154
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "LOWER",
+      "support": 3332,
+      "ordinate": "midpoint",
+      "native_binary64_value": 0.0017200582652731,
+      "exact_real_enclosure": [
+        0.0017200582647072524,
+        0.001720058265838943
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "LOWER",
+      "support": 3332,
+      "ordinate": "min_sign_vertex",
+      "native_binary64_value": 0.0016309619841122737,
+      "exact_real_enclosure": [
+        0.0016309619840998775,
+        0.0016309619841246815
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    },
+    {
+      "trial": "LOWER",
+      "support": 3332,
+      "ordinate": "max_sign_vertex",
+      "native_binary64_value": 0.001809154546433919,
+      "exact_real_enclosure": [
+        0.0018091545453146275,
+        0.0018091545475532051
+      ],
+      "outside_enclosure_distance": 0.0,
+      "diagnostic_tolerance": 1e-09
+    }
+  ],
+  "max_native_replay_gap": 0.0,
+  "prefix_weight_change_max": 0.13888819537170602,
+  "support_coverage": [
+    {
+      "trial": "UPPER",
+      "expected": 138,
+      "actual": 138,
+      "exact_index_set_match": true
+    },
+    {
+      "trial": "LOWER",
+      "expected": 3002,
+      "actual": 3002,
+      "exact_index_set_match": true
+    }
+  ],
+  "compile_flags": "-shared -fPIC -O0 -fno-fast-math -ffp-contract=off",
+  "compiler": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "hashes": {
+    "Q044_SPLINE_INPUTS.json": "f26da12d32eb40c2ae7a8ff618180bb3e495b5f3d183a16f65c09ff97f98fa0c",
+    "Q044_SPLINE_ADJOINT.py": "bbd93f22e0da56be9c74fb109e60ddd1dab1f31a76641ab47e2a735d232147fd",
+    "Q044_NATIVE_REPLAY.c": "56c92da28d7200c8b9b88dff8f1fe7e9a0b1dc21cc464d17e39b4fe48eef3641",
+    "q042_interval_v29.py": "558592e20969dbfc063570f2224c36b4e8d7dca37db20009cb5dd2a993e0d160",
+    "Q044_SPLINE_RESULT.json": "25638274b3898d97f63d1ecbb06739797396659d02270ab80e37d4bdf5b2354e"
+  },
+  "limitations": [
+    "native floating execution diagnostic is not a proved uniform binary64 rounding-error enclosure",
+    "V31 full raw node histories absent",
+    "no physical downstream inference qualification",
+    "no production authorized or executed"
+  ]
+}

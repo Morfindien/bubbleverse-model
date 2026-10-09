@@ -1,0 +1,108 @@
+{
+  "assumptions": [
+    {
+      "id": "ASSUMP-INDEPENDENT-GAUSSIAN",
+      "scope": "gaussian-tension calculation only",
+      "statement": "The simple tension calculator treats the supplied marginal uncertainties as independent Gaussian standard deviations.",
+      "status": "EXPLICIT_COMPUTATIONAL_ASSUMPTION"
+    },
+    {
+      "id": "ASSUMP-IVW-COMPATIBILITY",
+      "scope": "weighted-mean calculation only",
+      "statement": "Inverse-variance weighting is meaningful only when the supplied estimates are scientifically suitable to combine and the supplied sigmas represent the relevant uncertainties.",
+      "status": "EXPLICIT_COMPUTATIONAL_ASSUMPTION"
+    },
+    {
+      "id": "ASSUMP-H0-INFERENCE-CHAIN-SEPARATION",
+      "source_constraint_id": "CON-H0-001",
+      "statement": "The three active H0 benchmarks are distinct inference chains and must not be treated as identical raw measurements.",
+      "status": "ACCEPTED_MODEL_CONSTRAINT"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-CMB",
+      "id": "ASSUMP-CMB-BENCH-FLAT-LCDM",
+      "statement": "The accepted combined CMB H0 benchmark is conditional on the flat LCDM inference route recorded in accepted observations.",
+      "status": "BENCHMARK_CONDITION"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-BAOBBN",
+      "id": "ASSUMP-BAOBBN-BENCH-FLAT-LCDM",
+      "statement": "The accepted DESI DR2 + BBN H0 benchmark is conditional on the flat LCDM route recorded in accepted observations.",
+      "status": "BENCHMARK_CONDITION"
+    },
+    {
+      "id": "ASSUMP-EDE-LIKELIHOOD-DEPENDENCE",
+      "source_mechanism_id": "MECH-EDE-N3-001",
+      "statement": "High-H0 n=3 EDE viability is dataset-, likelihood-, basin-, and implementation-dependent in the accepted state.",
+      "status": "ACCEPTED_MODEL_CONSTRAINT"
+    },
+    {
+      "id": "ASSUMP-Q039-LOCKED-SCOPE",
+      "source_constraint_ids": [
+        "CON-Q039-001",
+        "CON-Q039-002"
+      ],
+      "statement": "Q039 conclusions apply to the tested locked interventions and do not establish a unique physical cause for the CamSpec-HiLLiPoP discrepancy.",
+      "status": "ACCEPTED_MODEL_SCOPE"
+    },
+    {
+      "id": "ASSUMP-Q040-NATIVE-NUISANCE",
+      "scope": "EQ-Q040-CMB-NATIVE-MARGINAL only",
+      "statement": "Each likelihood retains its own native data, covariance, foreground model, nuisance coordinates and nuisance prior in a separate marginalization integral.",
+      "status": "ACCEPTED_MODEL_SCOPE"
+    },
+    {
+      "id": "ASSUMP-Q040-COMMON-CMB",
+      "scope": "EQ-Q040-CMB-NATIVE-MARGINAL only",
+      "statement": "The common object is the physical CMB TT spectrum plus A_Planck; the likelihoods are not multiplied or subtracted into a synthetic likelihood.",
+      "status": "ACCEPTED_MODEL_SCOPE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "ASSUMP-Q042-FROZEN-INTERVAL-POLICY",
+      "q_introduced": "Q042",
+      "scope": "OBS-Q042-CAP-POLICY-001 only",
+      "statement": "The necessary cap failure assumes the frozen real-table source extension, no-exotic/fixed-helium/reio_camb domain, global rails and append-only unchanged retained intervals. It concerns existing absolutely continuous solutions satisfying that frozen RHS almost everywhere; it proves neither original switched-RHS existence/uniqueness nor original executable/upstream accuracy.",
+      "status": "ACCEPTED_MODEL_SCOPE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-JOURNAL",
+        "EVD-Q044-COMPONENT"
+      ],
+      "id": "ASSUMP-Q044-FIXED-KNOTS",
+      "q_introduced": "Q044",
+      "scope": "EQ-Q044-SUPPORT-ADJOINT",
+      "statement": "Use fixed decoded binary64 conformal-time knots, descending nonzero spacings, support-specific N=max(3,j) for j>0 and frozen native boundary derivatives; do not reuse common final-prefix weights.",
+      "status": "ACCEPTED_MODEL_SCOPE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-COMPONENT",
+        "EVD-Q044-INGESTION"
+      ],
+      "id": "ASSUMP-Q044-SOURCE-RAILS",
+      "q_introduced": "Q044",
+      "scope": "OBS-Q044-SUPPORT-HULLS-001",
+      "statement": "Inherited conditional global hydrogen rails, fixed residual helium, source-write semantics and recovered interval witnesses apply. Independent node boxes ignore physical correlations and do not prove trajectory attainability.",
+      "status": "ACCEPTED_MODEL_SCOPE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-JOURNAL",
+        "EVD-Q044-CHECKS"
+      ],
+      "id": "ASSUMP-Q044-REAL-ARITHMETIC",
+      "q_introduced": "Q044",
+      "scope": "EQ-Q044-SUPPORT-ADJOINT",
+      "statement": "The target is the exact-real native-plus functional at decoded fixed inputs, under the stated outward elementary-operation and MPFR source-enclosure assumptions; it is not a uniform original-executable binary64 error theorem.",
+      "status": "ACCEPTED_MODEL_SCOPE"
+    }
+  ],
+  "q_access_end": "Q044",
+  "schema_version": 1
+}

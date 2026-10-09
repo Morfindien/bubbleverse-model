@@ -1,0 +1,22 @@
+{
+  "authoritative_result_id": "R-Q044-SPLINE-INGESTION-002",
+  "authorized_range": "Q001-Q044",
+  "component_result_id": "R-Q044-SPLINE-ADJOINT-001",
+  "historical_state_is_current_state": false,
+  "model_input_commit": "dd7575e7146382957d206e87274ca6246c2587b7",
+  "new_benchmarks": [],
+  "new_equations": [
+    "EQ-Q044-SUPPORT-ADJOINT"
+  ],
+  "new_parameters": [],
+  "new_public_calculations": [],
+  "physical_model_change": false,
+  "production_restart_authorized": false,
+  "q_id": "Q044",
+  "result": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+  "scientific_contract_class": "NOT_AVAILABLE",
+  "source_manuscript_commit": null,
+  "source_repository_inspection_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+  "source_repository_modified": false,
+  "update_class": "MULTI_LAYER_UPDATE"
+}

@@ -1,0 +1,1921 @@
+0.42
+BUBBLEVERSE
+Main Book
+Building a Model of the Universe from Observation
+Chapters 1–6
+Glossary and references
+BUBBLEVERSE MAIN BOOK
+0.42
+Contents
+Preface............................................................................................................................................................. 3
+Chapter 1 What We Actually Observe....................................................................................................5
+Chapter 2 Measuring the Present Expansion Rate...........................................................................13
+Chapter 3 The Hubble Tensi...................................................................................................................18
+Chapter 4 Testing Early-Universe Solutions.......................................................................................23
+Chapter 5 What the Model Explains and What Remains Unknown............................................31
+Chapter 6 Experimental and Computational Record.......................................................................34
+Glossary.........................................................................................................................................................49
+References.................................................................................................................................................... 54
+BUBBLEVERSE MAIN BOOK
+0.42
+Preface
+Cosmology is often presented as a sequence of established facts: the Universe expands,
+distant galaxies recede, the cosmic microwave background records an earlier thermal
+state, and a small set of parameters describes the large-scale evolution of the cosmos. That
+presentation is useful, but it can hide a more fundamental scientific question: how much of
+this picture follows directly from observation, how much depends on inference, and where
+do the assumptions enter?
+This book approaches cosmology by rebuilding the argument from the evidence outward.
+The aim is not to begin with a preferred model and search for observations that support it.
+Instead, the investigation asks what can actually be established, which conclusions depend
+on a particular theoretical framework, which measurements are genuinely independent,
+and which uncertainties remain capable of changing the interpretation.
+This distinction matters because cosmological observations rarely measure the quantities
+of greatest theoretical interest directly. A redshift is observed. An angle is observed. A flux
+is observed. A spectrum is observed. A telescope records photons. A spectrograph records
+wavelengths. An interferometer records changes in optical path length. From these signals,
+distances, expansion rates, densities, ages, masses, and model parameters are
+reconstructed through layers of calibration, physical modelling, and statistical inference.
+Beyond those reconstructions lie still deeper interpretations: dark matter, dark energy, the
+hot early Universe, inflation, and the cosmological framework used to connect them.
+Precision does not make every quantity equally direct.
+A scientifically useful reconstruction of the Universe must therefore preserve the boundary
+between what an instrument measures and what a model allows us to conclude from that
+measurement. A successful model may provide an extraordinarily accurate description of
+observations without automatically becoming the final physical explanation. Conversely,
+the absence of a directly identified microscopic mechanism does not erase the observations
+that motivated the model.
+The investigation begins with the empirical ground beneath those questions. It first asks
+what is actually observed, then moves outward toward reconstructed expansion,
+disagreements among inference chains, proposed explanations, and the computational
+tests used to examine them.
+The working rule throughout the book is simple:
+Start with the signal. Preserve the measurement. Make every inferential step visible.
+How to Read This Book
+This book is organized in layers.
+BUBBLEVERSE MAIN BOOK
+0.42
+The main chapters tell the scientific story. They are intended to be readable without
+professional training in cosmology, statistics, or scientific computing. Technical ideas are
+introduced when they become necessary, but the reader is not expected to understand the
+internal Bubbleverse research machinery in order to follow the scientific argument.
+The Glossary provides short definitions of the recurring scientific, statistical,
+computational, and Bubbleverse-specific terms used throughout the book.
+The technical appendices preserve the deeper mathematical, numerical, computational,
+and provenance material behind the main narrative. They are intended for readers who
+want to inspect the machinery rather than merely follow the scientific story.
+The Bubbleverse-Model Repository appendix documents how the accepted scientific state is
+stored, versioned, tested, promoted, and traced inside the dedicated Bubbleverse model
+repository.
+The final appendix contains the Bubbleverse Q-Journals. These journals preserve the
+chronological research record behind the book: what was asked, what was tested, what
+failed, what changed, and why the investigation moved to the next question.
+The guiding distinction throughout remains the same: observation, reconstruction,
+inference, and physical interpretation are connected, but they are not the same thing.
+Figure 1. The evidential layers used throughout the book. Calibration and physical modelling connect observed signals to
+reconstructed quantities, parameter inference and physical interpretation. The layers are connected, but they are not
+interchangeable. Schematic based on the Preface and Chapter 1.
+.
+BUBBLEVERSE MAIN BOOK
+0.42
+Chapter 1 — What We Actually Observe
+The Observable Universe
+Astronomy does not provide a view of the universe from outside. Every empirical
+statement begins inside one causally accessible region: the observable universe.
+Light and other signals require time to travel. There is therefore a limit to the region from
+which information can have reached us during cosmic history. Observations can constrain
+the contents, geometry, dynamics, and past evolution of this observable region, but they do
+not directly determine the size or topology of the universe as a whole.
+This distinction rules out several claims that observation alone cannot establish. We do not
+directly know whether the entire universe is finite or infinite. We do not observe a physical
+outer edge. We do not observe a spatial centre from which cosmic expansion proceeds. Nor
+can observations inside our causal region determine everything that may exist beyond it.
+The universe and the observable universe must therefore not be treated as synonyms.
+Within the region we can observe, however, the evidence is extraordinarily rich.
+Matter is distributed hierarchically across an enormous range of scales. We observe
+planets, stars, stellar remnants, gas, dust, galaxies, galaxy groups, galaxy clusters,
+filaments, and vast underdense regions. The distribution is strongly inhomogeneous on
+small and intermediate scales, while sufficiently large volumes approach statistical
+homogeneity and isotropy.
+This large-scale structure is not a theoretical abstraction. Modern spectroscopic surveys
+measure the positions and redshifts of millions of galaxies and quasars, allowing the three-
+dimensional distribution of cosmic structure to be reconstructed statistically. The second
+major data release of the Dark Energy Spectroscopic Instrument, for example, uses more
+than fourteen million galaxies and quasars in its baryon acoustic oscillation analysis.
+The universe is therefore not observed as a smooth static background. It is observed as
+structured, evolving, and dynamic.
+Looking Backward in Time
+Because light travels at a finite speed, distance also provides access to earlier cosmic
+epochs.
+A nearby galaxy is seen relatively recently in its history. A very distant galaxy is observed
+as it existed billions of years ago. Deep observations therefore function as a form of cosmic
+archaeology: different distances expose different stages of the universe’s development.
+This does not mean that astronomers literally watch a single galaxy evolve over billions of
+years. Instead, populations observed at different redshifts reveal systematic changes in
+properties such as star-formation activity, galaxy populations, chemical enrichment,
+quasar activity, clustering, and the abundance of massive structures.
+BUBBLEVERSE MAIN BOOK
+0.42
+The observation of systematic evolution with redshift is itself empirical. Translating a
+particular redshift into an exact cosmic age requires a cosmological model.
+That distinction will recur frequently: the signal can be direct even when the conversion
+into a physical historical quantity is model dependent.
+The Cosmic Microwave Background
+One of the most important signals in all of cosmology is present in every direction in the
+sky.
+The cosmic microwave background, or CMB, is an almost isotropic field of microwave
+radiation whose spectrum is extraordinarily close to that of a thermal blackbody. A
+precision determination of its mean thermodynamic temperature gives
+T C M B=2.72548±0.00057 K .
+The temperature is not perfectly uniform. Tiny direction-dependent fluctuations are
+observed, together with a characteristic pattern of polarization.
+These fluctuations are usually analysed statistically through angular power spectra.
+Modern CMB experiments measure temperature correlations and polarization
+combinations conventionally denoted TT, TE, and EE. Their spectra contain a sequence of
+prominent acoustic peaks.
+These peaks are observations in the statistical structure of the microwave sky.
+Their physical interpretation is a separate step.
+Within the standard hot-universe picture, the pattern is understood as the imprint of
+acoustic oscillations in a tightly coupled photon–baryon plasma before photons were able
+to propagate freely through the universe. This interpretation is exceptionally successful,
+but the distinction remains important: detectors observe microwave photons, anisotropies,
+polarization, and angular correlations. The early plasma is the physical explanation
+constructed from those observations.
+Planck measured this structure with high precision, while the Atacama Cosmology
+Telescope provides an independent high-resolution measurement of the CMB temperature
+and polarization spectra.
+The CMB therefore provides both a direct observed radiation field and one of the most
+powerful model-dependent windows onto the physical conditions of the early universe.
+It is not, however, a direct observation of a singularity at t=0.
+Redshift and the Evidence for Cosmic Expansion
+The statement that the Universe expands sounds deceptively simple. It is tempting to
+imagine galaxies flying outward through pre-existing space from some central explosion.
+That picture is not what relativistic cosmology means by expansion.
+BUBBLEVERSE MAIN BOOK
+0.42
+Spectral lines from distant galaxies are systematically shifted toward longer wavelengths.
+The dimensionless redshift is defined by
+Z= λob s−λemit
+,
+λemit
+Where λemit is the emitted wavelength and λob s is the wavelength measured by the
+observer.
+At relatively low cosmological redshift, distance and recession behaviour follow an
+approximately linear relation associated with the Hubble law. At greater distances the
+relation becomes more complex, and its interpretation requires an explicit description of
+cosmic geometry and expansion history.
+In a homogeneous and isotropic description of the Universe, expansion is represented by a
+time-dependent scale factor, a (t ). With the conventional normalization a(t0)=1 at the
+present epoch, cosmological redshift is related to the scale factor by
+1+z= a(t0)
+= 1 a(tem)
+.
+a(tem)
+The normalization itself is conventional; the physical information lies in ratios of the scale
+factor between epochs.
+The corresponding expansion rate is
+H (t )= ˙a (t )
+a (t ) .
+A positive value of H corresponds to expansion, while a negative value would correspond
+to contraction. Establishing that H (z )>0 over an observed redshift interval therefore tests
+whether the reconstructed cosmological geometry is expanding throughout that interval.
+The scientific question is consequently more precise than asking whether distant galaxies
+are moving away from us. We must ask whether observations made at different distances
+and cosmic epochs are consistent with a common evolving scale factor.
+It is useful to keep several quantities separate: observed wavelength, redshift, distance,
+recession velocity, the cosmic scale factor, H (z ), and the present expansion parameter H 0.
+They are related, but they are not identical measurements.
+The crucial distinction is between observation and inference. Redshifts, fluxes, angular
+separations, spectral features, and time intervals are observational quantities. A
+reconstructed function such as H (z ), by contrast, is generally inferred from those
+observations under specified assumptions.
+The evidence for expansion is therefore stronger than the existence of cosmological
+redshifts alone. The relevant question is whether physically different observations of
+redshift, distance, and time can be described consistently by the same evolving cosmic
+geometry.
+BUBBLEVERSE MAIN BOOK
+0.42
+This separation between measurement and geometry is not semantic nitpicking. Later
+questions about the Hubble constant and dark energy depend critically on knowing where
+the measurements end and the cosmological assumptions begin.
+Supernovae and the Discovery of Late-Time Acceleration
+Type Ia supernovae provide one of the clearest examples of the distinction between an
+observed relation and the physical conclusion drawn from it.
+Their light curves can be standardized sufficiently well to compare their relative
+luminosity distances across cosmological redshift.
+The original high-redshift supernova programmes led by Riess and collaborators and by
+Perlmutter and collaborators independently found that distant Type Ia supernovae were
+inconsistent with the distance–redshift relation expected in simple matter-dominated, non-
+accelerating cosmologies.
+Modern samples are vastly larger. Pantheon+ contains 1,701 light curves corresponding to
+1,550 distinct Type Ia supernovae over approximately
+0.001<z<2.26.
+The primary observation is the standardized supernova distance–redshift relation.
+Within Friedmann–Lemaître–Robertson–Walker cosmology and general relativity, that
+relation strongly supports a period of accelerated late-time cosmic expansion.
+The acceleration is therefore a powerful physical inference, but it does not by itself identify
+its cause.
+The term dark energy is used for the component, field, modification, or effective
+phenomenon responsible for reproducing this accelerated behaviour in a cosmological
+model. The name does not imply that a dark-energy particle or field has been directly
+isolated experimentally.
+The observations establish the expansion history far more securely than they establish the
+microscopic explanation for it.
+Supernovae constrain the integrated expansion history rather than measuring H (z ) at a
+single redshift. This distinction is important. A luminosity-distance relation can provide
+powerful evidence for an evolving cosmic geometry, but recovering a local expansion rate
+from it requires additional inference. The observed distance–redshift relation and the
+reconstructed expansion history should therefore not be treated as identical quantities.
+Baryon Acoustic Oscillations
+The large-scale distribution of matter contains another striking statistical feature: a
+preferred clustering scale known as the baryon acoustic oscillation, or BAO, scale.
+The feature is measured in the spatial correlations of galaxies and quasars and can also be
+extracted from the Lyman-α forest.
+BUBBLEVERSE MAIN BOOK
+0.42
+DESI has measured this structure across several redshift ranges with enormous
+spectroscopic samples.
+The clustering feature itself is observed.
+Its use as a cosmic standard ruler introduces additional physics.
+In the standard interpretation, the scale is the late-time remnant of acoustic propagation in
+the photon–baryon plasma of the early universe. The physical size of that ruler is
+commonly related to the sound horizon rd.
+The radial BAO measurement is especially valuable for reconstructing expansion because
+the observed redshift separation of the acoustic feature is related to the combination
+H (z )rd. BAO therefore does not determine H (z ) in complete isolation. Converting the
+observed ruler into an absolute expansion rate requires either an external calibration of rd
+or assumptions about the early-universe physics that determines it.
+This dependence does not remove BAO as evidence for an evolving distance–redshift
+geometry. Instead, it identifies precisely where early-universe physics enters the absolute
+calibration. That distinction will become especially important when different
+determinations of the cosmic expansion rate are compared.
+Gravitational Lensing
+Gravity does not merely affect the motion of matter. It also changes the propagation of
+light.
+Foreground mass can distort, magnify, multiply image, or statistically shear radiation
+emitted by more distant objects. This phenomenon, gravitational lensing, is observed
+across a wide range of scales.
+Lensing can therefore be used to reconstruct information about the integrated gravitating
+mass along the line of sight.
+The CMB itself is gravitationally lensed by intervening cosmic structure. Planck
+reconstructed this lensing field with high statistical significance, providing a direct
+statistical probe of the matter distribution between the surface of last scattering and the
+observer.
+The signal is particularly valuable because it depends on gravitating matter rather than
+merely on emitted light.
+The Missing-Mass Phenomenon
+One of the most persistent empirical facts in modern astrophysics is that the gravitational
+behaviour of many systems cannot be accounted for by the observed luminous baryonic
+material alone within conventional gravitational modelling.
+Galaxy rotation curves provide one major example.
+BUBBLEVERSE MAIN BOOK
+0.42
+In the SPARC galaxy sample, measurements of rotationally supported galaxies reveal a
+tight relation between the total centripetal acceleration inferred from the motion of matter
+and the acceleration expected from the observed baryonic distribution. At low
+accelerations the two cease to agree in the way a baryon-only Newtonian model would
+predict.
+Galaxy clusters provide a physically different test.
+In systems such as the Bullet Cluster, the dominant X-ray-emitting baryonic plasma can be
+spatially displaced from the dominant gravitating mass reconstructed from lensing. This
+creates a separation between where most of the ordinary gaseous matter is observed and
+where the gravitational mass is inferred to lie.
+Together with CMB and large-scale-structure constraints, these observations motivate the
+standard conclusion that the universe contains a substantial non-luminous gravitating
+component.
+The safest empirical statement is nevertheless more specific than the everyday phrase
+“dark matter has been observed.”
+What has been observed are gravitational effects that require either additional gravitating
+mass or a successful alternative description of gravity capable of reproducing the same
+body of phenomena.
+A predominantly non-baryonic dark-matter component is currently the most successful
+common explanation across the full cosmological framework.
+Its microscopic identity remains unknown.
+A WIMP, axion, ultralight field, sterile neutrino, or other proposed dark-matter candidate
+should therefore not be promoted to observational fact until independent evidence
+identifies it.
+The gravitational phenomenon is robust. The particle identity is not.
+Gravitational Waves
+Cosmology and astrophysics no longer rely exclusively on electromagnetic radiation.
+In 2015 the LIGO detectors recorded GW150914, a transient strain signal detected by two
+interferometers and consistent with the merger of two compact objects described as
+stellar-mass black holes within general relativity.
+This was the first direct detection of gravitational waves.
+GW170817 later provided a gravitational-wave signal from a binary neutron-star inspiral
+together with electromagnetic counterparts. Its network signal-to-noise ratio was
+approximately 32.4.
+These events opened a genuinely different observational channel.
+BUBBLEVERSE MAIN BOOK
+0.42
+The detectors do not observe an image of spacetime. They record correlated changes in
+interferometer arm lengths whose temporal structure is consistent with propagating
+gravitational waves.
+The interpretation of the sources relies on relativistic waveform modelling, but the
+existence of gravitational-wave signals is now an observational fact.
+Modern astronomy is consequently a multi-messenger discipline. Information reaches us
+through electromagnetic radiation, gravitational waves, neutrinos, and high-energy
+particles.
+Independent channels matter because conclusions supported by different physics are
+harder to dismiss as artefacts of a single observational method.
+Chemical Evidence from the Early Universe
+Spectroscopy also reveals the chemical composition of astronomical matter.
+Hydrogen, helium, deuterium, and heavier elements leave identifiable absorption and
+emission features. Particularly metal-poor absorption systems can be used to estimate
+primordial light-element abundances.
+A representative precision determination of primordial deuterium gives
+(D/H )P=(2.527±0.030)×10
+−5.
+This number is reconstructed from observed absorption spectra.
+Its interpretation as a primordial abundance and its connection to Big Bang
+nucleosynthesis require additional physical modelling.
+Within standard nuclear and cosmological physics, light-element abundances provide a
+strikingly successful test of a universe that once existed in a much hotter and denser state.
+The inference reaches much further back in cosmic history than direct electromagnetic
+imaging, but it is correspondingly less direct.
+This distinction is useful: observation can preserve information about an epoch without
+giving us a photograph of that epoch.
+A Hotter and Denser Past
+Several physically different observations converge on the conclusion that the universe was
+once much hotter and denser than it is today.
+The most important lines include cosmic expansion, the cosmic microwave background,
+and primordial light-element abundances.
+The power of this conclusion does not arise from any one observation in isolation.
+Expansion implies that matter and radiation occupied a denser configuration in the past.
+The thermal microwave background supplies an observed relic radiation field. Nuclear
+abundances are consistent with reactions expected in a sufficiently hot early environment.
+BUBBLEVERSE MAIN BOOK
+0.42
+These pieces form an unusually coherent empirical picture.
+This strongly supports the hot Big Bang description of the observable universe’s early
+evolution.
+It does not demonstrate a physical singularity.
+A mathematical extrapolation toward a→0 within classical general relativity is not itself
+an observation of an initial point of infinite density. The observational evidence establishes
+a hot, dense early phase; what happened arbitrarily close to the beginning of the classical
+extrapolation remains a deeper theoretical question.
+BUBBLEVERSE MAIN BOOK
+0.42
+Chapter 2 — Measuring the Present Expansion Rate
+Cosmological Parameters Are Not Instrument Readings
+Some of the most familiar numbers in cosmology are extraordinarily precise, but they are
+not all measured in the same sense.
+Under the six-parameter flat ΛCDM model, cosmological parameters are inferred by fitting
+a physical model to measured cosmic microwave background spectra. Planck remains an
+important benchmark, with
+−1 M pc
+−1,
+H 0=67.4±0.5k m s
+Ωm=0.315±0.007 ,
+and
+σ 8=0.811±0.006.
+The crucial distinction is epistemic: no Planck detector directly measured H ₀ as a local
+recession rate. The fundamental quantity is
+H (t )= ˙a (t )/a (t ),
+and the Hubble constant is its present value,
+H 0≡H (t0)=( ˙a/a)¿t=t 0.
+H₀ is therefore a cosmological parameter rather than a raw observable. Redshift, distance,
+gravitational-wave strain, time delays, and microwave-background anisotropies can all
+contribute to its determination, but none of them is itself H ₀.
+This becomes especially important when comparing modern estimates. A combined
+analysis of Planck, SPT-3G, and ACT DR6 cosmic microwave background information gives,
+within flat ΛCDM,
+−1 M pc
+−1.
+H 0=67.24 ±0.35k m s
+This CMB-based value is obtained through an inference chain that connects the observed
+temperature and polarization spectra to acoustic and recombination physics and then to
+the modelled cosmic expansion history.
+The late-universe route is physically different. The classical SH0ES distance ladder uses
+geometric anchors, Cepheid variables, Type Ia supernovae, and Hubble-flow objects,
+yielding
+−1 M pc
+H 0=73.04±1.04 k m s
+−1.
+More recent work combines multiple local distance indicators while explicitly accounting
+for shared calibrations and covariance. The H0 Distance Network reports the covariance-
+weighted baseline
+BUBBLEVERSE MAIN BOOK
+0.42
+−1 M pc
+H 0=73.50±0.81k m s
+−1.
+This does not constitute a new single measurement technique. It is a synthesis of several
+connected distance-calibration routes, with SH0ES remaining an important part of the
+underlying provenance.
+The local determination is closer to the late-time expansion than the CMB inference, but it
+is still not a direct reading of ȧ /a at z = 0. Geometric anchors, stellar distance indicators,
+supernova calibration, finite-redshift Hubble-flow observations, peculiar-velocity
+corrections, and the distance–redshift relation all enter before H ₀ is obtained.
+The disagreement is therefore not equivalent to two identical instruments measuring the
+same raw quantity and returning incompatible readings. It is a disagreement between
+physically and statistically different inference chains that estimate the same cosmological
+parameter.
+Independent Routes to the Present Expansion Rate
+The distinction between measurement and inference becomes clearer when the principal
+routes to H₀ are placed side by side. There is no single epistemic category that adequately
+describes every “Hubble-constant measurement.”
+The Local Distance Network
+The local distance network begins with geometric distance anchors and uses calibrated
+stellar indicators, Type Ia supernovae or other Hubble-flow tracers, and finite-redshift
+distance–redshift information to infer the present expansion rate. Alternative stellar
+calibrators such as the tip of the red-giant branch (TRGB) and J-region asymptotic giant
+branch (JAGB) stars can test dependencies specific to Cepheid calibration, although two
+calibrators are not fully independent if they subsequently share anchors, supernova hosts,
+or Hubble-flow samples.
+Alternative Stellar Calibrators
+A published Chicago-Carnegie Hubble Program analysis reveals significant structure within
+the late-universe calibration evidence rather than a single alternative value of H ₀. Its JWST-
+only calibrations give
+−1 M pc
+H 0 (T RG B)=68.81±1.79st at ±1.32s y sk m s
+−1
+and
+−1 M pc
+−1.
+H 0 (J A G B)=67.80±2.17st at ±1.64s y sk m s
+A larger calibration sample combining HST and JWST TRGB measurements instead gives
+−1 M pc
+H 0=70.39±1.22st at ±1.33s y s±0.70S N k m s
+−1.
+The late-universe evidence therefore cannot be represented accurately by assigning the
+Chicago-Carnegie programme a single value near 68 km s⁻¹ Mpc⁻¹. Different calibration
+BUBBLEVERSE MAIN BOOK
+0.42
+samples and pipelines produce meaningfully different central values. At the same time,
+these results are not fully independent of the broader local-distance network because
+geometric anchors, host galaxies, supernova information, and calibration structures can
+overlap. The differences are consequently evidence of internal methodological and
+calibration structure within late-universe H₀ inference rather than a separate, comparably
+precise anomaly.
+Geometric Megamasers
+Water megamasers provide a more geometrically distinct route. Positions, spectra,
+velocities, and accelerations in maser disks around supermassive black holes can be
+modelled to obtain galaxy distances without the conventional stellar distance ladder. The
+Megamaser Cosmology Project obtained
+−1 M pc
+−1.
+H 0=73.9±3.0k m s
+At the relatively low redshifts of these systems, peculiar velocities remain an important
+limitation.
+Strong-Lensing Time Delays
+Strong gravitational lenses provide another independent physical route. Differences in the
+arrival times of multiple images of a variable background source, combined with lens
+imaging, stellar kinematics, line-of-sight structure, and a model of the lens mass
+distribution, constrain the time-delay distance.
+TDCOSMO 2025 obtains
++3.9 k m s
+−1 M pc
+H 0=71.6−3.3
+−1
+For its primary analysis combined with a Pantheon+ constraint on Ωₘ in flat ΛCDM.
+The method avoids the Cepheid distance calibration and sound-horizon calibration, but its
+precision depends critically on gravitational-lens mass modelling, stellar kinematics, line-
+of-sight structure, and the treatment of the mass-sheet degeneracy.
+Gravitational-Wave Standard Sirens
+Gravitational-wave standard sirens offer a fundamentally different distance indicator. The
+waveform amplitude contains luminosity-distance information; combining that distance
+with a host-galaxy redshift or a statistical galaxy-redshift distribution allows H ₀ to be
+inferred.
+The original GW170817 standard-siren analysis gave
+−1 M pc
++12.0k m s
+−1.
+H 0=70.0−8.0
+A later analysis combining the fourth Gravitational-Wave Transient Catalogue with the
+Dark Energy Survey Year 6 Gold galaxy catalogue obtained
++22.7 k m s
+−1 M pc
+H 0=71.7−18.3
+−1
+BUBBLEVERSE MAIN BOOK
+0.42
+From dark sirens. When combined with GW170817, the result becomes
+−1 M pc
++11.9k m s
+−1.
+H 0=73.1−8.5
+These constraints remain much broader than the leading CMB and local-distance
+determinations. They therefore do not yet decide the Hubble tension, but their different
+physical dependence makes them an important cross-check. The combined result must not
+be counted as statistically independent of the original GW170817 measurement because
+that event is reused in the combined analysis.
+This route avoids Cepheid, TRGB, supernova absolute-luminosity, and sound-horizon
+calibration. It is not assumption-free, however. Waveform modelling, detector calibration,
+binary inclination, source populations, host identification, selection effects, and peculiar
+velocities remain relevant.
+Current standard-siren constraints are still substantially broader than the most precise
+CMB and distance-network results, making them particularly valuable as an independent
+cross-check rather than, at present, the most precise adjudicator.
+BAO and the Absolute Standard Ruler
+Baryon acoustic oscillations provide yet another inference chain. BAO measurements
+primarily constrain quantities such as
+DM (z )/rd
+And
+H (z )rd ,
+Where r_d is the sound horizon associated with the baryon-drag epoch.
+BAO therefore does not provide an absolute H₀ without additional information fixing the
+physical ruler or otherwise breaking the relevant degeneracy.
+DESI DR2 combined with a conservative Big Bang nucleosynthesis constraint on the baryon
+density gives, under flat ΛCDM,
+−1 M pc
+H 0=68.51±0.58 k m s
+−1.
+This result is independent of CMB anisotropy measurements in an important observational
+sense, but it is not model independent. The inference still relies on early-universe physics,
+sound-horizon calibration, and the specified cosmological framework.
+BUBBLEVERSE MAIN BOOK
+0.42
+A Continuum of Inference
+Figure 2. Principal inference routes to H₀. The same cosmological parameter is reached through physically and statistically
+different chains involving geometric calibration, stellar indicators, gravitational lensing, gravitational waves, standard-ruler
+physics, and CMB modelling. Their different dependencies are central to the interpretation of agreement and disagreement among
+H₀ estimates.
+These methods form a continuum of inference depth rather than a clean division into
+“direct” and “indirect” measurements.
+The local distance network is dominated by geometric and astrophysical calibration.
+Megamasers are more directly geometric but remain sensitive to velocity modelling.
+Strong-lensing time delays combine geometry with gravitational modelling.
+Standard sirens derive distance from gravitational-wave physics.
+BAO requires a calibrated standard ruler.
+CMB constraints infer H₀ through the most extensive global cosmological model chain.
+Their scientific value lies precisely in these different dependencies. Agreement between
+genuinely independent routes is much more informative than agreement between several
+analyses that repeatedly use the same underlying observations, calibration, or model
+assumptions.
+BUBBLEVERSE MAIN BOOK
+0.42
+Chapter 3 — The Hubble Tensi
+-
+A Broader Conflict Than Planck versus SH0
+The modern Hubble tension is broader than the traditional shorthand of “Planck versus
+SH0ES.”
+The strongest current benchmarks considered here include a combined CMB inference
+from Planck, SPT-3G, and ACT DR6,
+H₀(CMB, flat ΛCDM) = 67.24 ± 0.35 km s⁻¹ Mpc⁻¹,
+and the covariance-weighted local H0 Distance Network result,
+−1 M pc
+H 0 (l oc al d i st anc e net w or k )=73.50±0.81k m s
+−1.
+Using the published marginal uncertainties in a simple Gaussian comparison, these
+constraints differ by approximately 7.1σ.
+A Separate Low-H₀ Route
+A standard-ruler route also lies on the lower-H₀ side.
+DESI DR2 BAO combined with Big Bang nucleosynthesis gives, under flat ΛCDM,
+−1 M pc
+H 0 (B A O+B B N )=68.51±0.58k m s
+−1.
+The local-network baseline differs from this result by approximately 5 σ.
+This matters because the lower-H₀ region is not supported solely by the Planck CMB
+inference. DESI BAO combined with BBN reaches a similar region without using CMB
+anisotropy information.
+It does not, however, provide a model-independent determination. Sound-horizon physics
+and the assumed cosmological framework remain part of the inference.
+Different Numbers, Different Inference Chains
+These results should not be interpreted as three identical measurements.
+The CMB value is inferred through a global cosmological model and early-universe acoustic
+physics.
+BAO+BBN avoids CMB anisotropy information but still depends on early-universe
+standard-ruler physics and the assumed cosmological framework.
+The local distance network instead relies on geometric and astrophysical distance
+calibration, finite-redshift Hubble-flow information, peculiar-velocity treatment, and
+calibration covariance.
+BUBBLEVERSE MAIN BOOK
+0.42
+They estimate the same parameter, but they do not arrive there through the same physical
+or statistical route.
+Internal Structure in the Late-Universe Evidence
+There is also important structure within the late-universe evidence itself. JWST-only TRGB
+and JAGB calibrations yield central values of 68.81 and 67.80 km s ⁻¹ Mpc ⁻¹, respectively,
+while a larger HST+JWST TRGB calibration sample gives 70.39 km s⁻¹ Mpc⁻¹. The
+covariance-weighted H0 Distance Network gives the still higher and substantially more
+precise value
+−1 M pc
+−1.
+H 0=73.50±0.81k m s
+These differences must remain visible rather than being compressed into a single category
+called “the local measurement.” They demonstrate genuine calibration and pipeline
+structure within late-universe H₀ inference. Their interpretation nevertheless requires care
+because overlapping anchors, host galaxies, supernova samples, and calibrations prevent
+the individual results from being treated as completely independent experiments.
+An additional test removes Type Ia supernovae as the final rung of the conventional
+distance ladder. Using geometric anchors, Cepheids, direct host redshifts, explicit sample-
+selection modelling, and peculiar-velocity reconstruction, this two-rung analysis finds
+−1 M pc
+−1.
+H 0=71.1±1.4 k m s
+Under a simple Gaussian comparison, this remains approximately 2.7 σ above the
+−1 M pc
+combined CMB value of 67.24±0.35k m s
+−1. Because the analysis reuses Cepheid and
+anchor information employed by the conventional local-distance programme, it is not a
+fully independent measurement. It nevertheless shows that removing the supernova rung
+does not by itself eliminate the high-versus-low H 0 discrepancy. At the same time, the lower
+central value demonstrates that sample selection, finite-redshift treatment, and peculiar-
+velocity reconstruction can materially shift the inferred local expansion rate. These effects
+therefore belong to the explanation problem, but they do not by themselves erase the
+tension.
+The local evidence should therefore be treated neither as a perfectly homogeneous high-H₀
+block nor as a collection of independent competing measurements. It is a correlated
+network with real internal structure, and that structure is itself part of the problem that
+any successful explanation must accommodate.
+Independent Cross-Checks
+Other physically distinct probes provide valuable cross-checks but still lack the precision
+required to decide the conflict alone. Megamasers give H₀ = 73.9 ± 3.0 km s ⁻¹ Mpc ⁻¹, while
+strong-lensing time delays give H₀ = 71.6⁺³·⁹₋₃·₃ km s⁻¹ Mpc⁻¹ in the cited analysis. Current
+gravitational-wave standard-siren constraints are broader still. None presently has the
+combination of precision and independence required to adjudicate decisively between H₀
+near 67 and the local-network value near 73.5 km s⁻¹ Mpc⁻¹.
+BUBBLEVERSE MAIN BOOK
+0.42
+Their importance lies in their different dependence on calibration and modelling
+assumptions. Megamasers avoid the conventional stellar distance ladder and sound-
+horizon calibration but remain sensitive to peculiar velocities. Strong-lensing time delays
+avoid those same central calibrations but depend on lens-mass modelling, stellar
+kinematics, line-of-sight structure, and the treatment of the mass-sheet degeneracy.
+Standard sirens derive luminosity distance from gravitational-wave information but retain
+waveform, detector, population, host, selection, and velocity dependencies.
+The absence of a roughly one-percent H₀ determination that is simultaneously almost
+independent of both stellar distance-ladder calibration and early-universe sound-horizon
+calibration remains an important observational gap.
+Figure 3. Expansion-rate estimates quoted in Chapters 2 and 3. Standard sirens use a wider horizontal scale. For the three TRGB
+and JAGB entries, thin bars combine the quoted uncertainty components in quadrature for display; thick bars show the statistical
+component. Other bars reproduce the quoted intervals. No cross-study covariance is modelled. GW170817 is reused in the
+combined siren result, and shared observations and calibrations prevent all entries from being treated as independent
+measurements.
+BUBBLEVERSE MAIN BOOK
+0.42
+What the Tension Does—and Does Not—Establish
+The combined evidence now supports a stronger conclusion than merely noting that
+different estimates of H₀ disagree. The discrepancy is a robust cosmological parameter
+tension across the inference structures examined here.
+The covariance-weighted local H0 Distance Network gives
+−1 M pc
+H 0=73.50±0.81k m s
+−1,
+whereas the combined Planck, SPT-3G, and ACT CMB analysis gives, under flat ΛCDM,
+−1 M pc
+−1.
+H 0=67.24 ±0.35k m s
+The difference is 6.26 km s⁻¹ Mpc⁻¹. Combining the published marginal uncertainties in
+quadrature and neglecting cross-covariance between these principal chains gives a
+discrepancy of approximately 7.1σ.
+The 7.1σ value is the comparison obtained from the published H0 Distance Network
+baseline, H₀ = 73.50 ± 0.81 km s⁻¹ Mpc⁻¹, and the combined CMB inference quoted above. A
+subsequent 2026 reanalysis applying corrected Pantheon+ host-mass information while
+retaining the H0DN covariance, redshifts, and velocities gives H ₀ = 73.264 ± 0.806 km s ⁻¹
+Mpc⁻¹, corresponding to a reported 6.85σ difference from the same CMB benchmark.
+Alternative corrected-Pantheon+ and DES-DOVEKIE implementations give similarly high
+values. These updates shift the precise numerical significance but do not remove the
+underlying high-versus-low H₀ discrepancy. The original H0DN value should therefore be
+retained as the network consensus baseline rather than silently replaced by one
+subsequent supernova reanalysis.
+A second low-H₀ route strengthens the conclusion. DESI DR2 BAO combined with Big Bang
+nucleosynthesis gives, under flat ΛCDM,
+−1 M pc
+H 0=68.51±0.58 k m s
+−1,
+approximately 5σ below the local-network baseline under the same simple marginal
+comparison. Because this route does not use CMB anisotropy likelihoods, the low-H ₀ side
+cannot plausibly be reduced to a Planck-specific instrumental or analysis-pipeline effect.
+The CMB and BAO+BBN inferences are not physically assumption-independent, however:
+both retain important dependence on standard early-universe and sound-horizon physics.
+Several simple single-cause explanations can now be narrowed more sharply. JWST
+Cepheid cross-checks do not reveal a crowding bias large enough to erase the high local
+expansion rate, and removing Type Ia supernovae as the final distance-ladder rung still
+−1 M pc
+leaves H 0=71.1±1.4 k m s
+−1. Ordinary peculiar velocities and standard cosmic
+variance are also too small to provide the full required shift. Local calibration structure,
+sample selection, finite-redshift treatment, and velocity modelling can therefore move the
+inferred value and may contribute to the discrepancy, but no tested ordinary systematic
+has been shown to reconcile the complete local, CMB, and BAO+BBN evidence by itself.
+BUBBLEVERSE MAIN BOOK
+0.42
+The same standard must be applied to cosmological extensions. Several mechanisms can
+move the inferred value of H 0 upward, but that is not sufficient. A successful explanation
+must preserve the observed CMB acoustic structure, the BAO and Big Bang nucleosynthesis
+constraints, the internal structure of late-universe calibrations, and the physically distinct
+expansion-rate routes. Under this broader test, none of the remaining classes examined
+here is established as a robust complete solution. The approximately 7.1 σ discrepancy
+remains a statement about conflicting parameter inferences; it is not a 7.1 σ detection of
+new physics.
+BUBBLEVERSE MAIN BOOK
+0.42
+Chapter 4 — Testing Early-Universe Solutions
+What a Successful Solution Must Do
+The Hubble tension cannot be solved merely by producing a model in which the inferred
+value of H₀ moves upward.
+A successful early-Universe explanation must alter the calibration linking early-time
+physics to later cosmological distances while remaining compatible with the rest of the
+observations. The same model must still account for the measured cosmic microwave
+background, baryon acoustic oscillations, Big Bang nucleosynthesis constraints, and the
+other data used in the inference.
+This is why reducing the sound horizon is necessary for many early-Universe proposals but
+is not sufficient. Changing one part of the cosmological ruler forces compensating changes
+elsewhere.
+The Bubbleverse calculations therefore tested not only whether a mechanism could reach a
+higher H₀, but what happened to the complete likelihood while it did so.
+n=3 Early Dark Energy
+Early dark energy, or EDE, provides one way of changing the pre-recombination expansion
+history. In the n=3 model examined here, a temporary additional energy component can
+reduce the effective early-Universe distance scale and allow higher inferred values of H ₀.
+A recent profile-likelihood analysis discussed in this investigation reports a region around
+f_EDE = 0.09 ± 0.03 and H₀ = 71.0 ± 1.1 km s⁻¹ Mpc⁻¹. The Bubbleverse calculations likewise
+found higher-H₀ regions, but the numerical history showed why the existence of such a
+region is not enough to establish a solution.
+The first difficulty was optimization. Early fixed-H₀ searches produced a non-monotonic
+profile and apparently large penalties at some points. Later multi-start and deterministic
+recovery showed that some of those results belonged to inferior numerical basins rather
+than to the best solutions available on the frozen likelihood surface.
+That correction materially changed the interpretation. A poor optimizer result cannot be
+used as evidence against a physical model.
+At the active H₀ = 71.5 km s⁻¹ Mpc⁻¹ vector, the internally consistent serialized fixed-vector
+attribution gives
+Δ χt ot al
+2 =−2.612490.
+The ACT DR6 contribution is
+ΔχACT
+2 =−3.372038 ,
+BUBBLEVERSE MAIN BOOK
+0.42
+while the combined non-ACT contribution is
+2 =+0.759548.
+Δ χnon−A C T
+Within ACT, TE and EE contribute 1.980919 and 1.888310, while TT contributes − −
++0.497192.
+Figure 4. Signed likelihood attribution for the active H₀ = 71.5 EDE vector on the internally consistent serialized basis. The three
+ACT spectral terms contribute to the ACT total; the full-chain total combines ACT and non-ACT contributions. These bars include
+subtotals and must not all be summed. Values are reproduced from Chapter 4.
+These numbers matter because they overturn the simplest version of an earlier story. The
+historical positive ACT cost at high H₀ was not a universal barrier that survived every
+improved basin search. At the corrected active vector, ACT can instead improve the fit
+relative to the serialized attribution baseline.
+The lesson is broader than the sign of one contribution. The likelihood response depends
+on where the optimizer lands in a multidimensional parameter space. A statement such as
+“ACT rejects high-H₀ EDE” is therefore too coarse to survive the corrected analysis.
+Varying Electron Mass
+Changing the electron mass during recombination provides a physically different route.
+A larger electron mass changes atomic energy scales, recombination physics, the Thomson
+scattering cross-section, and the distance scale inherited from the early Universe. The
+tested common-backend reference has
+−1 M pc
+H 0=70.157184 k m s
+−1
+and
+me/me ,0=1.0133561.
+When this mechanism is pushed to higher H₀, the fit cost does not appear in the same place
+as it does for n=3 EDE.
+BUBBLEVERSE MAIN BOOK
+0.42
+At H₀ = 71.5 km s⁻¹ Mpc⁻¹, the total tested penalty is approximately +6.81, with DESI DR2
+providing the largest individual positive contribution. At H ₀ = 72.5 and 73.5 km s ⁻¹ Mpc ⁻¹,
+Big Bang nucleosynthesis becomes the largest positive contribution, while the ACT
+contribution becomes approximately neutral.
+At the H₀ = 73.5 point, the tested trajectory reaches approximately
+me/me ,0=1.04055,
+ωb=0.02337,
+ωc d m=0.13282,
+and
+rd r a g=139.38 M pc .
+The mechanism can therefore shrink the ruler substantially, but the compensating changes
+encounter pressure from other observations.
+The Same H₀ Does Not Mean the Same Constraint Geometry
+The comparison between n=3 EDE and varying electron mass reveals one of the central
+results of the computational programme.
+Two mechanisms can move H₀ in the same direction and reduce the sound horizon to a
+similar scale without producing the same likelihood response.
+There is no single observational component that acts as a universal high-H ₀ barrier across
+all early-Universe mechanisms tested here.
+The reason is physical. Different mechanisms obtain a smaller ruler by changing different
+quantities. Those changes propagate into different observables, parameter degeneracies,
+and likelihood components.
+The scientific target is therefore not simply a preferred value of H ₀.
+It is a complete parameter trajectory that survives the combined data.
+CMB Likelihoods Do Not Respond Alike
+The same principle appears when different CMB likelihoods are compared on a
+deliberately matched n=3 EDE surface.
+Planck, SPT-3G, and ACT do not respond identically when H₀ is fixed near 71.5 km s ⁻¹
+Mpc⁻¹.
+On the matched calculation used here, Planck reaches its free-H ₀ minimum at H ₀ = 67.9883
+km s⁻¹ Mpc⁻¹ and incurs an objective increase of +5.82386 at H ₀ = 71.5.
+SPT-3G reaches a free-H₀ value of 71.1721 km s⁻¹ Mpc⁻¹ and incurs an increase of only
++0.03350.
+ACT reaches 71.49995 km s⁻¹ Mpc⁻¹ and incurs an increase of +0.01613.
+BUBBLEVERSE MAIN BOOK
+0.42
+These are separate likelihood responses. They must not be summed as though they were
+independent pieces of one experiment, and their numerical differences are not themselves
+measurements of new physics.
+What they establish is narrower: the tested CMB likelihoods can have materially different
+high-H₀ geometry even when the cosmological model and comparison target are
+deliberately matched.
+Why the Planck Likelihood Construction Matters
+The Planck investigation was then pushed deeper.
+A matched reduced likelihood and a native full-multifrequency likelihood are not the same
+mathematical objective. They differ in the information retained, frequency construction,
+covariance, foreground treatment, calibration structure, and nuisance-parameter space.
+On the matched Planck surface, the fixed-minus-free objective increase is +5.8238567748.
+On the tested native full-multifrequency CamSpec construction, the corresponding increase
+is +17.3979348723.
+The difference between those two numbers is diagnostically important, but it is not an
+additional physical Δχ² contribution. The two calculations evaluate different likelihood
+constructions.
+Later calculations therefore examined the internal Planck likelihood architecture rather
+than treating the difference as one mysterious extra penalty.
+Those tests found distributed structure across calibration, foreground, covariance,
+cosmological, and nuisance directions. No single tested component could be promoted into
+a demonstrated physical defect.
+BUBBLEVERSE MAIN BOOK
+0.42
+Figure 6. The matched CamSpec-lite and native full-multifrequency CamSpec calculations evaluate different Planck likelihood
+constructions. Their fixed-minus-free objective increases therefore diagnose likelihood-architecture dependence; their numerical
+difference is not an additional physical Δχ² contribution.
+The CamSpec–HiLLiPoP Methodological Discrepancy
+The analysis was later extended across two Planck PR4/NPIPE likelihood implementations,
+CamSpec and HiLLiPoP.
+An apparent historical contradiction first emerged because an earlier CamSpec endpoint
+family had been labelled as stable multibasin structure, whereas later CamSpec and
+HiLLiPoP runs did not recover repeated stable basins under a different common-geometry
+classifier.
+A direct classifier crosswalk resolved that binary contradiction.
+When both classification rules were applied to the same preserved endpoint sets, the
+historical rule classified them as stable while the later graph rule classified them as non-
+stable.
+The stable-versus-non-stable contrast was therefore materially dependent on the classifier
+definition. It could not by itself establish that a physical likelihood structure had
+disappeared.
+The underlying continuous geometry difference did not disappear with that correction.
+When preserved CamSpec and HiLLiPoP endpoint families were compared in the same
+normalized common coordinates, and later on exactly matched TT information support, a
+substantial implementation-dependent difference remained.
+Further localization showed that this difference was distributed across several coupled
+coordinates rather than being reducible to one obvious parameter.
+BUBBLEVERSE MAIN BOOK
+0.42
+The tested interventions also narrowed the possible explanation. Relative-calibration
+semantics alone were insufficient. Native off-diagonal precision coupling alone was
+insufficient. Their predefined combination was insufficient. Allowing or freezing the native
+foreground nuisance profiles was also insufficient to remove the discrepancy.
+These are negative results, but they are informative negative results.
+They rule out several simple implementation-level explanations without identifying the
+deeper cause.
+The Common CMB-Space Numerical Boundary
+The comparison was pushed one level deeper without manufacturing a synthetic hybrid
+likelihood.
+A mathematically legitimate common physical object was defined by allowing CamSpec
+and HiLLiPoP to retain their own native data, covariance, foreground models, priors, and
+nuisance parameters while marginalizing those native nuisance parameters separately
+around a common physical CMB-space representation.
+That construction is methodologically supported.
+Its tested numerical representations were not.
+A single-Gaussian Laplace/Schur approximation failed mandatory validation. A subsequent
+defensive randomized quasi-Monte Carlo implementation avoided that single-Gaussian
+assumption but also failed the preregistered numerical-stability criterion.
+The endpoint stage was therefore blocked.
+No validated marginalized CamSpec–HiLLiPoP endpoint geometry was produced.
+This is a technical failure of the tested finite numerical representations. It is not a physical
+falsification of the marginal likelihood, not evidence that either likelihood is wrong, and
+not evidence against early dark energy.
+The Downstream Portability Test
+A later preregistered campaign attempted the downstream consequence directly: would
+the established CamSpec–HiLLiPoP fitted-geometry difference remain cosmologically
+material when the two Planck likelihood arms were combined with the same external
+information?
+The executed campaign kept the n=3 early-dark-energy backend fixed and combined each
+Planck arm with ACT DR6 primary CMB information, ACT DR6 lensing, and DESI DR2 BAO
+in a common set of baseline and leave-one-out data combinations. Two independent chains
+were required for each arm and combination, producing 32 logical chains.
+The computation itself reached a valid terminal state, but the inferential gates did not.
+Thirty logical chains reached the frozen maximum of 20,000 accepted samples without
+BUBBLEVERSE MAIN BOOK
+0.42
+convergence. The two remaining chains reached the eighth and final compute segment
+while still partial. No complete converged 32-chain posterior matrix was documented.
+The final state was therefore a controlled NO_SCIENTIFIC_RESULT rather than a technical
+crash. Chain completeness and the hard science convergence gate were blocked, so no
+valid standardized-shift, overlap, or leave-one-out portability classification could be issued.
+Non-convergence is not evidence that the two likelihoods agree, and it is not evidence that
+they differ physically.
+A separate scope audit also matters. The executed campaign was narrower than the earlier
+full downstream specification: it contained the n=3 EDE model only, omitted separate
+ΛCDM control cells and the common supernova block, used three leave-one-out
+combinations rather than four, and applied a different decision rule. That does not
+invalidate the preregistered campaign that was actually run, but it means the run cannot
+substitute for the broader planned comparison.
+The downstream cosmological significance of the fitted-geometry difference therefore
+remains unresolved. The computational firewall worked: where the required posterior
+validity was not obtained, no physical conclusion was manufactured.
+Scientific Status After the Downstream Test
+The result of the early-Universe programme is consequently constrained rather than
+triumphant.
+No tested mechanism has been established as a robust complete solution to the Hubble
+tension.
+n=3 early dark energy remains active but constrained. It can occupy higher-H ₀ regions on
+the tested surfaces, but its viability depends strongly on dataset, likelihood construction,
+parameter basin, and implementation.
+Varying electron mass also remains a constrained partial mechanism. It can reduce the
+early-Universe ruler and raise H₀, but the compensating trajectory transfers fit pressure
+toward other constraints, particularly DESI DR2 and Big Bang nucleosynthesis in the tested
+profiles.
+The Planck implementation studies establish a genuine methodological result: different
+likelihood constructions applied to overlapping Planck information can produce materially
+different fitted geometry.
+They do not establish which likelihood is physically superior.
+They do not identify a calibration error, foreground contamination, covariance defect, or
+instrumental failure.
+They do not establish or falsify n=3 early dark energy.
+They do not establish new physics.
+The direct downstream campaign likewise did not resolve whether the fitted-geometry
+difference survives common external data as a material cosmological shift, collapses to
+BUBBLEVERSE MAIN BOOK
+0.42
+effectively equivalent constraints, or depends on the dataset combination. Its controlled no-
+science endpoint leaves those alternatives open.
+The remaining problem is narrower than it was at the beginning of the chapter, but it
+remains unresolved.
+The technical likelihood construction, full parameter vectors, endpoint geometry,
+intervention tests, common-CMB numerical diagnostics, downstream convergence record,
+and complete provenance are preserved in Appendices A–C.
+BUBBLEVERSE MAIN BOOK
+0.42
+Chapter 5 — What the Model Explains— and What Remains Unknown
+Dark Energy Is an Explanation, Not a Detected Substance
+The same epistemic care applied to dark matter and the Hubble constant also applies to
+dark energy.
+Supernovae and large-scale-structure distance measurements strongly support late-time
+accelerated expansion within the relevant relativistic cosmological framework. ΛCDM
+represents the cause of that acceleration through a cosmological constant.
+Other models allow the effective dark-energy contribution to evolve.
+DESI DR2 combinations with CMB and Type Ia supernova data provide model-dependent
+evidence for time-varying dark-energy parameterizations over a pure cosmological
+constant. The original DESI DR2 analysis reported preferences ranging from approximately
+2.8σ to 4.2σ depending on the supernova compilation. Subsequent 2026 reanalyses using
+updated host-galaxy information and recalibrated supernova samples bring the
+comparisons into substantially closer agreement, at approximately 3.2 σ–3.4 σ in the w ₀w ₐ
+plane.
+This is scientifically interesting model-comparison evidence.
+It is not a direct observation of a changing dark-energy field.
+The result depends on the datasets being combined and on the parameterization used to
+describe the possible evolution.
+The physical origin of late-time acceleration therefore remains unresolved. A cosmological
+constant remains viable, and dynamical dark energy remains an active possibility.
+What ΛCDM Actually Achieves
+ΛCDM deserves neither automatic belief nor casual dismissal.
+Its empirical success is substantial.
+With a small number of parameters, it provides a compact description of the cosmic
+microwave background temperature and polarization spectra, the acoustic peak structure,
+baryon acoustic oscillations, important aspects of cosmic geometry, matter density, and the
+broad development of large-scale structure.
+Independent CMB experiments recover compatible features over overlapping
+observational ranges, strengthening the conclusion that the measured structures are not
+artefacts of one instrument.
+The correct scientific statement is therefore not that ΛCDM has been directly observed.
+It is that ΛCDM is an extraordinarily successful model of a large body of observations.
+BUBBLEVERSE MAIN BOOK
+0.42
+A successful model is evidence about nature.
+It is not identical to nature.
+What the Evidence Establishes
+The observational foundation developed in Chapter 1 remains intact.
+The observable Universe is structured and evolving. Cosmological redshifts, distance
+relations, baryon acoustic structure, the cosmic microwave background, primordial-
+abundance information, gravitational lensing, gravitational waves, and other independent
+observational channels jointly support a Universe that was once much hotter and denser
+and whose large-scale geometry evolves with time.
+Late-time acceleration is strongly supported within the relevant cosmological framework.
+The combined gravitational evidence requires either a substantial additional non-luminous
+gravitating component within the standard gravitational description or an alternative
+gravitational theory capable of reproducing the same range of phenomena.
+The Hubble tension is also real in the specific sense established earlier in this book:
+materially different inference chains for the same parameter remain in conflict. Chapters 2
+and 3 give the full numerical benchmarks, uncertainties, dependencies, and comparisons.
+The local distance network, the combined CMB inference, and the DESI DR2 plus Big Bang
+nucleosynthesis standard-ruler route remain distinct inference chains rather than three
+identical instrument readings..
+What Remains Unknown
+Several of the most important physical questions remain open.
+The microscopic identity of dark matter is unknown.
+The physical origin of late-time acceleration is unknown.
+The Hubble tension remains unresolved.
+No tested early-Universe mechanism in this investigation has been established as a
+complete solution to that tension.
+The full size and topology of the Universe are not determined by observations within our
+causal region.
+The physics of epochs earlier than those directly constrained by the cosmic microwave
+background and nucleosynthesis becomes progressively more model dependent.
+The Planck likelihood investigation has also left a methodological problem unresolved.
+CamSpec and HiLLiPoP produce materially different fitted parameter geometry on
+overlapping Planck information under the tested constructions. Several simple
+implementation-level explanations have been rejected as sufficient, but the causal
+implementation origin has not been isolated.
+BUBBLEVERSE MAIN BOOK
+0.42
+A mathematically legitimate route was established for comparing the two likelihoods after
+marginalizing their native nuisance parameters separately, but the tested finite
+implementations did not pass the required numerical validation and therefore produced
+no final marginalized endpoint geometry.
+A later direct downstream MCMC campaign also terminated without a scientific
+classification because the required posterior convergence was not achieved within its
+frozen sample and segment budgets.
+That later campaign was narrower than the broader planned ΛCDM-versus-EDE
+comparison with a common supernova block, so the complete downstream scientific
+question remains open. Both limitations are computational or methodological; neither is a
+physical result.
+The Current Scientific Position
+The current Bubbleverse state is therefore deliberately incomplete.
+The observational foundation is strong.
+ΛCDM remains a highly successful compact model.
+The Hubble tension remains a robust parameter-inference conflict whose cause is
+unknown.
+n=3 early dark energy remains active but constrained rather than established.
+Varying electron mass remains a constrained partial mechanism rather than an
+established reconciliation.
+The CamSpec–HiLLiPoP comparison remains a methodological likelihood-implementation
+problem, not an independent disagreement between observations of the sky.
+The attempted downstream portability campaign did not determine whether this
+methodological geometry difference becomes a material cosmological inference shift,
+collapses under common external data, or is conditional on the particular external dataset
+combination.
+No result in the surviving record establishes a specific dark-matter particle, a microscopic
+dark-energy mechanism, a physical Big Bang singularity, a preferred Planck likelihood as
+physical truth, or new physics as the cause of the Hubble tension.
+This boundary between strong evidence and unfinished explanation is not a defect in the
+model.
+It is the point of the model.
+The final chapter now turns from what Bubbleverse currently has the right to say to how
+its principal numerical conclusions were actually produced, corrected, validated, and
+preserved.
+BUBBLEVERSE MAIN BOOK
+0.42
+Chapter 6 — Experimental and Computational Record
+Purpose of the Computational Programme
+The Bubbleverse computational programme answers a narrower question than the
+preceding scientific chapters: what was actually run, what did each calculation test, and
+how securely can its result be reconstructed?
+A successful GitHub Actions execution shows that a specified computational procedure ran.
+It is not, by itself, new observational evidence. A failed workflow is likewise a
+computational failure unless a valid scientific calculation had already completed before the
+downstream failure. Execution status and scientific status must therefore remain separate.
+The programme developed progressively. Early runs established a controlled common
+backend for comparing candidate high-H₀ mechanisms. Later campaigns tested optimizer
+sensitivity, corrected superseded minima, decomposed likelihood responses, compared
+Planck, SPT-3G, and ACT on deliberately matched surfaces, examined full-multifrequency
+Planck likelihood structure, and tested the portability of preserved CamSpec endpoint
+geometry under HiLLiPoP and later CamSpec reconstructions.
+That process also exposed an important methodological lesson. Binary basin labels
+depended on the classifier used, while a continuous CamSpec–HiLLiPoP geometry
+difference remained after the classifier semantics were harmonized. The surviving
+discrepancy is therefore methodological likelihood evidence, not an independent
+disagreement between observations of the sky and not a detection of new physics...
+Repository, Software, and Frozen Scientific Configuration
+The primary Bubbleverse computational repository is Morfindien/Bubbleverse. The
+reconstruction performed for this edition uses the repository’s main branch as the
+principal execution record.
+The frozen n=3 early-dark-energy calculations repeatedly depend on mwt5345/class_ede at
+commit 5a131c91d657dd9a7c6364cc45b038710f8d0d97.
+The ACT DR6-lite calculations repeatedly depend on ACTCollaboration/DR6-ACT-lite at
+commit 0e0cd2c703c62a0e980470b572602233b27750e1.
+These commits are preserved as computational provenance rather than treated as generic
+software labels.
+The documented common-backend environment included Python 3.10.x, Cobaya 3.5.6,
+NumPy 1.26.4, SciPy 1.15.3, Py-BOBYQA 1.5.0, Cython 0.29.37, and SACC 1.0.2. Individual
+later workflows record more specific runner and Python versions where relevant.
+The central methodological constraint was preservation of the scientific surface. Later
+robustness, attribution, matching, and precision calculations were not permitted to become
+BUBBLEVERSE MAIN BOOK
+0.42
+unrecorded changes of model, dataset, prior, or likelihood. Where a later calculation
+changed only numerical search strategy, validation semantics, arithmetic representation,
+or the way an existing result was aggregated, that distinction was retained explicitly.
+Common-Backend Model Comparison and Globality Recovery
+The early common-backend programme established a controlled environment in which
+n=3 early dark energy and varying electron mass could be compared without pretending to
+reproduce the native pipelines of the external papers exactly.
+Repeated common-backend runs are recorded under GitHub Actions run Ids 33249784822
+and 33252632548 at repository commit b875ea95d9b6390b8f03dac729eb7f5fe84d3118.
+A subsequent deterministic globality-recovery calculation was executed as GitHub Actions
+run 33271326245 through the Bubbleverse Q005 V14 Globality Recovery workflow at
+execution commit 7293c7f5db4d7ab72b1aaad38fe15f2639e11d5e.
+The corresponding result is R-Q005-V14-GLOBALITY-RECOVERY-001. The result JSON
+SHA-256 is 3642aa6e4d09c595610875cfed321f3d28055fb059757c2381f08007bf071253.
+The purpose of this stage was not to claim a paper-native reproduction. It was to establish a
+controlled common-backend comparison and determine whether the numerical
+conclusions were sensitive to optimizer-basin discovery.
+That sensitivity became scientifically important.
+Globality, Corrected Minima, and ACT Attribution
+The fixed-H₀ early-dark-energy profiles were subsequently subjected to broader multi-start
+testing. The investigation retained H₀ targets at 70.853292, 71.5, 72.5, and 73.5 km s ⁻¹ Mpc ⁻¹
+while expanding the numerical search for lower basins.
+The authoritative expanded globality calculation is R-Q011-EDE-GLOBALITY-
+CERTIFICATION-004.
+It was executed through the Bubbleverse Q011 EDE Globality Certification V4 workflow as
+GitHub Actions run 33363067156 at repository commit
+e113fb846948f424b865d1303fba8b5988ec9133.
+The run used the frozen Q005 V14 scientific configuration together with the preserved
+class_ede and ACT DR6-lite commits.
+The resulting classification was BEST-OBSERVED MINIMUM ONLY.
+This classification is important. The multi-start programme improved the observed
+likelihood envelope, most materially at H₀=71.5 km s⁻¹ Mpc⁻¹, but it did not establish a
+mathematical proof that no lower basin exists. The numerical state therefore became
+better characterized without becoming mathematically global.
+BUBBLEVERSE MAIN BOOK
+0.42
+The corrected H₀=71.5 km s⁻¹ Mpc⁻¹ best-observed solution has optimizer-native
+χ²=546.364260. Relative to the optimizer-native reference χ²=548.010401 at H₀=70.853292
+km s⁻¹ Mpc⁻¹, this corresponds to Δχ²=-1.646141.
+A separate serialized fixed-vector attribution uses a different internally consistent
+numerical reference. It gives Δχ²=-2.612490 at H₀=71.5 km s⁻¹ Mpc⁻¹, with ACT DR6
+contributing -3.372038 and the combined non-ACT terms contributing +0.759548. The
+difference between optimizer-native and serialized bookkeeping is preserved as a finite-
+precision round-trip issue rather than redistributed as a physical likelihood contribution.
+The corrected ACT fixed-point attribution is recorded as INTERNAL-Q009, logical run Q009-
+ACT-CORRECTED-MINIMA-ATTRIBUTION-V8.
+The calculation used q009_act_corrected_minima_attribution_v8.py with
+q009_act_corrected_minima_attribution_v8_config.yml. The repository inspection state was
+commit a8d11cc9687e5df757f4794224d83ed34df03846.
+The calculation evaluated complete selected best-fit vectors without introducing a new
+optimizer, sampler, prior, parameter bound, or dataset.
+The exact successful GitHub Actions run identifier for this Q009 execution is not
+established by the surviving Word provenance and is therefore not invented here.
+Planck–SPT–ACT Comparative Programme
+The next computational stage tested whether the behaviour found on one CMB likelihood
+generalized across experiments.
+The Q015 covariance-aware Planck/SPT attribution is recorded as R-Q015-EDE-CMB-
+ATTRIBUTION-003.
+The scientific endpoint calculations were produced by the Q015 V2 workflow at repository
+head 78a65aae897fca18132a5c0758bccdbbc6a09402 in GitHub Actions run 33629190153.
+The overall V2 workflow concluded with failure, but that status must not be confused with
+failure of every scientific calculation inside it. The Stage-0 frozen-parent job completed
+successfully. The Planck endpoint job completed successfully. The SPT endpoint job
+completed successfully. Their artifacts were produced before the downstream merge and
+mandatory-test job failed.
+The preserved Stage-0 artifact is q015-v2-stage0, artifact ID 9846055938, SHA-256
+7adb0624a73f8071f2b4dfcac6e65ebfe2d4076277156a87b090c0cab7f99696.
+The preserved Planck endpoint artifact is q015-v2-endpoint-planck_npipe_k039_approx,
+artifact ID 9846143033, SHA-256
+ff6439352ae00ad0c87befb07b035342abe5d1fecf5dee09b4eb84f241bad3a6.
+The preserved SPT endpoint artifact is q015-v2-endpoint-spt_d1_only, artifact ID
+9846127249, SHA-256
+b0740d6424b7f1fb85a6adf92a9bbd2205b27479fec2e7d2f6d97ee8c2be0c33.
+BUBBLEVERSE MAIN BOOK
+0.42
+The later V3 certification changed the validation semantics required to merge the already
+completed endpoint calculations. It did not change the scientific model, endpoints,
+likelihoods, covariance matrices, theory calculation, optimizer results, or signed attribution
+values. The final Q015 V3 GitHub Actions run identifier remains a provenance item
+requiring verification before publication.
+The matched Planck–SPT–ACT analysis then placed the three experiments on a deliberately
+restricted common comparison: the same n=3 model, TT, TE, and EE observables, and the
+multipole range 600 ℓ 2000, while retaining each likelihood’s native nuisance structure. ≤≤
+The matched residual-mechanism analysis is R-Q016-EDE-CMB-MECHANISM-004, logical
+run Q016-CMB-MECHANISM-V4.
+The successful GitHub Actions execution was run 33836015653 at repository head
+91bc0736a00e2454d4e37324e5d3a1a7fe7813d6.
+The matched comparison found a much larger high-H₀ response from Planck than from
+SPT-3G or ACT on the tested surface. The individual likelihood objectives remain separate.
+No combined Planck–SPT–ACT significance was constructed, and shared cosmic variance
+was not represented through a unified cross-experiment covariance.
+The calculation therefore localized a difference in likelihood response. It did not establish
+that any experiment was wrong.
+Planck Likelihood Architecture and Preferred-Region Geometry
+The Planck-specific programme then asked whether its high-H₀ response could be reduced
+to a simple calibration, foreground, frequency, or parameter direction.
+The full-multifrequency nuisance-direction analysis is recorded as R-Q017-EDE-PLANCK-
+DIRECTION-LOCALIZATION-003, logical run Q017-PLANCK-DIRECTION-LOCALIZATION-V3.
+The successful GitHub Actions execution was run 33842355384 at repository commit
+277bb274e5783831303b542681e8cf87a70d31c2.
+The final artifact is q017-final-v3, artifact ID 9925585139, SHA-256
+a45ba197f20595013d390136e00f8fd83f40a70fb9e9e1d83f2048f2d70320db.
+The authoritative classification was INDETERMINATE between a specifically localized and
+a broadly distributed Planck penalty. Calibration was an important tested nuisance
+direction, but it was not identified as the physical cause.
+The likelihood-bridge programme then demonstrated that the matched CamSpec-lite and
+native full-multifrequency CamSpec constructions could yield substantially different high-
+H₀ penalties even when evaluating the same n=3 model. These objectives are not additive
+physical χ² contributions.
+Independent reprofiling further showed that similar projected values of H ₀ and f_EDE do
+not imply equivalent multidimensional preferred regions.
+The authoritative preferred-region result is R-Q019-EDE-PLANCK-COSMOLOGY-
+REPROFILE-003.
+BUBBLEVERSE MAIN BOOK
+0.42
+The earlier R-Q019-EDE-PLANCK-COSMOLOGY-REPROFILE-001 interpretation is
+superseded, while its valid endpoint and cross-profile calculations remain preserved as
+historical numerical provenance.
+The subsequent block-localization analysis is R-Q020-EDE-PLANCK-CROSS-PROFILE-
+DIRECTION-002, logical run Q020-PLANCK-CROSS-PROFILE-DIRECTION-REPAIR-V2.
+The successful GitHub Actions execution was run 33878880397 at repository commit
+b0c0a8fd89408bac91502e15d42c69820e913ab6.
+The final artifact SHA-256 is
+9fed5d755abdb3630bbe3a1a88e23b0c8172b49dab129a4421b527c3bdabde7f.
+Within its predefined four-block representation, the full-multifrequency response was
+dominated functionally by the primordial block, but the resulting Shapley allocations and
+interactions are diagnostics of a correlated likelihood surface rather than independent
+physical components.
+The primordial block was subsequently opened into n_s, log A, and τ_reio.
+The authoritative result is R-Q021-EDE-PRIMORDIAL-INTERNAL-STRUCTURE-002.
+The original Q021 numerical execution produced 48 finite primordial-profile evaluations
+across two likelihood constructions, eight primordial vertices, and three optimizer restarts.
+Its original final aggregation was later found to mix independently selected best vertices
+from different optimizer restarts, creating a decomposition that did not correspond to one
+coherent optimization trajectory.
+The repair did not discard the valid raw likelihood evaluations.
+Instead, it rebuilt coherent restart-specific decompositions, replaced a process-dependent
+likelihood identity representation with a stable structural identity, and prohibited cross-
+restart mixing. No new likelihood evaluations were required for that repair.
+All coherent decompositions retained the qualitative classification that the primordial
+response is distributed rather than reducible to n_s alone.
+Full-Multifrequency Basin Programme
+The next campaign followed the full-multifrequency endpoint structure itself. The
+historical continuation result is R-Q022-EDE-FULLMF-OPTIMIZER-BASIN-002 at execution
+commit 16a7902c3be7d1967adaae9ee380baf0d17e903a. That execution recentered finite
+scalar Cobaya references on the selected endpoint values for the sampled non-primordial
+parameters while holding ns, log A, and τ r eio fixed at each primordial vertex. The resulting
+endpoint families remained separated and were classified at the time as stable numerical
+multibasin structure. The later full-native CamSpec revalidation, which also used scalar
+references but sampled the primordial block, did not reproduce that classification. A
+subsequent provenance audit established that reference representation itself was
+therefore not the differing variable. The historical endpoint vectors and objective values
+BUBBLEVERSE MAIN BOOK
+0.42
+remain valid outputs of their original parameterization, while the stronger interpretation
+of the basin classification as parameterization-independent is not supported.
+The subsequent fixed-lineage direction analysis is R-Q023-EDE-FULLMF-BASIN-
+DIRECTIONS-002.
+It was executed in GitHub Actions run 33913077353 at execution commit
+ea5af9a0b25090eb8472adb3c9574dcb4e1efe5c.
+The permutation- and sign-invariant correspondence test is R-Q024-EDE-FULLMF-BASIN-
+MATCHING-001.
+It was executed in GitHub Actions run 33915600167 at execution commit
+b8e16629bbc6592ee11f0d90f78c887a913ac4c1.
+It tested all 36 joint relabellings without introducing new likelihood evaluations and did
+not recover a universal basin-separation direction under the predefined criterion.
+The fixed-vector component attribution is R-Q025-EDE-FULLMF-BASIN-COMPONENT-
+ATTRIBUTION-002, logical run Q025-FULLMF-BASIN-COMPONENT-ATTRIBUTION-V2.
+The successful GitHub Actions execution was run 33918779905 at execution commit
+b2db6827b1caf5405e6a34bff221b6ae4813c1d0.
+The final artifact is q025-final-v2, artifact ID 9954333941, SHA-256
+104b584c9212a65e7f06cae64a732dac6f58b801cb8feec34c7f49d1bfddac0f.
+This successful V2 execution completed all nine required basin edges and all 72 fixed-
+vector likelihood evaluations, with zero optimizer evaluations.
+The historical Q025 V1 execution must remain separate. GitHub Actions run 33917809217
+failed because the Q022 endpoint serialization was read incorrectly. It completed zero of
+the required 72 likelihood evaluations and therefore carries no scientific evidentiary
+weight.
+The subsequent coordinate-level localization is R-Q026-EDE-FULLMF-MASK6-
+COUPLING-001, logical run Q026-MASK6-NUISANCE-COUPLING-LOCALIZATION-V1.
+The successful GitHub Actions execution was run 33921255497 at execution commit
+7cb4d98c01196c22b407b6f4fd4118179afea3de.
+It completed 252 of 252 required fixed-vector likelihood evaluations and performed no
+optimization. Within the second tested mask, the distinctive compensation localized
+strongly around A_planck and its coupling to cosmological coordinates, particularly
+ω_cdm×A_planck. This remained functional likelihood geometry rather than evidence of a
+calibration failure.
+The residual-and-covariance bridge is R-Q027-EDE-FULLMF-RESIDUAL-COVARIANCE-
+BRIDGE-001.
+The successful GitHub Actions execution was run 33924573651 at execution commit
+df03e30712690e61ff799558598405a22c0bacbb.
+BUBBLEVERSE MAIN BOOK
+0.42
+The selected TT frequency region at 600 ℓ<1000 was shown to be insufficient as a unique ≤
+localization of the interaction.
+The common-support counterfactual is R-Q028-EDE-FULLMF-COMMON-SUPPORT-
+COUNTERFACTUAL-008, logical run Q028-FULLMF-COMMON-SUPPORT-COUNTERFACTUAL-
+V8.
+The successful GitHub Actions execution was run 33957937309 at execution commit
+7f5d35c0725530039162adfa4d71be288e8b4462.
+The validated exact labelled common support contains all 9915 dimensions. The
+calculation completed its fixed-vector and checkpointed work without optimizer or
+sampling evaluations and produced the final classification
+VALID_COMMON_SUPPORT_SEPARATION.
+The final artifact is q028-final-v8, artifact ID 9967068363, SHA-256
+7dfbd1f27251ff311dd1de6118539dd691ab03d9afdb08539b3b13586c50d5af.
+An earlier execution SHA and common-support hash were subsequently identified as
+provenance misrecords and are superseded. They must not be restored as active
+identifiers.
+Residual Geometry, Common Support, and Exact Interaction Audit
+The common-support result allowed the relevant interaction to be expressed exactly as
+2 (mᵀPm).
+2m+Δ
+F=−2d ᵀP Δ
+The pure quadratic data term cancels because the same data vector appears in all four
+factorial states. The first surviving term is a data–model factorial coupling; the second is a
+model-quadratic response. The decomposition therefore does not provide a unique
+physical split into data-driven and model-driven causes.
+The full nine-case numerical diagnostics are preserved in Appendix B.
+The final numerical precision audit is R-Q030-ORIGINAL-GATE-PRECISION-AUDIT-001.
+The validation history matters because several kinds of failure occurred before the final
+certification.
+An initial Q030 execution failed before a scientific result because it used a misrecorded
+common-support hash.
+GitHub Actions run 33961469874 then produced all nine diagnostics but failed the original
+numerical closure gates at approximately 10⁻⁸ to 10⁻⁷ because cancellation-sensitive
+differences of large quadratic scalars were being evaluated directly.
+A later validation-only run, 33961879699, accepted the unchanged values under a relaxed
+10⁻⁷ numerical threshold. That run is not the authoritative final validation.
+The one-shot precision audit in GitHub Actions run 33962896373 demonstrated that the
+original 10⁻⁸ gate could instead be satisfied using algebraically equivalent, numerically
+BUBBLEVERSE MAIN BOOK
+0.42
+stable arithmetic. Its workflow nevertheless failed because the validator looked for an
+incorrect schema key.
+The finalization repair was then executed through the Bubbleverse Q030 audit finalization
+validator repair R1 workflow.
+The successful GitHub Actions execution was run 33963221940 at head commit
+4cbe1585d2603b507679c654a8ff8b0d7e2e522e.
+The final artifact is q030-original-gate-precision-audit-final-v1, artifact ID 9968592047,
+SHA-256 7685d7693f2e85391767bd9a2654a940280a02c729ff5a441b988c69a752a156.
+The finalization did not rerun the scientific audit. It did not change a mask shard, a
+scientific input, a numerical value, or a tolerance. It repaired the validator and
+reconstructed the final result from the immutable audit artifacts.
+The stable factorial-bilinear representation reaches a maximum identity closure error of
+2.0940194023211234×10⁻¹³, a maximum spectrum- or multipole-pair aggregation error of
+5.479297571220343×10⁻¹⁴, a maximum |Δ²m+Δ²r| of 4.547473508864641×10⁻¹³, and a
+maximum parent-functional closure error of 1.6143639203214377×10⁻¹⁰.
+These satisfy the original validation thresholds.
+Failed, Repaired, and Superseded Executions
+The computational history cannot be reduced to a sequence of green check marks.
+Some failures occurred before any scientific evaluation and therefore produced no
+evidentiary result. The Q025 V1 endpoint-serialization failure is one such case.
+Some workflows produced scientifically valid child calculations but failed during
+aggregation or validation. Q015 V2 belongs to this class: its Stage-0, Planck, and SPT
+scientific jobs succeeded and produced preserved artifacts, while the downstream merge
+job failed.
+Some later executions did not rerun the science at all. They repaired validation semantics,
+aggregation, identity checks, provenance, or arithmetic representation while preserving
+the underlying scientific evaluations. The repaired Q021 aggregation and the final Q030
+validator repair belong to this class.
+Other calculations were scientifically superseded because broader optimization found
+better parameter basins. The historical n=3 EDE fixed-H₀ attribution remains valid for the
+parameter vectors at which it was evaluated, but it is not the active description of the
+corrected best-observed basins.
+Supersession therefore does not mean deletion of history.
+It means that the historical result must be labelled with the state to which it actually
+applies.
+BUBBLEVERSE MAIN BOOK
+0.42
+Downstream Portability Campaign
+The next major execution attempted to propagate the validated CamSpec–HiLLiPoP fitted-
+geometry difference into matched downstream n=3 EDE inference. The authoritative
+implementation is Q041-PLANCKPORT-V19, result R-Q041-EDE-DOWNSTREAM-
+PORTABILITY-019.
+The V19 matrix contained two Planck arms, eight EDE data combinations, and two
+independent chains per arm/combination. The external blocks were ACT DR6 primary CMB
+(A6), ACT DR6 lensing (L6), and DESI DR2 BAO (D2). The Planck parent was the validated
+Q032 exact-common-TT construction; with ACT primary present, the overlap policy
+restricted Planck primary TT support to ℓ 599 while ACT primary TT/TE/EE began at ℓ = ≤
+600.
+Cobaya MCMC used Rminus1_stop = 0.02, Rminus1_cl_stop = 0.2, a hard science R-hat gate
+of 1.05, a maximum of 20,000 accepted samples per chain, and at most eight successful
+compute segments per chain. Each segment had a 300-minute soft stop inside a 330-minute
+GitHub job timeout. Same-run artifacts transported the immediate predecessor chain state;
+cross-version state reuse was forbidden.
+GitHub Actions run 34979609004 completed successfully on attempt 4 at execution commit
+a962ba70077422f8b69642dea4e8272e1d00e5ff. The final artifact q041-final-v19, artifact ID
+10754769330, has SHA-256
+2284518ecbaaf1ff0d0093977827d5162ec29549ba2b81880f266c250311ca2b.
+The scientific matrix did not converge. Thirty chains were reported as
+MAX_SAMPLES_WITHOUT_CONVERGENCE. The two remaining chains were still PARTIAL
+after the eighth compute segment. The final object therefore records
+scientific_classification = NO_SCIENTIFIC_RESULT, outcome_type =
+CONTROLLED_NO_SCIENTIFIC_RESULT, technical_failure = false, final_outcome_valid =
+true, while CHAIN_COMPLETENESS, ALL_RHAT_LE_1P05, and
+BOTH_ARMS_ALL_COMBINATIONS are blocked.
+The green workflow conclusion must therefore be read as successful enforcement of the
+no-science firewall, not as a successful cosmological inference. No material, equivalent, or
+mixed downstream class was obtained.
+A provenance audit also found that V19 is not identical to the broader downstream design
+that preceded it. V19 contains no separate ΛCDM control cells or common supernova
+likelihood, uses three leave-one-out combinations, and applies a different classification
+rule. The difference is a scope distinction, not a retroactive invalidation of V19, but it
+prevents V19 from closing the broader planned test.
+Reproducibility Status
+The computational record has several reproducibility classes. The Q005 globality-recovery
+calculation, Q011 globality certification, Q016 matched CMB mechanism analysis, Q017 full-
+multifrequency localization, Q020 cross-profile direction analysis, the historical Q022
+BUBBLEVERSE MAIN BOOK
+0.42
+continuation, the Q023–Q028 fixed-endpoint programme, the Q030 final audit and
+finalization, the Q031 HiLLiPoP portability test, and the authoritative Q032 full-native
+CamSpec revalidation have sufficiently explicit repository, workflow, run, commit, result,
+and validation lineage in the surviving record to support strong reconstruction of their
+execution histories. The Q033 provenance audit adds a source-locked reconstruction of the
+Q019 Q021 Q022 and Q032 parameter-reference semantics. The authoritative audit is → →
+R-Q033-EDE-LAUNCH-SEMANTICS-AUDIT-002, GitHub Actions run 34055678308, head SHA
+614b227c8de5ea2096f75bf8b97155f340cb1a44. The audit corrects the interpretation rather
+than the raw computations: the historical Q022 and Q032 paths both used scalar pointlike
+references, while their explicit sampled-parameter sets differed by n_s, log A, and
+tau_reio.The audit corrects the interpretation rather than the raw computations: the
+historical Q022 and Q032 paths both used scalar pointlike references, while their explicit
+sampled-parameter sets differed by ns, log A, and τ r eio. The Q015 V2 scientific endpoints are
+also strongly reconstructable because the workflow, head commit, successful child jobs,
+and endpoint artifacts are preserved even though the overall workflow concluded with a
+failed merge. Several older links remain only partially reconstructable from the present
+publication record; those are provenance gaps, not permission to invent identifiers.
+Other links remain only partially reconstructable from the present publication record. The
+successful GitHub run and head commit for the historical Q007 corrected execution are not
+yet established in the manuscript. The final authoritative Q008 workflow run, execution
+commit, and result-file hash require verification. The exact successful GitHub Actions run
+for the Q009 corrected-minima attribution has not been established here. The final Q015 V3
+GitHub Actions run identifier also remains to be verified.
+Those gaps are provenance gaps.
+They are not permission to invent identifiers.
+The downstream V19 campaign is also strongly reconstructable: its preregistration, source
+lock, scientific program, validator, workflow, execution commit, run ID, final artifact ID,
+and artifact digest are all preserved. Its reconstructable result is a controlled no-science
+endpoint; there is no converged posterior classification to reproduce.
+What the Computational Programme Established
+The computational programme established that the numerical structure behind the tested
+high-H₀ early-universe solutions is substantially more complicated than a one-parameter
+shift in H₀ or a single experiment acting as a universal barrier. The n=3 early-dark-energy
+likelihood surface is sensitive to optimizer discovery, and corrected best-observed high-H₀
+vectors materially changed earlier ACT attribution patterns. Planck, SPT-3G, and ACT
+respond differently even when compared on deliberately matched observables and
+multipoles. The Planck response itself also depends on likelihood construction: similar
+projected values of H₀ and f_EDE do not guarantee equivalent multidimensional preferred
+regions.
+BUBBLEVERSE MAIN BOOK
+0.42
+Within the historical full-multifrequency CamSpec execution, separated endpoint families
+involved both cosmological and nuisance coordinates. Fixed-vector analysis of those
+preserved endpoints found mask-dependent direction structure, an important local
+A_planck-centred compensation involving ω_cdm in one mask, and strongly covariance-
+coupled residual and prediction geometry. Stable numerical arithmetic reproduced the
+exact interaction diagnostics while satisfying the original validation gates. These results
+remain valid descriptions of the historical endpoint family.
+What changed is the status of the stable-basin interpretation. The historical endpoint
+continuation produced separated families while the primordial block n_s, log A, and
+tau_reio was fixed, and classified them using a per-mask mixed cosmology–nuisance non-
+collapse rule.
+The independent HiLLiPoP test and the later full-native CamSpec programme instead used
+a common-geometry graph classifier and recovered no reproducibly supported stable
+basin. Restoring the omitted TT support, TE, or EE separately did not restore a stable
+cluster; neither did any tested pairwise combination or the full-native SUPPORT + TE + EE
+control.
+Source reconstruction then established that both CamSpec execution paths already used
+scalar pointlike parameter references. A direct matched primordial-freeze test
+subsequently fixed n_s, log A, and tau_reio inside the later full-native construction and still
+produced no stable repeated cluster under the later classifier. The nine refined frozen
+endpoints instead remained nine singleton clusters.
+Primordial freezing is therefore insufficient to restore the historical stable-basin label
+within the later classification framework. The remaining apparent contradiction was
+subsequently resolved at the level of classification itself: when both the historical mixed
+cosmology–nuisance rule and the later seven-coordinate graph rule are applied to the same
+preserved endpoint families, the labels move together. The historical-versus-later stable-
+basin contrast is therefore classifier dependent rather than evidence that an invariant
+basin structure disappeared.
+That correction does not erase the underlying cross-implementation difference. A direct
+continuous comparison in the same seven normalized coordinates finds materially
+different CamSpec and HiLLiPoP endpoint locations and internal shapes. More importantly,
+the difference remains when the comparison is restricted to the exact TT information
+support shared by the two implementations. In that matched-support analysis, all nine
+paired endpoint displacements exceed the locked 0.10 threshold, as do all 36 pairwise
+geometry drifts.
+A subsequent deterministic localization analysis then examined every non-empty subset of
+the same seven coordinates. The result is not consistent with a one- or two-coordinate
+concentration. No subset containing three or fewer coordinates satisfies the complete
+preregistered capture and robustness requirements. The unique smallest qualifying subset
+contains ωb, ωc d m, f E D E, and θi,sc f, and it reproduces more than 87% of the full discrepancy
+BUBBLEVERSE MAIN BOOK
+0.42
+in each of the matched-location, centroid, and pairwise-shape channels while passing all
+leave-one-label-out tests.
+The computational programme therefore supports a narrower but more informative
+methodological conclusion than the original binary portability claim. The tested CamSpec
+and HiLLiPoP constructions produce materially different fitted geometries; the difference
+survives exact TT support matching and is expressed through a distributed multivariate
+structure rather than a single dominant common coordinate. The tested explanations
+based on classifier semantics, scalar-versus-distribution launch references, primordial
+freezing, unequal TT information support, and simple one- or two-coordinate
+concentration are therefore insufficient to account for the complete discrepancy.
+Its causal implementation origin remains unresolved. No physical Planck systematic,
+calibration error, foreground failure, covariance defect, instrumental problem,
+independent observational discrepancy, or falsification of n=3 early dark energy has been
+established.
+Later preregistered intervention tests narrow that unresolved implementation problem
+further. Relative-calibration semantics were neutralized without removing the common-
+support geometry difference. The native off-diagonal precision coupling was then removed,
+again without collapsing the discrepancy. Applying both interventions together produced
+no compensating cancellation and instead worsened all three aggregate geometry
+measures. In every case, all nine leave-one-label-out tests remained materially discrepant.
+A separate eighteen-profile calculation then removed the freedom of each likelihood’s
+native TT foreground nuisance parameters to vary from label to label. Each
+implementation’s foreground vector was fixed to its own within-implementation reference
+endpoint, without mapping nuisance parameters between CamSpec and HiLLiPoP. The
+resulting median matched displacement was 2.9829, the centroid displacement was 1.0555,
+and the median pairwise-shape drift was 1.6353, compared with the locked common-
+support baseline values of 2.9318, 0.8311, and 1.6368. None of the nine leave-one-label-out
+analyses satisfied the predefined 0.10 criterion.
+The computational record therefore excludes several simple interpretations of the
+implementation dependence under the operations actually tested. Relative calibration
+alone, native off-diagonal precision coupling alone, their predefined combination, and
+native foreground nuisance profiling freedom alone are all insufficient to remove the
+common-support geometry difference. The remaining distinction lies deeper in the coupled
+construction of the two likelihoods, including foreground-model form, detector-set and
+cross-spectrum construction, weighting and coaddition, data-vector definition, covariance
+propagation, masks, calibration structure, and other implementation choices that cannot
+always be separated into independent switches.
+Later work showed that this methodological boundary does not force the analysis to
+manufacture a synthetic likelihood. A common physical object can instead be defined by
+marginalizing each implementation separately over its own native nuisance parameters
+while retaining the CMB TT spectrum and A Pl anc k as the common physical coordinates. This
+BUBBLEVERSE MAIN BOOK
+0.42
+preserves the native CamSpec and HiLLiPoP data, covariance, foreground models, and
+priors rather than exchanging them between pipelines.
+Two numerical representations of this common-latent construction were tested. A single-
+Gaussian Laplace/Schur compression failed validation because the CamSpec nuisance
+solution encountered a native hard boundary with a non-positive-definite nuisance
+Hessian, while the HiLLiPoP CMB representation failed the predefined multistart-stability
+criterion. A subsequent non-Gaussian defensive randomized quasi-Monte Carlo calculation
+avoided both the single-Gaussian assumption and arbitrary mode selection. Its complete
+finite campaign reached the preregistered hard cap of m=16, corresponding to 393,216
+nuisance nodes per replicate and implementation, but still failed the required numerical-
+stability tests. At the hard cap, the maximum transition changes were approximately 16.59
+for CamSpec and 61.13 for HiLLiPoP, while the independent-bank differences were
+approximately 28.44 and 63.11, respectively, against a required tolerance of 0.05.
+The scientific endpoint stage was therefore blocked exactly as preregistered. No
+marginalized-likelihood CamSpec–HiLLiPoP endpoint geometry was produced, and the
+calculation cannot be used to claim either that the deeper structural bridge succeeds or
+that it fails physically. The authoritative classification is a numerical-validation failure of
+the tested finite representation, not a falsification of the underlying marginal likelihood
+and not a physical result.
+The strongest surviving conclusion is consequently precise. CamSpec and HiLLiPoP
+produce a reproducible, distributed implementation-dependent fitted geometry on
+matched Planck TT support. Several simple implementation-level explanations have been
+rejected as sufficient, and a mathematically legitimate route to deeper nuisance
+marginalization has been identified, but the tested numerical implementations were not
+adequate to determine whether that deeper construction would materially reduce the
+discrepancy. Its causal origin therefore remains unresolved.
+These results remain methodological computational evidence derived from overlapping
+Planck PR4/NPIPE information. They do not constitute independent observations, establish
+a calibration defect, identify foreground contamination, demonstrate a covariance or
+instrumental failure, determine that either likelihood is superior, favour or falsify n=3
+early dark energy, or provide evidence for new physics.
+The later downstream campaign adds one further validated computational result: under
+the frozen V19 sampler and compute budget, the required complete converged posterior
+matrix was not obtained, and the preregistered science firewall correctly blocked
+interpretation. This constrains the numerical route; it does not select a physical
+explanation.
+[Internal computational provenance: Q041-PLANCKPORT-V19; R-Q041-EDE-DOWNSTREAM-
+PORTABILITY-019; GitHub Actions run 34979609004, attempt 4; execution head
+a962ba70077422f8b69642dea4e8272e1d00e5ff; workflow .github/workflows/q041-planck-
+portability-v19.yml; final artifact q041-final-v19, artifact ID 10754769330, SHA-256
+BUBBLEVERSE MAIN BOOK
+0.42
+2284518ecbaaf1ff0d0093977827d5162ec29549ba2b81880f266c250311ca2b. Final state:
+CONTROLLED_NO_SCIENTIFIC_RESULT / MAX_SAMPLES_WITHOUT_CONVERGENCE.]
+[Internal computational provenance: R-Q040-EDE-CMBSPACE-COUPLED-BRIDGE-005; R-
+Q040-MATH-DEFENSIVE-MARGINAL-001; R-Q040-EDE-DEFENSIVE-RQMC-CMB-
+MARGINAL-004; PROGRAM_ID Q040-RQMC-V4; GitHub Actions run 34258155387; execution
+head 855a28c58246dbdd52d01cae1f40e0611103d96b; workflow .github/workflows/q040-
+defensive-rqmc-v4.yml; integration artifact q040-rqmc-integration-final-v4, SHA-256
+1cdb34576665d4b91300243ea72b92eab8ee8a24a122fbf118fcd424d891ffc5; final artifact
+q040-rqmc-final-v4, SHA-256
+450c7a4116eff544d5c8e0f8b209a6ba1f41caa4cb8b89284923d1956b348a62. Earlier RQMC
+V1–V3 executions are technical failures involving serialization, artifact transport, and
+deployment and carry no physical evidentiary weight.]
+What the Computational Programme Did Not Establish
+The computational programme did not establish a mathematical proof of the global
+minimum of every tested high-H₀ profile.
+It did not establish that Planck, SPT-3G, or ACT is incorrect.
+It did not establish a faulty Planck calibration.
+It did not identify a defective frequency channel.
+It did not demonstrate an unmodelled foreground systematic.
+It did not establish a covariance defect.
+It did not demonstrate that optimizer basins correspond to physically distinct cosmologies.
+It did not establish that the historical and later stable-basin labels are directly
+interchangeable, because the historical continuation and the later portability and
+revalidation programme used different operational classifier definitions. Nor did the
+matched primordial-freeze isolation establish that primordial parameterization is globally
+irrelevant to the historical-versus-later discrepancy; it established only that freezing the
+primordial block does not recover repeated stable basins under the later common-
+geometry classifier.
+It did not turn repeated internal analyses of the same observational likelihoods into
+independent observational evidence.
+It did not establish whether the CamSpec–HiLLiPoP fitted-geometry difference produces a
+material downstream cosmological difference, collapses to effectively equivalent
+constraints, or is conditional on the external dataset combination.
+The completed V19 matrix also did not execute the broader planned ΛCDM-versus-EDE
+comparison with a common supernova block, so its controlled no-science outcome does not
+close that broader scientific question.
+It did not demonstrate new physics.
+Q042 - Qualification Closure
+After the controlled Q041 no-science endpoint, a successor investigation tested whether the broader downstream-portability
+contract could be qualified with a new, preregistered and convergence-robust strategy. The frozen scientific contract retained two
+native Planck likelihood arms, both LCDM and n=3 early dark energy, ACT DR6 primary CMB, ACT DR6 lensing, DESI DR2, one
+identical frozen supernova likelihood, a FULL combination plus four leave-one-out combinations, and the original materiality and
+model-preference rules. This corresponds to 20 required inference cells.
+Q042 is now closed with a documented inconclusive feasibility answer. The strategies actually tested did not establish execution
+and scientific qualification of that original contract. This is not an affirmative production result and it is not an impossibility
+theorem: feasibility of a materially different contract-preserving strategy remains unresolved.
+The final V31 branch produced partial conditional histories rather than a complete physical reference. Both bounded attempts
+stopped at the parent 600-second deadline, and no complete tau value was computed. Under the frozen source extension, global
+rails and append-only retention of the existing certified intervals, however, a separate necessary output-policy obstruction was
+established. The retained support-candidate counts were 138 for the upper trial and 3,002 for the lower trial against a frozen cap of
+32. The certified missing-tail source lower bounds remained above the existing minimum upper bounds, so completing that
+unchanged retained-interval representation cannot reduce the candidate set enough to satisfy cap32.
+That conclusion is deliberately narrow. It rejects more runtime as a sufficient repair of the unchanged V31 stored-interval policy. It
+does not establish 138 or 3,002 physical minima, an executed tau failure, failure of every alternative numerical method, or a
+cosmological result. Original-binary arithmetic accuracy, upstream physical and table accuracy, switched-RHS solution properties,
+a downstream error budget, a valid reference truth, and the convergence-qualified 20-cell comparison all remain unresolved.
+The physical universe model therefore does not materially change. The CamSpec-HiLLiPoP fitted-geometry discrepancy remains a
+methodological tension with unknown downstream significance. n=3 early dark energy remains active but constrained; the
+Hubble-tension benchmarks are unchanged. No production restart is authorized from the Q042 evidence alone.
+The immediate next task is operational rather than scientific: synchronize the completed Q042 closure into the repository, registry
+and candidate model state while preserving the previous accepted snapshot until the update passes its normal gates. Earlier
+planning language that treated Q042 as an active unchanged execution campaign is superseded by this closure.
+BUBBLEVERSE MAIN BOOK
+0.42
+Glossary
+AIC — Akaike information criterion. A model-comparison statistic that balances goodness
+of fit against the number of fitted parameters. A lower AIC can favor one tested model over
+another, but it is not proof that the model is physically correct.
+APlanck — A Planck calibration parameter used in several likelihood analyses in this book.
+It is a fitted nuisance or calibration quantity, not a separate cosmological observable.
+Accepted model — The Bubbleverse-model state that has passed the repository’s required
+promotion and validation process. Candidate content is not accepted merely because it
+exists.
+ACT — Atacama Cosmology Telescope. A ground-based experiment that measures cosmic
+microwave background temperature and polarization structure at high angular resolution.
+Angular power spectrum — A statistical description of how fluctuations on a sky map are
+distributed across angular scales. CMB temperature and polarization measurements are
+commonly expressed through TT, TE and EE power spectra.
+BAO — Baryon acoustic oscillations. A preferred clustering scale measured statistically in
+the distribution of matter. Using it as an absolute standard ruler requires calibration of its
+physical scale.
+BBN — Big Bang nucleosynthesis. The early-Universe nuclear process used to predict
+primordial light-element abundances within a specified physical model.
+Best-observed minimum — The lowest likelihood or objective value actually found in the
+available numerical search. It is not automatically a proven global minimum.
+Bubbleverse — The observation-first research framework used in this book to separate
+measured signals, reconstruction, inference and physical interpretation while preserving a
+traceable question-by-question research record.
+Bubbleverse-model — The dedicated version-controlled repository that stores accepted
+and candidate Bubbleverse model states, formal model files, tests, provenance and version
+history.
+Calibration — The process of relating an instrument or astrophysical indicator to a known
+physical scale. Calibration uncertainty can propagate into inferred cosmological
+parameters.
+CamSpec — A Planck CMB likelihood implementation used in the Planck analyses
+examined in this book.
+Candidate model — A proposed next Bubbleverse-model state undergoing validation. A
+candidate may pass, fail, remain blocked, be revised or be superseded.
+CASE — A Bubbleverse provenance identifier used to group a scientific problem or
+investigation. CASE identifiers are primarily bookkeeping and traceability devices.
+BUBBLEVERSE MAIN BOOK
+0.42
+CMB — Cosmic microwave background. The nearly isotropic microwave radiation field
+observed across the sky, including small temperature and polarization fluctuations.
+Common backend — A deliberately shared computational framework used to compare
+different models under a controlled set of likelihoods, datasets, priors and numerical
+conventions. It should not be confused with an exact reproduction of every external
+paper’s native pipeline.
+Confidence interval — A statistical interval constructed according to a specified
+procedure to express uncertainty in an estimated quantity. Its interpretation depends on
+the method used to construct it.
+Covariance — A description of how uncertainties or residuals vary together. Correlated
+data cannot generally be treated as a collection of independent measurements.
+Dark energy — The name given to the component, field, modification or effective
+phenomenon used to reproduce accelerated late-time expansion in a cosmological model.
+The name does not imply that a microscopic dark-energy substance has been directly
+detected.
+Dark matter — The standard description of the additional non-luminous gravitating
+component required across a wide range of astrophysical and cosmological evidence under
+conventional gravity. Its microscopic identity remains unknown.
+DESI — Dark Energy Spectroscopic Instrument. A spectroscopic survey used in this book
+for large-scale-structure and baryon-acoustic-oscillation constraints.
+Distance ladder — A chain of calibrated distance measurements in which nearby
+geometric anchors calibrate more distant indicators, eventually allowing the late-Universe
+expansion rate to be inferred.
+EDE — Early dark energy. A class of models in which an additional energy component
+contributes during an early cosmic epoch and may alter the sound horizon and inferred
+expansion parameters.
+EE — The CMB E-mode polarization auto-spectrum.
+Evidence chain — The sequence linking an observed signal through calibration, modelling
+and statistical inference to a scientific conclusion.
+fEDE — The fractional early-dark-energy contribution used in the EDE analyses in this
+book.
+Foreground — Astrophysical emission or contamination that must be modelled or
+separated from the cosmological signal of interest.
+Global minimum — The lowest possible value of an objective function over the complete
+permitted parameter space. Numerical optimization may find a low minimum without
+proving that it is the global minimum.
+GitHub Actions — GitHub’s automated workflow system. Bubbleverse uses Actions to
+execute and preserve many numerical programmes and validation pipelines.
+BUBBLEVERSE MAIN BOOK
+0.42
+H0 — The Hubble constant, the present value of the cosmic expansion parameter H(t). It is
+inferred from observations through a physical and statistical chain rather than read
+directly from an instrument.
+H(z) — The expansion parameter evaluated at redshift z. Different observational methods
+constrain it with different calibration and modelling dependencies.
+HiLLiPoP — A Planck PR4/NPIPE likelihood implementation independently compared with
+CamSpec in the later Bubbleverse computational programme.
+Hubble tension — The statistically significant disagreement among leading inference
+chains for the present expansion parameter H0. The existence of the discrepancy does not
+by itself establish its cause or prove new physics.
+Inference — A conclusion derived from observations through calibration, modelling,
+statistics or physical assumptions. Bubbleverse deliberately distinguishes inference from
+the raw signal recorded by an instrument.
+Inference chain — The complete route from observed quantities through calibrations and
+modelling assumptions to an inferred parameter or conclusion.
+JAGB — J-region asymptotic giant branch stars. A stellar distance indicator investigated as
+an alternative calibration route within the late-Universe distance network.
+ΛCDM — Lambda cold dark matter. The standard compact cosmological model containing
+a cosmological constant, cold dark matter and the usual early-Universe framework. Its
+empirical success does not make every component a directly observed microscopic entity.
+Likelihood — A statistical function describing how compatible specified model parameters
+are with the observed data under a defined statistical model.
+Likelihood architecture — The complete construction of a likelihood, including its data
+vector, covariance, retained information, nuisance parameters, calibration structure,
+foreground model and statistical implementation.
+Marginalization — A statistical procedure that removes nuisance parameters from the
+quantity of interest by integrating or otherwise accounting for their allowed values.
+Megamaser — Intense microwave emission from molecular gas. Disk megamasers can
+provide geometric galaxy distances and therefore an alternative route to H0.
+Mikami — Bubbleverse’s scientific triage and revision stage used before the Thin Red Line
+editing pass. In this book it is a provenance term describing where claims were retained,
+constrained, rejected or sent to the graveyard.
+Model dependence — Dependence of an inferred result on the physical or statistical
+framework used to translate observations into quantities that are not measured directly.
+Multipole, ℓ — The conventional index used to describe angular scale in a spherical-
+harmonic analysis. Larger ℓ generally corresponds to smaller angular scales.
+NPIPE — A Planck data-processing product used in several later Planck likelihood analyses
+discussed in this book.
+BUBBLEVERSE MAIN BOOK
+0.42
+Nuisance parameter — A fitted parameter required to describe calibration, foregrounds
+or other non-target effects but which is not itself the main scientific quantity being
+inferred.
+Observation — A signal or quantity recorded from the physical world. Bubbleverse uses
+the term more narrowly than inference or physical interpretation.
+Optimizer basin — A region of parameter space toward which a numerical optimizer can
+converge. Different starting points may reach different basins.
+Pantheon+ — A large Type Ia supernova compilation used in late-Universe distance and
+cosmological analyses discussed in this book.
+Parameter degeneracy — A situation in which different combinations of model
+parameters can produce similar observational predictions, making the parameters difficult
+to constrain separately.
+Peculiar velocity — Motion of an object relative to the idealized large-scale cosmological
+expansion. Peculiar velocities matter particularly for low-redshift distance and H0
+inference.
+Planck — The ESA space mission that measured the CMB temperature and polarization sky
+with high precision.
+Precision matrix — The inverse of a covariance matrix. It appears in covariance-aware
+likelihood and residual calculations.
+Prior — Information or constraints placed on parameters before or alongside the
+likelihood in a Bayesian analysis.
+Profile likelihood — A likelihood construction in which parameters not currently being
+examined are reoptimized at each tested value of the parameter of interest.
+Provenance — The traceable record connecting a scientific claim or numerical result to its
+source data, programme, configuration, workflow, commit, artifact or journal entry.
+Q — A numbered Bubbleverse research question. Q numbers preserve chronological
+research provenance; they are not the chapter structure of the main book.
+Q firewall — The Bubbleverse-model rule that scientific model state may use only evidence
+inside the currently authorized Q range.
+Q-Journal — The chronological record of a Bubbleverse research question, including its
+starting state, hypotheses, methods, results, failures, model changes, provenance and
+handoff.
+Redshift, z — The fractional shift of a spectral wavelength between emission and
+observation. Cosmological redshift is directly observed through spectra; its conversion into
+distances, ages or an expansion history requires additional modelling.
+Reproducibility — The degree to which a calculation can be reconstructed from its data,
+code, environment, configuration, workflow and recorded provenance.
+BUBBLEVERSE MAIN BOOK
+0.42
+Result ID — A stable Bubbleverse identifier attached to a specific computational or
+scientific result.
+R_d — The sound horizon associated with the baryon-drag epoch. It acts as the physical
+ruler used in standard interpretations of BAO.
+RQMC — Randomized quasi-Monte Carlo. A numerical integration method used in the
+common CMB-space nuisance-marginalization test without relying on the single-Gaussian
+approximation. The tested finite implementation did not pass the required numerical-
+stability criteria.
+Scale factor, a(t) — The quantity used in homogeneous and isotropic cosmology to
+describe the relative cosmic scale as a function of time.
+SH0ES — The distance-ladder programme using geometric anchors, Cepheid variables,
+Type Ia supernovae and Hubble-flow objects to infer H0.
+Sound horizon — The characteristic distance travelled by acoustic disturbances in the
+early photon–baryon plasma before the relevant decoupling epoch. Its calibrated size is
+central to BAO and early-Universe inference.
+SPT-3G — The third-generation South Pole Telescope camera and its CMB measurements.
+Standard candle — An object whose luminosity can be standardized or otherwise
+calibrated so that its observed brightness provides distance information.
+Standard ruler — A physical scale whose calibrated size allows observed angular or
+redshift separations to provide cosmological distance information.
+Standard siren — A gravitational-wave source whose waveform provides luminosity-
+distance information. Combined with redshift information, it can constrain H0.
+Superseded result — A historical result retained for provenance after a later analysis
+provides a corrected or more authoritative result. Superseded does not mean that the
+historical calculation never occurred.
+TE — The cross-spectrum between CMB temperature fluctuations and E-mode polarization.
+Thin Red Line — The Bubbleverse editorial boundary that permits restructuring,
+compression and clarification while forbidding unauthorized changes to the surviving
+scientific state.
+TRGB — Tip of the red-giant branch. A stellar luminosity feature used as a distance
+indicator and alternative calibration route.
+TT — The CMB temperature auto-spectrum.
+Uncertainty — A quantitative description of the range or distribution of values consistent
+with an analysis. Statistical, systematic and other uncertainty components must not be
+silently merged when the source keeps them separate.
+World Breaker / Hulk Smash — Bubbleverse falsification and contradiction-testing stages
+used before the final structural editing pass. They belong to the research workflow rather
+than to the cosmological model itself.
+BUBBLEVERSE MAIN BOOK
+0.42
+References
+Fixsen, D. J. “The Temperature of the Cosmic Microwave Background.” 2009. arXiv:0911.1955.
+Planck Collaboration. “Planck 2018 Results. VI. Cosmological Parameters.” Astronomy & Astrophysics 641, A6 (2020).
+arXiv:1807.06209.
+ACT Collaboration et al. “The Atacama Cosmology Telescope: DR6 Power Spectra, Likelihoods and ΛCDM Parameters.” 2025.
+arXiv:2503.14452.
+DESI Collaboration. “DESI DR2 Results II: Measurements of Baryon Acoustic Oscillations and Cosmological Constraints.” 2025.
+arXiv:2503.14738.
+Riess, A. G., et al. “Observational Evidence from Supernovae for an Accelerating Universe and a Cosmological Constant.” The
+Astronomical Journal (1998). arXiv:astro-ph/9805201.
+Perlmutter, S., et al. “Measurements of Ω and Λ from 42 High-Redshift Supernovae.” The Astrophysical Journal (1999). arXiv:astro-
+ph/9812133.
+Brout, D., et al. “The Pantheon+ Analysis: Cosmological Constraints.” The Astrophysical Journal
+(2022). arXiv:2202.04077.
+Planck Collaboration. “Planck 2018 Results. VIII. Gravitational Lensing.” Astronomy & Astrophysics (2020). arXiv:1807.06210.
+McGaugh, S. S., Lelli, F., and Schombert, J. M. “The Radial Acceleration Relation in Rotationally Supported Galaxies.” Physical
+Review Letters (2016). arXiv:1609.05917.
+Clowe, D., et al. “A Direct Empirical Proof of the Existence of Dark Matter.” The Astrophysical Journal Letters (2006). arXiv:astro-
+ph/0608407.
+LIGO Scientific Collaboration and Virgo Collaboration. “Observation of Gravitational Waves from a Binary Black Hole Merger.”
+Physical Review Letters 116, 061102 (2016). DOI: 10.1103/PhysRevLett.116.061102.
+LIGO Scientific Collaboration and Virgo Collaboration. “GW170817: Observation of Gravitational Waves from a Binary Neutron Star
+Inspiral.” Physical Review Letters 119, 161101 (2017). DOI: 10.1103/PhysRevLett.119.161101.
+Cooke, R., Pettini, M., and Steidel, C. C. “One Percent Determination of the Primordial Deuterium Abundance.” The Astrophysical
+Journal (2018). arXiv:1710.11129.
+Riess, A. G., et al. “A Comprehensive Measurement of the Local Value of the Hubble Constant with 1 km s ⁻¹ Mpc ⁻¹ Uncertainty
+from the Hubble Space Telescope and the SH0ES Team.” The Astrophysical Journal Letters (2022). arXiv:2112.04510.
+Casertano, S., et al., H0 Distance Network Collaboration. “The Local Distance Network: A Community Consensus Report on the
+Measurement of the Hubble Constant at 1% Precision.” Astronomy & ∼ Astrophysics 708, A166 (2026). arXiv:2510.23823. DOI:
+10.1051/0004-6361/202557993.
+Choudhury, S. R. “Updated 1.1% Precision Values of the Hubble Constant with Corrected Pantheon+ and Dark Energy Survey
+(DES)-DOVEKIE Type Ia Supernovae.” 2026. arXiv:2607.24443.
+Hoyt, T. J., Rubin, D., Aldering, G., Perlmutter, S., Cuceu, A., and Gupta, R. “Union3.1: Self-consistent Measurements of Host Galaxy
+Properties for 2000 Type Ia Supernovae.” 2026. arXiv:2601.19424.
+BUBBLEVERSE MAIN BOOK
+0.42
+Freedman, W. L., et al. “Status Report on the Chicago-Carnegie Hubble Program: Measurement of the Hubble Constant Using the
+Hubble and James Webb Space Telescopes.” The Astrophysical Journal (2025). DOI: 10.3847/1538-4357/adce78.
+Pesce, D. W., et al. “The Megamaser Cosmology Project. XIII. Combined Hubble Constant Constraints.” The Astrophysical Journal
+Letters (2020). arXiv:2001.09213. DOI: 10.3847/2041-8213/ab75f0.
+Birrer, S., et al. “TDCOSMO 2025: Cosmological Constraints from Strong Lensing Time Delays.” Astronomy & Astrophysics 704, A63
+(2025). DOI: 10.1051/0004-6361/202555801.
+LIGO Scientific Collaboration, Virgo Collaboration, et al. “A Gravitational-Wave Standard Siren Measurement of the Hubble
+Constant.” Nature (2017). arXiv:1710.05835. DOI: 10.1038/nature24471.
+Camphuis, E., et al. “SPT-3G D1: CMB Temperature and Polarization Power Spectra and Cosmology from 2019 and 2020
+Observations of the SPT-3G Main Field.” 2025. arXiv:2506.20707.
+McMahon, I., et al. “Measurement of the Hubble Constant Using the Dark Energy Survey Year 6 Gold Galaxy Catalogue and the
+Fourth Gravitational-Wave Transient Catalogue.” Monthly Notices of the Royal Astronomical Society 550, stag1167 (2026). DOI:
+10.1093/mnras/stag1167. arXiv:2602.04766.
+Riess, A. G., et al. “The Perfect Host: JWST Cepheid Observations in a Background-Free SN Ia Host Confirm No Bias in Hubble-
+Constant Measurements.” 2025. arXiv:2509.01667.
+Stiskalek, R., et al. “1.8 per cent Measurement of H0 from Cepheids Alone.” Monthly Notices of the Royal Astronomical Society 546,
+staf2260 (2026). DOI: 10.1093/mnras/staf2260.
+[REFERENCE TO BE VERIFIED: K-033 — primary peculiar-velocity analysis used to establish that ordinary peculiar-velocity and
+standard cosmic-variance contributions are insufficient to explain the full Hubble-constant discrepancy.]
+ACT Collaboration. “ACT DR6 Constraints on Extended Cosmological Models.” 2025. arXiv:2503.14454.
+Poulin, V., Smith, T. L., Calderón, R., and Simon, T. “Impact of ACT DR6 and DESI DR2 for Early Dark Energy and the Hubble
+Tension.” Physical Review D 113, 063519 (2026). arXiv:2505.08051. DOI: 10.1103/bx25-1g5d.
+Toda, Y., and Seto, O. “Constraints on the Varying Electron Mass and Early Dark Energy in Light of ACT DR6 and DESI DR2 and the
+Implications for Inflation.” Journal of Cosmology and Astroparticle Physics 2026 (02), 019 (2026). arXiv:2508.09025. DOI:
+10.1088/1475-7516/2026/02/019.
+Efstathiou, G., Rosenberg, E., and Poulin, V. “Improved Planck Constraints on Axion-Like Early Dark Energy as a Resolution of the
+Hubble Tension.” Physical Review Letters 132, 221002 (2024). arXiv:2311.00524. DOI: 10.1103/PhysRevLett.132.221002.
+Rosenberg, E., Gratton, S., and Efstathiou, G. “CMB Power Spectra and Cosmological Parameters from Planck PR4 with CamSpec.”
+Monthly Notices of the Royal Astronomical Society 517, 4620–4636 (2022). arXiv:2205.10869. DOI: 10.1093/mnras/stac2744.
+Efstathiou, G., and Gratton, S. “A Detailed Description of the CamSpec Likelihood Pipeline and a Reanalysis of the Planck High
+Frequency Maps.” The Open Journal of Astrophysics 4 (2021). arXiv:1910.00483. DOI: 10.21105/astro.1910.00483.
+Tristram, M., et al. “Cosmological Parameters Derived from the Final Planck Data Release (PR4).” 2024. DOI: 10.1051/0004-
+6361/202348015.
+BUBBLEVERSE MAIN BOOK
+0.42
+Jense, H., Viña, M., Calabrese, E., and Hill, J. C. “The Choice of Planck CMB Likelihood in Cosmological Analyses.” Physical Review D
+113, 043551 (2026). arXiv:2510.09430. DOI: 10.1103/ff9j-skyj.
+Cobaya 3.5.6. Official technical documentation and public planck_NPIPE_highl_CamSpec source implementation. [REFERENCE
+URL TO BE VERIFIED.]
+Self, S. G., and Liang, K.-Y. “Asymptotic Properties of Maximum Likelihood Estimators and Likelihood Ratio Tests under
+Nonstandard Conditions.” Journal of the American Statistical Association 82, 605– 610 (1987). DOI: 10.1080/01621459.1987.10478472.
+Spokoiny, V. “Mixed Laplace Approximation for Marginal Posterior and Bayesian Inference in Error- in-Operator Model.” 2023.
+arXiv:2305.09336.
+Hesterberg, T. “Weighted Average Importance Sampling and Defensive Mixture Distributions.” Technometrics 37, 185–194 (1995).
+DOI: 10.1080/00401706.1995.10484303.
+Owen, A. B. “Scrambling Sobol’ and Niederreiter–Xing Points.” Journal of Complexity 14, 466–489 (1998). DOI:
+10.1006/jcom.1998.0487.
+Khalife, A. R., et al., SPT-3G Collaboration. “SPT-3G D1: Axion Early Dark Energy with CMB Experiments and DESI Observations.”
+Physical Review D 113, 103546 (2026). arXiv:2507.23355. DOI: 10.1103/8jjr-7hpb.
+Seto, O., and Toda, Y. “BBN Constraints on Varying Electron Mass.” 2022. arXiv:2206.13209.
+Research qualification and the current evidence boundary
+The cosmological interpretation in this edition remains bounded by the evidence available through the Q042 investigation. The
+Hubble tension and the question of whether the fitted geometry of n=3 early dark energy is portable across Planck likelihood
+implementations remain unresolved.
+The subsequent integration investigation established the internal consistency of a proposed repository update, not a new
+cosmological measurement. A locally validated candidate is not an accepted model release. The scientific interpretation therefore
+remains unchanged, and no inference of early-dark-energy detection, falsification, or resolution of the Hubble tension follows
+from that integration work.
+

@@ -16,11 +16,24 @@ def run_tests(root=ROOT, candidate=False):
     layer = root / ('candidate' if candidate else 'accepted')
     formal = root / ('candidate/formal' if candidate else 'model')
     evidence = root / ('candidate/evidence' if candidate else 'evidence')
+    active_q = int(json.loads((root/'accepted/model_state.json').read_text())['current_q'][1:])
+    candidate_path = root/'candidate/candidate_state.json'
+    pending_q = int(json.loads(candidate_path.read_text()).get('current_q','Q000')[1:]) if candidate_path.exists() else 0
+    historical = not candidate and (active_q > 43 or pending_q > 43)
+    if historical:
+        layer = formal = root/'versions/accepted/v0.5'
     old = root / 'versions/accepted/v0.4'
     provenance = json.loads((root/'candidate/Q043_PROVENANCE.json').read_text())
     rows = []
 
     def load(p):
+        if historical:
+            if p in [root/'candidate/candidate_state.json', root/'candidate/candidate_diff.json']:
+                p = root/'provenance/archive/Q043'/p.name
+            elif p == root/'accepted/model_state.json':
+                p = layer/'model_state.json'
+            elif p == evidence/'evidence_registry.json':
+                p = layer/'evidence_registry.json'
         return json.loads(p.read_text(encoding='utf-8'))
 
     def require(condition, message):
@@ -76,6 +89,11 @@ def run_tests(root=ROOT, candidate=False):
         entries = {x['evidence_id']:x for x in load(evidence/'evidence_registry.json')['entries']}
         source_ids = {'EVD-Q043-RESULT':'integration_result.json', 'EVD-Q043-JOURNAL':'cumulative_journal.md', 'EVD-Q043-QJOURNAL-PDF':'q_journal.pdf', 'EVD-Q043-APPENDICES-PDF':'appendices.pdf', 'EVD-Q043-MAINBOOK-PDF':'main_book.pdf'}
         q43_entries = [x for x in entries.values() if x.get('q_id') == 'Q043']
+        if historical:
+            live_entries = json.loads((evidence/'evidence_registry.json').read_text())['entries']
+            for e in live_entries:
+                if e.get('q_id') == 'Q043':
+                    require(e['independent_cosmological_evidence'] is False and e['physical_falsification'] is False and e['production_restart_authorized'] is False and e['actual_computed_cosmological_result'] is False and e['new_scientific_inference'] is False, 'live historical evidence elevated to physics')
         require({x['evidence_id'] for x in q43_entries} == set(source_ids), 'Q043 evidence inventory differs')
         for eid, filename in source_ids.items():
             e = entries[eid]
@@ -100,6 +118,9 @@ def run_tests(root=ROOT, candidate=False):
         inherited = load(old/'evidence_registry.json')['entries']
         current = load(evidence/'evidence_registry.json')['entries']
         require(current[:len(inherited)] == inherited, 'inherited evidence entries altered')
+        if historical:
+            live = json.loads((evidence/'evidence_registry.json').read_text())['entries']
+            require(live[:len(current)] == current, 'live inherited Q043 evidence altered')
         return '91 source objects, both claim-map trees and all inherited evidence preserved'
     gate('Q043_SOURCE_CONTINUITY_GATE', continuity)
 
@@ -133,7 +154,8 @@ def run_tests(root=ROOT, candidate=False):
 
     def firewall():
         count = 0
-        for base in [layer,formal,evidence]:
+        bases = [layer, evidence/'sources/Q042', evidence/'sources/Q043'] if historical else [layer,formal,evidence]
+        for base in bases:
             for p in base.rglob('*'):
                 if p.is_file() and p.suffix in {'.json','.md','.txt'}:
                     text = p.read_text(encoding='utf-8')
@@ -159,8 +181,9 @@ def run_tests(root=ROOT, candidate=False):
             require({p.name for p in snap.iterdir() if p.is_file()} == set(frozen['sha256']), 'snapshot file set mutated')
             for name, expected in frozen['sha256'].items():
                 require(digest(snap/name) == expected, 'frozen snapshot hash mismatch: '+name)
-            for p in (root/'accepted').iterdir():
-                require(digest(p) == digest(snap/p.name), 'accepted snapshot mismatch')
+            if not historical:
+                for p in (root/'accepted').iterdir():
+                    require(digest(p) == digest(snap/p.name), 'accepted snapshot mismatch')
             for p in formal.glob('*.json'):
                 require(digest(p) == digest(snap/p.name), 'formal snapshot mismatch')
         return 'Old snapshots and source bytes immutable; accepted untouched before promotion'

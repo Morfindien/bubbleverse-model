@@ -1,44 +1,86 @@
 {
   "added": [
     {
+      "category": "CONDITIONAL_MATHEMATICAL_COMPONENT",
+      "evidence_refs": [
+        "EVD-Q044-COMPONENT",
+        "EVD-Q044-INGESTION",
+        "EVD-Q044-CHECKS"
+      ],
+      "id": "OBS-Q044-SUPPORT-HULLS-001"
+    },
+    {
+      "category": "QUALIFICATION_BOUNDARY",
+      "evidence_refs": [
+        "EVD-Q044-INGESTION",
+        "EVD-Q044-ENDPOINT-AUDIT"
+      ],
+      "id": "CON-Q044-NO-DOWNSTREAM-001"
+    },
+    {
       "category": "ROBUSTNESS_UPDATE",
       "evidence_refs": [
-        "EVD-Q043-RESULT",
-        "EVD-Q043-JOURNAL"
+        "EVD-Q044-COMPONENT",
+        "EVD-Q044-CHECKS"
       ],
-      "id": "ROB-Q043-LOCAL-VALIDATION-001",
-      "statement": "Internal local preparation validation with historical remote boundaries retained."
+      "id": "ROB-Q044-COMPONENT-001"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q044-INGESTION"
+      ],
+      "id": "ROB-Q044-CLOSURE-001"
     }
   ],
   "evidence_refs": [
-    "EVD-Q043-RESULT",
-    "EVD-Q043-JOURNAL",
-    "EVD-Q043-QJOURNAL-PDF",
-    "EVD-Q043-APPENDICES-PDF",
-    "EVD-Q043-MAINBOOK-PDF"
+    "EVD-Q044-INGESTION",
+    "EVD-Q044-COMPONENT",
+    "EVD-Q044-CHECKS",
+    "EVD-Q044-ENDPOINT-AUDIT",
+    "EVD-Q044-JOURNAL",
+    "EVD-Q044-QJOURNAL-PDF",
+    "EVD-Q044-APPENDICES-PDF",
+    "EVD-Q044-MAINBOOK-PDF"
   ],
-  "from_version": "v0.4",
+  "from_version": "v0.5",
   "modified": [
-    "Controlled metadata boundary Q001-Q043 after promotion; historical Q043 statements remain verbatim."
+    "Authorized boundary extends Q001-Q043 to Q001-Q044 after controlled promotion"
   ],
-  "new_assumptions": [],
+  "new_assumptions": [
+    "ASSUMP-Q044-FIXED-KNOTS",
+    "ASSUMP-Q044-SOURCE-RAILS",
+    "ASSUMP-Q044-REAL-ARITHMETIC"
+  ],
   "new_benchmarks": [],
   "new_calculations": [],
   "new_domains": [],
-  "new_equations": [],
+  "new_equations": [
+    "EQ-Q044-SUPPORT-ADJOINT"
+  ],
+  "new_limitations": [
+    "LIM-Q044-COMPLETE-HISTORY",
+    "LIM-Q044-DOWNSTREAM-QUALIFICATION"
+  ],
   "new_parameters": [],
-  "new_uncertainties": [],
+  "new_uncertainties": [
+    "UNC-Q044-NATIVE-ROUNDING",
+    "UNC-Q044-PHYSICAL-CORRELATION"
+  ],
+  "new_validity_domains": [
+    "DOM-Q044-SUPPORT-COMPONENT"
+  ],
   "physical_model_change": false,
   "preserved": [
-    "All existing physical observations, constraints, mechanisms, predictions and contradictions",
-    "All parameter, equation, benchmark, assumption, uncertainty and domain entries",
-    "All prior accepted snapshots, Q042 evidence bytes, 91 source objects and inherited claim maps",
-    "All 14 existing public operations and calculation schemas"
+    "All H0 benchmarks, cosmological parameters and physical mechanisms",
+    "All original predictions and open contradictions",
+    "All prior snapshots, source objects and claim maps",
+    "All 14 public operations and calculation schemas"
   ],
   "resolved_contradictions": [],
   "schema_version": 1,
   "superseded": [],
-  "target_q": "Q043",
-  "to_candidate_version": "v0.5",
-  "update_class": "EVIDENCE_ONLY_UPDATE"
+  "target_q": "Q044",
+  "to_candidate_version": "v0.6",
+  "update_class": "MULTI_LAYER_UPDATE"
 }

@@ -1,0 +1,13 @@
+Scientific update | Q044 | 9 October 2026
+Numerical precision is not yet a cosmological result
+An investigation of a frozen optical-depth integration component has established conditional mathematical
+bounds on a specified spline-based functional. This is a useful numerical qualification, but it is not a new
+measurement of the expansion rate, a validated correction to the cosmic microwave background, or a comparison
+of cosmological models.
+The relevant calculation distinguishes the native implementation of an optical-depth functional from an ordinary
+cubic integral. Whether that difference changes the physical reionization history, predicted CMB temperature and
+polarization spectra, or the likelihood of a cosmological model remains unmeasured in the qualified original
+analysis.
+Therefore the existing Hubble-constant benchmarks and the cautious assessment of early dark energy remain
+unchanged. Neither equivalence between the CamSpec and HiLLiPoP inference pipelines nor a decisive
+difference between them has been established by this result.
