@@ -445,8 +445,8 @@
       "source_repository_commit": null
     }
   ],
-  "INSTALLATION_COMMIT": null,
-  "INSTALLATION_COMMIT_SEMANTICS": "Recorded after commit creation in Q044 installation receipt; no self-referential Git hash",
+  "INSTALLATION_COMMIT": "ce1699b424ff448d62ccf6e8d428f15413779a72",
+  "INSTALLATION_COMMIT_SEMANTICS": "Real prepared installation commit, reachable in the delivered bundle; not remote promotion",
   "LIMITATIONS": [
     "Component is exact-real fixed-knot native-plus spline with inherited rails/source witnesses and independent boxes; physical correlations are not qualified.",
     "No uniform native binary-rounding certification, qualified complete history, CMB prediction/likelihood error budget or converged original matrix.",
