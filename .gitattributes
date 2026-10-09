@@ -1,0 +1,2 @@
+# Preserve manuscript bytes and include them as binary data in portable patches.
+*.pdf binary

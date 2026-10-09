@@ -93,3 +93,7 @@
 - Added no parameter, equation, benchmark, mechanism, domain or public calculation.
 - Added Q041 regression and formal-version consistency gates.
 
+
+## v0.4 / R000004 — Q042 closure
+
+Integrates documented inconclusive feasibility closure, partial V31 history and scoped cap32 policy failure. Preserves all physical parameters/equations/benchmarks/mechanisms, open predictions, contradictions, 91 source objects and every previous accepted snapshot. No production restart.

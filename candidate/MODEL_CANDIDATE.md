@@ -1,11 +1,7 @@
-# BUBBLEVERSE MODEL CANDIDATE RECORD
+# Bubbleverse accepted model v0.4
 
-**PROMOTED TO ACCEPTED v0.3**
+Authorized range: Q001-Q042. Revision: R000004.
 
-- Authorized Q range: **Q001-Q041**
-- Update class: **EVIDENCE_ONLY_UPDATE**
-- Physical model change: **NONE**
+Q042: CLOSED — INCONCLUSIVE GENERAL FEASIBILITY. Reference truth BLOCKED; numerical final result UNRESOLVED. Production restart is not authorized. Physical parameters, equations, H0 benchmarks and mechanisms are unchanged.
 
-Q041 V19 is retained as a valid `CONTROLLED_NO_SCIENTIFIC_RESULT`. The portability
-prediction remains open, the implementation-geometry contradiction remains open/narrowed,
-and the V19 scope limitation is explicit.
+Promotion record retained.

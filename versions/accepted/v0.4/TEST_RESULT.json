@@ -1,0 +1,153 @@
+{
+  "accepted_candidate_staging_protected_files": 64,
+  "created_at": "2026-10-09T06:23:54.720838+00:00",
+  "formal_model_tests": {
+    "passed": 13,
+    "total": 13
+  },
+  "integration_tests": {
+    "passed": 4,
+    "total": 4
+  },
+  "mode": "VALIDATED_PROJECTED_PROMOTION_NOT_PUBLISHED",
+  "model_input_commit": "10fa83797b2f7740519d4e43b1bebf0a6e35bada",
+  "model_revision": "R000004",
+  "physical_model_change": false,
+  "previous_accepted_model_version": "v0.3",
+  "previous_snapshot_files_unchanged": 56,
+  "projected_accepted_model_version": "v0.4",
+  "public_healthcheck": {
+    "passed": 20,
+    "total": 20
+  },
+  "q042_specific_tests": {
+    "all_green": true,
+    "artifact_type": "Q042_MODEL_UPDATE_VALIDATION",
+    "mode": "CURRENT_ACCEPTED",
+    "non_destructive": true,
+    "target_q": "Q042",
+    "tests": [
+      {
+        "detail": "Q041 -> Q042, candidate boundary exact",
+        "id": "Q_SEQUENCE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "verified_source_files": 7
+        },
+        "id": "SOURCE_HASH_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "claim_maps_preserved": true,
+          "source_objects": 91
+        },
+        "id": "SOURCE_CONTINUITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Closed investigation; unresolved reference/numerical result; no physical verdict",
+        "id": "CLOSURE_QUALIFICATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Exact-dyadic retained-witness/tail inequalities checked; conditional policy failure only",
+        "id": "CONDITIONAL_CERTIFICATE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Parameters, equations, benchmarks and mechanisms unchanged",
+        "id": "PHYSICAL_MODEL_PRESERVATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Original predictions and open contradictions preserved",
+        "id": "PREDICTION_CONTRADICTION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Frozen construction, missing accuracy budgets, partial history and no restart explicit",
+        "id": "FORMAL_SCOPE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "No scientific evidence beyond Q042",
+        "id": "Q_FIREWALL_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "accepted_checked_before_promotion": false,
+          "protected_input_files": 64
+        },
+        "id": "ACCEPTED_IMMUTABILITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "reachable_model_input_commit": "10fa83797b2f7740519d4e43b1bebf0a6e35bada"
+        },
+        "id": "REAL_COMMIT_PROVENANCE_GATE",
+        "status": "PASS"
+      }
+    ],
+    "tests_passed": 11,
+    "tests_total": 11
+  },
+  "remote_promoted": false,
+  "schema_version": 1,
+  "scientific_regression_tests": {
+    "passed": 11,
+    "total": 11
+  },
+  "scientific_validation_all_green": true,
+  "source_input_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+  "source_science_gates": {
+    "NUMERICAL_FINAL_RESULT": "UNRESOLVED",
+    "PRODUCTION": "NOT_AUTHORIZED",
+    "REFERENCE_TRUTH": "BLOCKED"
+  },
+  "target_q": "Q042",
+  "test_count_note": "Suites are reported separately; the public healthcheck/campaign include nested validators. Counts are not independent scientific evidence.",
+  "tests": {
+    "ACCEPTED_IMMUTABILITY_GATE": "PASS",
+    "ACCEPTED_PATH_ISOLATION_GATE": "PASS",
+    "ASSUMPTION_GATE": "PASS",
+    "BENCHMARK_GATE": "PASS",
+    "CALCULATION_GATE": "PASS_EXISTING_OPERATIONS_PRESERVED_NO_NEW_OPERATION",
+    "CONTRADICTION_GATE": "PASS",
+    "DOMAIN_OF_VALIDITY_GATE": "PASS",
+    "EQUATION_GATE": "PASS",
+    "EVIDENCE_PROVENANCE_GATE": "PASS",
+    "EXTERNAL_SOURCE_AUTHORITY_GATE": "NOT_APPLICABLE_NO_NEW_EXTERNAL_SCIENTIFIC_EVIDENCE",
+    "FINAL_AUDIT_GATE": "PASS",
+    "FORMAL_MODEL_GATE": "PASS",
+    "HIGH_Q_CONTAMINATION_GATE": "PASS",
+    "INPUT_STATE_GATE": "PASS",
+    "INVALID_INPUT_GATE": "PASS_EXISTING_INPUT_REJECTION_AND_NEW_METADATA_MUTATION_TESTS",
+    "KNOWN_ANSWER_TEST_GATE": "PASS_EXISTING_PUBLIC_FIXTURES",
+    "LIMITATION_GATE": "PASS",
+    "MODEL_DIFF_GATE": "PASS",
+    "PARAMETER_GATE": "PASS",
+    "PLUGIN_DEPENDENCY_GATE": "PASS",
+    "PLUGIN_FIREWALL_GATE": "PASS",
+    "PLUGIN_PROVENANCE_GATE": "PASS",
+    "PREDICTION_GATE": "PASS",
+    "PROMOTION_GATE": "BLOCKED_TECHNICAL_GITHUB_WRITE",
+    "PROMOTION_STATE_GATE": "PASS",
+    "Q_FIREWALL_GATE": "PASS",
+    "Q_SEQUENCE_GATE": "PASS",
+    "REAL_COMMIT_PROVENANCE_GATE": "PASS",
+    "REGRESSION_GATE": "PASS",
+    "REPOSITORY_WRITE_GATE": "BLOCKED_TECHNICAL_GITHUB_403",
+    "REPRODUCIBILITY_GATE": "PASS_EVIDENCE_ONLY_CLOSURE_RECONSTRUCTION_NOT_ORIGINAL_SOLVER_VALIDATION",
+    "ROBUSTNESS_GATE": "PASS",
+    "SCIENTIFIC_CONSISTENCY_GATE": "PASS",
+    "UNCERTAINTY_GATE": "PASS",
+    "WORD_DISCOVERY_GATE": "PASS_AUTHORIZED_PDF_SUBSTITUTE",
+    "WORD_HASH_GATE": "PASS_AUTHORIZED_PDF_SUBSTITUTE"
+  },
+  "update_class": "EVIDENCE_ONLY_UPDATE"
+}

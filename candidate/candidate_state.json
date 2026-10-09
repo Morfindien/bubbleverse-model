@@ -1,45 +1,53 @@
 {
   "artifact_type": "BUBBLEVERSE_MODEL_CANDIDATE",
-  "candidate_input_commit": "11f161daeb2081b51df9dcffb91a1abce5dec8af",
-  "candidate_model_version": "v0.3",
-  "candidate_revision": "R000003",
-  "current_q": "Q041",
+  "candidate_input_commit": "10fa83797b2f7740519d4e43b1bebf0a6e35bada",
+  "candidate_model_version": "v0.4",
+  "candidate_revision": "R000004",
+  "created_at": "2026-10-07T12:51:57.785747+00:00",
+  "current_q": "Q042",
   "high_q_data_used": false,
   "input_document_type": "PDF_AUTHORIZED_SUBSTITUTE",
   "input_documents": [
     {
-      "filename": "Bubbleverse_Q-Journals_Q001-Q041(9).pdf",
-      "q_range": "Q001-Q041",
+      "archived_name": "q_journal.pdf",
+      "bytes": 2688228,
+      "filename": "Bubbleverse_Q-Journals_Q001-Q042_UPDATED%20(1).pdf",
+      "q_range": "Q001-Q042",
       "role": "PRIMARY_Q_JOURNAL_PDF",
-      "sha256": "fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465"
+      "sha256": "fec49ca2e1f652f55aa1d7bb3ddea3b8daf539eb14bfec782251c19e903ffbac"
     },
     {
-      "filename": "Bubbleverse_Main_Book(4).pdf",
-      "q_boundary": "Q041",
+      "archived_name": "q_journal_copy.pdf",
+      "bytes": 2688228,
+      "filename": "Bubbleverse_Q-Journals_Q001-Q042_UPDATED%20(2).pdf",
+      "q_range": "Q001-Q042",
+      "role": "Q_JOURNAL_DUPLICATE_TEXT",
+      "sha256": "5b8cd52d71ab43cd6d22c5ae715a0bb97e1e4f48f5f47891d71753c9f43894ec"
+    },
+    {
+      "archived_name": "main_book.pdf",
+      "bytes": 2363330,
+      "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+      "q_range": "Q001-Q042",
       "role": "MAIN_BOOK_PDF",
-      "sha256": "f2304a9010a8a4fbc055e5002def9ca42aac692cf81669c10fd6cc98d14f2130"
-    },
-    {
-      "filename": "Bubbleverse_Technical_Appendices_A-D(4).pdf",
-      "q_boundary": "Q041",
-      "role": "TECHNICAL_APPENDICES_PDF",
-      "sha256": "878891fd0d0323c2fbfadf3fec5d5d5d0dffbae5e64e3551a34cfdc1da803c76"
+      "sha256": "b42e92563bc3769b682b40bbe007d6b58b1b17deec64ac7b45a474fb84e0f6fa"
     }
   ],
-  "previous_accepted_model_version": "v0.2",
-  "previous_accepted_q": "Q040",
-  "previous_accepted_revision": "R000002",
-  "promotion_commit": "02c00e6cf3351013197e61b3d05ae0075b068e63",
-  "promotion_status": "PROMOTED_TO_v0.3",
-  "q_access_end": "Q041",
+  "previous_accepted_model_version": "v0.3",
+  "previous_accepted_q": "Q041",
+  "previous_accepted_revision": "R000003",
+  "promotion_commit": null,
+  "promotion_commit_semantics": "Resolved from the atomic promotion commit and subsequent release receipt",
+  "promotion_status": "PROMOTED_TO_v0.4",
+  "q_access_end": "Q042",
   "q_access_start": "Q001",
   "schema_version": 1,
   "source_repository": "Morfindien/Bubbleverse",
-  "source_repository_commit": "a962ba70077422f8b69642dea4e8272e1d00e5ff",
+  "source_repository_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
   "status": "CANDIDATE_PROMOTED",
-  "target_q": "Q041",
+  "target_q": "Q042",
   "update_class": "EVIDENCE_ONLY_UPDATE",
-  "word_input_filename": "Bubbleverse_Q-Journals_Q001-Q041(9).pdf",
+  "word_input_filename": "Bubbleverse_Q-Journals_Q001-Q042_UPDATED%20(1).pdf",
   "word_input_semantics": "LEGACY_FIELD_NAME_POINTING_TO_AUTHORIZED_PDF_PRIMARY_SOURCE",
-  "word_input_sha256": "fca0c3a8999336462982287256bd0c946e284fb99cf9e23e3f401d6cab584465"
+  "word_input_sha256": "fec49ca2e1f652f55aa1d7bb3ddea3b8daf539eb14bfec782251c19e903ffbac"
 }

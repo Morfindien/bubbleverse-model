@@ -99,8 +99,58 @@
       "id": "OBS-Q041-CONTRACT-SCOPE-001",
       "q_introduced": "Q041",
       "status": "SUPPORTED_PROVENANCE_SCOPE"
+    },
+    {
+      "claim": "The documented strategies did not qualify the original 20-cell downstream-portability contract. Q042 closes inconclusively; feasibility of a materially different contract-preserving design remains unresolved.",
+      "epistemic_level": "documented investigation closure",
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "OBS-Q042-CLOSURE-001",
+      "physical_model_change": false,
+      "q_introduced": "Q042",
+      "scientific_falsification": false,
+      "status": "CLOSED_INCONCLUSIVE_GENERAL_FEASIBILITY"
+    },
+    {
+      "actual_computed_cosmological_result": false,
+      "actual_tau": null,
+      "actual_tau_status": "NOT_COMPUTED",
+      "claim": "Both bounded V31 attempts stopped at the parent 600-second deadline. Histories remain partial; no complete tau or cosmological result was computed. Final killed-tail counters and peak memory are not documented.",
+      "epistemic_level": "numerical provenance",
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "OBS-Q042-PARTIAL-V31-001",
+      "q_introduced": "Q042",
+      "status": "PARTIAL_CONDITIONAL_RAW_EVIDENCE",
+      "whole_history": "PARTIAL"
+    },
+    {
+      "actual_functional_pipeline": "NOT_EXECUTED",
+      "cap": 32,
+      "claim": "Under the frozen source extension, global rails and append-only retention of the existing intervals, completion cannot remove the retained candidates enough to satisfy cap32. This is a policy/representation failure, not physical minima, an executed tau failure or universal numerical impossibility.",
+      "epistemic_level": "conditional frozen-algorithm support-cap incompatibility",
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "OBS-Q042-CAP-POLICY-001",
+      "physical_minima_count": null,
+      "physical_minima_count_status": "NOT_ESTABLISHED",
+      "q_introduced": "Q042",
+      "retained_candidate_counts": {
+        "LOWER": 3002,
+        "UPPER": 138
+      },
+      "status": "SUPPORTED_CONDITIONAL_MATHEMATICAL_RESULT"
     }
   ],
-  "q_access_end": "Q041",
+  "q_access_end": "Q042",
   "schema_version": 1
 }

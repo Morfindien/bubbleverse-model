@@ -62,8 +62,30 @@
       "id": "ROB-Q041-CONTRACT-SCOPE-001",
       "q_introduced": "Q041",
       "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "finding": "Question completion is separate from numerical/reference acceptance: closure is documented inconclusive, reference truth remains BLOCKED, final result UNRESOLVED and production not authorized.",
+      "id": "ROB-Q042-CLOSURE-001",
+      "q_introduced": "Q042",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "finding": "The cap32 obstruction is conditional on the frozen retained-interval/global-rail policy. It does not falsify LCDM, n=3 EDE, the common-latent target or all alternative numerical designs.",
+      "id": "ROB-Q042-CAP-SCOPE-001",
+      "q_introduced": "Q042",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q041",
+  "q_access_end": "Q042",
   "schema_version": 1
 }

@@ -1,10 +1,10 @@
 {
-  "accepted_model_version": "v0.3",
-  "campaign_id": "BV-MODEL-v0.3-CAMPAIGN-0003",
-  "candidate_model_version": "v0.3",
-  "current_q": "Q041",
+  "accepted_model_version": "v0.4",
+  "campaign_id": "BV-MODEL-v0.4-CAMPAIGN-0004",
+  "candidate_model_version": "v0.4",
+  "current_q": "Q042",
   "mode": "CURRENT_STATE_VALIDATION",
-  "q_access_end": "Q041",
+  "q_access_end": "Q042",
   "q_access_start": "Q001",
   "schema_version": 1,
   "tests": [
@@ -97,6 +97,14 @@
       "target_component": "Q041 controlled-no-science semantics",
       "test_id": "T-BV-010",
       "why_test_matters": "Q041 remains a validated controlled no-science result; portability prediction stays open and no physical verdict is manufactured."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": true,
+      "target_component": "Q042 closure, certificate scope and 91-source continuity",
+      "test_id": "T-BV-011",
+      "why_test_matters": "Rejects production authorization, manufactured physical results, source alteration and incorrect conditional certificate arithmetic."
     }
   ]
 }

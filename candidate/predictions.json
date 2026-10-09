@@ -13,6 +13,11 @@
           "note": "V19 reached a valid controlled no-science terminal state because convergence and completeness gates were not met; no portability class was issued.",
           "q": "Q041",
           "status": "INCONCLUSIVE_COMPUTATIONAL_ATTEMPT"
+        },
+        {
+          "note": "Q042 closed without a qualified 20-cell comparison; physical prediction remains open.",
+          "q": "Q042",
+          "status": "INCONCLUSIVE_FEASIBILITY_INVESTIGATION"
         }
       ],
       "id": "PRED-EDE-PORTABILITY-001",
@@ -33,6 +38,6 @@
       "status": "OPEN"
     }
   ],
-  "q_access_end": "Q041",
+  "q_access_end": "Q042",
   "schema_version": 1
 }

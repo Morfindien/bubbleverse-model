@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 11)]
+MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 12)]
 
 
 def load(rel):
@@ -193,6 +193,16 @@ def audit():
         )
         q41_detail = "Q041 controlled-no-science semantics, open portability prediction, open-narrowed contradiction and scope safeguards are preserved."
     results["T-BV-010"] = passfail(q41_ok, q41_detail)
+
+    q42_ok = True
+    q42_detail = "Q042 closure guard is not applicable below Q042."
+    if qmax >= 42:
+        from q042_model_validate import run_tests as q042_tests
+        q42_result = q042_tests(ROOT)
+        q42_ok = q42_result["all_green"]
+        failures = [x["id"] for x in q42_result["tests"] if x["status"] != "PASS"]
+        q42_detail = "Q042 closure, no-production, source continuity and conditional certificate gates: " + ("PASS" if q42_ok else ", ".join(failures))
+    results["T-BV-011"] = passfail(q42_ok, q42_detail)
 
     return results
 

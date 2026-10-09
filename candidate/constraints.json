@@ -77,8 +77,31 @@
       "q_introduced": "Q041",
       "statement": "Q041 conclusions are restricted to the preregistered V19 EDE-only campaign and must not be generalized to the broader original downstream contract.",
       "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "CON-Q042-001",
+      "q_introduced": "Q042",
+      "statement": "No posterior portability class, model preference, physical falsification, pipeline superiority or new physics follows from Q042. The original 20-cell scientific comparison remains unqualified.",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "CON-Q042-002",
+      "production_restart_authorized": false,
+      "q_introduced": "Q042",
+      "statement": "Unchanged V31 reruns, more time alone and retrospective cap increases are not a sufficient qualified repair. A materially different design requires a new-case or explicit reopening decision; none is authorized here.",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q041",
+  "q_access_end": "Q042",
   "schema_version": 1
 }

@@ -1,0 +1,76 @@
+{
+  "all_green": true,
+  "artifact_type": "Q042_MODEL_UPDATE_VALIDATION",
+  "mode": "CANDIDATE",
+  "non_destructive": true,
+  "target_q": "Q042",
+  "tests": [
+    {
+      "detail": "Q041 -> Q042, candidate boundary exact",
+      "id": "Q_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "verified_source_files": 7
+      },
+      "id": "SOURCE_HASH_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "claim_maps_preserved": true,
+        "source_objects": 91
+      },
+      "id": "SOURCE_CONTINUITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Closed investigation; unresolved reference/numerical result; no physical verdict",
+      "id": "CLOSURE_QUALIFICATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Exact-dyadic retained-witness/tail inequalities checked; conditional policy failure only",
+      "id": "CONDITIONAL_CERTIFICATE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Parameters, equations, benchmarks and mechanisms unchanged",
+      "id": "PHYSICAL_MODEL_PRESERVATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Original predictions and open contradictions preserved",
+      "id": "PREDICTION_CONTRADICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Frozen construction, missing accuracy budgets, partial history and no restart explicit",
+      "id": "FORMAL_SCOPE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "No scientific evidence beyond Q042",
+      "id": "Q_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "accepted_checked_before_promotion": true,
+        "protected_input_files": 64
+      },
+      "id": "ACCEPTED_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "reachable_model_input_commit": "10fa83797b2f7740519d4e43b1bebf0a6e35bada"
+      },
+      "id": "REAL_COMMIT_PROVENANCE_GATE",
+      "status": "PASS"
+    }
+  ],
+  "tests_passed": 11,
+  "tests_total": 11
+}
