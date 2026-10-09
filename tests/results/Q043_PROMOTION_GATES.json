@@ -1,0 +1,225 @@
+{
+  "gates": [
+    {
+      "detail": "",
+      "evidence": "Verified live main baseline Q042/v0.4 and current local Q043/v0.5; original artifacts hashed",
+      "gate": "INPUT_STATE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_SEQUENCE_GATE: exact Q042 -> Q043",
+      "gate": "Q_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_FIREWALL_GATE: text sources and all active layers scanned",
+      "gate": "Q_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_FIREWALL_GATE and T-BV-002",
+      "gate": "HIGH_Q_CONTAMINATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Bounded direct file/repository retrieval; Q043_FIREWALL_GATE",
+      "gate": "PLUGIN_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_DIFF_GATE",
+      "gate": "MODEL_DIFF_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_PHYSICAL_PRESERVATION_GATE, historical Q042 gates and current campaign",
+      "gate": "SCIENTIFIC_CONSISTENCY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_SOURCE_HASH_GATE, Q043_SOURCE_CONTINUITY_GATE, Q043_QUALIFICATION_GATE",
+      "gate": "EVIDENCE_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-004; Q043_PHYSICAL_PRESERVATION_GATE",
+      "gate": "PARAMETER_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-005; Q043_PHYSICAL_PRESERVATION_GATE",
+      "gate": "EQUATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-005/FML-007; exact unchanged entries",
+      "gate": "ASSUMPTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-006; exact unchanged entries",
+      "gate": "UNCERTAINTY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-007; exact unchanged domains",
+      "gate": "DOMAIN_OF_VALIDITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-008; all prior unresolved limitations preserved",
+      "gate": "LIMITATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "FML-003; existing inference chains and values unchanged",
+      "gate": "BENCHMARK_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_PREDICTION_CONTRADICTION_GATE and T-BV-007",
+      "gate": "CONTRADICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_PREDICTION_CONTRADICTION_GATE",
+      "gate": "PREDICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_DIFF_GATE: exact inherited prefix, one traceable local-validation entry",
+      "gate": "ROBUSTNESS_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "13/13 current formal checks plus Q043_FORMAL_SYNC_GATE",
+      "gate": "FORMAL_MODEL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Public SELF-005 through SELF-009 and unchanged calculation definitions",
+      "gate": "CALCULATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Existing public SELF-005, SELF-006, SELF-007, SELF-008 PASS",
+      "gate": "KNOWN_ANSWER_TEST_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Public SELF-009: 4/4 invalid input cases rejected",
+      "gate": "INVALID_INPUT_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "22/22 unittest regressions; historical Q042 11/11",
+      "gate": "REGRESSION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Exact original result and input documents archived; repository heads recorded",
+      "gate": "PLUGIN_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Python standard library and Git runtime; PDF text pre-extracted and hashed, no Poppler dependency added to public healthcheck",
+      "gate": "PLUGIN_DEPENDENCY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "117 baseline file digests unchanged before promotion; all old snapshot bytes protected; new frozen digest manifest tested",
+      "gate": "ACCEPTED_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Public SELF-016: all accepted layers resolve inside accepted/",
+      "gate": "ACCEPTED_PATH_ISOLATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Public SELF-017: accepted/candidate/release version agreement",
+      "gate": "PROMOTION_STATE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Q043_REAL_PROVENANCE_GATE and SELF-018; reachable baseline and campaign commits",
+      "gate": "REAL_COMMIT_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Original bytes, extracted source text, source inventory, code, tests, old snapshots and real input commits archived",
+      "gate": "REPRODUCIBILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "evidence": "Fresh post-promotion current/campaign/formal/public/failure-injection checks; code review resolved",
+      "gate": "FINAL_AUDIT_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "No Word manuscript exists in inspected repository; operator supplied PDF manuscript and original structured Q043 result. Existing accepted PDF-substitute convention used; Word identity/hash remain null.",
+      "evidence": "Full current source tree and Git history searched for .doc/.docx",
+      "gate": "WORD_DISCOVERY_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "No Word hash fabricated; substitute source digests are explicit.",
+      "evidence": "PDF source bytes hashed by Q043_SOURCE_HASH_GATE",
+      "gate": "WORD_HASH_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "",
+      "evidence": "No external scientific source introduced",
+      "gate": "EXTERNAL_SOURCE_AUTHORITY_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "",
+      "evidence": "No new domain module or execution plugin introduced",
+      "gate": "DOMAIN_PLUGIN_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "",
+      "evidence": "GitHub integration denied create_blob HTTP 403; no remote model update",
+      "gate": "REPOSITORY_WRITE_GATE",
+      "status": "BLOCKED"
+    }
+  ],
+  "remote_publication_verified": false,
+  "scientific_gates_passed": true,
+  "scope": "TARGET_MODEL_REPOSITORY_UPDATE; SOURCE_REPOSITORY_READ_ONLY",
+  "stop_state": "TECHNICAL_BLOCK",
+  "target_q": "Q043"
+}

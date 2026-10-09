@@ -1,0 +1,31 @@
+{
+  "accepted_version": "v0.5",
+  "frozen_at": "2026-10-09T11:09:50.022279+00:00",
+  "schema_version": 1,
+  "sha256": {
+    "MODEL_CURRENT.md": "04027e6f24c558ab95c7a969cf6f7618cbff07f2b9e256a23052142c3c29a2ed",
+    "assumptions.json": "92c65a6802b340cb97f0d75714c191ce7dc31cd80b7b94f40fe6de984aea738b",
+    "benchmarks.json": "9b539da9f8f6c00bd1ff9bea2c52acbd3b616bd70e9dfcad86cba7a020fa282d",
+    "constraints.json": "59a70c8c26a49591cd2731c50aeb7ab3d08d87e6af52b756b3fb58ad9a764e14",
+    "contradictions.json": "ae8745a25d420bca528aef36d3e1bddaa0c8575984e9e35f18ecced41d4a0bdc",
+    "domain_of_validity.json": "9622c282b6be21a83ab8a07c0a69586e2ec3806a1a4971f7b775701ae67ae751",
+    "environment.json": "c7c623140380d5fc6186a26436817ef57e68e9f53996707061c32d73cb43bf5b",
+    "equations.json": "dc2014578ccf3c9fd5dea2e8fc26a756780dc7cb0c594a98bd8cb725de600eef",
+    "evidence_registry.json": "1676026fd7a232fb54621ad0f750d3111de4d69f789d1f2e8dfae3781041c4cd",
+    "external_catalog_registry.json": "f74b08d1021c692937029999d57d0a602d79e532de17c6da6e9e6b9447dec669",
+    "input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "limitations.json": "4f3ebfaa01e9346d2291fc9fdd4c53ac09378f78532b2124c101ed374b72caaa",
+    "mechanisms.json": "4273dc9c81ae5c9ffe101b92370e884decf34ce396370496f3454f21409ec19b",
+    "model_manifest.json": "2632a5647d2ee01db86e69f904807a096341e9a64894760802fddc7671ad80c8",
+    "model_state.json": "a2edd73b3458ef1d6620c4f15679aff7dca93e688d615942a5ebed0f01248375",
+    "observations.json": "ed81fd901a2c4320b21e75adab4e695d2665f660cd807ba006a36a8000f7bbb2",
+    "output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "parameters.json": "8261d502bf1de4764d1a56190b709fb0a91a4aa198e2dfa19aeb0b4d4b1645e3",
+    "predictions.json": "00442835d0b0c8ee33610eadedc5935c7576ac34cac4f13d1d76e495bffc32bf",
+    "q_update.json": "75f452986d1d9756787c22dfaff18f0d12fac16cb18d2a634870c10005b33135",
+    "result_registry.json": "079efac332bab9738c7ff00f1aa16116e2cd97a68416f868fe6a4a91bc1c811c",
+    "robustness.json": "94ff5e2816a399098cba7df021558f21f379b34a0c01c5ebcdb1f3eeddde5420",
+    "uncertainty.json": "6a197e5e2b589926bda1486337481e10aec427e79c3343d698ddc04a3a90cc87"
+  },
+  "target_q": "Q043"
+}

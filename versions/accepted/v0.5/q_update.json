@@ -1,0 +1,121 @@
+{
+  "authoritative_result_id": "R-Q043-REPOSITORY-INTEGRATION-001",
+  "case_id": null,
+  "case_id_status": "NOT_DOCUMENTED",
+  "current_verified_model_head": "14eacce7a93e4ac780d59b1e86dc0cb9060f38ad",
+  "historical_model_head": "10fa83797b2f7740519d4e43b1bebf0a6e35bada",
+  "historical_state_is_current_state": false,
+  "input_documents": [
+    {
+      "archived_name": "integration_result.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 102151,
+      "filename": "q043_integration_result(1).json",
+      "origin": "ORIGINAL_BUBBLEVERSE_RESULT_FROM_RESOLVED_FILE_REFERENCE",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "ORIGINAL_STRUCTURED_RESULT",
+      "sha256": "4486e5173ba8ef3ac659c743bb578284c93446ce9e5b3d0dae71728beadbb9ff",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "cumulative_journal.md",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 105684,
+      "filename": "Q043_SAMLET_JOURNAL(1).md",
+      "origin": "ORIGINAL_BUBBLEVERSE_RESULT_FROM_RESOLVED_FILE_REFERENCE",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "ORIGINAL_CUMULATIVE_JOURNAL",
+      "sha256": "b952c3e80e58dc6290e16b432ef20040e32bb111aea56d97e4fbf7892836b42c",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "q_journal.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1192715,
+      "filename": "Bubbleverse_Q-Journals_Q001-Q042.pdf",
+      "origin": "OPERATOR_SUPPLIED_PDF",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "PRIMARY_Q_JOURNAL_PDF",
+      "sha256": "c87270ed88b5b0994cd83d94305d915c55a4783c650c321ce784f5904447eb04",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "appendices.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 635977,
+      "filename": "Bubbleverse_Technical_Appendices_A-D.pdf",
+      "origin": "OPERATOR_SUPPLIED_PDF",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "SUPPORTING_APPENDICES_PDF",
+      "sha256": "e3c21469cc7a53c51a2800146396c2cfcd8872154b6701d9f88668d965c833a7",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "main_book.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1370169,
+      "filename": "Bubbleverse_Main_Book.pdf",
+      "origin": "OPERATOR_SUPPLIED_PDF",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q043",
+      "role": "SUPPORTING_MAIN_BOOK_PDF",
+      "sha256": "507945a2549c26e56f894a4fca5e9115682c242fcccda66f7b9b6b89dae33b05",
+      "source_repository_commit": null
+    }
+  ],
+  "model_change_summary": {
+    "added": [
+      {
+        "category": "ROBUSTNESS_UPDATE",
+        "evidence_refs": [
+          "EVD-Q043-RESULT",
+          "EVD-Q043-JOURNAL"
+        ],
+        "id": "ROB-Q043-LOCAL-VALIDATION-001",
+        "statement": "Internal local preparation validation with historical remote boundaries retained."
+      }
+    ],
+    "evidence_refs": [
+      "EVD-Q043-RESULT",
+      "EVD-Q043-JOURNAL",
+      "EVD-Q043-QJOURNAL-PDF",
+      "EVD-Q043-APPENDICES-PDF",
+      "EVD-Q043-MAINBOOK-PDF"
+    ],
+    "from_version": "v0.4",
+    "modified": [
+      "Controlled metadata boundary Q001-Q043 after promotion; historical Q043 statements remain verbatim."
+    ],
+    "new_assumptions": [],
+    "new_benchmarks": [],
+    "new_calculations": [],
+    "new_domains": [],
+    "new_equations": [],
+    "new_parameters": [],
+    "new_uncertainties": [],
+    "physical_model_change": false,
+    "preserved": [
+      "All existing physical observations, constraints, mechanisms, predictions and contradictions",
+      "All parameter, equation, benchmark, assumption, uncertainty and domain entries",
+      "All prior accepted snapshots, Q042 evidence bytes, 91 source objects and inherited claim maps",
+      "All 14 existing public operations and calculation schemas"
+    ],
+    "resolved_contradictions": [],
+    "schema_version": 1,
+    "superseded": [],
+    "target_q": "Q043",
+    "to_candidate_version": "v0.5",
+    "update_class": "EVIDENCE_ONLY_UPDATE"
+  },
+  "physical_model_change": false,
+  "production_restart_authorized": false,
+  "q_id": "Q043",
+  "result": "PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY",
+  "schema_version": 1,
+  "source_manuscript_commit": null,
+  "source_repository": "Morfindien/Bubbleverse",
+  "source_repository_inspection_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+  "source_repository_modified": false,
+  "source_repository_sync_required": true,
+  "target_input_commit": "14eacce7a93e4ac780d59b1e86dc0cb9060f38ad",
+  "update_class": "EVIDENCE_ONLY_UPDATE"
+}

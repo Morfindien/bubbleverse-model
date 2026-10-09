@@ -1,0 +1,2070 @@
+0.41
+BUBBLEVERSE
+Technical Appendices
+Building a Model of the Universe from Observation
+Appendices A–D
+Computational methods and provenance
+Contents
+Appendix A Computational Provenance Ledger.................................................................................3
+Appendix B Likelihood Architecture and Precision Audit.............................................................21
+Appendix C Numerical Search and Validation..................................................................................33
+Appendix D Bubbleverse Model Repository.......................................................................................46
+Original Figure Production Specifications...........................................................................................53
+Appendix A — Computational Provenance Ledger
+Historical computational provenance — superseded active interpretation. The following
+attribution remains valid for the original frozen parameter points that were evaluated, but
+its n=3 EDE TE/intermediate-ℓ pattern must not be treated as the active description of the
+corrected high-H₀ basins. Later multi-start minimization and corrected fixed-point
+attribution supersede that interpretation while preserving the original calculation as
+computational history. The subsequent fixed-H₀ likelihood-attribution analysis used the
+same frozen common backend to profile n=3 early dark energy and varying electron mass
+at their respective reference points and at H₀ = 71.5, 72.5, and 73.5 km s ⁻¹ Mpc ⁻¹. It
+decomposed the resulting fit changes into non-overlapping Planck low-ℓ, ACT DR6, DESI
+DR2, and BBN contributions while profiling the remaining permitted parameters and
+nuisance quantities. All required job-completeness, component-attribution, and final-result
+gates passed. The calculation should be interpreted as a common-backend likelihood
+diagnostic rather than as an exact reproduction of the K-036 or K-038 native analyses.
+Global minima have not been established for every fixed-H₀ profile, and later globality and
+fixed-point attribution results supersede earlier high-H ₀ n=3 EDE profile points where
+lower basins were subsequently found.
+The exact GitHub run ID, execution commit, result identifier, and result-file hash for this
+completed fixed-H₀ likelihood-attribution run are NOT DOCUMENTED IN THE WORD FILE.
+A subsequent observable-level ACT DR6 attribution evaluated the same eight frozen profile
+points—four n=3 EDE points and four varying-electron-mass points—without performing
+a new optimization. The calculation reconstructed the ACT DR6-lite quadratic form using
+the full bandpower covariance and assigned signed per-bandpower contributions
+according to
+Ci=di (C
+−1d )i.
+TC
+The sum of these contributions was required to reproduce d
+−1d, allowing TT, TE, EE, and
+multipole-region attributions to be reported without falsely treating them as statistically
+independent likelihoods. All eight required points completed, and the covariance-
+interpretation, job-completeness, quadratic-closure, and final-result gates passed.
+For n=3 EDE, TE was the largest positive spectrum-level contribution at each tested high-
+H 0 point. For varying electron mass, the ACT response remained approximately neutral at H 0=72.5 and 73.5k m s
+−1 M pc
+−1 because positive and negative covariance-weighted
+spectral contributions substantially cancelled.
+The attribution used ACTCollaboration/DR6-ACT-lite commit
+0e0cd2c703c62a0e980470b572602233b27750e1 and the frozen common-backend chain
+based on class_ede commit 5a131c91d657dd9a7c6364cc45b038710f8d0d97. The internal
+result identifier recorded by the aggregate is Q007-ACT-OBSERVABLE-ATTRIBUTION-V1; the
+corrected execution was run through the “Bubbleverse Q007 ACT Observable Attribution
+V2” workflow. The exact successful GitHub run ID and head commit are not preserved in
+the supplied final aggregate and therefore remain [PROVENANCE TO BE VERIFIED].
+The observable attribution does not establish global minima for the underlying fixed-H 0
+profiles. It should be read as a technically validated decomposition of the specified frozen
+points. If later minimizer or globality tests materially change those profile minima, the
+present attribution remains valid for the original points but would need to be superseded
+as the active quantitative description.
+A subsequent, broader multi-start optimization materially sharpened this conclusion.
+Using the same frozen scientific configuration and likelihood surface, the calculation again
+−1 M pc
+examined fixed H 0=70.853292,71.5,72.5, and 73.5k m s
+−1, but with a substantially
+expanded set of independent starting conditions and refinement searches. The resulting
+combined classification remained BEST-OBSERVED MINIMUM ONLY: none of the tested
+points achieved a mathematical proof of globality, and the predefined criterion for strong
+numerical near-global certification was not satisfied. The expanded search therefore
+strengthens the evidence that optimizer-basin structure is scientifically relevant while
+explicitly failing to establish that the currently observed minima are the final global
+profile.
+−1 M pc
+The most important revision occurs at H 0=71.5k m s
+−1. The broader search finds
+2=546.364260, compared with the previous best-observed value of 547.154321. The
+χ
+improvement, Δ χ
+2=−0.790061, exceeds the predefined material-improvement threshold of 0.50, so the earlier H 0=71.5 minimum is superseded as
+the active best-observed solution.
+At H 0=72.5, the newer search reaches χ
+2=548.624632, an improvement of 0.230023, while
+at H 0=73.5 it reaches χ
+2=548.766646, an improvement of 0.338938. These latter changes do
+not cross the predefined material-improvement threshold, although the lower values
+remain relevant as newer best-observed candidates. The same search also reaches
+χ
+2=546.679939 at H 0=70.853292, compared with 548.321909 in the earlier validation
+search, further demonstrating that the finite-search likelihood envelope is sensitive to
+optimizer-basin discovery. [Internal computational provenance: INTERNAL-Q005,
+INTERNAL-Q008, R-Q011-EDE-GLOBALITY-CERTIFICATION-004.]
+The validation found substantially lower high-H 0 solutions than the original fixed-profile
+2=547.154321 at H 0=71.5, 548.854655 at 72.5, and 549.105584 at 73.5k m s
+calculation: χ
+−1 M pc
+−1. At H 0=70.853292, the validation run itself obtained χ
+2=548.321909, but
+an earlier common-backend calculation had already documented the lower basin
+χ
+2=548.010401. The active best-observed envelope therefore retains the lowest
+documented solution from either calculation rather than replacing the earlier basin with a
+worse one.
+The earlier validation values χ
+2=547.154321,548.854655, and 549.105584 at H 0=71.5,72.5,
+−1 M pc
+and 73.5k m s
+−1, respectively, remain important computational provenance, but they
+no longer constitute the complete numerical picture. In particular, the H 0=71.5 point has
+been materially superseded by the lower χ
+2=546.364260 basin found in the expanded
+search. The smaller subsequent improvements at H 0=72.5 and 73.5 do not satisfy the
+predefined 0.50 material-improvement gate. The active interpretation is therefore not that
+a final high-H 0 profile has been established, but that the best-observed envelope remains
+sensitive to basin discovery and must be treated as numerically provisional.
+Computational provenance — expanded EDE globality certification. The subsequent
+robustness calculation is recorded as R-Q011-EDE-GLOBALITY-CERTIFICATION-004 and was
+executed through the “Bubbleverse Q011 EDE Globality Certification V4” workflow in the
+Morfindien/Bubbleverse repository. The execution used repository commit
+e113fb846948f424b865d1303fba8b5988ec9133 and GitHub run 33363067156. The
+numerical program was q011_ede_globality_certification_v4.py, SHA-256
+53dc99d00d220671fe16d17136ef626a7db454711120f5861a6677b3879c57e6, with
+configuration q011_ede_globality_certification_v4_config.yml, SHA-256
+37baaee48fd4f2bf70807dd2c6baab6e8a138725f8b70987773d4ddad5b8467b. The run used
+Python 3.10.21, class_ede commit 5a131c91d657dd9a7c6364cc45b038710f8d0d97, ACT DR6-
+lite commit 0e0cd2c703c62a0e980470b572602233b27750e1, and the frozen Q005 V14
+scientific configuration. It is an internal robustness calculation on the same underlying
+likelihood surface and must not be counted as independent observational evidence for
+early dark energy.
+Neither the earlier validation nor the expanded search establishes mathematical global
+minima. More importantly, the expanded calculation fails to achieve the predefined strong
+numerical near-global certification across the tested high-H 0 targets. Its combined
+classification is therefore BEST-OBSERVED MINIMUM ONLY. The material improvement at
+H 0=71.5, together with the lower basin recovered at the reference target, strengthens the
+conclusion that optimizer-basin sensitivity is not a negligible technical detail: it can
+materially change the apparent high-H 0 likelihood profile. Finite multi-start optimization
+nevertheless cannot determine whether still lower basins remain undiscovered.
+Computational provenance for this validation: INTERNAL-Q008, result class
+EDE_FIXED_H0_GLOBALITY_VALIDATION, run identifier Q008-EDE-GLOBALITY-
+VALIDATION-V1. [PROVENANCE TO BE VERIFIED: insert the successful GitHub workflow
+run ID, execution commit, and final result-file SHA-256 if these are to be retained in the
+published reproducibility record.
+Computational provenance — corrected ACT DR6 attribution for n=3 early dark energy. The
+corrected fixed-point observable-attribution calculation is recorded as INTERNAL-Q009,
+run Q009-ACT-CORRECTED-MINIMA-ATTRIBUTION-V8, using
+q009_act_corrected_minima_attribution_v8.py with
+q009_act_corrected_minima_attribution_v8_config.yml in the “Bubbleverse Q009 ACT
+Corrected Minima Attribution V8” workflow. The repository is Morfindien/Bubbleverse; the
+repository inspection state used for the analysis was commit
+a8d11cc9687e5df757f4794224d83ed34df03846. The ACT DR6-lite likelihood was frozen at
+commit 0e0cd2c703c62a0e980470b572602233b27750e1. Code version 8.0-q007-fixed-vector-
+consumption-fixed evaluated the complete selected best-fit vectors at fixed H ₀ without
+reoptimization, sampling, new priors, new bounds, or additional datasets. This analysis is
+dependent on the INTERNAL-Q005, INTERNAL-Q007, and INTERNAL-Q008 computational
+chain and must not be counted as independent observational evidence. Its conclusions
+apply to the tested best-observed basins; mathematical globality remains unresolved.
+Computational provenance — Hubble-tension model comparison. The common-backend
+numerical analysis used mwt5345/class_ede commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97 and ACTCollaboration/DR6-ACT-lite commit
+0e0cd2c703c62a0e980470b572602233b27750e1, with Python 3.10.x, Cobaya 3.5.6, NumPy
+1.26.4, SciPy 1.15.3, Py-BOBYQA 1.5.0, Cython 0.29.37, and SACC 1.0.2. Repeated common-
+backend runs used GitHub run Ids 33249784822 and 33252632548 at commit
+b875ea95d9b6390b8f03dac729eb7f5fe84d3118. The deterministic globality-recovery
+calculation used GitHub run ID 33271326245 and workflow commit
+7293c7f5db4d7ab72b1aaad38fe15f2639e11d5e; the corresponding internal result is R-Q005-
+V14-GLOBALITY-RECOVERY-001, with result-JSON SHA-256
+3642aa6e4d09c595610875cfed321f3d28055fb059757c2381f08007bf071253. These
+calculations provide a controlled common-backend comparison and numerical basin
+diagnostic; they are not paper-native reproductions of the Poulin et al. Or Toda and Seto
+implementations.
+Computational provenance — covariance-aware Planck/SPT attribution for the n=3 EDE
+high-H 0 region. The accepted attribution is recorded as R-Q015-EDE-CMB-
+ATTRIBUTION-003, run Q015-CMB-ATTRIBUTION-V3. The scientific endpoint evaluations
+were produced by the preceding Q015 V2 workflow, GitHub Actions run 33629190153 at
+repository head 78a65aae897fca18132a5c0758bccdbbc6a09402. Its frozen-parent Stage-0
+artifact was 9846055938 with SHA-256 digest
+7adb0624a73f8071f2b4dfcac6e65ebfe2d4076277156a87b090c0cab7f99696; the Planck
+endpoint artifact was 9846143033 with SHA-256 digest
+ff6439352ae00ad0c87befb07b035342abe5d1fecf5dee09b4eb84f241bad3a6; and the SPT
+endpoint artifact was 9846127249 with SHA-256 digest
+b0740d6424b7f1fb85a6adf92a9bbd2205b27479fec2e7d2f6d97ee8c2be0c33. All three
+scientific jobs completed successfully.
+Computational provenance — matched Planck/SPT/ACT n=3 EDE response. The subsequent
+matched-surface analysis is recorded as R-Q016-EDE-MATCHED-CMB-SURFACE-016. It used
+the frozen mwt5345/class_ede backend at commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97 and compared Planck, SPT-3G, and ACT
+using TT, TE, and EE over 600≤ℓ≤2000, with each likelihood retaining its own nuisance
+structure. Absolute likelihood values were not summed or compared across experiments.
+−1 M pc
+The analysis produced separately certified free-H 0 and fixed-H 0=71.5k m s
+−1
+endpoints and reproduced the low-H 0 Planck basin under the predefined multistart
+criteria.
+The covariance-aware matched residual analysis is recorded as R-Q016-EDE-CMB-
+MECHANISM-004, run Q016-CMB-MECHANISM-V4. The successful GitHub Actions
+execution was run 33836015653 at repository head
+91bc0736a00e2454d4e37324e5d3a1a7fe7813d6. Its FINAL_RESULT_GATE passed. Signed
+residual contributions were evaluated using the full within-experiment covariance and
+grouped into TT, TE, and EE and the common multipole intervals 600!−!999, 1000!−!1499,
+and 1500!−!2000. These allocations are covariance-coupled and are not independent χ
+measurements. The calculation found no common non-zero residual-shift sign across all
+three experiments in any of the nine predefined observable-by-multipole cells.
+The matched analysis reuses the underlying Planck, SPT-3G, and ACT observational data
+and therefore constitutes an internal comparative likelihood analysis rather than
+independent observational evidence for early dark energy. Shared cosmic variance was not
+represented by a unified cross-experiment covariance, so no combined Planck–SPT–ACT
+significance is assigned. The attempted secondary full-multifrequency SPT and ACT
+mechanism stages remained technically unavailable; these implementation limitations do
+not invalidate the certified matched primary results.
+The V2 final merge failed only because its validation logic required an effectively exact
+identity between the raw covariance quadratic used for bandpower attribution and the
+serialized likelihood component. The subsequent V3 certification changed that validation
+semantics without changing the scientific surface, model, endpoints, likelihoods,
+covariance matrices, theory calculation, optimizer results, or signed attribution values. The
+residual bridge terms were −0.00286835 for Planck and −0.00567713 for SPT and were
+retained explicitly rather than redistributed among spectra or multipole bins. The resulting
+driver rankings and scientific interpretation passed the V3 mandatory validation gates. V3
+therefore constitutes a certification and merge of the already completed endpoint
+calculations rather than a new theory or optimization run.
+The supplied final Q015 V3 archive has SHA-256 digest
+80b774f66c9f0650e2c36f19633a2daa6fbee69d1dbde2a9df91e286520ca8d4. [PROVENANCE
+TO BE VERIFIED: insert the final Q015 V3 GitHub Actions run ID if it is to be retained in the
+published reproducibility record.] As with the preceding Bubbleverse calculations, this is
+an
+analysis of existing observational likelihoods and must not be counted as an independent
+observational detection of early dark energy.
+Computational provenance — full-multifrequency Planck nuisance-direction localization.
+The full-multifrequency Planck analysis is recorded as R-Q017-EDE-PLANCK-DIRECTION-
+LOCALIZATION-003, run Q017-PLANCK-DIRECTION-LOCALIZATION-V3. The successful
+GitHub Actions execution was run 33842355384 at repository commit
+277bb274e5783831303b542681e8cf87a70d31c2. The calculation retained the frozen n=3
+backend mwt5345/class_ede at commit 5a131c91d657dd9a7c6364cc45b038710f8d0d97 and
+used the public planck_NPIPE_highl_CamSpec.TTTEEE likelihood. The certified
+cosmological endpoints from R-Q016-EDE-MATCHED-CMB-SURFACE-016 were held fixed
+rather than reoptimized. Nine Planck calibration and foreground nuisance parameters
+were reprofiled, using three independent starts at each free/fixed baseline endpoint and
+two starts for each nuisance-lock group. The optimizer configuration used BOBYQA with
+priors retained, max_evals = 1280, and rhoend = 0.002. Baseline stability, lock-profile
+stability, endpoint/decomposition closure, the nested-lock non-negativity test, and the final-
+result gate all passed. The authoritative final classification is INDETERMINATE between a
+specifically localized and a broadly distributed Planck penalty. The final GitHub artifact is
+q017-final-v3, artifact ID 9925585139, with SHA-256 digest
+a45ba197f20595013d390136e00f8fd83f40a70fb9e9e1d83f2048f2d70320db. The calculation
+is an internal reanalysis of existing Planck observations and must not be counted as an
+independent observational detection or as evidence that a particular Planck systematic has
+been causally identified.
+Computational provenance — Planck preferred-region and cross-profile geometry.
+Independent reprofiling of the frozen n=3 early-dark-energy model on the matched
+CamSpec-lite and full-multifrequency CamSpec likelihoods established that similar
+projected minima in H 0 and f E D E do not imply equivalent multidimensional preferred
+regions. The preserved historical cross-profile costs are +0.8120365009 when the full-
+multifrequency preferred cosmology is evaluated on CamSpec-lite and +13.5564057804 for
+the reverse evaluation. The authoritative preferred-region result is R-Q019-EDE-PLANCK-
+COSMOLOGY-REPROFILE-003. The earlier R-Q019-EDE-PLANCK-COSMOLOGY-
+REPROFILE-001 interpretation is superseded, but its valid endpoint and cross-profile
+calculations remain part of the numerical provenance.
+The subsequent block-localization analysis is recorded as R-Q020-EDE-PLANCK-CROSS-
+PROFILE-DIRECTION-002, run Q020-PLANCK-CROSS-PROFILE-DIRECTION-REPAIR-V2. The
+successful GitHub Actions execution was run 33878880397 at repository commit
+b0c0a8fd89408bac91502e15d42c69820e913ab6. The final artifact q020-final-v2 has SHA-256
+digest 9fed5d755abdb3630bbe3a1a88e23b0c8172b49dab129a4421b527c3bdabde7f. The
+calculation retained the frozen mwt5345/class_ede backend at commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97.
+Computational provenance — internal primordial-block structure. The primordial block
+identified by the preceding four-block analysis was subsequently decomposed into ns, log A
+, and τ r eio using the same frozen n=3 early-dark-energy backend, mwt5345/class_ede at
+commit 5a131c91d657dd9a7c6364cc45b038710f8d0d97. The authoritative result is R-Q021-
+EDE-PRIMORDIAL-INTERNAL-STRUCTURE-002, run Q021-PRIMORDIAL-INTERNAL-
+STRUCTURE-REPAIR-V2.
+The underlying numerical calculation comprised 48 finite primordial-profile evaluations:
+two likelihood constructions, eight primordial vertices, and three optimizer restarts. The
+original numerical execution, R-Q021-EDE-PRIMORDIAL-INTERNAL-STRUCTURE-001,
+remains the source of these raw profiles, but its final aggregation is superseded. That
+aggregation selected the lowest objective independently at each vertex and could therefore
+combine vertices from different optimizer restarts into a decomposition corresponding to
+no single coherent optimization trajectory. Its likelihood-identity validation also serialized
+live Python function representations containing process-specific memory addresses.
+Neither defect invalidated the 48 underlying likelihood evaluations.
+The repaired analysis introduced no new likelihood evaluations. Instead, it constructed one
+complete decomposition for each optimizer restart, replaced the process-dependent
+likelihood hash with a stable structural identity test, preserved the observed optimizer-
+basin spread, and prohibited best-per-vertex mixing. The Q-identity, parent-identity,
+parent-reproduction, completeness, finite-result, structural-likelihood-identity, coherent-
+restart, decomposition-closure, structure-stability, no-Frankenstein-mixing, no-cross-chain-
+χ
+2-sum, interpretation-safety, and final-result gates passed.
+All three coherent full-multifrequency decompositions and all three coherent matched
+CamSpec-lite decompositions are classified as distributed. The result therefore supports a
+robust qualitative conclusion about the internal primordial structure while retaining
+uncertainty in its detailed quantitative attribution. The calculation is an internal reanalysis
+of existing Planck likelihood information and must not be counted as an independent
+observational detection, a causal identification of a Planck systematic, or evidence for new
+physics. The relevant external methodological and scientific context is provided by
+Efstathiou, Rosenberg & Poulin, Physical Review Letters 132, 221002 (2024),
+arXiv:2311.00524; Rosenberg, Gratton & Efstathiou, Monthly Notices of the Royal
+Astronomical Society 517, 4620 (2022), arXiv:2205.10869; and the Cobaya 3.5.6 technical
+documentation.
+The scientific grid consisted of 64 complete and finite hybrid-vertex nuisance-profile
+evaluations inherited from the preceding Q020 V1 calculation. The final V2 validation
+corrected a denominator mismatch in the original validation gate rather than rerunning or
+altering those likelihood evaluations. It explicitly preserved the historical Q019 values,
+reproduced the absolute Q019 foreign-cosmology cross-profile objectives, required non-
+regression of the newly reprofiled native endpoints, and retained the prohibition against
+treating correlated likelihood constructions as additive physical χ
+2 components. The
+FINAL_RESULT_GATE passed, yielding the classification LIMITED MULTIDIMENSIONAL
+DIRECTION LOCALIZED.
+Within the predefined four-block geometry, the full-multifrequency response assigns an
+absolute Shapley fraction of 0.7157833 to the primordial block (ns,log A , τ r eio), 0.1727489 to
+EDE timing, 0.0914685 to matter, and 0.0199994 to H 0. These allocations and the associated
+pair interactions are non-independent, non-causal functional-geometry diagnostics. They
+do not constitute a physical decomposition of the Planck likelihood and do not identify a
+particular instrumental systematic or new physical mechanism. The calculation is an
+internal reanalysis of existing likelihood information rather than independent
+observational evidence.
+Four controlled full-multifrequency surfaces were evaluated: the native construction, the
+same likelihood with prior-density contributions removed from the minimization
+objective, a surface profiling only A pl anc k, c alT E, and c al E E while fixing the six
+multifrequency foreground parameters, and the reciprocal surface profiling the six
+foreground parameters while fixing those three shared nuisance parameters. Three
+independent starts were used for each bridge-and-endpoint combination, giving 24 atomic
+profile calculations. The resulting fixed-minus-free penalties were 17.3953724212, 17.1601717140, 11.7641347631, and 15.6176804336,
+respectively.
+The native-reference reproduction, endpoint identity, model identity, job completeness,
+multistart replication, finite-result, and non-additivity validation gates all passed. The
+reduced shared-nuisance surface exhibited substantial multistart spread and is therefore
+retained only as an unstable diagnostic. The authoritative scientific classification is
+COUPLED COMPONENTS / LIKELIHOOD-ARCHITECTURE DEPENDENCE: the difference
+between the matched and full-multifrequency Planck penalties cannot be assigned to one
+independent additive likelihood component. This calculation is an internal reanalysis of
+existing Planck observations and must not be counted as an independent observational
+detection, a causal identification of a Planck systematic, or evidence for new physics.
+Computational provenance — full-multifrequency basin geometry and exact interaction
+decomposition. The authoritative optimizer-basin continuation is R-Q022-EDE-FULLMF-
+OPTIMIZER-BASIN-002 at execution commit
+16a7902c3be7d1967adaae9ee380baf0d17e903a. The subsequent fixed-lineage direction
+analysis R-Q023-EDE-FULLMF-BASIN-DIRECTIONS-002 was executed in GitHub Actions run
+33913077353 at commit ea5af9a0b25090eb8472adb3c9574dcb4e1efe5c. The permutation-
+and sign-invariant matching analysis R-Q024-EDE-FULLMF-BASIN-MATCHING-001 used
+GitHub Actions run 33915600167 at commit b8e16629bbc6592ee11f0d90f78c887a913ac4c1.
+The fixed-vector component attribution R-Q025-EDE-FULLMF-BASIN-COMPONENT-
+ATTRIBUTION-002 used run 33918779905 at commit
+b2db6827b1caf5405e6a34bff221b6ae4813c1d0, and the coordinate-level localization R-
+Q026-EDE-FULLMF-MASK6-COUPLING-001 used run 33921255497 at commit
+7cb4d98c01196c22b407b6f4fd4118179afea3de. The residual-and-covariance bridge R-Q027-
+EDE-FULLMF-RESIDUAL-COVARIANCE-BRIDGE-001 used run 33924573651 at commit
+df03e30712690e61ff799558598405a22c0bacbb.
+The validated common-support calculation R-Q028-EDE-FULLMF-COMMON-SUPPORT-
+COUNTERFACTUAL-008 used GitHub Actions run 33957937309 at execution-head commit
+7f5d35c0725530039162adfa4d71be288e8b4462. Its exact labelled common support contains
+9915 of 9915 dimensions, with authoritative key SHA-256
+6088165823b7fae224ce51aaef33fdef5a400aefafd1675e454e00c6c1a25a63. The final artifact
+q028-final-v8 has artifact ID 9967068363 and SHA-256 digest
+7dfbd1f27251ff311dd1de6118539dd691ab03d9afdb08539b3b13586c50d5af. The previously
+recorded execution SHA 7f5d35efeb54b4a62d6dfb8f7074014b4fabc190 and common-
+support hash 054220c018e58e902eab98b879eec4a823fb3238a1774ddbacc649bddca8b666
+are superseded provenance misrecords and must not be used as active identifiers.
+The exact residual-family identity subsequently tested numerically is
+TPΔ
+T P m).
+2(m
+F=−2d
+2m+Δ
+Its authoritative final numerical validation is R-Q030-ORIGINAL-GATE-PRECISION-
+AUDIT-001. The finalization workflow .github/workflows/q030-original-gate-audit-
+finalization-r1.yml completed successfully in GitHub Actions run 33963221940 at head SHA
+4cbe1585d2603b507679c654a8ff8b0d7e2e522e. The final artifact q030-original-gate-
+precision-audit-final-v1 has artifact ID 9968592047 and SHA-256 digest
+7685d7693f2e85391767bd9a2654a940280a02c729ff5a441b988c69a752a156. The audit
+performed three model initializations but zero new likelihood evaluations, zero optimizer
+evaluations, zero sampling evaluations, and zero repetitions of the earlier permutation
+analysis. All thirteen mandatory final tests passed.
+The stable factorial-bilinear representation gives a maximum identity closure error of 2.0940194023211234×10
+−13, a maximum spectrum- or multipole-pair aggregation error of
+−14, a maximum |Δ
+2m+Δ
+2r ) of 4.547473508864641×10
+−13, and a
+5.479297571220343×10
+maximum parent-functional closure error of 1.6143639203214377×10
+−10. These satisfy the
+original 10
+−8, 10
+−8, 10
+−11, and 2×10
+−4 validation thresholds, respectively.
+The validation history is retained for reproducibility but not as separate scientific
+evidence. An initial Q030 execution failed before producing a scientific result because it
+used a misrecorded common-support hash. The subsequent numerical decomposition in
+GitHub Actions run 33961469874 produced all nine required diagnostics but failed the
+−8 for the global identity and 7.19×10
+original 10
+−8 closure gates at approximately 1.44×10
+−8 for grouped aggregation because the calculation formed cancellation-sensitive
+differences of large quadratic scalars. A later validation-only configuration, run
+33961879699, accepted those unchanged values under a 10
+−7 numerical threshold but is not
+the authoritative final validation. The one-shot precision audit in run 33962896373 then
+demonstrated that the original 10
+−8 gate could be satisfied using algebraically equivalent
+stable arithmetic; its overall workflow failure was caused only by a validator schema-key
+lookup error. The finalization repair did not rerun the scientific audit, change any mask
+shard, alter any scientific input, or relax any tolerance. The successful run 33963221940
+therefore establishes the original-gate result.
+These computations all remain internal analyses of the same frozen
+Planck/NPIPE/CamSpec likelihood chain. Their progressive agreement strengthens the
+numerical characterization of that likelihood geometry but does not create multiple
+independent observational detections. In particular, the exact decomposition does not
+identify a Planck calibration failure, foreground systematic, defective data vector, unique
+cosmology–calibration cause, covariance defect, or new physical mechanism
+Computational provenance — independent Planck-likelihood portability test.
+The subsequent cross-implementation test is recorded as R-CASE031-EDE-PLANCK-
+PORTABILITY-001. The authoritative execution used q031_planck_portability_v1.py,
+q031_planck_portability_v1_config.yml, q031_source_lock_v1.json,
+q031_protocol_lock_v1.json, q031_tests_v1.py, q031_setup_v4.sh, and workflow
+.github/workflows/q031-planck-portability-v4.yml in the Morfindien/Bubbleverse
+repository.
+The successful GitHub Actions execution was run 33975028436 on the main branch at head
+commit ff621d6e0a425a976bb7a55f9194a0de8a87f18f. The environment used Python
+3.11.16. The frozen early-dark-energy backend remained mwt5345/class_ede at commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97. The independent Planck likelihood was
+HiLLiPoP v4.3, component planck_2020_hillipop.TTTEEE, frozen at commit
+a09ddde3e7ce11df99f74685feb1f1764cafb251.
+All nine primary mapped-start optimizations completed. The predefined assessment
+required tighter continuation, and all nine refinement jobs also completed. The
+independent-implementation gate and primary completeness gate passed.
+The portability decision used the preregistered common-geometry graph classifier
+inherited by the later Q032 and Q034 analyses. Its clustering coordinates were omega_b,
+omega_cdm, f_EDE, log10 z_c, theta_i,scf, H_0, and A_planck; endpoints were connected
+when their normalized common-parameter RMS separation was at most 0.10 and their
+objective difference was at most 0.50, with repeated support required for a stable cluster.
+Under this criterion the resulting stable-basin count was zero and
+MATERIAL_STABLE_MULTIBASIN_GATE failed. The downstream direction, primordial,
+compensation, and residual-support portability extensions were therefore not required for
+a positive decision and were skipped rather than interpreted as separate failures. The Q031
+decision rule consequently returned PORTABILITY_FAILS, final classificatio The raw
+HiLLiPoP execution remains valid, but the conclusion of implementation-specific non-
+portability can no longer be supported by the binary stable-basin result alone. And
+DOWNGRADE, and geometry classification IMPLEMENTATION-SPECIFIC INTERNAL
+LIKELIHOOD GEOMETRY, with FINAL_RESULT_GATE passing. This remains the correct
+historical record of the Q031 computation. Its broader interpretation has subsequently
+been revised. The Q035 classifier crosswalk applied the same later graph classifier to the
+preserved historical Q022 CamSpec endpoints a nd also obtained zero repeated stable
+basins. The Q031 stable-basin gate therefore does not discriminate the historical CamSpec
+baseline from HiLLiPoP once the classifier is harmonized.
+The final workflow artifact is q031-final-v1, artifact ID 9975019737, with SHA-256 digest
+a42eac83856d70c9645514916a155b9647fa85f815ce3365771f2f72d4bdca5e. The
+authoritative validated file is q031_final_validated_v1.json, SHA-256
+c4f03c1f1f8701cd14a74173ce2d58a46316eaa00acc86d64ebef4b68d9f4638. The protocol lock
+has SHA-256 673f0625cb535f302d7439a5b7720c7a14fd8bc8e4fada68c3cf09198c6f16ad, the
+source lock has SHA-256
+56fb6a03cb85b6fd922a9db239c8e343146d2af76efdf2ef15a7e817e7989588, and the locked
+common-scales file has SHA-256
+732aeeb127d9083c0924552aa276117310ca32b5bfda854f51bfd3240638b2f6.
+Three earlier workflow versions are retained only as technical provenance. The first failed
+during environment setup, the second during Python/cache configuration, and the third
+during ingestion of overlapping Q022 stage and refinement artifacts. None produced a
+CASE-031 scientific result. The V4 execution is the sole authoritative scientific run.
+CamSpec and HiLLiPoP use overlapping Planck PR4/NPIPE observational information. The
+CASE-031 result therefore represents independent likelihood implementation and
+computational methodology, not an independent observation of a different sky.
+Computational provenance — Q032 common-support bridge and exact-start CamSpec
+revalidation. The first Q032 TT-only bridge attempt failed during configuration because
+polarization-only HiLLiPoP nuisance parameters leaked into the native TT construction. It
+produced no scientific result. The corrected bridge is R-Q032-EDE-PLANCK-TT3PAIR-
+BRIDGE-002, run Q032-PLANCK-TT3PAIR-COMMON-SUPPORT-BRIDGE-V2. GitHub Actions
+run 33994305721 completed successfully at execution head
+4dc873a5e880d40858d831a3b421456728f0c032. Its exact common TT support contains 5953
+dimensions: 143×143 over ℓ = 50–2000 and 143×217 and 217×217 over ℓ = 500–2500. The
+support SHA-256 is
+f6d7b3195789e7149942c63543bdd8e9a44490ea3f3645fb964e936ec69cca2b. Both CamSpec
+and HiLLiPoP produced stable_basin_count = 0 on this restricted surface. The stronger
+intermediate interpretation that the removed CamSpec information was therefore
+materially responsible for the historical stable geometry is superseded by the later exact-
+start control.
+A subsequent nested-add-back implementation, R-Q032-EDE-CAMSPEC-ADDBACK-003,
+GitHub Actions run 34009693922, failed and is retained only as technical provenance. It
+does not contribute a Q032 scientific result.
+The authoritative Q032 execution is R-Q032-EDE-CAMSPEC-ADDBACK-004. The program is
+q032_exact_start_addback_v4.py with configuration
+q032_exact_start_addback_v4_config.yml, protocol lock
+q032_exact_start_protocol_lock_v4.json, source lock q032_exact_start_source_lock_v4.json,
+and workflow .github/workflows/q032-exact-start-addback-v4.yml. GitHub Actions run
+34015845246 completed successfully at execution head
+fbde93aee01ec3bed183207518ff315c96a45c3c.
+The V4 protocol converted every sampled parameter reference to a literal scalar value
+before optimization and audited the exact start vector. The baseline TT3/common-support
+surface completed all nine profiles and retained stable_basin_count = 0 after refinement.
+The preregistered single-sector add-backs SUPPORT, TE, and EE each completed nine
+profiles and each retained stable_basin_count = 0. The pairwise surfaces SUPPORT + TE,
+SUPPORT + EE, and TE + EE likewise completed with zero stable basins. The final full-native
+SUPPORT + TE + EE control also completed nine profiles and refinement with
+stable_basin_count = 0. The mandatory validation and FINAL_RESULT_GATE passed.
+The authoritative Q032 classification is
+NO_CLEAN_LOCALIZATION_WITHIN_TESTED_CAMSPEC_INFORMATION_SECTORS. The
+raw Q032 computation remains valid: every tested single-sector, pairwise, and full-native
+surface retained a stable-basin count of zero. The interpretation of why this differed from
+the historical Q022 classification was subsequently revised. Q032 had originally been
+treated as replacing a historical non-scalar reference-distribution launch with scalar exact
+references. The later Q033 provenance audit showed that this distinction did not exist in
+the executed lineage: the relevant Q022 references were already finite scalars. Q032
+therefore supersedes the earlier information-sector localization hypothesis but does not
+establish scalar-versus-distribution launch semantics as the cause of the historical
+discrepancy. It does not invalidate the preserved Q022 endpoint vectors or the subsequent
+fixed-vector Q023–Q030 calculations. The raw CASE-031 HiLLiPoP execution remains valid,
+but its cross-implementation portability interpretation is reopened by the later classifier-
+harmonization result: the historical Q022 CamSpec baseline itself returns zero stable
+basins when evaluated with the same later graph classifier. The existing Q022, Q031, Q032,
+Q033, and Q034 numerical results remain preserved; what changes is the comparative
+inference drawn from their classifier labels.
+Computational provenance — Q033 launch/reference-semantics audit. The authoritative
+result is R-Q033-EDE-LAUNCH-SEMANTICS-AUDIT-002, logical run Q033-CAMSPEC-
+LAUNCH-SEMANTICS-PROTOCOL-AUDIT-V2.
+The audit used q033_launch_semantics_protocol_audit_v2.py,
+q033_launch_semantics_protocol_audit_v2_config.yml,
+q033_launch_semantics_source_lock_v2.json, q033_launch_semantics_tests_v2.py, and
+workflow .github/workflows/q033-launch-semantics-protocol-audit-v2.yml.
+The Q033 V2 files were added to the repository in commit
+b03a1ac5dbcb0821039406b099e05982010502fc, and the workflow was moved
+into .github/workflows in commit 614b227c8de5ea2096f75bf8b97155f340cb1a44.
+GitHub Actions run 34055678308 completed successfully with head SHA
+614b227c8de5ea2096f75bf8b97155f340cb1a44.
+The source lock preserves the historical Q019, Q021, Q022, and Q032 implementations
+needed to reconstruct the relevant parameter semantics. The audit found that all Q022-
+sampled non-primordial references were scalar after endpoint recentering and that all
+Q032 V4 sampled references were likewise scalar. It therefore returned Q033_ANSWER =
+NO with classification
+LAUNCH_REFERENCE_SEMANTICS_ALREADY_IDENTICAL_NOT_CAUSAL and
+FINAL_RESULT_GATE = PASS. No new likelihood optimization was performed. The planned
+eighteen-shard distribution-versus-scalar comparison was cancelled because its historical
+distribution-valued arm did not correspond to the actual Q022 execution.
+The audit also identified the smallest remaining sampled-parameter difference at that
+stage. Relative to the fifteen sampled non-primordial Q022 coordinates, the Q032 full-native
+construction additionally sampled n_s, log A, and tau_reio, whereas Q022 fixed those
+primordial coordinates at each Q021 vertex.
+A subsequent matched Q034 isolation tested this difference directly inside the later full-
+native construction. Freezing the three primordial coordinates did not recover a
+reproducibly supported stable basin under the later common-geometry classifier: the
+refined frozen arm retained stable_basin_count = 0 and resolved into nine singleton
+clusters.
+The fixed-versus-sampled difference is therefore rejected as sufficient under that later
+classifier. Its global role in the historical Q022-versus-Q032 comparison remains unresolved
+because the historical and later classifications were produced by different mathematical
+decision rules.
+Q022, the Q023–Q030 fixed-vector diagnostics, CASE-031, the raw Q032 V4 result, and the
+raw Q034 result all remain preserved.
+Computational provenance — Q034 primordial-freeze isolation. The authoritative result is
+R-Q034-EDE-PRIMORDIAL-FREEZE-ISOLATION-001, logical run Q034-PRIMORDIAL-FREEZE-
+ISOLATION-V1.
+The execution used q034_primordial_freeze_isolation_v1.py,
+q034_primordial_freeze_isolation_v1_config.yml,
+q034_primordial_freeze_source_lock_v1.json, q034_primordial_freeze_tests_v1.py, and
+workflow .github/workflows/q034-primordial-freeze-isolation-v1.yml in the
+Morfindien/Bubbleverse repository. GitHub Actions run 34059649759 completed
+successfully at execution-head commit 8b8035795a9e6064583379afb8663cdc28961764. The
+frozen physics backend remained mwt5345/class_ede at commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97.
+The existing Q032 V4 FULL_NATIVE sampled-primordial control was reused after identity
+validation rather than rerun. It contained nine complete decisive profiles and retained
+stable_basin_count = 0 and stable_multibasin = false. The Q034 test arm changed only the
+intended primordial parameter status, fixing n_s, log A, and tau_reio to the authoritative
+values associated with the same nine provenance vectors while preserving the full-native
+CamSpec construction, scalar-reference semantics, optimizer settings, backend, and
+numerical thresholds.
+All nine Stage-1 jobs completed, the preregistered refinement condition activated, and all
+nine refinement jobs completed. The decisive frozen arm likewise returned
+stable_basin_count = 0 and stable_multibasin = false. Its nine refined endpoints formed
+nine singleton clusters rather than one common collapsed solution.
+All mandatory identity, completeness, provenance, freeze, merge, classifier-reproduction,
+refinement-decision, and interpretation-boundary tests passed, and FINAL_RESULT_GATE
+passed. The final artifact is q034-final-v1, artifact ID 9998302123, with SHA-256 digest
+0df519645906dfaaf3b270d9791a74c0f33f25e9fdcfa8ca344ad2add70f8a87. The source lock
+records the classifier lineage q032_exact_start_addback_v4.cluster_rows →
+q032_planck_tt3pair_bridge_v2.bridge_cluster q031_planck_portability_v1.cluster_rows. →
+The result is therefore a validated internal computational isolation result, not an
+independent observation and not a physical detection or falsification of early dark energy.
+The subsequent classifier-harmonization analysis resolved this interpretive boundary. The
+historical Q022 stable-multibasin classification used a per-mask mixed cosmology–
+nuisance geometry, whereas Q031, Q032, and Q034 used the later seven-coordinate
+common-geometry graph classifier. Applying both definitions to the same preserved Q022,
+Q032, and Q034 endpoint sets removes the apparent cross-case disagreement: all three sets
+are stable under the historical classifier and all three are non-stable under the later
+classifier. Primordial freezing therefore remains insufficient to create repeated stable
+clusters within the later classification framework, but it is neither necessary nor sufficient
+to explain the former historical-versus-later label difference.
+Computational provenance — classifier harmonization. The classifier crosswalk is
+recorded as R-Q035-EDE-CLASSIFIER-HARMONIZATION-001, logical run Q035-CLASSIFIER-
+HARMONIZATION-V1. The deterministic artifact-only analysis used
+q035_classifier_harmonization_v1.py together with
+q035_classifier_harmonization_v1_config.json,
+q035_classifier_harmonization_source_lock_v1.json, and
+q035_classifier_harmonization_tests_v1.py. The scientific program files were added to
+Morfindien/Bubbleverse at commit b1166e80d5d4c602569da7e32ba02c628dec1975. No new
+CLASS calculation, likelihood evaluation, optimization, sampling, seed, or endpoint
+generation was performed.
+The analysis replayed the historical Q022 mixed cosmology–nuisance classifier and the
+later Q031/Q032 common-geometry graph classifier against the preserved decisive
+endpoint artifacts. The mandatory result package passed the identity, artifact-only,
+endpoint-completeness, reference-replay, classifier-crosswalk, final-classification, and
+physical-safety gates. The final classification is
+CLASSIFIER_SEMANTICS_MATERIALLY_EXPLAINS_REPORTED_DISCREPANCY.
+An initial GitHub Actions workflow invocation failed before the scientific crosswalk
+because the downloaded Q022 final artifact acquired an additional directory layer and the
+program could not locate the expected file path. This is a workflow-path failure and carries
+no physical evidentiary weight. The corrected workflow is .github/workflows/q035-
+classifier-harmonization-v2.yml at revision commit
+e12bab3da2972ab2b45ec7d27f569faf5febd025 and includes an explicit artifact-layout gate.
+A successful V2 GitHub Actions run identifier is not documented in the supplied final result
+package and is therefore not invented here. This limits CI provenance, but it does not alter
+the deterministic classifier crosswalk contained in the validated result package.
+Computational provenance — continuous cross-implementation geometry. The subsequent
+common-geometry comparison is recorded as R-Q036-EDE-ENDPOINT-GEOMETRY-
+PORTABILITY-001. The deterministic artifact-only programme used
+q036_endpoint_geometry_portability_v1.py together with
+q036_endpoint_geometry_preregister_v1.json,
+q036_endpoint_geometry_source_lock_v5.json, and q036_endpoint_geometry_tests_v1.py.
+The authoritative workflow is .github/workflows/q036-endpoint-geometry-portability-
+v5.yml in the Morfindien/Bubbleverse repository.
+GitHub Actions run 34105942065 completed successfully on the main branch at execution
+head 095f90565cf694a7c3383d1fbe736707ab187751. The run reused the authoritative
+historical CamSpec refinement endpoints from run 33902262660 and the validated
+HiLLiPoP final and preflight artifacts from run 33975028436. No new CLASS calculation,
+likelihood evaluation, optimization, sampling, seed generation, or endpoint generation was
+performed.
+The comparison used the seven locked common coordinates omega_b, omega_cdm, f_EDE,
+log10 z_c, theta_i,scf, H_0, and A_planck and inherited the normalized common-geometry
+scale definition and 0.10 materiality threshold from the earlier portability framework.
+Absolute CamSpec and HiLLiPoP objectives were neither subtracted nor combined.
+All nine matched cross-implementation endpoint distances exceeded 0.10, with a median
+normalized RMS displacement of 2.3623445144. All 36 pairwise geometry drifts likewise
+exceeded 0.10, with a median of 2.2590148997. The normalized centroid displacement was
+1.5370691721. Replay of the preserved HiLLiPoP pairwise reference geometry agreed to a
+maximum absolute difference of 8.881784197 × 10⁻¹⁶. The mandatory identity, provenance,
+common-coordinate, locked-scale, finite-result, permutation-invariance, reference-replay,
+no-cross-likelihood-objective, and decision-replay gates passed, and FINAL_RESULT_GATE
+passed.
+The final artifact is q036-final-v1, artifact ID 10012356335. The result is a validated internal
+computational comparison of two likelihood implementations applied to overlapping
+Planck PR4/NPIPE information. It supports a material continuous implementation-
+dependent endpoint difference but does not identify its physical cause, establish an
+instrumental or calibration systematic, determine which implementation is more accurate,
+or provide independent evidence for or against early dark energy.
+Computational provenance — exact-TT common-support geometry survival. The
+subsequent deterministic artifact-only comparison is recorded as R-Q037-EDE-TT-
+COMMON-SUPPORT-GEOMETRY-001. The scientific program is
+q037_common_support_endpoint_geometry_v1.py with PROGRAM_ID Q037-TTGEOM-V1.
+No CLASS calculation, likelihood evaluation, optimizer, sampler, new seed, or new endpoint
+generation was performed. Instead, the analysis reused the eighteen authoritative
+CamSpec and HiLLiPoP refinement endpoints from the exact-TT common-support parent
+calculation R-Q032-EDE-PLANCK-TT3PAIR-BRIDGE-002, GitHub Actions run 33994305721 at
+execution commit 4dc873a5e880d40858d831a3b421456728f0c032.
+The comparison preserved the seven common coordinates ωb, ωc d m, f E D E, log10 zc, θi,sc f, H 0,
+and A Pl anc k; the Q031 locked-scale SHA-256
+732aeeb127d9083c0924552aa276117310ca32b5bfda854f51bfd3240638b2f6; the common-
+support SHA-256
+f6d7b3195789e7149942c63543bdd8e9a44490ea3f3645fb964e936ec69cca2b; and the
+materiality threshold of 0.10. Absolute objective values from the two likelihoods were
+neither subtracted nor summed.
+All nine matched endpoint distances exceeded 0.10. The median normalized displacement
+was 2.9317906965863507 and the maximum was 5.229543793539735. The normalized
+centroid displacement was 0.8311487237190059. All 36 pairwise geometry drifts also
+exceeded 0.10, with a median of 1.6367910228418985 and a maximum of
+4.755572606658088. Independent result replay returned a maximum absolute difference of
+0.0, and the mandatory validation package returned FINAL_RESULT_GATE = PASS.
+The result therefore classifies the exact common-support restriction as insufficient to
+remove the continuous implementation-geometry difference. It weakens unequal TT
+information support as the primary explanation but performs no causal component
+attribution. It does not establish a physical Planck systematic, foreground or calibration
+defect, covariance failure, instrumental problem, early-dark-energy preference or
+falsification, new physics, or any change in the active H 0 benchmarks.
+Computational provenance — exact-TT common-support geometry survival. The
+deterministic artifact-only comparison is recorded as R-Q037-EDE-TT-COMMON-SUPPORT-
+GEOMETRY-001. The scientific program is
+q037_common_support_endpoint_geometry_v1.py with PROGRAM_ID Q037-TTGEOM-V1. It
+reused the eighteen authoritative CamSpec and HiLLiPoP refinement endpoints from R-
+Q032-EDE-PLANCK-TT3PAIR-BRIDGE-002 rather than running CLASS, evaluating a new
+likelihood, optimizing, sampling, changing seeds, or generating new endpoints. The seven
+common coordinates, the locked-scale SHA-256
+732aeeb127d9083c0924552aa276117310ca32b5bfda854f51bfd3240638b2f6, the common-
+support SHA-256
+f6d7b3195789e7149942c63543bdd8e9a44490ea3f3645fb964e936ec69cca2b, and the 0.10
+materiality threshold were preserved.
+All nine matched endpoint distances exceeded 0.10. The median normalized displacement
+was 2.9317906965863507 and the maximum was 5.229543793539735. The normalized
+centroid displacement was 0.8311487237190059. All 36 pairwise geometry drifts also
+exceeded 0.10, with a median of 1.6367910228418985 and a maximum of
+4.755572606658088. Independent result replay returned a maximum absolute difference of
+0.0, and FINAL_RESULT_GATE passed.
+The scientific workflow is .github/workflows/q037-common-support-endpoint-geometry-
+v1.yml. GitHub Actions run 34115280043 completed successfully at execution head
+c49d9885a5bf1e290f4b42f15c59d228c7c036cf. The authoritative raw-endpoint artifact is
+q037-raw-endpoints-v1, artifact ID 10016050377, with digest
+sha256:cedc39d5fd7baad93bbf2ba521a5778cd3e69bc768f5a6b977e977e7fa0ed050. The
+earlier statement that no separate successful Q037 GitHub Actions scientific run identifier
+was documented is therefore superseded.
+Computational provenance — coordinate localization. The subsequent deterministic
+artifact-only localization is recorded as R-Q038-EDE-COORDINATE-LOCALIZATION-001,
+with scientific program q038_coordinate_localization_v1.py and PROGRAM_ID Q038-
+COORDLOC-V1. The workflow is .github/workflows/q038-coordinate-localization-v1.yml.
+GitHub Actions run 34121000822 completed successfully at execution head
+02ddda7c13a53cd7ad20880bf527a86e17ac4d79.
+The calculation used the validated Q037 endpoint artifact rather than performing any new
+CLASS calculation, likelihood evaluation, optimization, or sampling. It preserved the same
+seven common coordinates and the locked-scale SHA-256
+732aeeb127d9083c0924552aa276117310ca32b5bfda854f51bfd3240638b2f6. All 127 non-
+empty coordinate subsets were evaluated under preregistered capture and leave-one-label-
+out robustness rules.
+The final classification is DISTRIBUTED. The unique smallest qualifying subset contains ωb, ωc d m, f E D E, and θi,sc f, with full-
+sample capture fractions of 90.89% for matched location,
+88.48% for centroid displacement, and 87.20% for pairwise shape. All nine leave-one-label-
+out tests passed in every channel, FINAL_RESULT_GATE passed, and independent result
+replay agreed to a maximum absolute difference of approximately 1.82×10
+−14.
+The central Bubbleverse program registry records Q038-COORDLOC-V1 as an executable
+target associated with R-Q038-EDE-COORDINATE-LOCALIZATION-001. This ACTIVE registry
+status describes the availability of the reproducible program; it does not mean that the
+scientific question remains open.
+The calculation is an internal deterministic reanalysis of the Q032/Q037 endpoint lineage
+and must not be counted as an independent observational confirmation of the underlying
+CamSpec–HiLLiPoP difference.
+Computational provenance — implementation-block interventions. The subsequent causal-
+isolation campaign is recorded as R-Q039-EDE-IMPLEMENTATION-BLOCK-
+INTERVENTION-001. The authoritative execution used PROGRAM_ID Q039-IMPLBLOCK-V5
+and workflow .github/workflows/q039-implementation-block-intervention-v5.yml in the
+Morfindien/Bubbleverse repository. GitHub Actions run 34161368438 completed
+successfully on the main branch at execution head
+365217d4a4ca21e0af3b296c0e6b23df7e07ba60. The scientific configuration preserved the
+Q032 exact TT common-support parent, the seven Q031/Q037 common coordinates, the
+locked normalization scales, the 0.10 materiality threshold, and the frozen
+mwt5345/class_ede backend at commit 5a131c91d657dd9a7c6364cc45b038710f8d0d97.
+The validated intervention arms tested relative-calibration neutralization, removal of
+native off-diagonal precision coupling, and their predefined combination. Relative-
+calibration neutralization produced post-intervention matched-median, centroid, and
+pairwise-median-drift values of 2.8486368555, 0.8739233292, and 1.4858348360. Removing
+off-diagonal precision coupling produced 2.6070135030, 0.8411900006, and approximately
+1.62217. The combined calibration-plus-precision arm produced 3.0786063935,
+1.1944461930, and 1.8740322581. None met the predefined requirement of 0.10 in all three
+channels, and all three returned zero sufficient leave-one-label-out cases out of nine.
+FINAL_RESULT_GATE passed. The result rejects these interventions as sufficient under the
+tested conditions; it does not establish a physical calibration or covariance defect.
+Earlier Q039 V1–V4 executions are retained only as technical recovery provenance. Their
+failures involved execution, environment, schema, installation, or workflow-placement
+problems rather than completed scientific tests. They are superseded for scientific
+interpretation by the successful V5 result and must not be used as physical evidence.
+Computational provenance — native foreground profiling freedom. The next matched
+intervention is recorded as R-Q039-EDE-NATIVE-FOREGROUND-PROFILE-001, with
+PROGRAM_ID Q039-FGPROFILE-V1 and RUN_ID Q039-NATIVE-FOREGROUND-PROFILE-V1.
+The authoritative workflow is .github/workflows/q039-native-foreground-profile-v1.yml.
+GitHub Actions run 34184346582 completed successfully on the main branch at execution
+head 449fe096e49a793446c0c859cf8caf0fcdaf4c8f. All eighteen required optimizer profiles
+completed, the mandatory result tests passed, the result was sealed, and
+FINAL_RESULT_GATE passed. The final artifact is q039-fgprofile-final-v1 with SHA-256
+digest 5af2927dd93031aeca432866459f380aa368523eb260fc80f9e5a1b79169b93c.
+Reference selection was performed separately inside each likelihood; absolute CamSpec
+and HiLLiPoP objectives were neither subtracted nor summed. The CamSpec foreground
+reference was taken from label M6-S0, with native sampled coordinates amp_143 =
+19.0609711101, amp_217 = 12.9440793001, amp_143x217 = 9.8599956054, n_143 =
+0.9532159371, n_217 = 1.3084047025, and n_143x217 = 1.3698548767. The HiLLiPoP
+reference was taken from M6-S2, with Aradio = 60.6375899560, Adusty = 5.9809901364,
+AdustT = 1.0417701091, beta_dustT = 1.5087185314, Acib = 1.8280064789, beta_cib =
+1.7599498553, Atsz = 8.6235873045, Aksz = 4.8753015347, and xi = 0.2328374089. These
+vectors are implementation-specific native nuisance coordinates and are not interpreted as
+equivalent physical parameters across the two likelihoods.
+After freezing each implementation’s own foreground reference vector and reoptimizing
+the remaining permitted parameters, the full-sample geometry was matched_median =
+2.9829304062, centroid = 1.0554687938, and pairwise_median_drift = 1.6353175394. The
+corresponding Q037 baseline values were 2.9317906966, 0.8311487237, and 1.6367910228.
+All nine leave-one-label-out analyses remained above the predefined materiality threshold,
+giving a sufficient count of 0/9. The sealed classification is
+NATIVE_FOREGROUND_PROFILE_FREEDOM_REJECTED_AS_SUFFICIENT.
+The intervention tests native foreground nuisance profiling freedom only. It does not
+equate the full CamSpec and HiLLiPoP foreground constructions. Full foreground-model
+harmonization and core likelihood/data-vector harmonization would require coupled
+changes to multiple methodological layers and therefore cannot be reinterpreted as clean
+single-block interventions within the frozen Q032 architecture. The resulting unresolved
+discrepancy remains methodological. Both implementations analyse overlapping Planck
+PR4/NPIPE information, so these calculations are internal comparative likelihood evidence
+rather than independent observations of the sky.
+Appendix B — Likelihood Architecture, External Viability, Exact Interaction Diagnostics and Precision Audit
+External Viability: A Region Is Not a Parameter Vector
+The internal likelihood-attribution problem at the active H ₀ = 71.5 km s ⁻¹ Mpc ⁻¹ point is no
+longer open, and its external viability can now be quantified directly. The external
+calculation separates three statistical objects that must not be conflated: each dataset’s own
+free-H₀ n=3 profile minimum, the same dataset reprofiled with H ₀ fixed to 71.5 km s ⁻¹
+Mpc⁻¹, and the exact shared cosmological parameter vector of the ACT-supported best-
+observed basin. Each external chain retains its own nuisance parameters. Χ² values are not
+compared across Planck and SPT, and their likelihoods are not summed.
+The Planck test uses a public NPIPE CamSpec common-backend approximation motivated
+by the same-n=3 analysis of Efstathiou, Rosenberg, and Poulin; it is not an exact
+reproduction of their custom paper likelihood. Its free-H 0 profile reaches
+−1 M pc
+H 0≈67.6575k m s
+−1. Reprofiling the same n=3 model at H 0=71.5 raises the profile
+objective by
+2 (71.5)=+12.873928.
+Δ χ Pl anc k
+The result is stable across the accepted multi-start certification, with a best-two objective
+spread of approximately 0.40 for the free profile and 0.52 for the fixed-H 0 profile. Planck
+therefore places substantial pressure on this high-H 0 region within the tested common-
+backend construction.
+−1 M pc
+SPT-3G D1 behaves very differently. Its free-H 0 profile reaches H 0≈69.624 k m s
+−1,
+but forcing H 0=71.5 while allowing the remaining cosmological and SPT-native nuisance
+parameters to reprofile costs only
+2 (71.5)=+0.342067 .
+Δ χ S PT
+The corresponding multi-start spreads are only 0.074 and 0.036 for the free and fixed
+profiles. A secondary SPT-3G D1+DESI DR2 chain gives an even smaller fixed-H 0 penalty,
+Δ χ S PT +D E S I
+2 (71.5)=+0.157387 ,
+Although this combination cannot be counted as a fully independent confirmation because
+DESI DR2 is reused elsewhere in the evidence chain. These profile results do not mean that
+the SPT-only posterior is centred on H 0=71.5; rather, they show that the SPT likelihood can
+accommodate that value with little loss of best-fit quality after the other permitted
+parameters are adjusted.
+The distinction between a high-H 0 region and a particular high-H 0 parameter vector is
+decisive. When the physically shared parameters of the ACT-supported H 0=71.5 solution
+are held fixed, while only chain-native nuisance quantities are allowed to adjust, the
+external penalties become
+Δ χ Pl anc k
+2 =+101.858574 ,
+2 =+22.112326 ,
+Δ χ S PT
+And
+Δ χ S PT +D E S I
+2 =+21.511108.
+The exact ACT-optimized vector is therefore not externally portable. SPT can accommodate
+H 0=71.5, but only by moving to a different region of the n=3 EDE parameter space.
+Rejecting the exact ACT-supported vector is consequently not equivalent to rejecting every n=3 configuration with the same value
+of H 0.
+This result also clarifies the earlier external literature comparison. Poulin and
+−1 M pc
+−1, but that analysis shares
+collaborators find a same-n=3 region around H 0≈71k m s
+substantial ACT, DESI, and Planck information with the internal chain and is not an
+independent replication. Toda and Seto obtain much tighter EDE bounds for an n=2
+potential, which cannot be transferred directly to the n=3 model. Efstathiou, Rosenberg,
+and Poulin find strong Planck NPIPE pressure on high-H 0 n=3 EDE, while the SPT-3G D1
+analysis of Khalife and collaborators does not independently reproduce a strong
+preference for H 0≈71.5. The direct profile calculation now shows why these statements
+cannot be compressed into a single verdict on “EDE”: the Planck and SPT likelihoods
+respond very differently to the reprofiled high-H 0 region.
+The appropriate status of n=3 early dark energy is therefore more specific than either
+“externally viable” or “ruled out.” The model class remains active, but its ability to sustain
+a high inferred expansion rate is strongly dataset- and likelihood-dependent. The Planck
+NPIPE common-backend approximation materially disfavors the reprofiled
+−1 M pc
+−1 region, whereas SPT-3G D1 can accommodate the same fixed value
+H 0=71.5k m s
+with little loss of best-fit quality. Both external CMB families nevertheless strongly disfavor
+the exact ACT-supported parameter vector, so the distinction between a high-H 0 region and
+one particular high-H 0 parameter vector remains essential.
+Figure 5. External tests of the high-H₀ EDE region and the exact shared ACT-supported parameter vector. Each change is measured
+against the relevant chain’s own free-H₀ minimum. Reprofiling and exact-vector evaluation are distinct tests. The chains are not
+summed; DESI data are reused in the SPT-3G + DESI combination. Values are reproduced from Appendix B.
+A covariance-aware attribution of the reprofiled endpoints now resolves the Planck–SPT
+difference more precisely. The Planck profile penalty of
+Δ χ Pl anc k
+2 (71.5)=+12.873928
+Is not a pure CMB penalty. Within the Planck chain, the combined CMB contribution is only +4.541019: low-ℓ TT contributes
+−2.274725, low-ℓ EE contributes −0.721566, the NPIPE
+high-ℓ TTTEEE likelihood contributes +4.273455, and CMB lensing contributes +3.263855. A
+further +5.319582 comes from the BAO and Pantheon+ terms, while the chain-native
+calibration-constraint shapes contribute +3.013327. The total +12.873928 must therefore
+not be described as though it were a single Planck CMB response.
+Within the high-ℓ Planck likelihood itself, the signed full-covariance attribution is strongly
+non-uniform. TT contributes +4.837082, TE contributes only +0.021571 after substantial
+internal cancellation, and EE contributes −0.582330. The largest aggregate multipole
+contribution lies at 500≤ℓ<1000, where the signed attribution is +3.452059. The frequency
+combinations cancel even more dramatically: the TT 143×217 allocation is +24.634985,
+while 143×143 and 217×217 contribute −12.927555 and −6.870347, respectively. These
+quantities are covariance-coupled additive attributions rather than independent χ
+2 tests;
+individual contributions can therefore be much larger than the final net penalty and can
+legitimately have either sign.
+A later matched-surface calculation makes the localization more controlled. Restricting
+Planck, SPT-3G, and ACT to the same n=3 model, TT+TE+EE observables, and 600≤ℓ≤2000
+interval gives a Planck primary-spectrum increase of
+Δ χ Pl anc k , pr imar y
+2 =+4.672039
+−1 M pc
+Between its free endpoint and the reprofiled H 0=71.5 k m s
+−1 endpoint. Of this
+covariance-weighted allocation,
++3.224235
+Lies in 600≤ℓ<1000, compared with +0.806002 for 1000≤ℓ<1500 and +0.641802 for 1500≤ℓ≤2000. The same matched
+decomposition assigns +1.906078 to TT, +0.861065 to TE,
+and +1.904896 to EE. These are covariance-coupled allocations rather than independent
+statistical tests.
+The corresponding primary-spectrum changes are dramatically smaller for SPT-3G and
+ACT: approximately +0.01465 and +0.01512, respectively. Their internal allocations also
+differ in sign and structure. SPT gives approximately +0.02467 from TT, +0.26695 from TE,
+and −0.27697 from EE, whereas ACT gives approximately −0.01640, −0.00961, and +0.04112. Thus the small net responses of SPT
+and ACT are not scaled-down copies of the
+Planck response.
+[Internal computational provenance: R-Q016-EDE-CMB-MECHANISM-004, run Q016-CMB-
+MECHANISM-V4, GitHub Actions run 33836015653, repository head
+91bc0736a00e2454d4e37324e5d3a1a7fe7813d6.]
+SPT-3G D1 exhibits a different spectral structure. Its primary TT/TE/EE likelihood
+contributes +0.743683, with TE providing +1.138190, TT contributing −0.557279, and EE
+contributing +0.168448. The multipole dependence again contains large cancellations: the
+combined contribution is +0.579083 for 500≤ℓ<1000, +0.492192 for 1000≤ℓ<1500, and −0.863774 for 1500≤ℓ<2000, before
+returning to positive net contributions at higher
+multipoles. The small full-chain SPT penalty,
+2 (71.5)=+0.342067 ,
+Δ χ S PT
+Therefore does not mean that its primary spectra are completely insensitive to the high-H 0
+region. Rather, the +0.743683 primary cost is partly offset by SPT lensing at −0.351681, by
+the τ-information at −0.044647, and by a small Tcal constraint contribution of −0.005287.
+The calibration directions also differ sharply. Planck’s A pl anc k moves from 0.999733 to 1.004528, corresponding to
+approximately 1.92 times its Gaussian width and a constraint-
+shape change of +3.269696. By contrast, SPT’s Tcal moves only from 0.999429 to 0.999493,
+approximately 0.018σ. This identifies a substantial Planck calibration direction and a
+negligible analogous SPT movement, but it does not establish that calibration systematics
+cause the difference; the nuisance shifts are diagnostic responses within the fitted
+likelihoods, not causal tests.
+The Planck–SPT discrepancy is consequently not a single universal EDE penalty expressed
+with different numerical strength. This conclusion survives a direct comparison in which
+Planck, SPT-3G, and ACT are evaluated over deliberately matched observables and
+multipoles. Across the nine predefined cells formed by TT, TE, and EE combined with the
+intervals 600 ℓ 999, 1000 ℓ 1499, and 1500 ℓ 2000, none shows the same non-zero ≤≤ ≤≤ ≤≤
+residual-shift sign in all three experiments. The tested data therefore provide no support
+for one common matched residual direction underlying the three likelihood responses.
+The matched comparison localizes the present discrepancy to experiment-, likelihood-, and
+covariance-response structure, but localization is not causal identification. Shared cosmic
+variance has not been incorporated through a unified cross-experiment covariance, no
+valid combined Planck–SPT–ACT significance has been calculated, and the analysis does
+not demonstrate statistical incompatibility between the experiments. Nor does the
+movement of fitted nuisance parameters by itself establish an unmodelled systematic. The
+strongest clue remains within Planck: most of its matched primary high-H 0 penalty lies at 600≤ℓ<1000, overlapping the
+multipole region in which earlier Planck frequency-
+dependent structure had already appeared.
+Planck Likelihood-Architecture Dependence
+A subsequent full-multifrequency Planck NPIPE/CamSpec calculation tests that clue
+directly while preserving the certified cosmological endpoints. The cosmological
+−1 M pc
+−1,
+parameters are held fixed at the Planck free endpoint, H 0=67.988328967159k m s
+−1 M pc
+and the fixed high-H 0 endpoint, H 0=71.5k m s
+−1, while nine Planck calibration and
+foreground nuisance parameters are reprofiled with multistart optimization. On this full-
+multifrequency surface, the fixed-minus-free objective increases by +17.3979348723, while
+the corresponding raw high-ℓ likelihood contribution changes by +17.2433166263. The
+larger number must not be treated as a replacement for, or an additive correction to, the
+matched-surface increase of +5.8238567748: the two calculations use different Planck
+likelihood constructions. What the new calculation establishes is narrower but important—
+the Planck high-H 0 penalty remains substantial after the tested calibration and foreground
+freedom has been reprofiled.
+Within 600≤ℓ<1000, the signed covariance-aware TT frequency allocation remains
+strongly non-uniform. The 143×217 spectrum contributes +18.5085901 and carries 54.79 of
+the total absolute frequency allocation, while 143×143 contributes −12.9913804,
+corresponding to 38.46, and 217×217 contributes −2.2803947, corresponding to 6.75. These
+are covariance-coupled allocations rather than independent χ
+2 measurements; the large
+positive and negative values therefore represent correlated attribution and cancellation
+rather than separate statistical detections.
+The nuisance-lock tests tell a similarly mixed story. Holding the calibration group to its
+free-endpoint optimum while reprofiling the remaining nuisance parameters produces the
+largest atomic lock cost, 9.2694858, equivalent to 45.47 of the normalized non-overlapping
+lock ranking. The corresponding costs are 3.8495458 for the 143×217 foreground group, 3.6693769 for the 217-GHz foreground
+group, and 3.5978574 for the 143-GHz foreground
+group. Calibration is therefore the strongest tested nuisance direction, but the result does
+not establish that calibration error causes the high-H 0 penalty. Lock costs are diagnostic
+restrictions on a correlated fit and are not additive χ
+2 components. The covariance
+decomposition is still less concentrated: the strongest individual target-band covariance
+pair carries only 17.53 of the absolute pair attribution.
+The full-multifrequency result consequently supports neither of two simple descriptions.
+No individual frequency, nuisance group, or covariance pair is sufficiently dominant to
+identify a specific Planck direction under the predefined concentration criteria. At the
+same time, the frequency structure is not sufficiently diffuse to satisfy the predefined
+broadly distributed criterion: the largest frequency share exceeds one half, and the
+effective number of frequency directions is 2.209, below the required value of 2.5. The
+correct result of this test is therefore indeterminate between specific localization and
+broad distribution. The evidence is most accurately described as a multidirectional Planck-
+specific likelihood and covariance response in which 143×217, calibration, the auto-
+frequency spectra, foreground freedom, and their covariance structure all matter, but no
+single tested component has been identified as the physical cause.
+The scientifically defensible position is therefore narrower than either acceptance or
+rejection of high-H 0 n=3 early dark energy. The model remains active, but its viability is
+demonstrably experiment- and likelihood-dependent in the CMB analyses tested here. On
+the deliberately matched surface, Planck supplies the principal resistance to fixing
+−1 M pc
+H 0=71.5k m s
+−1, whereas SPT-3G and ACT are nearly indifferent to the same
+requirement. The more detailed full-multifrequency Planck calculation shows that the
+Planck penalty itself also depends substantially on how the Planck likelihood is
+constructed.
+A controlled bridge between the matched CamSpec-lite surface and the full-multifrequency
+CamSpec surface makes that dependence explicit. At the same certified cosmological
+endpoints, the matched Planck calculation gives a fixed-minus-free objective increase of
+2 =+5.8238567748,
+Δ χmat c he d
+Whereas the native full-multifrequency construction gives
+2 =+17.3979348723.
+Δ χ f ull- M F
+These values are evaluations of different likelihood objectives. Their difference,
+17.3979348723−5.8238567748=11.5740780975,
+Is therefore a diagnostic of likelihood-architecture dependence, not an additional physical
+2 contribution.
+χ
+The bridge reproduces the native full-multifrequency penalty at 17.3953724212. Removing
+the native prior-density contribution while retaining the same full-multifrequency
+likelihood and nuisance space changes the penalty only to 17.1601717140. Objective and
+prior semantics therefore account for only a small part of the discrepancy between the two
+Planck constructions. Likewise, fixing the three nuisance parameters shared most directly
+with the matched treatment—A pl anc k, c alT E, and c al E E—while retaining the six
+multifrequency foreground parameters still leaves a penalty of 15.6176804336. The large
+full-multifrequency response consequently does not disappear when those shared
+calibration-like directions are prevented from moving.
+The converse reduced-nuisance calculation gives a nominal penalty of 11.7641347631, but
+that surface is not numerically stable enough for precise attribution: the multistart spread
+is approximately 5.28 in the fixed-H 0 profile and 6.03 in the free profile. It should therefore
+be treated as a diagnostic of complicated basin structure rather than as a measured
+component of the likelihood difference.
+Taken together, these tests reject a simple one-component explanation. The additional
+Planck resistance on the full-multifrequency surface is most accurately described as a
+coupled likelihood-architecture effect involving the multifrequency data representation,
+frequency-channel structure, covariance, foreground parameterization, and nuisance
+coupling. The calculation does not establish that any one of these ingredients is physically
+responsible, and the corresponding lock and attribution costs must not be added as though
+they were independent χ
+2 measurements. Nor does the result identify a Planck calibration
+error, foreground systematic, faulty frequency channel, or new physical effect.
+The remaining issue can now be tested without holding the cosmological parameters at the
+previously certified endpoints. When the same (n=3) early-dark-energy model is
+independently reprofiled on the matched CamSpec-lite and full-multifrequency CamSpec
+likelihoods, the free minima remain remarkably close in two of the most conspicuous
+coordinates. The matched likelihood gives
+−1 M pc
+H 0=67.9727 k m s
+−1,f E D E=0.04627 ,
+While the stabilized full-multifrequency solution gives
+−1 M pc
+−1,f E D E=0.04394 .
+H 0=68.1061k m s
+−1 M pc
+The differences are only about (0.13k m s
+−1) in (H 0) and (0.0023) in (f E D E). Judged
+from these coordinates alone, the two likelihood constructions would appear to prefer
+almost the same cosmology.
+That conclusion does not survive a multidimensional test. Freezing the full-multifrequency
+preferred cosmology and evaluating it on the matched likelihood after reprofiling the
+permitted nuisance parameters produces an objective cost of only (+0.8120) relative to the
+matched likelihood’s own optimum. Reversing the test is strongly asymmetric: the
+matched-likelihood preferred cosmology incurs a cost of (+13.5564) on the full-
+multifrequency surface. Under the pre-specified operational materiality criterion used for
+this comparison, a cross-profile cost greater than (1.0) identifies a material shift in the
+preferred model region. That threshold is a diagnostic convention for likelihood geometry,
+not a statistical-significance or discovery threshold.
+The important result is therefore not a large displacement of (H 0) or (f E D E) themselves. It is
+that proximity in a few best-fit coordinates does not imply equivalence of the full preferred
+parameter regions. The Planck likelihood construction changes the multidimensional
+geometry of the (n=3) early-dark-energy solution even when its projected (H 0) and (f E D E)
+minima remain close. This extends the earlier likelihood-architecture result beyond the
+−1 M pc
+scalar penalty imposed at (H 0=71.5k m s
+−1).
+The high-(H 0) profiles show the same architecture dependence. After independent
+−1 M pc
+reprofiling at (H 0=71.5k m s
+−1), the matched construction incurs an objective
+increase of (+5.0620), whereas the full-multifrequency construction incurs (+15.3993).
+These reprofiled penalties are not the same statistical objects as the earlier fixed-endpoint
+values of (+5.8239) and (+17.3979), and none of the differences between these objectives
+should be interpreted as an additional physical ( χ
+2) contribution.
+The full-multifrequency free solution has also survived a targeted globality check. Twelve
+continuation runs across the two leading basins were completed, with a best objective of
+(10540.9973) and a best-two spread of only (0.0539), well inside the pre-specified stability
+limit of (1.0). The same validation reproduced the earlier matched-likelihood reference
+endpoints and their (H 0=71.5) penalty to numerical precision. An isolated optimization
+failure is therefore not a sufficient explanation for the observed cross-profile asymmetry.
+The origin of the cross-profile asymmetry can now be localized more sharply in parameter
+space, although its physical or instrumental cause remains unresolved. A controlled four-
+block hybrid analysis separates the cosmological coordinates into an early-dark-energy
+timing block (f E D E,log10 zc ,θi,sc f ), a primordial block (ns,log A , τ r eio), a matter block
+(ωb,ωc d m), and H 0 itself. For the full-multifrequency CamSpec likelihood, the primordial
+block dominates the functional response, carrying 71.58 of the absolute Shapley attribution
+and a signed objective change of +10.5344. The EDE-timing block contributes 17.27
+(+2.5424 ), the matter block 9.15 (+1.3462), and H 0 only 2.00 (−0.2943). The large full-
+multifrequency response is therefore not primarily an H 0 direction. It is concentrated in a
+coupled primordial region of the fitted parameter space.
+The matched CamSpec-lite surface does not exhibit the same concentrated geometry. Its
+corresponding response is much smaller and distributed among the matter, primordial, H 0,
+and EDE-timing blocks rather than being dominated by the primordial block. The
+internally reprofiled endpoint span is approximately 0.8632 on the matched surface and 14.1286 on the full-multifrequency
+surface. These spans should not replace the historical
+cross-profile costs of +0.8120 and +13.5564, because the newer calculation reprofiles the
+nuisance parameters at its native endpoints and therefore uses different reference
+objectives. The absolute foreign-cosmology objectives reproduce the earlier cross-profile
+evaluations, while the newly reprofiled native endpoints define the geometry used for the
+block analysis.
+The response is also strongly non-additive. For example, the full-multifrequency matter–H 0
+pair interaction is −5.7189, demonstrating that the behavior of the likelihood cannot be
+reconstructed by assigning independent penalties to individual parameter blocks. The
+Shapley allocations and pair interactions are functional diagnostics of a correlated
+likelihood surface, not independent physical χ
+2 components, and they must not be summed
+or interpreted as separate observational detections.
+This localization can now be resolved one level further. Within the primordial block
+(ns,log A ,τ r eio), the full-multifrequency response is not localized to a single parameter or to
+one robust pairwise interaction. Three complete, coherent optimizer restarts all classify the
+internal structure as distributed. The scalar spectral index ns is nevertheless the most
+persistent individual direction: it is the largest single Möbius term in all three full-
+multifrequency restarts, but its absolute share ranges only from 0.2885 to 0.4891,
+remaining below the predefined 0.50 threshold for single-component localization. Its
+Shapley allocation spans approximately 7.03 to 8.78 on the frozen objective basis. The
+dominant primordial response should therefore be interpreted as a coupled three-
+parameter structure in which ns is especially prominent, not as an ns-only effect.
+The matched CamSpec-lite likelihood also yields a distributed primordial structure in all
+three coherent restarts, but its detailed decomposition is less stable. The largest term
+changes from log A ×τ r eio to ns×log A to ns across the three optimizer basins, with
+dominant absolute fractions of only about 0.1983–0.3665. Comparisons between the full-
+multifrequency and matched decompositions give total-variation distances from 0.2407 to 0.4980. Because this range crosses the
+predefined materiality threshold of 0.25, the stronger
+claim that the internal primordial decomposition is robustly different between the two
+likelihood constructions is not established. Its detailed composition remains sensitive to the
+optimizer basin.
+The result strengthens the earlier conclusion that the full-multifrequency response is
+genuinely multidimensional while making its interpretation more precise. It does not
+identify a calibration error, foreground systematic, instrumental effect, covariance defect,
+or new physical mechanism. The Möbius and Shapley quantities remain functional
+diagnostics of the frozen likelihood geometry rather than independent physical χ
+contributions. The distributed primordial classification also survives every coherent restart
+and should not be reduced to an ns-only explanation.
+Numerically Resolving the Interaction
+The exact decomposition can also be evaluated on the preserved numerical likelihood
+states rather than remaining only an algebraic identity. Using the same preserved historical
+endpoint vectors, the exact 9,915-element common support, and the fixed full-
+multifrequency CamSpec precision construction, the interaction was reconstructed for all
+nine combinations of the three masks and three endpoint-pair edges. No new optimization,
+sampling, or likelihood evaluation was required for the final audit. These calculations
+remain valid fixed-vector diagnostics of the historical endpoint family; the later full-native
+CamSpec revalidation, provenance audit, primordial-freeze isolation, and classifier
+harmonization narrow the interpretation of that family without changing the arithmetic
+reported in this appendix. Scalar-versus-distribution reference representation is excluded
+as the cause of the former stable-basin label difference, and freezing the primordial block
+does not create repeated stable clusters under the later common-geometry classifier. The
+subsequent classifier crosswalk goes further: the historical Q022, sampled full-native, and
+frozen-primordial CamSpec endpoint sets all receive the same classification when a
+common decision rule is used—stable under the historical mixed classifier and non-stable
+under the later graph classifier. The former cross-case stable-versus-non-stable discrepancy
+is therefore classifier dependent. The fixed-vector interaction results reported here remain
+properties of the preserved endpoint geometry and do not depend on treating those
+endpoints as classifier-invariant physical basins.
+For each diagnostic, define
+TPΔ
+T D M=−2d
+2m
+As the data–model factorial coupling and
+T Pm)
+2(m
+T M M=Δ
+As the model-quadratic functional term, so that
+F=T D M+T M M .
+The resulting signed values are:
+Mask 3, edge E01:
+T D M ¿+0.1778884724912915, T M M ¿−0.3555961717667373, F ¿−0.17770769927544577.
+Mask 3, edge E02:
+T D M ¿+0.013886599976107456, T M M ¿−0.027732627515868673, F ¿−0.013846027539761217.
+Mask 3, edge E12:
+T D M ¿−0.24647803112273645, T M M ¿+0.492344754005246, F ¿+0.24586672288250958.
+Mask 6, edge E01:
+T D M ¿−0.06892022249060759, T M M ¿+0.13776448436568042, F ¿+0.06884426187507284 .
+Mask 6, edge E02:
+T D M ¿+29.235956948609644 , T M M ¿−58.78222077444829, F ¿−29.54626382583865.
+Mask 6, edge E12:
+T D M ¿+24.896553819097523, T M M ¿−50.06464302151693, F ¿−25.168089202419406.
+Mask 7, edge E01:
+T D M ¿+2.1572127856770558, T M M ¿−4.323600159807921, F ¿−2.166387374130865.
+Mask 7, edge E02:
+T D M ¿−2.1160819949305734, T M M ¿+4.224657002158406, F ¿+2.108575007227832.
+Mask 7, edge E12:
+T D M ¿−4.042127090605946, T M M ¿+8.056682456803617, F ¿+4.014555366197673.
+The model-quadratic term has the larger absolute magnitude in all nine diagnostics, but
+this is a statement about the functional decomposition, not about physical causation. In
+every case the final interaction is produced by the signed combination of both terms. The
+two largest total interactions remain in the second mask, where edge E02 gives
+F=−29.54626382583865 and edge E12 gives F=−25.168089202419406. This preserves the
+importance of the previously identified ωc d m× A pl anc k compensation without turning that
+parameter pair into a uniquely identified physical cause.
+The covariance-coupled spectrum decomposition reveals an unusually regular structure.
+The 143×217↔217×217 spectrum pair has the largest absolute contribution to F in all
+nine diagnostics. For the second-mask E02 interaction alone, this pair contributes
+T D M=−2258.711867910664 ,
+T M M=+4519.490435385312,
+And therefore
+F=+2260.778567474648.
+This value is much larger than the final E02 interaction because other spectrum-pair
+contributions carry opposite signs and cancel it. These pairwise quantities are
+consequently components of one correlated quadratic form, not independent likelihoods or
+separately measured effects.
+A similarly persistent pattern appears when the same accounting is grouped by multipole.
+The ℓ=1500 – 2000 self-pair has the largest absolute F contribution in all nine diagnostics.
+For the second-mask E02 interaction it gives
+T D M=+8.516985149006956,
+T M M=−17.14377646828873,
+And
+F=−8.626791319281775.
+The dominant pair therefore lies well above the previously conspicuous 600≤ℓ<1000
+region. The earlier intermediate-ℓ structure remains part of the likelihood response, but it
+cannot be restored as a unique localization of the full interaction.
+Because these factorial quantities involve differences between large, nearly cancelling
+quadratic forms, their numerical representation matters. A direct contrast of the large
+scalar quadratics produced closure residuals at approximately the 10
+−8 to 10
+−7 level.
+Evaluating the algebraically identical factorial structure in a numerically stable bilinear
+form reduces the maximum identity closure error to
+2.0940194023211234×10
+−13,
+The maximum spectrum- or multipole-pair aggregation error to
+5.479297571220343×10
+−14,
+And the maximum violation of
+Δ
+2m=−Δ
+2r
+To
+4.547473508864641×10
+−13.
+The reconstructed interaction also reproduces the parent common-support functional to
+within
+−10.
+1.6143639203214377×10
+All of these values satisfy the original validation thresholds without relaxing the numerical
+criteria. The earlier closure discrepancy was therefore a cancellation-sensitive evaluation
+problem, not a failure of the underlying mathematical identity.
+Appendix C — Numerical Search, Endpoint Geometry, Classification and Validation
+Historical Endpoint Geometry and Execution Dependence
+The full-multifrequency CamSpec calculations produced several strongly separated
+endpoint families involving both cosmological and nuisance coordinates. Across the
+preserved historical endpoints, the mean normalized within-vertex RMS separation is
+approximately 1.61 for the profiled cosmological parameters, 1.90 for the nuisance
+parameters as a whole, and 1.83 for the multifrequency foreground subset. The cosmology-
+to-nuisance separation ratio is approximately 0.85, with a bootstrap 16th–84th percentile
+range of about 0.73–0.99. These quantities remain valid descriptions of the stored endpoint
+geometry. They do not, by themselves, establish that the same families form stable
+optimizer basins under every admissible launch procedure.
+An important provenance correction concerns how the historical continuation was
+initialized and classified. The preserved endpoint values were not centres of hidden non-
+scalar Cobaya reference distributions. Reconstruction of the executed constructor chain
+shows that the sampled non-primordial parameters already carried finite scalar reference
+values, recentered directly on the selected endpoint coordinates, while the primordial
+block n_s, log A, and tau_reio was held fixed at each corresponding primordial vertex.
+Under the historical continuation, the three restart endpoints were assessed separately
+within each mask using a mixed geometry containing six profiled cosmological coordinates
+and nine shared or foreground nuisance coordinates. Cosmological and nuisance RMS
+separations were calculated separately for each restart pair and combined as
+D_joint = sqrt[(dc o smo
+2+dnui sanc e
+2)/2].
+A mask was considered collapsed only when both the objective spread was at most 0.50
+and the maximum normalized joint separation was at most 0.10. If the three restart
+solutions remained non-collapsed after the predefined tighter refinement, that mask was
+classified as stable multibasin structure.
+Later full-native CamSpec revalidation also used scalar parameter references
+The parameter-direction calculations performed on those preserved endpoint families
+remain valid as fixed-endpoint geometry. Large normalized components recur among
+cosmological parameters including H₀, ω_b, ω_cdm, log₁₀z_c, and θ_i,scf; shared nuisance
+parameters including A_planck, calTE, and calEE; and multifrequency foreground
+parameters including amp_143, amp_217, amp_143×217, and n_143. Their relative
+importance changes substantially between the tested vertices. For one representative
+separation at the first vertex, approximately 89.72% of the squared normalized direction
+lies in the foreground sector and 9.84% in the cosmological sector. At the second vertex,
+another separation assigns approximately 73.71% to cosmology, 21.40% to shared nuisance
+parameters, and 4.89% to foregrounds. At the third, a representative separation is again
+mixed, with approximately 47.18% in foreground parameters, 38.98% in cosmology, and
+13.84% in shared nuisance parameters. These are geometric diagnostics of the preserved
+vectors, not probabilities, posterior weights, or causal decompositions.
+Nor do the historical endpoint families define a reproducible universal direction across the
+tested masks. For the three endpoint-pair lineages, the median absolute cosine similarities
+are approximately 0.190, 0.316, and 0.220. The strongest individual alignment, |cos θ| ≈
+0.719, is not reproduced at the remaining vertex. An exhaustive permutation- and sign-
+invariant comparison of all 36 joint relabellings likewise recovers no shared edge
+satisfying the predefined criterion. The best assignment still gives zero shared edges out of
+three, a global median absolute cosine similarity of approximately 0.3745, and a minimum
+edge median of approximately 0.3162.
+The surviving conclusion is therefore narrower than the earlier basin language implied.
+The historical full-multifrequency execution generated a multidimensional network of
+separated cosmology–nuisance endpoint families with mask-dependent local directions,
+and the subsequent fixed-vector analyses remain valid diagnostics of those stored
+endpoints.
+Later sampled-primordial and matched frozen-primordial full-native executions both
+returned zero reproducibly supported stable basins under the seven-coordinate common-
+geometry graph classifier. A direct classifier crosswalk has now applied both operational
+definitions to the same preserved CamSpec endpoint sets. Under the historical per-mask
+mixed cosmology–nuisance rule, the historical continuation endpoints, the later sampled
+full-native endpoints, and the frozen-primordial endpoints are all classified as stable
+multibasin. Under the later common-geometry graph rule, all three sets are classified as
+non-stable, with no repeated stable basin. The former stable-versus-non-stable progression
+therefore disappears when the classifier is held fixed. The historical stable-multibasin label
+should consequently be understood as a classifier-dependent description of the stored
+endpoint geometry rather than as a demonstrated classifier-invariant property of the
+likelihood. This correction also changes the interpretation of the HiLLiPoP portability test:
+HiLLiPoP still returns no stable basin under the later graph classifier, but the historical
+CamSpec baseline does the same when evaluated by that rule. The stable-basin gate alone
+therefore no longer establishes cross-implementation non-portability; whether the
+underlying CamSpec and HiLLiPoP endpoint geometries differ materially under a
+harmonized quantitative comparison remains unresolved.
+None of these results identifies a foreground failure, calibration error, instrumental
+systematic, covariance defect, physically distinct cosmologies, or new physics. [Internal
+computational provenance: historical endpoint continuation R-Q022-EDE-FULLMF-
+OPTIMIZER-BASIN-002, execution commit 16a7902c3be7d1967adaae9ee380baf0d17e903a;
+full-native CamSpec revalidation R-Q032-EDE-CAMSPEC-ADDBACK-004, GitHub Actions run
+34015845246, execution head fbde93aee01ec3bed183207518ff315c96a45c3c;
+launch/reference provenance audit R-Q033-EDE-LAUNCH-SEMANTICS-AUDIT-002, run
+Q033-CAMSPEC-LAUNCH-SEMANTICS-PROTOCOL-AUDIT-V2, GitHub Actions run
+34055678308, head SHA 614b227c8de5ea2096f75bf8b97155f340cb1a44; in the supplied final
+artifact; frozen backend mwt5345/class_ede commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97.]
+[Internal computational provenance: historical endpoint continuation R-Q022-EDE-
+FULLMF-OPTIMIZER-BASIN-002, GitHub Actions run 33902262660, execution commit
+16a7902c3be7d1967adaae9ee380baf0d17e903a, program
+q022_globality_continuation_v2.py; independent HiLLiPoP execution R-CASE031-EDE-
+PLANCK-PORTABILITY-001, GitHub Actions run 33975028436, execution head
+ff621d6e0a425a976bb7a55f9194a0de8a87f18f; full-native CamSpec revalidation R-Q032-
+EDE-CAMSPEC-ADDBACK-004, GitHub Actions run 34015845246, execution head
+fbde93aee01ec3bed183207518ff315c96a45c3c; launch/reference provenance audit R-Q033-
+EDE-LAUNCH-SEMANTICS-AUDIT-002, GitHub Actions run 34055678308, head SHA
+614b227c8de5ea2096f75bf8b97155f340cb1a44; frozen-primordial isolation R-Q034-EDE-
+PRIMORDIAL-FREEZE-ISOLATION-001, GitHub Actions run 34059649759, execution head
+8b8035795a9e6064583379afb8663cdc28961764; classifier harmonization R-Q035-EDE-
+CLASSIFIER-HARMONIZATION-001, logical run Q035-CLASSIFIER-HARMONIZATION-V1,
+program q035_classifier_harmonization_v1.py, program commit
+b1166e80d5d4c602569da7e32ba02c628dec1975. The corrected V2 workflow is
+.github/workflows/q035-classifier-harmonization-v2.yml at revision commit
+e12bab3da2972ab2b45ec7d27f569faf5febd025; a successful V2 GitHub Actions run ID is not
+documented in the supplied result package. The Q035 calculation is deterministic artifact-
+only post-processing and introduced no new likelihood evaluation, optimizer, sampler, or
+scientific dataset. Frozen physics backend: mwt5345/class_ede commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97.]
+Component and Coordinate Localization
+The independently implemented HiLLiPoP calculation remains a valid numerical result. All
+nine mapped-start optimizations and the required tighter continuations completed, and no
+reproducibly supported stable basin was found under the preregistered seven-coordinate
+common-geometry graph classifier. Several HiLLiPoP endpoints nevertheless remained
+widely separated in common-parameter space despite having similar objective values, so
+the result should not be confused with convergence to one identical solution.
+The original portability interpretation relied heavily on comparing this result with the
+historical CamSpec endpoint family, which had been classified as stable multibasin
+structure. That comparison was subsequently shown not to use a common operational
+definition. The historical CamSpec classification used a per-mask geometry combining
+cosmological and nuisance-parameter separations, whereas the later analysis used a seven-
+coordinate common-geometry graph classifier. Applying both definitions to the same
+preserved CamSpec endpoint sets removes the apparent binary contradiction: all of the
+tested CamSpec endpoint sets are classified as stable under the historical rule and non-
+stable under the later graph rule. The stable-versus-non-stable distinction is therefore
+classifier dependent and cannot by itself establish cross-implementation non-portability.
+The surrounding isolation tests remain informative. Restoring the omitted TT support, TE,
+and EE individually, pairwise, and together did not produce repeated stable clusters under
+the later classifier. Reconstruction of the executed parameter references showed that both
+relevant CamSpec paths already used scalar pointlike references, excluding scalar-versus-
+distribution launch semantics as the explanation. Fixing n_s, log A, and tau_reio inside the
+later full-native construction likewise failed to create repeated stable clusters under that
+classifier. These results constrain the tested implementations, but they do not restore the
+historical binary basin label as a classifier-invariant physical property.
+The remaining portability question can be addressed without relying on the binary basin
+label. A deterministic comparison was therefore made directly in the seven coordinates
+shared by the CamSpec and HiLLiPoP constructions: ωb, ωc d m, f E D E, log10 zc, θi,sc f, H 0, and
+A Pl anc k. Each coordinate was normalized by a scale fixed before the comparison, and the
+inherited materiality threshold was held at 0.10.
+The first continuous comparison revealed a large cross-implementation difference. All nine
+matched CamSpec–HiLLiPoP endpoint pairs exceeded the materiality threshold, with a
+median normalized displacement of 2.3623. The normalized centroid displacement was
+1.5371. The internal shapes of the endpoint families also differed: all 36 pairwise-distance
+drifts exceeded 0.10, with a median drift of 2.2590. The historical stable-versus-non-stable
+distinction was therefore not a valid common-classifier argument, but removing that
+binary label did not make the underlying fitted geometries equivalent.
+A stronger control then asked whether the continuous difference was primarily caused by
+the two implementations using different temperature-spectrum information. Instead of
+generating another set of likelihood solutions, the analysis reused the already validated
+paired CamSpec and HiLLiPoP refinement endpoints obtained on exactly matched TT
+support. The common support retained the 143×143 spectrum over 50≤ℓ≤2000 and the 143×217 and 217×217 spectra over
+500≤ℓ≤2500. The same seven coordinates, the same
+locked normalization scales, and the same 0.10 materiality threshold were preserved.
+The implementation difference survived this restriction. All nine matched endpoint
+displacements again exceeded 0.10, with a median normalized displacement of
+2.9317906966 and a maximum of 5.2295437935. The normalized centroid displacement was
+0.8311487237. All 36 pairwise geometry drifts also remained above threshold, with a
+median of 1.6367910228 and a maximum of 4.7555726067. Independent numerical replay
+reproduced the derived result with a maximum reported difference of zero.
+This materially weakens a simple explanation in which the previously observed
+displacement is caused mainly by unequal TT information support. It does not show that
+information support can never matter, but the exact common-support restriction actually
+tested here does not remove either the matched-location difference or the change in
+internal endpoint-family shape.
+The scientifically defensible conclusion is therefore specific. Under the tested n=3 early-
+dark-energy construction, CamSpec and HiLLiPoP produce materially different fitted
+parameter geometries, and that difference persists when their TT information support is
+explicitly matched. The surviving discrepancy is therefore more plausibly associated with
+some remaining aspect of likelihood implementation or multidimensional model
+construction than with the tested support mismatch alone.
+A further preregistered localization test asked whether this surviving difference could
+nevertheless be reduced to a small subset of the seven common coordinates,
+ωb,ωc d m, F E D E,log10 zc,θi,sc f , H 0, A Pl anc k .
+All 127 non-empty coordinate subsets were evaluated symmetrically using the same locked
+normalization scales. To qualify, a subset had to capture at least 80% of the full matched-
+location, centroid, and pairwise-shape signal and remain robust under leave-one-label-out
+tests. No one-, two-, or three-coordinate subset satisfied the complete criterion. The unique
+smallest qualifying subset contained four coordinates,
+ωb,ωc d m, F E D E,θi,sc f .
+This four-dimensional subset captured 90.89% of the matched-location signal, 88.48% of the
+centroid displacement, and 87.20% of the pairwise-shape difference. It also passed all nine
+leave-one-label-out tests in each of the three geometric channels. The surviving CamSpec–
+HiLLiPoP difference is therefore distributed across a reproducible multivariate parameter
+structure rather than concentrated in one or two common coordinates.
+The decomposition also shows why a simple single-parameter narrative is inadequate.
+Different coordinates dominate different aspects of the geometry. The matched-location
+and pairwise-shape differences receive their largest individual contributions from f E D E,
+while the centroid displacement is dominated by ωc d m and θi,sc f. H 0, A Pl anc k, and log10 zc are
+not required in the minimal robust subset. This weakens explanations in which the
+implementation difference is fundamentally an H 0-only or A Pl anc k-only effect.
+The result is nevertheless a localization in fitted parameter space, not a localization of
+physical causality. It does not show that ωb, ωc d m, f E D E, or θi,sc f is itself responsible for the
+discrepancy. Possible implementation-level contributors still include foreground treatment,
+calibration structure, nuisance-parameter semantics, covariance treatment, likelihood
+construction, or coupled effects among these ingredients.
+This remains a methodological result rather than a new observation of the sky. CamSpec
+and HiLLiPoP analyse overlapping Planck PR4/NPIPE information, so their disagreement
+cannot be counted as independent observational evidence. The calculation does not
+determine which implementation is more accurate, establish a Planck calibration or
+foreground error, demonstrate a covariance defect or instrumental failure, favour or
+falsify early dark energy, alter the active H 0 benchmarks, or provide evidence for new
+physics.
+[Internal computational provenance: historical CamSpec continuation R-Q022-EDE-
+FULLMF-OPTIMIZER-BASIN-002, GitHub Actions run 33902262660, execution commit
+16a7902c3be7d1967adaae9ee380baf0d17e903a; HiLLiPoP portability execution R-CASE031-
+EDE-PLANCK-PORTABILITY-001, GitHub Actions run 33975028436, execution head
+ff621d6e0a425a976bb7a55f9194a0de8a87f18f, HiLLiPoP commit
+a09ddde3e7ce11df99f74685feb1f1764cafb251; exact-TT common-support parent R-Q032-
+EDE-PLANCK-TT3PAIR-BRIDGE-002, GitHub Actions run 33994305721, execution commit
+4dc873a5e880d40858d831a3b421456728f0c032, common-support SHA-256
+f6d7b3195789e7149942c63543bdd8e9a44490ea3f3645fb964e936ec69cca2b; classifier
+harmonization R-Q035-EDE-CLASSIFIER-HARMONIZATION-001; continuous geometry
+comparison R-Q036-EDE-ENDPOINT-GEOMETRY-PORTABILITY-001, GitHub Actions run
+34105942065, execution head 095f90565cf694a7c3383d1fbe736707ab187751,
+FINAL_RESULT_GATE PASS; exact-common-support geometry result R-Q037-EDE-TT-
+COMMON-SUPPORT-GEOMETRY-001, program
+q037_common_support_endpoint_geometry_v1.py, PROGRAM_ID Q037-TTGEOM-V1, GitHub
+Actions run 34115280043, execution head c49d9885a5bf1e290f4b42f15c59d228c7c036cf,
+FINAL_RESULT_GATE PASS; coordinate-localization result R-Q038-EDE-COORDINATE-
+LOCALIZATION-001, program q038_coordinate_localization_v1.py, PROGRAM_ID Q038-
+COORDLOC-V1, workflow .github/workflows/q038-coordinate-localization-v1.yml, GitHub
+Actions run 34121000822, execution head 02ddda7c13a53cd7ad20880bf527a86e17ac4d79,
+FINAL_RESULT_GATE PASS. Frozen physics backend: mwt5345/class_ede commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97.]Relevant methodological context includes
+Rosenberg, Gratton & Efstathiou, “CMB Power Spectra and Cosmological Parameters from
+Planck PR4 with CamSpec,” MNRAS 517, 4620–4636 (2022), arXiv:2205.10869; Efstathiou &
+Gratton, “A Detailed Description of the CamSpec Likelihood Pipeline and a Reanalysis of the
+Planck High Frequency Maps,” arXiv:1910.00483; Tristram et al., “Cosmological parameters
+derived from the final Planck data release (PR4)” (2024), DOI: 10.1051/0004-
+6361/202348015; Jense, Viña, Calabrese & Hill, “The Choice of Planck CMB Likelihood in
+Cosmological Analyses,” Physical Review D 113, 043551 (2026), arXiv:2510.09430; and the
+Cobaya technical implementation.
+Testing Candidate Implementation Blocks
+Locating a discrepancy in fitted parameter space does not identify the part of the likelihood
+construction that causes it. The surviving CamSpec–HiLLiPoP difference was therefore
+subjected to a second level of testing in which specific implementation choices were
+modified while the exact common TT support, the seven-coordinate geometry, the locked
+normalization scales, and the predefined materiality threshold of 0.10 were preserved.
+The first intervention campaign tested relative-calibration semantics and off-diagonal
+precision coupling. Neutralizing the relative-calibration freedom left a median matched
+displacement of 2.8486, a centroid displacement of 0.8739, and a median pairwise-shape
+drift of 1.4858. Removing the native off-diagonal precision coupling gave corresponding
+values of 2.6070, 0.8412, and approximately 1.6222. Applying both changes together did not
+produce a cancellation; instead, the three aggregate measures became 3.0786, 1.1944, and
+1.8740. None of these interventions approached the required value of 0.10 in all three
+channels, and none passed the sufficiency criterion in any of the nine leave-one-label-out
+tests.
+Foreground treatment requires a more careful distinction. CamSpec and HiLLiPoP do not
+use interchangeable foreground parameterizations, so forcing a one-to-one nuisance
+mapping would not constitute a native matched test. A narrower intervention can
+nevertheless test whether the freedom of each likelihood’s own foreground nuisance
+parameters to co-profile with cosmology is sufficient to generate the observed geometry.
+For each implementation separately, the native TT foreground nuisance vector was
+therefore frozen to the values at that implementation’s best authoritative common-support
+refinement endpoint, while the remaining permitted parameters were reoptimized across
+all nine labels. No CamSpec nuisance parameter was equated with a HiLLiPoP nuisance
+parameter.
+The discrepancy survived. The post-intervention median matched displacement was
+2.9829304062, the centroid displacement was 1.0554687938, and the median pairwise-
+shape drift was 1.6353175394. For comparison, the corresponding common-support
+baseline values were 2.9317906966, 0.8311487237, and 1.6367910228. The matched and
+centroid differences therefore became larger, while the pairwise-shape measure was
+essentially unchanged. All nine leave-one-label-out analyses remained above the
+materiality criterion. Native foreground nuisance profiling freedom is consequently
+insufficient as a single-block explanation of the CamSpec–HiLLiPoP geometry difference.
+This negative result must not be generalized into the claim that foreground modelling is
+irrelevant. The intervention tested profiling freedom inside each likelihood’s existing
+native foreground model; it did not make the two foreground models physically or
+mathematically identical. CamSpec and HiLLiPoP differ more deeply in how foreground
+treatment is connected to the supplied spectra, detector-set or cross-frequency
+construction, weighting and coaddition, covariance, masks, and the likelihood data vector
+itself. Harmonizing those ingredients would necessarily alter several methodological layers
+simultaneously. A synthetic exchange of data vectors, covariance matrices, or foreground
+models would therefore cease to be a clean single-block experiment.
+The combined result is narrower but stronger than an attribution to any one nuisance
+choice. No scientifically matchable single implementation block tested here—relative
+calibration, native off-diagonal precision coupling, or native foreground nuisance profiling
+freedom—removes the discrepancy, and the tested calibration-plus-precision combination
+also fails. The remaining explanatory space is concentrated in deeper, structurally coupled
+differences between the likelihood constructions. This does not demonstrate that a
+particular coupled mechanism is responsible, nor does it establish that either likelihood is
+defective or scientifically superior.
+Both likelihoods continue to analyse overlapping Planck PR4/NPIPE information. Their
+disagreement is therefore methodological evidence about likelihood implementation and
+fitted parameter geometry, not an independent observation of the sky. It does not establish
+a physical Planck calibration error, an unmodelled foreground contamination, a covariance
+defect, an instrumental failure, a preference or falsification of n=3 early dark energy, or
+evidence for new physics.
+[Internal computational provenance: implementation-block result R-Q039-EDE-
+IMPLEMENTATION-BLOCK-INTERVENTION-001, PROGRAM_ID Q039-IMPLBLOCK-V5,
+workflow .github/workflows/q039-implementation-block-intervention-v5.yml, GitHub
+Actions run 34161368438, execution head 365217d4a4ca21e0af3b296c0e6b23df7e07ba60,
+FINAL_RESULT_GATE PASS; native-foreground-profile result R-Q039-EDE-NATIVE-
+FOREGROUND-PROFILE-001, PROGRAM_ID Q039-FGPROFILE-V1, workflow
+.github/workflows/q039-native-foreground-profile-v1.yml, GitHub Actions run
+34184346582, execution head 449fe096e49a793446c0c859cf8caf0fcdaf4c8f, 18/18 profile
+jobs complete, FINAL_RESULT_GATE PASS; exact-common-support parent R-Q032-EDE-
+PLANCK-TT3PAIR-BRIDGE-002, GitHub Actions run 33994305721, execution commit
+4dc873a5e880d40858d831a3b421456728f0c032; common-support SHA-256
+f6d7b3195789e7149942c63543bdd8e9a44490ea3f3645fb964e936ec69cca2b; locked-scale
+SHA-256 732aeeb127d9083c0924552aa276117310ca32b5bfda854f51bfd3240638b2f6; frozen
+physics backend mwt5345/class_ede commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97; HiLLiPoP commit
+a09ddde3e7ce11df99f74685feb1f1764cafb251; Cobaya 3.5.6.]
+Relevant methodological context includes Rosenberg, Gratton & Efstathiou, “CMB Power
+Spectra and Cosmological Parameters from Planck PR4 with CamSpec,” MNRAS 517, 4620–
+4636 (2022), arXiv:2205.10869; Efstathiou & Gratton, “A Detailed Description of the
+CamSpec Likelihood Pipeline and a Reanalysis of the Planck High Frequency Maps,”
+arXiv:1910.00483; Tristram et al., “Cosmological Parameters Derived from the Final Planck
+Data Release (PR4)” (2024), DOI: 10.1051/0004-6361/202348015; Jense, Viña, Calabrese & Hill,
+“The Choice of Planck CMB Likelihood in Cosmological Analyses,” Physical Review D 113,
+043551 (2026), arXiv:2510.09430; the official planck-npipe/hillipop implementation at
+commit a09ddde3e7ce11df99f74685feb1f1764cafb251; and the Cobaya 3.5.6 CamSpec
+implementation.
+A Common CMB-Space Test—and Its Numerical Limit
+The remaining CamSpec–HiLLiPoP difference raises a difficult methodological question. If
+the two likelihoods differ simultaneously in foreground construction, spectrum weighting,
+data-vector definition, covariance treatment, and nuisance structure, then simply
+exchanging one implementation block for another risks creating an artificial likelihood
+that belongs to neither analysis. A cleaner comparison is possible, however, if the common
+object is defined physically rather than by forcing the two pipelines to become identical.
+For each implementation, the native nuisance parameters can be marginalized separately
+while retaining the same underlying CMB temperature spectrum as the shared latent
+object. Writing the physical TT spectrum as
+T T ,…,Cℓp
+S=(Cℓ1
+T T),
+And retaining A Pl anc k as an explicit parameter, the corresponding likelihood can be defined
+as
+C M B (s, A Pl anc k) ∫Li(di∣s, A Pl anc k ,ηi),πi(ηi),d ηi,
+Li
+Where i denotes either CamSpec or HiLLiPoP, ηi contains that implementation’s own
+nuisance parameters, and πi is its native prior. CamSpec data, covariance, foreground
+modelling, and nuisance priors remain entirely within the CamSpec integral; the
+corresponding HiLLiPoP ingredients remain entirely within the HiLLiPoP integral. The two
+likelihoods are neither multiplied nor subtracted from one another. The only common
+object is the physical CMB TT spectrum.
+This construction is methodologically legitimate. Nuisance-marginalized CMB-space
+likelihoods have an independent precedent in the CamSpec-NPIPE-lite methodology, while
+the native CamSpec and HiLLiPoP implementations provide the required foreground,
+calibration, prior, and likelihood definitions. The construction therefore avoids the
+scientifically problematic alternative of manufacturing a hybrid data vector or covariance
+matrix.
+The first numerical implementation attempted to compress each marginalized likelihood
+into a single Gaussian representation. That approximation failed its own validation
+requirements. In CamSpec, the nuisance solution encountered the native upper boundary am p143=50, and the nuisance Hessian
+was not positive definite. In HiLLiPoP, independently
+converged nuisance solutions produced a normalized CMB-space spread of 0.2879, well
+above the predefined stability limit of 0.10. The resulting single-Gaussian Laplace/Schur
+representation was therefore rejected for scientific use. This is precisely the kind of
+situation in which ordinary interior Gaussian approximations can become unreliable near
+parameter-space boundaries or non-Gaussian structure.
+A second approach removed the single-Gaussian assumption altogether. The nuisance
+integral was represented directly using defensive importance sampling and randomized
+quasi-Monte Carlo. The proposal distribution retained the full native prior as half of the
+mixture,
+Qi (η) 1
+2 πi (η)+ 1
+6 [Qi1 (η)+qi2 (η)+qi3 (η)),
+With the remaining components centred on three previously defined nuisance solutions.
+Because
+Qi (η)≥1
+2 πi (η),
+The corresponding importance ratio satisfies
+πi (η) qi (η) ≤2.
+This defensive construction preserves sampling support across the entire native prior,
+including unrecognized modes, while exact truncation respects native hard boundaries.
+Hesterberg’s defensive-mixture framework provides the statistical motivation for this
+bounded-weight construction, while Owen-scrambled Sobol sequences provide the
+randomized quasi-Monte Carlo basis for independent numerical replicates.
+The numerical campaign used four independent scrambled replicates for each likelihood
+and an explicitly finite sequence of sample levels from m=9 through m=16, reaching a
+hard cap of 393,216 nuisance nodes per replicate and implementation. Convergence was
+assessed from changes in relative log-likelihoods across the preserved probe set and from
+agreement between two independent pairs of replicates. Both tests required differences no
+larger than 0.05.
+The full finite campaign completed, but the required stability was not obtained. At the hard
+cap, the maximum transition change in the CamSpec probe likelihood was 16.59, and the
+corresponding difference between the two independent replicate banks was 28.44. For
+HiLLiPoP, the values were still larger, at 61.13 and 63.11, respectively. All are far above the
+predefined tolerance of 0.05.
+The consequence is methodological rather than physical. Because the nuisance
+marginalization did not pass numerical validation, the subsequent cosmological endpoint
+calculations were deliberately not executed. The analysis therefore provides no validated
+value for the matched displacement, centroid displacement, pairwise-shape drift, or leave-
+one-out geometry under the marginalized likelihoods. It neither establishes that the
+common-CMB construction would remove the CamSpec–HiLLiPoP discrepancy nor
+establishes that the discrepancy would survive a successfully validated implementation.
+What has been learned is narrower but important. A scientifically meaningful common
+latent CMB likelihood can be defined without constructing a synthetic hybrid likelihood,
+but neither the tested single-Gaussian compression nor the finite defensive-RQMC
+implementation was numerically adequate for the required comparison. The surviving
+implementation-dependent geometry therefore remains unresolved at the deeper
+construction level. This is not evidence that either Planck likelihood is defective, does not
+favour one implementation over the other, and does not constitute evidence for or against
+new physics.
+An important external qualification is required. Jense et al. (2026) found that, for the
+Planck multipole range retained when Planck is combined with ground-based CMB
+observations, differences between Planck map and likelihood products become small, with
+extended-model constraints becoming insensitive to the Planck product choice in the
+combinations they tested. This does not directly contradict the Bubbleverse CamSpec–
+HiLLiPoP fitted-geometry result because the tested model, likelihood construction, and
+combined data are not identical. It does, however, prevent the internal geometry difference
+from being promoted to a claim of materially different cosmological inference until that
+consequence is demonstrated in a matched downstream analysi
+Methodological sources: Rosenberg, Gratton & Efstathiou (2022); Efstathiou & Gratton
+(2021); Tristram et al. (2024); Jense, Viña, Calabrese & Hill (2026); Self & Liang (1987);
+Spokoiny (2023); Hesterberg (1995); Owen (1998).
+[Internal computational provenance: single-Gaussian compression result R-Q040-EDE-
+CMBSPACE-COUPLED-BRIDGE-005, classification COMPRESSION_VALIDATION_FAIL;
+mathematical construction R-Q040-MATH-DEFENSIVE-MARGINAL-001; defensive-RQMC
+result R-Q040-EDE-DEFENSIVE-RQMC-CMB-MARGINAL-004, PROGRAM_ID Q040-RQMC-V4,
+GitHub Actions run 34258155387, workflow .github/workflows/q040-defensive-rqmc-
+v4.yml, execution head 855a28c58246dbdd52d01cae1f40e0611103d96b, final artifact q040-
+rqmc-final-v4, SHA-256
+450c7a4116eff544d5c8e0f8b209a6ba1f41caa4cb8b89284923d1956b348a62; frozen physics
+backend mwt5345/class_ede commit 5a131c91d657dd9a7c6364cc45b038710f8d0d97;
+HiLLiPoP commit a09ddde3e7ce11df99f74685feb1f1764cafb251; Cobaya 3.5.6.]
+Downstream Scientific-Consequence Portability and the V19 Convergence Limit
+After the common-CMB-space marginalization programme failed numerical validation,
+Bubbleverse attempted a direct downstream inference test of the surviving CamSpec–
+HiLLiPoP fitted-geometry difference. The authoritative executed implementation is Q041-
+PLANCKPORT-V19 with result identifier R-Q041-EDE-DOWNSTREAM-PORTABILITY-019.
+The scientific question encoded by V19 was whether the validated n=3 EDE fitted-geometry
+difference produces materially different cosmological inference when the CamSpec and
+HiLLiPoP Planck arms are combined separately with the same V19 external CMB and late-
+time information. The arms were never multiplied together, and absolute cross-arm
+likelihood or χ² subtraction remained forbidden.
+The V19 matrix contains eight data combinations for each Planck arm: P, P_A6, P_L6, P_D2,
+P_A6_L6_D2, P_L6_D2, P_A6_D2, and P_A6_L6. A6 is ACT DR6 foreground-marginalized
+primary CMB; L6 is ACT DR6 lensing; D2 is DESI DR2 BAO. Two independent chains were
+required for every arm/combination pair, giving 32 logical chains.
+The frozen source lock retains the Q032 exact-common-TT parent, class_ede commit
+5a131c91d657dd9a7c6364cc45b038710f8d0d97, HiLLiPoP commit
+a09ddde3e7ce11df99f74685feb1f1764cafb251, Cobaya 3.5.6, ACTCollaboration/DR6-ACT-lite
+v1.0.1 commit 880eacb40d66722eb1c32d7b5621e91662b4d808,
+ACTCollaboration/act_dr6_lenslike v1.2.1 commit
+b386ddbb5821c1216c709f051c9289292f174d30, and DESI DR2 through bao_data v2.6
+commit b7b8a36e9bccb063081f811f323cada21ab5fbdd with Cobaya definition commit
+b76b6fed2a6c8c5594c6f92d5058bef10079746a.
+When A6 is absent, V19 uses the full authoritative Q032 exact-common-TT support. When
+A6 is present, Planck primary TT is further restricted to ℓ 599 and ACT primary TT/TE/EE ≤
+begins at ℓ = 600. Cross-likelihood covariance is assumed zero only after that disjoint
+primary-multipole construction. This is the V19 overlap policy; it is not an official
+PlanckActCut claim.
+The sampler is Cobaya MCMC with Rminus1_stop = 0.02, Rminus1_cl_stop = 0.2, two
+independent chains per arm/combination, max_samples = 20,000 accepted samples per
+chain, and a separate hard science R-hat gate of 1.05. Eight successful compute segments
+per chain are permitted. Each segment has a 300-minute soft stop and a 330-minute GitHub
+job timeout.
+V19 uses a fixed linear eight-stage workflow. Each segment transports the exact immediate-
+predecessor chain state through same-run GitHub artifacts. Cross-version chain-state reuse
+is forbidden. HiLLiPoP segmented resume is locked to the exact serialized
+planck_2020_hillipop.TT component from chain.updated.yaml; Cobaya --allow-changes is
+not used.
+The final execution did not obtain the required posterior convergence. Thirty of the 32
+logical chains entered MAX_SAMPLES_WITHOUT_CONVERGENCE. The two remaining
+CamSpec chains, P_A6/c1 and P_A6_L6_D2/c1, reached segment 8 still in PARTIAL state after
+all eight compute segments. The combined record therefore contains zero logical chains
+with documented COMPLETE status.
+The authoritative final object records scientific_classification = NO_SCIENTIFIC_RESULT,
+outcome_type = CONTROLLED_NO_SCIENTIFIC_RESULT, no_science_reason =
+MAX_SAMPLES_WITHOUT_CONVERGENCE, actual_computed_result = false,
+technical_failure = false, final_outcome_valid = true, and status = PASS.
+CHAIN_COMPLETENESS, ALL_RHAT_LE_1P05, and BOTH_ARMS_ALL_COMBINATIONS are
+BLOCKED; Q040_FIREWALL = PASS; SEGMENTED_RESUME_COMPLETENESS =
+CONTROLLED_STOP.
+The green terminal state is therefore a validated control outcome, not a converged science
+result. The comparator never acquires a valid complete matrix from which to compute an
+authoritative material, equivalent, or constrained-mixed portability class. Non-
+convergence cannot be used as physical evidence for agreement or disagreement between
+CamSpec and HiLLiPoP.
+A contract audit exposes a second, independent limitation. The broader downstream
+design preceding V19 required both ΛCDM and n=3 EDE in each Planck arm, a common
+supernova likelihood in addition to ACT primary, ACT lensing, and DESI DR2, four leave-
+one-out combinations, within-arm ΛCDM-versus-EDE model-preference information, and a
+different materiality rule. V19 is an EDE-only A6/L6/D2 test with three leave-one-out
+combinations and a Gaussian Bhattacharyya summary in its own classification logic.
+This scope difference does not retroactively invalidate the preregistered V19 experiment. It
+means only that V19 and the broader original design are not the same scientific test. Even a
+converged V19 result would not by itself document the omitted ΛCDM control, supernova
+dependence, fourth leave-one-out arm, or original model-preference criterion.
+The downstream scientific consequence of C-036-IMPL therefore remains unresolved. Any
+new attempt should be registered as a new execution configuration rather than increasing
+V19 limits after seeing its outcome. Existing V19 chains, progress histories, checkpoints,
+proposal adaptation, boundary behaviour, and acceptance diagnostics are legitimate inputs
+to a new numerical-design study, but the V19 scientific identity and terminal result must
+remain unchanged.
+Internal computational provenance: repository Morfindien/Bubbleverse; program Q041-
+PLANCKPORT-V19; result R-Q041-EDE-DOWNSTREAM-PORTABILITY-019;
+workflow .github/workflows/q041-planck-portability-v19.yml; GitHub Actions run
+34979609004, attempt 4; execution head a962ba70077422f8b69642dea4e8272e1d00e5ff;
+final artifact q041-final-v19, artifact ID 10754769330, SHA-256
+2284518ecbaaf1ff0d0093977827d5162ec29549ba2b81880f266c250311ca2b;
+q041_final_v19.json SHA-256
+0062874ed3529004f46cfb542a708d5b8e8dde55d1b4fd1c2ac7c394e6c8be79;
+q041_final_tests_v19.json SHA-256
+95fe1e63c78033de8559f609f0d8a1f4d48ee1b4123f3bb8f845b3ac6e5797ab.
+This appendix preserves the detailed numerical material behind the optimizer, endpoint,
+classifier and cross-implementation analyses summarized in the main book. It contains the
+historical endpoint geometry, execution-dependent basin classifications, classifier
+harmonization, coordinate localization, tested implementation-block interventions, the
+common-CMB-space marginalization programme, and the subsequent downstream
+portability campaign and convergence limit. These records are preserved at technical
+depth because their methodological details are necessary for audit and reproduction, but
+they are not required to follow the main scientific narrative.
+Appendix D — Bubbleverse-Model Repository
+D.1 Purpose of the Repository
+Morfindien/bubbleverse-model is the version-controlled repository for the accepted,
+candidate and formal Bubbleverse model state. It is distinct from Morfindien/Bubbleverse,
+which is the principal scientific source repository containing research programmes,
+numerical experiments, results, manuscript material and Q-history.
+The model repository is designed as a controlled compression of the scientific state that
+Bubbleverse has accepted inside an authorized Q boundary. It is not presented as
+established physical truth. Its purpose is to make the current state explicit, machine-
+readable, testable, versioned and traceable.
+Repository snapshot inspected for this appendix: 9 September 2026.
+D.2 Current Repository State
+The inspected repository has main as its active branch. The inspected main-branch head is
+e1bd4ae27cd3e5a2172bc5e941790c4f2d091643, a repository-cleanup and metadata-
+synchronization commit.
+The accepted scientific model is v0.2, model revision R000002, with authorized scientific
+boundary Q001–Q040. The accepted state records Q040 as the current processed question.
+The accepted state derives from source repository Morfindien/Bubbleverse at commit
+855a28c58246dbdd52d01cae1f40e0611103d96b and records the Word input bubblevers
+0.40m.docx with SHA-256
+d389095fea2bd65ca5424a77cf22a4240581f1966eff3575ddabddfd0dd54397.
+The Q040 accepted-state note is deliberately conservative. Q040 provides a
+methodologically legitimate common physical CMB-space nuisance-marginalization
+construction for CamSpec and HiLLiPoP, but the tested numerical representations failed
+mandatory stability validation. No marginalized endpoint geometry was therefore
+accepted. Technical failure is not treated as physical falsification, and the causal origin of
+the implementation-geometry discrepancy remains unresolved.
+A later source-repository execution, Q041-PLANCKPORT-V19, occurred after the accepted-
+model snapshot described here. It produced a validated controlled no-science
+computational outcome rather than an accepted physical model change. Nothing in that
+run authorizes silently extending the inspected model-repository boundary beyond Q040;
+its provenance is documented in Appendix C and in the Q-Journal.
+The later execution also revealed a scope divergence between the V19 preregistration and
+the broader original downstream design. That divergence is relevant to future model
+promotion because a controlled no-science result from the narrower V19 matrix does not
+constitute completion of the broader ΛCDM/EDE plus supernova comparison.
+D.3 Repository Architecture
+The repository root is organized into distinct scientific and operational layers.
+Accepted contains the current accepted scientific state.
+Candidate contains the proposed or most recently promoted candidate state and its
+retained promotion record.
+Model contains the machine-readable formal model and its schemas.
+Evidence contains the evidence registry and Q-specific update material.
+Provenance contains source and Q provenance records.
+Tests contains test definitions, preregistration material, test programmes, results and the
+test registry.
+Versions contains frozen accepted-model snapshots.
+Release contains the canonical internal release handoff.
+Changelog contains human-readable and machine-readable model history.
+.github contains the public workflow and repository-maintenance automation.
+Bubbleverse_model_program_registry.json provides a central programme registry for
+callable model functions.
+D.4 Canonical Accepted Model
+The canonical accepted state is not represented by one scientific prose file alone.
+Accepted/model_state.json is the central state pointer. It identifies accepted model v0.2,
+revision R000002, Q001–Q040, and maps the accepted scientific layers to:
+Accepted/constraints.json
+Accepted/contradictions.json
+Accepted/mechanisms.json
+Accepted/observations.json
+Accepted/predictions.json
+Accepted/robustness.json
+Accepted/MODEL_CURRENT.md supplies the corresponding human-readable accepted-state
+summary.
+The accepted directory therefore functions as the canonical current scientific layer, while
+model provides the formal machine-readable model description and versions/accepted
+preserves frozen historical accepted states.
+D.5 Formal Model Layer
+The model directory contains the formal and computational description of the model
+rather than another copy of the reader-facing manuscript.
+Its inspected files include assumptions.json, benchmarks.json, domain_of_validity.json,
+environment.json, equations.json, external_catalog_registry.json, input_schema.json,
+limitations.json, model_manifest.json, output_schema.json, parameters.json,
+result_registry.json and uncertainty.json.
+Together these files separate model assumptions, equations, parameters, benchmarks,
+uncertainty, execution environment, interfaces, registered results, domain of validity and
+explicit limitations.
+This separation is important. A value appearing in a benchmark registry is not
+automatically promoted into an unrestricted scientific truth claim. The repository remains
+Q-bounded and status-aware.
+D.6 Accepted and Candidate States
+The repository uses an accepted/candidate workflow.
+New completed Q material first enters an authorized evidence and model-diff process. A
+candidate state is built before accepted state is changed. Formal synchronization, scientific
+tests, formal tests, regression and integrity tests, and a promotion gate occur before a
+successful candidate becomes accepted state.
+The retained Q040 candidate record identifies candidate v0.2 / R000002, previous accepted
+state v0.1 / R000001 at Q039, source Bubbleverse commit
+855a28c58246dbdd52d01cae1f40e0611103d96b, and promotion status PROMOTED_TO_v0.2.
+Candidate files therefore remain useful provenance after promotion. Their existence must
+not be interpreted as evidence that a second scientific state is simultaneously active.
+D.7 Version History
+The repository preserves accepted snapshots under versions/accepted.
+At the inspected state, two accepted-version directories exist:
+Versions/accepted/v0.1
+Versions/accepted/v0.2
+The machine-readable change registry records the principal evolution.
+The repository began with a Q039 v0.1 candidate bootstrap. That candidate passed its
+scientific campaign and was promoted to accepted v0.1. Subsequent non-scientific integrity
+repairs separated accepted and candidate paths, strengthened Git provenance and future
+promotion logic, and installed the formal-model layer.
+Later Q039 structural additions installed the result-context and next-step router and
+external astronomy-catalog context without changing the accepted scientific conclusions.
+Q040 produced accepted v0.2 / R000002. Subsequent entries record a post-promotion
+metadata synchronization and repository cleanup explicitly marked as non-scientific
+changes.
+D.8 Evidence and Provenance
+The repository distinguishes scientific source history from model state.
+Morfindien/Bubbleverse remains the scientific source repository.
+The model repository contains evidence/evidence_registry.json and Q-specific update
+records including Q039 and Q040 material. The provenance directory contains dedicated
+Q039 and Q040 provenance documents together with bootstrap provenance.
+The intended traceability chain is:
+Q to source to evidence to programme or result to candidate change to tests to promotion
+to accepted version to Git commit.
+Where run Ids, artifact hashes, programme Ids, result Ids or source commits are available,
+they may be attached to that chain.
+The repository was created late in the Q001–Q040 research sequence. Consequently, the
+complete historical execution record for early Qs does not originate natively inside this
+repository. Earlier scientific provenance remains primarily in the Morfindien/Bubbleverse
+repository, the manuscript and the Q-Journals.
+D.9 Testing and Regression Protection
+The tests directory contains TEST_PLAN_CURRENT.md, preregistration material,
+programmes, result records and test_registry.json.
+The model’s public documentation distinguishes several levels of validation. The current
+repository documentation reports a nine-test scientific campaign, twelve formal-model
+validation checks and a twenty-check public system healthcheck. The Q040 release handoff
+separately records eleven mandatory model-update tests passed, with no blocked, failed,
+inconclusive, invalid, not-comparable or technical-failure mandatory tests.
+The tests protect scientific invariants including Q-boundary control, H ₀ inference-chain
+identity, contradiction preservation, separation of technical from scientific failures, open-
+question preservation and JSON/schema integrity.
+Regression protection is therefore not merely a software-health mechanism. It is also
+intended to prevent later model updates from silently deleting unresolved contradictions
+or converting technical failures into scientific conclusions.
+D.10 Current Test-Metadata Inconsistency
+One repository inconsistency must remain visible.
+Tests/test_registry.json identifies accepted model v0.2, current Q040 and Q001–Q040 access,
+but several descriptive why_test_matters strings still refer to Q039 as though Q039 were the
+candidate boundary. The same file nevertheless marks its registered tests PASS.
+The canonical release handoff independently identifies Q040, v0.2, R000002, eleven
+mandatory tests passed and repair status
+Q040_POST_PROMOTION_CONSISTENCY_REPAIRED.
+The stale Q039 wording should therefore be treated as a repository metadata inconsistency
+requiring maintenance. It is not evidence that the scientific model reverted to Q039, and it
+must not be silently rewritten here as though the repository conflict did not exist.
+D.11 Workflow Architecture
+The permanent public entry workflow is:
+.github/workflows/00-bubbleverse-model-start-public.yml
+The public interface exposes non-destructive status and validation operations together
+with bounded computational functions.
+Documented operations include test, validate-model, model-status, contradictions,
+provenance, release-handoff, gaussian-tension, difference, percent-shift, weighted-mean,
+known-results, contextualize-result, astronomy-catalog-context and campaign.
+The public test and status functions are not scientific-promotion commands. The repository
+documentation explicitly separates ordinary execution and validation from the controlled
+model-update pipeline.
+A repository-cleanup workflow also exists as supporting infrastructure. Cleanup or
+metadata synchronization must not be confused with scientific model revision.
+D.12 Q Firewall
+Bubbleverse-model is explicitly Q-bounded.
+At the inspected state, the authorized range is Q001–Q040.
+Evidence beyond Q040 must not influence scientific claims, parameters, equations,
+assumptions, contradictions, mechanisms, predictions, calculations, benchmarks, result
+registries or candidate revisions until the boundary is expanded through an authorized
+model update.
+The later Q041 computational result is therefore treated here as post-boundary
+provenance, not as accepted-model state. No Q041 promotion record is established in the
+supplied model-repository snapshot, and no physical model change follows from the
+controlled no-science outcome.
+The firewall is therefore a scientific-state constraint, not merely a file-naming convention.
+D.13 Release and Promotion
+The repository does not rely on GitHub Releases as the canonical scientific release
+mechanism at the inspected state. The canonical handoff is stored under
+release/MODEL_RELEASE_HANDOFF.json and its human-readable companion.
+The Q040 handoff records promotion from accepted v0.1 to v0.2, candidate promotion
+PASS, contradiction PASS, current-Q PASS, final-audit PASS, high-Q-contamination PASS,
+input-state PASS, model-schema PASS, provenance PASS, Q-firewall PASS and regression
+PASS.
+The release state is ALL_GREEN.
+The recorded model-repository commit 970344fc1aa4ff1b857f61847f14119ba3f0ead2 is
+identified specifically as the promotion-input candidate commit. Later repository
+consistency repair, metadata synchronization and cleanup commits therefore belong to the
+repository history after that promotion point.
+D.14 Reproducibility Classification
+CURRENT MODEL STATE RECONSTRUCTABLE.
+The canonical accepted version, revision, Q boundary, accepted-layer paths, source
+Bubbleverse commit, Word input hash, candidate state, release handoff and accepted
+snapshots are explicitly recorded.
+MODEL VERSION HISTORY PARTIALLY RECONSTRUCTABLE.
+The v0.1 to v0.2 transition is documented, together with structural repairs and formal-layer
+installation. The model repository itself, however, began near Q039 and does not contain
+native per-Q model-state history for the complete Q001–Q038 period.
+TEST ARCHITECTURE RECONSTRUCTABLE WITH METADATA CAVEAT.
+The principal test directories, registries and release gates are available, but stale Q039
+wording remains in the Q040 test registry.
+WORKFLOW ARCHITECTURE RECONSTRUCTABLE.
+The permanent public workflow and its documented operation classes are available.
+SCIENTIFIC EXECUTION HISTORY PARTIALLY RECONSTRUCTABLE FROM THIS
+REPOSITORY ALONE.
+The complete experiment history belongs primarily to Morfindien/Bubbleverse and the Q-
+Journal record.
+D.15 Relationship Between the Three Records
+The Bubbleverse research system now has three distinct archival layers.
+Morfindien/Bubbleverse records the scientific work: programmes, workflows, experiments,
+artifacts and research outputs.
+Morfindien/bubbleverse-model records the accepted and candidate scientific model state,
+formal representation, tests, promotion history and model provenance.
+The Bubbleverse Q-Journals record the chronological human-readable decision trail.
+These records overlap deliberately but are not interchangeable.
+The research repository answers what was run.
+The model repository answers what scientific state was accepted and how it is versioned.
+The journals answer how the investigation moved from one question to the next.
+D.16 Known Repository Gaps
+The Q001–Q038 model history predates the dedicated model repository and is therefore not
+represented by native historical accepted snapshots for every Q.
+Several Q040 test-registry descriptions retain stale Q039 wording despite the current Q040
+identity.
+Complete tag history was not established during this reconstruction.
+The absence of a historical record in one repository must not be filled by inference from
+adjacent files. Where provenance is missing, it remains missing until independently
+reconstructed.
+A post-Q040 scientific-source execution now exists in Morfindien/Bubbleverse, but the
+supplied Bubbleverse-model snapshot contains no corresponding accepted-model
+promotion beyond Q040. Future updates must preserve that distinction rather than
+treating source-repository execution as automatic model acceptance.
+The executed V19 downstream test also differs materially in scope from the broader
+original Q041 design. Any later promotion or successor execution should record which
+contract is being tested and must not merge the two designs into one retrospective result.
+Original Figure Production Specifications
+FIG-V1-002
+PRIORITY:
+MANDATORY
+FIGURE LOCATION:
+Chapter 2 → immediately after “A Continuum of Inference”.
+FIGURE ACTION:
+CREATE PROVENANCE / INFERENCE-CHAIN DIAGRAM.
+FIGURE PURPOSE:
+Show why different H₀ estimates cannot be treated as identical measurements.
+FIGURE TYPE:
+Scientific network schematic.
+FIGURE PROVENANCE:
+Chapter 2 surviving H₀ route descriptions. B
+Bubblevers 0.30m.docx
+FIGURE PRODUCTION PROMPT:
+TITLE OF IMAGE: Independent and Partially Shared Routes to H₀
+TYPE: Publication-style scientific inference network.
+PURPOSE: Show the principal routes that infer the same parameter H ₀ while using different observations, calibrations, and model
+dependencies.
+CONTENT: Place H₀ at the right or centre as the shared inferred parameter.
+Create separate pathways for:
+Local Distance Network Geometric anchors → stellar calibrators → supernovae or Hubble-flow tracers → finite-redshift distance
+relation → H₀
+Megamasers Disk positions + velocities + accelerations → geometric galaxy distances + peculiar-velocity treatment → H₀
+Strong-Lensing Time Delays Image configuration + time delays + lens mass model + stellar kinematics + line-of-sight structure →
+time-delay distance → H₀
+Gravitational-Wave Standard Sirens Waveform distance + host/statistical redshift + selection and inclination modelling → H₀
+BAO + BBN BAO geometry + sound-horizon calibration + baryon-density information + cosmological framework → H₀
+CMB TT/TE/EE spectra + recombination/acoustic physics + cosmological model → H₀
+Use dotted or visually distinct shared-dependency connectors only where the manuscript explicitly states overlap, especially
+among local calibrators.
+REQUIRED VALUES: H0 Distance Network: 73.50 ± 0.81 km s⁻¹ Mpc⁻¹ Megamasers: 73.9 ± 3.0 km s ⁻¹ Mpc ⁻¹ TDCOSMO cited
+primary analysis: 71.6⁺³·⁹₋₃·₃ km s⁻¹ Mpc⁻¹ DESI DR2 + BBN: 68.51 ± 0.58 km s⁻¹ Mpc ⁻¹ Combined Planck + SPT-3G + ACT DR6
+under flat ΛCDM: 67.24 ± 0.35 km s⁻¹ Mpc⁻¹
+Do not force broad standard-siren intervals into a compact central-value comparison if doing so hurts readability; they may be
+labelled “currently broad” in this diagram and plotted precisely in FIG-V1-003.
+LAYOUT: Landscape network flowing toward H₀.
+VISUAL STYLE: Technical scientific schematic.
+BACKGROUND: Light or transparent.
+ASPECT RATIO: 16:9.
+SCIENTIFIC RESTRICTIONS: Do not call all pathways independent. Do not imply that H ₀ is a direct instrument reading. Do not
+merge BAO+BBN and CMB into one route. Do not remove model/calibration dependencies.
+FINAL GENERATION INSTRUCTION: Create a publication-quality inference-chain map showing the physically distinct and partly
+overlapping routes by which the manuscript infers H₀.
+FIGURE CAPTION COPY BOX:
+Figure 2. Principal inference routes to H₀. The same cosmological parameter is reached through physically and statistically
+different chains involving geometric calibration, stellar indicators, gravitational lensing, gravitational waves, standard-ruler
+physics, and CMB modelling. Their different dependencies are central to the interpretation of agreement and disagreement
+among H₀ estimates.
+FIG-V1-006
+PRIORITY:
+HIGH VALUE
+FIGURE LOCATION:
+Chapter 4 → “Planck Likelihood-Architecture Dependence”.
+FIGURE ACTION:
+CREATE DIAGRAM.
+FIGURE PURPOSE:
+Show why two Planck likelihood constructions cannot be interpreted as the same objective with one additive extra penalty.
+FIGURE TYPE:
+Likelihood-architecture schematic.
+FIGURE PROVENANCE:
+Matched/full-multifrequency Planck bridge. B
+Bubblevers 0.30m.docx
+FIGURE PRODUCTION PROMPT:
+TITLE OF IMAGE: The Planck Likelihood Construction Changes the Tested Geometry
+TYPE: Scientific architecture diagram.
+CONTENT: Create two parallel Planck analysis paths.
+Path A: Matched CamSpec-lite n=3 EDE matched TT+TE+EE matched multipole support fixed- minus-free objective increase:
++5.8238567748
+Path B: Native full-multifrequency CamSpec n=3 EDE full frequency structure foreground and nuisance parameterization native
+covariance/likelihood architecture fixed-minus-free objective increase: +17.3979348723
+Between the paths place a clearly marked warning: Different likelihood objectives Difference = diagnostic of likelihood-
+architecture dependence NOT an additive physical Δχ² contribution
+Show subsidiary components associated with the full-MF construction: frequency representation covariance foreground
+parameterization calibration/nuisance coupling
+Do not draw a causal arrow from any individual component to the total penalty.
+ASPECT RATIO: 16:9.
+VISUAL STYLE: Technical publication diagram.
+FIGURE CAPTION COPY BOX:
+Figure 6. The matched CamSpec-lite and native full-multifrequency CamSpec calculations evaluate different Planck likelihood
+constructions. Their fixed-minus-free objective increases therefore diagnose likelihood-architecture dependence; their numerical
+difference is not an additional physical Δχ² contribution.
+Appendix D supplement — Q042 closure and Q043 repository preparation
+Q042 is CLOSED with an inconclusive general-feasibility result. Its original scientific contract remains a 20-cell comparison of two
+native Planck likelihood arms, ΛCDM and n=3 EDE, ACT primary and lensing, DESI DR2, one identical supernova likelihood, and
+FULL plus four leave-one-out combinations. Contract SHA-256:
+41e4d8f026933f64dbe41048f894002f479ba2b504432b33dc155f4dfe71378c.
+Q042 reference truth is BLOCKED, its final result gate UNRESOLVED, and numerical production NOT AUTHORIZED. V29 completed
+finite initialized-context prerequisites only. V30/V31 yielded partial local conditional histories, not complete histories or a
+computed tau. The conditional cap argument found representation candidate counts of UPPER 138 and LOWER 3,002 against
+frozen cap32, subject to its explicitly stated admissibility, source/domain, continuation and unchanged-interval assumptions.
+These counts are not physical minima or a universal impossibility result.
+Q043 (R-Q043-REPOSITORY-INTEGRATION-001) reached PASS_LOCAL_PREPARATION_AND_VALIDATION_ONLY. The proposed
+model candidate v0.4 / R000004 remains CANDIDATE_PREPARED_NOT_PROMOTED; accepted remote v0.3 / R000003 still covers
+Q001–Q041. The prepared package retains all 91 late-Q042 source objects, both claim-map trees, historical records, and the open
+portability prediction. Its proposed execution changes retire stale V29 ACTIVE eligibility without changing the permanent
+launcher or 43 unrelated registry entries.
+Q043 internal validation included 8/8 candidate gates, 10/10 baseline/projected scientific checks, 13/13 formal checks, 10/10
+historical Q041 checks, 10/10 failure-injection regressions, 20/20 public healthchecks, and 4/4 launcher resolver checks. These are
+technical consistency tests, not independent cosmological validation. Remote sync, admission, promotion and release were NOT
+PERFORMED.
+Last inspected heads (historical inspection, not a new verification): model 10fa83797b2f7740519d4e43b1bebf0a6e35bada; execution
+72cf9e92fc794c122f593a77b6a555e6e97f6a2e. The live registry still listed V29 ACTIVE. Controlled application and separately gated
+admission/promotion remain outstanding. No new numerical campaign is authorized.
+Primary internal evidence: EVD-Q043-JOURNAL; EVD-Q043-RESULT; I-Q043-PREPARATION-VALIDATION-001; I-Q042-V31-
+INGESTION-001. Source register: q043_integration_result.json (SHA-256
+4486e5173ba8ef3ac659c743bb578284c93446ce9e5b3d0dae71728beadbb9ff). The accepted Q041 release does not certify Q042.
+

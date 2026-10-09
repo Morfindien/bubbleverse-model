@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 12)]
+MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 13)]
 
 
 def load(rel):
@@ -203,6 +203,16 @@ def audit():
         failures = [x["id"] for x in q42_result["tests"] if x["status"] != "PASS"]
         q42_detail = "Q042 closure, no-production, source continuity and conditional certificate gates: " + ("PASS" if q42_ok else ", ".join(failures))
     results["T-BV-011"] = passfail(q42_ok, q42_detail)
+
+    q43_ok = True
+    q43_detail = "Q043 local-preparation admission gate is not applicable below Q043."
+    if qmax >= 43:
+        from q043_model_validate import run_tests as q043_tests
+        q43_result = q043_tests(ROOT)
+        q43_ok = q43_result["all_green"]
+        failures = [x["id"] for x in q43_result["tests"] if x["status"] != "PASS"]
+        q43_detail = "Q043 source identity, local-only qualification, physical preservation and snapshot gates: " + ("PASS" if q43_ok else ", ".join(failures))
+    results["T-BV-012"] = passfail(q43_ok, q43_detail)
 
     return results
 

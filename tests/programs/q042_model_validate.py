@@ -30,13 +30,18 @@ def run_tests(root=ROOT, candidate=False):
     def sequence():
         s = load(root/'candidate/candidate_state.json')
         a = load(root/'accepted/model_state.json')
+        active_q = a['current_q']
+        if not candidate and int(active_q[1:]) > 42:
+            s = load(root/'provenance/archive/Q042/candidate_state.json')
+            a = load(root/'versions/accepted/v0.4/model_state.json')
         require(s.get('current_q') == 'Q042' and s.get('q_access_end') == 'Q042', 'Q042 candidate missing')
         require(a.get('current_q') == ('Q041' if candidate else 'Q042'), 'accepted sequence mismatch')
         require(s.get('previous_accepted_q') == 'Q041', 'sequence gap')
         require(a.get('accepted_model_version') == ('v0.3' if candidate else 'v0.4'), 'version mismatch')
         e = load(evidence/'evidence_registry.json')
-        require(e.get('current_q') == 'Q042' and e.get('q_access_end') == 'Q042', 'evidence boundary mismatch')
-        return 'Q041 -> Q042, candidate boundary exact'
+        evidence_q = 'Q042' if candidate else active_q
+        require(e.get('current_q') == evidence_q and e.get('q_access_end') == evidence_q, 'evidence boundary mismatch')
+        return 'Q041 -> Q042 exact historical sequence; active evidence boundary matches accepted'
     gate('Q_SEQUENCE_GATE', sequence)
     def sources():
         p=load(root/'candidate/Q042_PROVENANCE.json')
@@ -118,12 +123,13 @@ def run_tests(root=ROOT, candidate=False):
         return 'Frozen construction, missing accuracy budgets, partial history and no restart explicit'
     gate('FORMAL_SCOPE_GATE', scope)
     def firewall():
+        max_q = 42 if candidate else int(load(root/'accepted/model_state.json')['q_access_end'][1:])
         for base in [layer,formal,evidence]:
             for path in base.rglob('*'):
                 if path.is_file() and path.suffix in {'.json','.md','.txt'}:
                     nums=[int(x) for x in re.findall(r'\bQ-?0*([0-9]{1,5})\b',path.read_text(encoding='utf-8'),re.I)]
-                    require(not any(n>42 for n in nums), f'boundary contamination: {path}')
-        return 'No scientific evidence beyond Q042'
+                    require(not any(n>max_q for n in nums), f'boundary contamination: {path}')
+        return f'No scientific evidence beyond accepted Q{max_q:03d}; Q042 source identity remains hashed'
     gate('Q_FIREWALL_GATE', firewall)
     def immutable():
         p=load(root/'candidate/Q042_PROVENANCE.json')

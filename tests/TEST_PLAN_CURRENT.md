@@ -1,24 +1,5 @@
-# BUBBLEVERSE MODEL — TEST PLAN CURRENT
+# Current validation plan: Q043/v0.5
 
-**Campaign:** BV-MODEL-v0.4-CAMPAIGN-0004  
-**Authorized Q range:** Q001–Q042  
-**Current Q:** Q042  
-**Accepted model:** v0.4  
-**Mode:** current-state validation
+Run `python3 tests/programs/model_campaign.py validate`, `python3 tests/programs/q043_model_validate.py`, and `python3 -m unittest discover -s tests/programs -p "test*.py"`.
 
-| TEST_ID | Current target | Required |
-|---|---|---|
-| T-BV-001 | Q identity and boundary schema | YES |
-| T-BV-002 | High-Q contamination scan | YES |
-| T-BV-003 | H0 inference-chain invariant | YES |
-| T-BV-004 | Q039 provenance invariant | YES |
-| T-BV-005 | Technical/scientific separation | YES |
-| T-BV-006 | Q039/Q040 conservatism | YES |
-| T-BV-007 | Contradiction preservation | YES |
-| T-BV-008 | Open-question preservation | YES |
-| T-BV-009 | JSON/schema/reference integrity | YES |
-| T-BV-010 | Q041 controlled-no-science semantics | YES |
-| T-BV-011 | Q042 closure, certificate scope and 91-source continuity | YES |
-
-All 11 current registered tests and all formal-model tests must PASS.
-The current scientific/model state is limited to Q001–Q042.
+The permanent public workflow `test` operation invokes current validation and 20 system healthchecks; it is non-destructive. Q043 has 11 source/qualification/preservation gates. Q042 historical checks remain mandatory. All 22 regressions exercise real state and restore injected changes. Original numerical trajectories are not rerun and no cosmological inference follows from technical passes.

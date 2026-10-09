@@ -1,3 +1,3 @@
-# Q042 model release handoff
+# Q043 model release
 
-Model v0.4 / R000004 through Q042. Physical model unchanged. Q042 closed inconclusively; reference truth blocked and numerical result unresolved. No production restart or new scientific Q is authorized. Model repository transaction only; stale source-repository status remains a separate synchronization task.
+v0.5/R000005 through Q043. Evidence-only admission of internal local preparation validation. No numerical/physical inference or production authorization. Original Q043 source statements are historical and retained. Source repository sync remains separate. Consult the JSON release and remote verification receipt for actual publication status.
