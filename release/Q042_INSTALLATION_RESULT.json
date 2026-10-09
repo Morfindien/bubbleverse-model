@@ -1,0 +1,23 @@
+{
+  "accepted_version": "v0.4",
+  "installation_input_commit": "550a81462abbf7c067ee1f3b9c51174bcf185f26",
+  "installed_at": "2026-10-09T07:23:42.047714+00:00",
+  "new_scientific_q_allocated": false,
+  "patch_sha256": "a8954661839b6d644c430bc47819566be8f9749749e3fbd7b25751ccc2192834",
+  "production_restart_authorized": false,
+  "promotion_commit": "a078a61ae7b851dd47f1596898df0e7ba31db3fa",
+  "remote_promotion_verified": false,
+  "revision": "R000004",
+  "schema_version": 1,
+  "scientific_input_commit": "10fa83797b2f7740519d4e43b1bebf0a6e35bada",
+  "source_repository_modified": false,
+  "target_q": "Q042",
+  "tests": {
+    "Q042": "11/11 PASS",
+    "formal": "13/13 PASS",
+    "integration": "4/4 PASS",
+    "non_destructive": true,
+    "public_healthcheck": "20/20 PASS",
+    "regression": "11/11 PASS"
+  }
+}
