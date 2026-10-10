@@ -23,7 +23,7 @@ The model represents the best current compression of validated Bubbleverse evide
 - No production restart authorized. Source execution-registry synchronization remains separate.
 - Frozen accepted snapshot: `versions/accepted/v0.7/`; all older snapshots remain immutable.
 - Original post-run closure ingestion/journal not supplied; closure is traced to authorized operator manuscript excerpts. Its reported journal digest is not claimed verified.
-- Full report: `provenance/Q045_MODEL_UPDATE_REPORT.json`; remote publication receipt is recorded separately after verification.
+- Full report: `provenance/Q045_MODEL_UPDATE_REPORT.json`. Publication is blocked: this is the locally prepared v0.7 installation; remote main remains v0.6/Q044. See `provenance/Q045_REMOTE_PUBLICATION_BLOCK.json`.
 
 ---
 

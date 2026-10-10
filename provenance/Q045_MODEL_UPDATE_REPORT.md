@@ -1,8 +1,8 @@
 # Bubbleverse Q045 model update report
 
-Verified report time: 2026-10-10T14:09:15.791571+02:00.
+Verified report time: 2026-10-10T14:13:17.959458+02:00.
 
-Accepted **v0.7 / R000007 through Q045**. Scope-limited technical history recovery and manuscript-documented inconclusive physical closure have been integrated. Remote publication: **PENDING**.
+Locally prepared and validated **v0.7 / R000007 through Q045**. Scope-limited technical history recovery and manuscript-documented inconclusive physical closure have been integrated. Remote publication: **BLOCKED_NO_REMOTE_WRITE**. The remote accepted state remains v0.6 through Q044 when publication is blocked.
 
 The physical reference remains **UNQUALIFIED** and physical materiality remains **UNRESOLVED**. No new physical bias, H0 estimate, EDE preference, CMB/likelihood intervention result or production authorization is established.
 
@@ -18,11 +18,11 @@ Q001-Q045
 
 ## DATE_TIME_UTC
 
-2026-10-10T12:09:15.791571+00:00
+2026-10-10T12:13:17.959458+00:00
 
 ## DATE_TIME_LOCAL
 
-2026-10-10T14:09:15.791571+02:00
+2026-10-10T14:13:17.959458+02:00
 
 ## AVAILABLE_CHATGPT_SETUP
 
@@ -105,8 +105,9 @@ Requires pinned source/artifact handling, multi-file candidate construction, imm
 
 ```json
 [
-  "Initial guessed accepted-state and AGENTS paths returned 404; complete tree discovery resolved canonical paths. No blocking access failure.",
-  "Pre-release controls exposed stale snapshot-diff routing and incomplete qualification checks; fixed with regression tests."
+  "Initial guessed accepted-state and AGENTS paths returned 404; complete tree discovery resolved canonical paths.",
+  "Pre-release controls exposed stale snapshot-diff routing and incomplete qualification checks; fixed with regression tests.",
+  "Shell publication failed: no GitHub credential; connected GitHub create_blob returned HTTP 403 Resource not accessible by integration. Repository metadata reports user push rights, but the integration cannot write."
 ]
 ```
 
@@ -248,7 +249,7 @@ bba3528250b3d56c451bf5ca363b0d75120acb03
 
 ## PROMOTION_COMMIT
 
-NOT_AVAILABLE / null
+425db6c493c0c923aa02f3de1a9ddac90ce38fda
 
 ## PREVIOUS_ACCEPTED_Q
 
@@ -1173,7 +1174,7 @@ False
 
 ```json
 {
-  "status": "PASS",
+  "status": "LOCAL_VALIDATION_PASS_REMOTE_PUBLICATION_BLOCKED",
   "mandatory_gates": [
     {
       "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
@@ -1347,6 +1348,7 @@ False
     }
   ],
   "all_mandatory_green": true,
+  "remote_publication_gate": "TECHNICAL_BLOCK",
   "physical_reference_gate": "UNQUALIFIED",
   "physical_materiality_gate": "UNRESOLVED"
 }
@@ -1354,11 +1356,15 @@ False
 
 ## PROMOTED
 
+False
+
+## LOCAL_PROMOTED
+
 True
 
 ## NEW_ACCEPTED_VERSION
 
-v0.7 / R000007
+v0.7 / R000007 (local prepared installation)
 
 ## NEXT_Q_AUTHORIZED
 
@@ -1367,7 +1373,9 @@ False
 ## BLOCKERS
 
 ```json
-[]
+[
+  "Shell Git push has no GitHub credential. Connected GitHub create_blob rejected the authorized publication with HTTP 403 Resource not accessible by integration. Remote remains v0.6 through Q044; publication cannot be verified."
+]
 ```
 
 ## OPEN_PHYSICAL_QUALIFICATION_BLOCKERS
@@ -1382,11 +1390,11 @@ False
 
 ## STOP_STATE
 
-LOCAL_PROMOTION_REMOTE_PUBLICATION_PENDING
+TECHNICAL_BLOCK
 
 ## REMOTE_PUBLICATION
 
-PENDING
+BLOCKED_NO_REMOTE_WRITE
 
 ## REMOTE_VERIFICATION_COMMIT
 

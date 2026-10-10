@@ -1,4 +1,5 @@
 {
+  "all_local_validation_gates_green": true,
   "all_mandatory_green": true,
   "candidate_validation": {
     "all_green": true,
@@ -267,9 +268,12 @@
   },
   "regression": {
     "failures": 0,
-    "passed": 72,
+    "passed": 70,
+    "result": "OK",
+    "skipped": 2,
     "tests": 72
   },
+  "remote_publication_gate": "TECHNICAL_BLOCK",
   "scientific_acceptance_scope": "TECHNICAL_DIAGNOSTIC_AND_INCONCLUSIVE_CLOSURE_ONLY",
   "target_q": "Q045"
 }

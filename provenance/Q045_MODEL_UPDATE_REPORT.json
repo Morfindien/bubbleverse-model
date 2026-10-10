@@ -4,12 +4,14 @@
   "AVAILABLE_CHATGPT_SETUP": "Codex, GPT-6-based agent. Exact primary UI model/preset is not exposed. Independent reviewer actually used gpt-6-astra.",
   "AVAILABLE_MODE": "Work Mode with connected GitHub and local execution",
   "AVAILABLE_REASONING_LEVEL": "Primary preset not exposed; reviewer selectable max was actually used.",
-  "BLOCKERS": [],
+  "BLOCKERS": [
+    "Shell Git push has no GitHub credential. Connected GitHub create_blob rejected the authorized publication with HTTP 403 Resource not accessible by integration. Remote remains v0.6 through Q044; publication cannot be verified."
+  ],
   "CANDIDATE_COMMIT": "760864e934d3ccbfb113cbac60807749554a2443",
   "CANDIDATE_VERSION": "v0.7 / R000007",
   "CURRENT_SETUP_ADEQUACY": "SUFFICIENT",
-  "DATE_TIME_LOCAL": "2026-10-10T14:09:15.791571+02:00",
-  "DATE_TIME_UTC": "2026-10-10T12:09:15.791571+00:00",
+  "DATE_TIME_LOCAL": "2026-10-10T14:13:17.959458+02:00",
+  "DATE_TIME_UTC": "2026-10-10T12:13:17.959458+00:00",
   "EXTERNAL_VERIFICATION_USED": false,
   "LIMITATIONS": [
     "REFERENCE_TRUTH_GATE remains UNQUALIFIED; FINAL_RESULT_GATE remains UNRESOLVED. These are original research gates, distinct from scope-limited model-admission gates.",
@@ -20,6 +22,7 @@
     "Execution source-registry status is historical and may lag closure; this model update does not modify the source repository.",
     "No evidence beyond the authorized TARGET_Q boundary is included."
   ],
+  "LOCAL_PROMOTED": true,
   "MANUSCRIPT_SUBSTITUTE": {
     "authority": "Operator-supplied PDFs, bounded excerpts, and independently hash-verified original workflow result; follows existing repository substitute convention.",
     "documents": [
@@ -189,7 +192,7 @@
   },
   "MODEL_INPUT_COMMIT": "bba3528250b3d56c451bf5ca363b0d75120acb03",
   "MODEL_SELECTION_REASON": "Requires pinned source/artifact handling, multi-file candidate construction, immutable snapshots, regression and conservative interpretation. No automatic primary-model switch is claimed; reviewer routing was real.",
-  "NEW_ACCEPTED_VERSION": "v0.7 / R000007",
+  "NEW_ACCEPTED_VERSION": "v0.7 / R000007 (local prepared installation)",
   "NEW_ASSUMPTIONS": [],
   "NEW_AUTHORIZED_Q_RANGE": "Q001-Q045",
   "NEW_BENCHMARKS": [],
@@ -272,8 +275,8 @@
   ],
   "PREVIOUS_ACCEPTED_Q": "Q044",
   "PREVIOUS_MODEL_VERSION": "v0.6 / R000006",
-  "PROMOTED": true,
-  "PROMOTION_COMMIT": null,
+  "PROMOTED": false,
+  "PROMOTION_COMMIT": "425db6c493c0c923aa02f3de1a9ddac90ce38fda",
   "PROMOTION_GATE": {
     "all_mandatory_green": true,
     "mandatory_gates": [
@@ -450,7 +453,8 @@
     ],
     "physical_materiality_gate": "UNRESOLVED",
     "physical_reference_gate": "UNQUALIFIED",
-    "status": "PASS"
+    "remote_publication_gate": "TECHNICAL_BLOCK",
+    "status": "LOCAL_VALIDATION_PASS_REMOTE_PUBLICATION_BLOCKED"
   },
   "PROTECTED_PRE_PROMOTION_INPUTS": 189,
   "PROVENANCE": {
@@ -976,7 +980,7 @@
   "RECOMMENDED_EXECUTION_TIER": "TIER 3 for controlled release; TIER 2 for scoped evidence integration",
   "RECOMMENDED_MODE": "Work Mode / autonomous repository execution",
   "RECOMMENDED_REASONING_LEVEL": "High for bounded integration; maximum for independent release audit.",
-  "REMOTE_PUBLICATION": "PENDING",
+  "REMOTE_PUBLICATION": "BLOCKED_NO_REMOTE_WRITE",
   "REMOTE_VERIFICATION_COMMIT": null,
   "REPRODUCIBILITY_SCOPE": "Model admission can be reconstructed from pinned original workflow artifact, source SHA, archived manuscripts, exact bounded excerpts, candidate diff, frozen accepted versions, validators and real Git history. Original physical solver/history refinement was not rerun in this update.",
   "RESOLVED_CONTRADICTIONS": [],
@@ -999,7 +1003,7 @@
   "SOURCE_REPOSITORY": "Morfindien/Bubbleverse",
   "SOURCE_REPOSITORY_COMMIT": "a9a5777b5923f32930cd9c84a49227ba36249326",
   "SOURCE_REPOSITORY_MODIFIED": false,
-  "STOP_STATE": "LOCAL_PROMOTION_REMOTE_PUBLICATION_PENDING",
+  "STOP_STATE": "TECHNICAL_BLOCK",
   "SUPERSEDED_ITEMS": [],
   "TARGET_MODEL_REPOSITORY": "Morfindien/bubbleverse-model",
   "TARGET_Q": "Q045",
@@ -1130,8 +1134,9 @@
     "gpt-6-astra max independent review"
   ],
   "TOOL_FAILURES": [
-    "Initial guessed accepted-state and AGENTS paths returned 404; complete tree discovery resolved canonical paths. No blocking access failure.",
-    "Pre-release controls exposed stale snapshot-diff routing and incomplete qualification checks; fixed with regression tests."
+    "Initial guessed accepted-state and AGENTS paths returned 404; complete tree discovery resolved canonical paths.",
+    "Pre-release controls exposed stale snapshot-diff routing and incomplete qualification checks; fixed with regression tests.",
+    "Shell publication failed: no GitHub credential; connected GitHub create_blob returned HTTP 403 Resource not accessible by integration. Repository metadata reports user push rights, but the integration cannot write."
   ],
   "TOOL_PURPOSES": {
     "GitHub": "Pin both repository heads, verify V2 execution and retrieve original artifact",

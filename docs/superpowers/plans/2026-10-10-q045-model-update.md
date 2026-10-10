@@ -41,3 +41,7 @@
 - [x] Obtain an independent review; fix substantive findings and rerun affected tests.
 - [x] Promote only a fully passing candidate; freeze v0.7; create report and release handoff.
 - [ ] Commit and publish with a checked remote-head lease; verify remote files and head.
+
+## Publication outcome
+
+Local candidate, promotion and validation completed. Git push could not authenticate; the connected GitHub create-blob request returned HTTP 403. Both remote heads were rechecked and are unchanged. The remaining publish/verify task is blocked by integration access. An exact Git bundle and installation handoff preserve the real candidate and local promotion commits.
