@@ -1,0 +1,119 @@
+name: "INSTALL Q045 MODEL v0.7"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bubbleverse-q045-installation
+  cancel-in-progress: false
+
+jobs:
+  install:
+    if: github.repository == 'Morfindien/bubbleverse-model' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate and install the exact Q045 release
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "${GITHUB_REPOSITORY}" = "Morfindien/bubbleverse-model"
+          test "${GITHUB_REF_NAME}" = "main"
+          BASE=bba3528250b3d56c451bf5ca363b0d75120acb03
+          PACKAGED=9654b55573de5c704bb52123fd112f6d8206baa6
+          BUNDLE=Bubbleverse_Q045_v0.7.bundle
+          INPUT_HEAD=$(git rev-parse HEAD)
+          test -z "$(git status --porcelain)"
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$INPUT_HEAD" || { echo 'REMOTE_HEAD_CHANGED'; exit 1; }
+          if git cat-file -e "$PACKAGED^{commit}" 2>/dev/null && git merge-base --is-ancestor "$PACKAGED" HEAD; then
+            echo 'ALREADY_INSTALLED: the exact packaged Q045 installation is in main history.'
+            exit 0
+          fi
+          test "$INPUT_HEAD" = "$GITHUB_SHA" || { echo 'REMOTE_HEAD_CHANGED'; exit 1; }
+          python - <<'PY'
+          import subprocess
+          base='bba3528250b3d56c451bf5ca363b0d75120acb03'
+          allowed={'.github/workflows/install-q045-model-v07.yml','Bubbleverse_Q045_v0.7.bundle'}
+          changed=set(subprocess.check_output(['git','diff','--name-only',base,'HEAD'],text=True).splitlines())
+          if not changed <= allowed:
+              raise SystemExit('BASE_CHANGED: repository changes require a new review: '+', '.join(sorted(changed-allowed)))
+          PY
+          echo 'fd1bb405dbde3b357543ac1ed301253fedd4df8a0faed69d2c8d712ce24aaf36  Bubbleverse_Q045_v0.7.bundle' | sha256sum --check -
+          git bundle verify "$BUNDLE"
+          git fetch "$BUNDLE" refs/heads/q045-model-update:refs/heads/q045-packaged-installation
+          test "$(git rev-parse q045-packaged-installation)" = "$PACKAGED"
+          git config user.name "Bubbleverse Q045 Installer"
+          git config user.email "q045-installer@users.noreply.github.com"
+          git merge --no-ff --no-commit "$PACKAGED"
+          python tests/programs/q045_model_validate.py
+          python tests/programs/model_campaign.py validate
+          python -m unittest discover -s tests/programs
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,subprocess,sys
+          def scientific_hashes():
+              return {str(p):hashlib.sha256(p.read_bytes()).hexdigest()
+                      for folder in ('accepted','candidate','model','evidence','versions')
+                      for p in Path(folder).rglob('*') if p.is_file()}
+          before=scientific_hashes()
+          lines=Path('.github/workflows/00-bubbleverse-model-start-public.yml').read_text().splitlines()
+          start=next(i for i,line in enumerate(lines) if line.strip()=="python - <<'PY'")
+          finish=next(i for i in range(start+1,len(lines)) if lines[i].strip()=='PY')
+          code='\n'.join(line[10:] if line.startswith(' '*10) else line for line in lines[start+1:finish])
+          result=subprocess.run([sys.executable,'-c',code],env={**os.environ,'BV_OPERATION':'test','BV_INPUT':''},text=True,capture_output=True)
+          if result.returncode:
+              print(result.stdout);print(result.stderr);raise SystemExit(result.returncode)
+          report=json.loads(result.stdout)
+          assert report['all_green'] and report['tests_passed']==20 and report['tests_failed']==0, report
+          assert scientific_hashes()==before, 'Public healthcheck changed scientific state'
+          print('PUBLIC_HEALTHCHECK=20/20; NON_DESTRUCTIVE=PASS')
+          PY
+          python - <<'PY'
+          from datetime import datetime,timezone
+          from pathlib import Path
+          import json,os,subprocess
+          d={'target_q':'Q045','accepted_version':'v0.7','model_revision':'R000007',
+             'all_validation_green':True,'Q045_gates':'10/10','scientific_campaign':'14/14',
+             'formal_gates':'13/13','public_healthcheck':'20/20','public_test_non_destructive':True,
+             'regression_suite_exit_code':0,'source_repository_commit':'a9a5777b5923f32930cd9c84a49227ba36249326',
+             'previous_remote_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+             'candidate_commit':'760864e934d3ccbfb113cbac60807749554a2443',
+             'local_promotion_commit':'425db6c493c0c923aa02f3de1a9ddac90ce38fda',
+             'packaged_installation_commit':'9654b55573de5c704bb52123fd112f6d8206baa6',
+             'workflow_run_id':os.environ['GITHUB_RUN_ID'],'workflow_run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],
+             'validated_at_utc':datetime.now(timezone.utc).isoformat(),
+             'physical_reference_gate':'UNQUALIFIED','physical_materiality_gate':'UNRESOLVED',
+             'source_repository_modified':False,'production_authorized':False,
+             'publication_semantics':'The installation is published only when the commit containing this receipt is reachable on remote main. The workflow independently verifies the remote head after pushing.'}
+          Path('provenance/Q045_GITHUB_INSTALLATION_RECEIPT.json').write_text(json.dumps(d,indent=2,sort_keys=True)+'\n')
+          p=Path('README.md');s=p.read_text()
+          old='- Full report: `provenance/Q045_MODEL_UPDATE_REPORT.json`. Publication is blocked: this is the locally prepared v0.7 installation; remote main remains v0.6/Q044. See `provenance/Q045_REMOTE_PUBLICATION_BLOCK.json`.'
+          assert old in s, 'Unexpected README; review is required'
+          s=s.replace(old,'- Q045 installation validation: `provenance/Q045_GITHUB_INSTALLATION_RECEIPT.json`. The original update report and access-block record preserve the earlier preparation run; the installation workflow verifies publication separately.')
+          p.write_text(s)
+          PY
+          git add README.md provenance/Q045_GITHUB_INSTALLATION_RECEIPT.json
+          git commit -m "Install validated Q045 v0.7 and preserve exact candidate/promotion history"
+          INSTALLATION_HEAD=$(git rev-parse HEAD)
+          REMOTE_HEAD=$(git ls-remote origin refs/heads/main | cut -f1)
+          test "$REMOTE_HEAD" = "$INPUT_HEAD" || { echo 'REMOTE_HEAD_CHANGED: nothing was pushed'; exit 1; }
+          git push origin HEAD:main
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$INSTALLATION_HEAD"
+          {
+            echo '## Q045 installation verified'
+            echo ''
+            echo "Accepted model: v0.7 / R000007 through Q045."
+            echo "Remote installation commit: $INSTALLATION_HEAD"
+            echo 'Q045 gates 10/10; scientific campaign 14/14; formal gates 13/13; public healthcheck 20/20.'
+            echo 'Physical reference UNQUALIFIED; physical materiality UNRESOLVED; no production run.'
+          } >> "$GITHUB_STEP_SUMMARY"
