@@ -14,7 +14,7 @@
       "mandatory_for_promotion": false,
       "target_component": "Q identity and boundary schema",
       "test_id": "T-BV-001",
-      "why_test_matters": "Accepted/candidate identity must match Q001-Q044 / CURRENT_Q Q044."
+      "why_test_matters": "Accepted/candidate identity must match Q001-Q045 / CURRENT_Q Q045."
     },
     {
       "category": "MANDATORY_PROMOTION",
@@ -22,7 +22,7 @@
       "mandatory_for_promotion": false,
       "target_component": "High-Q contamination scan",
       "test_id": "T-BV-002",
-      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q044."
+      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q045."
     },
     {
       "category": "REGRESSION",

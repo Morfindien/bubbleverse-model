@@ -1,0 +1,17 @@
+{
+  "archives": [
+    {
+      "classification": "ARCHIVE",
+      "git_blob_sha": "010cee93b37af3378452898ff35f53a663ff9580",
+      "new_path": "provenance/cleanup/archive/153713357ad029f05a32a45e9189c3ae3293aff1/CLEANUP_REPORT.json",
+      "old_path": "CLEANUP_REPORT.json",
+      "provenance_status": "PRESERVED_EXACT_BYTES_AND_REACHABLE_INPUT_GIT",
+      "reason": "Exact historical delivery uploaded to root",
+      "references_updated": [],
+      "sha256": "7282ad0550cab5bcc64f2f445dcabd4eea33eaf0daa1e227d076c9f97c3f33f9"
+    }
+  ],
+  "head_before": "ffd262cc24a32611d05191a59e0b8d7f992bfee6",
+  "reference_scope": "HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE",
+  "scientific_change": false
+}
