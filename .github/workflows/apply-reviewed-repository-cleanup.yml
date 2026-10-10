@@ -1,0 +1,180 @@
+name: Apply reviewed repository cleanup
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bubbleverse-model-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  cleanup:
+    if: github.repository == 'Morfindien/bubbleverse-model' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Audit and validate contents-only cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          from datetime import datetime, timezone
+          import ast, base64, hashlib, json, os, re, subprocess, tempfile
+          import repository_cleanup as engine
+          
+          repo=Path.cwd()
+          BASE='153713357ad029f05a32a45e9189c3ae3293aff1'
+          PATCH_B64='ZGlmZiAtLWdpdCBhL3Rlc3RzL1RFU1RfUExBTl9DVVJSRU5ULm1kIGIvdGVzdHMvVEVTVF9QTEFOX0NVUlJFTlQubWQKaW5kZXggM2ZjZjcyOS4uYzk1ZmJmMiAxMDA2NDQKLS0tIGEvdGVzdHMvVEVTVF9QTEFOX0NVUlJFTlQubWQKKysrIGIvdGVzdHMvVEVTVF9QTEFOX0NVUlJFTlQubWQKQEAgLTEsNSArMSw1IEBACi0jIEN1cnJlbnQgdmFsaWRhdGlvbiBwbGFuOiBRMDQ0L3YwLjYKKyMgQ3VycmVudCB2YWxpZGF0aW9uIHBsYW46IFEwNDUvdjAuNwogCi1SdW4gYHB5dGhvbjMgdGVzdHMvcHJvZ3JhbXMvZm9ybWFsX21vZGVsX3ZhbGlkYXRlLnB5YCwgYHB5dGhvbjMgdGVzdHMvcHJvZ3JhbXMvcTA0NF9tb2RlbF92YWxpZGF0ZS5weWAsIGBweXRob24zIHRlc3RzL3Byb2dyYW1zL21vZGVsX2NhbXBhaWduLnB5IHZhbGlkYXRlYCwgYW5kIGBweXRob24zIC1tIHVuaXR0ZXN0IGRpc2NvdmVyIC1zIHRlc3RzL3Byb2dyYW1zIC1wICJ0ZXN0Ki5weSJgLgorUnVuIGBweXRob24zIHRlc3RzL3Byb2dyYW1zL2Zvcm1hbF9tb2RlbF92YWxpZGF0ZS5weWAsIGBweXRob24zIHRlc3RzL3Byb2dyYW1zL3EwNDVfbW9kZWxfdmFsaWRhdGUucHlgLCBgcHl0aG9uMyB0ZXN0cy9wcm9ncmFtcy9tb2RlbF9jYW1wYWlnbi5weSB2YWxpZGF0ZWAsIGFuZCBgcHl0aG9uMyAtbSB1bml0dGVzdCBkaXNjb3ZlciAtcyB0ZXN0cy9wcm9ncmFtcyAtcCAidGVzdCoucHkiYC4KIAogVGhlIHBlcm1hbmVudCBwdWJsaWMgd29ya2Zsb3cgYHRlc3RgIG9wZXJhdGlvbiBwZXJmb3JtcyByZWFkLW9ubHkgY3VycmVudCB2YWxpZGF0aW9uIGFuZCBzeXN0ZW0gaGVhbHRoY2hlY2tzLiBIaXN0b3JpY2FsIHJlZ2lzdGVyZWQgZ2F0ZXMgYW5kIHNvdXJjZSBsaW5lYWdlIHJlbWFpbiByZXF1aXJlZC4gUmVncmVzc2lvbiB0ZXN0cyB1c2UgZGlzcG9zYWJsZSBjb3BpZXMgZm9yIGZhaWx1cmUgaW5qZWN0aW9uLiBPcmlnaW5hbCBudW1lcmljYWwgdHJhamVjdG9yaWVzIGFyZSBub3QgcmVydW4uCmRpZmYgLS1naXQgYS90ZXN0cy90ZXN0X3JlZ2lzdHJ5Lmpzb24gYi90ZXN0cy90ZXN0X3JlZ2lzdHJ5Lmpzb24KaW5kZXggM2RkM2M2YS4uZmZjNWFlYyAxMDA2NDQKLS0tIGEvdGVzdHMvdGVzdF9yZWdpc3RyeS5qc29uCisrKyBiL3Rlc3RzL3Rlc3RfcmVnaXN0cnkuanNvbgpAQCAtMTQsNyArMTQsNyBAQAogICAgICAgIm1hbmRhdG9yeV9mb3JfcHJvbW90aW9uIjogZmFsc2UsCiAgICAgICAidGFyZ2V0X2NvbXBvbmVudCI6ICJRIGlkZW50aXR5IGFuZCBib3VuZGFyeSBzY2hlbWEiLAogICAgICAgInRlc3RfaWQiOiAiVC1CVi0wMDEiLAotICAgICAgIndoeV90ZXN0X21hdHRlcnMiOiAiQWNjZXB0ZWQvY2FuZGlkYXRlIGlkZW50aXR5IG11c3QgbWF0Y2ggUTAwMS1RMDQ0IC8gQ1VSUkVOVF9RIFEwNDQuIgorICAgICAgIndoeV90ZXN0X21hdHRlcnMiOiAiQWNjZXB0ZWQvY2FuZGlkYXRlIGlkZW50aXR5IG11c3QgbWF0Y2ggUTAwMS1RMDQ1IC8gQ1VSUkVOVF9RIFEwNDUuIgogICAgIH0sCiAgICAgewogICAgICAgImNhdGVnb3J5IjogIk1BTkRBVE9SWV9QUk9NT1RJT04iLApAQCAtMjIsNyArMjIsNyBAQAogICAgICAgIm1hbmRhdG9yeV9mb3JfcHJvbW90aW9uIjogZmFsc2UsCiAgICAgICAidGFyZ2V0X2NvbXBvbmVudCI6ICJIaWdoLVEgY29udGFtaW5hdGlvbiBzY2FuIiwKICAgICAgICJ0ZXN0X2lkIjogIlQtQlYtMDAyIiwKLSAgICAgICJ3aHlfdGVzdF9tYXR0ZXJzIjogIlNjaWVudGlmaWMgY2FuZGlkYXRlL2V2aWRlbmNlIEpTT04gbXVzdCBjb250YWluIG5vIFEgaWRlbnRpZmllciBhYm92ZSBRMDQ0LiIKKyAgICAgICJ3aHlfdGVzdF9tYXR0ZXJzIjogIlNjaWVudGlmaWMgY2FuZGlkYXRlL2V2aWRlbmNlIEpTT04gbXVzdCBjb250YWluIG5vIFEgaWRlbnRpZmllciBhYm92ZSBRMDQ1LiIKICAgICB9LAogICAgIHsKICAgICAgICJjYXRlZ29yeSI6ICJSRUdSRVNTSU9OIiwK'
+          PATCH_HASH='642c21f100fef25c8a31ea77624f272b211700a0ae978c49ff5ba781ef3b43ed'
+          SELF='.github/workflows/apply-reviewed-repository-cleanup.yml'
+          RECORD='provenance/cleanup/cleanup_'+BASE+'_contents_only.json'
+          UPDATE_PATHS={'tests/TEST_PLAN_CURRENT.md','tests/test_registry.json'}
+          DELIVERY_HASHES={'CLEANUP_REPORT.json':'7282ad0550cab5bcc64f2f445dcabd4eea33eaf0daa1e227d076c9f97c3f33f9','CLEANUP_REPORT.md':'9d6ef2cea0a21b76522c147166a3eee3557ac8f04d4fb509ab15771ac522eca7','INSTALL_CLEANUP.md':'a29a75b9d7802efc473c5b2c8900988648c7f4f140a65b987fc26e4aa54c79d5'}
+          ARCHIVE_INDEX='provenance/cleanup/archive_manifest_reviewed_delivery_'+BASE+'.json'
+          
+          def git(*args):
+              return subprocess.check_output(['git',*args],text=True).strip()
+          
+          def workflow_gate(paths):
+              forbidden=[p for p in paths if p.startswith('.github/workflows/')]
+              assert not forbidden, 'Workflow permission boundary: no workflow changes can be published: '+str(forbidden)
+          
+          def reference_text(path,text):
+              if not path.endswith('.py'):return text
+              class FoldStrings(ast.NodeTransformer):
+                  def visit_BinOp(self,node):
+                      node=self.generic_visit(node)
+                      if isinstance(node.op,ast.Add) and isinstance(node.left,ast.Constant) and isinstance(node.right,ast.Constant) and isinstance(node.left.value,str) and isinstance(node.right.value,str):
+                          return ast.copy_location(ast.Constant(value=node.left.value+node.right.value),node)
+                      return node
+              try:return ast.unparse(FoldStrings().visit(ast.parse(text)))
+              except SyntaxError:return text
+          
+          assert git('status','--porcelain')=='', 'Local changes; no cleanup applied'
+          subprocess.run(['git','merge-base','--is-ancestor',BASE,'HEAD'],check=True)
+          head_before=git('rev-parse','HEAD')
+          work=Path(os.environ.get('RUNNER_TEMP',tempfile.gettempdir()))/'reviewed-cleanup-validation'
+          work.mkdir(exist_ok=True)
+          changed=set(git('diff','--name-only','--no-renames',BASE,'HEAD').splitlines())
+          allowed={SELF}|set(DELIVERY_HASHES)
+          completed=(repo/RECORD).exists()
+          if completed:
+              allowed|=UPDATE_PATHS|{RECORD,ARCHIVE_INDEX}|{'provenance/cleanup/archive/'+BASE+'/'+p for p in DELIVERY_HASHES}
+          assert not changed-allowed, 'Repository changed outside reviewed structural paths; new audit required: '+str(sorted(changed-allowed))
+          assert hashlib.sha256((repo/'repository_cleanup.py').read_bytes()).hexdigest()=='7412717b64c32d5225ee8c614341a86d9ccbb31975a5046220ea4695c5bd09b1'
+          entries,baseline_texts,documents,errors,_=engine.inventory(repo)
+          assert not errors
+          before={p:e['sha256'] for p,e in entries.items()}
+          audit,_=engine.audit(repo)
+          (work/'full-audit.json').write_text(json.dumps(audit,indent=2)+'\n')
+          pre_dir=work/'pre';pre_dir.mkdir(exist_ok=True)
+          pre=engine.validate(repo,pre_dir)
+          if completed:
+              prior=json.loads((repo/RECORD).read_text())
+              assert prior['audited_base']==BASE and prior['target_repo']=='Morfindien/bubbleverse-model'
+              assert all(prior[k] is False for k in ('scientific_change','accepted_state_changed','model_version_changed','q_boundary_changed'))
+              subprocess.run(['git','merge-base','--is-ancestor',prior['head_before'],'HEAD'],check=True)
+              for p,h in prior['protected_hashes'].items():assert before.get(p)==h, 'Previously protected bytes changed: '+p
+              for row in prior['archive_ledger']:
+                  assert before.get(row['new_path'])==row['sha256'] and not (repo/row['old_path']).exists()
+                  assert engine.historical_reference(repo,row['new_path'],documents)
+              assert not engine.metadata_updates(repo,entries,documents,engine.discover(repo,documents))
+              result={'cleanup_status':'PARTIAL_CLEAN','already_applied':True,'head_input':head_before,'validation':pre,'scientific_change':False,'publication':'NO_NEW_COMMIT_REQUIRED'}
+              (work/'result.json').write_text(json.dumps(result,indent=2)+'\n')
+              (work/'head-input.txt').write_text(head_before+'\n')
+              print(json.dumps(result,indent=2))
+              raise SystemExit(0)
+          
+          for p,h in DELIVERY_HASHES.items():
+              if (repo/p).exists():assert before[p]==h, 'Uploaded handoff bytes changed; new audit required: '+p
+          patch=base64.b64decode(PATCH_B64,validate=True)
+          assert hashlib.sha256(patch).hexdigest()==PATCH_HASH
+          assert all(not line.startswith(b'diff --git a/.github/workflows/') for line in patch.splitlines())
+          subprocess.run(['git','apply','--check','-'],input=patch,check=True)
+          subprocess.run(['git','apply','-'],input=patch,check=True)
+          expected=set(UPDATE_PATHS)|{RECORD}
+          archive_rows=[]
+          for path,h in DELIVERY_HASHES.items():
+              if not (repo/path).exists():continue
+              inbound=[p for p,text in baseline_texts.items() if p not in DELIVERY_HASHES and p!=SELF and re.search(r'(?<![A-Za-z0-9_-])'+re.escape(path)+r'(?![A-Za-z0-9_.-])',reference_text(p,text)) and not engine.historical_reference(repo,p,documents)]
+              assert not inbound, 'Live reference prevents archive: '+path+' <- '+str(inbound)
+              target='provenance/cleanup/archive/'+BASE+'/'+path
+              assert not (repo/target).exists(), 'Archive target exists'
+              (repo/target).parent.mkdir(parents=True,exist_ok=True)
+              (repo/path).rename(repo/target)
+              archive_rows.append({'old_path':path,'new_path':target,'sha256':h,'git_blob_sha':entries[path]['git_blob_sha'],'classification':'ARCHIVE','reason':'Exact historical delivery uploaded to root','references_updated':[],'provenance_status':'PRESERVED_EXACT_BYTES_AND_REACHABLE_INPUT_GIT'})
+              expected|={path,target}
+          if archive_rows:
+              (repo/ARCHIVE_INDEX).write_text(json.dumps({'head_before':head_before,'reference_scope':'HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE','scientific_change':False,'archives':archive_rows},indent=2,sort_keys=True)+'\n')
+              expected.add(ARCHIVE_INDEX)
+          deferred=[{'path':'.github/workflows/repository-cleanup-current.yml','action':'MANUAL_CHECKSUM_REPAIR','reason':'GITHUB_TOKEN cannot update workflow files'},{'path':'.github/workflows/install-q045-model-v07.yml','action':'KEEP_UNTIL_MANUAL_REVIEWED_REMOVAL','reason':'GITHUB_TOKEN cannot delete workflow files'},{'path':SELF,'action':'KEEP_DELIVERY_WORKFLOW','reason':'GITHUB_TOKEN cannot delete workflow files'}]
+          record={'schema_version':'1.0','target_repo':'Morfindien/bubbleverse-model','mode':'CLEAN','date_time':datetime.now(timezone.utc).isoformat(),'head_before':head_before,'audited_base':BASE,'reference_scope':'HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE','scientific_change':False,'accepted_state_changed':False,'model_version_changed':False,'q_boundary_changed':False,'local_cleanup_status':'PARTIAL_CLEAN','pre_cleanup_tests':pre,'post_cleanup_tests':None,'deletion_ledger':[],'archive_ledger':archive_rows,'updated_files':sorted(UPDATE_PATHS),'deferred_workflow_actions':deferred,'review_required':['Bubbleverse_Q045_v0.7.bundle'],'protected_hashes':{p:h for p,h in before.items() if p not in expected},'publication_semantics':'This transaction is published only when its containing commit is reachable on remote default branch; the workflow verifies remote HEAD after pushing.'}
+          (repo/RECORD).parent.mkdir(parents=True,exist_ok=True)
+          (repo/RECORD).write_text(json.dumps(record,indent=2,sort_keys=True)+'\n')
+          subprocess.run(['git','add','--all'],check=True)
+          staged=set(git('diff','--cached','--name-only','--no-renames').splitlines())
+          workflow_gate(staged)
+          assert staged==expected, 'Unexpected structural diff: '+str(staged^expected)
+          post_dir=work/'post';post_dir.mkdir(exist_ok=True)
+          post=engine.validate(repo,post_dir)
+          after,texts,documents,errors,_=engine.inventory(repo)
+          assert not errors
+          for p,h in record['protected_hashes'].items():assert p in after and after[p]['sha256']==h, 'Protected bytes changed: '+p
+          for row in archive_rows:
+              assert after[row['new_path']]['sha256']==before[row['old_path']]
+              assert engine.historical_reference(repo,row['new_path'],documents), 'Archive lineage failed'
+          assert not engine.metadata_updates(repo,after,documents,engine.discover(repo,documents))
+          assert (repo/'Bubbleverse_Q045_v0.7.bundle').exists()
+          for p,text in texts.items():
+              if p==SELF or engine.historical_reference(repo,p,documents):continue
+              for target in set(before)-set(after):
+                  assert not any(re.search(r'(?<![A-Za-z0-9_-])'+re.escape(name)+r'(?![A-Za-z0-9_.-])',reference_text(p,text)) for name in {target,Path(target).name}), 'Retained reference to archived target: '+p+' -> '+target
+          record.update(post_cleanup_tests=post,workflow_permission_gate='PASS',protected_files_verified=len(record['protected_hashes']),snapshot_files_preserved=sum(p.startswith('versions/accepted/') for p in before),validation_state='ALL_APPLICABLE_LOCAL_GATES_PASS')
+          (repo/RECORD).write_text(json.dumps(record,indent=2,sort_keys=True)+'\n')
+          json.loads((repo/RECORD).read_text())
+          subprocess.run(['git','add',RECORD],check=True)
+          subprocess.run(['git','diff','--cached','--check'],check=True)
+          workflow_gate(git('diff','--cached','--name-only','--no-renames').splitlines())
+          result={k:v for k,v in record.items() if k!='protected_hashes'}
+          result.update(head_input=head_before,cleanup_status='PARTIAL_CLEAN',delivery_workflow_removed=False)
+          (work/'result.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps(result,indent=2))
+          if os.environ.get('GITHUB_ACTIONS')=='true':
+              remote=git('ls-remote','origin','refs/heads/'+os.environ['GITHUB_REF_NAME']).split()[0]
+              assert remote==head_before, 'Concurrent remote change; commit blocked'
+          subprocess.run(['git','-c','user.name=Bubbleverse Repository Cleanup','-c','user.email=bubbleverse-cleanup@users.noreply.github.com','commit','-m','Repository cleanup: sync validation metadata and archive reviewed handoff'],check=True)
+          workflow_gate(git('diff','--name-only','--no-renames',head_before,'HEAD').splitlines())
+          (work/'head-input.txt').write_text(head_before+'\n')
+          PY
+      - name: Publish only if remote HEAD is unchanged
+        shell: bash
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          expected=$(cat "$RUNNER_TEMP/reviewed-cleanup-validation/head-input.txt")
+          actual=$(git ls-remote origin "refs/heads/$DEFAULT_BRANCH" | cut -f1)
+          test "$actual" = "$expected"
+          git diff --name-only --no-renames "$expected" HEAD > "$RUNNER_TEMP/reviewed-cleanup-validation/published-paths.txt"
+          if grep -q "^\.github/workflows/" "$RUNNER_TEMP/reviewed-cleanup-validation/published-paths.txt"; then
+            echo "Workflow changes blocked before push"
+            exit 1
+          fi
+          git push origin "HEAD:refs/heads/$DEFAULT_BRANCH"
+          actual=$(git ls-remote origin "refs/heads/$DEFAULT_BRANCH" | cut -f1)
+          test "$actual" = "$(git rev-parse HEAD)"
+          echo "PARTIAL_CLEAN: contents-only cleanup published; workflow changes require manual upload; historical bundle preserved." >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve audit and validation output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-repository-cleanup-validation
+          path: ${{ runner.temp }}/reviewed-cleanup-validation/
+          if-no-files-found: warn
