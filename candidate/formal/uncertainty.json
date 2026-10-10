@@ -1,5 +1,5 @@
 {
-  "q_access_end": "Q044",
+  "q_access_end": "Q045",
   "schema_version": 1,
   "uncertainties": [
     {
@@ -111,6 +111,34 @@
       "statement": "Conditional rails and independent-box extrema do not qualify complete physical histories or establish attainability of component bounds.",
       "status": "OPEN_METHOD_UNCERTAINTY",
       "type": "source_rail_and_correlated_history_uncertainty"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-APPENDICES"
+      ],
+      "id": "UNC-Q045-REFINEMENT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "Joint refinement, accepted-redshift calibration and support selection drift are not an isolated error estimate. Complete-history continuum remainder and applicable physical error budget remain unqualified.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "coupled_solver_grid_calibration_and_selector_uncertainty"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES"
+      ],
+      "id": "UNC-Q045-MATERIALITY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "No isolated 10/01/11 response or original qualified inference margins were computed; baseline starts are not optimized minima. Physical materiality remains unresolved.",
+      "status": "OPEN_METHOD_UNCERTAINTY",
+      "type": "downstream_likelihood_and_optimization_uncertainty"
     }
   ]
 }

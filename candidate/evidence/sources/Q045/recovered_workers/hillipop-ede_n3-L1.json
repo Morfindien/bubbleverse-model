@@ -1,0 +1,122 @@
+{
+  "q": "Q-045",
+  "program_id": "Q045-REFHIST-V2",
+  "case_id": "NOT DOCUMENTED",
+  "scientific_question": "For the frozen Q041 ΛCDM and n_scf=3 EDE configurations, does replacing only the native optical-depth integration functional with a convergent Thomson-integral reference, at identical requested tau_reio and otherwise unchanged physical inputs, alter CMB TT/TE/EE predictions and native likelihood values enough to threaten the original H0/EDE decision margins?",
+  "config_sha256": "996a713e0bf17d7239a00f73e013617fbf4f014b6b6eaea1db24a37660da5d44",
+  "source_program_id": "Q045-REFHIST-V1",
+  "source_run_id": "38039690879",
+  "source_execution_commit": "849f33d54d31c58c58cba37d5134e240987741fe",
+  "run_id": "38042718814",
+  "execution_commit": "a9a5777b5923f32930cd9c84a49227ba36249326",
+  "execution_mode": "OFFLINE_ARTIFACT_REANALYSIS_ONLY",
+  "new_theory_evaluations": 0,
+  "final_result_gate": "UNRESOLVED",
+  "reference_truth_gate": "UNQUALIFIED",
+  "reference_error_bound": null,
+  "production_restart_authorized": false,
+  "automatic_continuation": false,
+  "full_matrix_budget_gate": "FAIL_FOR_UNMODIFIED_48_FULL_PLAN_AFTER_THIS_STAGE",
+  "next_motor": "Result Ingestion & Routing Engine",
+  "job_id": "hillipop-ede_n3-L1",
+  "original_status": "FAILED",
+  "original_error": "ValueError: UNCHANGED_PHYSICAL_NORMALIZATION YHe",
+  "original_worker_sha256": "a46a8613e2f91ce2e249d13d1c1daf1d3b7a5446ac76d5c0cbadbe25b917f5ad",
+  "recovery_status": "COMPLETE",
+  "history_diagnostic_gate": "PASS_COMPONENT_ONLY",
+  "analysis": {
+    "normalization_comparison": {
+      "YHe_old": 0.24532709446649748,
+      "YHe_new": 0.2453270944664975,
+      "YHe_delta": 2.7755575615628914e-17,
+      "YHe_ulp_distance": 1,
+      "YHe_bitwise_equal": false,
+      "YHe_is_BBN_derived": true,
+      "normalization_constants_bitwise_equal": true,
+      "scope": "At most one binary64 ULP in BBN-derived output only; explicit inputs and opacity normalization remain exact.",
+      "physical_reference_qualified": false
+    },
+    "level": 1,
+    "native_rows": 56666,
+    "source_rows": 183340,
+    "calibration": {
+      "requested_tau": 0.05150685267029027,
+      "relative_tolerance": 5e-05,
+      "initial_bracket_tau": [
+        5.235454997064837e-06,
+        0.6976863113173639
+      ],
+      "accepted_bracket_tau": [
+        0.0515053954531756,
+        0.05150706419907041
+      ],
+      "accepted_bracket_z": [
+        7.498619079589844,
+        7.4987945556640625
+      ],
+      "last_trial_residual": -1.4572171146698398e-06,
+      "bisection_trials": 18,
+      "native_stopping_condition_met": true,
+      "reconstruction": "Replay of the pinned branch comparison; no smooth monotonicity assumption through selector jumps"
+    },
+    "effective_precision_changed": [
+      "tol_thermo_integration",
+      "thermo_integration_stepsize",
+      "thermo_Nz_lin",
+      "thermo_Nz_log",
+      "reionization_sampling",
+      "reionization_optical_depth_tol",
+      "tol_background_integration",
+      "background_integration_stepsize",
+      "background_Nloga"
+    ],
+    "opacity_normalization_max_relative_residual": 4.434748059763941e-16,
+    "native_plus_replay_max_abs": 1.1641532182693481e-09,
+    "cubic_gauss2_max_abs": 3.637978807091713e-12,
+    "windows": {
+      "30": {
+        "plus_minus_max_abs": 1.4353846695958072e-07,
+        "redshift16_32_max_abs": 1.3877787807814457e-17,
+        "redshift32_eta_cubic_max_abs": 1.5954092817682675e-08
+      },
+      "50": {
+        "plus_minus_max_abs": 1.4353846695958072e-07,
+        "redshift16_32_max_abs": 1.3877787807814457e-17,
+        "redshift32_eta_cubic_max_abs": 1.5954293261510877e-08
+      },
+      "1500": {
+        "plus_minus_max_abs": 5.948279994782979e-06,
+        "redshift16_32_max_abs": 8.881784197001252e-16,
+        "redshift32_eta_cubic_max_abs": 9.291593627835937e-08
+      },
+      "5000000.000000003": {
+        "plus_minus_max_abs": 0.4002551988232881,
+        "redshift16_32_max_abs": 3.4924596548080444e-10,
+        "redshift32_eta_cubic_max_abs": 0.0666246993932873
+      }
+    },
+    "last_scalar": {
+      "event": "scalar",
+      "call": 20,
+      "status": 0,
+      "argmin": 1461,
+      "support_rows": 1461,
+      "tau": 0.0515053954531756,
+      "z_reio": 7.498619079589844,
+      "reio_start": 11.498619079589844,
+      "endpoint_z": 10.951095109510952,
+      "components": {
+        "plus": 0.0515053954531756,
+        "minus": 0.051505293048534614,
+        "gauss2": 0.051505293048534614
+      }
+    },
+    "negative_redshift_depth_increments": 0,
+    "native_underflow_rows": 23095,
+    "reference_truth_gate": "UNQUALIFIED",
+    "reference_error_bound": null,
+    "quadrature_scope": "Cubic total xe and linear sampled H in z; exact cubic q in eta. Representation differences only.",
+    "species_workspace_qualified": false,
+    "physical_response": "NOT_YET_COMPUTED"
+  }
+}

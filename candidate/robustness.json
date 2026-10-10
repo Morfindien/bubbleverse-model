@@ -113,8 +113,35 @@
       "id": "ROB-Q044-CLOSURE-001",
       "q_introduced": "Q044",
       "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-REMOTE-RUN"
+      ],
+      "finding": "Verified V2 artifact records eight recovered worker histories, four common grids and zero new theory evaluations. Previous successful summaries and failed postprocessing statuses remain preserved. Scope: stored-history diagnostic recovery only.",
+      "id": "ROB-Q045-RECOVERY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES"
+      ],
+      "finding": "Native levels jointly vary nine numerical controls; four accepted-tau sequences reverse direction. Same-history quadrature agreement and empirical refinement estimates do not supply independent complete-history validation or a physical remainder enclosure.",
+      "id": "ROB-Q045-REFINEMENT-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q044",
+  "q_access_end": "Q045",
   "schema_version": 1
 }

@@ -1,86 +1,80 @@
 {
   "added": [
     {
-      "category": "CONDITIONAL_MATHEMATICAL_COMPONENT",
+      "category": "CONSTRAINTS_UPDATE",
       "evidence_refs": [
-        "EVD-Q044-COMPONENT",
-        "EVD-Q044-INGESTION",
-        "EVD-Q044-CHECKS"
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES",
+        "EVD-Q045-MAINBOOK"
       ],
-      "id": "OBS-Q044-SUPPORT-HULLS-001"
+      "id": "CON-Q045-NO-PHYSICAL-VERDICT"
     },
     {
-      "category": "QUALIFICATION_BOUNDARY",
+      "category": "CONSTRAINTS_UPDATE",
       "evidence_refs": [
-        "EVD-Q044-INGESTION",
-        "EVD-Q044-ENDPOINT-AUDIT"
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL"
       ],
-      "id": "CON-Q044-NO-DOWNSTREAM-001"
-    },
-    {
-      "category": "ROBUSTNESS_UPDATE",
-      "evidence_refs": [
-        "EVD-Q044-COMPONENT",
-        "EVD-Q044-CHECKS"
-      ],
-      "id": "ROB-Q044-COMPONENT-001"
+      "id": "CON-Q045-NO-PRODUCTION"
     },
     {
       "category": "ROBUSTNESS_UPDATE",
       "evidence_refs": [
-        "EVD-Q044-INGESTION"
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-REMOTE-RUN"
       ],
-      "id": "ROB-Q044-CLOSURE-001"
+      "id": "ROB-Q045-RECOVERY"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES"
+      ],
+      "id": "ROB-Q045-REFINEMENT-SCOPE"
     }
   ],
   "evidence_refs": [
-    "EVD-Q044-INGESTION",
-    "EVD-Q044-COMPONENT",
-    "EVD-Q044-CHECKS",
-    "EVD-Q044-ENDPOINT-AUDIT",
-    "EVD-Q044-JOURNAL",
-    "EVD-Q044-QJOURNAL-PDF",
-    "EVD-Q044-APPENDICES-PDF",
-    "EVD-Q044-MAINBOOK-PDF"
+    "EVD-Q045-RECOVERY",
+    "EVD-Q045-QJOURNAL",
+    "EVD-Q045-APPENDICES",
+    "EVD-Q045-MAINBOOK",
+    "EVD-Q045-REMOTE-RUN"
   ],
-  "from_version": "v0.5",
+  "from_version": "v0.6",
   "modified": [
-    "Authorized boundary extends Q001-Q043 to Q001-Q044 after controlled promotion"
+    "Authorized boundary advances only after controlled promotion",
+    "Formal environment provenance synchronized to real Q045 source and model input commits; historical environment metadata preserved in previous snapshots."
   ],
-  "new_assumptions": [
-    "ASSUMP-Q044-FIXED-KNOTS",
-    "ASSUMP-Q044-SOURCE-RAILS",
-    "ASSUMP-Q044-REAL-ARITHMETIC"
-  ],
+  "new_assumptions": [],
   "new_benchmarks": [],
   "new_calculations": [],
   "new_domains": [],
-  "new_equations": [
-    "EQ-Q044-SUPPORT-ADJOINT"
-  ],
+  "new_equations": [],
   "new_limitations": [
-    "LIM-Q044-COMPLETE-HISTORY",
-    "LIM-Q044-DOWNSTREAM-QUALIFICATION"
+    "LIM-Q045-REFERENCE",
+    "LIM-Q045-MATERIALITY"
   ],
   "new_parameters": [],
   "new_uncertainties": [
-    "UNC-Q044-NATIVE-ROUNDING",
-    "UNC-Q044-PHYSICAL-CORRELATION"
+    "UNC-Q045-REFINEMENT",
+    "UNC-Q045-MATERIALITY"
   ],
   "new_validity_domains": [
-    "DOM-Q044-SUPPORT-COMPONENT"
+    "DOM-Q045-STORED-HISTORY"
   ],
   "physical_model_change": false,
   "preserved": [
-    "All H0 benchmarks, cosmological parameters and physical mechanisms",
-    "All original predictions and open contradictions",
-    "All prior snapshots, source objects and claim maps",
-    "All 14 public operations and calculation schemas"
+    "All inherited evidence and scientific definitions",
+    "Physical parameters, equations, H0 benchmarks, mechanisms, predictions and open contradictions",
+    "All accepted snapshots and public operation schemas"
   ],
   "resolved_contradictions": [],
   "schema_version": 1,
   "superseded": [],
-  "target_q": "Q044",
-  "to_candidate_version": "v0.6",
+  "target_q": "Q045",
+  "to_candidate_version": "v0.7",
   "update_class": "MULTI_LAYER_UPDATE"
 }

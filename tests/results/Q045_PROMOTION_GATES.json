@@ -1,0 +1,275 @@
+{
+  "all_mandatory_green": true,
+  "candidate_validation": {
+    "all_green": true,
+    "artifact_type": "Q045_MODEL_UPDATE_VALIDATION",
+    "mode": "CANDIDATE",
+    "non_destructive": true,
+    "target_q": "Q045",
+    "tests": [
+      {
+        "detail": "Q044/v0.6 -> Q045/v0.7; no skipped Q",
+        "id": "Q045_SEQUENCE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "derived_hashes": 12,
+          "original_final_and_artifact_pins": "PASS",
+          "source_files": 25
+        },
+        "id": "Q045_SOURCE_HASH_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Technical recovery and manuscript closure admitted; physical reference/materiality unqualified",
+        "id": "Q045_QUALIFICATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "accepted_tau_reversals": 4,
+          "fresh_solver_rerun": false,
+          "grids": 4,
+          "new_theory_evaluations": 0,
+          "simultaneous_controls": 9,
+          "workers": 8
+        },
+        "id": "Q045_DIAGNOSTIC_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "All prior science, physical values, predictions, contradictions and public interfaces preserved",
+        "id": "Q045_REGRESSION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Exact traceable additions; no new calculation, fundamental equation or physical inference",
+        "id": "Q045_MODEL_DIFF_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Evidence references resolve; existing equations, assumptions, units and schemas preserved",
+        "id": "Q045_REFERENCE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "maximum_q": 45,
+          "mixed_boundary_manuscripts": "BOUNDED_EXCERPTS_ONLY",
+          "scanned_files": 144
+        },
+        "id": "Q045_FIREWALL_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Accepted immutable before promotion; all prior snapshots protected; current live/frozen match",
+        "id": "Q045_IMMUTABILITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Live run/job/artifact identity matches pinned original; real reachable model input",
+        "id": "Q045_PROVENANCE_GATE",
+        "status": "PASS"
+      }
+    ],
+    "tests_passed": 10,
+    "tests_total": 10
+  },
+  "gates": [
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "INPUT_STATE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Pinned source tree has no DOCX; operator-authorized PDF excerpts and verified original workflow result are used under the existing repository substitute convention. No Word history exhaustiveness claimed.",
+      "id": "WORD_DISCOVERY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "No Word input exists; all three raw PDF and bounded excerpt hashes are recorded and verified separately.",
+      "id": "WORD_HASH_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "Q_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "Q_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "HIGH_Q_CONTAMINATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PLUGIN_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "MODEL_DIFF_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "SCIENTIFIC_CONSISTENCY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Original workflow final and archive hash verified. Closure comes from operator manuscript; unavailable original post-run closure ingestion/journal and unverified reported digest remain explicitly disclosed.",
+      "id": "EVIDENCE_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "No external scientific evidence or literature admitted.",
+      "id": "EXTERNAL_SOURCE_AUTHORITY_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PARAMETER_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "EQUATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "ASSUMPTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "UNCERTAINTY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "DOMAIN_OF_VALIDITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "LIMITATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "BENCHMARK_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "CONTRADICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PREDICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "ROBUSTNESS_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "FORMAL_MODEL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "CALCULATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "KNOWN_ANSWER_TEST_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "INVALID_INPUT_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "72 regression tests pass; 17 Q045 mutation/read-only tests pass in candidate and projected accepted states.",
+      "id": "REGRESSION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PLUGIN_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PLUGIN_DEPENDENCY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "ACCEPTED_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "ACCEPTED_PATH_ISOLATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Projected release passes healthcheck; actual promotion permitted only after this complete audit.",
+      "id": "PROMOTION_STATE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "REAL_COMMIT_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "REPRODUCIBILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "FINAL_AUDIT_GATE",
+      "status": "PASS"
+    }
+  ],
+  "independent_review": {
+    "critical_findings": 0,
+    "important_findings": 4,
+    "important_findings_addressed": 4,
+    "proof": "Five new semantic/mapping mutation tests and prior live-evidence tampering regression demonstrated RED then GREEN; manuscript origins corrected.",
+    "reasoning_effort": "max",
+    "reviewer_model": "gpt-6-astra"
+  },
+  "native_or_physical_solver_rerun": false,
+  "physical_materiality_gate": "UNRESOLVED",
+  "physical_reference_gate": "UNQUALIFIED",
+  "projected_public_healthcheck": {
+    "all_green": true,
+    "non_destructive_verified": true,
+    "passed": 20,
+    "total": 20
+  },
+  "regression": {
+    "failures": 0,
+    "passed": 72,
+    "tests": 72
+  },
+  "scientific_acceptance_scope": "TECHNICAL_DIAGNOSTIC_AND_INCONCLUSIVE_CLOSURE_ONLY",
+  "target_q": "Q045"
+}

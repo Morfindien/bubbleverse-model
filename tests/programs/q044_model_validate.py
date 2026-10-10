@@ -18,7 +18,17 @@ REVIEWED_ADDITION_SHA256={'observations': 'a3ba3977795ca58a95b6afe3f2362e84772e6
 
 def run_tests(root=ROOT,candidate=False):
     root=Path(root);layer=root/('candidate' if candidate else 'accepted');formal=root/('candidate/formal' if candidate else 'model');evidence=root/('candidate/evidence' if candidate else 'evidence');src=evidence/'sources/Q044';old=root/'versions/accepted/v0.5';rows=[]
-    def load(p):return json.loads(p.read_text())
+    active_q=int(json.loads((root/'accepted/model_state.json').read_text())['current_q'][1:])
+    pending_q=int(json.loads((root/'candidate/candidate_state.json').read_text())['current_q'][1:])
+    historical=not candidate and (active_q>44 or pending_q>44)
+    if historical:layer=formal=root/'versions/accepted/v0.6'
+    def load(p):
+        if historical:
+            if p in [root/'candidate/candidate_state.json',root/'candidate/candidate_diff.json']:
+                p=root/'provenance/archive/Q044'/p.name
+            elif p==root/'accepted/model_state.json':p=layer/'model_state.json'
+            elif p==evidence/'evidence_registry.json':p=layer/'evidence_registry.json'
+        return json.loads(p.read_text())
     def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
     def require(c,m):
         if not c:raise AssertionError(m)
@@ -137,7 +147,7 @@ def run_tests(root=ROOT,candidate=False):
     gate('FORMAL_REFERENCE_GATE',references)
     def firewall():
         scanned=0
-        for base in [layer,formal,evidence]:
+        for base in ([layer,evidence/'sources/Q042',evidence/'sources/Q043',evidence/'sources/Q044'] if historical else [layer,formal,evidence]):
             for p in base.rglob('*'):
                 if p.is_file() and p.suffix in {'.json','.md','.txt','.py','.c'}:
                     require(not any(int(x)>44 for x in re.findall(r'\bQ-?0*([0-9]{1,5})\b',p.read_text(),re.I)),'unauthorized scientific origin in '+str(p))

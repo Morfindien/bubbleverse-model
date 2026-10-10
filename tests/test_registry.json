@@ -111,6 +111,14 @@
       "target_component": "Q044 scope-qualified component admission and regression",
       "test_id": "T-BV-013",
       "why_test_matters": "Rejects unsupported physical additions, modified reviewed definitions, altered source/supports, missing diff entries, production, or snapshot mutation."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": true,
+      "target_component": "Q045 technically recovered history and physical-inference firewall",
+      "test_id": "T-BV-014",
+      "why_test_matters": "Rejects qualified-reference overclaims, invented materiality, source damage, unreviewed scientific additions, future-Q contamination and snapshot mutation."
     }
   ]
 }

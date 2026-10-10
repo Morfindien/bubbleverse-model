@@ -105,8 +105,35 @@
       "q_introduced": "Q044",
       "statement": "No independently qualified full-history reference, CMB/likelihood error envelope or complete converged original 20-cell matrix establishes H0/EDE portability or equivalence. Production restart remains not authorized.",
       "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL"
+      ],
+      "id": "LIM-Q045-REFERENCE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "No independently qualified complete physical Thomson-depth/history reference or applicable remainder enclosure is established. Reference truth remains UNQUALIFIED.",
+      "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES",
+        "EVD-Q045-MAINBOOK"
+      ],
+      "id": "LIM-Q045-MATERIALITY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "CMB and native-likelihood intervention materiality, original qualified H0/EDE margins and inference portability remain UNRESOLVED. Q closure is not a passing physical gate.",
+      "status": "UNRESOLVED"
     }
   ],
-  "q_access_end": "Q044",
+  "q_access_end": "Q045",
   "schema_version": 1
 }

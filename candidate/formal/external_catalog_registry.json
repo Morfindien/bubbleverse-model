@@ -3,7 +3,7 @@
   "automatic_model_admission": false,
   "catalogue_failure_policy": "SERVICE_UNAVAILABLE_IS_TECHNICAL_NOT_SCIENTIFIC",
   "model_admission_policy": "EXTERNAL_REFERENCE_ONLY",
-  "q_access_end": "Q044",
+  "q_access_end": "Q045",
   "q_access_start": "Q001",
   "record_query_inputs": false,
   "schema_version": 1,

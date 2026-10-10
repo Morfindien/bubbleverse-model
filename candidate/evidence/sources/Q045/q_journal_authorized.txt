@@ -1,0 +1,38 @@
+Identity and research question
+Q-ID: Q045. Status: CLOSED · INCONCLUSIVE PHYSICAL MATERIALITY. Result: R-Q045-REFHIST-INGESTION-002.
+Question: for the frozen Q041 LCDM and n_scf=3 EDE configurations, does replacing only the native optical-depth
+integration functional with a convergent Thomson-integral reference, at identical requested tau_reio and otherwise
+unchanged physical inputs, materially alter TT/TE/EE predictions, native likelihood values, and original H0/EDE decision
+margins?
+
+
+Documented result
+The V2 offline recovery was installed and completed successfully. Native controls, telemetry, refinement diagnostics, and
+recovered stored-history checks are documented. No independently qualified complete physical reference, isolated
+CMB/native-likelihood treatment response, or original qualified inference margins were established.
+REFERENCE_TRUTH_GATE: UNQUALIFIED. FINAL_RESULT_GATE: UNRESOLVED. Q closure is not a passing
+physical gate.
+
+
+Limitations and rejected promotions
+The three native levels change nine controls together. Calibration and support selection drift; four accepted-tau
+sequences reverse direction. No applicable complete-history remainder enclosure exists. No isolated 10/01/11 treatment
+response was computed. Baseline starts are not optimized minima. Do not treat same-spline quadrature agreement as
+independent history validation, component calls as FULL evaluations, or technical failure as physical falsification.
+
+
+Computational provenance
+V2 GitHub Actions: https://github.com/Morfindien/Bubbleverse/actions/runs/38042718814 ; run 38042718814, attempt 1,
+job 114186014990, SUCCESS. Reported artifact 11665884089, 4,541,261 bytes, SHA-256
+75cb18ca3c124f90aaa890147aea4f39656ca78b17d6a2d24f5e9a94836c1e08. V1 run:
+https://github.com/Morfindien/Bubbleverse/actions/runs/38039690879 . Frozen CLASS_EDE commit:
+5a131c91d657dd9a7c6364cc45b038710f8d0d97. Supplied source IDs: I-Q045-REFHIST-INGEST-V2-001;
+I-Q045-REFHIST-RUN-V2-001; I-Q045-REFHIST-RUN-V1-001; K-Q045-REFHIST-SOURCE-001/002; J-045-09.
+
+
+Accepted-model and registry caveat
+The supplied 10 October repository inspection reports model main bba3528250b3d56c451bf5ca363b0d75120acb03 and
+accepted v0.6/R000006 through Q044, superseding stale Q043-only acceptance statements. The execution registry still
+reportedly marks Q045-REFHIST-V2 ACTIVE/PENDING_MANUAL_INSTALL. No remote edit or Q045 promotion is
+asserted. The original cumulative Q045 journal is retained by reference, not reproduced here; SHA-256
+014393b3bd8de995b1860ba6dc286852f0e22df8001684f69017f3a5ab9d5725.

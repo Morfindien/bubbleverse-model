@@ -1,0 +1,21 @@
+Q045 technical classification
+Q045 is CLOSED with an inconclusive physical-materiality result: R-Q045-REFHIST-INGESTION-002. Remote V2
+recovery completed successfully (GitHub Actions run 38042718814), yielding stored-history diagnostics without new
+theory calls. The original V1 native histories remain provenance, including their postprocessing failure. Technical success
+is not an independent physical-reference certificate.
+
+
+Why the existing checks are insufficient
+Three native refinement levels simultaneously vary nine numerical controls; reionization calibration and support selection
+also drift. All four accepted-tau sequences reverse direction. Same-history spline/quadrature agreement does not bound
+the error of the complete electron history. No complete-history remainder enclosure, isolated 10/01/11 intervention
+response, or original qualified inference margins are available. Starting-point likelihood gaps are not optimized decision
+margins.
+
+
+Implementation and dependency chain
+In the pinned CLASS_EDE source (commit 5a131c91d657dd9a7c6364cc45b038710f8d0d97), the scalar
+reionization-calibration and cumulative-opacity paths use a plus curvature correction, while the ordinary cubic integral
+uses minus. This is a source-level functional distinction, not a demonstrated sign or magnitude of physical bias. Required
+qualification proceeds from complete physical history through Thomson depth and visibility, spectra, native likelihoods,
+and converged inference.
