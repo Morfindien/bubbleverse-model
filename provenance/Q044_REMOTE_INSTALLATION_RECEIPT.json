@@ -1,0 +1,26 @@
+{
+  "accepted_version": "v0.6",
+  "baseline_commit": "dd7575e7146382957d206e87274ca6246c2587b7",
+  "bundle_sha256": "aebdc6bc7de267154956d8ebf933bd11fc64e2408fedbbd75ee6dc711d9ce9a3",
+  "initial_main_commit": "daae523c42d208b7db540e744693d40bdb9c5737",
+  "model_revision": "R000006",
+  "next_q_authorized": false,
+  "package_commit": "a71ce42fd41ee5b84537b8ee5acabf59004d8e2c",
+  "physical_model_change": false,
+  "production_restart_authorized": false,
+  "promotion_commit": "fcef9b9131d47492a84211fde92909e2132ac756",
+  "remote_promotion_verified": true,
+  "run_id": "38020902298",
+  "run_url": "https://github.com/Morfindien/bubbleverse-model/actions/runs/38020902298",
+  "source_repository_modified": false,
+  "stop_state": "PROMOTED",
+  "target_q": "Q044",
+  "test_results": {
+    "campaign_gate": "PASS",
+    "protected_state_unchanged": true,
+    "public_healthcheck_passed": 20,
+    "q044_gate": "PASS",
+    "regression_tests_passed": 40
+  },
+  "timestamp_utc": "2026-10-10T03:32:25.108563+00:00"
+}

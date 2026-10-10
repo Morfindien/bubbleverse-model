@@ -274,7 +274,7 @@
   "source_repository": "Morfindien/Bubbleverse",
   "source_repository_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
   "source_repository_sync_required": true,
-  "status": "PROMOTED_LOCAL_PENDING_REMOTE_VERIFICATION",
+  "status": "PROMOTED_REMOTE_VERIFIED",
   "target_q": "Q044",
   "update_class": "MULTI_LAYER_UPDATE",
   "word_input_filename": null,

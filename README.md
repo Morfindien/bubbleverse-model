@@ -13,8 +13,8 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-- Prepared installation state: **v0.6 / R000006 through Q044**
-- Last verified remote accepted state: **v0.5 / R000005 through Q043**
+- Accepted state: **v0.6 / R000006 through Q044**
+- Verified remote accepted state: **v0.6 / R000006 through Q044**
 - Q044: **INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION**
 - Conditional support-specific spline component admitted with scope limits.
 - Physical parameters, H0 benchmarks, original predictions and contradictions: **UNCHANGED**
@@ -22,7 +22,7 @@ The model represents the best current compression of validated Bubbleverse evide
 - Public calculations and all 14 operations preserved; no new public operation.
 - Original diagnostics retained as historical reports; no fresh component/C replay claimed.
 - New equation, assumptions, uncertainties and validity/limitations trace to authorized Q044 sources.
-- Remote publication: **BLOCKED** by integration permission (HTTP 403) and missing Git credentials.
+- Remote publication: **VERIFIED**; see `provenance/Q044_REMOTE_INSTALLATION_RECEIPT.json`. Preparation-time blocked reports are preserved historically.
 - Frozen installation snapshot: `versions/accepted/v0.6/`; older accepted snapshots remain immutable.
 - Source repository synchronization remains a separate pending task.
 - Full report: `provenance/Q044_MODEL_UPDATE_REPORT.json`.
