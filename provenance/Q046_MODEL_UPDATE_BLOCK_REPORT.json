@@ -1,0 +1,50 @@
+{
+  "artifact_type": "BUBBLEVERSE_MODEL_UPDATE_REPORT",
+  "target_q": "Q046",
+  "authorized_q_range": "Q001-Q046",
+  "generated_at_utc": "2026-10-10T18:23:23.875831+00:00",
+  "target_model_repository": "Morfindien/bubbleverse-model",
+  "model_repository_input_commit": "27d1a9be4dbf10cb7e4a7dd62372474cf19cab57",
+  "previous_accepted_q": "Q045",
+  "previous_model_version": "v0.7",
+  "previous_revision": "R000007",
+  "q_sequence_gate": "PASS",
+  "q_firewall_gate": "PASS",
+  "accepted_immutability_gate": "PASS",
+  "update_class": "EVIDENCE_ONLY_UPDATE_CANDIDATE_BLOCKED",
+  "stop_state": "CANDIDATE_BLOCKED",
+  "promoted": false,
+  "new_accepted_version": null,
+  "next_q_authorized": false,
+  "scientific_result": {
+    "classification": "COMPLETED_ASSESSMENT_INSUFFICIENT_QUALIFICATION",
+    "canonical_status": "UNREGISTERED",
+    "documented_answer": "INSUFFICIENT QUALIFICATION",
+    "physical_materiality": "UNKNOWN",
+    "model_change": "NO_PHYSICAL_MODEL_CHANGE",
+    "admission_status": "BLOCKED_PENDING_CANONICAL_IDENTITY_AND_QUALIFICATION"
+  },
+  "blockers": [
+    "Canonical Q046 CASE-ID is not supplied and must not be invented.",
+    "Canonical Q046 RESULT-ID is not supplied and must not be invented.",
+    "No case-specific complete physical reference or numerical comparison envelope is qualified.",
+    "No certified cutoff crossing/rate sign, complete EDE post-shooting realization/enclosure, or independently qualified all-domain numerical error account is available."
+  ],
+  "preserved": [
+    "Accepted v0.7 / R000007 through Q045",
+    "Observational benchmarks and H0/EDE model status",
+    "Original decision margins",
+    "Production prohibition"
+  ],
+  "limitations": [
+    "This workflow does not ingest or promote scientific information beyond Q046.",
+    "This workflow does not invent CASE-ID, RESULT-ID, scientific runs, or physical conclusions.",
+    "This workflow records the Q046 admission state only; it does not mutate accepted/, model/, versions/, release/, or tests/."
+  ],
+  "workflow": {
+    "name": "Q046 Model Admission Gate",
+    "run_id": "38075555981",
+    "run_attempt": "1",
+    "actor": "Morfindien"
+  }
+}
