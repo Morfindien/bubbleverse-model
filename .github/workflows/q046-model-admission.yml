@@ -1,0 +1,282 @@
+name: Q046 Model Admission Gate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: q046-model-admission
+  cancel-in-progress: false
+
+jobs:
+  q046-admission:
+    name: Validate and record Q046 admission state
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      TARGET_Q: Q046
+      EXPECTED_PREVIOUS_Q: Q045
+      EXPECTED_MODEL_VERSION: v0.7
+      EXPECTED_MODEL_REVISION: R000007
+      REPORT_PATH: provenance/Q046_MODEL_UPDATE_BLOCK_REPORT.json
+
+    steps:
+      - name: Checkout model repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enforce repository identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "${GITHUB_REPOSITORY}" = "Morfindien/bubbleverse-model" || {
+            echo "::error::This workflow is only authorized for Morfindien/bubbleverse-model."
+            exit 1
+          }
+
+      - name: Q046 firewall and accepted-state gate
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 - <<'PY'
+          import json
+          import pathlib
+          import re
+          import sys
+
+          target_q = 46
+          expected_previous_q = "Q045"
+          expected_version = "v0.7"
+          expected_revision = "R000007"
+
+          required = [
+              pathlib.Path("accepted/model_state.json"),
+              pathlib.Path("model/model_manifest.json"),
+          ]
+          for p in required:
+              if not p.is_file():
+                  raise SystemExit(f"Required canonical file missing: {p}")
+
+          accepted = json.loads(pathlib.Path("accepted/model_state.json").read_text(encoding="utf-8"))
+          manifest = json.loads(pathlib.Path("model/model_manifest.json").read_text(encoding="utf-8"))
+
+          blob = json.dumps({"accepted": accepted, "manifest": manifest}, sort_keys=True)
+
+          # Extract canonical values defensively instead of assuming one exact schema.
+          q_tokens = sorted(
+              {int(x) for x in re.findall(r'Q0*([0-9]{1,3})', blob, flags=re.I)}
+          )
+          if not q_tokens:
+              raise SystemExit("Could not establish accepted Q boundary from canonical state.")
+          accepted_q = max(q_tokens)
+
+          if accepted_q != 45:
+              raise SystemExit(
+                  f"Q_SEQUENCE_GATE failed: expected accepted Q045, found highest canonical Q{accepted_q:03d}."
+              )
+
+          if expected_version not in blob:
+              raise SystemExit(
+                  f"INPUT_STATE_GATE failed: expected accepted model version {expected_version}."
+              )
+          if expected_revision not in blob:
+              raise SystemExit(
+                  f"INPUT_STATE_GATE failed: expected model revision {expected_revision}."
+              )
+
+          # Hard scientific firewall for this workflow: canonical model inputs may
+          # not already claim a scientific state beyond Q046.
+          future = sorted(
+              {n for n in q_tokens if n > target_q}
+          )
+          if future:
+              raise SystemExit(
+                  "Q_FIREWALL_GATE failed: canonical input contains later-Q identifiers: "
+                  + ", ".join(f"Q{n:03d}" for n in future)
+              )
+
+          print("INPUT_STATE_GATE=PASS")
+          print("Q_SEQUENCE_GATE=PASS")
+          print("Q_FIREWALL_GATE=PASS")
+          print(f"Accepted predecessor: {expected_previous_q}")
+          PY
+
+      - name: Establish Q046 admission decision
+        id: admission
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Q046's documented assessment is intentionally NOT promoted here.
+          # The supplied authoritative assessment says:
+          # - COMPLETED ASSESSMENT / INSUFFICIENT QUALIFICATION
+          # - canonical status unregistered
+          # - no CASE-ID or new RESULT-ID may be invented
+          #
+          # Therefore this action records a deterministic admission block while
+          # preserving accepted/ and model/ scientific state.
+
+          echo "promoted=false" >> "$GITHUB_OUTPUT"
+          echo "stop_state=CANDIDATE_BLOCKED" >> "$GITHUB_OUTPUT"
+          echo "update_class=EVIDENCE_ONLY_UPDATE_CANDIDATE_BLOCKED" >> "$GITHUB_OUTPUT"
+
+      - name: Verify accepted/model immutability before report
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --exit-code -- accepted model versions release tests || {
+            echo "::error::Accepted or formal model state changed before promotion. Aborting."
+            exit 1
+          }
+
+      - name: Write canonical Q046 block report
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p provenance
+
+          python3 - <<'PY'
+          import json
+          import os
+          import pathlib
+          import subprocess
+          from datetime import datetime, timezone
+
+          report_path = pathlib.Path(os.environ["REPORT_PATH"])
+          head = subprocess.check_output(
+              ["git", "rev-parse", "HEAD"], text=True
+          ).strip()
+
+          report = {
+              "artifact_type": "BUBBLEVERSE_MODEL_UPDATE_REPORT",
+              "target_q": "Q046",
+              "authorized_q_range": "Q001-Q046",
+              "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+              "target_model_repository": os.environ.get("GITHUB_REPOSITORY"),
+              "model_repository_input_commit": head,
+              "previous_accepted_q": "Q045",
+              "previous_model_version": "v0.7",
+              "previous_revision": "R000007",
+              "q_sequence_gate": "PASS",
+              "q_firewall_gate": "PASS",
+              "accepted_immutability_gate": "PASS",
+              "update_class": "EVIDENCE_ONLY_UPDATE_CANDIDATE_BLOCKED",
+              "stop_state": "CANDIDATE_BLOCKED",
+              "promoted": False,
+              "new_accepted_version": None,
+              "next_q_authorized": False,
+              "scientific_result": {
+                  "classification": "COMPLETED_ASSESSMENT_INSUFFICIENT_QUALIFICATION",
+                  "canonical_status": "UNREGISTERED",
+                  "documented_answer": "INSUFFICIENT QUALIFICATION",
+                  "physical_materiality": "UNKNOWN",
+                  "model_change": "NO_PHYSICAL_MODEL_CHANGE",
+                  "admission_status": "BLOCKED_PENDING_CANONICAL_IDENTITY_AND_QUALIFICATION"
+              },
+              "blockers": [
+                  "Canonical Q046 CASE-ID is not supplied and must not be invented.",
+                  "Canonical Q046 RESULT-ID is not supplied and must not be invented.",
+                  "No case-specific complete physical reference or numerical comparison envelope is qualified.",
+                  "No certified cutoff crossing/rate sign, complete EDE post-shooting realization/enclosure, or independently qualified all-domain numerical error account is available."
+              ],
+              "preserved": [
+                  "Accepted v0.7 / R000007 through Q045",
+                  "Observational benchmarks and H0/EDE model status",
+                  "Original decision margins",
+                  "Production prohibition"
+              ],
+              "limitations": [
+                  "This workflow does not ingest or promote scientific information beyond Q046.",
+                  "This workflow does not invent CASE-ID, RESULT-ID, scientific runs, or physical conclusions.",
+                  "This workflow records the Q046 admission state only; it does not mutate accepted/, model/, versions/, release/, or tests/."
+              ],
+              "workflow": {
+                  "name": os.environ.get("GITHUB_WORKFLOW"),
+                  "run_id": os.environ.get("GITHUB_RUN_ID"),
+                  "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+                  "actor": os.environ.get("GITHUB_ACTOR")
+              }
+          }
+
+          report_path.write_text(
+              json.dumps(report, indent=2, sort_keys=False) + "\n",
+              encoding="utf-8"
+          )
+          print(report_path)
+          PY
+
+      - name: Regression and scope audit
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Only the Q046 provenance report may differ.
+          mapfile -t changed < <(git status --porcelain | awk '{print $2}')
+
+          if [ "${#changed[@]}" -ne 1 ] || [ "${changed[0]}" != "${REPORT_PATH}" ]; then
+            echo "::error::Unexpected repository mutation detected."
+            printf 'Changed path: %s\n' "${changed[@]:-<none>}"
+            exit 1
+          fi
+
+          git diff --exit-code -- accepted model versions release tests
+          python3 -m json.tool "${REPORT_PATH}" >/dev/null
+
+          echo "REGRESSION_GATE=PASS"
+          echo "ACCEPTED_IMMUTABILITY_GATE=PASS"
+          echo "FINAL_AUDIT_GATE=PASS"
+
+      - name: Commit Q046 provenance report
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -- "${REPORT_PATH}"
+
+          if git diff --cached --quiet; then
+            echo "No report change to commit."
+            exit 0
+          fi
+
+          git commit -m "Record Q046 canonical admission block"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Verify remote write
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "${GITHUB_REF_NAME}"
+          remote_sha="$(git rev-parse "origin/${GITHUB_REF_NAME}")"
+          local_sha="$(git rev-parse HEAD)"
+
+          test "${remote_sha}" = "${local_sha}" || {
+            echo "::error::Remote verification failed."
+            exit 1
+          }
+
+          echo "Repository write verified: ${remote_sha}"
+
+      - name: Job summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## Bubbleverse Q046 Model Admission Gate"
+            echo
+            echo "- TARGET_Q: Q046"
+            echo "- Expected predecessor: Q045"
+            echo "- Expected accepted model: v0.7 / R000007"
+            echo "- Promotion: FALSE"
+            echo "- STOP_STATE: CANDIDATE_BLOCKED"
+            echo "- Q047 authorized by this action: FALSE"
+            echo
+            echo "This action records the Q046 admission blocker without changing accepted scientific state."
+          } >> "$GITHUB_STEP_SUMMARY"
