@@ -1,0 +1,85 @@
+{
+  "q": "Q-045",
+  "program_id": "Q045-REFHIST-V2",
+  "case_id": "NOT DOCUMENTED",
+  "scientific_question": "For the frozen Q041 ΛCDM and n_scf=3 EDE configurations, does replacing only the native optical-depth integration functional with a convergent Thomson-integral reference, at identical requested tau_reio and otherwise unchanged physical inputs, alter CMB TT/TE/EE predictions and native likelihood values enough to threaten the original H0/EDE decision margins?",
+  "config_sha256": "996a713e0bf17d7239a00f73e013617fbf4f014b6b6eaea1db24a37660da5d44",
+  "source_program_id": "Q045-REFHIST-V1",
+  "source_run_id": "38039690879",
+  "source_execution_commit": "849f33d54d31c58c58cba37d5134e240987741fe",
+  "run_id": "38042718814",
+  "execution_commit": "a9a5777b5923f32930cd9c84a49227ba36249326",
+  "execution_mode": "OFFLINE_ARTIFACT_REANALYSIS_ONLY",
+  "new_theory_evaluations": 0,
+  "final_result_gate": "UNRESOLVED",
+  "reference_truth_gate": "UNQUALIFIED",
+  "reference_error_bound": null,
+  "production_restart_authorized": false,
+  "automatic_continuation": false,
+  "full_matrix_budget_gate": "FAIL_FOR_UNMODIFIED_48_FULL_PLAN_AFTER_THIS_STAGE",
+  "next_motor": "Result Ingestion & Routing Engine",
+  "status": "COMPLETE",
+  "artifacts": [
+    {
+      "id": 11665621020,
+      "name": "q045-refhist-38039690879-worker-camspec-ede_n3-L2",
+      "archive_digest": "sha256:74e93eef455850a6ff48226b8d18489451f2613e05c737159ca205d8cfb56d1d",
+      "gate": "PASS"
+    },
+    {
+      "id": 11665565951,
+      "name": "q045-refhist-38039690879-worker-camspec-ede_n3-L1",
+      "archive_digest": "sha256:20cbbba7ba9ee0a4f9ddba0b54fa9693529ec0ed1a721a4cad7c73909b4b6928",
+      "gate": "PASS"
+    },
+    {
+      "id": 11665248545,
+      "name": "q045-refhist-38039690879-worker-hillipop-lcdm-L2",
+      "archive_digest": "sha256:4e523eb35927502ee6ffdde840c273481ccc252ff8477c4ce4276fec77fc1b13",
+      "gate": "PASS"
+    },
+    {
+      "id": 11665223558,
+      "name": "q045-refhist-38039690879-worker-hillipop-lcdm-L1",
+      "archive_digest": "sha256:de508053f337e3b75a1077c4f174b443d3b909312e41b3f8a0ad395a9566d831",
+      "gate": "PASS"
+    },
+    {
+      "id": 11665143648,
+      "name": "q045-refhist-38039690879-final",
+      "archive_digest": "sha256:8a6b4c7a27fa9aab688af870d3a23185f9439fd21f04c9485b0d4c74299ede73",
+      "gate": "PASS"
+    },
+    {
+      "id": 11665098458,
+      "name": "q045-refhist-38039690879-parents",
+      "archive_digest": "sha256:dcef833cfedf2799251ec91ad5437f74df72f9ea89c61a7570027340d0eb052c",
+      "gate": "PASS"
+    },
+    {
+      "id": 11664933800,
+      "name": "q045-refhist-38039690879-worker-hillipop-ede_n3-L1",
+      "archive_digest": "sha256:46beed2df9ea5060e73556da233b75080328b449e4bc813d279fa51c138b5593",
+      "gate": "PASS"
+    },
+    {
+      "id": 11664838796,
+      "name": "q045-refhist-38039690879-worker-hillipop-ede_n3-L2",
+      "archive_digest": "sha256:26794002ba237069aae242abb01765555fef735b8408c090e4c949caa942eda5",
+      "gate": "PASS"
+    },
+    {
+      "id": 11664813752,
+      "name": "q045-refhist-38039690879-worker-camspec-lcdm-L2",
+      "archive_digest": "sha256:492e6141767bf358de67d2b5a541ed3533ccfa5970fa8ef039552138e821b148",
+      "gate": "PASS"
+    },
+    {
+      "id": 11664658891,
+      "name": "q045-refhist-38039690879-worker-camspec-lcdm-L1",
+      "archive_digest": "sha256:08f57c48a840a25eaf14847a988ea5313adba461e1aef2c8c2cd5d83da9622a2",
+      "gate": "PASS"
+    }
+  ],
+  "errors": []
+}

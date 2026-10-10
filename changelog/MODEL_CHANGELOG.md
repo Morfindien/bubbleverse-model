@@ -105,3 +105,12 @@ Admitted the original Q043 local-preparation validation result as internal techn
 ## Q044 prepared installation — v0.6 / R000006
 
 Conditional fixed-knot native-plus spline component and epistemic inconclusive closure. Eight source evidence entries; one support adjoint definition, three assumptions, two uncertainties, one validity domain and two limitations. No physical parameter, benchmark, prediction, contradiction or public-operation change. New read-only Q044 gates and failure-injection guards; historical Q043 snapshot validation repaired. Remote publication is blocked; no external accepted-model update is claimed.
+
+
+## Q045 — v0.7 / R000007
+
+Admitted the hash-verified V2 workflow history-recovery diagnostics and manuscript-documented inconclusive physical closure. Four accepted-tau sequences reverse direction; nine numerical controls change jointly, so empirical refinement estimates do not qualify a physical reference or remainder bound. Reference truth remains UNQUALIFIED and physical materiality UNRESOLVED.
+
+Added two constraints, two robustness entries, two uncertainty entries, one validity scope and two limitations. No new physical parameter, equation, assumption, benchmark, mechanism, prediction, contradiction, domain or public calculation. Preserved prior science, evidence and immutable accepted snapshots; no production run or source-repository write.
+
+Added ten Q045 validation gates, seventeen mutation/read-only tests and two campaign guards. Historical Q044 validation retains all eleven gates. Final regression suite: 72 tests run, 70 passed, 2 skipped, no failures; public healthcheck: 20/20. Independent review corrections are documented in the full Q045 update report. GitHub publication is verified separately in the installation receipt; historical prepared-installation records remain unchanged.

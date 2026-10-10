@@ -1,0 +1,80 @@
+{
+  "added": [
+    {
+      "category": "CONSTRAINTS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES",
+        "EVD-Q045-MAINBOOK"
+      ],
+      "id": "CON-Q045-NO-PHYSICAL-VERDICT"
+    },
+    {
+      "category": "CONSTRAINTS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL"
+      ],
+      "id": "CON-Q045-NO-PRODUCTION"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-REMOTE-RUN"
+      ],
+      "id": "ROB-Q045-RECOVERY"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES"
+      ],
+      "id": "ROB-Q045-REFINEMENT-SCOPE"
+    }
+  ],
+  "evidence_refs": [
+    "EVD-Q045-RECOVERY",
+    "EVD-Q045-QJOURNAL",
+    "EVD-Q045-APPENDICES",
+    "EVD-Q045-MAINBOOK",
+    "EVD-Q045-REMOTE-RUN"
+  ],
+  "from_version": "v0.6",
+  "modified": [
+    "Authorized boundary advances only after controlled promotion",
+    "Formal environment provenance synchronized to real Q045 source and model input commits; historical environment metadata preserved in previous snapshots."
+  ],
+  "new_assumptions": [],
+  "new_benchmarks": [],
+  "new_calculations": [],
+  "new_domains": [],
+  "new_equations": [],
+  "new_limitations": [
+    "LIM-Q045-REFERENCE",
+    "LIM-Q045-MATERIALITY"
+  ],
+  "new_parameters": [],
+  "new_uncertainties": [
+    "UNC-Q045-REFINEMENT",
+    "UNC-Q045-MATERIALITY"
+  ],
+  "new_validity_domains": [
+    "DOM-Q045-STORED-HISTORY"
+  ],
+  "physical_model_change": false,
+  "preserved": [
+    "All inherited evidence and scientific definitions",
+    "Physical parameters, equations, H0 benchmarks, mechanisms, predictions and open contradictions",
+    "All accepted snapshots and public operation schemas"
+  ],
+  "resolved_contradictions": [],
+  "schema_version": 1,
+  "superseded": [],
+  "target_q": "Q045",
+  "to_candidate_version": "v0.7",
+  "update_class": "MULTI_LAYER_UPDATE"
+}

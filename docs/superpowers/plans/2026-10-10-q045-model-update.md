@@ -23,21 +23,21 @@
 - Public test must leave accepted, candidate, formal and snapshots unchanged.
 
 ### Task 1: Scoped candidate and source provenance
-- [ ] Create structured diff before constructing the candidate.
-- [ ] Extract bounded PDF sections; archive raw PDFs and verified artifact.
-- [ ] Preserve all eight worker reports, four grids, original final report and contract.
-- [ ] Add traceable constraints, robustness, uncertainties and limitations only.
-- [ ] Hash accepted inputs and snapshots before changes.
+- [x] Create structured diff before constructing the candidate.
+- [x] Extract bounded PDF sections; archive raw PDFs and verified artifact.
+- [x] Preserve all eight worker reports, four grids, original final report and contract.
+- [x] Add traceable constraints, robustness, uncertainties and limitations only.
+- [x] Hash accepted inputs and snapshots before changes.
 
 ### Task 2: Growing validation
-- [ ] Write Q045 mutation tests and prove missing validator fails.
-- [ ] Implement `run_tests(root, candidate=False)`; test source hashes, exact recovery qualification, four tau reversals, references, firewall, physical regression and immutable snapshots.
-- [ ] Add historical Q044 routing against frozen v0.6 and archived metadata; retain all historical gates.
-- [ ] Register Q045 in the campaign and run failure-injection tests and existing regressions.
+- [x] Write Q045 mutation tests and prove missing validator fails.
+- [x] Implement `run_tests(root, candidate=False)`; test source hashes, exact recovery qualification, four tau reversals, references, firewall, physical regression and immutable snapshots.
+- [x] Add historical Q044 routing against frozen v0.6 and archived metadata; retain all historical gates.
+- [x] Register Q045 in the campaign and run failure-injection tests and existing regressions.
 
 ### Task 3: Controlled release
-- [ ] Run candidate gates and all mandatory audit gates.
-- [ ] Run projected-release formal and public healthchecks in an isolated copy.
-- [ ] Obtain an independent review; fix substantive findings and rerun affected tests.
-- [ ] Promote only a fully passing candidate; freeze v0.7; create report and release handoff.
+- [x] Run candidate gates and all mandatory audit gates.
+- [x] Run projected-release formal and public healthchecks in an isolated copy.
+- [x] Obtain an independent review; fix substantive findings and rerun affected tests.
+- [x] Promote only a fully passing candidate; freeze v0.7; create report and release handoff.
 - [ ] Commit and publish with a checked remote-head lease; verify remote files and head.

@@ -1,3 +1,3 @@
-# Q045 candidate
+# Current model candidate
 
-v0.7 / R000007; scoped technical evidence and inconclusive physical closure. Reference UNQUALIFIED; physical result UNRESOLVED; production not authorized. Accepted v0.6 remains protected until all mandatory gates pass.
+v0.7 / R000007 promoted to accepted with Q045 scope limits. Physical reference UNQUALIFIED; final physical result UNRESOLVED; production not authorized.

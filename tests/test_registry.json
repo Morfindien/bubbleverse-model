@@ -1,10 +1,10 @@
 {
-  "accepted_model_version": "v0.6",
-  "campaign_id": "BV-MODEL-v0.6-CAMPAIGN-0006",
-  "candidate_model_version": "v0.6",
-  "current_q": "Q044",
+  "accepted_model_version": "v0.7",
+  "campaign_id": "BV-MODEL-v0.7-CAMPAIGN-0007",
+  "candidate_model_version": "v0.7",
+  "current_q": "Q045",
   "mode": "CURRENT_STATE_VALIDATION",
-  "q_access_end": "Q044",
+  "q_access_end": "Q045",
   "q_access_start": "Q001",
   "schema_version": 1,
   "tests": [
