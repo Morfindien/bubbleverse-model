@@ -52,7 +52,7 @@ jobs:
         shell: bash
         run: |
           sha256sum --check <<'HASHES'
-          233217465a4f9ec1e5c015ddc60dc13aded7832a8e042db76bf9c9c97bcdd0b1  repository_cleanup.py
+          7412717b64c32d5225ee8c614341a86d9ccbb31975a5046220ea4695c5bd09b1  repository_cleanup.py
           b94bd8aedc78b99e850a21e019546ad5cce7fa394b661519535e390dbe1ee481  tests/programs/test_repository_cleanup.py
           41eafb3f3968883bdea39ba56144aee01d9c28b518caa1cb4daf2aa5bff35498  tests/programs/test_repository_cleanup_guards.py
           HASHES
