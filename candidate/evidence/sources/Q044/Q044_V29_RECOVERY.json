@@ -1,0 +1,102 @@
+{
+  "q": "Q044",
+  "recovery_id": "I-Q044-V29-BYTE-RECOVERY-001",
+  "archive_sha256": "3a543d095512e7ea46447275bee8df112704bd128f725d04a500a62c9dcd6aa9",
+  "artifact_id": 11366628579,
+  "source_run": 37362125253,
+  "all_declared_member_hashes_match": true,
+  "members": [
+    {
+      "file": "source_fixture.json",
+      "sha256": "364857afbeb22e7b91b473eb8f5039ff87c5f6e79f252700e0f2a66583059b93",
+      "match": true
+    },
+    {
+      "file": "compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "file": "initialized_context_manifest.json",
+      "sha256": "6290414cde1f5fe39c58282a731e9b9eca2ebfac90d32884118a66c5093a2b3e",
+      "match": true
+    },
+    {
+      "file": "qualification.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "file": "SHARED_PREFIX_nodes.csv",
+      "sha256": "15baa0f6f8fda4b20e4772160e079d9bbdd081fe6cf58f67cf1b08b45c2a35a7",
+      "match": true
+    },
+    {
+      "file": "source_fixture.log",
+      "sha256": "b811dec44a7b2f3434db62e2ee357c59ec3c3d5409ededf424dc72c5fa16e770",
+      "match": true
+    },
+    {
+      "file": "interval_qualification.json",
+      "sha256": "63a06ba1df9556ccde0b4ade21eb79d9824a8db4e98b0e663ff63e4841a9bd18",
+      "match": true
+    },
+    {
+      "file": "initialized_context.json",
+      "sha256": "f26b6c52128050905c3c0d4d0e24a05b0d082f443ec8d72db0cd1792ea44ef14",
+      "match": true
+    },
+    {
+      "file": "original_rhs_points.jsonl",
+      "sha256": "18bacbdcb708fbeea207649745cff7d0bb4cc1ae2cb417fa382fb4c7006e215e",
+      "match": true
+    },
+    {
+      "file": "unit_tests.log",
+      "sha256": "76f012ba466c2beb93954fe6f2a3314aa51f05180a02ce52fa2b8d4c695952a0",
+      "match": true
+    },
+    {
+      "file": "adapter_samples.jsonl",
+      "sha256": "26b225f5d705f25fefa367ecd244641e9d6641aab78cc6d7e06a4d615b6ab26a",
+      "match": true
+    },
+    {
+      "file": "attempt.json",
+      "sha256": "bf1650392655ec528c2b5e9c00ab33a45063cbc9142ff1ea949e42d27ea6cdc0",
+      "match": true
+    },
+    {
+      "file": "original_capture.log",
+      "sha256": "ee2b731863ea0794a48a45b85055d14f443c96e18f14165bd5ca96449d5ebcc5",
+      "match": true
+    },
+    {
+      "file": "native_grid_hex.json",
+      "sha256": "a4a9e9830b5cd1e568fb3d607a4f212dc8e277ed37a3470dc11f66f150b2b6e2",
+      "match": true
+    },
+    {
+      "file": "q042_context_native_v29",
+      "sha256": "2f1ff7c1d4d73a3599a35866594b0f1d56173a235f077381b46fe04e5878543a",
+      "match": true
+    },
+    {
+      "file": "execution_provenance.json",
+      "sha256": "8e2d5109898ceb4a9fac58c3eaf9abd04e9488636045f60ebd1fd66b851cbfd8",
+      "match": true
+    },
+    {
+      "file": "job_manifest.json",
+      "sha256": "fe6b641973324e8fbe4bf97459ef1f67e94ca41620652568fa67d9b037828e5a",
+      "match": true
+    }
+  ],
+  "missing_raw_V31_paths": [
+    "UPPER_nodes.jsonl",
+    "LOWER_nodes.jsonl",
+    "UPPER_steps.jsonl",
+    "LOWER_steps.jsonl"
+  ],
+  "scope": "actual V29 context/grid byte recovery; does not recover V31 complete history"
+}

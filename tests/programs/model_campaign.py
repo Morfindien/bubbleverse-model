@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 13)]
+MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 14)]
 
 
 def load(rel):
@@ -213,6 +213,16 @@ def audit():
         failures = [x["id"] for x in q43_result["tests"] if x["status"] != "PASS"]
         q43_detail = "Q043 source identity, local-only qualification, physical preservation and snapshot gates: " + ("PASS" if q43_ok else ", ".join(failures))
     results["T-BV-012"] = passfail(q43_ok, q43_detail)
+
+    q44_ok = True
+    q44_detail = "Q044 admission gate is not applicable below Q044."
+    if qmax >= 44:
+        from q044_model_validate import run_tests as q044_tests
+        q44_result = q044_tests(ROOT)
+        q44_ok = q44_result['all_green']
+        failures = [x['id'] for x in q44_result['tests'] if x['status'] != 'PASS']
+        q44_detail = 'Q044 conditional component, source continuity, inference firewall and snapshot gates: ' + ('PASS' if q44_ok else ', '.join(failures))
+    results['T-BV-013'] = passfail(q44_ok, q44_detail)
 
     return results
 

@@ -1,10 +1,10 @@
 {
-  "accepted_model_version": "v0.5",
-  "campaign_id": "BV-MODEL-v0.5-CAMPAIGN-0005",
-  "candidate_model_version": "v0.5",
-  "current_q": "Q043",
+  "accepted_model_version": "v0.6",
+  "campaign_id": "BV-MODEL-v0.6-CAMPAIGN-0006",
+  "candidate_model_version": "v0.6",
+  "current_q": "Q044",
   "mode": "CURRENT_STATE_VALIDATION",
-  "q_access_end": "Q043",
+  "q_access_end": "Q044",
   "q_access_start": "Q001",
   "schema_version": 1,
   "tests": [
@@ -14,7 +14,7 @@
       "mandatory_for_promotion": false,
       "target_component": "Q identity and boundary schema",
       "test_id": "T-BV-001",
-      "why_test_matters": "Accepted/candidate identity must match Q001-Q043 / CURRENT_Q Q043."
+      "why_test_matters": "Accepted/candidate identity must match Q001-Q044 / CURRENT_Q Q044."
     },
     {
       "category": "MANDATORY_PROMOTION",
@@ -103,6 +103,14 @@
       "target_component": "Q043 local-only preparation evidence and integrity",
       "test_id": "T-BV-012",
       "why_test_matters": "Rejects invented physics/remote-sync/production, future-Q input, lost source lineage and snapshot mutation."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": true,
+      "target_component": "Q044 scope-qualified component admission and regression",
+      "test_id": "T-BV-013",
+      "why_test_matters": "Rejects unsupported physical additions, modified reviewed definitions, altered source/supports, missing diff entries, production, or snapshot mutation."
     }
   ]
 }

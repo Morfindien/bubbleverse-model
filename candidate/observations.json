@@ -149,8 +149,53 @@
         "UPPER": 138
       },
       "status": "SUPPORTED_CONDITIONAL_MATHEMATICAL_RESULT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-COMPONENT",
+        "EVD-Q044-INGESTION",
+        "EVD-Q044-CHECKS"
+      ],
+      "id": "OBS-Q044-SUPPORT-HULLS-001",
+      "inference_adequacy": "UNDETERMINED",
+      "native_binary_rounding": "NOT_CERTIFIED",
+      "physical_falsification": false,
+      "q_introduced": "Q044",
+      "statement": "Conditional exact-real native-plus support-functional enclosures; independent source-box extrema need not be physically attainable.",
+      "status": "CONDITIONAL_MATHEMATICAL_COMPONENT_RESULT",
+      "target": "NATIVE_PLUS_REAL_ARITHMETIC; EXACT_MINUS_DIAGNOSTIC_SEPARATE",
+      "trials": [
+        {
+          "bounds": [
+            0.7067653282305048,
+            0.7067869701940579
+          ],
+          "support_count": 138,
+          "support_index_range": [
+            3195,
+            3332
+          ],
+          "trial": "UPPER",
+          "width": 2.164196355314285e-05
+        },
+        {
+          "bounds": [
+            0.0016297839913017342,
+            0.0018091545475532051
+          ],
+          "support_count": 3002,
+          "support_index_range": [
+            331,
+            3332
+          ],
+          "trial": "LOWER",
+          "width": 0.00017937055625147098
+        }
+      ],
+      "units": "dimensionless",
+      "value_kind": "COMPONENT_ENCLOSURE_NOT_PHYSICAL_TAU"
     }
   ],
-  "q_access_end": "Q043",
+  "q_access_end": "Q044",
   "schema_version": 1
 }

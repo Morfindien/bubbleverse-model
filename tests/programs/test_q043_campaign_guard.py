@@ -2,6 +2,7 @@
 import importlib.util
 import json
 import unittest
+from guard_fixture import isolated_repository
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -11,13 +12,17 @@ spec.loader.exec_module(campaign)
 
 
 class Q043CampaignGuard(unittest.TestCase):
+    def setUp(self):
+        self.root=isolated_repository(self,ROOT)
+        campaign.ROOT=self.root
+
     def test_q043_is_a_mandatory_campaign_gate(self):
         self.assertIn('T-BV-012', campaign.MANDATORY_IDS)
 
     def test_production_claim_fails_current_public_campaign(self):
-        if json.loads((ROOT/'accepted/model_state.json').read_text())['current_q'] != 'Q043':
+        if json.loads((self.root/'accepted/model_state.json').read_text())['current_q'] not in ['Q043','Q044']:
             self.skipTest('Q043 campaign requires the projected or promoted Q043 state')
-        path = ROOT/'evidence/evidence_registry.json'
+        path = self.root/'evidence/evidence_registry.json'
         before = path.read_bytes()
         try:
             data=json.loads(before)

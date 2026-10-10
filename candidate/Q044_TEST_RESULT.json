@@ -1,0 +1,87 @@
+{
+  "all_green": true,
+  "artifact_type": "Q044_MODEL_UPDATE_VALIDATION",
+  "mode": "CANDIDATE",
+  "non_destructive": true,
+  "regression_tests": {
+    "passed": 40,
+    "total": 40
+  },
+  "review": {
+    "blocking_findings_resolved": 2,
+    "diff_omission_corrected": true,
+    "independent_reviewer": "review_q044"
+  },
+  "target_q": "Q044",
+  "tests": [
+    {
+      "detail": "Q043/v0.5 -> Q044/v0.6; no missing question",
+      "id": "Q_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "hashed_sources": 18,
+        "original_pins_verified": 4
+      },
+      "id": "SOURCE_HASH_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Conditional component accepted; downstream inference unavailable; no physical verdict or production",
+      "id": "QUALIFICATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "fresh_component_replay": false,
+        "recorded_native_diagnostics": 18,
+        "recorded_rational_fixtures": 64,
+        "support_cells_verified": 3140
+      },
+      "id": "COMPONENT_AGGREGATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Physical parameters, all original histories and public operations preserved; traceable scoped additions only",
+      "id": "REGRESSION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Exact authorized additions agree with diff; physical histories and predictions admit no new claims",
+      "id": "MODEL_DIFF_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped equation, units, assumptions, evidence and validity references resolve",
+      "id": "FORMAL_REFERENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "maximum_authorized_q": 44,
+        "mixed_boundary_originals": "HASHED_PROVENANCE_ONLY",
+        "scanned_files": 106
+      },
+      "id": "Q_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Exact authorized journal tail, 91 source objects and original claim maps preserved",
+      "id": "SOURCE_CONTINUITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Accepted untouched before promotion; previous and current snapshots immutable",
+      "id": "ACCEPTED_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Reachable real model input; separate real source inspection pin; no fabricated manuscript commit",
+      "id": "REAL_COMMIT_PROVENANCE_GATE",
+      "status": "PASS"
+    }
+  ],
+  "tests_passed": 11,
+  "tests_total": 11
+}

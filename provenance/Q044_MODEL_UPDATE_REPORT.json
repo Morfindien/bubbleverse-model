@@ -1,0 +1,713 @@
+{
+  "AUTHORIZED_Q_RANGE": "Q001-Q044",
+  "AVAILABLE_CHATGPT_SETUP": "Codex, GPT-6 family; exact root variant unexposed",
+  "AVAILABLE_MODE": "ChatGPT Work Mode with code, tools and repository connector",
+  "AVAILABLE_REASONING_LEVEL": "UNKNOWN: root effort setting not exposed",
+  "BLOCKERS": [
+    "GitHub integration lacks write permission (403); git has no credentials. Required target-repository publication and remote promotion verification cannot complete."
+  ],
+  "CAMPAIGN_INPUT_COMMIT": "5f809bb5be1cc5161e89b7ea609a4071c2bd1fa6",
+  "CANDIDATE_INPUT_COMMIT": "635ab12f427b4a35ba72ac7ac0f896f1838e746e",
+  "CANDIDATE_REVISION": "R000006",
+  "CANDIDATE_VERSION": "v0.6",
+  "COMPONENT_AGGREGATION": {
+    "LOWER3002": {
+      "bounds": [
+        0.0016297839913017342,
+        0.0018091545475532051
+      ],
+      "support_count": 3002,
+      "support_range": [
+        331,
+        3332
+      ],
+      "width": 0.00017937055625147098
+    },
+    "UPPER138": {
+      "bounds": [
+        0.7067653282305048,
+        0.7067869701940579
+      ],
+      "support_count": 138,
+      "support_range": [
+        3195,
+        3332
+      ],
+      "width": 2.164196355314285e-05
+    },
+    "independent_component_replay": false,
+    "units": "dimensionless component functional, not qualified physical Thomson optical depth"
+  },
+  "COMPONENT_STATUS": "ACCEPTED_WITH_SCOPE_LIMITS",
+  "CONTINUATION": {
+    "authorization_required_for_new_science": true,
+    "completed": [
+      "source recovery and exact boundary extraction",
+      "diff and candidate",
+      "formal synchronization",
+      "all scoped tests and regression",
+      "independent scientific review",
+      "frozen installation snapshot"
+    ],
+    "firewall": "Q001-Q044",
+    "phase": "VALIDATED_INSTALLATION_PREPARED_REMOTE_BLOCKED",
+    "remaining": [
+      "authenticated optimistic installation/publication",
+      "verify remote main and accepted snapshot",
+      "record real publication receipt"
+    ],
+    "restart_science_analysis_required": false,
+    "target_q": "Q044"
+  },
+  "CURRENT_SETUP_ADEQUACY": "SUFFICIENT",
+  "EXTERNAL_VERIFICATION_USED": false,
+  "GATES": {
+    "ACCEPTED_IMMUTABILITY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "ACCEPTED_PATH_ISOLATION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "ASSUMPTION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "BENCHMARK_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "CALCULATION_GATE": {
+      "evidence": "No new public calculation admitted; archived equation is a qualified component only. Existing 14 public operations retained and tested.",
+      "status": "NOT_APPLICABLE"
+    },
+    "CONTRADICTION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "DOMAIN_OF_VALIDITY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "EQUATION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "EVIDENCE_PROVENANCE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "EXTERNAL_SOURCE_AUTHORITY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "FINAL_AUDIT_GATE": {
+      "evidence": "Independent review resolved two validation defects and diff omission; accepted-mode installation and historical snapshots pass. External-write blocker remains explicit.",
+      "status": "PASS"
+    },
+    "FORMAL_MODEL_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "HIGH_Q_CONTAMINATION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "INPUT_STATE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "INVALID_INPUT_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "KNOWN_ANSWER_TEST_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "LIMITATION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "MODEL_DIFF_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PARAMETER_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PLUGIN_DEPENDENCY_GATE": {
+      "evidence": "No new scientific runtime plugin/dependency introduced; healthcheck uses Python standard library.",
+      "status": "NOT_APPLICABLE"
+    },
+    "PLUGIN_FIREWALL_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PLUGIN_PROVENANCE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PREDICTION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "PROMOTION_STATE_GATE": {
+      "evidence": "Prepared installation only; candidate_promoted=false, projection_only=true and remote_promotion_verified=false. Active external state and candidate-root accepted stay Q043/v0.5.",
+      "status": "PASS"
+    },
+    "Q_FIREWALL_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "Q_SEQUENCE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "REAL_COMMIT_PROVENANCE_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "REGRESSION_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "REPOSITORY_WRITE_GATE": {
+      "evidence": "Git push has no credentials; GitHub create_blob returned HTTP 403 Resource not accessible by integration. No ref write or remote promotion occurred.",
+      "status": "BLOCKED"
+    },
+    "REPRODUCIBILITY_GATE": {
+      "evidence": "Original source bytes, SHA256, exact bounded excerpts, independent reviewed-addition pins, real Git inputs, code and tests retained. Reproduces this admission/aggregation, not an unqualified physical simulation.",
+      "status": "PASS"
+    },
+    "ROBUSTNESS_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "SCIENTIFIC_CONSISTENCY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "UNCERTAINTY_GATE": {
+      "evidence": "Scoped Q044 validator, formal validator, campaign, public healthcheck and independent review; see detailed test artifact.",
+      "status": "PASS"
+    },
+    "WORD_DISCOVERY_GATE": {
+      "evidence": "No .docx/.doc found in current source tree or reachable source history. Established PDF substitution plus original structured results used; not attributed to source Git commit.",
+      "status": "PASS"
+    },
+    "WORD_HASH_GATE": {
+      "evidence": "No Word input. All 18 substitute/provenance source files hashed; authoritative originals pinned independently.",
+      "status": "NOT_APPLICABLE"
+    }
+  },
+  "INDEPENDENT_REVIEW": {
+    "agent": "review_q044",
+    "diff_omission_resolved": true,
+    "final_scientific_scope": "Conditional component and epistemically inconclusive closure; no remaining important scientific-scope findings",
+    "findings_resolved": 2,
+    "initial_important_findings": 2,
+    "reasoning": "high",
+    "root_model_switched": false,
+    "setup": "gpt-6-astra",
+    "source": "requesting-code-review skill authorization"
+  },
+  "INPUT_DOCUMENTS": [
+    {
+      "archived_name": "Q044_SPLINE_INGESTION_RESULT.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 12189,
+      "filename": "Q044_SPLINE_INGESTION_RESULT(1).json",
+      "path": "evidence/sources/Q044/Q044_SPLINE_INGESTION_RESULT.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_INGESTION_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "9382cb198ab7d519f377e41f29fb8dad3339bde067e3ee16194536cd52e2b7ec",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 61895,
+      "filename": "Q044_ENDPOINT_SOURCE_EVIDENCE(1).json",
+      "path": "evidence/sources/Q044/Q044_ENDPOINT_SOURCE_EVIDENCE.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_ENDPOINT_AUDIT",
+      "scientific_ingestion": true,
+      "sha256": "a20cc688457114503bd06351a9137297bf44136eaf075956fff0d4d50e40f43d",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Q044_SPLINE_VALIDATE.py",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 3890,
+      "filename": "Q044_SPLINE_VALIDATE(1).py",
+      "path": "evidence/sources/Q044/Q044_SPLINE_VALIDATE.py",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_VALIDATOR_SOURCE",
+      "scientific_ingestion": true,
+      "sha256": "5363a1b7ce437c0c87f195b9cbd7d58685d0f785da22236e09337503d1918d67",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Q044_SPLINE_RESULT.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 2446688,
+      "filename": "Q044_SPLINE_RESULT(1).json",
+      "path": "evidence/sources/Q044/Q044_SPLINE_RESULT.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+      "scientific_ingestion": true,
+      "sha256": "25638274b3898d97f63d1ecbb06739797396659d02270ab80e37d4bdf5b2354e",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Q044_SPLINE_INPUTS.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 314958,
+      "filename": "Q044_SPLINE_INPUTS(1).json",
+      "path": "evidence/sources/Q044/Q044_SPLINE_INPUTS.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+      "scientific_ingestion": true,
+      "sha256": "f26da12d32eb40c2ae7a8ff618180bb3e495b5f3d183a16f65c09ff97f98fa0c",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Q044_SPLINE_CHECKS.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 7425,
+      "filename": "Q044_SPLINE_CHECKS(1).json",
+      "path": "evidence/sources/Q044/Q044_SPLINE_CHECKS.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_COMPONENT_RESULT_OR_INPUT",
+      "scientific_ingestion": true,
+      "sha256": "5300cd20e40c2ff43ee48ec1a0ad1b9ef487639bd2aa2fae7d1ce9911861948f",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Q044_SPLINE_ADJOINT.py",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 9603,
+      "filename": "Q044_SPLINE_ADJOINT(1).py",
+      "path": "evidence/sources/Q044/Q044_SPLINE_ADJOINT.py",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_COMPONENT_CODE",
+      "scientific_ingestion": true,
+      "sha256": "bbd93f22e0da56be9c74fb109e60ddd1dab1f31a76641ab47e2a735d232147fd",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Q044_NATIVE_REPLAY.c",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4306,
+      "filename": "Q044_NATIVE_REPLAY(1).c",
+      "path": "evidence/sources/Q044/Q044_NATIVE_REPLAY.c",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_COMPONENT_CODE",
+      "scientific_ingestion": true,
+      "sha256": "56c92da28d7200c8b9b88dff8f1fe7e9a0b1dc21cc464d17e39b4fe48eef3641",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Q044_V29_RECOVERY.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 3145,
+      "filename": "Q044_V29_RECOVERY(1).json",
+      "path": "evidence/sources/Q044/Q044_V29_RECOVERY.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_RECOVERY_RECEIPT",
+      "scientific_ingestion": true,
+      "sha256": "46f66fba8405a1d9ddf8a08911a8b404ca24586aa88d9a2b4f1e47e52275212c",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "q042_interval_v29.py",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 14617,
+      "filename": "q042_interval_v29.py",
+      "path": "evidence/sources/Q044/q042_interval_v29.py",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "ORIGINAL_COMPONENT_DEPENDENCY",
+      "scientific_ingestion": true,
+      "sha256": "558592e20969dbfc063570f2224c36b4e8d7dca37db20009cb5dd2a993e0d160",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "cumulative_journal_original.md",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 524236,
+      "filename": "Q044_SAMLET_JOURNAL(1).md",
+      "path": "provenance/input_archives/Q044/cumulative_journal_original.md",
+      "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+      "role": "MIXED_BOUNDARY_ORIGINAL_JOURNAL",
+      "scientific_ingestion": false,
+      "sha256": "adb6413db7f00d2f5e0f3d8536e082661ac1881cfdf147156a5c90df1e373280",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "cumulative_journal_authorized.md",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 460270,
+      "derivation": "Exact original bytes after the preserved-incoming-journal marker; prior source register and claim maps retained verbatim.",
+      "filename": "Q044_SAMLET_JOURNAL(1).md",
+      "path": "evidence/sources/Q044/cumulative_journal_authorized.md",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "EXACT_AUTHORIZED_HISTORICAL_TAIL",
+      "scientific_ingestion": true,
+      "sha256": "3b75872a0d4d3aece1ba628525b94ac5efed12829083a8178837b68860c68f18",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "q_journal.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1121030,
+      "filename": "Bubbleverse_Q-Journals_Q001-Q044_UPDATED.pdf",
+      "path": "provenance/input_archives/Q044/q_journal.pdf",
+      "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+      "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+      "scientific_ingestion": false,
+      "sha256": "c53081f8b4184b3220024ea5f5e5767bdc079d74c0895d903fb9c6132f57f222",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "q_journal_authorized.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 2391,
+      "extraction_line_range_1_based": [
+        4945,
+        4972
+      ],
+      "filename": "Bubbleverse_Q-Journals_Q001-Q044_UPDATED.pdf",
+      "path": "evidence/sources/Q044/q_journal_authorized.txt",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+      "scientific_ingestion": true,
+      "sha256": "d6017b0bd3a18c99842b51660c9de94e32bc80923c9ea10719df350d70c1eab4",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "appendices.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 595925,
+      "filename": "Bubbleverse_Technical_Appendices_A-D_UPDATED.pdf",
+      "path": "provenance/input_archives/Q044/appendices.pdf",
+      "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+      "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+      "scientific_ingestion": false,
+      "sha256": "5b251d555558957c1f9a4af7dbeddc524e8f426388de8aa8ee8d7368b1c34891",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "appendices_authorized.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 2438,
+      "extraction_line_range_1_based": [
+        2365,
+        2394
+      ],
+      "filename": "Bubbleverse_Technical_Appendices_A-D_UPDATED.pdf",
+      "path": "evidence/sources/Q044/appendices_authorized.txt",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+      "scientific_ingestion": true,
+      "sha256": "938d0806f063c368a4fc93466f6ca77467063c6833728d76d2bc4932fc560029",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "main_book.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1331592,
+      "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+      "path": "provenance/input_archives/Q044/main_book.pdf",
+      "q_boundary_status": "QUARANTINED_MIXED_BOUNDARY",
+      "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+      "scientific_ingestion": false,
+      "sha256": "c3dc6c1bf99ff865a518fa5a76d37c49c9b55290270f751b234edeca05a0136a",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "main_book_authorized.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1055,
+      "extraction_line_range_1_based": [
+        1965,
+        1977
+      ],
+      "filename": "Bubbleverse_Main_Book_UPDATED.pdf",
+      "path": "evidence/sources/Q044/main_book_authorized.txt",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q044",
+      "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+      "scientific_ingestion": true,
+      "sha256": "2cb43ec79127e1f60b25d45dddbb55127f8ffbb93da1bfd7f6f0e90bff820370",
+      "source_repository_commit": null
+    }
+  ],
+  "INSTALLATION_COMMIT": "ce1699b424ff448d62ccf6e8d428f15413779a72",
+  "INSTALLATION_COMMIT_SEMANTICS": "Real prepared installation commit, reachable in the delivered bundle; not remote promotion",
+  "LIMITATIONS": [
+    "Component is exact-real fixed-knot native-plus spline with inherited rails/source witnesses and independent boxes; physical correlations are not qualified.",
+    "No uniform native binary-rounding certification, qualified complete history, CMB prediction/likelihood error budget or converged original matrix.",
+    "64 rational fixtures, 18 native-C diagnostics and 17 recovered comparisons are historical source reports; component and C replay were not rerun in this updater.",
+    "The fresh computation only hashes, checks source semantics/support coverage and recomputes reported hull aggregation; it is not new cosmological evidence.",
+    "No physical model preference, H0 benchmark revision, portability verdict, production restart or new question authorization.",
+    "Source-repository synchronization remains separate; remote model write failed."
+  ],
+  "MODEL_DIFF": {
+    "added": [
+      {
+        "category": "CONDITIONAL_MATHEMATICAL_COMPONENT",
+        "evidence_refs": [
+          "EVD-Q044-COMPONENT",
+          "EVD-Q044-INGESTION",
+          "EVD-Q044-CHECKS"
+        ],
+        "id": "OBS-Q044-SUPPORT-HULLS-001"
+      },
+      {
+        "category": "QUALIFICATION_BOUNDARY",
+        "evidence_refs": [
+          "EVD-Q044-INGESTION",
+          "EVD-Q044-ENDPOINT-AUDIT"
+        ],
+        "id": "CON-Q044-NO-DOWNSTREAM-001"
+      },
+      {
+        "category": "ROBUSTNESS_UPDATE",
+        "evidence_refs": [
+          "EVD-Q044-COMPONENT",
+          "EVD-Q044-CHECKS"
+        ],
+        "id": "ROB-Q044-COMPONENT-001"
+      },
+      {
+        "category": "ROBUSTNESS_UPDATE",
+        "evidence_refs": [
+          "EVD-Q044-INGESTION"
+        ],
+        "id": "ROB-Q044-CLOSURE-001"
+      }
+    ],
+    "evidence_refs": [
+      "EVD-Q044-INGESTION",
+      "EVD-Q044-COMPONENT",
+      "EVD-Q044-CHECKS",
+      "EVD-Q044-ENDPOINT-AUDIT",
+      "EVD-Q044-JOURNAL",
+      "EVD-Q044-QJOURNAL-PDF",
+      "EVD-Q044-APPENDICES-PDF",
+      "EVD-Q044-MAINBOOK-PDF"
+    ],
+    "from_version": "v0.5",
+    "modified": [
+      "Authorized boundary extends Q001-Q043 to Q001-Q044 after controlled promotion"
+    ],
+    "new_assumptions": [
+      "ASSUMP-Q044-FIXED-KNOTS",
+      "ASSUMP-Q044-SOURCE-RAILS",
+      "ASSUMP-Q044-REAL-ARITHMETIC"
+    ],
+    "new_benchmarks": [],
+    "new_calculations": [],
+    "new_domains": [],
+    "new_equations": [
+      "EQ-Q044-SUPPORT-ADJOINT"
+    ],
+    "new_limitations": [
+      "LIM-Q044-COMPLETE-HISTORY",
+      "LIM-Q044-DOWNSTREAM-QUALIFICATION"
+    ],
+    "new_parameters": [],
+    "new_uncertainties": [
+      "UNC-Q044-NATIVE-ROUNDING",
+      "UNC-Q044-PHYSICAL-CORRELATION"
+    ],
+    "new_validity_domains": [
+      "DOM-Q044-SUPPORT-COMPONENT"
+    ],
+    "physical_model_change": false,
+    "preserved": [
+      "All H0 benchmarks, cosmological parameters and physical mechanisms",
+      "All original predictions and open contradictions",
+      "All prior snapshots, source objects and claim maps",
+      "All 14 public operations and calculation schemas"
+    ],
+    "resolved_contradictions": [],
+    "schema_version": 1,
+    "superseded": [],
+    "target_q": "Q044",
+    "to_candidate_version": "v0.6",
+    "update_class": "MULTI_LAYER_UPDATE"
+  },
+  "MODEL_INPUT_COMMIT": "dd7575e7146382957d206e87274ca6246c2587b7",
+  "MODEL_SELECTION_REASON": "Source-bound multi-file admission requires scientific caution, exact hashes, formal references, failure injection and independent review. No main-model switch claimed; branding is not evidence. Context/usage limits are not measured.",
+  "NEW_ACCEPTED_VERSION": null,
+  "NEW_ASSUMPTIONS": [
+    "ASSUMP-Q044-FIXED-KNOTS",
+    "ASSUMP-Q044-SOURCE-RAILS",
+    "ASSUMP-Q044-REAL-ARITHMETIC"
+  ],
+  "NEW_AUTHORIZED_Q_RANGE": "Q001-Q044",
+  "NEW_BENCHMARKS": [],
+  "NEW_CALCULATIONS": [],
+  "NEW_DOMAINS": [],
+  "NEW_EQUATIONS": [
+    "EQ-Q044-SUPPORT-ADJOINT"
+  ],
+  "NEW_LIMITATIONS": [
+    "LIM-Q044-COMPLETE-HISTORY",
+    "LIM-Q044-DOWNSTREAM-QUALIFICATION"
+  ],
+  "NEW_PARAMETERS": [],
+  "NEW_TESTS": {
+    "failure_fixture": "guard_fixture.py; disposable repository copies",
+    "failure_injection_suites": [
+      "test_q044_model_guard.py",
+      "test_q044_campaign_guard.py"
+    ],
+    "gate_count": 11,
+    "mandatory_campaign_gate": "T-BV-013",
+    "review_repairs": [
+      "Historical Q043 independently verifies v0.5 without comparing current v0.6 to old snapshot",
+      "Exact allowed scientific additions and immutable reviewed-tail hashes; candidate diff completeness",
+      "All failure injection now isolated; byte-level unchanged scientific repository verified"
+    ],
+    "validator": "tests/programs/q044_model_validate.py"
+  },
+  "NEW_UNCERTAINTIES": [
+    "UNC-Q044-NATIVE-ROUNDING",
+    "UNC-Q044-PHYSICAL-CORRELATION"
+  ],
+  "NEW_VALIDITY_DOMAINS": [
+    "DOM-Q044-SUPPORT-COMPONENT"
+  ],
+  "NEXT_Q_AUTHORIZED": false,
+  "NEXT_WORD_AUTHORIZED": false,
+  "OPEN_CONTRADICTIONS": [
+    {
+      "id": "CTR-H0-001",
+      "status": "OPEN"
+    },
+    {
+      "id": "CTR-PLANCK-IMPL-001",
+      "status": "OPEN_NARROWED"
+    },
+    {
+      "id": "CTR-HIST-BASIN-LABEL-001",
+      "status": "RESOLVED_METHODOLOGICALLY"
+    }
+  ],
+  "OPTIONAL_TOOL_RECOMMENDATIONS": [],
+  "PHYSICAL_MODEL_CHANGE": false,
+  "PREPARED_INSTALLATION_VERSION": "v0.6",
+  "PRESERVED_ITEMS": [
+    "All H0 benchmarks, cosmological parameters and physical mechanisms",
+    "All original predictions and open contradictions",
+    "All prior snapshots, source objects and claim maps",
+    "All 14 public operations and calculation schemas"
+  ],
+  "PREVIOUS_ACCEPTED_Q": "Q043",
+  "PREVIOUS_MODEL_REVISION": "R000005",
+  "PREVIOUS_MODEL_VERSION": "v0.5",
+  "PRODUCTION_RESTART_AUTHORIZED": false,
+  "PROMOTED": false,
+  "PROMOTION_GATE": "BLOCKED: scientific gates pass; repository publication mandatory but unavailable",
+  "PROVENANCE": {
+    "firewall_statement": "No evidence beyond the authorized TARGET_Q boundary is included.",
+    "frozen_installation_snapshot": "versions/accepted/v0.6",
+    "mixed_boundary_originals": "Hash-only provenance quarantine; only exact authorized excerpts/tail used scientifically",
+    "protected_previous_files": 149,
+    "scientific_authority": "Authorized Bubbleverse original sources; no new external scientific evidence",
+    "snapshot_hash_inventory": "provenance/Q044_SNAPSHOT_MANIFEST.json",
+    "source_files_inventory": "candidate/Q044_PROVENANCE.json",
+    "test_evidence": "tests/results/Q044_MODEL_UPDATE_TEST_RESULT.json"
+  },
+  "PUBLIC_OPERATION_COUNT": 14,
+  "Q044_RESULT": "INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION",
+  "RECOMMENDED_CHATGPT_SETUP": "Strong scientific reasoning and coding setup with stable multi-step repository orchestration; current Codex setup is sufficient",
+  "RECOMMENDED_EXECUTION_TIER": "TIER 2 integration; TIER 3 final audit/release routing",
+  "RECOMMENDED_MODE": "ChatGPT Work Mode",
+  "RECOMMENDED_REASONING_LEVEL": "HIGH for scientific integration; strongest appropriate reasoning for final promotion audit",
+  "REMOTE_ACCEPTED_Q": "Q043",
+  "REMOTE_ACCEPTED_VERSION": "v0.5",
+  "REMOTE_PROMOTION_VERIFIED": false,
+  "REQUIRED_CAPABILITY_TO_RESUME": "Authenticated write access to Morfindien/bubbleverse-model; exact installation handoff supplied",
+  "RESOLVED_CONTRADICTIONS": [],
+  "SCIENTIFIC_CONTRACT_CLASS": "NOT_AVAILABLE",
+  "SETUP_MAPPING": {
+    "TIER 0": "Deterministic normalization, inventory, hashes and Git metadata",
+    "TIER 1": "Routine source/registry inspection",
+    "TIER 2": "Scoped scientific integration and code validation",
+    "TIER 3": "Independent promotion audit and publication transaction"
+  },
+  "SOURCE_COMMIT_SEMANTICS": "Real source-repository inspection pin, not provenance for operator/file-channel manuscripts",
+  "SOURCE_MANUSCRIPT_COMMIT": null,
+  "SOURCE_REPOSITORY": "Morfindien/Bubbleverse",
+  "SOURCE_REPOSITORY_COMMIT": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
+  "SOURCE_REPOSITORY_MODIFIED": false,
+  "STOP_STATE": "TECHNICAL_BLOCK",
+  "SUPERSEDED_ITEMS": [],
+  "TARGET_MODEL_REPOSITORY": "Morfindien/bubbleverse-model",
+  "TARGET_Q": "Q044",
+  "TASK_COMPLEXITY": "HIGH",
+  "TEST_RESULTS": {
+    "all_remote_workflow_runs": "NOT_RUN; local execution of existing public workflow Python implementation",
+    "campaign": "13/13 PASS",
+    "candidate_q044": "11/11 PASS",
+    "counts_overlap": true,
+    "formal": "13/13 PASS",
+    "installation_q044": "11/11 PASS",
+    "public_healthcheck": "20/20 PASS",
+    "q042_historical": "11/11 PASS",
+    "q043_historical": "11/11 PASS",
+    "regression": "40/40 PASS",
+    "repository_unchanged_by_failure_injection_suite": true
+  },
+  "TIMESTAMP_VERIFICATION": "Python system UTC clock; date -u verification in execution log",
+  "TOOLS_AVAILABLE": [
+    "GitHub read/write connector endpoints (write authorization failed)",
+    "local shell/Git/Python/file processing",
+    "Library/file retrieval and saving",
+    "web search",
+    "browser automation",
+    "agent review orchestration",
+    "document/PDF tooling",
+    "other installed plugins (not needed)"
+  ],
+  "TOOLS_USED": [
+    "GitHub repository/tree/content/commit inspection",
+    "Git/Python/shell via exec_command",
+    "PDF text extraction using PyMuPDF",
+    "Library original-file retrieval",
+    "independent review agent",
+    "Library deliverable saving"
+  ],
+  "TOOL_FAILURES": [
+    {
+      "class": "TECHNICAL_FAIL",
+      "result": "No Git HTTPS credentials; could not read Username",
+      "tool": "git push --dry-run"
+    },
+    {
+      "class": "TECHNICAL_FAIL",
+      "http_status": 403,
+      "result": "Resource not accessible by integration",
+      "tool": "github_create_blob"
+    }
+  ],
+  "TOOL_PURPOSES": {
+    "Git/Python": "Hash, extract bounded source, build diff, aggregate 3140 support cells, validate, regression-test, produce real Git commits/bundle",
+    "GitHub": "Discover source/model state and real pins; attempt write capability; repository roles preserved",
+    "Library": "Recover original structured Q044 result/inputs/code/journal/recovery and preserve deliverables",
+    "PDF": "Safely bounded authoritative excerpts; raw mixed originals quarantined",
+    "Reviewer": "Independently audit scope and validator failure behavior"
+  },
+  "UPDATE_CLASS": "MULTI_LAYER_UPDATE",
+  "VERIFIED_TIMESTAMP_UTC": "2026-10-09T18:21:52.813282+00:00",
+  "WORD_INPUT_FILENAME": null,
+  "WORD_INPUT_PATH": null,
+  "WORD_INPUT_SHA256": null,
+  "WORD_INPUT_STATUS": "NO_WORD_DISCOVERED; PDF_AUTHORIZED_SUBSTITUTE_WITH_ORIGINAL_STRUCTURED_RESULT"
+}

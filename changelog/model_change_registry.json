@@ -160,6 +160,17 @@
       "source_bubbleverse_commit": "72cf9e92fc794c122f593a77b6a555e6e97f6a2e",
       "status": "ACCEPTED_MODEL_PROMOTED",
       "update_class": "EVIDENCE_ONLY_UPDATE"
+    },
+    {
+      "accepted_after": null,
+      "candidate": "v0.6",
+      "change_revision": "R000006",
+      "current_q": "Q044",
+      "date": "2026-10-09T18:16:05.013111+00:00",
+      "diff": "candidate/candidate_diff.json",
+      "physical_model_change": false,
+      "prepared_installation_version": "v0.6",
+      "status": "INSTALLATION_PREPARED_REMOTE_BLOCKED"
     }
   ],
   "schema_version": 1

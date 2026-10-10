@@ -1,3 +1,3 @@
-# Bubbleverse Q043 candidate v0.5 / R000005
+# Q044 candidate
 
-Internal local preparation validation only. Physical model unchanged. No production authorized. Candidate is not accepted until every promotion gate passes.
+v0.6 / R000006, Q001-Q044. Conditional mathematical component and inconclusive closure only. No cosmological parameter change, model preference, production authorization or public calculation. NOT PROMOTED.
