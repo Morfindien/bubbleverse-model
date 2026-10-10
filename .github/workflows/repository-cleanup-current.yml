@@ -11,6 +11,7 @@ on:
       - 'versions/accepted/**'
       - 'bubbleverse_model_program_registry.json'
       - 'repository_cleanup.py'
+      - 'tests/programs/test_repository_cleanup*.py'
       - '.github/workflows/repository-cleanup-current.yml'
   schedule:
     - cron: '17 4 * * *'
@@ -29,7 +30,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: bubbleverse-model-state-installation
+  group: bubbleverse-model-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -50,7 +51,11 @@ jobs:
       - name: Verify supplied cleanup engine
         shell: bash
         run: |
-          echo '6da5317cd6dca8fc12199869f24a8085d7145f30972e623ea8d1f4e99a00ab79  repository_cleanup.py' | sha256sum --check
+          sha256sum --check <<'HASHES'
+          233217465a4f9ec1e5c015ddc60dc13aded7832a8e042db76bf9c9c97bcdd0b1  repository_cleanup.py
+          b94bd8aedc78b99e850a21e019546ad5cce7fa394b661519535e390dbe1ee481  tests/programs/test_repository_cleanup.py
+          41eafb3f3968883bdea39ba56144aee01d9c28b518caa1cb4daf2aa5bff35498  tests/programs/test_repository_cleanup_guards.py
+          HASHES
       - name: Discover current state, audit, validate and clean
         shell: bash
         env:
@@ -79,3 +84,10 @@ jobs:
             echo 'Scientific state, accepted model, Q boundary and scientific version unchanged.'
             echo "Repository commit: $(git rev-parse HEAD)"
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve cleanup audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repository-cleanup-audit
+          path: ${{ runner.temp }}/bubbleverse-cleanup-report.json
+          if-no-files-found: warn
