@@ -1,5 +1,5 @@
-# Current validation plan: Q043/v0.5
+# Current validation plan: Q044/v0.6
 
-Run `python3 tests/programs/model_campaign.py validate`, `python3 tests/programs/q043_model_validate.py`, and `python3 -m unittest discover -s tests/programs -p "test*.py"`.
+Run `python3 tests/programs/formal_model_validate.py`, `python3 tests/programs/q044_model_validate.py`, `python3 tests/programs/model_campaign.py validate`, and `python3 -m unittest discover -s tests/programs -p "test*.py"`.
 
-The permanent public workflow `test` operation invokes current validation and 20 system healthchecks; it is non-destructive. Q043 has 11 source/qualification/preservation gates. Q042 historical checks remain mandatory. All 22 regressions exercise real state and restore injected changes. Original numerical trajectories are not rerun and no cosmological inference follows from technical passes.
+The permanent public workflow `test` operation performs read-only current validation and system healthchecks. Historical registered gates and source lineage remain required. Regression tests use disposable copies for failure injection. Original numerical trajectories are not rerun.

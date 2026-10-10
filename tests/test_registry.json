@@ -22,7 +22,7 @@
       "mandatory_for_promotion": false,
       "target_component": "High-Q contamination scan",
       "test_id": "T-BV-002",
-      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q043."
+      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q044."
     },
     {
       "category": "REGRESSION",

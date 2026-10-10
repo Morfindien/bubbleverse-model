@@ -348,7 +348,7 @@ For the current baseline:
 
 ```text
 AUTHORIZED:
-Q001–Q043
+Q001–Q044
 ```
 
 Evidence beyond the authorized boundary must not influence:

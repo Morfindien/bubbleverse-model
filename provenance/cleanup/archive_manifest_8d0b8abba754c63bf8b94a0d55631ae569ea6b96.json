@@ -1,0 +1,37 @@
+{
+  "archives": [
+    {
+      "classification": "ARCHIVE",
+      "git_blob_sha": "43bb2c439310fd366b9201c4aab3adf8ce4de956",
+      "new_path": "provenance/cleanup/archive/7e8e50100453d6a408f7f318402372f444f9dc85/CLEANUP_INSTALLATION.md",
+      "old_path": "CLEANUP_INSTALLATION.md",
+      "provenance_status": "PRESERVED_EXACT_BYTES_AND_REACHABLE_INPUT_GIT",
+      "reason": "Historical blocked cleanup handoff uploaded to operational root; original bytes and Git input retained",
+      "references_updated": [],
+      "sha256": "db499641663f10d3996c1c4461e3152362cce3c94e7c35f802e56da769d55d64"
+    },
+    {
+      "classification": "ARCHIVE",
+      "git_blob_sha": "78c7d8b74a52d97305b60b6a76925fde5408d547",
+      "new_path": "provenance/cleanup/archive/7e8e50100453d6a408f7f318402372f444f9dc85/REPOSITORY_CLEANUP_REPORT.json",
+      "old_path": "REPOSITORY_CLEANUP_REPORT.json",
+      "provenance_status": "PRESERVED_EXACT_BYTES_AND_REACHABLE_INPUT_GIT",
+      "reason": "Historical blocked cleanup handoff uploaded to operational root; original bytes and Git input retained",
+      "references_updated": [],
+      "sha256": "f715d60b40edbb6e6f4eaf04e23f918a1975b287336cddfd09919e0c442ce9d1"
+    },
+    {
+      "classification": "ARCHIVE",
+      "git_blob_sha": "cfbc74cbe0fc929167431f049b51341700f1a43e",
+      "new_path": "provenance/cleanup/archive/7e8e50100453d6a408f7f318402372f444f9dc85/test_repository_cleanup.py",
+      "old_path": "test_repository_cleanup.py",
+      "provenance_status": "PRESERVED_EXACT_BYTES_AND_REACHABLE_INPUT_GIT",
+      "reason": "Historical blocked cleanup handoff uploaded to operational root; original bytes and Git input retained",
+      "references_updated": [],
+      "sha256": "da0f7fe099b4a79ee78eaec3d669280c8642e0cb4ce6e69f19aaf5c680f5b69c"
+    }
+  ],
+  "head_before": "8d0b8abba754c63bf8b94a0d55631ae569ea6b96",
+  "reference_scope": "HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE",
+  "scientific_change": false
+}
