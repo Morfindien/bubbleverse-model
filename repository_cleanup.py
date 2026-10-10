@@ -114,6 +114,51 @@ def discover(repo,jsons):
  if not validators or not workflow:raise RuntimeError('Registered current validators/public healthcheck cannot be discovered safely')
  return {'accepted':accepted,'manifest':manifest,'programs':programs,'validators':validators,'public_workflow':workflow,'current_q':current,'current_q_boundary':str(accepted.get('q_access_start','Q001'))+'-'+str(accepted.get('q_access_end',current)),'current_accepted_version':version,'current_formal_model':manifest.get('formal_model_version'),'current_candidate_state':jsons.get('candidate/candidate_state.json',{}).get('status'),'current_release_state':jsons.get('release/MODEL_RELEASE_HANDOFF.json',{}).get('release_status')}
 
+def historical_reference(repo,path,jsons):
+ # Historical references are exempt only in provenance/cleanup, with reachable
+ # input history; an archive also has to retain its exact original Git bytes.
+ if not path.startswith('provenance/cleanup/'):return False
+ record=jsons.get(path,{})
+ if record.get('reference_scope')=='HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE':
+  head=record.get('head_before','')
+  try:
+   if not re.fullmatch(r'[0-9a-fA-F]{40}',head):return False
+   git(repo,'merge-base','--is-ancestor',head,'HEAD');return True
+  except RuntimeError:return False
+ for index,record in jsons.items():
+  if not index.startswith('provenance/cleanup/archive_manifest') or not isinstance(record,dict):continue
+  for item in record.get('archives',[]):
+   if item.get('new_path')!=path:continue
+   head=record.get('head_before','');old=item.get('old_path','')
+   try:
+    if not re.fullmatch(r'[0-9a-fA-F]{40}',head) or not old or '..' in Path(old).parts:return False
+    git(repo,'merge-base','--is-ancestor',head,'HEAD')
+    original=subprocess.check_output(['git','show',head+':'+old],cwd=repo,stderr=subprocess.DEVNULL)
+    return sha_bytes(original)==item.get('sha256')==digest(repo/path)
+   except (RuntimeError,OSError,subprocess.CalledProcessError):return False
+ return False
+
+def verify_snapshot(repo,state,jsons):
+ snapshot=repo/'versions/accepted'/state['current_accepted_version']
+ if not snapshot.is_dir():raise RuntimeError('Current immutable accepted snapshot is missing')
+ release=jsons.get('release/MODEL_RELEASE_HANDOFF.json',{})
+ record=jsons.get('provenance/'+state['current_q']+'_SNAPSHOT_MANIFEST.json')
+ if record:
+  frozen={p.relative_to(snapshot).as_posix():digest(p) for p in snapshot.rglob('*') if p.is_file()}
+  if record.get('accepted_version')!=state['current_accepted_version'] or frozen!=record.get('sha256'):raise RuntimeError('Frozen snapshot manifest mismatch')
+ for frozen in snapshot.rglob('*'):
+  if not frozen.is_file():continue
+  name=frozen.name;relative=frozen.relative_to(snapshot).as_posix()
+  if relative.startswith(('accepted/','model/','evidence/')):live=repo/relative
+  elif name=='candidate_diff.json':live=repo/'candidate/candidate_diff.json'
+  elif name=='TEST_RESULT.json':live=repo/release.get('test_campaign_artifact','tests/results/'+state['current_q']+'_MODEL_UPDATE_TEST_RESULT.json')
+  elif name=='evidence_registry.json':live=repo/'evidence/evidence_registry.json'
+  elif name=='q_update.json':live=repo/'evidence/q_updates'/(state['current_q']+'.json')
+  elif (repo/'accepted'/relative).is_file():live=repo/'accepted'/relative
+  elif (repo/'model'/relative).is_file():live=repo/'model'/relative
+  else:raise RuntimeError('Unknown snapshot member; cannot verify safely: '+relative)
+  if not live.is_file() or file_bytes(frozen)!=file_bytes(live):raise RuntimeError('Accepted snapshot mismatch: '+relative)
+
 def validate(repo,work):
  entries,_,jsons,errors,_=inventory(repo);before={p:e['sha256'] for p,e in entries.items()};state=discover(repo,jsons);result={}
  relevant=[x for x in errors if x['path'].startswith(PROTECTED) or x['path'].startswith('tests/programs/') or x['path']=='bubbleverse_model_program_registry.json']
@@ -138,20 +183,8 @@ def validate(repo,work):
  health=load(repo/output)
  if not health.get('all_green'):raise RuntimeError('Public healthcheck failed')
  result['PUBLIC_HEALTHCHECK']={'status':'PASS','passed':health.get('tests_passed'),'total':health.get('tests_total')}
- snapshot=repo/'versions/accepted'/state['current_accepted_version']
- if not snapshot.is_dir():raise RuntimeError('Current immutable accepted snapshot is missing')
+ verify_snapshot(repo,state,jsons)
  release=jsons.get('release/MODEL_RELEASE_HANDOFF.json',{})
- for frozen in snapshot.rglob('*'):
-  if not frozen.is_file():continue
-  name=frozen.name;relative=frozen.relative_to(snapshot).as_posix()
-  if relative.startswith(('accepted/','model/','evidence/')):live=repo/relative
-  elif name=='TEST_RESULT.json':live=repo/release.get('test_campaign_artifact','tests/results/'+state['current_q']+'_MODEL_UPDATE_TEST_RESULT.json')
-  elif name=='evidence_registry.json':live=repo/'evidence/evidence_registry.json'
-  elif name=='q_update.json':live=repo/'evidence/q_updates'/(state['current_q']+'.json')
-  elif (repo/'accepted'/relative).is_file():live=repo/'accepted'/relative
-  elif (repo/'model'/relative).is_file():live=repo/'model'/relative
-  else:raise RuntimeError('Unknown snapshot member; cannot verify safely: '+relative)
-  if file_bytes(frozen)!=file_bytes(live):raise RuntimeError('Accepted snapshot mismatch: '+relative)
  result['ACCEPTED_SNAPSHOT_MATCH']='PASS'
  for pid,item in state['programs'].items():
   if not isinstance(item,dict) or not str(item.get('status','')).startswith('ACTIVE'):continue
@@ -187,7 +220,7 @@ def verified_installation_receipt(repo,q,receipt,state):
  if installed.get('current_q')!=q or installed.get('accepted_model_version')!=version:raise RuntimeError('Promotion commit does not contain the claimed installed state')
  return receipt
 
-def bundle_installers(repo,entries,jsons,state):
+def bundle_installers(repo,entries,jsons,state,archiving=()):
  rows=[]
  for workflow in entries:
   m=re.fullmatch(r'\.github/workflows/(q\d+)-install-model\.yml',workflow,re.I)
@@ -206,7 +239,7 @@ def bundle_installers(repo,entries,jsons,state):
     original=subprocess.check_output(['git','show',receipt['initial_main_commit']+':'+p],cwd=repo)
     if git(repo,'rev-parse',receipt['initial_main_commit']+':'+p)!=entries[p]['git_blob_sha'] or digest(repo/p)!=sha_bytes(original):
      raise RuntimeError('Installation artifact changed after verified input: '+p)
-   inbound={ref for p in cohort for ref in entries[p]['referenced_by'] if ref not in cohort and not (ref.startswith('provenance/cleanup/') and jsons.get(ref,{}).get('reference_scope')=='HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE')}
+   inbound={ref for p in cohort for ref in entries[p]['referenced_by'] if ref not in cohort and ref not in archiving and not historical_reference(repo,ref,jsons)}
    if inbound:raise RuntimeError('Retained files depend on installer artifacts: '+', '.join(sorted(inbound)))
   except (RuntimeError,ValueError,KeyError,TypeError,subprocess.CalledProcessError) as exc:reason=str(exc)
   rows.append({'q':q,'cohort':cohort,'receipt_path':receipt_path,'reason':reason})
@@ -220,6 +253,7 @@ def metadata_updates(repo,entries,jsons,state):
   original=(repo/path).read_text();s=original
   for pattern,value in replacements:
    if value is not None:s=re.sub(pattern,lambda m:m[1]+value+m[2],s)
+  if path=='README.md':s=re.sub(r'(AUTHORIZED:\s*\n)Q\d+[-–]Q\d+',lambda m:m[1]+boundary.replace('-','–'),s)
   if s!=original:changes[path]=s
  # A later installation receipt augments the immutable historical preparation report.
  receipt_path='provenance/'+q+'_REMOTE_INSTALLATION_RECEIPT.json'
@@ -243,6 +277,9 @@ def metadata_updates(repo,entries,jsons,state):
  path='tests/TEST_PLAN_CURRENT.md'
  if registry and path in entries:
   original=(repo/path).read_text();s=original
+  if s.startswith('# Current validation plan:'):
+   validators=', '.join('`python3 '+path+(' validate' if args else '')+'`' for path,args in state.get('validators',{}).items())
+   s='# Current validation plan: '+q+'/'+version+'\n\nRun '+validators+', and `python3 -m unittest discover -s tests/programs -p \"test*.py\"`.\n\nThe permanent public workflow `test` operation performs read-only current validation and system healthchecks. Historical registered gates and source lineage remain required. Regression tests use disposable copies for failure injection. Original numerical trajectories are not rerun.\n'
   fields={'Campaign':registry.get('campaign_id'),'Authorized Q range':boundary.replace('-','–'),'Current Q':q,'Accepted model':version}
   for key,value in fields.items():
    if value is not None:s=re.sub(r'(?m)^(\*\*'+re.escape(key)+r':\*\* )[^\n]+',lambda m:m[1]+value+'  ',s)
@@ -255,9 +292,39 @@ def metadata_updates(repo,entries,jsons,state):
   if s!=original:changes[path]=s
  return changes
 
+def root_archives(repo,entries,jsons):
+ # Accidentally uploaded historical handoff files are preserved byte-for-byte,
+ # outside the operational root. Only this explicitly identified report family
+ # is handled; arbitrary root files never become disposable by naming alone.
+ path='REPOSITORY_CLEANUP_REPORT.json';record=jsons.get(path,{})
+ if record.get('TARGET_REPO')!='Morfindien/bubbleverse-model' or record.get('SCIENTIFIC_CHANGE') is not False or record.get('COMMIT_STATUS')!='LOCAL_COMMITTED_REMOTE_PUBLICATION_BLOCKED':return []
+ head=record.get('HEAD_BEFORE','')
+ try:
+  if not re.fullmatch(r'[0-9a-fA-F]{40}',head):return []
+  git(repo,'merge-base','--is-ancestor',head,'HEAD')
+ except RuntimeError:return []
+ paths={path};guide='CLEANUP_INSTALLATION.md';test='test_repository_cleanup.py'
+ if guide in entries and 'Do not upload the report or this instruction sheet as operational root files.' in (repo/guide).read_text():paths.add(guide)
+ deliverables=record.get('DELIVERABLES',[])
+ if test in entries and 'tests/programs/'+test in entries and any(x.get('filename')==test and x.get('repository_path')=='tests/programs/'+test and x.get('sha256')==entries[test]['sha256'] for x in deliverables):paths.add(test)
+ rows=[]
+ for path in sorted(paths):
+  target='provenance/cleanup/archive/'+head+'/'+path
+  # This motor reads these optional artifacts only to archive them; their
+  # absence is handled by the guards above and is not a runtime dependency.
+  inbound={r for r in entries[path]['referenced_by'] if r not in paths and r!='repository_cleanup.py' and not historical_reference(repo,r,jsons)}
+  if inbound or target in entries or entries[path]['mode'] not in {'100644','100755'}:return []
+  rows.append({'old_path':path,'new_path':target,'classification':'ARCHIVE','reason':'Historical blocked cleanup handoff uploaded to operational root; original bytes and Git input retained','sha256':entries[path]['sha256'],'git_blob_sha':entries[path]['git_blob_sha'],'references_updated':[],'provenance_status':'PRESERVED_EXACT_BYTES_AND_REACHABLE_INPUT_GIT'})
+ return rows
+
+def environment_reviews(jsons,state):
+ return [p for p in ['model/environment.json','candidate/formal/environment.json'] if jsons.get(p,{}).get('accepted_model_version') not in {None,state['current_accepted_version']}]
+
 def audit(repo):
  entries,texts,jsons,errors,duplicates=inventory(repo);state=discover(repo,jsons);deletions=set();decisions=[]
- for row in bundle_installers(repo,entries,jsons,state):
+ archives=root_archives(repo,entries,jsons);archiving={row['old_path'] for row in archives}
+ for row in archives:entries[row['old_path']].update(classification='ARCHIVE',reason=row['reason'],change_class='PROVENANCE_ARCHIVE_MOVE',canonical_alternative=row['new_path'])
+ for row in bundle_installers(repo,entries,jsons,state,archiving):
   for p in row['cohort']:
    if row['reason']:entries[p].update(classification='REVIEW_REQUIRED',reason=row['reason'])
    else:
@@ -284,7 +351,7 @@ def audit(repo):
      try:blob=git(repo,'rev-parse',receipt['installation_input_commit']+':'+p)
      except RuntimeError:reason='Installed artifact has no verified original Git blob';break
      if blob!=entries[p]['git_blob_sha']:reason='Installer artifact changed after its verified installation';break
-  inbound={ref for p in cohort for ref in entries[p]['referenced_by'] if ref not in cohort and not (ref.startswith('provenance/cleanup/') and jsons.get(ref,{}).get('reference_scope')=='HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE')}
+  inbound={ref for p in cohort for ref in entries[p]['referenced_by'] if ref not in cohort and not historical_reference(repo,ref,jsons)}
   if inbound:reason='Retained files still depend on the installer cohort: '+', '.join(sorted(inbound))
   if reason:
    for p in cohort:entries[p].update(classification='REVIEW_REQUIRED',reason=reason)
@@ -293,7 +360,7 @@ def audit(repo):
    for p in cohort:entries[p].update(classification='SAFE_DELETE',reason='Completed one-time installer; verified receipt, immutable target and real Git history retained',canonical_alternative='release/'+q+'_INSTALLATION_RESULT.json',change_class='OBSOLETE_WORKFLOW_REMOVAL' if p.endswith('.yml') else 'INSTALLER_REMOVAL')
  # Exact duplicate-name accidents and source-reproducible compiled caches only.
  for p,e in entries.items():
-  if p in deletions or p.startswith(PROTECTED) or p in UPLOADS:continue
+  if p in deletions or p in archiving or p.startswith(PROTECTED) or p in UPLOADS:continue
   refs=set(e['referenced_by'])-deletions;regular=e['mode'] in {'100644','100755'}
   name=Path(p).name;canonical=re.sub(r'(?:-\d+|_copy(?:-\d+)?| copy(?: \(\d+\))?| \(\d+\))(?=\.[^.]+$)','',name,flags=re.I)
   alternatives=[other for other,x in entries.items() if Path(other).name==canonical and other!=p and x['sha256']==e['sha256'] and other not in deletions]
@@ -308,29 +375,42 @@ def audit(repo):
   if not error['path'].startswith(PROTECTED):entries[error['path']].update(classification='UNKNOWN',reason='Unparseable file retained: '+error['error']);deletions.discard(error['path'])
  updates=metadata_updates(repo,entries,jsons,state)
  for p in updates:entries[p].update(classification='UPDATE',reason='Synchronize only current documentation/descriptive metadata with canonical machine state',change_class='DOCUMENTATION_SYNC')
+ for p in environment_reviews(jsons,state):
+  if p in entries:entries[p].update(classification='REVIEW_REQUIRED',reason='Environment embeds a different accepted version from canonical current state; protected frozen metadata retained for a separate model-pipeline review')
  if any(p.endswith('.pyc') for p in deletions):
   ignore=(repo/'.gitignore').read_text() if '.gitignore' in entries else ''
   if '*.py[cod]' not in ignore and '*.pyc' not in ignore:updates['.gitignore']=ignore.rstrip()+'\n__pycache__/\n*.py[cod]\n'
  for p in deletions:
-  e=entries[p];inbound={ref for ref in set(e['referenced_by'])-deletions if not (ref.startswith('provenance/cleanup/') and jsons.get(ref,{}).get('reference_scope')=='HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE')}
+  e=entries[p];inbound={ref for ref in set(e['referenced_by'])-deletions-archiving if not historical_reference(repo,ref,jsons)}
   if inbound:raise RuntimeError('Deletion creates live dependencies: '+p)
   e['delete_gate']={'FILE_EXISTS':'PASS','CANONICAL_ALTERNATIVE':'PASS' if e.get('canonical_alternative') else 'NOT_APPLICABLE','REFERENCE_SCAN':'PASS_ATOMIC_COHORT','PROVENANCE_PRESERVED':'PASS_GIT_BLOB_AT_INPUT_HEAD','ACCEPTED_MODEL_PROTECTION':'PASS','VERSION_SNAPSHOT_PROTECTION':'PASS','TEST_HISTORY_PROTECTION':'PASS','SCIENTIFIC_CHANGE':False,'DELETE_CLASSIFICATION':'SAFE_DELETE','BASELINE_VALIDATION':'PENDING'}
- report={'schema_version':2,'target_repo':git(repo,'config','--get','remote.origin.url'),'date_time':datetime.now(timezone.utc).isoformat(),'default_branch':default_branch(repo),'head_before':git(repo,'rev-parse','HEAD'),'current_q_boundary':state['current_q_boundary'],'current_accepted_version':state['current_accepted_version'],'current_candidate_state':state['current_candidate_state'],'current_formal_model':state['current_formal_model'],'current_release_state':state['current_release_state'],'files_scanned':len(entries),'repository_map':list(entries.values()),'duplicate_groups':duplicates,'parse_observations':errors,'review_required':[p for p,e in entries.items() if e['classification']=='REVIEW_REQUIRED'],'unknown':[p for p,e in entries.items() if e['classification']=='UNKNOWN'],'planned_deletions':sorted(deletions),'planned_updates':sorted(updates),'archive_moves':[],'scientific_change':False,'accepted_state_changed':False,'q_boundary_changed':False,'model_version_changed':False}
+ report={'schema_version':2,'target_repo':git(repo,'config','--get','remote.origin.url'),'date_time':datetime.now(timezone.utc).isoformat(),'default_branch':default_branch(repo),'head_before':git(repo,'rev-parse','HEAD'),'current_q_boundary':state['current_q_boundary'],'current_accepted_version':state['current_accepted_version'],'current_candidate_state':state['current_candidate_state'],'current_formal_model':state['current_formal_model'],'current_release_state':state['current_release_state'],'files_scanned':len(entries),'repository_map':list(entries.values()),'duplicate_groups':duplicates,'parse_observations':errors,'review_required':[p for p,e in entries.items() if e['classification']=='REVIEW_REQUIRED'],'unknown':[p for p,e in entries.items() if e['classification']=='UNKNOWN'],'planned_deletions':sorted(deletions),'planned_updates':sorted(updates),'archive_moves':archives,'scientific_change':False,'accepted_state_changed':False,'q_boundary_changed':False,'model_version_changed':False}
  return report,updates
 
 def cleanup(repo,mode):
  input_head=git(repo,'rev-parse','HEAD');branch=default_branch(repo)
+ remote_before=git(repo,'ls-remote','origin','refs/heads/'+branch)
  with tempfile.TemporaryDirectory(prefix='bubbleverse-cleanup-') as folder:
   work=Path(folder);stage=work/'validated-tree';git(repo,'worktree','add','--quiet','--detach',str(stage),input_head)
   try:
-   report,updates=audit(stage);report['mode']=mode;report['pre_cleanup_tests']=validate(stage,work)
+   report,updates=audit(stage);report['mode']=mode;report['remote_head_before']=remote_before.split()[0] if remote_before else None;report['pre_cleanup_tests']=validate(stage,work)
    for e in report['repository_map']:
     if 'delete_gate' in e:e['delete_gate']['BASELINE_VALIDATION']='PASS'
-   deletions=report['planned_deletions'];actions=bool(deletions or updates);before={p:e['sha256'] for p,e in inventory(stage)[0].items()};protected={p:h for p,h in before.items() if p not in set(deletions)|set(updates)}
+   deletions=report['planned_deletions'];archives=report['archive_moves'];old_archives={row['old_path'] for row in archives};new_archives={row['new_path'] for row in archives};actions=bool(deletions or updates or archives);before={p:e['sha256'] for p,e in inventory(stage)[0].items()};protected={p:h for p,h in before.items() if p not in set(deletions)|set(updates)|old_archives}
    report.update(protected_files_verified=len(protected),accepted_snapshot_files=sum(p.startswith('versions/accepted/') for p in protected),removed_files=[],updated_files=[],push_performed=False,head_after=input_head)
    if mode=='AUDIT':report['cleanup_status']='AUDIT_ONLY'
    elif not actions:report['cleanup_status']='PARTIAL_CLEAN' if report['review_required'] or report['unknown'] else 'CLEAN'
    else:
+    archive_index=None
+    if archives:
+     archive_index='provenance/cleanup/archive_manifest_'+input_head+'.json'
+     for row in archives:
+      source=stage/row['old_path'];target=stage/row['new_path']
+      if digest(source)!=row['sha256']:raise RuntimeError('Archive input changed: '+row['old_path'])
+      target.parent.mkdir(parents=True,exist_ok=True);source.rename(target)
+     document={'head_before':input_head,'reference_scope':'HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE','archives':archives,'scientific_change':False}
+     (stage/archive_index).write_text(json.dumps(document,indent=2,sort_keys=True)+'\n')
+     git(stage,'add','-A','--',*sorted(old_archives|new_archives),archive_index)
     for p in deletions:
      if digest(stage/p)!=before[p]:raise RuntimeError('Delete input changed: '+p)
      (stage/p).unlink()
@@ -339,17 +419,20 @@ def cleanup(repo,mode):
     after=inventory(stage)[0]
     for p,h in protected.items():
      if p not in after or after[p]['sha256']!=h:raise RuntimeError('Protected file changed: '+p)
-    if set(after)!=set(before)-set(deletions)|set(updates):raise RuntimeError('Unexpected structural tree change')
+    if set(after)!=(set(before)-set(deletions)-old_archives)|set(updates)|new_archives|({archive_index} if archive_index else set()):raise RuntimeError('Unexpected structural tree change')
     # Re-audit the resulting tree rather than using a stale incoming plan.
     post,remaining=audit(stage)
-    if remaining or post['planned_deletions']:raise RuntimeError('Cleanup did not converge; no caller files changed')
+    if remaining or post['planned_deletions'] or post['archive_moves']:raise RuntimeError('Cleanup did not converge; no caller files changed')
     report['cleanup_status']='PARTIAL_CLEAN' if post['review_required'] or post['unknown'] else 'CLEANED';report['removed_files']=deletions;report['updated_files']=sorted(updates);report['review_required']=post['review_required'];report['unknown']=post['unknown'];report['protected_hashes']=protected
     receipt=stage/'provenance/cleanup'/('cleanup_'+input_head+'.json');receipt.parent.mkdir(parents=True,exist_ok=True)
     historical=dict(report);historical['reference_scope']='HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE';historical['publication_status']='LOCAL_COMMIT_OPERATOR_PUSH_REQUIRED';receipt.write_text(json.dumps(historical,indent=2,sort_keys=True)+'\n')
-    targets=deletions+list(updates)+[receipt.relative_to(stage).as_posix()]
-    git(stage,'add','-A','--',*targets)
-    changed=set(git(stage,'diff','--cached','--name-only').splitlines())
+    targets=deletions+list(updates)+sorted(old_archives|new_archives)+([archive_index] if archive_index else [])+[receipt.relative_to(stage).as_posix()]
+    # Archive moves were already staged for post-move inventory/validation;
+    # their removed source names are no longer valid index pathspecs.
+    git(stage,'add','-A','--',*(p for p in targets if p not in old_archives))
+    changed=set(git(stage,'diff','--cached','--no-renames','--name-only').splitlines())
     if changed!=set(targets):raise RuntimeError('Unexpected staged diff')
+    if git(repo,'ls-remote','origin','refs/heads/'+branch)!=remote_before:raise RuntimeError('Remote HEAD changed during cleanup; re-audit required, caller untouched')
     git(stage,'-c','user.name=Bubbleverse Repository Cleanup','-c','user.email=repository-cleanup@users.noreply.github.com','commit','--quiet','-m','Repository cleanup: remove verified clutter and sync current documentation')
     final=git(stage,'rev-parse','HEAD');clean(repo)
     if git(repo,'branch','--show-current')!=branch or git(repo,'rev-parse','HEAD')!=input_head:raise RuntimeError('Operator branch or HEAD changed during validation; no cleanup applied')
@@ -357,6 +440,7 @@ def cleanup(repo,mode):
     if caller!=before:raise RuntimeError('Operator files changed during validation; no cleanup applied')
     git(repo,'merge','--ff-only',final);report['head_after']=final;report['cleanup_receipt']=receipt.relative_to(stage).as_posix()
    clean(repo)
+   if git(repo,'ls-remote','origin','refs/heads/'+branch)!=remote_before:raise RuntimeError('Remote HEAD changed; cleanup is local only and must not be published without a new audit')
    if git(repo,'branch','--show-current')!=branch or git(repo,'rev-parse','HEAD')!=report['head_after']:raise RuntimeError('Operator branch or HEAD changed during validation')
    return report
   finally:git(repo,'worktree','remove','--force',str(stage))
