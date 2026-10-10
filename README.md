@@ -13,19 +13,17 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-- Accepted state: **v0.6 / R000006 through Q044**
-- Verified remote accepted state: **v0.6 / R000006 through Q044**
-- Q044: **INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION**
-- Conditional support-specific spline component admitted with scope limits.
-- Physical parameters, H0 benchmarks, original predictions and contradictions: **UNCHANGED**
-- No downstream cosmological qualification, physical falsification or production restart.
-- Public calculations and all 14 operations preserved; no new public operation.
-- Original diagnostics retained as historical reports; no fresh component/C replay claimed.
-- New equation, assumptions, uncertainties and validity/limitations trace to authorized Q044 sources.
-- Remote publication: **VERIFIED**; see `provenance/Q044_REMOTE_INSTALLATION_RECEIPT.json`. Preparation-time blocked reports are preserved historically.
-- Frozen installation snapshot: `versions/accepted/v0.6/`; older accepted snapshots remain immutable.
-- Source repository synchronization remains a separate pending task.
-- Full report: `provenance/Q044_MODEL_UPDATE_REPORT.json`.
+- Accepted state: **v0.7 / R000007 through Q045**.
+- Q045: **CLOSED / INCONCLUSIVE PHYSICAL MATERIALITY**.
+- V2 stored-history recovery admitted as a technical diagnostic only: eight recovered histories, four comparison grids, zero new theory evaluations.
+- Physical reference: **UNQUALIFIED**; physical final result: **UNRESOLVED**.
+- Physical parameters, H0 benchmarks, equations, mechanisms, predictions and open contradictions preserved.
+- No physical bias, CMB/likelihood treatment effect, H0 shift or EDE preference established.
+- All 14 public operations preserved; no new public calculation.
+- No production restart authorized. Source execution-registry synchronization remains separate.
+- Frozen accepted snapshot: `versions/accepted/v0.7/`; all older snapshots remain immutable.
+- Original post-run closure ingestion/journal not supplied; closure is traced to authorized operator manuscript excerpts. Its reported journal digest is not claimed verified.
+- Q045 installation validation: `provenance/Q045_GITHUB_INSTALLATION_RECEIPT.json`. The original update report and access-block record preserve the earlier preparation run; the installation workflow verifies publication separately.
 
 ---
 
@@ -348,7 +346,7 @@ For the current baseline:
 
 ```text
 AUTHORIZED:
-Q001–Q044
+Q001–Q045
 ```
 
 Evidence beyond the authorized boundary must not influence:

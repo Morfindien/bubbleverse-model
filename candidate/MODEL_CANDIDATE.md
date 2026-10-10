@@ -1,3 +1,3 @@
-# Q044 candidate
+# Current model candidate
 
-v0.6 / R000006, Q001-Q044. Conditional mathematical component and inconclusive closure only. No cosmological parameter change, model preference, production authorization or public calculation. NOT PROMOTED.
+v0.7 / R000007 promoted to accepted with Q045 scope limits. Physical reference UNQUALIFIED; final physical result UNRESOLVED; production not authorized.

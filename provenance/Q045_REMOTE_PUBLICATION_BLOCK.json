@@ -1,0 +1,29 @@
+{
+  "failures": [
+    {
+      "channel": "shell_git_push",
+      "result": "No GitHub credentials available; no remote write"
+    },
+    {
+      "channel": "connected_GitHub_create_blob",
+      "http_status": 403,
+      "result": "Resource not accessible by integration; no remote write"
+    }
+  ],
+  "handoff": "Exact real Git commits and objects are included in Bubbleverse_Q045_v0.7.bundle.",
+  "local_candidate_commit": "760864e934d3ccbfb113cbac60807749554a2443",
+  "local_promotion_commit": "425db6c493c0c923aa02f3de1a9ddac90ce38fda",
+  "local_q": "Q045",
+  "local_validation_green": true,
+  "local_version": "v0.7 / R000007",
+  "remote_accepted_q": "Q044",
+  "remote_model_head": "bba3528250b3d56c451bf5ca363b0d75120acb03",
+  "remote_model_version": "v0.6",
+  "remote_source_head": "a9a5777b5923f32930cd9c84a49227ba36249326",
+  "remote_updated": false,
+  "scientific_fail": false,
+  "source_modified": false,
+  "stop_state": "TECHNICAL_BLOCK",
+  "target_q": "Q045",
+  "verified_at": "2026-10-10T12:13:17.928516+00:00"
+}

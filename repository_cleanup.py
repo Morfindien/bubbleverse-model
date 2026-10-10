@@ -150,7 +150,12 @@ def verify_snapshot(repo,state,jsons):
   if not frozen.is_file():continue
   name=frozen.name;relative=frozen.relative_to(snapshot).as_posix()
   if relative.startswith(('accepted/','model/','evidence/')):live=repo/relative
-  elif name=='candidate_diff.json':live=repo/'candidate/candidate_diff.json'
+  elif name=='candidate_diff.json':
+   live=repo/'candidate/candidate_diff.json'
+   candidate_diff=jsons.get('candidate/candidate_diff.json',{})
+   if candidate_diff.get('target_q') not in [None,state['current_q']]:
+    historical=repo/'provenance/archive'/state['current_q']/'candidate_diff.json'
+    if historical.is_file():live=historical
   elif name=='TEST_RESULT.json':live=repo/release.get('test_campaign_artifact','tests/results/'+state['current_q']+'_MODEL_UPDATE_TEST_RESULT.json')
   elif name=='evidence_registry.json':live=repo/'evidence/evidence_registry.json'
   elif name=='q_update.json':live=repo/'evidence/q_updates'/(state['current_q']+'.json')

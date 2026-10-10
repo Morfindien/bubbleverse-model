@@ -29,6 +29,17 @@ class Q044Guards(unittest.TestCase):
         return module.run_tests(self.root, candidate=json.loads((self.root/'accepted/model_state.json').read_text())['current_q'] == 'Q043')
 
     def active_path(self, relative):
+        active=int(json.loads((self.root/'accepted/model_state.json').read_text())['current_q'][1:])
+        pending=int(json.loads((self.root/'candidate/candidate_state.json').read_text())['current_q'][1:])
+        if active>44 or pending>44:
+            if relative in ['candidate/candidate_state.json','candidate/candidate_diff.json']:
+                return self.root/'provenance/archive/Q044'/Path(relative).name
+            if relative=='candidate/evidence/evidence_registry.json':
+                return self.root/'versions/accepted/v0.6/evidence_registry.json'
+            if relative.startswith('candidate/formal/') or relative in ['candidate/robustness.json','candidate/observations.json','candidate/predictions.json','candidate/mechanisms.json','candidate/contradictions.json']:
+                return self.root/'versions/accepted/v0.6'/Path(relative).name
+            if relative.startswith('candidate/evidence/'):
+                return self.root/relative.removeprefix('candidate/')
         if json.loads((self.root/'accepted/model_state.json').read_text())['current_q'] == 'Q044':
             relative = relative.replace('candidate/formal/', 'model/').replace('candidate/evidence/', 'evidence/')
             if relative in ['candidate/robustness.json', 'candidate/observations.json', 'candidate/predictions.json', 'candidate/mechanisms.json', 'candidate/contradictions.json']:

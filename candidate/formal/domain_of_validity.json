@@ -70,8 +70,21 @@
       "q_introduced": "Q044",
       "statement": "Only the inherited fixed-knot native-plus component and its 138 UPPER/3002 LOWER supports under conditional source rails. Not measured Thomson optical depth, a uniform binary64 certificate or a downstream inference result.",
       "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL"
+      ],
+      "id": "DOM-Q045-STORED-HISTORY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "Applies to the four frozen Q041 CamSpec/HiLLiPoP LCDM and n_scf=3 EDE configurations and their recovered native history/refinement diagnostics. Does not establish an independently integrated physical reference or downstream cosmological inference.",
+      "status": "SCOPE_LIMIT"
     }
   ],
-  "q_access_end": "Q044",
+  "q_access_end": "Q045",
   "schema_version": 1
 }

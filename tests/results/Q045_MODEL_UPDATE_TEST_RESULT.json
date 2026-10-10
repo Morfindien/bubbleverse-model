@@ -1,0 +1,76 @@
+{
+  "all_green": true,
+  "artifact_type": "Q045_MODEL_UPDATE_VALIDATION",
+  "mode": "CURRENT_ACCEPTED",
+  "non_destructive": true,
+  "target_q": "Q045",
+  "tests": [
+    {
+      "detail": "Q044/v0.6 -> Q045/v0.7; no skipped Q",
+      "id": "Q045_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "derived_hashes": 12,
+        "original_final_and_artifact_pins": "PASS",
+        "source_files": 25
+      },
+      "id": "Q045_SOURCE_HASH_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Technical recovery and manuscript closure admitted; physical reference/materiality unqualified",
+      "id": "Q045_QUALIFICATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "accepted_tau_reversals": 4,
+        "fresh_solver_rerun": false,
+        "grids": 4,
+        "new_theory_evaluations": 0,
+        "simultaneous_controls": 9,
+        "workers": 8
+      },
+      "id": "Q045_DIAGNOSTIC_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "All prior science, physical values, predictions, contradictions and public interfaces preserved",
+      "id": "Q045_REGRESSION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Exact traceable additions; no new calculation, fundamental equation or physical inference",
+      "id": "Q045_MODEL_DIFF_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Evidence references resolve; existing equations, assumptions, units and schemas preserved",
+      "id": "Q045_REFERENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "maximum_q": 45,
+        "mixed_boundary_manuscripts": "BOUNDED_EXCERPTS_ONLY",
+        "scanned_files": 70
+      },
+      "id": "Q045_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Accepted immutable before promotion; all prior snapshots protected; current live/frozen match",
+      "id": "Q045_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Live run/job/artifact identity matches pinned original; real reachable model input",
+      "id": "Q045_PROVENANCE_GATE",
+      "status": "PASS"
+    }
+  ],
+  "tests_passed": 10,
+  "tests_total": 10
+}

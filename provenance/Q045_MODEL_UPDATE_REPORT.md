@@ -1,0 +1,1440 @@
+# Bubbleverse Q045 model update report
+
+Verified report time: 2026-10-10T14:13:17.959458+02:00.
+
+Locally prepared and validated **v0.7 / R000007 through Q045**. Scope-limited technical history recovery and manuscript-documented inconclusive physical closure have been integrated. Remote publication: **BLOCKED_NO_REMOTE_WRITE**. The remote accepted state remains v0.6 through Q044 when publication is blocked.
+
+The physical reference remains **UNQUALIFIED** and physical materiality remains **UNRESOLVED**. No new physical bias, H0 estimate, EDE preference, CMB/likelihood intervention result or production authorization is established.
+
+The complete machine-readable report is `provenance/Q045_MODEL_UPDATE_REPORT.json`.
+
+## TARGET_Q
+
+Q045
+
+## AUTHORIZED_Q_RANGE
+
+Q001-Q045
+
+## DATE_TIME_UTC
+
+2026-10-10T12:13:17.959458+00:00
+
+## DATE_TIME_LOCAL
+
+2026-10-10T14:13:17.959458+02:00
+
+## AVAILABLE_CHATGPT_SETUP
+
+Codex, GPT-6-based agent. Exact primary UI model/preset is not exposed. Independent reviewer actually used gpt-6-astra.
+
+## AVAILABLE_MODE
+
+Work Mode with connected GitHub and local execution
+
+## AVAILABLE_REASONING_LEVEL
+
+Primary preset not exposed; reviewer selectable max was actually used.
+
+## RECOMMENDED_CHATGPT_SETUP
+
+gpt-6-astra for highest-consequence final scientific audit; a capable tool-enabled primary agent is sufficient for this bounded integration.
+
+## RECOMMENDED_MODE
+
+Work Mode / autonomous repository execution
+
+## RECOMMENDED_REASONING_LEVEL
+
+High for bounded integration; maximum for independent release audit.
+
+## RECOMMENDED_EXECUTION_TIER
+
+TIER 3 for controlled release; TIER 2 for scoped evidence integration
+
+## TASK_COMPLEXITY
+
+HIGH
+
+## CURRENT_SETUP_ADEQUACY
+
+SUFFICIENT
+
+## MODEL_SELECTION_REASON
+
+Requires pinned source/artifact handling, multi-file candidate construction, immutable snapshots, regression and conservative interpretation. No automatic primary-model switch is claimed; reviewer routing was real.
+
+## TOOLS_AVAILABLE
+
+```json
+[
+  "Connected GitHub repository read/write and Actions artifact access",
+  "Local shell/Git/Python execution",
+  "PDF extraction/rendering",
+  "Connected file storage",
+  "Public web search",
+  "Scientific computation/search plugins",
+  "Independent review agent"
+]
+```
+
+## TOOLS_USED
+
+```json
+[
+  "GitHub get_repo/fetch/fetch_file, workflow jobs/artifacts and artifact download",
+  "Git clone, history identity, commits and checked fast-forward publication",
+  "Python standard-library JSON, SHA-256, deterministic diagnostics and mutation tests",
+  "pdftotext for bounded manuscript sections",
+  "gpt-6-astra max independent review"
+]
+```
+
+## TOOL_PURPOSES
+
+```json
+{
+  "GitHub": "Pin both repository heads, verify V2 execution and retrieve original artifact",
+  "PDF extraction": "Admit only safely separable Q045 sections; preserve mixed manuscripts as raw provenance",
+  "Python/Git": "Build scoped candidate, verify hashes/diagnostics, protect previous science and freeze accepted snapshot",
+  "Independent review": "Identify semantic/provenance and post-promotion integrity gaps"
+}
+```
+
+## TOOL_FAILURES
+
+```json
+[
+  "Initial guessed accepted-state and AGENTS paths returned 404; complete tree discovery resolved canonical paths.",
+  "Pre-release controls exposed stale snapshot-diff routing and incomplete qualification checks; fixed with regression tests.",
+  "Shell publication failed: no GitHub credential; connected GitHub create_blob returned HTTP 403 Resource not accessible by integration. Repository metadata reports user push rights, but the integration cannot write."
+]
+```
+
+## OPTIONAL_TOOL_RECOMMENDATIONS
+
+No HPC, browser automation, external literature search or new scientific plugin is required for this evidence-only physical interpretation. A native/physical solver rerun was not performed.
+
+## SOURCE_REPOSITORY
+
+Morfindien/Bubbleverse
+
+## SOURCE_REPOSITORY_COMMIT
+
+a9a5777b5923f32930cd9c84a49227ba36249326
+
+## SOURCE_REPOSITORY_MODIFIED
+
+False
+
+## WORD_INPUT_FILENAME
+
+NOT_AVAILABLE / null
+
+## WORD_INPUT_PATH
+
+NOT_AVAILABLE / null
+
+## WORD_INPUT_SHA256
+
+NOT_AVAILABLE / null
+
+## WORD_INPUT_STATUS
+
+NO_DOCX_IN_PINNED_CURRENT_SOURCE_TREE; PDF_SUBSTITUTE_FOLLOWS_EXISTING_REPOSITORY_CONVENTION
+
+## MANUSCRIPT_SUBSTITUTE
+
+```json
+{
+  "authority": "Operator-supplied PDFs, bounded excerpts, and independently hash-verified original workflow result; follows existing repository substitute convention.",
+  "source_manuscript_commit": null,
+  "documents": [
+    {
+      "archived_name": "Bubbleverse_Technical_Appendices_A-D_Q045_UPDATED.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 605050,
+      "path": "provenance/input_archives/Q045/Bubbleverse_Technical_Appendices_A-D_Q045_UPDATED.pdf",
+      "q_boundary_status": "RAW_PROVENANCE_ONLY",
+      "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+      "scientific_ingestion": false,
+      "sha256": "72877724ddda998cc2519d6c00a1ae498fce18b7a6ef4dc61dbc12bcbeca828d",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Bubbleverse_Q-Journals_Q001-Q044_Q045_UPDATED.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1132075,
+      "path": "provenance/input_archives/Q045/Bubbleverse_Q-Journals_Q001-Q044_Q045_UPDATED.pdf",
+      "q_boundary_status": "RAW_PROVENANCE_ONLY",
+      "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+      "scientific_ingestion": false,
+      "sha256": "362fb7e1c3064f7090f5c9cce86cefd542781926670a0c8c86602e4cb08b18ed",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Bubbleverse_Main_Book_Q045_UPDATED.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1337205,
+      "path": "provenance/input_archives/Q045/Bubbleverse_Main_Book_Q045_UPDATED.pdf",
+      "q_boundary_status": "RAW_PROVENANCE_ONLY",
+      "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+      "scientific_ingestion": false,
+      "sha256": "3f0d59c12857133ad511e45807be68f15d5c39b4bf48f21a9fa5cd715274da3e",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "q_journal_authorized.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 2569,
+      "derivation": {
+        "pdf": "Bubbleverse_Q-Journals_Q001-Q044_Q045_UPDATED.pdf",
+        "start_heading": "Identity and research question",
+        "stop_before_following_question": true
+      },
+      "path": "evidence/sources/Q045/q_journal_authorized.txt",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+      "scientific_ingestion": true,
+      "sha256": "1d2adcbfeb03d623b53cde94724b7330f5d0ae7c7a1b85feefa1253c404b8845",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "appendices_authorized.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1481,
+      "derivation": {
+        "pdf": "Bubbleverse_Technical_Appendices_A-D_Q045_UPDATED.pdf",
+        "start_heading": "Q045 technical classification",
+        "stop_before_following_question": true
+      },
+      "path": "evidence/sources/Q045/appendices_authorized.txt",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+      "scientific_ingestion": true,
+      "sha256": "a26e351a9d45e0b73b094824cfd033c14e3738a89d8d17537c374dbd28cef5d9",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "main_book_authorized.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 834,
+      "derivation": {
+        "pdf": "Bubbleverse_Main_Book_Q045_UPDATED.pdf",
+        "start_heading": "The evidence boundary",
+        "stop_before_following_question": true
+      },
+      "path": "evidence/sources/Q045/main_book_authorized.txt",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+      "scientific_ingestion": true,
+      "sha256": "d650247ce266d3d8644f760be8b07a725560649b78e85d4afe5d40c540319f7c",
+      "source_repository_commit": null
+    }
+  ]
+}
+```
+
+## TARGET_MODEL_REPOSITORY
+
+Morfindien/bubbleverse-model
+
+## MODEL_INPUT_COMMIT
+
+bba3528250b3d56c451bf5ca363b0d75120acb03
+
+## CANDIDATE_COMMIT
+
+760864e934d3ccbfb113cbac60807749554a2443
+
+## PROMOTION_COMMIT
+
+425db6c493c0c923aa02f3de1a9ddac90ce38fda
+
+## PREVIOUS_ACCEPTED_Q
+
+Q044
+
+## NEW_AUTHORIZED_Q_RANGE
+
+Q001-Q045
+
+## PREVIOUS_MODEL_VERSION
+
+v0.6 / R000006
+
+## CANDIDATE_VERSION
+
+v0.7 / R000007
+
+## UPDATE_CLASS
+
+MULTI_LAYER_UPDATE
+
+## SCIENTIFIC_ACCEPTANCE_SCOPE
+
+TECHNICAL_DIAGNOSTIC_AND_INCONCLUSIVE_CLOSURE_ONLY
+
+## Q045_STATUS
+
+CLOSED_INCONCLUSIVE_PHYSICAL_MATERIALITY
+
+## Q045_RESULT_ID
+
+R-Q045-REFHIST-INGESTION-002
+
+## RESULT_ID_AUTHORITY
+
+Reported in authorized operator manuscripts; original post-run closure ingestion file not supplied.
+
+## MODEL_DIFF
+
+```json
+{
+  "added": [
+    {
+      "category": "CONSTRAINTS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES",
+        "EVD-Q045-MAINBOOK"
+      ],
+      "id": "CON-Q045-NO-PHYSICAL-VERDICT"
+    },
+    {
+      "category": "CONSTRAINTS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL"
+      ],
+      "id": "CON-Q045-NO-PRODUCTION"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-REMOTE-RUN"
+      ],
+      "id": "ROB-Q045-RECOVERY"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES"
+      ],
+      "id": "ROB-Q045-REFINEMENT-SCOPE"
+    }
+  ],
+  "evidence_refs": [
+    "EVD-Q045-RECOVERY",
+    "EVD-Q045-QJOURNAL",
+    "EVD-Q045-APPENDICES",
+    "EVD-Q045-MAINBOOK",
+    "EVD-Q045-REMOTE-RUN"
+  ],
+  "from_version": "v0.6",
+  "modified": [
+    "Authorized boundary advances only after controlled promotion",
+    "Formal environment provenance synchronized to real Q045 source and model input commits; historical environment metadata preserved in previous snapshots."
+  ],
+  "new_assumptions": [],
+  "new_benchmarks": [],
+  "new_calculations": [],
+  "new_domains": [],
+  "new_equations": [],
+  "new_limitations": [
+    "LIM-Q045-REFERENCE",
+    "LIM-Q045-MATERIALITY"
+  ],
+  "new_parameters": [],
+  "new_uncertainties": [
+    "UNC-Q045-REFINEMENT",
+    "UNC-Q045-MATERIALITY"
+  ],
+  "new_validity_domains": [
+    "DOM-Q045-STORED-HISTORY"
+  ],
+  "physical_model_change": false,
+  "preserved": [
+    "All inherited evidence and scientific definitions",
+    "Physical parameters, equations, H0 benchmarks, mechanisms, predictions and open contradictions",
+    "All accepted snapshots and public operation schemas"
+  ],
+  "resolved_contradictions": [],
+  "schema_version": 1,
+  "superseded": [],
+  "target_q": "Q045",
+  "to_candidate_version": "v0.7",
+  "update_class": "MULTI_LAYER_UPDATE"
+}
+```
+
+## NEW_DOMAINS
+
+```json
+[]
+```
+
+## NEW_PARAMETERS
+
+```json
+[]
+```
+
+## NEW_EQUATIONS
+
+```json
+[]
+```
+
+## NEW_ASSUMPTIONS
+
+```json
+[]
+```
+
+## NEW_UNCERTAINTIES
+
+```json
+[
+  "UNC-Q045-REFINEMENT",
+  "UNC-Q045-MATERIALITY"
+]
+```
+
+## NEW_VALIDITY_DOMAINS
+
+```json
+[
+  "DOM-Q045-STORED-HISTORY"
+]
+```
+
+## NEW_LIMITATIONS
+
+```json
+[
+  "LIM-Q045-REFERENCE",
+  "LIM-Q045-MATERIALITY"
+]
+```
+
+## NEW_BENCHMARKS
+
+```json
+[]
+```
+
+## NEW_CALCULATIONS
+
+```json
+[]
+```
+
+## NEW_TESTS
+
+```json
+[
+  "Q045 read-only source/qualification/diagnostic/regression/diff/reference/firewall/immutability/provenance validator: 10 gates",
+  "T-BV-014 is mandatory in current campaign",
+  "17 Q045 model failure-injection/read-only tests and two Q045 campaign guards",
+  "Historical Q044 validator routes to frozen v0.6 and archived metadata; all 11 gates retained"
+]
+```
+
+## PRESERVED_ITEMS
+
+```json
+[
+  "All inherited evidence and scientific definitions",
+  "Physical parameters, equations, H0 benchmarks, mechanisms, predictions and open contradictions",
+  "All accepted snapshots and public operation schemas"
+]
+```
+
+## SUPERSEDED_ITEMS
+
+```json
+[]
+```
+
+## OPEN_CONTRADICTIONS
+
+```json
+[
+  {
+    "description": "High local H0 conflicts with lower CMB and BAO+BBN inferences.",
+    "id": "CTR-H0-001",
+    "resolution": "Unresolved through Q040; preserve chain distinctions and dependencies.",
+    "results": [
+      "OBS-H0-LOCAL-001",
+      "OBS-H0-CMB-001",
+      "OBS-H0-BAOBBN-001"
+    ],
+    "status": "OPEN"
+  },
+  {
+    "description": "CamSpec and HiLLiPoP produce materially different fitted endpoint geometry on overlapping Planck PR4/NPIPE information.",
+    "history": [
+      {
+        "note": "Feasibility closure gives no physical downstream verdict; methodological implementation tension preserved.",
+        "q": "Q042",
+        "status": "OPEN_NARROWED"
+      }
+    ],
+    "id": "CTR-PLANCK-IMPL-001",
+    "resolution": "Q039 excludes several simple single-block explanations. Q040 identifies a legitimate common physical CMB-space nuisance-marginalization route, but tested finite numerical representations fail validation before endpoint geometry. Q041 V19 then attempts direct downstream portability with matched external data, but the required complete converged posterior matrix is not obtained, so no physical downstream class is issued. The causal origin and downstream scientific significance remain unresolved; V19 is also narrower than the broader original Q041 contract.",
+    "results": [
+      "ROB-PLANCK-GEOM-001",
+      "ROB-Q039-001",
+      "ROB-Q040-CMB-MARGINAL-001",
+      "ROB-Q040-NUMERIC-001",
+      "ROB-Q041-CONTROLLED-NOSCIENCE-001",
+      "ROB-Q041-FIREWALL-001",
+      "ROB-Q041-CONTRACT-SCOPE-001"
+    ],
+    "status": "OPEN_NARROWED"
+  },
+  {
+    "description": "Historical stable vs later non-stable basin labels appeared contradictory.",
+    "id": "CTR-HIST-BASIN-LABEL-001",
+    "resolution": "Crosswalk showed classifier dependence rather than demonstrated disappearance of classifier-invariant geometry.",
+    "results": [
+      "ROB-CLASSIFIER-001"
+    ],
+    "status": "RESOLVED_METHODOLOGICALLY"
+  }
+]
+```
+
+## RESOLVED_CONTRADICTIONS
+
+```json
+[]
+```
+
+## LIMITATIONS
+
+```json
+[
+  "REFERENCE_TRUTH_GATE remains UNQUALIFIED; FINAL_RESULT_GATE remains UNRESOLVED. These are original research gates, distinct from scope-limited model-admission gates.",
+  "No independently qualified complete physical history/Thomson-depth reference, isolated CMB/native-likelihood response, physical-bias sign/magnitude, H0 shift, EDE preference or portability classification follows.",
+  "Three native levels jointly change nine controls; calibration and support drift remain confounded. All four accepted-tau sequences reverse direction; empirical refinement estimates are not remainder bounds.",
+  "No 10/01/11 treatment response was computed; baseline starts are not optimized minima and original qualified inference margins remain unavailable.",
+  "Original post-run closure ingestion/journal was not supplied. Closure is admitted from authoritative operator manuscript excerpts; reported journal SHA-256 014393b3bd8de995b1860ba6dc286852f0e22df8001684f69017f3a5ab9d5725 is preserved as unverified metadata. Historical pre-closure journal is preserved separately.",
+  "Execution source-registry status is historical and may lag closure; this model update does not modify the source repository.",
+  "No evidence beyond the authorized TARGET_Q boundary is included."
+]
+```
+
+## PROVENANCE
+
+```json
+{
+  "artifact_bytes": 4541261,
+  "artifact_id": 11665884089,
+  "artifact_sha256": "75cb18ca3c124f90aaa890147aea4f39656ca78b17d6a2d24f5e9a94836c1e08",
+  "closure_authority": "OPERATOR_AUTHORIZED_Q045_MANUSCRIPT_EXCERPT",
+  "created_at": "2026-10-10T11:52:56.395959+00:00",
+  "external_verification_used": false,
+  "full_physical_reference_qualified": false,
+  "higher_boundary_inputs": "RAW_PDFS_HASHED_AND_QUARANTINED_ONLY; BOUNDED_SECTIONS_ADMITTED",
+  "job_id": 114186014990,
+  "model_input_commit": "bba3528250b3d56c451bf5ca363b0d75120acb03",
+  "native_or_history_solver_rerun": false,
+  "original_post_run_closure_journal_unavailable": true,
+  "production_restart_authorized": false,
+  "protected_input_hashes": {
+    "accepted/MODEL_CURRENT.md": "7b1941544c0b35dfe4099b72c5d854af6afdfb7d9d79dc96e8226f3fa303f994",
+    "accepted/constraints.json": "5fd74e3b9001287cc95b880882719ecb216e2aef4d6e6a80b3ad8420a7561a1d",
+    "accepted/contradictions.json": "67a814f6f76c6b58659b97590ee3408d780da8708dbf70cb0aba5d184c9228d8",
+    "accepted/mechanisms.json": "f3f10217dda8c6553d1b66c383934e3d73017b24c73e37f82293ad958a189f0b",
+    "accepted/model_state.json": "34d77aac6de7b8186e9b72c3f2e54b311a28eeb7033f43b388a0b10fd9d633b6",
+    "accepted/observations.json": "1ffba7709afd0147bcd687a6cebbf9d75637187d3a2aa9b4cacbcb17c567fc8c",
+    "accepted/predictions.json": "044c07a4acab48ef5741e65e0405c7114b13ceb27d8d65653450705c448382ff",
+    "accepted/robustness.json": "2045a2e1ad560b0c3705505d294847d42603cacf45a9d93fb1cf6f79ef05d22a",
+    "evidence/evidence_registry.json": "52e4362fa6523cc469df978feb08591a686c0835e2fec30418c61d5249d62bb5",
+    "evidence/q_updates/Q039.json": "2dd3a828eebc686241b3d37ebc9522f0128166155c765613b816c15bd11ef670",
+    "evidence/q_updates/Q040.json": "0e726bb756b8d4d7e3f311e55a8507e86b9d8b7ee38fda82ac12e4bbe3302f66",
+    "evidence/q_updates/Q041.json": "7f3598302f59bc1fb116d7b3cd2acb57707fe3062d80b8a9d4f668d61992f280",
+    "evidence/q_updates/Q042.json": "9dbc5a4cbd227b34a293e59841f84baf494000fb8d349486a642dcc347f08764",
+    "evidence/q_updates/Q043.json": "75f452986d1d9756787c22dfaff18f0d12fac16cb18d2a634870c10005b33135",
+    "evidence/q_updates/Q044.json": "9e51ecf0fa450d381f84e3c72ea4b71ae8ba400b8b18bd83df57d8d6209b640f",
+    "evidence/sources/Q042/functional_cap_certificate.json": "8d3aa141558d6c561821ee3d4401ef8acc1aa32bc77189162b0cdbb5980d6ba0",
+    "evidence/sources/Q042/functional_cap_checks.json": "2390be294e70b3fdb330dcf79f8e0292b9608aee75c638ca5dd270601b6224f7",
+    "evidence/sources/Q042/ingestion_audit.json": "122f78f9ebb5b78ac3eaf891cc0ebc83c41b47e6f7c3d21cf7649d87bd6bbe7b",
+    "evidence/sources/Q042/ingestion_decision.json": "7a5c606fadc974dcad740e481b16c6bf828c3f3baefcf6a132ec7e1385864933",
+    "evidence/sources/Q042/main_book.pdf": "b42e92563bc3769b682b40bbe007d6b58b1b17deec64ac7b45a474fb84e0f6fa",
+    "evidence/sources/Q042/q_journal.pdf": "fec49ca2e1f652f55aa1d7bb3ddea3b8daf539eb14bfec782251c19e903ffbac",
+    "evidence/sources/Q042/q_journal_copy.pdf": "5b8cd52d71ab43cd6d22c5ae715a0bb97e1e4f48f5f47891d71753c9f43894ec",
+    "evidence/sources/Q043/appendices.pdf": "e3c21469cc7a53c51a2800146396c2cfcd8872154b6701d9f88668d965c833a7",
+    "evidence/sources/Q043/appendices.txt": "40942b8cf28d664aa50010024a3ce8675bbc215e0ae5230fd08aab38882c2c68",
+    "evidence/sources/Q043/cumulative_journal.md": "b952c3e80e58dc6290e16b432ef20040e32bb111aea56d97e4fbf7892836b42c",
+    "evidence/sources/Q043/integration_result.json": "4486e5173ba8ef3ac659c743bb578284c93446ce9e5b3d0dae71728beadbb9ff",
+    "evidence/sources/Q043/main_book.pdf": "507945a2549c26e56f894a4fca5e9115682c242fcccda66f7b9b6b89dae33b05",
+    "evidence/sources/Q043/main_book.txt": "5f5ce3cd5e6e676397dbddf3f91056248f611306ed40da1200a187c4ee56f16c",
+    "evidence/sources/Q043/q_journal.pdf": "c87270ed88b5b0994cd83d94305d915c55a4783c650c321ce784f5904447eb04",
+    "evidence/sources/Q043/q_journal.txt": "cc8e0833ad97f44af07050a0992523a88e0a5a03e10bb95943cd017688db14b6",
+    "evidence/sources/Q044/Q044_ENDPOINT_SOURCE_EVIDENCE.json": "a20cc688457114503bd06351a9137297bf44136eaf075956fff0d4d50e40f43d",
+    "evidence/sources/Q044/Q044_NATIVE_REPLAY.c": "56c92da28d7200c8b9b88dff8f1fe7e9a0b1dc21cc464d17e39b4fe48eef3641",
+    "evidence/sources/Q044/Q044_SPLINE_ADJOINT.py": "bbd93f22e0da56be9c74fb109e60ddd1dab1f31a76641ab47e2a735d232147fd",
+    "evidence/sources/Q044/Q044_SPLINE_CHECKS.json": "5300cd20e40c2ff43ee48ec1a0ad1b9ef487639bd2aa2fae7d1ce9911861948f",
+    "evidence/sources/Q044/Q044_SPLINE_INGESTION_RESULT.json": "9382cb198ab7d519f377e41f29fb8dad3339bde067e3ee16194536cd52e2b7ec",
+    "evidence/sources/Q044/Q044_SPLINE_INPUTS.json": "f26da12d32eb40c2ae7a8ff618180bb3e495b5f3d183a16f65c09ff97f98fa0c",
+    "evidence/sources/Q044/Q044_SPLINE_RESULT.json": "25638274b3898d97f63d1ecbb06739797396659d02270ab80e37d4bdf5b2354e",
+    "evidence/sources/Q044/Q044_SPLINE_VALIDATE.py": "5363a1b7ce437c0c87f195b9cbd7d58685d0f785da22236e09337503d1918d67",
+    "evidence/sources/Q044/Q044_V29_RECOVERY.json": "46f66fba8405a1d9ddf8a08911a8b404ca24586aa88d9a2b4f1e47e52275212c",
+    "evidence/sources/Q044/appendices_authorized.txt": "938d0806f063c368a4fc93466f6ca77467063c6833728d76d2bc4932fc560029",
+    "evidence/sources/Q044/cumulative_journal_authorized.md": "3b75872a0d4d3aece1ba628525b94ac5efed12829083a8178837b68860c68f18",
+    "evidence/sources/Q044/main_book_authorized.txt": "2cb43ec79127e1f60b25d45dddbb55127f8ffbb93da1bfd7f6f0e90bff820370",
+    "evidence/sources/Q044/q042_interval_v29.py": "558592e20969dbfc063570f2224c36b4e8d7dca37db20009cb5dd2a993e0d160",
+    "evidence/sources/Q044/q_journal_authorized.txt": "d6017b0bd3a18c99842b51660c9de94e32bc80923c9ea10719df350d70c1eab4",
+    "model/README.md": "555afd669ee2b8905fd5ca562768a489c46de6a0228e35646cca8937ad3e5d5f",
+    "model/assumptions.json": "9ab56e334d52a43de41a0907be639df8d6bf58d991a140916f8383f025c727d1",
+    "model/benchmarks.json": "58f6fb7a62b4c4291184f516be24d08fcbc04e819947db431803c00fcb1e5972",
+    "model/domain_of_validity.json": "2c0ba5ba2fdc261c961a57032b35cbef0c743ec056b0aa37dfb250bd1a962518",
+    "model/environment.json": "460cd0a74c667e9fbd1034f9fae7a3950c7907cec1c5ec1282bfd2f8c22ab597",
+    "model/equations.json": "83831b7f20693f3e2db948945608050bf475dd564fb8e0ee4c114a3495586161",
+    "model/external_catalog_registry.json": "24beea29149a8e3b27008bfc9ca582a272e8ce9682c8d3966330890cf36be545",
+    "model/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "model/limitations.json": "e8bb4ab2a4882b5e53950142680aa87402c55ff692c39058f354055b90838b09",
+    "model/model_manifest.json": "c954f9fdc28cf0b393a84319b3d5c5fd2b1caa312af3fe23a770f580a55ef318",
+    "model/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "model/parameters.json": "df5dc008ab4a30b2f233375bb61bd5c810e7e928d4915b4e88e2c57b7ee54a83",
+    "model/result_registry.json": "d3ccb98cdcf4e98ca0e00297a49d6c983e5694d33f783b3e6d95c502362297e6",
+    "model/uncertainty.json": "722b29f88220d7969007d952c23c0ebd8d6e9bbbf20ba26e948017d5af60a7e0",
+    "release/MODEL_RELEASE_HANDOFF.json": "c40bdd3305bd22c9c1f4493a844dc207fde99ae8d7841e87c20df3e196435a81",
+    "release/MODEL_RELEASE_HANDOFF.md": "81530e12dfd6a8317bdc0f58e44ceca9c1a05f6673778c64ceb2b4a694f12243",
+    "release/Q042_INSTALLATION_RESULT.json": "0602ca529f1345b09e406382b95daa955c9fe598fda31635c30be01b63c35555",
+    "versions/accepted/v0.1/MODEL_CURRENT.md": "95bbc95ba347ecb85353330a17b131775746df5a7d8d6bd4882aedab047afa34",
+    "versions/accepted/v0.1/constraints.json": "b522a88883e7bc29f7e87db1a121520d18222698ffc8314a4ff6c9724c9c1e33",
+    "versions/accepted/v0.1/contradictions.json": "8d5efa75722ce6f82b2069be1e2e5ca361c9fd984423ee88b8e121e3600455d1",
+    "versions/accepted/v0.1/mechanisms.json": "d678731b120a531216ba601f84e2262eb9b611498fd605a018100fb9a6485a47",
+    "versions/accepted/v0.1/model_state.json": "6b1f2387d7bb04b388d43207e54d74940f427ac0be4b1efbf85bee2e9893b0d0",
+    "versions/accepted/v0.1/observations.json": "6b2a3d25d4a25b8396524b9b4d12d8f4f1158e9123f89b8c4853c1f26f4cd1fd",
+    "versions/accepted/v0.1/predictions.json": "c77ab1f1529fdf41e5abb135e7de8007842a19290606a24a8e00ec27576421a7",
+    "versions/accepted/v0.1/robustness.json": "897984982a36b96051aeb1e4b8080b5e8f3cefdfa1801ba111a5ce2907aea046",
+    "versions/accepted/v0.2/MODEL_CURRENT.md": "0698b87585a5e09d724f9fd79660f429df53739881d366790d64665c620c05a0",
+    "versions/accepted/v0.2/TEST_RESULT.json": "59981279fe433191c0663d1b1673a235fe95e657cd9d7bfaf2914949244581e2",
+    "versions/accepted/v0.2/assumptions.json": "ee9ffb1a6b7845a9ae3f453c620359beb45fe6b0a745d7f19757d06d2be7dc76",
+    "versions/accepted/v0.2/benchmarks.json": "7166e700d1dacd2467a4e73223cc50933982604d1e676e8cafd51c6b79b83747",
+    "versions/accepted/v0.2/constraints.json": "f88d8a9c6a85381483b28279db9c9e5dfa52e75bc0021b71fa9ffc0bfafc70e0",
+    "versions/accepted/v0.2/contradictions.json": "ea45d09a4788fcabd627dfba546bdf8cff911ac337dc7eedfd45c79cb7845184",
+    "versions/accepted/v0.2/domain_of_validity.json": "691eed611aab61e403def7f2043ae76c6e7be5c25539a8124ee81ca6da330f10",
+    "versions/accepted/v0.2/environment.json": "e797ddbef2dba8d5ebade5c3143caff29009c98bd30f76ff97843d66ef312923",
+    "versions/accepted/v0.2/equations.json": "fbda44c815bdc0a7cfd86b206ad85adff632e74748e0087d0330d1f7b456f46a",
+    "versions/accepted/v0.2/evidence_registry.json": "9fde07fc4b36e641e16d2563c79afd1b38f3de1ff7163f68759c8907f647cd83",
+    "versions/accepted/v0.2/external_catalog_registry.json": "0dd06f30294fe1cde8364d3ecc0bcf532f7a2eef899e87fc06c0f954f6b17095",
+    "versions/accepted/v0.2/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "versions/accepted/v0.2/limitations.json": "9a82f50981aa727cca16ba633244c4596cef283fbe50c472e97db2583ff98d66",
+    "versions/accepted/v0.2/mechanisms.json": "7ccebea25da99df54e58b2acf0f523d2221f50cd9a42e1c5a55191e218e51539",
+    "versions/accepted/v0.2/model_manifest.json": "6aa4538464c729405ed3cb9aac55db93c903014885935a052a0d2301e69b95a8",
+    "versions/accepted/v0.2/model_state.json": "08ee93a7b2fca62e444de678fb19815f1bbc12eb386344372a9df60b2313949c",
+    "versions/accepted/v0.2/observations.json": "d4d10377f66fa3ee2b27ef5a2cf1943e042fbfd7a3fc024293786f4e7d4b7c85",
+    "versions/accepted/v0.2/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "versions/accepted/v0.2/parameters.json": "8f0f6bc10f818e354cf718164a06a88ae086c23539759bf49619e15952ad23c6",
+    "versions/accepted/v0.2/predictions.json": "e705a76b0bec6d006f2c0fe163ca733f590574d9bc2569166f14708b11d0ff56",
+    "versions/accepted/v0.2/q_update.json": "0e726bb756b8d4d7e3f311e55a8507e86b9d8b7ee38fda82ac12e4bbe3302f66",
+    "versions/accepted/v0.2/result_registry.json": "605999c6ed1add5233c89084e6e263cfe747e057691a7f8f9a3e4f43470372a5",
+    "versions/accepted/v0.2/robustness.json": "8892281049391ab98524e2b164be00eeadbf63d0bbfb8233e4b624cb8b566c69",
+    "versions/accepted/v0.2/uncertainty.json": "1830396f243fbe97e192206390cecda1b2f0e19884b234eb836107f8f60356d1",
+    "versions/accepted/v0.3/MODEL_CURRENT.md": "e8f3efa93efe70929e97287c9bfe1c3829ef0c847ce087eaf24c734ffa9035eb",
+    "versions/accepted/v0.3/TEST_RESULT.json": "0042a262727f1eb04843416711cffd9992aecf196fbe845f3832fc92327d455f",
+    "versions/accepted/v0.3/assumptions.json": "1287a5c1ffba973d4734c38eac3ec6723189d5e06e3cc731099325839ea792e6",
+    "versions/accepted/v0.3/benchmarks.json": "45ce20c4241fa6d2296415df0475ed692b7e2ad974353776521675c1506314e5",
+    "versions/accepted/v0.3/constraints.json": "000db55c9b394937396cf8a5dedac2a3bf1fc7e56f47ec756bb567f1a6c88d20",
+    "versions/accepted/v0.3/contradictions.json": "11209c6f74d407ecbac62ef9422788c0aaab249dba868c2bf7df65a74f400364",
+    "versions/accepted/v0.3/domain_of_validity.json": "81722e8588f11559deb2b61db858d9710ae165e26bdc69efd5ceace51609230a",
+    "versions/accepted/v0.3/environment.json": "4538649ed4eb6d0484c6ab84d646daabdfc2de5bb90dcd669ad85ac2724f3f24",
+    "versions/accepted/v0.3/equations.json": "ded5ef7896360cbee67fc4c0d070389313b8688b95cdab6a09cb85618b7ac2fa",
+    "versions/accepted/v0.3/evidence_registry.json": "e8435223166a95cf6ffade81c2b205c3d0db6d7d5c3aa08b56cd47c2b12227bb",
+    "versions/accepted/v0.3/external_catalog_registry.json": "560d10ae3df33bbc103bfb140f7cd0a19559211e1578ec62192b7328933171ea",
+    "versions/accepted/v0.3/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "versions/accepted/v0.3/limitations.json": "cca466dab9200e1845640437d6dc6b587f71a115b149950a255dc188daa15930",
+    "versions/accepted/v0.3/mechanisms.json": "78cae3ed35a5cf8cf07a6ec511bb8132899d981987245397fc1129c8f0188b89",
+    "versions/accepted/v0.3/model_manifest.json": "d0fc163f439fb032779212af925aed290f36dc2245f89c60cdaa8d442797df3e",
+    "versions/accepted/v0.3/model_state.json": "9114490ec4a79dffb21db2d76f29384cdb2dea4a9a507007aa3cc238460af196",
+    "versions/accepted/v0.3/observations.json": "105278c56473034afdd06957471d221675f6b34aa49de2dba4f1585e588d5b7b",
+    "versions/accepted/v0.3/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "versions/accepted/v0.3/parameters.json": "adc794d649bd04dc5b9de32a5e25e6e7301633f30e900d5c08fadcbe91f967bb",
+    "versions/accepted/v0.3/predictions.json": "133f85967adb7c5708c6a2ac38afeabc2f14496849be93003865c6eba4b0c0bb",
+    "versions/accepted/v0.3/q_update.json": "7f3598302f59bc1fb116d7b3cd2acb57707fe3062d80b8a9d4f668d61992f280",
+    "versions/accepted/v0.3/result_registry.json": "fa9468fc1c3b7810d785747e5c1bec6abf7784929c726cba63e9cfffdbe90e6a",
+    "versions/accepted/v0.3/robustness.json": "9ead493522d4e9dbe73c7453d82a83cc1b57ea441278419c16d5a9c66346b411",
+    "versions/accepted/v0.3/uncertainty.json": "a502d870bcea5f40f73fdefbe6b4f66fe86d2eae34c678c3c8144e9f6392a051",
+    "versions/accepted/v0.4/MODEL_CURRENT.md": "08757a8c55b911ae057d8e51dc6d848c67039250079a5bb8bdf13a1614f90a7a",
+    "versions/accepted/v0.4/TEST_RESULT.json": "963c4808c87223abd690bcfd4b3889c3e48eabfd0a80fa91eaf71bc0488edc79",
+    "versions/accepted/v0.4/assumptions.json": "3e411847e06e159ad98eb0b998dbcb5a9937d2ead2e6211ca21b0cdaa72ffc44",
+    "versions/accepted/v0.4/benchmarks.json": "687f4a5e450498378815e83936689ea75cfad05ea140dc7533759e0a8183bc9d",
+    "versions/accepted/v0.4/constraints.json": "7421c3c0dbafcc47060d72ed55e3d8a1176d02e37715ad66ad2617c60609b667",
+    "versions/accepted/v0.4/contradictions.json": "b1c3b7b899d924e5597bcd79f6ee38e5ddd565310033ff34ce09bba199c8e0a9",
+    "versions/accepted/v0.4/domain_of_validity.json": "1b256436d81362f43e5aa58f20d1e894715791c8039176cf1785b6969deddc46",
+    "versions/accepted/v0.4/environment.json": "36e9f97c789aa36e3ef214538cb114579212b20a312ef6d08161527c46659961",
+    "versions/accepted/v0.4/equations.json": "6c02004b0e4fea2fb39ca59d58ae7ffadb9a272062194f4af3c552ce254cf85e",
+    "versions/accepted/v0.4/evidence_registry.json": "9cc502a51dc3e5d719bef3c1ab323e7715040a77b9d103af92350fcd873894b4",
+    "versions/accepted/v0.4/external_catalog_registry.json": "6bdbf257790dc3a231773995bb867851a8c96b5a2def3fd9beacd1a44cb34726",
+    "versions/accepted/v0.4/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "versions/accepted/v0.4/limitations.json": "7b0ea88ac56c412350104a78e399290df2f7e378a62c69dc5615a5c5e967091f",
+    "versions/accepted/v0.4/mechanisms.json": "9834b83c9a5b7e56009f6db56fd306011ef19cbceacf39df1bfe9827c41d9b70",
+    "versions/accepted/v0.4/model_manifest.json": "57c473ff58d62eda1192961d478a422435129dacac84fb0273a40714f94bef15",
+    "versions/accepted/v0.4/model_state.json": "e54306ac67384055a18f3b57cb792dc40d2696489ae69626bf76d6b824a3a41a",
+    "versions/accepted/v0.4/observations.json": "10dcc6d0253a15772c616f11c75d150961c4264540bb7d411904c615caabad71",
+    "versions/accepted/v0.4/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "versions/accepted/v0.4/parameters.json": "c472d8fe1049ff3df6d61253cadb95c027ec093211d93423e165aa4c2980365a",
+    "versions/accepted/v0.4/predictions.json": "9261a918b30092ff04e38760e300faf0c34b63669096fb0cccd8c9e03f76f211",
+    "versions/accepted/v0.4/q_update.json": "9dbc5a4cbd227b34a293e59841f84baf494000fb8d349486a642dcc347f08764",
+    "versions/accepted/v0.4/result_registry.json": "f5f4f5581f5bc34bbabbcf47aa951e4590b69d1014470b930958344a026df813",
+    "versions/accepted/v0.4/robustness.json": "da0acb439902cd7985049273bae3c64782a4c0f1405b9e8d153cc2129ce54d60",
+    "versions/accepted/v0.4/uncertainty.json": "b0688512382bd89de20de769151d56ee8a4ed7dd9e4ffbb66b8d3fd2d8cb97ac",
+    "versions/accepted/v0.5/MODEL_CURRENT.md": "04027e6f24c558ab95c7a969cf6f7618cbff07f2b9e256a23052142c3c29a2ed",
+    "versions/accepted/v0.5/assumptions.json": "92c65a6802b340cb97f0d75714c191ce7dc31cd80b7b94f40fe6de984aea738b",
+    "versions/accepted/v0.5/benchmarks.json": "9b539da9f8f6c00bd1ff9bea2c52acbd3b616bd70e9dfcad86cba7a020fa282d",
+    "versions/accepted/v0.5/constraints.json": "59a70c8c26a49591cd2731c50aeb7ab3d08d87e6af52b756b3fb58ad9a764e14",
+    "versions/accepted/v0.5/contradictions.json": "ae8745a25d420bca528aef36d3e1bddaa0c8575984e9e35f18ecced41d4a0bdc",
+    "versions/accepted/v0.5/domain_of_validity.json": "9622c282b6be21a83ab8a07c0a69586e2ec3806a1a4971f7b775701ae67ae751",
+    "versions/accepted/v0.5/environment.json": "c7c623140380d5fc6186a26436817ef57e68e9f53996707061c32d73cb43bf5b",
+    "versions/accepted/v0.5/equations.json": "dc2014578ccf3c9fd5dea2e8fc26a756780dc7cb0c594a98bd8cb725de600eef",
+    "versions/accepted/v0.5/evidence_registry.json": "1676026fd7a232fb54621ad0f750d3111de4d69f789d1f2e8dfae3781041c4cd",
+    "versions/accepted/v0.5/external_catalog_registry.json": "f74b08d1021c692937029999d57d0a602d79e532de17c6da6e9e6b9447dec669",
+    "versions/accepted/v0.5/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "versions/accepted/v0.5/limitations.json": "4f3ebfaa01e9346d2291fc9fdd4c53ac09378f78532b2124c101ed374b72caaa",
+    "versions/accepted/v0.5/mechanisms.json": "4273dc9c81ae5c9ffe101b92370e884decf34ce396370496f3454f21409ec19b",
+    "versions/accepted/v0.5/model_manifest.json": "2632a5647d2ee01db86e69f904807a096341e9a64894760802fddc7671ad80c8",
+    "versions/accepted/v0.5/model_state.json": "a2edd73b3458ef1d6620c4f15679aff7dca93e688d615942a5ebed0f01248375",
+    "versions/accepted/v0.5/observations.json": "ed81fd901a2c4320b21e75adab4e695d2665f660cd807ba006a36a8000f7bbb2",
+    "versions/accepted/v0.5/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "versions/accepted/v0.5/parameters.json": "8261d502bf1de4764d1a56190b709fb0a91a4aa198e2dfa19aeb0b4d4b1645e3",
+    "versions/accepted/v0.5/predictions.json": "00442835d0b0c8ee33610eadedc5935c7576ac34cac4f13d1d76e495bffc32bf",
+    "versions/accepted/v0.5/q_update.json": "75f452986d1d9756787c22dfaff18f0d12fac16cb18d2a634870c10005b33135",
+    "versions/accepted/v0.5/result_registry.json": "079efac332bab9738c7ff00f1aa16116e2cd97a68416f868fe6a4a91bc1c811c",
+    "versions/accepted/v0.5/robustness.json": "94ff5e2816a399098cba7df021558f21f379b34a0c01c5ebcdb1f3eeddde5420",
+    "versions/accepted/v0.5/uncertainty.json": "6a197e5e2b589926bda1486337481e10aec427e79c3343d698ddc04a3a90cc87",
+    "versions/accepted/v0.6/MODEL_CURRENT.md": "7b1941544c0b35dfe4099b72c5d854af6afdfb7d9d79dc96e8226f3fa303f994",
+    "versions/accepted/v0.6/README.md": "555afd669ee2b8905fd5ca562768a489c46de6a0228e35646cca8937ad3e5d5f",
+    "versions/accepted/v0.6/assumptions.json": "9ab56e334d52a43de41a0907be639df8d6bf58d991a140916f8383f025c727d1",
+    "versions/accepted/v0.6/benchmarks.json": "58f6fb7a62b4c4291184f516be24d08fcbc04e819947db431803c00fcb1e5972",
+    "versions/accepted/v0.6/candidate_diff.json": "a2225cbe5f3e0307322a626493f4300c06709904a070f14a97770d506c46f80d",
+    "versions/accepted/v0.6/constraints.json": "5fd74e3b9001287cc95b880882719ecb216e2aef4d6e6a80b3ad8420a7561a1d",
+    "versions/accepted/v0.6/contradictions.json": "67a814f6f76c6b58659b97590ee3408d780da8708dbf70cb0aba5d184c9228d8",
+    "versions/accepted/v0.6/domain_of_validity.json": "2c0ba5ba2fdc261c961a57032b35cbef0c743ec056b0aa37dfb250bd1a962518",
+    "versions/accepted/v0.6/environment.json": "460cd0a74c667e9fbd1034f9fae7a3950c7907cec1c5ec1282bfd2f8c22ab597",
+    "versions/accepted/v0.6/equations.json": "83831b7f20693f3e2db948945608050bf475dd564fb8e0ee4c114a3495586161",
+    "versions/accepted/v0.6/evidence_registry.json": "52e4362fa6523cc469df978feb08591a686c0835e2fec30418c61d5249d62bb5",
+    "versions/accepted/v0.6/external_catalog_registry.json": "24beea29149a8e3b27008bfc9ca582a272e8ce9682c8d3966330890cf36be545",
+    "versions/accepted/v0.6/input_schema.json": "b97cd8005426a982a63c24db769ba5114bc2f4670ef004af213350781e1d5816",
+    "versions/accepted/v0.6/limitations.json": "e8bb4ab2a4882b5e53950142680aa87402c55ff692c39058f354055b90838b09",
+    "versions/accepted/v0.6/mechanisms.json": "f3f10217dda8c6553d1b66c383934e3d73017b24c73e37f82293ad958a189f0b",
+    "versions/accepted/v0.6/model_manifest.json": "c954f9fdc28cf0b393a84319b3d5c5fd2b1caa312af3fe23a770f580a55ef318",
+    "versions/accepted/v0.6/model_state.json": "34d77aac6de7b8186e9b72c3f2e54b311a28eeb7033f43b388a0b10fd9d633b6",
+    "versions/accepted/v0.6/observations.json": "1ffba7709afd0147bcd687a6cebbf9d75637187d3a2aa9b4cacbcb17c567fc8c",
+    "versions/accepted/v0.6/output_schema.json": "449f876ecec4139b12bd022246f2a2b52c550b2a3cf059934658844472a63f5e",
+    "versions/accepted/v0.6/parameters.json": "df5dc008ab4a30b2f233375bb61bd5c810e7e928d4915b4e88e2c57b7ee54a83",
+    "versions/accepted/v0.6/predictions.json": "044c07a4acab48ef5741e65e0405c7114b13ceb27d8d65653450705c448382ff",
+    "versions/accepted/v0.6/q_update.json": "9e51ecf0fa450d381f84e3c72ea4b71ae8ba400b8b18bd83df57d8d6209b640f",
+    "versions/accepted/v0.6/result_registry.json": "d3ccb98cdcf4e98ca0e00297a49d6c983e5694d33f783b3e6d95c502362297e6",
+    "versions/accepted/v0.6/robustness.json": "2045a2e1ad560b0c3705505d294847d42603cacf45a9d93fb1cf6f79ef05d22a",
+    "versions/accepted/v0.6/uncertainty.json": "722b29f88220d7969007d952c23c0ebd8d6e9bbbf20ba26e948017d5af60a7e0"
+  },
+  "reviewed_additions_sha256": {
+    "constraints": "019d8218d11f0c5e3a788b4b804764b4b04a2d5c9271eb3d92ad1a7524de24d4",
+    "domain_of_validity": "7eb2297dc215eba223586ac93f696696e6c2dc3cfb4d201af70f45473e1b6f5c",
+    "limitations": "3ae29bf342eddbba4cb882df112d8a30c90d41646800d5f5049ab51d950b6174",
+    "robustness": "24f0d724888b0e3a8f44ddce11c493826d2235b611ddf0d400aef575e11efffb",
+    "uncertainty": "d6bc20f5e1942bc7b376d4ebaeef52d4ed620d576a74e9a8a64732627907e23d"
+  },
+  "run_attempt": 1,
+  "run_id": 38042718814,
+  "scientific_range": "Q001-Q045",
+  "source_files": [
+    {
+      "archived_name": "q045_reference_history_final_v2.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 135718,
+      "path": "evidence/sources/Q045/q045_reference_history_final_v2.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "f6a214d6ed8b58619a27f0f40df4bfbfe892056b4eb0985f24e662fa5fe0ed26",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "camspec-ede_n3_common_grid.tsv",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 3841061,
+      "path": "evidence/sources/Q045/camspec-ede_n3_common_grid.tsv",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "48b248872970cef29d5f55c7936d3fb8c90fa04ba0da2bb992885f2af42837bd",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "camspec-lcdm_common_grid.tsv",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 3841043,
+      "path": "evidence/sources/Q045/camspec-lcdm_common_grid.tsv",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "beceee0d288f3d23e5e2a62c21d26632f9f6a9d5c02495d5f145b7c3a85f95e2",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "hillipop-ede_n3_common_grid.tsv",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 3840777,
+      "path": "evidence/sources/Q045/hillipop-ede_n3_common_grid.tsv",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "cc728dfb5ecebce20ea1d9cfb66f827b8eaf3261c86b59eb8a2c08444148e00b",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "hillipop-lcdm_common_grid.tsv",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 3840851,
+      "path": "evidence/sources/Q045/hillipop-lcdm_common_grid.tsv",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "c46de605f316a841fae33f44350e1ee349de39a4effa4ad770d5ca695fb808ad",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "camspec-ede_n3-L1.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4815,
+      "path": "evidence/sources/Q045/recovered_workers/camspec-ede_n3-L1.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "a2868fbe04276ef609a2ccf3afd4f90b67969383dd8f3c38d3470e7f9f188393",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "camspec-ede_n3-L2.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4811,
+      "path": "evidence/sources/Q045/recovered_workers/camspec-ede_n3-L2.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "1ab57dc1854080ba49036d1612dd1f18797d4d2080717a196b8c7d9bc29c7f0e",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "camspec-lcdm-L1.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4813,
+      "path": "evidence/sources/Q045/recovered_workers/camspec-lcdm-L1.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "8953d6aa453d899d6e29bd566d0990dc811712bb031abd99513949e90604b522",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "camspec-lcdm-L2.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4816,
+      "path": "evidence/sources/Q045/recovered_workers/camspec-lcdm-L2.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "cb1a7cea8fddf1b5f8814f8e89a5c98cd3eef40c84154f78a37871d2ba458d43",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "hillipop-ede_n3-L1.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4882,
+      "path": "evidence/sources/Q045/recovered_workers/hillipop-ede_n3-L1.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "52b183f85d3c39b57829d3dc4d17225234cfab2ff766c603bc80876b1ae803da",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "hillipop-ede_n3-L2.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4819,
+      "path": "evidence/sources/Q045/recovered_workers/hillipop-ede_n3-L2.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "08d450387201df4c25e323454d5534fa11bec51ec4b0d72d16d404b250e191cb",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "hillipop-lcdm-L1.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4883,
+      "path": "evidence/sources/Q045/recovered_workers/hillipop-lcdm-L1.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "a83226dea867d5d16e4fc5e570d9672f3252a82e96dc6ad161cc67f1ad432730",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "hillipop-lcdm-L2.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4813,
+      "path": "evidence/sources/Q045/recovered_workers/hillipop-lcdm-L2.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_WORKFLOW_RESULT",
+      "scientific_ingestion": true,
+      "sha256": "555d7480337aed6c592efb7a6b4180972af1e63329a8482d864d4736fd66961b",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "q045_reference_history_contract_v2.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 57905,
+      "path": "evidence/sources/Q045/q045_reference_history_contract_v2.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_EXECUTION_DEFINITION",
+      "scientific_ingestion": true,
+      "sha256": "996a713e0bf17d7239a00f73e013617fbf4f014b6b6eaea1db24a37660da5d44",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "q045_reference_history_manifest_v2.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 2737,
+      "path": "evidence/sources/Q045/q045_reference_history_manifest_v2.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_EXECUTION_DEFINITION",
+      "scientific_ingestion": true,
+      "sha256": "e3cfa23b9cd63a168a98ccf6423f3a5ebcd0ed714ce841c497e293286fe01282",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "input_preparation_v2.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 3485,
+      "path": "evidence/sources/Q045/input_preparation_v2.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "ORIGINAL_INPUT_PREPARATION",
+      "scientific_ingestion": true,
+      "sha256": "bc20de1b26d588b2a5a15fdac29928a27c2f3ce8af44ce85c5dd01a4a2993115",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "remote_execution_receipt.json",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 3207,
+      "path": "evidence/sources/Q045/remote_execution_receipt.json",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "LIVE_REMOTE_VERIFICATION",
+      "scientific_ingestion": true,
+      "sha256": "77ec967f1c241fefa346d660cf4b14abdceea14b8a1adb8edf8118c0a1f920a8",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "Bubbleverse_Technical_Appendices_A-D_Q045_UPDATED.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 605050,
+      "path": "provenance/input_archives/Q045/Bubbleverse_Technical_Appendices_A-D_Q045_UPDATED.pdf",
+      "q_boundary_status": "RAW_PROVENANCE_ONLY",
+      "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+      "scientific_ingestion": false,
+      "sha256": "72877724ddda998cc2519d6c00a1ae498fce18b7a6ef4dc61dbc12bcbeca828d",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Bubbleverse_Q-Journals_Q001-Q044_Q045_UPDATED.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1132075,
+      "path": "provenance/input_archives/Q045/Bubbleverse_Q-Journals_Q001-Q044_Q045_UPDATED.pdf",
+      "q_boundary_status": "RAW_PROVENANCE_ONLY",
+      "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+      "scientific_ingestion": false,
+      "sha256": "362fb7e1c3064f7090f5c9cce86cefd542781926670a0c8c86602e4cb08b18ed",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "Bubbleverse_Main_Book_Q045_UPDATED.pdf",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1337205,
+      "path": "provenance/input_archives/Q045/Bubbleverse_Main_Book_Q045_UPDATED.pdf",
+      "q_boundary_status": "RAW_PROVENANCE_ONLY",
+      "role": "OPERATOR_MANUSCRIPT_RAW_PROVENANCE",
+      "scientific_ingestion": false,
+      "sha256": "3f0d59c12857133ad511e45807be68f15d5c39b4bf48f21a9fa5cd715274da3e",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "q_journal_authorized.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 2569,
+      "derivation": {
+        "pdf": "Bubbleverse_Q-Journals_Q001-Q044_Q045_UPDATED.pdf",
+        "start_heading": "Identity and research question",
+        "stop_before_following_question": true
+      },
+      "path": "evidence/sources/Q045/q_journal_authorized.txt",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+      "scientific_ingestion": true,
+      "sha256": "1d2adcbfeb03d623b53cde94724b7330f5d0ae7c7a1b85feefa1253c404b8845",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "appendices_authorized.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 1481,
+      "derivation": {
+        "pdf": "Bubbleverse_Technical_Appendices_A-D_Q045_UPDATED.pdf",
+        "start_heading": "Q045 technical classification",
+        "stop_before_following_question": true
+      },
+      "path": "evidence/sources/Q045/appendices_authorized.txt",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+      "scientific_ingestion": true,
+      "sha256": "a26e351a9d45e0b73b094824cfd033c14e3738a89d8d17537c374dbd28cef5d9",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "main_book_authorized.txt",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 834,
+      "derivation": {
+        "pdf": "Bubbleverse_Main_Book_Q045_UPDATED.pdf",
+        "start_heading": "The evidence boundary",
+        "stop_before_following_question": true
+      },
+      "path": "evidence/sources/Q045/main_book_authorized.txt",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "AUTHORIZED_MANUSCRIPT_EXCERPT",
+      "scientific_ingestion": true,
+      "sha256": "d650247ce266d3d8644f760be8b07a725560649b78e85d4afe5d40c540319f7c",
+      "source_repository_commit": null
+    },
+    {
+      "archived_name": "workflow_artifact.zip",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 4541261,
+      "path": "provenance/input_archives/Q045/workflow_artifact.zip",
+      "q_boundary_status": "RAW_PROVENANCE_ONLY",
+      "role": "ORIGINAL_GITHUB_ARTIFACT",
+      "scientific_ingestion": false,
+      "sha256": "75cb18ca3c124f90aaa890147aea4f39656ca78b17d6a2d24f5e9a94836c1e08",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    },
+    {
+      "archived_name": "cumulative_journal_historical.md",
+      "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "bytes": 637400,
+      "path": "evidence/sources/Q045/cumulative_journal_historical.md",
+      "q_boundary_status": "AUTHORIZED_THROUGH_Q045",
+      "role": "HISTORICAL_PRE_CLOSURE_JOURNAL",
+      "scientific_ingestion": true,
+      "sha256": "40ee6d04c8c4e1b2a19e1a8edda97a02827a94681433d1324478d7d6faa8d76e",
+      "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326"
+    }
+  ],
+  "source_manuscript_commit": null,
+  "source_repository_inspection_commit": "a9a5777b5923f32930cd9c84a49227ba36249326",
+  "source_repository_modified": false,
+  "target_q": "Q045",
+  "tool_authority": "GitHub run/artifact metadata TECHNICAL_VERIFICATION; original artifact AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+  "word_discovery": "NO_DOCX_IN_PINNED_CURRENT_SOURCE_TREE; PDF_SUBSTITUTE_FOLLOWS_EXISTING_REPOSITORY_CONVENTION",
+  "word_input_filename": null,
+  "word_input_path": null,
+  "word_input_sha256": null
+}
+```
+
+## EXTERNAL_VERIFICATION_USED
+
+False
+
+## TEST_RESULTS
+
+```json
+{
+  "regression_suite": {
+    "passed": 70,
+    "total": 72,
+    "skipped": 2,
+    "failures": 0,
+    "result": "OK"
+  },
+  "Q045_model_gates": {
+    "all_green": true,
+    "artifact_type": "Q045_MODEL_UPDATE_VALIDATION",
+    "mode": "CURRENT_ACCEPTED",
+    "non_destructive": true,
+    "target_q": "Q045",
+    "tests": [
+      {
+        "detail": "Q044/v0.6 -> Q045/v0.7; no skipped Q",
+        "id": "Q045_SEQUENCE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "derived_hashes": 12,
+          "original_final_and_artifact_pins": "PASS",
+          "source_files": 25
+        },
+        "id": "Q045_SOURCE_HASH_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Technical recovery and manuscript closure admitted; physical reference/materiality unqualified",
+        "id": "Q045_QUALIFICATION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "accepted_tau_reversals": 4,
+          "fresh_solver_rerun": false,
+          "grids": 4,
+          "new_theory_evaluations": 0,
+          "simultaneous_controls": 9,
+          "workers": 8
+        },
+        "id": "Q045_DIAGNOSTIC_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "All prior science, physical values, predictions, contradictions and public interfaces preserved",
+        "id": "Q045_REGRESSION_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Exact traceable additions; no new calculation, fundamental equation or physical inference",
+        "id": "Q045_MODEL_DIFF_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Evidence references resolve; existing equations, assumptions, units and schemas preserved",
+        "id": "Q045_REFERENCE_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": {
+          "maximum_q": 45,
+          "mixed_boundary_manuscripts": "BOUNDED_EXCERPTS_ONLY",
+          "scanned_files": 70
+        },
+        "id": "Q045_FIREWALL_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Accepted immutable before promotion; all prior snapshots protected; current live/frozen match",
+        "id": "Q045_IMMUTABILITY_GATE",
+        "status": "PASS"
+      },
+      {
+        "detail": "Live run/job/artifact identity matches pinned original; real reachable model input",
+        "id": "Q045_PROVENANCE_GATE",
+        "status": "PASS"
+      }
+    ],
+    "tests_passed": 10,
+    "tests_total": 10
+  },
+  "Q044_historical_gates": {
+    "passed": 11,
+    "total": 11
+  },
+  "current_scientific_campaign": {
+    "passed": 14,
+    "total": 14
+  },
+  "formal_model_tests": {
+    "passed": 13,
+    "total": 13
+  },
+  "public_healthcheck": {
+    "passed": 20,
+    "total": 20,
+    "all_green": true,
+    "non_destructive_verified": true
+  },
+  "Q045_mutation_tests": {
+    "passed": 17,
+    "total": 17,
+    "candidate_and_projected_accepted_modes": true
+  },
+  "native_or_physical_solver_rerun": false
+}
+```
+
+## PROMOTION_GATE
+
+```json
+{
+  "status": "LOCAL_VALIDATION_PASS_REMOTE_PUBLICATION_BLOCKED",
+  "mandatory_gates": [
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "INPUT_STATE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Pinned source tree has no DOCX; operator-authorized PDF excerpts and verified original workflow result are used under the existing repository substitute convention. No Word history exhaustiveness claimed.",
+      "id": "WORD_DISCOVERY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "No Word input exists; all three raw PDF and bounded excerpt hashes are recorded and verified separately.",
+      "id": "WORD_HASH_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "Q_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "Q_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "HIGH_Q_CONTAMINATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PLUGIN_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "MODEL_DIFF_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "SCIENTIFIC_CONSISTENCY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Original workflow final and archive hash verified. Closure comes from operator manuscript; unavailable original post-run closure ingestion/journal and unverified reported digest remain explicitly disclosed.",
+      "id": "EVIDENCE_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "No external scientific evidence or literature admitted.",
+      "id": "EXTERNAL_SOURCE_AUTHORITY_GATE",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PARAMETER_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "EQUATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "ASSUMPTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "UNCERTAINTY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "DOMAIN_OF_VALIDITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "LIMITATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "BENCHMARK_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "CONTRADICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PREDICTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "ROBUSTNESS_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "FORMAL_MODEL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "CALCULATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "KNOWN_ANSWER_TEST_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "INVALID_INPUT_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "72 regression tests pass; 17 Q045 mutation/read-only tests pass in candidate and projected accepted states.",
+      "id": "REGRESSION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PLUGIN_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "PLUGIN_DEPENDENCY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "ACCEPTED_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "ACCEPTED_PATH_ISOLATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Projected release passes healthcheck; actual promotion permitted only after this complete audit.",
+      "id": "PROMOTION_STATE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "REAL_COMMIT_PROVENANCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "REPRODUCIBILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Scoped model admission; physical reference UNQUALIFIED and physical materiality UNRESOLVED.",
+      "id": "FINAL_AUDIT_GATE",
+      "status": "PASS"
+    }
+  ],
+  "all_mandatory_green": true,
+  "remote_publication_gate": "TECHNICAL_BLOCK",
+  "physical_reference_gate": "UNQUALIFIED",
+  "physical_materiality_gate": "UNRESOLVED"
+}
+```
+
+## PROMOTED
+
+False
+
+## LOCAL_PROMOTED
+
+True
+
+## NEW_ACCEPTED_VERSION
+
+v0.7 / R000007 (local prepared installation)
+
+## NEXT_Q_AUTHORIZED
+
+False
+
+## BLOCKERS
+
+```json
+[
+  "Shell Git push has no GitHub credential. Connected GitHub create_blob rejected the authorized publication with HTTP 403 Resource not accessible by integration. Remote remains v0.6 through Q044; publication cannot be verified."
+]
+```
+
+## OPEN_PHYSICAL_QUALIFICATION_BLOCKERS
+
+```json
+[
+  "Complete independent physical reference",
+  "Isolated CMB and native-likelihood intervention response",
+  "Qualified original inference margins and materiality envelope"
+]
+```
+
+## STOP_STATE
+
+TECHNICAL_BLOCK
+
+## REMOTE_PUBLICATION
+
+BLOCKED_NO_REMOTE_WRITE
+
+## REMOTE_VERIFICATION_COMMIT
+
+NOT_AVAILABLE / null
+
+## ACCEPTED_SNAPSHOT
+
+versions/accepted/v0.7/
+
+## SOURCE_HASHES_VERIFIED
+
+25
+
+## PROTECTED_PRE_PROMOTION_INPUTS
+
+189
+
+## REVIEW
+
+```json
+{
+  "critical_findings": 0,
+  "important_findings": 4,
+  "important_findings_addressed": 4,
+  "proof": "Five new semantic/mapping mutation tests and prior live-evidence tampering regression demonstrated RED then GREEN; manuscript origins corrected.",
+  "reasoning_effort": "max",
+  "reviewer_model": "gpt-6-astra"
+}
+```
+
+## RULINGS
+
+```json
+[
+  "Use operator PDF substitutes because no Word manuscript exists in the pinned current source tree; do not claim complete historical Word discovery.",
+  "Admit closure from manuscript authority while explicitly retaining the unavailable original closure-file gap. No physical inference is admitted.",
+  "Publication to model main is explicitly authorized by the operator; source repository remains read-only."
+]
+```
+
+## REPRODUCIBILITY_SCOPE
+
+Model admission can be reconstructed from pinned original workflow artifact, source SHA, archived manuscripts, exact bounded excerpts, candidate diff, frozen accepted versions, validators and real Git history. Original physical solver/history refinement was not rerun in this update.

@@ -1,0 +1,28 @@
+{
+  "authoritative_result_id": "R-Q045-REFHIST-INGESTION-002",
+  "authorized_range": "Q001-Q045",
+  "closure_authority": "OPERATOR_Q_JOURNAL_EXCERPT",
+  "evidence_refs": [
+    "EVD-Q045-RECOVERY",
+    "EVD-Q045-QJOURNAL",
+    "EVD-Q045-APPENDICES",
+    "EVD-Q045-MAINBOOK",
+    "EVD-Q045-REMOTE-RUN"
+  ],
+  "execution_result": "q045_reference_history_final_v2.json",
+  "final_result_gate": "UNRESOLVED",
+  "model_input_commit": "bba3528250b3d56c451bf5ca363b0d75120acb03",
+  "new_equations": [],
+  "new_parameters": [],
+  "new_public_calculations": [],
+  "original_closure_ingestion_file_available": false,
+  "physical_model_change": false,
+  "production_restart_authorized": false,
+  "q_id": "Q045",
+  "reference_truth_gate": "UNQUALIFIED",
+  "reported_closure_journal_hash_verified": false,
+  "reported_closure_journal_sha256": "014393b3bd8de995b1860ba6dc286852f0e22df8001684f69017f3a5ab9d5725",
+  "result": "CLOSED_INCONCLUSIVE_PHYSICAL_MATERIALITY",
+  "source_repository_commit": "a9a5777b5923f32930cd9c84a49227ba36249326",
+  "update_class": "MULTI_LAYER_UPDATE"
+}

@@ -1,0 +1,12 @@
+The evidence boundary
+The current investigation distinguishes a verified numerical recovery from a validated physical prediction. The recovered
+electron-history diagnostics and integration checks are reproducible technical results, but they do not establish that the
+full Thomson optical depth, the CMB temperature and polarization spectra, or cosmological likelihood values are accurate
+enough to change model comparisons.
+
+
+What remains unresolved
+The optical-depth reference-truth gate remains UNQUALIFIED and the final physical-materiality result remains
+UNRESOLVED. No new observation, Hubble-constant estimate, early-dark-energy preference, or likelihood-portability
+classification follows. The discrepancy between local and early-universe H0 inference chains remains open, as does the
+Planck likelihood-implementation tension.

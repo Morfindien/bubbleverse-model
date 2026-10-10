@@ -110,8 +110,36 @@
       "q_introduced": "Q044",
       "statement": "Q044 closes epistemically INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION. Neither material H0/EDE portability, equivalence nor dataset-conditional behavior is established. The original scientific classifier is NOT_AVAILABLE.",
       "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES",
+        "EVD-Q045-MAINBOOK"
+      ],
+      "id": "CON-Q045-NO-PHYSICAL-VERDICT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "Q045 closes with inconclusive physical materiality. No sign or magnitude of physical optical-depth bias, isolated TT/TE/EE or native-likelihood response, H0 shift, EDE preference or portability classification is established.",
+      "status": "NOT_ESTABLISHED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL"
+      ],
+      "id": "CON-Q045-NO-PRODUCTION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "Technical offline recovery does not authorize production, native reruns or the unmodified full-matrix plan; reference truth remains UNQUALIFIED and final physical result UNRESOLVED.",
+      "status": "SCOPE_LIMIT"
     }
   ],
-  "q_access_end": "Q044",
+  "q_access_end": "Q045",
   "schema_version": 1
 }
