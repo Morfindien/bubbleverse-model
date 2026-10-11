@@ -1,0 +1,44 @@
+Scientific publication update after the proposed Q046 assessment
+
+
+ Proposed Q046 - assessment record
+ Classification: COMPLETED ASSESSMENT / INSUFFICIENT QUALIFICATION. Canonical status:
+ unregistered; no CASE-ID or new RESULT-ID is invented.
+
+ Research question
+ For the four recovered Q041 LCDM and n_scf=3 EDE configurations, with each L0 accepted reionization redshift
+ held fixed, do frozen CLASS_EDE electron-fraction and cumulative Thomson-depth predictions agree with an
+ independently integrated, complete event-resolved solution of the same physical model within a justified
+ preregistered envelope?
+
+ Documented answer
+ INSUFFICIENT QUALIFICATION. Agreement, disagreement, and physical materiality remain unknown. The
+ assessment is strong for audited input/source identities and provides conditional mathematical support for the
+ displayed error relations and cutoff counterexample, but it does not supply a qualified physical forward-history
+ comparison.
+
+ Critical missing qualifications
+ No case-specific complete reference or numerical comparison envelope is available. There is no certified cutoff
+ crossing or rate sign, no complete EDE post-shooting realization/enclosure, and no independently qualified
+ all-domain numerical error account. The 64 rational fixtures remain finite algebra checks rather than uniform
+ physical certificates.
+
+ New scientific uncertainty
+ The pinned HyRec wrapper stops helium evolution only below a strict xHeII < 10-6 cutoff while leaving the
+ recombination right-hand side active at equality. A conditional counterexample shows that this branch structure can
+ lack an absolutely continuous forward solution. Whether the four actual frozen configurations reach the cutoff, with
+ what rate sign, and with what continuation remains uncertified. This is neither demonstrated nonexistence in the
+ cosmological cases nor evidence of a physical CLASS_EDE bias.
+
+ What the assessment changed
+ The generic reference bottleneck is narrowed to explicit model-identity, event-continuation, and error-enclosure
+ obligations. Requested tau is historical metadata in the fixed-z forward problem; stored smoothing and
+ scalar-support dependencies are explicit. Observational benchmarks, model status, H0/EDE preference, original
+ decision margins, and the production prohibition do not change.
+
+ Repository boundary
+ Read-only inspection found accepted v0.6 / R000006 through Q044. Model head:
+ bba3528250b3d56c451bf5ca363b0d75120acb03. Execution head:
+ a9a5777b5923f32930cd9c84a49227ba36249326. Q045 run 38042718814 completed successfully for
+ recovery/component diagnostics. Reference truth remains unqualified. No Q046 scientific run, repository write,
+ production restart, or theory evaluation occurred in this assessment.

@@ -3,50 +3,39 @@
     {
       "category": "CONSTRAINTS_UPDATE",
       "evidence_refs": [
-        "EVD-Q045-RECOVERY",
-        "EVD-Q045-QJOURNAL",
-        "EVD-Q045-APPENDICES",
-        "EVD-Q045-MAINBOOK"
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
       ],
-      "id": "CON-Q045-NO-PHYSICAL-VERDICT"
+      "id": "CON-Q046-QUALIFICATION"
     },
     {
       "category": "CONSTRAINTS_UPDATE",
       "evidence_refs": [
-        "EVD-Q045-RECOVERY",
-        "EVD-Q045-QJOURNAL"
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
       ],
-      "id": "CON-Q045-NO-PRODUCTION"
+      "id": "CON-Q046-EVENT-SCOPE"
     },
     {
       "category": "ROBUSTNESS_UPDATE",
       "evidence_refs": [
-        "EVD-Q045-RECOVERY",
-        "EVD-Q045-REMOTE-RUN"
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
       ],
-      "id": "ROB-Q045-RECOVERY"
-    },
-    {
-      "category": "ROBUSTNESS_UPDATE",
-      "evidence_refs": [
-        "EVD-Q045-RECOVERY",
-        "EVD-Q045-QJOURNAL",
-        "EVD-Q045-APPENDICES"
-      ],
-      "id": "ROB-Q045-REFINEMENT-SCOPE"
+      "id": "ROB-Q046-ASSESSMENT-SCOPE"
     }
   ],
   "evidence_refs": [
-    "EVD-Q045-RECOVERY",
-    "EVD-Q045-QJOURNAL",
-    "EVD-Q045-APPENDICES",
-    "EVD-Q045-MAINBOOK",
-    "EVD-Q045-REMOTE-RUN"
+    "EVD-Q046-QJOURNAL",
+    "EVD-Q046-APPENDICES",
+    "EVD-Q046-MAINBOOK"
   ],
-  "from_version": "v0.6",
+  "from_version": "v0.7",
   "modified": [
-    "Authorized boundary advances only after controlled promotion",
-    "Formal environment provenance synchronized to real Q045 source and model input commits; historical environment metadata preserved in previous snapshots."
+    "Authorized model boundary advances only after successful scope-limited assessment promotion."
   ],
   "new_assumptions": [],
   "new_benchmarks": [],
@@ -54,27 +43,27 @@
   "new_domains": [],
   "new_equations": [],
   "new_limitations": [
-    "LIM-Q045-REFERENCE",
-    "LIM-Q045-MATERIALITY"
+    "LIM-Q046-COMPLETE-REFERENCE",
+    "LIM-Q046-IDENTITY"
   ],
   "new_parameters": [],
   "new_uncertainties": [
-    "UNC-Q045-REFINEMENT",
-    "UNC-Q045-MATERIALITY"
+    "UNC-Q046-EVENT-APPLICABILITY"
   ],
   "new_validity_domains": [
-    "DOM-Q045-STORED-HISTORY"
+    "DOM-Q046-ASSESSMENT"
   ],
   "physical_model_change": false,
   "preserved": [
-    "All inherited evidence and scientific definitions",
-    "Physical parameters, equations, H0 benchmarks, mechanisms, predictions and open contradictions",
-    "All accepted snapshots and public operation schemas"
+    "All inherited scientific definitions, original source identities, evidence, equations, H0 benchmarks, prediction history and contradictions",
+    "All public operations and input/output semantics",
+    "All previous immutable accepted snapshots",
+    "Source canonical CASE/RESULT identities remain unknown; physical comparison remains insufficiently qualified."
   ],
   "resolved_contradictions": [],
   "schema_version": 1,
   "superseded": [],
-  "target_q": "Q045",
-  "to_candidate_version": "v0.7",
+  "target_q": "Q046",
+  "to_candidate_version": "v0.8",
   "update_class": "MULTI_LAYER_UPDATE"
 }

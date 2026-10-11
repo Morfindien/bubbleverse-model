@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 15)]
+MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 16)]
 
 
 def load(rel):
@@ -233,6 +233,16 @@ def audit():
         failures = [x['id'] for x in q45_result['tests'] if x['status'] != 'PASS']
         q45_detail = 'Q045 source recovery, physical-inference firewall and immutable snapshot gates: ' + ('PASS' if q45_ok else ', '.join(failures))
     results['T-BV-014'] = passfail(q45_ok, q45_detail)
+
+    q46_ok = True
+    q46_detail = 'Q046 assessment admission is not applicable below Q046.'
+    if qmax >= 46:
+        from q046_model_validate import run_tests as q046_tests
+        q46_result = q046_tests(ROOT)
+        q46_ok = q46_result['all_green']
+        failures = [x['id'] for x in q46_result['tests'] if x['status'] != 'PASS']
+        q46_detail = 'Q046 documented insufficient-qualification assessment, unknown source identities, inference firewall and snapshot gates: ' + ('PASS' if q46_ok else ', '.join(failures))
+    results['T-BV-015'] = passfail(q46_ok, q46_detail)
 
     return results
 

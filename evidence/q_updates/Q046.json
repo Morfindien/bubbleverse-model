@@ -1,0 +1,23 @@
+{
+  "admission_scope": "DOCUMENTED_ASSESSMENT_AND_QUALIFICATION_LIMITATIONS_ONLY",
+  "canonical_case_id": null,
+  "canonical_result_id": null,
+  "canonical_source_status": "UNREGISTERED",
+  "classification": "COMPLETED_ASSESSMENT_INSUFFICIENT_QUALIFICATION",
+  "cosmological_event_certified": false,
+  "evidence_refs": [
+    "EVD-Q046-QJOURNAL",
+    "EVD-Q046-APPENDICES",
+    "EVD-Q046-MAINBOOK"
+  ],
+  "new_scientific_inference": false,
+  "new_scientific_run": false,
+  "physical_falsification": false,
+  "physical_materiality": "UNKNOWN",
+  "physical_model_change": false,
+  "physical_reference_qualified": false,
+  "production_restart_authorized": false,
+  "q_id": "Q046",
+  "result": "INSUFFICIENT QUALIFICATION",
+  "schema_version": 1
+}

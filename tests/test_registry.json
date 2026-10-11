@@ -1,10 +1,10 @@
 {
-  "accepted_model_version": "v0.7",
-  "campaign_id": "BV-MODEL-v0.7-CAMPAIGN-0007",
-  "candidate_model_version": "v0.7",
-  "current_q": "Q045",
+  "accepted_model_version": "v0.8",
+  "campaign_id": "BV-MODEL-v0.8-CAMPAIGN-0008",
+  "candidate_model_version": "v0.8",
+  "current_q": "Q046",
   "mode": "CURRENT_STATE_VALIDATION",
-  "q_access_end": "Q045",
+  "q_access_end": "Q046",
   "q_access_start": "Q001",
   "schema_version": 1,
   "tests": [
@@ -14,7 +14,7 @@
       "mandatory_for_promotion": false,
       "target_component": "Q identity and boundary schema",
       "test_id": "T-BV-001",
-      "why_test_matters": "Accepted/candidate identity must match Q001-Q045 / CURRENT_Q Q045."
+      "why_test_matters": "Accepted/candidate identity must match Q001-Q046 / CURRENT_Q Q046."
     },
     {
       "category": "MANDATORY_PROMOTION",
@@ -22,7 +22,7 @@
       "mandatory_for_promotion": false,
       "target_component": "High-Q contamination scan",
       "test_id": "T-BV-002",
-      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q045."
+      "why_test_matters": "Scientific candidate/evidence JSON must contain no Q identifier above Q046."
     },
     {
       "category": "REGRESSION",
@@ -119,6 +119,14 @@
       "target_component": "Q045 technically recovered history and physical-inference firewall",
       "test_id": "T-BV-014",
       "why_test_matters": "Rejects qualified-reference overclaims, invented materiality, source damage, unreviewed scientific additions, future-Q contamination and snapshot mutation."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": true,
+      "target_component": "Q046 scope-limited assessment and source identity",
+      "test_id": "T-BV-015",
+      "why_test_matters": "Rejects invented physical qualification, CASE/RESULT identity, production restart, altered sources, unreviewed additions, future-origin science or snapshot mutation."
     }
   ]
 }

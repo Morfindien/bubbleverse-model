@@ -1,5 +1,5 @@
 {
-  "q_access_end": "Q045",
+  "q_access_end": "Q046",
   "schema_version": 1,
   "uncertainties": [
     {
@@ -139,6 +139,23 @@
       "statement": "No isolated 10/01/11 response or original qualified inference margins were computed; baseline starts are not optimized minima. Physical materiality remains unresolved.",
       "status": "OPEN_METHOD_UNCERTAINTY",
       "type": "downstream_likelihood_and_optimization_uncertainty"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "UNC-Q046-EVENT-APPLICABILITY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "Actual cutoff crossing, local rate sign, reachable neighborhood, well-defined continuation and complete EDE post-shooting realization/enclosure remain uncertified.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "structural_and_event_continuation_qualification",
+      "value": null,
+      "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
     }
   ]
 }

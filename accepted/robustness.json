@@ -140,8 +140,22 @@
       "production_restart_authorized": false,
       "q_introduced": "Q045",
       "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "finding": "The published assessment narrows the qualification bottleneck to physical-model identity, event continuation and independently justified error enclosure. The 64 rational fixtures remain finite algebra checks, not uniform physical certificates.",
+      "id": "ROB-Q046-ASSESSMENT-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q045",
+  "q_access_end": "Q046",
   "schema_version": 1
 }

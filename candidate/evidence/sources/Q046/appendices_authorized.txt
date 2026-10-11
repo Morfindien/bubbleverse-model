@@ -1,0 +1,39 @@
+Scientific publication update after the proposed Q046 assessment
+
+
+ Technical supplement - proposed Q046 qualification assessment
+ Status: Assessment complete / insufficient qualification. Q046 remains unregistered. No new theory run,
+ production restart, model promotion, or downstream cosmological inference is authorized.
+
+ Reference-package requirement
+ The missing object is not merely a higher-accuracy quadrature. A qualified comparison requires a complete certified
+ reference package containing the effective physical-model identity and initial conditions, justified event and
+ continuation semantics, independently computed background/species/history enclosures, and a prospectively
+ frozen comparison envelope. Residual ionization, early doubly ionized helium, reionization, the EDE background,
+ and executable approximation-transition smoothing must remain part of the reference target.
+
+ HyRec event semantics
+ In the pinned wrapper, the HeII branch changes only for xHeII < 10-6; equality continues to use the recombination
+ right-hand side. The assessment supplies a conditional mathematical counterexample showing that a discontinuous
+ branch pattern of this type can lack an absolutely continuous forward solution. Cosmological applicability is
+ unproved: actual cutoff crossing, local rate sign, reachable neighborhood, and continuation have not been certified
+ for the four frozen configurations.
+
+ Output-map and scalar distinction
+ The stored CLASS_EDE electron history contains approximation-transition smoothing even when HyRec is used.
+ Historical comments referring to Recfast do not restrict the executable branch. The accepted native scalar
+ optical-depth quantity uses selected support and must not be substituted for an interchangeable full
+ cumulative-depth endpoint. Requested tau is metadata in the fixed-z forward problem rather than a new calibration
+ target.
+
+ Qualification logic
+ The correct dependency order is: physical realization -> qualified complete reference -> Thomson depth/visibility ->
+ spectra -> native likelihood -> converged inference. The first two links remain unqualified. The assessment's 64
+ rational fixtures are finite algebra checks and do not provide a uniform physical error certificate.
+
+ Repository and provenance boundary
+ Fresh read-only inspection recorded model head bba3528250b3d56c451bf5ca363b0d75120acb03 and execution
+ head a9a5777b5923f32930cd9c84a49227ba36249326. The accepted remote model remains v0.6 / R000006
+ through Q044. Q045 closure and the proposed-Q046 assessment await controlled canonical admission. Existing
+ Q045 runs 38039690879 and 38042718814 remain the relevant execution provenance; no Q046 scientific run was
+ performed.

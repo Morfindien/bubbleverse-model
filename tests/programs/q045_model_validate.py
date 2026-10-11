@@ -19,7 +19,16 @@ LAYERS={'observations':'observations','constraints':'constraints','mechanisms':'
 FORMAL={'parameters':'parameters','benchmarks':'benchmarks','equations':'equations','assumptions':'assumptions','uncertainty':'uncertainties','domain_of_validity':'domains','limitations':'limitations'}
 def run_tests(root=ROOT,candidate=False):
  root=Path(root);layer=root/('candidate' if candidate else 'accepted');formal=root/('candidate/formal' if candidate else 'model');evidence=root/('candidate/evidence' if candidate else 'evidence');src=evidence/'sources/Q045';old=root/'versions/accepted/v0.6';rows=[]
- def load(p):return json.loads(p.read_text())
+ active_q=int(json.loads((root/'accepted/model_state.json').read_text())['current_q'][1:])
+ pending_q=int(json.loads((root/'candidate/candidate_state.json').read_text())['current_q'][1:])
+ historical=not candidate and (active_q>45 or pending_q>45)
+ if historical:layer=formal=root/'versions/accepted/v0.7'
+ def load(p):
+  if historical:
+   if p in [root/'candidate/candidate_state.json',root/'candidate/candidate_diff.json']:p=root/'provenance/archive/Q045'/p.name
+   elif p==root/'accepted/model_state.json':p=layer/'model_state.json'
+   elif p==evidence/'evidence_registry.json':p=layer/'evidence_registry.json'
+  return json.loads(p.read_text())
  def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
  def req(c,m):
   if not c:raise AssertionError(m)
@@ -136,10 +145,13 @@ def run_tests(root=ROOT,candidate=False):
  gate('REFERENCE_GATE',references)
  def firewall():
   count=0
-  for base in [layer,formal,evidence]:
-   for p in base.rglob('*'):
-    if p.is_file() and p.suffix in {'.json','.txt','.md','.py','.c'}:
-     req(not any(int(x)>45 for x in re.findall(r'\bQ-?0*([0-9]{1,5})\b',p.read_text(),re.I)),'future scientific origin: '+str(p));count+=1
+  bases=[layer,formal,evidence]
+  paths=[p for base in bases for p in base.rglob('*')]
+  if historical:
+   paths=[p for p in paths if not p.is_relative_to(evidence) or (re.search(r'/Q(\d{3})(?:/|\.json)',p.as_posix()) and int(re.search(r'/Q(\d{3})(?:/|\.json)',p.as_posix())[1])<=45)]
+  for p in paths:
+   if p.is_file() and p.suffix in {'.json','.txt','.md','.py','.c'}:
+    req(not any(int(x)>45 for x in re.findall(r'\bQ-?0*([0-9]{1,5})\b',p.read_text(),re.I)),'future scientific origin: '+str(p));count+=1
   req(all(row['scientific_ingestion'] or row['path'].startswith('provenance/input_archives/Q045/') for row in prov['source_files']),'raw archive entered scientific evidence')
   return {'scanned_files':count,'maximum_q':45,'mixed_boundary_manuscripts':'BOUNDED_EXCERPTS_ONLY'}
  gate('FIREWALL_GATE',firewall)
@@ -152,10 +164,11 @@ def run_tests(root=ROOT,candidate=False):
    snap=root/'versions/accepted/v0.7';frozen=load(root/'provenance/Q045_SNAPSHOT_MANIFEST.json')
    req({p.name for p in snap.iterdir() if p.is_file()}==set(frozen['sha256']),'snapshot inventory')
    for name,digest in frozen['sha256'].items():req(sha(snap/name)==digest,'frozen snapshot changed')
-   for base in [layer,formal]:
-    for p in base.iterdir():
-     if p.is_file():req(sha(p)==sha(snap/p.name),'live/snapshot mismatch')
-   req(sha(evidence/'evidence_registry.json')==sha(snap/'evidence_registry.json'),'evidence snapshot mismatch')
+   if not historical:
+    for base in [layer,formal]:
+     for p in base.iterdir():
+      if p.is_file():req(sha(p)==sha(snap/p.name),'live/snapshot mismatch')
+    req(sha(evidence/'evidence_registry.json')==sha(snap/'evidence_registry.json'),'evidence snapshot mismatch')
   return 'Accepted immutable before promotion; all prior snapshots protected; current live/frozen match'
  gate('IMMUTABILITY_GATE',immutable)
  def remote():

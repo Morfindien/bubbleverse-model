@@ -132,8 +132,36 @@
       "q_introduced": "Q045",
       "statement": "CMB and native-likelihood intervention materiality, original qualified H0/EDE margins and inference portability remain UNRESOLVED. Q closure is not a passing physical gate.",
       "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "LIM-Q046-COMPLETE-REFERENCE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "No independently integrated complete physical reference, preregistered comparison envelope or independently qualified all-domain numerical error account is supplied.",
+      "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "LIM-Q046-IDENTITY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "Source assessment remains canonically unregistered: no CASE-ID or new scientific RESULT-ID is supplied. Model admission registers the published assessment and its explicit unknowns only; it does not invent or confer those missing source identities.",
+      "status": "SCOPE_LIMIT"
     }
   ],
-  "q_access_end": "Q045",
+  "q_access_end": "Q046",
   "schema_version": 1
 }

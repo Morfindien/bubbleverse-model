@@ -17,6 +17,15 @@ class Q045Guards(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('q045',path);mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
         return mod.run_tests(self.root,candidate=json.loads((self.root/'accepted/model_state.json').read_text())['current_q']=='Q044')
     def path(self,rel):
+        active=int(json.loads((self.root/'accepted/model_state.json').read_text())['current_q'][1:])
+        pending=int(json.loads((self.root/'candidate/candidate_state.json').read_text())['current_q'][1:])
+        if active>45 or pending>45:
+            if rel in ['candidate/candidate_state.json','candidate/candidate_diff.json']:
+                return self.root/'provenance/archive/Q045'/Path(rel).name
+            if rel=='candidate/evidence/evidence_registry.json':return self.root/'versions/accepted/v0.7/evidence_registry.json'
+            if rel.startswith('candidate/formal/') or rel in ['candidate/robustness.json','candidate/constraints.json']:
+                return self.root/'versions/accepted/v0.7'/Path(rel).name
+            if rel.startswith('candidate/evidence/'):return self.root/rel.removeprefix('candidate/')
         if json.loads((self.root/'accepted/model_state.json').read_text())['current_q']=='Q045':
             rel=rel.replace('candidate/formal/','model/').replace('candidate/evidence/','evidence/')
             if rel.startswith('candidate/') and rel.split('/')[-1] in ['robustness.json','constraints.json']:rel=rel.replace('candidate/','accepted/')

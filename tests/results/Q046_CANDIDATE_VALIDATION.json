@@ -1,0 +1,65 @@
+{
+  "all_green": true,
+  "artifact_type": "Q046_MODEL_ASSESSMENT_ADMISSION_VALIDATION",
+  "mode": "CANDIDATE",
+  "non_destructive": true,
+  "target_q": "Q046",
+  "tests": [
+    {
+      "detail": "Q045/v0.7 -> Q046/v0.8; completed assessment only",
+      "id": "Q046_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Three independently hashed operator manuscript excerpts; original PDF identities pinned separately",
+      "id": "Q046_SOURCE_HASH_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Insufficient qualification and unknown source CASE/RESULT identities are preserved; no positive physical result required or asserted",
+      "id": "Q046_QUALIFICATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "All inherited scientific records, physical values, predictions, contradictions, evidence and public schemas preserved",
+      "id": "Q046_REGRESSION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Exact reviewed assessment/limitation additions; no fundamental equation or public calculation",
+      "id": "Q046_MODEL_DIFF_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Evidence references and canonical model-record IDs resolve; source CASE/RESULT identity stays unknown",
+      "id": "Q046_REFERENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "maximum_scientific_q": 46,
+        "mixed_boundary_inputs": "BOUNDED_EXCERPTS_ONLY",
+        "scanned_files": 153
+      },
+      "id": "Q046_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Accepted state immutable before promotion; all previous snapshots protected; accepted snapshot checked after promotion",
+      "id": "Q046_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Accepted scientific layer references do not depend on mutable candidate paths",
+      "id": "Q046_PATH_ISOLATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Real reachable model input; operator manuscripts have hashes and persistent original file identity, no fabricated repository commit",
+      "id": "Q046_PROVENANCE_GATE",
+      "status": "PASS"
+    }
+  ],
+  "tests_passed": 10,
+  "tests_total": 10
+}

@@ -138,8 +138,36 @@
       "q_introduced": "Q045",
       "statement": "Technical offline recovery does not authorize production, native reruns or the unmodified full-matrix plan; reference truth remains UNQUALIFIED and final physical result UNRESOLVED.",
       "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "CON-Q046-QUALIFICATION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "Q046 assessment is completed with INSUFFICIENT QUALIFICATION. Agreement, disagreement and physical materiality for the four frozen configurations remain UNKNOWN.",
+      "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "CON-Q046-EVENT-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "Reported conditional strict-guard counterexample does not establish event reachability, nonexistence of the actual cosmological trajectories, or a physical CLASS_EDE bias.",
+      "status": "ACTIVE_LIMITATION"
     }
   ],
-  "q_access_end": "Q045",
+  "q_access_end": "Q046",
   "schema_version": 1
 }

@@ -1,3 +1,3 @@
-# Formal model
+# Accepted formal model
 
-Machine-readable scoped Bubbleverse state through Q045. Numerical recovery and inconclusive closure do not establish physical materiality. Parameters, equations, benchmarks and public calculation schemas are preserved.
+v0.8 / R000008 through Q046. Formalization of the existing physical model and scope-limited assessment record; no additional fundamental equation, physical parameter or public operation.

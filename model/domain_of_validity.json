@@ -83,8 +83,22 @@
       "q_introduced": "Q045",
       "statement": "Applies to the four frozen Q041 CamSpec/HiLLiPoP LCDM and n_scf=3 EDE configurations and their recovered native history/refinement diagnostics. Does not establish an independently integrated physical reference or downstream cosmological inference.",
       "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "DOM-Q046-ASSESSMENT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "Only the documented insufficient-qualification assessment of four recovered Q041 LCDM and n_scf=3 EDE configurations at fixed accepted reionization redshift is admitted. The reported mathematical counterexample is conditional and has not been certified for those cosmological configurations.",
+      "status": "SCOPE_LIMIT"
     }
   ],
-  "q_access_end": "Q045",
+  "q_access_end": "Q046",
   "schema_version": 1
 }

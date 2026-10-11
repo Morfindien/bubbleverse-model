@@ -1,0 +1,31 @@
+Scientific publication update after the proposed Q046 assessment
+
+
+ Current scientific qualification
+ Status: Proposed Q046 assessment completed; canonical registration remains pending. The assessment is
+ INSUFFICIENTLY QUALIFIED for a physical forward-history comparison. Q045 remains closed with an
+ inconclusive physical-materiality result.
+
+ What changed
+ The previous edition described Q046 as the next proposed reference-history test. That prospective description is
+ now superseded. The assessment has instead narrowed the missing qualification: before the four frozen Q041
+ histories can be compared against an independent reference, the exact physical target and its event-continuation
+ semantics must themselves be shown to be well defined.
+
+ A specific implementation issue is now explicit. In the pinned HyRec wrapper, helium evolution is stopped only when
+ x      is strictly below 10-6; the recombination right-hand side remains active at equality. A conditional mathematical
+   HeII
+ counterexample shows that a branch rule of this form can fail to admit an absolutely continuous forward solution.
+ The current evidence does not establish that this failure occurs in any of the four cosmological configurations.
+
+ What did not change
+ No new observation, Hubble-constant estimate, EDE preference, CMB spectrum shift, likelihood portability
+ classification, or physical CLASS_EDE bias has been established. The Hubble-tension inference-chain
+ disagreement remains open. The matched CamSpec-HiLLiPoP implementation-geometry difference remains an
+ open, narrowed methodological tension rather than an independent cosmological observation.
+
+ Current dependency boundary
+ The required chain is now explicit: a well-defined physical realization must precede a qualified complete reference;
+ only then can Thomson depth and visibility, CMB spectra, native likelihoods, and converged inference be qualified.
+ Source inspection, successful workflows, stored-history diagnostics, and finite algebra checks do not clear the later
+ links in that chain.

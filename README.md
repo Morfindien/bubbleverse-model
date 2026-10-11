@@ -13,17 +13,15 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-- Accepted state: **v0.7 / R000007 through Q045**.
-- Q045: **CLOSED / INCONCLUSIVE PHYSICAL MATERIALITY**.
-- V2 stored-history recovery admitted as a technical diagnostic only: eight recovered histories, four comparison grids, zero new theory evaluations.
-- Physical reference: **UNQUALIFIED**; physical final result: **UNRESOLVED**.
-- Physical parameters, H0 benchmarks, equations, mechanisms, predictions and open contradictions preserved.
-- No physical bias, CMB/likelihood treatment effect, H0 shift or EDE preference established.
-- All 14 public operations preserved; no new public calculation.
-- No production restart authorized. Source execution-registry synchronization remains separate.
-- Frozen accepted snapshot: `versions/accepted/v0.7/`; all older snapshots remain immutable.
-- Original post-run closure ingestion/journal not supplied; closure is traced to authorized operator manuscript excerpts. Its reported journal digest is not claimed verified.
-- Q045 installation validation: `provenance/Q045_GITHUB_INSTALLATION_RECEIPT.json`. The original update report and access-block record preserve the earlier preparation run; the installation workflow verifies publication separately.
+- Accepted state: **v0.8 / R000008 through Q046**.
+- Q046: **COMPLETED ASSESSMENT / INSUFFICIENT QUALIFICATION**.
+- Admission covers the documented assessment and qualification limitations only.
+- Source canonical CASE/RESULT identities remain unspecified; model-record IDs do not confer them.
+- Physical agreement, disagreement and materiality remain **UNKNOWN**.
+- The reported conditional event counterexample is not certified for the actual cosmological configurations.
+- All inherited physical parameters, observations, predictions, contradictions, equations and public operations are preserved.
+- No production restart authorized. Frozen accepted snapshot: `versions/accepted/v0.8/`.
+- The historical block workflow remains an audit record; installation uses **Install Q046 model v0.8**.
 
 ---
 
@@ -346,7 +344,7 @@ For the current baseline:
 
 ```text
 AUTHORIZED:
-Q001–Q045
+Q001–Q046
 ```
 
 Evidence beyond the authorized boundary must not influence:

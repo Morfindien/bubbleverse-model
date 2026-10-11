@@ -199,6 +199,20 @@
         "regression_total": 72
       },
       "update_class": "MULTI_LAYER_UPDATE"
+    },
+    {
+      "accepted_after": "v0.8",
+      "accepted_before": "v0.7",
+      "admission_scope": "DOCUMENTED_ASSESSMENT_AND_QUALIFICATION_LIMITATIONS_ONLY",
+      "campaign_input_commit": "789893937b4ca22f083ee951ae73904f92ea6385",
+      "current_q": "Q046",
+      "date": "2026-10-11T16:28:11.556075+00:00",
+      "formal_model_version": "v0.8-formalization-1",
+      "model_revision": "R000008",
+      "physical_model_change": false,
+      "production_restart_authorized": false,
+      "status": "ACCEPTED_MODEL_PROMOTED",
+      "update_class": "MULTI_LAYER_UPDATE"
     }
   ],
   "schema_version": 1
