@@ -1,0 +1,80 @@
+name: Install Q047 model v0.9
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bubbleverse-model-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate and install the bounded Q047 assessment
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          expected = 'df246ad14dc83b9bcb3226af5787583b6dfdff0843116d7cd54f764435cc5c98'
+          assert hashlib.sha256(Path('q047_model_update.py').read_bytes()).hexdigest() == expected, 'Installer hash mismatch'
+          PY
+          python q047_model_update.py --apply
+      - name: Commit model files and verify the remote write
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          def git(*args):
+              return subprocess.run(['git', *args], check=True, text=True, capture_output=True).stdout.strip()
+          manifest = Path('run-output/Q047_CHANGED_PATHS.json')
+          if manifest.exists():
+              paths = json.loads(manifest.read_text())
+              assert paths and all(not Path(p).is_absolute() and '..' not in Path(p).parts and not p.startswith('.github/') for p in paths)
+              git('config', 'user.name', 'github-actions[bot]')
+              git('config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com')
+              git('add', '--', *paths)
+              git('commit', '-m', 'Admit scope-limited Q047 assessment as model v0.9')
+              git('push', 'origin', 'HEAD:refs/heads/' + os.environ['BRANCH_NAME'])
+          else:
+              assert json.loads(Path('accepted/model_state.json').read_text())['current_q'] == 'Q047'
+          commit = git('rev-parse', 'HEAD')
+          remote = git('ls-remote', 'origin', 'refs/heads/' + os.environ['BRANCH_NAME']).split()[0]
+          assert remote == commit, 'Remote commit differs from validated checkout'
+          git('fetch', 'origin', os.environ['BRANCH_NAME'])
+          state = json.loads(git('show', remote + ':accepted/model_state.json'))
+          assert state['current_q'] == 'Q047' and state['accepted_model_version'] == 'v0.9'
+          assert state['q047_physical_reference_qualified'] is False
+          assert state['q047_completion_gate'] == 'PASS_FOR_INCONCLUSIVE_CLOSURE'
+          assert state['q047_final_result_gate'] == 'UNRESOLVED'
+          assert state['q047_historical_state_identity_gate'] == 'UNRESOLVED'
+          assert state['q047_first_hit_gate'] == 'UNRESOLVED'
+          assert state['q047_canonical_case_id'] is None and state['q047_canonical_result_id'] is None
+          verification = {'target_q': 'Q047', 'accepted_version': 'v0.9', 'promotion_commit': commit, 'verified_remote_commit': remote, 'assessment': 'INCONCLUSIVE / INSUFFICIENT_EVIDENCE', 'remote_write_verified': True}
+          Path('run-output/Q047_REMOTE_VERIFICATION.json').write_text(json.dumps(verification, indent=2) + '\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write('Q047 model v0.9 installed and remote commit verified: `' + commit + '`.\n\nAssessment remains INCONCLUSIVE / INSUFFICIENT_EVIDENCE. No physical reference or production restart is qualified.\n')
+          PY
+      - name: Upload validation and remote verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: q047-model-v09-validation
+          path: |
+            run-output/
+            tests/results/Q047_CANDIDATE_VALIDATION.json
+            tests/results/Q047_PROJECTED_VALIDATION.json
+            provenance/Q047_INSTALLATION_RECEIPT.json
+          if-no-files-found: warn
