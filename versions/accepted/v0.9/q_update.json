@@ -1,0 +1,35 @@
+{
+  "admission_scope": "EPISTEMIC_CLOSURE_AND_SCOPED_NEW_RECONSTRUCTION_QUALIFICATION",
+  "canonical_case_id": null,
+  "canonical_result_id": null,
+  "canonical_source_status": "PROPOSED_SOURCE_IDS_ONLY",
+  "classification": "CLOSED_EPISTEMICALLY_INCONCLUSIVE",
+  "completion_gate": "PASS_FOR_INCONCLUSIVE_CLOSURE",
+  "cosmological_event_certified": false,
+  "evidence_refs": [
+    "EVD-Q047-QJOURNAL",
+    "EVD-Q047-APPENDICES",
+    "EVD-Q047-MAINBOOK",
+    "EVD-Q047-RECONSTRUCTION",
+    "EVD-Q047-M15",
+    "EVD-Q047-CLOSURE"
+  ],
+  "final_result_gate": "UNRESOLVED",
+  "first_hit_gate": "UNRESOLVED",
+  "historical_state_identity_gate": "UNRESOLVED",
+  "new_scientific_inference": false,
+  "new_scientific_run": false,
+  "physical_falsification": false,
+  "physical_materiality": "UNKNOWN",
+  "physical_model_change": false,
+  "physical_reference_qualified": false,
+  "production_restart_authorized": false,
+  "q_id": "Q047",
+  "result": "INCONCLUSIVE / INSUFFICIENT_EVIDENCE",
+  "schema_version": 1,
+  "source_result_ids": [
+    "R-PROPOSED-Q047-M15-001",
+    "R-PROPOSED-Q047-M15-INGESTION-001"
+  ],
+  "source_run_id": "38140371059"
+}

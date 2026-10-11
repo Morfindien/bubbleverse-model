@@ -3,39 +3,63 @@
     {
       "category": "CONSTRAINTS_UPDATE",
       "evidence_refs": [
-        "EVD-Q046-QJOURNAL",
-        "EVD-Q046-APPENDICES",
-        "EVD-Q046-MAINBOOK"
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
       ],
-      "id": "CON-Q046-QUALIFICATION"
+      "id": "CON-Q047-HISTORICAL-EVENT"
     },
     {
       "category": "CONSTRAINTS_UPDATE",
       "evidence_refs": [
-        "EVD-Q046-QJOURNAL",
-        "EVD-Q046-APPENDICES",
-        "EVD-Q046-MAINBOOK"
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
       ],
-      "id": "CON-Q046-EVENT-SCOPE"
+      "id": "CON-Q047-OUTPUT-IDENTITY"
     },
     {
       "category": "ROBUSTNESS_UPDATE",
       "evidence_refs": [
-        "EVD-Q046-QJOURNAL",
-        "EVD-Q046-APPENDICES",
-        "EVD-Q046-MAINBOOK"
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
       ],
-      "id": "ROB-Q046-ASSESSMENT-SCOPE"
+      "id": "ROB-Q047-RECONSTRUCTION"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "ROB-Q047-M15-FINITE-SCOPE"
     }
   ],
   "evidence_refs": [
-    "EVD-Q046-QJOURNAL",
-    "EVD-Q046-APPENDICES",
-    "EVD-Q046-MAINBOOK"
+    "EVD-Q047-QJOURNAL",
+    "EVD-Q047-APPENDICES",
+    "EVD-Q047-MAINBOOK",
+    "EVD-Q047-RECONSTRUCTION",
+    "EVD-Q047-M15",
+    "EVD-Q047-CLOSURE"
   ],
-  "from_version": "v0.7",
+  "from_version": "v0.8",
   "modified": [
-    "Authorized model boundary advances only after successful scope-limited assessment promotion."
+    "Model boundary and investigation completion metadata advance only after successful promotion."
   ],
   "new_assumptions": [],
   "new_benchmarks": [],
@@ -43,27 +67,30 @@
   "new_domains": [],
   "new_equations": [],
   "new_limitations": [
-    "LIM-Q046-COMPLETE-REFERENCE",
-    "LIM-Q046-IDENTITY"
+    "LIM-Q047-HISTORICAL-EQUIVALENCE",
+    "LIM-Q047-FULL-ERROR"
   ],
   "new_parameters": [],
   "new_uncertainties": [
-    "UNC-Q046-EVENT-APPLICABILITY"
+    "UNC-Q047-HISTORICAL-LINKAGE",
+    "UNC-Q047-COUPLED-HISTORY"
   ],
   "new_validity_domains": [
-    "DOM-Q046-ASSESSMENT"
+    "DOM-Q047-NEW-REALIZATION"
   ],
   "physical_model_change": false,
   "preserved": [
-    "All inherited scientific definitions, original source identities, evidence, equations, H0 benchmarks, prediction history and contradictions",
-    "All public operations and input/output semantics",
-    "All previous immutable accepted snapshots",
-    "Source canonical CASE/RESULT identities remain unknown; physical comparison remains insufficiently qualified."
+    "All inherited physical parameters, observations, equations, benchmarks, prediction history, open contradictions, source identities and accepted snapshots",
+    "All public calculations and input/output semantics",
+    "All Q046 limitations remain explicit and refer to historical physical qualification"
   ],
   "resolved_contradictions": [],
   "schema_version": 1,
+  "source_operational_status_superseded": [
+    "Earlier M15 CONTINUES / NOT_YET_SATISFIED routing is historical; current source ingestion admits epistemic closure without changing original scientific result gates."
+  ],
   "superseded": [],
-  "target_q": "Q046",
-  "to_candidate_version": "v0.8",
+  "target_q": "Q047",
+  "to_candidate_version": "v0.9",
   "update_class": "MULTI_LAYER_UPDATE"
 }

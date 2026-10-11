@@ -1,5 +1,5 @@
 {
-  "q_access_end": "Q046",
+  "q_access_end": "Q047",
   "schema_version": 1,
   "uncertainties": [
     {
@@ -154,6 +154,46 @@
       "statement": "Actual cutoff crossing, local rate sign, reachable neighborhood, well-defined continuation and complete EDE post-shooting realization/enclosure remain uncertified.",
       "status": "OPEN_NUMERICAL_UNCERTAINTY",
       "type": "structural_and_event_continuation_qualification",
+      "value": null,
+      "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "UNC-Q047-HISTORICAL-LINKAGE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "Attributable historical state/equivalence linkage, or a complete validated inverse with justified historical forward-error relations and a common certified event verdict, is not supplied. Uniqueness is not required unnecessarily; impossibility of future recovery is not proved.",
+      "status": "OPEN_STRUCTURAL_UNCERTAINTY",
+      "type": "historical_identity_and_inverse_qualification",
+      "value": null,
+      "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "UNC-Q047-COUPLED-HISTORY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "The direct helium boundary scale alone does not bound the complete coupled electron-fraction history or cumulative physical Thomson optical-depth difference. Hydrogen, temperature, mode transitions, smoothing and reionization can respond.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "coupled_history_response",
       "value": null,
       "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
     }

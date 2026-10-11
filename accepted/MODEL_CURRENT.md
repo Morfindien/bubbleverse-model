@@ -1,5 +1,5 @@
 # Current accepted model
 
-**v0.8 / R000008 through Q046.**
+**v0.9 / R000009 through Q047.**
 
-Completed Q046 assessment admitted with scope limits: INSUFFICIENT QUALIFICATION. Agreement, disagreement and physical materiality remain UNKNOWN. Source CASE/RESULT identities remain unspecified. No physical reference, cosmological event certification, new inference or production restart is established.
+Q047 epistemic closure and scoped reconstruction/M15 qualifications admitted: INCONCLUSIVE / INSUFFICIENT_EVIDENCE. Agreement, disagreement and physical materiality remain UNKNOWN. Canonical CASE/RESULT identities remain unspecified; supplied proposed source IDs are preserved. No physical reference, cosmological event certification, new inference or production restart is established.

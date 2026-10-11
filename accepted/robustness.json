@@ -154,8 +154,42 @@
       "production_restart_authorized": false,
       "q_introduced": "Q046",
       "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "finding": "Run 38140371059 completed four newly authorized native capture processes and observed 28 internal initialization entries, with zero full CMB/likelihood evaluations. Capture structure and new-run runtime checks are technical evidence only; historical identity and event certification remain unresolved.",
+      "id": "ROB-Q047-RECONSTRUCTION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "status": "SUPPORTED_WITH_SCOPE_LIMITS"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "finding": "M15 verifies positive finite neutrino nodes/weights and selected captured scalar-index linkage, and establishes reduced exact-real background regularity for the NEW_RECONSTRUCTION objects only. Its bounded finite-node/reference and coordinate differences are deterministic representation diagnostics, not physical uncertainties, total history errors, event displacements or cosmological anomalies.",
+      "id": "ROB-Q047-M15-FINITE-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "status": "SUPPORTED_WITH_SCOPE_LIMITS"
     }
   ],
-  "q_access_end": "Q046",
+  "q_access_end": "Q047",
   "schema_version": 1
 }

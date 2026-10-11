@@ -1,0 +1,80 @@
+{
+  "all_green": true,
+  "artifact_type": "Q047_MODEL_ASSESSMENT_ADMISSION_VALIDATION",
+  "mode": "CANDIDATE",
+  "non_destructive": true,
+  "target_q": "Q047",
+  "tests": [
+    {
+      "detail": "Q046/v0.8 -> Q047/v0.9; completed assessment only",
+      "id": "Q047_SEQUENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Exact Q047 result/capture/M15 bytes and bounded manuscript excerpts pinned; original identities preserved",
+      "id": "Q047_SOURCE_HASH_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Epistemic closure is separate from unresolved historical event predicates and physical qualification",
+      "id": "Q047_QUALIFICATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Official four-case capture record; eight matching outputs remain distinct from historical identity",
+      "id": "Q047_RECONSTRUCTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "method": "Existing source audit reproduced exactly except timestamp/runtime",
+        "native_solver_executions": 0,
+        "scope": "NEW_RECONSTRUCTION finite arithmetic only",
+        "status": "PASS"
+      },
+      "id": "Q047_M15_REPLAY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "All inherited scientific records, physical values, predictions, contradictions, evidence and public schemas preserved",
+      "id": "Q047_REGRESSION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Exact reviewed assessment/limitation additions; no fundamental equation or public calculation",
+      "id": "Q047_MODEL_DIFF_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Evidence references and canonical model-record IDs resolve; source CASE/RESULT identity stays unknown",
+      "id": "Q047_REFERENCE_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "maximum_scientific_q": 47,
+        "mixed_boundary_inputs": "BOUNDED_EXCERPTS_ONLY",
+        "scanned_files": 206
+      },
+      "id": "Q047_FIREWALL_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Accepted state immutable before promotion; all previous snapshots protected; accepted snapshot checked after promotion",
+      "id": "Q047_IMMUTABILITY_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Accepted scientific layer references do not depend on mutable candidate paths",
+      "id": "Q047_PATH_ISOLATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "detail": "Real reachable model input; operator manuscripts have hashes and persistent original file identity, no fabricated repository commit",
+      "id": "Q047_PROVENANCE_GATE",
+      "status": "PASS"
+    }
+  ],
+  "tests_passed": 12,
+  "tests_total": 12
+}

@@ -97,8 +97,25 @@
       "q_introduced": "Q046",
       "statement": "Only the documented insufficient-qualification assessment of four recovered Q041 LCDM and n_scf=3 EDE configurations at fixed accepted reionization redshift is admitted. The reported mathematical counterexample is conditional and has not been certified for those cosmological configurations.",
       "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "DOM-Q047-NEW-REALIZATION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "New capture, finite input and reduced exact-real background qualifications apply only to the four supplied NEW_RECONSTRUCTION objects. They do not qualify historical trajectories, source-active thermodynamic switches, complete native rounding/error relations, helium first events, optical-depth effects, CMB likelihoods or inference.",
+      "status": "SCOPE_LIMIT"
     }
   ],
-  "q_access_end": "Q046",
+  "q_access_end": "Q047",
   "schema_version": 1
 }

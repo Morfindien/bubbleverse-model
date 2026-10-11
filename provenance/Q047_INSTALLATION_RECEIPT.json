@@ -1,0 +1,18 @@
+{
+  "accepted_after": "v0.9",
+  "accepted_before": "v0.8",
+  "all_applicable_gates_passed": true,
+  "campaign_input_commit": "1cea966ad13095414eaef6f699748ab75923cbca",
+  "created_at": "2026-10-11T17:05:29.037036+00:00",
+  "input_model_commit": "0235856770a9765eb1918d332c19b3827a4bcef6",
+  "payload_sha256": "8a700b16a9bcc4326585021c3f1315344a59662b0b58384e6fd68731f165f74b",
+  "physical_reference_qualified": false,
+  "production_restart_authorized": false,
+  "promotion_commit": null,
+  "promotion_commit_semantics": "Recorded externally by Git history after successful CI commit; no self-referential fabricated SHA.",
+  "scientific_result": "INCONCLUSIVE / INSUFFICIENT_EVIDENCE",
+  "source_canonical_case_id": null,
+  "source_canonical_result_id": null,
+  "status": "PROMOTION_VALIDATED_BEFORE_COMMIT",
+  "target_q": "Q047"
+}

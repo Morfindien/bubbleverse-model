@@ -166,8 +166,42 @@
       "q_introduced": "Q046",
       "statement": "Reported conditional strict-guard counterexample does not establish event reachability, nonexistence of the actual cosmological trajectories, or a physical CLASS_EDE bias.",
       "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "CON-Q047-HISTORICAL-EVENT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "Q047 closes epistemically INCONCLUSIVE / INSUFFICIENT_EVIDENCE. All four historical PT01/PT03, full PT04, first-hit and final-result gates remain UNRESOLVED. Neither qualified reachability nor certified nonreachability is established.",
+      "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "CON-Q047-OUTPUT-IDENTITY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "The four new reconstruction objects reproduce eight archived output tables exactly. Output equality does not establish historical internal-state identity, a complete inverse enclosure, or applicability of the conditional strict-guard theorem.",
+      "status": "ACTIVE_LIMITATION"
     }
   ],
-  "q_access_end": "Q046",
+  "q_access_end": "Q047",
   "schema_version": 1
 }

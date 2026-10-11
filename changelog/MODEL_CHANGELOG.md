@@ -118,3 +118,7 @@ Added ten Q045 validation gates, seventeen mutation/read-only tests and two camp
 ## v0.8 / Q046
 
 Admit the completed insufficient-qualification assessment and its reference/event/identity limitations. Preserve unknown source CASE/RESULT IDs and all inherited physical quantities, predictions, contradictions and public operations. No new scientific solver execution or production authorization.
+
+## v0.9 / Q047
+
+Admit Q047 epistemic closure, official new reconstruction evidence and scoped M15 finite qualification, preserving all historical event limitations. Preserve unknown source CASE/RESULT IDs and all inherited physical quantities, predictions, contradictions and public operations. No new scientific solver execution or production authorization.

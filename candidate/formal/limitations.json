@@ -160,8 +160,42 @@
       "q_introduced": "Q046",
       "statement": "Source assessment remains canonically unregistered: no CASE-ID or new scientific RESULT-ID is supplied. Model admission registers the published assessment and its explicit unknowns only; it does not invent or confer those missing source identities.",
       "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "LIM-Q047-HISTORICAL-EQUIVALENCE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "Historical PT01/PT03, full PT04 and all four first-event/final-result gates remain unresolved despite exact output reproduction and scoped M15 results.",
+      "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "LIM-Q047-FULL-ERROR",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "No complete historical forward-error/inverse package or common-verdict event certificate is admitted. New-run floating-point checkpoints and library hashes do not certify the original worker all-call environment or all-domain error.",
+      "status": "UNRESOLVED"
     }
   ],
-  "q_access_end": "Q046",
+  "q_access_end": "Q047",
   "schema_version": 1
 }

@@ -1,0 +1,23 @@
+Status: Q-047 CLOSED - EPISTEMICALLY INCONCLUSIVE. Q_COMPLETION_GATE =
+PASS_FOR_INCONCLUSIVE_CLOSURE. All four historical event gates remain unresolved; no qualified first event,
+certified nonreachability, physical falsification, or new physical anomaly has been established.
+
+What the completed case establishes
+The source-specific strict-guard theorem survives. If a qualified trajectory reaches q = xHeII = 10^-6 with a strictly negative
+upper-branch rate, in the required regular neighborhood and with no competing switch or reset, the literal pinned ODE has no
+absolutely continuous local forward continuation. The four historical antecedents needed to apply that theorem remain unproved.
+
+New reconstruction evidence
+Run 38140371059 produced four technically validated NEW_RECONSTRUCTION state/output objects. Eight output tables are
+byte-identical to the archived golden tables, but that equality does not establish historical internal-state identity. M15 additionally
+validates selected finite input structure and scoped exact-real background regularity for the new objects only.
+
+What does not follow
+The deterministic representation diagnostics are not physical error bars and do not establish a CMB or H0 bias. The direct helium
+boundary scale q = 10^-6 does not by itself bound the complete coupled difference in x_e(z) or cumulative physical Thomson
+optical depth. Hydrogen, temperature evolution, mode transitions, smoothing, and reionization can respond.
+
+Current scientific consequence
+No active cosmological observation, H0 estimate, model preference, or Planck implementation conclusion is changed by Q-047.
+The CamSpec-HiLLiPoP endpoint-geometry question, matched-likelihood EDE portability, and the broader H0 inference-chain
+tension remain open.

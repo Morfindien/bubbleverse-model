@@ -22,11 +22,23 @@ class Q046Guards(unittest.TestCase):
         return module.run_tests(self.root, candidate=candidate)
 
     def path(self, relative):
-        if json.loads((self.root/'accepted/model_state.json').read_text())['current_q'] == 'Q046':
-            relative = relative.replace('candidate/formal/', 'model/').replace('candidate/evidence/', 'evidence/')
-            if relative in ['candidate/constraints.json', 'candidate/robustness.json']:
-                relative = relative.replace('candidate/', 'accepted/')
-        return self.root / relative
+        active=int(json.loads((self.root/'accepted/model_state.json').read_text())['current_q'][1:])
+        pending=int(json.loads((self.root/'candidate/candidate_state.json').read_text())['current_q'][1:])
+        if active>46 or pending>46:
+            if relative in ['candidate/candidate_state.json','candidate/candidate_diff.json']:
+                relative='provenance/archive/Q046/'+Path(relative).name
+            elif relative=='candidate/evidence/evidence_registry.json':
+                relative='versions/accepted/v0.8/evidence_registry.json'
+            elif relative.startswith('candidate/formal/'):
+                relative='versions/accepted/v0.8/'+Path(relative).name
+            elif relative in ['candidate/constraints.json','candidate/robustness.json']:
+                relative='versions/accepted/v0.8/'+Path(relative).name
+            elif relative.startswith('candidate/evidence/'):
+                relative=relative.replace('candidate/evidence/','evidence/',1)
+        elif active==46:
+            relative=relative.replace('candidate/formal/','model/').replace('candidate/evidence/','evidence/')
+            if relative in ['candidate/constraints.json','candidate/robustness.json']:relative=relative.replace('candidate/','accepted/')
+        return self.root/relative
 
     def mutate(self, relative, change, gate):
         p = self.path(relative)
