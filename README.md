@@ -23,7 +23,7 @@ The model represents the best current compression of validated Bubbleverse evide
 - The reported conditional event counterexample is not certified for the actual cosmological configurations.
 - All inherited physical parameters, observations, predictions, contradictions, equations and public operations are preserved.
 - No production restart authorized. Frozen accepted snapshot: `versions/accepted/v0.9/`.
-- Existing installation workflows remain unchanged; this update uses **Install Q047 model v0.9**.
+- One-time installations are complete. Use the permanent **BUBBLEVERSE MODEL — START** workflow with operation `test` for current read-only validation. Historical installation files remain until workflow-aware cleanup is authorized.
 
 ---
 

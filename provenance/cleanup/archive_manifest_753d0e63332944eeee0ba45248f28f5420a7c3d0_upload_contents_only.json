@@ -1,0 +1,18 @@
+{
+  "archives": [
+    {
+      "change_class": "PROVENANCE_ARCHIVE_MOVE",
+      "classification": "ARCHIVE",
+      "git_blob_sha": "817b9acf2c4841a84923a24ec3be27049181e937",
+      "new_path": "provenance/cleanup/archive/753d0e63332944eeee0ba45248f28f5420a7c3d0/Q046_MODEL_UPDATE_BLOCK_REPORT.json",
+      "old_path": "Q046_MODEL_UPDATE_BLOCK_REPORT.json",
+      "provenance_status": "PRESERVED_EXACT_BYTES_AND_REACHABLE_INPUT_GIT",
+      "reason": "Unique historical preparation/block report in operational root; canonical later report differs, so preserve exact bytes rather than delete",
+      "references_updated": [],
+      "sha256": "b3894606e433e12a47dfbc3e7fbd52014b37666c3df7827e3caccf5342ec2d90"
+    }
+  ],
+  "head_before": "4f95fb50661219e3924a3691bf82afb932a43e41",
+  "reference_scope": "HISTORICAL_GIT_OBJECTS_AT_HEAD_BEFORE",
+  "scientific_change": false
+}
