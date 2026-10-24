@@ -1,0 +1,11 @@
+{
+  "created_at_utc": "2026-10-24T22:42:24.560661+00:00",
+  "frozen_snapshot_manifest_sha256": "6f41a31464604240cd3837be42f2a18f8c5f444a272d847be9dfbdb47237450e",
+  "original_publication_commit": "5961ee9d50f7fb0aa618ec2190c68aadfbd8bfc2",
+  "original_release_git_parent": "b6523f601d38524e96384b66cb31d20dd0a67f27",
+  "original_release_sha256": "f45b37e18acc360979d4c9029c7aa4ccb68762be9ce457f75e5af77684b55c0c",
+  "repair_type": "OPERATIONAL_METADATA_ONLY",
+  "schema_version": 1,
+  "scientific_bytes_preserved": true,
+  "target_q": "Q049"
+}
