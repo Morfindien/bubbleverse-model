@@ -1,0 +1,16 @@
+{
+  "accepted_base_commit": "630605327083fcd1bfd28ebf326d783346c1dabe",
+  "artifact_type": "BUBBLEVERSE_MODEL_UPDATE_REPORT",
+  "candidate_revision": "R000010",
+  "candidate_version": "v0.10",
+  "firewall_gate": "PASS",
+  "generated_at_utc": "2026-10-24T00:05:03.418483+00:00",
+  "next_q_authorized_by_this_run": false,
+  "physical_model_change": false,
+  "promotion_intent": "ATOMIC_AFTER_CANDIDATE_CI",
+  "scientific_result": "UNSOLVED / UNRESOLVED",
+  "sequence_gate": "PASS",
+  "source_commit": "b99a5c78058b624c8d5847bed582df4ea816358a",
+  "target_q": "Q048",
+  "update_class": "MULTI_LAYER_UPDATE"
+}

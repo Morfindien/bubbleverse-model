@@ -200,8 +200,40 @@
       "q_introduced": "Q047",
       "statement": "The four new reconstruction objects reproduce eight archived output tables exactly. Output equality does not establish historical internal-state identity, a complete inverse enclosure, or applicability of the conditional strict-guard theorem.",
       "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "CON-Q048-UNSOLVED-COMPLETION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "statement": "Q048 is UNSOLVED: no complete controlled four-configuration latch-versus-reset x_e(z) and cumulative tau_T(z) comparison is established. The accepted hillipop-ede_n3 actual checkpoint is actual127/frontier810; the other tracked frontiers remain at 1440.",
+      "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "CON-Q048-NO-PHYSICAL-VERDICT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "statement": "Q048 does not establish a new cosmological observation, model preference, EDE viability claim, completed opacity correction, physical exclusion, null detection or production authorization. The terminal continuation failure is technical, not physical.",
+      "status": "NOT_ESTABLISHED"
     }
   ],
-  "q_access_end": "Q047",
+  "q_access_end": "Q048",
   "schema_version": 1
 }

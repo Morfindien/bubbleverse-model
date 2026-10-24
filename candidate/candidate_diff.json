@@ -1,65 +1,54 @@
 {
   "added": [
     {
-      "category": "CONSTRAINTS_UPDATE",
+      "category": "CONSTRAINT_UPDATE",
       "evidence_refs": [
-        "EVD-Q047-QJOURNAL",
-        "EVD-Q047-APPENDICES",
-        "EVD-Q047-MAINBOOK",
-        "EVD-Q047-RECONSTRUCTION",
-        "EVD-Q047-M15",
-        "EVD-Q047-CLOSURE"
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
       ],
-      "id": "CON-Q047-HISTORICAL-EVENT"
+      "id": "CON-Q048-UNSOLVED-COMPLETION"
     },
     {
-      "category": "CONSTRAINTS_UPDATE",
+      "category": "CONSTRAINT_UPDATE",
       "evidence_refs": [
-        "EVD-Q047-QJOURNAL",
-        "EVD-Q047-APPENDICES",
-        "EVD-Q047-MAINBOOK",
-        "EVD-Q047-RECONSTRUCTION",
-        "EVD-Q047-M15",
-        "EVD-Q047-CLOSURE"
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
       ],
-      "id": "CON-Q047-OUTPUT-IDENTITY"
-    },
-    {
-      "category": "ROBUSTNESS_UPDATE",
-      "evidence_refs": [
-        "EVD-Q047-QJOURNAL",
-        "EVD-Q047-APPENDICES",
-        "EVD-Q047-MAINBOOK",
-        "EVD-Q047-RECONSTRUCTION",
-        "EVD-Q047-M15",
-        "EVD-Q047-CLOSURE"
-      ],
-      "id": "ROB-Q047-RECONSTRUCTION"
+      "id": "CON-Q048-NO-PHYSICAL-VERDICT"
     },
     {
       "category": "ROBUSTNESS_UPDATE",
       "evidence_refs": [
-        "EVD-Q047-QJOURNAL",
-        "EVD-Q047-APPENDICES",
-        "EVD-Q047-MAINBOOK",
-        "EVD-Q047-RECONSTRUCTION",
-        "EVD-Q047-M15",
-        "EVD-Q047-CLOSURE"
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
       ],
-      "id": "ROB-Q047-M15-FINITE-SCOPE"
+      "id": "ROB-Q048-PARTIAL-STATE"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "ROB-Q048-TECHNICAL-FAILURE-SCOPE"
     }
   ],
-  "evidence_refs": [
-    "EVD-Q047-QJOURNAL",
-    "EVD-Q047-APPENDICES",
-    "EVD-Q047-MAINBOOK",
-    "EVD-Q047-RECONSTRUCTION",
-    "EVD-Q047-M15",
-    "EVD-Q047-CLOSURE"
-  ],
-  "from_version": "v0.8",
+  "from_version": "v0.9",
+  "future_handoff_ingested": false,
   "modified": [
-    "Model boundary and investigation completion metadata advance only after successful promotion."
+    "Accepted evidence boundary advances to Q048 after successful promotion; no physical model quantity changes."
   ],
   "new_assumptions": [],
   "new_benchmarks": [],
@@ -67,30 +56,28 @@
   "new_domains": [],
   "new_equations": [],
   "new_limitations": [
-    "LIM-Q047-HISTORICAL-EQUIVALENCE",
-    "LIM-Q047-FULL-ERROR"
+    "LIM-Q048-COMPLETE-HISTORY",
+    "LIM-Q048-NATIVE-FIDELITY"
   ],
+  "new_mechanisms": [],
   "new_parameters": [],
+  "new_predictions": [],
   "new_uncertainties": [
-    "UNC-Q047-HISTORICAL-LINKAGE",
-    "UNC-Q047-COUPLED-HISTORY"
+    "UNC-Q048-COMPLETION-SENSITIVITY",
+    "UNC-Q048-ACTUAL-CONTINUATION"
   ],
   "new_validity_domains": [
-    "DOM-Q047-NEW-REALIZATION"
+    "DOM-Q048-PARTIAL-STATE"
   ],
   "physical_model_change": false,
   "preserved": [
-    "All inherited physical parameters, observations, equations, benchmarks, prediction history, open contradictions, source identities and accepted snapshots",
-    "All public calculations and input/output semantics",
-    "All Q046 limitations remain explicit and refer to historical physical qualification"
+    "All Q001-Q047 accepted physical parameters, observations, equations, benchmarks, mechanisms, predictions, contradictions, public operations and immutable snapshots",
+    "Q048 historical/conditional evidence identities and unconsumed-proof status"
   ],
   "resolved_contradictions": [],
   "schema_version": 1,
-  "source_operational_status_superseded": [
-    "Earlier M15 CONTINUES / NOT_YET_SATISFIED routing is historical; current source ingestion admits epistemic closure without changing original scientific result gates."
-  ],
   "superseded": [],
-  "target_q": "Q047",
-  "to_candidate_version": "v0.9",
+  "target_q": "Q048",
+  "to_candidate_version": "v0.10",
   "update_class": "MULTI_LAYER_UPDATE"
 }

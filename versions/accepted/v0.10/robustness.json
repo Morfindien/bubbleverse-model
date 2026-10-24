@@ -1,0 +1,227 @@
+{
+  "items": [
+    {
+      "finding": "Cosmological parameter estimates must preserve inference-chain provenance and shared dependencies.",
+      "id": "ROB-INF-CHAIN-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "High-H0 n=3 EDE viability is not a generic property of 'the CMB'; Planck, SPT-3G, and ACT respond differently on matched surfaces.",
+      "id": "ROB-EDE-LIKE-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "ACT spectrum/multipole attribution changes materially across corrected basins; the earlier TE/intermediate-l pattern is not basin-independent.",
+      "id": "ROB-EDE-BASIN-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "Historical stable versus non-stable CamSpec basin labels were classifier-dependent; endpoint geometry remains valid while the binary label interpretation changed.",
+      "id": "ROB-CLASSIFIER-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "A material continuous CamSpec-HiLLiPoP endpoint-geometry difference survives common normalized and exact-TT support comparisons and is distributed across multiple coordinates.",
+      "id": "ROB-PLANCK-GEOM-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "Q039 single-block interventions fail to remove the surviving geometry difference; remaining explanatory space is structurally coupled and unresolved.",
+      "id": "ROB-Q039-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "Q039 V1-V4 failures are technical recovery provenance only and are excluded from physical evidence; V5 and FGPROFILE V1 are authoritative.",
+      "id": "ROB-TECH-001",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "A common physical CMB-space nuisance-marginalization construction can preserve native CamSpec and HiLLiPoP likelihood structure without a synthetic hybrid likelihood.",
+      "id": "ROB-Q040-CMB-MARGINAL-001",
+      "status": "SUPPORTED_METHODOLOGICALLY"
+    },
+    {
+      "finding": "The tested single-Gaussian compression and finite defensive-RQMC implementation fail numerical validation; this is TECHNICAL_FAIL and not physical falsification.",
+      "id": "ROB-Q040-NUMERIC-001",
+      "status": "TECHNICAL_FAIL"
+    },
+    {
+      "finding": "The Q041 V19 workflow reaches a valid controlled no-science terminal state: workflow success validates control flow, not a cosmological portability result. The convergence and completeness firewall prevents physical interpretation.",
+      "id": "ROB-Q041-CONTROLLED-NOSCIENCE-001",
+      "q_introduced": "Q041",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "The Q041 V19 source lock forbids Q040 scientific products as Q041 scientific inputs, and the final source-result firewall gate passes.",
+      "id": "ROB-Q041-FIREWALL-001",
+      "q_introduced": "Q041",
+      "status": "ACTIVE"
+    },
+    {
+      "finding": "The executed V19 contract is narrower than the broader original Q041 downstream design; its controlled no-science result is valid for V19 but cannot stand in for that broader test.",
+      "id": "ROB-Q041-CONTRACT-SCOPE-001",
+      "q_introduced": "Q041",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "finding": "Question completion is separate from numerical/reference acceptance: closure is documented inconclusive, reference truth remains BLOCKED, final result UNRESOLVED and production not authorized.",
+      "id": "ROB-Q042-CLOSURE-001",
+      "q_introduced": "Q042",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "finding": "The cap32 obstruction is conditional on the frozen retained-interval/global-rail policy. It does not falsify LCDM, n=3 EDE, the common-latent target or all alternative numerical designs.",
+      "id": "ROB-Q042-CAP-SCOPE-001",
+      "q_introduced": "Q042",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q043-RESULT",
+        "EVD-Q043-JOURNAL"
+      ],
+      "finding": "Q043 validates local candidate/control preparation at pinned historical bases only. It is internal technical consistency evidence, not independent physical validation, remote synchronization, numerical production or model acceptance.",
+      "id": "ROB-Q043-LOCAL-VALIDATION-001",
+      "q_introduced": "Q043",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-COMPONENT",
+        "EVD-Q044-CHECKS"
+      ],
+      "finding": "Scoped component acceptance does not certify uniform native-binary rounding, complete physical histories, CMB predictions, likelihood accuracy or converged posteriors. Received 64 rational fixtures and 18 native-C diagnostics are reported historical tests; they were not rerun in this update.",
+      "id": "ROB-Q044-COMPONENT-001",
+      "q_introduced": "Q044",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-INGESTION"
+      ],
+      "finding": "Epistemic closure leaves physical predictions and contradictions open. The native-plus versus cubic-minus distinction is not a measured physical bias or physical falsification. Production remains unauthorized.",
+      "id": "ROB-Q044-CLOSURE-001",
+      "q_introduced": "Q044",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-REMOTE-RUN"
+      ],
+      "finding": "Verified V2 artifact records eight recovered worker histories, four common grids and zero new theory evaluations. Previous successful summaries and failed postprocessing statuses remain preserved. Scope: stored-history diagnostic recovery only.",
+      "id": "ROB-Q045-RECOVERY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES"
+      ],
+      "finding": "Native levels jointly vary nine numerical controls; four accepted-tau sequences reverse direction. Same-history quadrature agreement and empirical refinement estimates do not supply independent complete-history validation or a physical remainder enclosure.",
+      "id": "ROB-Q045-REFINEMENT-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "finding": "The published assessment narrows the qualification bottleneck to physical-model identity, event continuation and independently justified error enclosure. The 64 rational fixtures remain finite algebra checks, not uniform physical certificates.",
+      "id": "ROB-Q046-ASSESSMENT-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "finding": "Run 38140371059 completed four newly authorized native capture processes and observed 28 internal initialization entries, with zero full CMB/likelihood evaluations. Capture structure and new-run runtime checks are technical evidence only; historical identity and event certification remain unresolved.",
+      "id": "ROB-Q047-RECONSTRUCTION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "status": "SUPPORTED_WITH_SCOPE_LIMITS"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "finding": "M15 verifies positive finite neutrino nodes/weights and selected captured scalar-index linkage, and establishes reduced exact-real background regularity for the NEW_RECONSTRUCTION objects only. Its bounded finite-node/reference and coordinate differences are deterministic representation diagnostics, not physical uncertainties, total history errors, event displacements or cosmological anomalies.",
+      "id": "ROB-Q047-M15-FINITE-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "status": "SUPPORTED_WITH_SCOPE_LIMITS"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "finding": "Q048 preserves useful conditional/partial evidence: hillipop-ede_n3 reaches actual127/frontier810, three other frontiers remain 1440, and the 810->800 connected proof is accepted but unconsumed. Conditional proof is not an accepted actual-state advance.",
+      "id": "ROB-Q048-PARTIAL-STATE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "status": "SUPPORTED_WITH_SCOPE_LIMITS"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "finding": "The final Q048 continuation stopped at a pre-freeze schema-binding defect before consumer dispatch. The failure is technical and supplies no physical falsification or cosmological exclusion.",
+      "id": "ROB-Q048-TECHNICAL-FAILURE-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "status": "TECHNICAL_FAIL_SCOPE_ONLY"
+    }
+  ],
+  "q_access_end": "Q048",
+  "schema_version": 1
+}

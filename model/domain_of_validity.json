@@ -114,8 +114,24 @@
       "q_introduced": "Q047",
       "statement": "New capture, finite input and reduced exact-real background qualifications apply only to the four supplied NEW_RECONSTRUCTION objects. They do not qualify historical trajectories, source-active thermodynamic switches, complete native rounding/error relations, helium first events, optical-depth effects, CMB likelihoods or inference.",
       "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "DOM-Q048-PARTIAL-STATE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "statement": "Q048 results apply only to the frozen Q048 source/capture, fixed accepted z_reio, stated latch/reset definitions and documented validation contracts. They do not establish complete native trajectories, downstream visibility/spectra/likelihood effects, or cosmological inference.",
+      "status": "SCOPE_LIMIT"
     }
   ],
-  "q_access_end": "Q047",
+  "q_access_end": "Q048",
   "schema_version": 1
 }

@@ -1,0 +1,83 @@
+{
+  "added": [
+    {
+      "category": "CONSTRAINT_UPDATE",
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "CON-Q048-UNSOLVED-COMPLETION"
+    },
+    {
+      "category": "CONSTRAINT_UPDATE",
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "CON-Q048-NO-PHYSICAL-VERDICT"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "ROB-Q048-PARTIAL-STATE"
+    },
+    {
+      "category": "ROBUSTNESS_UPDATE",
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "ROB-Q048-TECHNICAL-FAILURE-SCOPE"
+    }
+  ],
+  "from_version": "v0.9",
+  "future_handoff_ingested": false,
+  "modified": [
+    "Accepted evidence boundary advances to Q048 after successful promotion; no physical model quantity changes."
+  ],
+  "new_assumptions": [],
+  "new_benchmarks": [],
+  "new_calculations": [],
+  "new_domains": [],
+  "new_equations": [],
+  "new_limitations": [
+    "LIM-Q048-COMPLETE-HISTORY",
+    "LIM-Q048-NATIVE-FIDELITY"
+  ],
+  "new_mechanisms": [],
+  "new_parameters": [],
+  "new_predictions": [],
+  "new_uncertainties": [
+    "UNC-Q048-COMPLETION-SENSITIVITY",
+    "UNC-Q048-ACTUAL-CONTINUATION"
+  ],
+  "new_validity_domains": [
+    "DOM-Q048-PARTIAL-STATE"
+  ],
+  "physical_model_change": false,
+  "preserved": [
+    "All Q001-Q047 accepted physical parameters, observations, equations, benchmarks, mechanisms, predictions, contradictions, public operations and immutable snapshots",
+    "Q048 historical/conditional evidence identities and unconsumed-proof status"
+  ],
+  "resolved_contradictions": [],
+  "schema_version": 1,
+  "superseded": [],
+  "target_q": "Q048",
+  "to_candidate_version": "v0.10",
+  "update_class": "MULTI_LAYER_UPDATE"
+}

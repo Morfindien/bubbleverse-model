@@ -1,0 +1,39 @@
+{
+  "actual_checkpoint": {
+    "actual_count": 127,
+    "configuration": "hillipop-ede_n3",
+    "frontier": 810
+  },
+  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE_BOUNDED_EXTRACTION",
+  "budget": {
+    "effective_remaining_for_q048_physics_runs_pts": 0,
+    "limit_pts": 1000,
+    "remaining_pts": 38,
+    "used_pts": 962
+  },
+  "conditional_810_800_proof": "ACCEPTED_UNCONSUMED",
+  "internal_stop_status": "UNRESOLVED \u2014 BUDGET EXHAUSTED",
+  "physical_falsification": false,
+  "physical_model_change": false,
+  "publication_status": "UNSOLVED",
+  "q_id": "Q048",
+  "schema_version": 1,
+  "scientific_status": "UNRESOLVED",
+  "source_boundary_note": "Only Q048 terminal/current-state fields are ingested; later-Q scientific content is excluded.",
+  "source_commit": "b99a5c78058b624c8d5847bed582df4ea816358a",
+  "source_file": "revision.md",
+  "source_repository": "Morfindien/Bubbleverse",
+  "tracked_frontiers": {
+    "camspec-ede_n3": 1440,
+    "camspec-lcdm": 1440,
+    "hillipop-ede_n3": 810,
+    "hillipop-lcdm": 1440
+  },
+  "unresolved": [
+    "complete four-configuration x_e(z)/tau_T(z) comparison",
+    "NativeP6",
+    "physical/native trajectory identity",
+    "exact selector existence and uniqueness",
+    "native error certificate"
+  ]
+}

@@ -194,8 +194,40 @@
       "q_introduced": "Q047",
       "statement": "No complete historical forward-error/inverse package or common-verdict event certificate is admitted. New-run floating-point checkpoints and library hashes do not certify the original worker all-call environment or all-domain error.",
       "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "LIM-Q048-COMPLETE-HISTORY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "statement": "No complete controlled four-configuration latch/reset electron-fraction history or cumulative Thomson optical-depth difference is established by Q048.",
+      "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "LIM-Q048-NATIVE-FIDELITY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "statement": "NativeP6, physical/native trajectory identity, exact selector existence and uniqueness, and a native error certificate remain unresolved; conditional continuation cannot be relabelled as a validated native trajectory.",
+      "status": "UNRESOLVED"
     }
   ],
-  "q_access_end": "Q047",
+  "q_access_end": "Q048",
   "schema_version": 1
 }

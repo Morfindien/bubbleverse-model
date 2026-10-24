@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 17)]
+MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 18)]
 
 
 def load(rel):
@@ -252,6 +252,16 @@ def audit():
         failures = [x['id'] for x in q47_result['tests'] if x['status'] != 'PASS']
         q47_detail = 'Q047 epistemic closure, reconstruction scope, exact-rational replay, inference firewall and immutable snapshot gates: ' + ('PASS' if q47_ok else ', '.join(failures))
     results['T-BV-016'] = passfail(q47_ok, q47_detail)
+
+    q48_ok = True
+    q48_detail = 'Q048 terminal-unsolved admission is not applicable below Q048.'
+    if qmax >= 48:
+        from q048_model_validate import run_tests as q048_tests
+        q48_result = q048_tests(ROOT)
+        q48_ok = q48_result['all_green']
+        failures = [x['id'] for x in q48_result['tests'] if x['status'] != 'PASS']
+        q48_detail = 'Q048 terminal UNSOLVED status, partial-state boundary, source/firewall and snapshot gates: ' + ('PASS' if q48_ok else ', '.join(failures))
+    results['T-BV-017'] = passfail(q48_ok, q48_detail)
 
     return results
 

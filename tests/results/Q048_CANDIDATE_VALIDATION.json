@@ -1,0 +1,35 @@
+{
+  "accepted_base_commit": "630605327083fcd1bfd28ebf326d783346c1dabe",
+  "all_green": true,
+  "artifact_type": "Q048_UPDATER_STATIC_CANDIDATE_VALIDATION",
+  "created_at": "2026-10-24T00:05:03.418483+00:00",
+  "repository_ci_status": "RUNNING_IN_GITHUB_ACTIONS",
+  "target_q": "Q048",
+  "tests": [
+    {
+      "detail": "Accepted predecessor Q047/v0.9 and target Q048 are sequential.",
+      "id": "QSEQ",
+      "status": "PASS"
+    },
+    {
+      "detail": "Mixed inputs bounded to Q048 excerpts; later-Q scientific handoff excluded.",
+      "id": "FIREWALL",
+      "status": "PASS"
+    },
+    {
+      "detail": "Q048 remains UNSOLVED/UNRESOLVED; no physical model change or falsification.",
+      "id": "CLAIM",
+      "status": "PASS"
+    },
+    {
+      "detail": "Q001-Q047 scientific prefixes preserved.",
+      "id": "REGRESSION",
+      "status": "PASS"
+    },
+    {
+      "detail": "Source hashes and checkpoint identities pinned.",
+      "id": "SOURCE",
+      "status": "PASS"
+    }
+  ]
+}

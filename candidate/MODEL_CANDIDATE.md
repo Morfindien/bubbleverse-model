@@ -1,3 +1,3 @@
-# Q047 candidate
+# Q048 candidate
 
-v0.9 / R000009: epistemic closure, INCONCLUSIVE / INSUFFICIENT_EVIDENCE. Four NEW_RECONSTRUCTION objects and scoped M15 qualifications are admitted; all historical event gates and physical materiality remain unresolved. No physical inference or production restart.
+v0.10 / R000010: terminal **UNSOLVED / UNRESOLVED** Q048 admission. Partial actual state and conditional proof provenance are retained without promoting them into complete native histories. No physical model change, cosmological inference, or production restart.

@@ -1,0 +1,52 @@
+{
+  "actual_checkpoint": {
+    "actual_count": 127,
+    "configuration": "hillipop-ede_n3",
+    "frontier": 810
+  },
+  "budget": {
+    "effective_remaining_for_q048_physics_runs_pts": 0,
+    "limit_pts": 1000,
+    "remaining_pts": 38,
+    "used_pts": 962
+  },
+  "classification": "TERMINAL_UNSOLVED_BUDGET_EXHAUSTED",
+  "conditional_810_800_proof": "ACCEPTED_UNCONSUMED",
+  "evidence_refs": [
+    "EVD-Q048-QJOURNAL",
+    "EVD-Q048-APPENDICES",
+    "EVD-Q048-MAINBOOK",
+    "EVD-Q048-TERMINAL",
+    "EVD-Q048-CHECKPOINT"
+  ],
+  "frozen_capture_sha256": "2514e250d20c456530be63e790a079176293a87a82c927b1e748d1eec405da9b",
+  "frozen_source_commit": "5a131c91d657dd9a7c6364cc45b038710f8d0d97",
+  "integration_status": "TERMINAL_UNSOLVED_ADMITTED",
+  "internal_stop_status": "UNRESOLVED \u2014 BUDGET EXHAUSTED",
+  "new_scientific_inference": false,
+  "physical_falsification": false,
+  "physical_model_change": false,
+  "production_restart_authorized": false,
+  "publication_status": "UNSOLVED",
+  "q_id": "Q048",
+  "result": "UNSOLVED / UNRESOLVED",
+  "schema_version": 1,
+  "scientific_completion": "NOT_ACHIEVED",
+  "scientific_status": "UNRESOLVED",
+  "source_repository": "Morfindien/Bubbleverse",
+  "source_repository_commit": "b99a5c78058b624c8d5847bed582df4ea816358a",
+  "tracked_frontiers": {
+    "camspec-ede_n3": 1440,
+    "camspec-lcdm": 1440,
+    "hillipop-ede_n3": 810,
+    "hillipop-lcdm": 1440
+  },
+  "unresolved": [
+    "complete four-configuration x_e(z)/tau_T(z) comparison",
+    "NativeP6",
+    "physical/native trajectory identity",
+    "exact selector existence and uniqueness",
+    "native error certificate"
+  ],
+  "validated_checkpoint_sha256": "60dcd23a315a28be2ef84c4c5353c783e88eb73c4199d43b7f5640a16db2eb96"
+}

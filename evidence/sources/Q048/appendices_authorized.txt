@@ -1,0 +1,17 @@
+BUBBLEVERSE — Q048 AUTHORIZED TECHNICAL-APPENDIX EXCERPT
+Q-048 current technical status: UNSOLVED. Partial validated state exists, but the complete four-configuration x_e(z)/tau_T(z) comparison and native-fidelity certificate are not established.
+
+Accepted actual state and proof boundary
+The last accepted actual checkpoint for hillipop-ede_n3 is actual127/frontier810. The other tracked frontiers remain 1440. The subsequent 810 -> 800 result is an accepted unconsumed conditional connected proof; it must not be reported as an accepted actual-state advance.
+
+Conditional evidence retained
+Q-048 retains conditional source-real continuation bounds within the frozen source/capture identity and documented branch and validation contracts. Earlier event-state work also retains conditional three-configuration certificates and a fourth-case scalar-wall obstruction. Missing fields or unconsumed proofs are not zero-valued measurements.
+
+Native and physical gaps
+NativeP6 remains unresolved. Physical/native trajectory identity, exact selector existence and uniqueness, and a native error certificate are unestablished. Conditional mathematics does not by itself certify the trajectory selected by the pinned native implementation.
+
+Failure classification
+The final attempted continuation stopped on a technical pre-freeze schema-binding defect before a consumer dispatch. That event supplies no physical exclusion, no null detection and no evidence against the underlying cosmological configuration.
+
+Observable consequence
+No complete controlled bound on the coupled latch-versus-reset difference in x_e(z) or cumulative tau_T(z) has been established for all four configurations. Downstream visibility, spectra, likelihood and inference claims therefore remain outside the demonstrated Q-048 result.

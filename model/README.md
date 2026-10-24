@@ -1,3 +1,5 @@
-# Accepted formal model
+# Bubbleverse formal model
 
-v0.9 / R000009 through Q047. Formalization of the existing physical model and scope-limited assessment record; no additional fundamental equation, physical parameter or public operation.
+Current formal layer: **v0.10-formalization-1 / R000010 through Q048**.
+
+Q048 adds terminal-unsolved evidence, scope limitations and uncertainty records only. The inherited physical model, public operations and numerical benchmarks are unchanged.

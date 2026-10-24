@@ -1,3 +1,3 @@
-# Q047 release handoff
+# Bubbleverse Model Release Handoff
 
-Accepted v0.9 / R000009 through Q047 after all admission gates passed. The documented result remains INCONCLUSIVE / INSUFFICIENT_EVIDENCE; source CASE/RESULT identities remain unspecified, and no physical forward-history comparison or production restart is qualified.
+Q048 → v0.10 / R000010. Terminal UNSOLVED / UNRESOLVED integration; no physical model change or production restart. Promotion commit is intentionally not self-referential and is verified externally after the guarded ref update.

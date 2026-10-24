@@ -188,8 +188,40 @@
       "production_restart_authorized": false,
       "q_introduced": "Q047",
       "status": "SUPPORTED_WITH_SCOPE_LIMITS"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "finding": "Q048 preserves useful conditional/partial evidence: hillipop-ede_n3 reaches actual127/frontier810, three other frontiers remain 1440, and the 810->800 connected proof is accepted but unconsumed. Conditional proof is not an accepted actual-state advance.",
+      "id": "ROB-Q048-PARTIAL-STATE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "status": "SUPPORTED_WITH_SCOPE_LIMITS"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "finding": "The final Q048 continuation stopped at a pre-freeze schema-binding defect before consumer dispatch. The failure is technical and supplies no physical falsification or cosmological exclusion.",
+      "id": "ROB-Q048-TECHNICAL-FAILURE-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "status": "TECHNICAL_FAIL_SCOPE_ONLY"
     }
   ],
-  "q_access_end": "Q047",
+  "q_access_end": "Q048",
   "schema_version": 1
 }

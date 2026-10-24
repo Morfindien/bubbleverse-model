@@ -1,5 +1,5 @@
 {
-  "current_q": "Q047",
+  "current_q": "Q048",
   "entries": [
     {
       "evidence_id": "EVD-MANUSCRIPT-Q001-Q039",
@@ -745,9 +745,99 @@
         "R-PROPOSED-Q047-M15-INGESTION-001"
       ],
       "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE_ONLY"
+    },
+    {
+      "authority_class": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "evidence_id": "EVD-Q048-QJOURNAL",
+      "independent_cosmological_evidence": false,
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_id": "Q048",
+      "role": "CANONICAL_Q_JOURNAL_BOUNDED_EXCERPT",
+      "scientific_evidence": true,
+      "scientific_ingestion": true,
+      "sha256": "a247141ecc0cac4134a1f6fc888b4c60ccecf24f6d1a2ec6c4acdf78a467f669",
+      "source": "evidence/sources/Q048/q_journal_authorized.txt",
+      "source_files": [
+        "evidence/sources/Q048/q_journal_authorized.txt"
+      ],
+      "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE_ONLY"
+    },
+    {
+      "authority_class": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "evidence_id": "EVD-Q048-APPENDICES",
+      "independent_cosmological_evidence": false,
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_id": "Q048",
+      "role": "TECHNICAL_APPENDIX_BOUNDED_EXCERPT",
+      "scientific_evidence": true,
+      "scientific_ingestion": true,
+      "sha256": "5d4e24c14622f8b346c4da310d4f4e0380eaa2009499ff2ed93d9426e0a6c783",
+      "source": "evidence/sources/Q048/appendices_authorized.txt",
+      "source_files": [
+        "evidence/sources/Q048/appendices_authorized.txt"
+      ],
+      "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE_ONLY"
+    },
+    {
+      "authority_class": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "evidence_id": "EVD-Q048-MAINBOOK",
+      "independent_cosmological_evidence": false,
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_id": "Q048",
+      "role": "MAIN_BOOK_BOUNDED_EXCERPT",
+      "scientific_evidence": true,
+      "scientific_ingestion": true,
+      "sha256": "b022563d6058fe5d93681073a696708193e06791a6455f5de8352c0c3328ce88",
+      "source": "evidence/sources/Q048/main_book_authorized.txt",
+      "source_files": [
+        "evidence/sources/Q048/main_book_authorized.txt"
+      ],
+      "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE_ONLY"
+    },
+    {
+      "authority_class": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "evidence_id": "EVD-Q048-TERMINAL",
+      "independent_cosmological_evidence": false,
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_id": "Q048",
+      "role": "SOURCE_REPOSITORY_TERMINAL_STATE_BOUNDED_EXTRACTION",
+      "scientific_evidence": true,
+      "scientific_ingestion": true,
+      "sha256": "a5e2427aabe467c6028a4cea3eca16ab55b4779850ac52f864f7c718cc5070d1",
+      "source": "evidence/sources/Q048/source_terminal_authorized.json",
+      "source_files": [
+        "evidence/sources/Q048/source_terminal_authorized.json"
+      ],
+      "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE_ONLY"
+    },
+    {
+      "authority_class": "AUTHORITATIVE_BUBBLEVERSE_SOURCE",
+      "evidence_id": "EVD-Q048-CHECKPOINT",
+      "independent_cosmological_evidence": false,
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_id": "Q048",
+      "role": "LAST_VALIDATED_ACTUAL_CHECKPOINT_BOUNDED_EXTRACTION",
+      "scientific_evidence": true,
+      "scientific_ingestion": true,
+      "sha256": "fd5e4ad69792a6316f03bd42c883dd41fbe16b5138ed4dd04944317b41609f78",
+      "source": "evidence/sources/Q048/checkpoint_authorized.json",
+      "source_files": [
+        "evidence/sources/Q048/checkpoint_authorized.json"
+      ],
+      "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE_ONLY"
     }
   ],
-  "q_access_end": "Q047",
+  "q_access_end": "Q048",
   "q_access_start": "Q001",
   "schema_version": 1
 }

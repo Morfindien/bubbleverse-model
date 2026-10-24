@@ -1,0 +1,15 @@
+{
+  "accepted_after": "v0.10",
+  "accepted_before": "v0.9",
+  "all_applicable_gates_passed": true,
+  "campaign_input_commit": "38c41f7bd31df5ec1be7761f0fa46101abd5163a",
+  "created_at": "2026-10-24T00:05:03.418483+00:00",
+  "input_model_commit": "630605327083fcd1bfd28ebf326d783346c1dabe",
+  "physical_model_change": false,
+  "production_restart_authorized": false,
+  "promotion_commit": null,
+  "promotion_commit_semantics": "Bound externally by verified Git history after atomic main ref update.",
+  "scientific_result": "UNSOLVED / UNRESOLVED",
+  "status": "PROMOTION_VALIDATED_BEFORE_COMMIT",
+  "target_q": "Q048"
+}

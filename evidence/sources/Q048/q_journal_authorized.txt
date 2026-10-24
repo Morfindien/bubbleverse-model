@@ -1,0 +1,18 @@
+BUBBLEVERSE — Q048 AUTHORIZED CURRENT-STATE EXCERPT
+Q-ID: Q-048
+Publication status: UNSOLVED
+
+Research question
+For each of the four Q041 FULL/start0 configurations explicitly reconstructed in run 38140371059, what rigorously controlled bounds can be placed on the differences in the complete electron-fraction history x_e(z) and cumulative Thomson optical depth tau_T(z) between an event-resolved latch at q=xHeII=10^-6 and a reset to q=0 at the same first cutoff event, with identical captured effective inputs and fixed accepted z_reio?
+
+Documented answer
+UNSOLVED. Q-048 established useful conditional and partial results but did not establish the complete four-configuration latch/reset histories or the complete cumulative Thomson optical-depth difference.
+
+What was established
+The accepted actual state for hillipop-ede_n3 reached actual127/frontier810; the other three tracked frontiers remain at 1440. A later Q-048 result established a conditional connected proof for 810 -> 800, but that proof was not consumed into a new accepted actual checkpoint. Earlier work also preserved conditional three-configuration event certificates and a documented scalar-wall obstruction for hillipop-ede_n3.
+
+What remains unresolved
+The complete four-configuration x_e(z) and tau_T(z) latch/reset comparison remains unestablished. NativeP6, physical/native trajectory identity, exact selector existence and uniqueness, and a native error certificate remain unresolved. A technical failure in the final attempted continuation is not a physical falsification.
+
+Scientific limitations
+The supported results are conditional on the frozen Q-048 source/capture, fixed accepted z_reio, the stated branch definitions and the documented validation contracts. Conditional continuation must not be relabelled as a validated native trajectory, and an unconsumed proof must not be reported as an accepted actual-state advance.

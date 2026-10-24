@@ -13,7 +13,7 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-- Accepted state: **v0.9 / R000009 through Q047**.
+- Accepted state: **v0.10 / R000010 through Q048**.
 - Q047: **CLOSED EPISTEMICALLY INCONCLUSIVE / INSUFFICIENT_EVIDENCE**.
 - Four new reconstructions reproduce eight archived outputs; historical identity and event gates remain unresolved.
 - Scoped M15 finite input/regularity qualifications and deterministic diagnostics do not establish physical error bars.
@@ -346,7 +346,7 @@ For the current baseline:
 
 ```text
 AUTHORIZED:
-Q001–Q047
+Q001–Q048
 ```
 
 Evidence beyond the authorized boundary must not influence:
@@ -612,3 +612,6 @@ The model is allowed to:
 - destroy previous conclusions
 
 when the evidence requires it.
+
+### Q048 terminal UNSOLVED admission
+Q048 is integrated as UNSOLVED / UNRESOLVED with partial/conditional evidence only. No physical model change or production restart follows.

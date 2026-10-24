@@ -1,0 +1,20 @@
+{
+  "actual": {
+    "count": 127,
+    "frontier": 810
+  },
+  "authority": "AUTHORITATIVE_BUBBLEVERSE_SOURCE_BOUNDED_EXTRACTION",
+  "frontiers": {
+    "camspec-ede_n3": 1440,
+    "camspec-lcdm": 1440,
+    "hillipop-ede_n3": 810,
+    "hillipop-lcdm": 1440
+  },
+  "q_id": "Q048",
+  "role": "LAST_VALIDATED_ACTUAL_Q048_CHECKPOINT",
+  "schema_version": 1,
+  "source_commit": "b99a5c78058b624c8d5847bed582df4ea816358a",
+  "source_file": "Q048_V151_ACCEPTED_CHECKPOINT_V1.json",
+  "source_repository": "Morfindien/Bubbleverse",
+  "source_sha256": "60dcd23a315a28be2ef84c4c5353c783e88eb73c4199d43b7f5640a16db2eb96"
+}

@@ -1,5 +1,5 @@
 # Current accepted model
 
-**v0.9 / R000009 through Q047.**
+**v0.10 / R000010 through Q048.**
 
-Q047 epistemic closure and scoped reconstruction/M15 qualifications admitted: INCONCLUSIVE / INSUFFICIENT_EVIDENCE. Agreement, disagreement and physical materiality remain UNKNOWN. Canonical CASE/RESULT identities remain unspecified; supplied proposed source IDs are preserved. No physical reference, cosmological event certification, new inference or production restart is established.
+Q048 is admitted as a terminal **UNSOLVED / UNRESOLVED** result. The accepted partial state preserves hillipop-ede_n3 at actual127/frontier810, the other tracked frontiers at 1440, and the later 810→800 proof as accepted but unconsumed. Complete four-configuration x_e(z)/tau_T(z) bounds, NativeP6, physical/native trajectory identity, exact selector existence/uniqueness, and a native error certificate remain unresolved. The final continuation failure is technical, not physical. No physical model change, cosmological verdict, or production restart is established.

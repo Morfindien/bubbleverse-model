@@ -1,0 +1,64 @@
+{
+  "calculation_result_types": [
+    "difference",
+    "gaussian-tension",
+    "percent-shift",
+    "weighted-mean"
+  ],
+  "common_fields": [
+    "operation"
+  ],
+  "contextualization_contract": {
+    "contextualize_result_fields": [
+      "registry_match_status",
+      "span_status",
+      "comparison_status",
+      "follow_up_recommended",
+      "follow_up_priority",
+      "next_steps",
+      "new_physics_claim"
+    ],
+    "new_physics_claim_default": "NOT_INFERRED",
+    "next_step_executor_field": "executor",
+    "registered_span_semantics": "REFERENCE_SPAN_NOT_PHYSICAL_ALLOWED_RANGE"
+  },
+  "contextualization_result_types": [
+    "known-results",
+    "contextualize-result",
+    "astronomy-catalog-context"
+  ],
+  "external_catalog_context_contract": {
+    "admission_status": "EXTERNAL_REFERENCE_ONLY",
+    "automatic_model_admission": false,
+    "required_fields": [
+      "catalog_context_status",
+      "resolved_target",
+      "catalog_results",
+      "automatic_model_admission",
+      "admission_status",
+      "next_steps"
+    ],
+    "result_type": "astronomy-catalog-context",
+    "service_failure_semantics": "TECHNICAL_UNAVAILABLE_NOT_SCIENTIFIC_NO_MATCH"
+  },
+  "failure_contract": {
+    "required_fields": [
+      "operation",
+      "status",
+      "error"
+    ],
+    "status": "FAIL"
+  },
+  "primary_artifact": "run-output/result.json",
+  "schema_version": 1,
+  "test_contract": {
+    "non_destructive": true,
+    "required_fields": [
+      "tests_total",
+      "tests_passed",
+      "tests_failed",
+      "all_green",
+      "tests"
+    ]
+  }
+}

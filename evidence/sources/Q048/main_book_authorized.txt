@@ -1,0 +1,11 @@
+BUBBLEVERSE — Q048 AUTHORIZED MAIN-BOOK EXCERPT
+Status: Q-048 UNSOLVED. The complete four-configuration latch-versus-reset electron-fraction history and cumulative Thomson optical-depth comparison remains unestablished.
+
+What Q-048 established
+Q-048 produced validated conditional and partial results. The accepted actual checkpoint for hillipop-ede_n3 reaches actual127/frontier810, while the other three tracked frontiers remain at 1440. A later result established a conditional connected proof for the 810 -> 800 cell, but that proof was not consumed into a new accepted actual checkpoint. Earlier work also preserved conditional event certificates for three configurations and a documented scalar-wall obstruction for hillipop-ede_n3. These are scientifically useful within their frozen assumptions, but they are not complete latch-versus-reset histories.
+
+What remains unresolved
+The complete four-configuration x_e(z) and tau_T(z) comparison is still not known. NativeP6, physical/native trajectory identity, exact selector existence and uniqueness, and a native error certificate remain unresolved. The final technical continuation failure is not a physical falsification.
+
+Current scientific consequence
+Q-048 therefore does not justify a new cosmological observation, a model preference, an EDE viability claim, or a completed opacity correction. The distinction between conditional mathematical continuation and a validated native trajectory remains essential.

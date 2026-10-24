@@ -1,5 +1,5 @@
 {
-  "q_access_end": "Q047",
+  "q_access_end": "Q048",
   "schema_version": 1,
   "uncertainties": [
     {
@@ -196,6 +196,36 @@
       "type": "coupled_history_response",
       "value": null,
       "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "UNC-Q048-COMPLETION-SENSITIVITY",
+      "q_introduced": "Q048",
+      "statement": "The uncomputed portions of the four latch/reset histories leave the complete coupled x_e(z) and cumulative tau_T(z) differences unresolved.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "coupled_history_completion_sensitivity",
+      "value": null,
+      "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "UNC-Q048-ACTUAL-CONTINUATION",
+      "q_introduced": "Q048",
+      "statement": "The accepted unconsumed 810->800 conditional connected proof is mathematical evidence only and does not advance the accepted actual trajectory beyond frontier810.",
+      "status": "OPEN_METHOD_UNCERTAINTY",
+      "type": "conditional_proof_vs_actual_state"
     }
   ]
 }

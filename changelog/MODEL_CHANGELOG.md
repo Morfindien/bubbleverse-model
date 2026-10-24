@@ -122,3 +122,7 @@ Admit the completed insufficient-qualification assessment and its reference/even
 ## v0.9 / Q047
 
 Admit Q047 epistemic closure, official new reconstruction evidence and scoped M15 finite qualification, preserving all historical event limitations. Preserve unknown source CASE/RESULT IDs and all inherited physical quantities, predictions, contradictions and public operations. No new scientific solver execution or production authorization.
+
+## v0.10 / Q048 — R000010
+
+Admit Q048 as terminal UNSOLVED / UNRESOLVED after effective budget exhaustion. Preserve the validated partial actual state (hillipop-ede_n3 actual127/frontier810; other tracked frontiers 1440) and the 810→800 connected proof as accepted but unconsumed. Complete four-configuration x_e(z)/tau_T(z) bounds, NativeP6, physical/native trajectory identity, exact selector existence/uniqueness and a native error certificate remain unresolved. The final continuation failure is technical, not physical. No new observation, model preference, EDE viability claim, opacity correction, physical model change or production restart is admitted.
