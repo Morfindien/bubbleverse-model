@@ -1,0 +1,33 @@
+{
+  "accepted_version": "v0.11",
+  "created_at": "2026-10-24T21:55:44.648770+00:00",
+  "schema_version": 1,
+  "sha256": {
+    "MODEL_CURRENT.md": "09c41cf84fc667380fe25836c2e3805ad7ecc1f3cc61e892c307881352613761",
+    "README.md": "4baa23d8389f601e0e2a788b64e0212a4c39bc4b7cb14b3b7961a5eccd01796a",
+    "assumptions.json": "85a895243f3e4a24e1ba1bb79cdb8d45239387e582f473327c3a1856941b76dc",
+    "benchmarks.json": "09a9f8d3fd8d1b1ae86616999fe695d61fdc313571cd96dc48b8f913f64f3881",
+    "candidate_diff.json": "7850de04ba829f8b82334b38efa268aaff1f82d600d46ea3d2fb8742fadee4b4",
+    "constraints.json": "2b4da072e633a0065d0a1d5cb01840c90ddb2413c14537392385f113901fd04a",
+    "contradictions.json": "5d708dafea5cc556b053894774ee8571cf5211ac23180dc211c0575d5eeb1a34",
+    "domain_of_validity.json": "704de102b5d2c86dd06942d229c5b12810babd6d3273f72e33db878b65bffae9",
+    "environment.json": "308ed510eb843fb3fc322f83edbb9e3d00965533ac054bdd1ef1dd3668846a10",
+    "equations.json": "4d89335ac6a504de91f4fc4e146b50f709258607e41b2624fa52a9647d377112",
+    "evidence_registry.json": "cbd01d4bc88570cd8a4cd11d9e102ab246384fd97add40776491529e6ca41079",
+    "external_catalog_registry.json": "ed657d921eca91b023fc77ba60cee7d64da26c195dad3c0508dcd03bc4454c3e",
+    "input_schema.json": "24c6cacf8a6e0a2ce33611210f8330076e9276cb566e2047ae75968ac0cdcab7",
+    "limitations.json": "9b796f1e457ed6ed10cfcbbb008109a57da51a3f5471a61b9efbcb5da4cf54ca",
+    "mechanisms.json": "335b3b1e0e8740001c7b82375e54d3cbf64664e9d539ebd08c37321a54b5a811",
+    "model_manifest.json": "238faf434fbcc413ae027be8d2a751020ff659d3f595469473b3b621a20dbdc1",
+    "model_state.json": "27df5648275b2eb7415224bf159669d2826a628f21b49a05eb8e5979c4ddf23a",
+    "observations.json": "3a339e24d4976adcd340448f00434794098cf4c23e7254e3b020af90e41a9a3e",
+    "output_schema.json": "a70d057fade8f4f6711411da3e6d63ec40c54ca286d9b2cde7647c9ede3dd397",
+    "parameters.json": "7ccb63c433e5ec976c4e8b2cc593b83703250de3e3623664b2036b9a05e2a2d3",
+    "predictions.json": "ce55fc8e25f67ec7d902422e2e454d7a42ecd77b397b1b3b3c9100f5d252e805",
+    "q_update.json": "07339428ba7625bb2e09de763ac91625344995f58683f1937507774b8892fd44",
+    "result_registry.json": "f58ef3f9de5ac0b05a004486944c9298a990be31c57e41427ea59b5565a8a32f",
+    "robustness.json": "7e1b3026866247cc3e73413fe3bde3d715bf83e159285b7744e0c34841be260b",
+    "uncertainty.json": "e3ebbb57cd35af7e0fd6346a6cef3942a1cfad2d02216b57f71a007f6d511ef7"
+  },
+  "target_q": "Q049"
+}

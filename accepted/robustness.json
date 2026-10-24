@@ -220,8 +220,23 @@
       "production_restart_authorized": false,
       "q_introduced": "Q048",
       "status": "TECHNICAL_FAIL_SCOPE_ONLY"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "ROB-Q049-SOURCE-COMPLETE-ENVELOPE",
+      "origin_q": "Q049",
+      "statement": "Documented Peebles/HMLA/SWIFT invariant barriers and common affine output support the conditional envelope. Historical producer 46 and separate verifier 33 checks reused once; not independent human or empirical replication.",
+      "status": "ACTIVE"
     }
   ],
-  "q_access_end": "Q048",
+  "q_access_end": "Q049",
   "schema_version": 1
 }

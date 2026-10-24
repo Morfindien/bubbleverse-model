@@ -1,0 +1,69 @@
+PDF page 65
+Low-redshift Thomson-depth bound
+Current result: Q049 CLOSED / CONDITIONALLY SUPPORTED. Domain: hillipop-ede_n3, 0
+≤ z ≤ 810.
+Definitions and conditional target
+Let h = xHII, q = xHeII per hydrogen atom, v = Tb/Tγ, and t = ln[811/(1 + z)]. After the common event,
+hold qL = ε = 10-6 and qR = 0. Both arms share the frozen background, accepted zreio and
+source-derived reionization settings. The certificate concerns every existing admitted source-real pair
+continuing from the validated z = 810 domain to z = 0. Global existence, uniqueness and native
+trajectory identity are not conclusions.
+Source-complete invariant domain
+The Peebles, HMLA and SWIFT hydrogen operators point inward at h = 0 and h = 1 in the stated domain.
+Their rate/C-factor positivity and the SWIFT denominator are part of the documented certificate. The
+simultaneous thermal barrier is 0.98 exp(-t) ≤ v ≤ 1.000001, so v ≥ 49/40550 > 0 throughout the
+interval. This replaces an unjustified extrapolation of the old small-w box.
+Peebles fallback is included; the V1 HMLA/SWIFT-only coverage obstruction is addressed for this
+invariant bound. Each allowed field has the same barrier directions. The argument does not assume
+equal state-dependent selectors in the two arms, and it does not itself establish existence for a
+discontinuously selected field.
+Common output map and the electron envelope
+The common reionization map has the affine form xreio = (1 - S)(h + q) + S xafter + CHe, with 0 ≤ S ≤ 1.
+The last two terms cancel in the paired difference. Consequently, |Δxe| ≤ 1 + ε = 1.000001 for the
+stated source-continuum output, including its documented smoothing scope. This conservative
+enlargement uses the joint invariant set; it is not a claim of statistical independence or an ε-small paired
+anchor.
+Positive background and analytic integration
+For the frozen flat configuration, positive baryon/CDM matter and nonnegative other active energy
+contributions give HCLASS(z) ≥ H0,CLASS √(Ωb + Ωc)(1 + z)3/2. With HCLASS in Mpc-1, nH0 in m-3, and σT in
+m2, the length conversion Mpc gives a dimensionless integral; no extra factor c remains in this
+convention.
+B = [(1 + ε) 2σT nH0 Mpc / (3H0,CLASS √(Ωb + Ωc))]
+× [811√811 - 1]
+|ΔτT,tail| ≤ B ≤ 46.67050453
+The exact formula is enclosed near 46.67050452354706 and rounded outward to the stated upper bound. The lower endpoint
+of the formula enclosure is not a positive lower bound on the actual difference.
+
+PDF page 66
+Validation, provenance and unresolved realization
+What was validated
+The original producer recorded 46 checks; a separately implemented verifier recorded 33 checks
+without producer imports. The two numerical paths used integer-square-root/rational enclosures and
+dyadic radical enclosure, with separate polynomial and fit-denominator controls. Their positive SWIFT
+denominator lower bounds are approximately 0.7786672769 and 0.7321156915. These are
+implementation-level checks under the same analyst and source premises, not independent human or
+empirical replication.
+This publication edit reuses the stored certificate. It performs no new trajectory integration, native run,
+cap-production run, refit, recapture or likelihood evaluation. The bound is deterministic and conditional;
+it is not a confidence interval, observed discrepancy or cosmological uncertainty estimate.
+Frozen scientific identity
+Source: mwt5345/class_ede@5a131c91d657dd9a7c6364cc45b038710f8d0d97
+Capture/config SHA-256: 2514e250d20c456530be63e790a079176293a87a82c927b1e748d1eec405da9b
+Validated checkpoint: Q048_V151_ACCEPTED_CHECKPOINT_V1.json
+Checkpoint SHA-256: 60dcd23a315a28be2ef84c4c5353c783e88eb73c4199d43b7f5640a16db2eb96
+Accepted reionization redshift: z_reio = 0x1.dfec4p+2; SOURCE_DERIVED_NOT_DIRECTLY_CAPTURED
+Evidence objects and traceability
+LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2
+Producer: Q049_V2_GLOBAL_BOUND_RESULT.json; SHA-256
+c7b32ce22a1b61063d6c5e936df15d0b8d97579037fd1bb167ca0ac62d5455e8.
+Verifier: Q049_V2_INDEPENDENT_VERIFICATION.json; SHA-256
+830ba5beeec0693f3aa08ea7f441abf41777933a99f11f29be434cd8914cf9e1.
+Primary mathematical report; frozen source tree. Source files include background.c, thermodynamics.c and
+HyRec2020/{hydrogen.c, wrap_hyrec.c}; atomic and fit tables remain part of the original evidence chain.
+Current qualification boundary
+Q048 remains UNSOLVED: the complete four-configuration xe(z)/τT(z) comparison is missing. The
+accepted actual state remains actual127/frontier810; other three frontiers are 1440. V154 is
+ACCEPTED_UNCONSUMED. NativeP6, actual native/physical identity, selector existence/uniqueness and
+a native error certificate remain unresolved. Earlier conditional event results, the scalar-wall obstruction
+and technical failures retain their historical scope. No downstream CMB, likelihood or inference gate is
+cleared by this cap.

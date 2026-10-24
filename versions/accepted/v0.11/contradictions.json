@@ -1,0 +1,48 @@
+{
+  "contradictions": [
+    {
+      "description": "High local H0 conflicts with lower CMB and BAO+BBN inferences.",
+      "id": "CTR-H0-001",
+      "resolution": "Unresolved through Q040; preserve chain distinctions and dependencies.",
+      "results": [
+        "OBS-H0-LOCAL-001",
+        "OBS-H0-CMB-001",
+        "OBS-H0-BAOBBN-001"
+      ],
+      "status": "OPEN"
+    },
+    {
+      "description": "CamSpec and HiLLiPoP produce materially different fitted endpoint geometry on overlapping Planck PR4/NPIPE information.",
+      "history": [
+        {
+          "note": "Feasibility closure gives no physical downstream verdict; methodological implementation tension preserved.",
+          "q": "Q042",
+          "status": "OPEN_NARROWED"
+        }
+      ],
+      "id": "CTR-PLANCK-IMPL-001",
+      "resolution": "Q039 excludes several simple single-block explanations. Q040 identifies a legitimate common physical CMB-space nuisance-marginalization route, but tested finite numerical representations fail validation before endpoint geometry. Q041 V19 then attempts direct downstream portability with matched external data, but the required complete converged posterior matrix is not obtained, so no physical downstream class is issued. The causal origin and downstream scientific significance remain unresolved; V19 is also narrower than the broader original Q041 contract.",
+      "results": [
+        "ROB-PLANCK-GEOM-001",
+        "ROB-Q039-001",
+        "ROB-Q040-CMB-MARGINAL-001",
+        "ROB-Q040-NUMERIC-001",
+        "ROB-Q041-CONTROLLED-NOSCIENCE-001",
+        "ROB-Q041-FIREWALL-001",
+        "ROB-Q041-CONTRACT-SCOPE-001"
+      ],
+      "status": "OPEN_NARROWED"
+    },
+    {
+      "description": "Historical stable vs later non-stable basin labels appeared contradictory.",
+      "id": "CTR-HIST-BASIN-LABEL-001",
+      "resolution": "Crosswalk showed classifier dependence rather than demonstrated disappearance of classifier-invariant geometry.",
+      "results": [
+        "ROB-CLASSIFIER-001"
+      ],
+      "status": "RESOLVED_METHODOLOGICALLY"
+    }
+  ],
+  "q_access_end": "Q049",
+  "schema_version": 1
+}

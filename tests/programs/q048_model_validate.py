@@ -3,12 +3,20 @@ from __future__ import annotations
 import hashlib,json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
-def load(p): return json.loads((ROOT/p).read_text(encoding="utf-8"))
+HISTORICAL=False
+def load(p):
+    mapped=p
+    if HISTORICAL:
+        if p.startswith("accepted/") or p.startswith("model/") or p=="evidence/evidence_registry.json": mapped="versions/accepted/v0.10/"+Path(p).name
+        elif p=="candidate/candidate_diff.json": mapped="versions/accepted/v0.10/candidate_diff.json"
+    return json.loads((ROOT/mapped).read_text(encoding="utf-8"))
 def sha(p): return hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
 def req(c,m):
     if not c: raise AssertionError(m)
 def run_tests(root=ROOT):
-    global ROOT; ROOT=Path(root); rows=[]
+    global ROOT,HISTORICAL; ROOT=Path(root); rows=[]
+    active=json.loads((ROOT/"accepted/model_state.json").read_text())["current_q"]
+    HISTORICAL=int(active[1:])>48
     def gate(i,name,fn):
         try: rows.append({"id":f"Q048-{i:02d}","name":name,"status":"PASS","detail":fn()})
         except Exception as e: rows.append({"id":f"Q048-{i:02d}","name":name,"status":"FAIL","detail":f"{type(e).__name__}: {e}"})
@@ -43,7 +51,7 @@ def run_tests(root=ROOT):
     gate(5,"source identity",sources)
     def firewall():
         objs=[load("accepted/model_state.json"),load("accepted/constraints.json"),load("accepted/robustness.json"),load("evidence/evidence_registry.json"),load("evidence/q_updates/Q048.json")]
-        for p in (ROOT/"model").glob("*.json"): objs.append(json.loads(p.read_text()))
+        for p in (ROOT/"model").glob("*.json"): objs.append(load(str(p.relative_to(ROOT))))
         nums=[int(x) for o in objs for x in re.findall(r"\bQ-?0*([0-9]{1,5})\b",json.dumps(o),flags=re.I)]
         req(nums and max(nums)<=48,"future-Q contamination")
         return "maximum current scientific Q is Q048"
@@ -58,6 +66,11 @@ def run_tests(root=ROOT):
     gate(7,"regression preservation",regression)
     def snapshot():
         snap=ROOT/"versions/accepted/v0.10"
+        if HISTORICAL:
+            frozen=json.loads((ROOT/"provenance/Q048_SNAPSHOT_MANIFEST.json").read_text())
+            req({p.name for p in snap.iterdir() if p.is_file()}==set(frozen["sha256"]),"historical snapshot inventory")
+            for name,digest in frozen["sha256"].items(): req(sha(str((snap/name).relative_to(ROOT)))==digest,"historical snapshot mismatch: "+name)
+            return "Q048 frozen v0.10 snapshot inventory and every digest verified independently of later live state"
         mapping={"MODEL_CURRENT.md":"accepted/MODEL_CURRENT.md","constraints.json":"accepted/constraints.json","contradictions.json":"accepted/contradictions.json","mechanisms.json":"accepted/mechanisms.json","model_state.json":"accepted/model_state.json","observations.json":"accepted/observations.json","predictions.json":"accepted/predictions.json","robustness.json":"accepted/robustness.json","evidence_registry.json":"evidence/evidence_registry.json","q_update.json":"evidence/q_updates/Q048.json","candidate_diff.json":"candidate/candidate_diff.json"}
         for n,p in mapping.items(): req((snap/n).read_bytes()==(ROOT/p).read_bytes(),"snapshot mismatch: "+n)
         for n in ["README.md","assumptions.json","benchmarks.json","domain_of_validity.json","environment.json","equations.json","external_catalog_registry.json","input_schema.json","limitations.json","model_manifest.json","output_schema.json","parameters.json","result_registry.json","uncertainty.json"]: req((snap/n).read_bytes()==(ROOT/"model"/n).read_bytes(),"formal snapshot mismatch: "+n)

@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 18)]
+MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 19)]
 
 
 def load(rel):
@@ -262,6 +262,16 @@ def audit():
         failures = [x['id'] for x in q48_result['tests'] if x['status'] != 'PASS']
         q48_detail = 'Q048 terminal UNSOLVED status, partial-state boundary, source/firewall and snapshot gates: ' + ('PASS' if q48_ok else ', '.join(failures))
     results['T-BV-017'] = passfail(q48_ok, q48_detail)
+
+    q49_ok = True
+    q49_detail = 'Q049 admission is not applicable below Q049.'
+    if qmax >= 49:
+        from q049_model_validate import run_tests as q049_tests
+        q49_result = q049_tests(ROOT)
+        q49_ok = q49_result['all_green']
+        failures = [x['id'] for x in q49_result['tests'] if x['status'] != 'PASS']
+        q49_detail = 'Q049 conditional cap, exact certificates, scope, history and snapshot gates: ' + ('PASS' if q49_ok else ', '.join(failures))
+    results['T-BV-018'] = passfail(q49_ok, q49_detail)
 
     return results
 

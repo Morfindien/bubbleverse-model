@@ -1,0 +1,121 @@
+{
+  "accepted_base_commit": "4588265eb7fccad2c4a64419cc6d2faacdc1479c",
+  "boundary_incident": "A proposal paragraph was exposed while locating a PDF section end; no scientific result from it is used. Independent final review receives only the bounded Q049 evidence. Candidate claims derive solely from Q049.",
+  "docx_discovery": "NO_DOCX_IN_PINNED_SOURCE_TREE; supplied PDF Q-journal is closure authority for this run",
+  "input_format": "OPERATOR_SUPPLIED_PDF_WITH_PINNED_SOURCE_REPORT_AND_EXACT_CERTIFICATES",
+  "inputs": [
+    {
+      "authority": "OPERATOR_SUPPLIED_MANUSCRIPT",
+      "evidence_id": "EVD-Q049-MAINBOOK",
+      "pages_1_based": [
+        [
+          63,
+          31
+        ]
+      ],
+      "parent_pdf_bytes": 1928271,
+      "parent_pdf_name": "Bubbleverse_Main_Book_Q049_CLOSED_Q050_PROPOSED_UPDATED.pdf",
+      "parent_pdf_sha256": "bd8456bbc5daa001131fb9250e67daab94fdd00d3e3c5e2ec87fd89f27e193f4",
+      "path": "evidence/sources/Q049/main_book_authorized.txt",
+      "sha256": "f7259fbfc35880fbb6dd5e1f2ef5e8dfc34932224fffe537fea33ad098752210",
+      "source_commit": null,
+      "transform": "PyMuPDF text lines; remove repeating publication header; deterministic section endpoints before proposal; remove proposal-only status metadata"
+    },
+    {
+      "authority": "OPERATOR_SUPPLIED_MANUSCRIPT",
+      "evidence_id": "EVD-Q049-APPENDICES",
+      "pages_1_based": [
+        [
+          65,
+          null
+        ],
+        [
+          66,
+          36
+        ]
+      ],
+      "parent_pdf_bytes": 436006,
+      "parent_pdf_name": "Bubbleverse_Technical_Appendices_A-D_Q049_CLOSED_Q050_PROPOSED_UPDATED.pdf",
+      "parent_pdf_sha256": "0d20d261187a96fb71a0b0007ffd933868edca5fd926a6a561af0f6d1b162b23",
+      "path": "evidence/sources/Q049/appendices_authorized.txt",
+      "sha256": "40a9e80665a6bd31551c65677c70ba6ee9e0ab105b4371dd0006089a9fa9eeea",
+      "source_commit": null,
+      "transform": "PyMuPDF text lines; remove repeating publication header; deterministic section endpoints before proposal; remove proposal-only status metadata"
+    },
+    {
+      "authority": "OPERATOR_SUPPLIED_Q_JOURNAL",
+      "evidence_id": "EVD-Q049-QJOURNAL",
+      "pages_1_based": [
+        [
+          143,
+          null
+        ],
+        [
+          144,
+          25
+        ]
+      ],
+      "parent_pdf_bytes": 607572,
+      "parent_pdf_name": "Bubbleverse_Q-Journals_Q001-Q049_CLOSED_Q050_PROPOSED_UPDATED.pdf",
+      "parent_pdf_sha256": "7f0defeca04ab1d69585ed11ca1bcbb3a29c32bf799bbc6831ae30116e8d70e2",
+      "path": "evidence/sources/Q049/q_journal_authorized.txt",
+      "sha256": "8281a53ed0b0c8d6f797d54abc3594461b72e73f4ae9af624a1a6dbbddfe7f21",
+      "source_commit": null,
+      "transform": "PyMuPDF text lines; remove repeating publication header; deterministic section endpoints before proposal; remove proposal-only status metadata"
+    },
+    {
+      "authority": "ORIGINAL_Q049_CERTIFICATE",
+      "evidence_id": "EVD-Q049-CAP",
+      "origin": "Resolved native Library file; exact published PDF digest verified for producer and verifier",
+      "path": "evidence/sources/Q049/Q049_V2_GLOBAL_BOUND_RESULT.json",
+      "sha256": "c7b32ce22a1b61063d6c5e936df15d0b8d97579037fd1bb167ca0ac62d5455e8",
+      "source_commit": null
+    },
+    {
+      "authority": "ORIGINAL_Q049_CERTIFICATE",
+      "evidence_id": "EVD-Q049-VERIFIER",
+      "origin": "Resolved native Library file; exact published PDF digest verified for producer and verifier",
+      "path": "evidence/sources/Q049/Q049_V2_INDEPENDENT_VERIFICATION.json",
+      "sha256": "830ba5beeec0693f3aa08ea7f441abf41777933a99f11f29be434cd8914cf9e1",
+      "source_commit": null
+    },
+    {
+      "authority": "ORIGINAL_Q049_CERTIFICATE",
+      "evidence_id": "EVD-Q049-INPUTS",
+      "origin": "Resolved native Library file; exact published PDF digest verified for producer and verifier",
+      "path": "evidence/sources/Q049/Q049_V2_INPUT_PROVENANCE.json",
+      "sha256": "8e3f227cd3a466d52bc37e911667c6691b8c7b9949e35775a4c945489afc97f6",
+      "source_commit": null
+    },
+    {
+      "authority": "PINNED_SCIENTIFIC_SOURCE",
+      "evidence_id": "EVD-Q049-REPORT",
+      "parent_sha256": "804f4e0d711c9fd2689561278d2d16f32dfcfabc20a4e14c3f1c707156e983e2",
+      "path": "evidence/sources/Q049/mathematical_report_authorized.md",
+      "repository_path": "Q049_V2_MATEMATISK_RESULTAT-1.md",
+      "sha256": "df22a90773cf4967bd0ba20920f0e5e37a74e9dc60eb14ad7cf8dc8e237fe2fe",
+      "source_commit": "d397732f65da2d1566089b9153a4145a605f8557",
+      "transform": "Replace exclusion-only later-Q identifier with boundary-neutral wording; no scientific content change"
+    }
+  ],
+  "need_to_read": [
+    {
+      "decision": "closure, result scope and agreement",
+      "source": "Q049-only PDF sections"
+    },
+    {
+      "decision": "sequence and preservation",
+      "source": "frozen Q048 baseline"
+    },
+    {
+      "decision": "identity, reported checks and exact upper-bound rounding",
+      "source": "producer/verifier certificate bytes"
+    }
+  ],
+  "pdf_docx_equivalence": "NOT_CLAIMED",
+  "prompt_sha256": "6fe2b3f9d9e37d31a8021edc52b2a625f97a4d184f0e3a386458ea11279d68a0",
+  "run_id": "BV-MODEL-Q049-20261024-UPDATE-01",
+  "schema_version": 1,
+  "source_repository_commit": "d397732f65da2d1566089b9153a4145a605f8557",
+  "target_q": "Q049"
+}

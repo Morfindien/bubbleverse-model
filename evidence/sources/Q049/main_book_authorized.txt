@@ -1,0 +1,28 @@
+PDF page 63
+A finite opacity bound, with the physical question
+still open
+Q049: CLOSED / CONDITIONALLY SUPPORTED. Q048: UNSOLVED.
+What the new result establishes
+A focused analysis now places a finite upper bound on the remaining low-redshift difference in Thomson
+optical depth for the frozen hillipop-ede_n3 configuration. Thomson depth describes the accumulated
+scattering opacity from free electrons; it is dimensionless. The comparison holds the accepted
+reionization redshift fixed and contrasts residual helium held at q = 10-6 with a reset to q = 0 after the
+same event.
+|ΔτT,tail| ≤ 46.67050453,   0 ≤ z ≤ 810
+The result applies to existing admitted source-real paired continuations that reach z = 0, under
+the frozen inputs and common reionization prescription. “Source-real” denotes the mathematical
+continuum model defined from the pinned code; it does not certify the native floating-point trajectory.
+Why a finite bound is not a small correction
+The bound is deliberately very coarse. It allows an electron-fraction difference of order unity and
+therefore does not show that the actual effect is small. It determines neither the sign nor a positive
+lower bound on that difference; zero remains possible. The narrow numerical enclosure of the
+upper-bound formula is not an error bar on a measured physical effect.
+The finite bound closes the narrower Q049 question within its stated assumptions. It does not complete
+the four-configuration electron-history and cumulative-depth comparison in Q048, prove that the
+required continuations exist uniquely, or qualify a native table or spline.
+What remains unchanged
+The accepted conditional checkpoint remains actual127/frontier810 for hillipop-ede_n3; the other three
+tracked frontiers remain at 1440. The later 810 → 800 proof is still accepted but unconsumed. No new
+actual checkpoint, opacity correction, CMB spectrum, Hubble-constant estimate, model preference or
+early-dark-energy viability claim follows. Earlier conditional event results and the scalar-wall obstruction
+remain partial evidence, not complete histories.

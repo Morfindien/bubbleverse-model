@@ -1,0 +1,68 @@
+{
+  "added": [
+    {
+      "affected_tests": [
+        "Q049 admission and mutation guards"
+      ],
+      "category": "CONSTRAINT_UPDATE",
+      "dependencies": [
+        "DOM-Q049-CONDITIONAL-CONTINUUM",
+        "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
+        "EQ-Q049-TAIL-CAP"
+      ],
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "CON-Q049-CONDITIONAL-TAIL-CAP",
+      "origin_q": "Q049",
+      "rationale": "Closed conditional finite-cap endpoint; no physical model parameter is revised.",
+      "status": "CONDITIONALLY_SUPPORTED",
+      "uncertainty": "coarse deterministic envelope conditional on existing admitted continuations"
+    }
+  ],
+  "from_version": "v0.10",
+  "future_handoff_ingested": false,
+  "modified": [
+    "Evidence boundary and metadata advance only after validated promotion."
+  ],
+  "new_assumptions": [
+    "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
+    "ASSUMP-Q049-EXISTING-CONTINUATIONS"
+  ],
+  "new_benchmarks": [],
+  "new_calculations": [],
+  "new_domains": [],
+  "new_equations": [
+    "EQ-Q049-TAIL-CAP"
+  ],
+  "new_limitations": [
+    "LIM-Q049-COARSE-CONDITIONAL-CAP"
+  ],
+  "new_mechanisms": [],
+  "new_parameters": [],
+  "new_predictions": [],
+  "new_uncertainties": [
+    "UNC-Q049-CONDITIONAL-ENVELOPE"
+  ],
+  "new_validity_domains": [
+    "DOM-Q049-CONDITIONAL-CONTINUUM"
+  ],
+  "physical_model_change": false,
+  "preserved": [
+    "All preexisting scientific entries and frozen snapshots",
+    "Q048 UNSOLVED, actual127/frontier810, V154 ACCEPTED_UNCONSUMED",
+    "All physical parameters, benchmarks, observations, public operations and unresolved contradictions"
+  ],
+  "resolved_contradictions": [],
+  "schema_version": 1,
+  "superseded": [],
+  "target_q": "Q049",
+  "to_candidate_version": "v0.11",
+  "update_class": "CONSTRAINT_UPDATE"
+}

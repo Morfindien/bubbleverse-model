@@ -1,5 +1,5 @@
 {
-  "current_q": "Q048",
+  "current_q": "Q049",
   "entries": [
     {
       "evidence_id": "EVD-MANUSCRIPT-Q001-Q039",
@@ -835,9 +835,100 @@
         "evidence/sources/Q048/checkpoint_authorized.json"
       ],
       "validation_status": "PASS_SOURCE_IDENTITY_AND_SCOPE_ONLY"
+    },
+    {
+      "authority": "OPERATOR_SUPPLIED_MANUSCRIPT",
+      "evidence_id": "EVD-Q049-MAINBOOK",
+      "q_id": "Q049",
+      "result_id": "LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2",
+      "scientific_status": "CONDITIONAL_DETERMINISTIC_CAP",
+      "sha256": "f7259fbfc35880fbb6dd5e1f2ef5e8dfc34932224fffe537fea33ad098752210",
+      "source": "evidence/sources/Q049/main_book_authorized.txt",
+      "source_repository_commit": null,
+      "status": "AUTHORIZED",
+      "type": "Q049_BOUNDED_SOURCE_OR_CERTIFICATE",
+      "validation_status": "IDENTITY_VERIFIED"
+    },
+    {
+      "authority": "OPERATOR_SUPPLIED_MANUSCRIPT",
+      "evidence_id": "EVD-Q049-APPENDICES",
+      "q_id": "Q049",
+      "result_id": "LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2",
+      "scientific_status": "CONDITIONAL_DETERMINISTIC_CAP",
+      "sha256": "40a9e80665a6bd31551c65677c70ba6ee9e0ab105b4371dd0006089a9fa9eeea",
+      "source": "evidence/sources/Q049/appendices_authorized.txt",
+      "source_repository_commit": null,
+      "status": "AUTHORIZED",
+      "type": "Q049_BOUNDED_SOURCE_OR_CERTIFICATE",
+      "validation_status": "IDENTITY_VERIFIED"
+    },
+    {
+      "authority": "OPERATOR_SUPPLIED_Q_JOURNAL",
+      "evidence_id": "EVD-Q049-QJOURNAL",
+      "q_id": "Q049",
+      "result_id": "LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2",
+      "scientific_status": "CONDITIONAL_DETERMINISTIC_CAP",
+      "sha256": "8281a53ed0b0c8d6f797d54abc3594461b72e73f4ae9af624a1a6dbbddfe7f21",
+      "source": "evidence/sources/Q049/q_journal_authorized.txt",
+      "source_repository_commit": null,
+      "status": "AUTHORIZED",
+      "type": "Q049_BOUNDED_SOURCE_OR_CERTIFICATE",
+      "validation_status": "IDENTITY_VERIFIED"
+    },
+    {
+      "authority": "ORIGINAL_Q049_CERTIFICATE",
+      "evidence_id": "EVD-Q049-CAP",
+      "q_id": "Q049",
+      "result_id": "LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2",
+      "scientific_status": "CONDITIONAL_DETERMINISTIC_CAP",
+      "sha256": "c7b32ce22a1b61063d6c5e936df15d0b8d97579037fd1bb167ca0ac62d5455e8",
+      "source": "evidence/sources/Q049/Q049_V2_GLOBAL_BOUND_RESULT.json",
+      "source_repository_commit": null,
+      "status": "AUTHORIZED",
+      "type": "Q049_BOUNDED_SOURCE_OR_CERTIFICATE",
+      "validation_status": "IDENTITY_VERIFIED"
+    },
+    {
+      "authority": "ORIGINAL_Q049_CERTIFICATE",
+      "evidence_id": "EVD-Q049-VERIFIER",
+      "q_id": "Q049",
+      "result_id": "LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2",
+      "scientific_status": "CONDITIONAL_DETERMINISTIC_CAP",
+      "sha256": "830ba5beeec0693f3aa08ea7f441abf41777933a99f11f29be434cd8914cf9e1",
+      "source": "evidence/sources/Q049/Q049_V2_INDEPENDENT_VERIFICATION.json",
+      "source_repository_commit": null,
+      "status": "AUTHORIZED",
+      "type": "Q049_BOUNDED_SOURCE_OR_CERTIFICATE",
+      "validation_status": "IDENTITY_VERIFIED"
+    },
+    {
+      "authority": "ORIGINAL_Q049_CERTIFICATE",
+      "evidence_id": "EVD-Q049-INPUTS",
+      "q_id": "Q049",
+      "result_id": "LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2",
+      "scientific_status": "CONDITIONAL_DETERMINISTIC_CAP",
+      "sha256": "8e3f227cd3a466d52bc37e911667c6691b8c7b9949e35775a4c945489afc97f6",
+      "source": "evidence/sources/Q049/Q049_V2_INPUT_PROVENANCE.json",
+      "source_repository_commit": null,
+      "status": "AUTHORIZED",
+      "type": "Q049_BOUNDED_SOURCE_OR_CERTIFICATE",
+      "validation_status": "IDENTITY_VERIFIED"
+    },
+    {
+      "authority": "PINNED_SCIENTIFIC_SOURCE",
+      "evidence_id": "EVD-Q049-REPORT",
+      "q_id": "Q049",
+      "result_id": "LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2",
+      "scientific_status": "CONDITIONAL_DETERMINISTIC_CAP",
+      "sha256": "df22a90773cf4967bd0ba20920f0e5e37a74e9dc60eb14ad7cf8dc8e237fe2fe",
+      "source": "evidence/sources/Q049/mathematical_report_authorized.md",
+      "source_repository_commit": "d397732f65da2d1566089b9153a4145a605f8557",
+      "status": "AUTHORIZED",
+      "type": "Q049_BOUNDED_SOURCE_OR_CERTIFICATE",
+      "validation_status": "IDENTITY_VERIFIED"
     }
   ],
-  "q_access_end": "Q048",
+  "q_access_end": "Q049",
   "q_access_start": "Q001",
   "schema_version": 1
 }

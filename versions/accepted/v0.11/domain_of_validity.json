@@ -1,0 +1,153 @@
+{
+  "domains": [
+    {
+      "id": "DOM-MODEL-Q001-Q041",
+      "q_access_end": "Q041",
+      "q_access_start": "Q001",
+      "statement": "This accepted formalization covers Bubbleverse evidence authorized from Q001 through Q041 only; no evidence beyond the authorized Q041 boundary is included.",
+      "status": "ACTIVE_BOUNDARY"
+    },
+    {
+      "equation_ref": "EQ-GAUSSIAN-TENSION",
+      "id": "DOM-GAUSSIAN-TENSION",
+      "statement": "The gaussian-tension operation is valid only as a simple independent-Gaussian marginal comparison; it is not a general joint-likelihood significance calculator.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "equation_ref": "EQ-IVW-MEAN",
+      "id": "DOM-WEIGHTED-MEAN",
+      "statement": "The weighted-mean operation does not determine whether scientific inputs should be combined; suitability must be established outside the arithmetic operation.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "id": "DOM-Q039-INTERVENTIONS",
+      "source_constraint_ids": [
+        "CON-Q039-001",
+        "CON-Q039-002"
+      ],
+      "statement": "Q039 excludes the tested relative-calibration, native off-diagonal precision, tested combination, and foreground-profiling blocks as sufficient single explanations under locked conditions; it does not identify a unique deeper cause.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "benchmark_refs": [
+        "BENCH-H0-CMB",
+        "BENCH-H0-BAOBBN"
+      ],
+      "id": "DOM-LCDM-BENCHMARKS",
+      "statement": "The accepted CMB and DESI+BBN H0 benchmark numbers are inference-route outputs under their recorded flat-LCDM conditions; they are not universal model-independent measurements.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "equation_ref": "EQ-Q040-CMB-NATIVE-MARGINAL",
+      "id": "DOM-Q040-CMB-MARGINAL",
+      "statement": "Applies only to the Q040 CamSpec-HiLLiPoP common-physical-CMB construction. It is not a validated public joint likelihood or downstream endpoint result.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "id": "DOM-Q041-PORTABILITY-V19",
+      "q_introduced": "Q041",
+      "statement": "Applies only to the preregistered Q041 V19 EDE-only CamSpec/HiLLiPoP matched-external-data campaign and its frozen overlap/convergence policy. It is not a substitute for the broader original Q041 downstream design.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "DOM-Q042-CONDITIONAL-FEASIBILITY",
+      "q_introduced": "Q042",
+      "statement": "Applies to the documented Q042 bounded strategies and the frozen V31 retained-interval support policy. It is not a universal impossibility theorem, physical minima count, executed tau failure or cosmological inference.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "equation_ref": "EQ-Q044-SUPPORT-ADJOINT",
+      "evidence_refs": [
+        "EVD-Q044-COMPONENT",
+        "EVD-Q044-INGESTION"
+      ],
+      "id": "DOM-Q044-SUPPORT-COMPONENT",
+      "q_introduced": "Q044",
+      "statement": "Only the inherited fixed-knot native-plus component and its 138 UPPER/3002 LOWER supports under conditional source rails. Not measured Thomson optical depth, a uniform binary64 certificate or a downstream inference result.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL"
+      ],
+      "id": "DOM-Q045-STORED-HISTORY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "Applies to the four frozen Q041 CamSpec/HiLLiPoP LCDM and n_scf=3 EDE configurations and their recovered native history/refinement diagnostics. Does not establish an independently integrated physical reference or downstream cosmological inference.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "DOM-Q046-ASSESSMENT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "Only the documented insufficient-qualification assessment of four recovered Q041 LCDM and n_scf=3 EDE configurations at fixed accepted reionization redshift is admitted. The reported mathematical counterexample is conditional and has not been certified for those cosmological configurations.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "DOM-Q047-NEW-REALIZATION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "New capture, finite input and reduced exact-real background qualifications apply only to the four supplied NEW_RECONSTRUCTION objects. They do not qualify historical trajectories, source-active thermodynamic switches, complete native rounding/error relations, helium first events, optical-depth effects, CMB likelihoods or inference.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "DOM-Q048-PARTIAL-STATE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "statement": "Q048 results apply only to the frozen Q048 source/capture, fixed accepted z_reio, stated latch/reset definitions and documented validation contracts. They do not establish complete native trajectories, downstream visibility/spectra/likelihood effects, or cosmological inference.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "DOM-Q049-CONDITIONAL-CONTINUUM",
+      "origin_q": "Q049",
+      "q_access_end": "Q049",
+      "q_access_start": "Q049",
+      "statement": "Frozen hillipop-ede_n3, 0<=z<=810, common source-derived reionization, existing admitted source-real paired continuations reaching z=0. Does not include native floating-point trajectories, table/spline certification, existence/uniqueness or the full four-configuration Q048 endpoint."
+    }
+  ],
+  "q_access_end": "Q049",
+  "schema_version": 1
+}

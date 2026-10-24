@@ -226,8 +226,23 @@
       "q_introduced": "Q048",
       "statement": "NativeP6, physical/native trajectory identity, exact selector existence and uniqueness, and a native error certificate remain unresolved; conditional continuation cannot be relabelled as a validated native trajectory.",
       "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "LIM-Q049-COARSE-CONDITIONAL-CAP",
+      "origin_q": "Q049",
+      "statement": "Finite cap 46.67050453 is very conservative, permits an order-unity electron envelope, and does not establish smallness, sign, a positive lower effect, global existence, uniqueness, native accuracy or Q048 completion. Local case/result identities retain unverified canonical source writeback.",
+      "status": "SCOPE_LIMIT"
     }
   ],
-  "q_access_end": "Q048",
+  "q_access_end": "Q049",
   "schema_version": 1
 }

@@ -130,8 +130,24 @@
       "q_introduced": "Q048",
       "statement": "Q048 results apply only to the frozen Q048 source/capture, fixed accepted z_reio, stated latch/reset definitions and documented validation contracts. They do not establish complete native trajectories, downstream visibility/spectra/likelihood effects, or cosmological inference.",
       "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "DOM-Q049-CONDITIONAL-CONTINUUM",
+      "origin_q": "Q049",
+      "q_access_end": "Q049",
+      "q_access_start": "Q049",
+      "statement": "Frozen hillipop-ede_n3, 0<=z<=810, common source-derived reionization, existing admitted source-real paired continuations reaching z=0. Does not include native floating-point trajectories, table/spline certification, existence/uniqueness or the full four-configuration Q048 endpoint."
     }
   ],
-  "q_access_end": "Q048",
+  "q_access_end": "Q049",
   "schema_version": 1
 }

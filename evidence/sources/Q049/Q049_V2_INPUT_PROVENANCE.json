@@ -1,0 +1,188 @@
+{
+  "schema_version": "UNVALIDATED_LOCAL_CONTRACT",
+  "run_id": "LOCAL-Q049-MATH-GLOBAL-INVARIANT-20261024-V2",
+  "target_q": "Q049",
+  "inspected_repository": "Morfindien/Bubbleverse",
+  "inspected_commit": "dc647a7975193b8ce3ad7a84564dd61c7317ccea",
+  "frozen_source_repo": "mwt5345/class_ede",
+  "frozen_source_commit": "5a131c91d657dd9a7c6364cc45b038710f8d0d97",
+  "new_external_observations": false,
+  "files": [
+    {
+      "path_relative_to_workspace": "q049_v2/inputs/Alpha_inf.dat",
+      "size_bytes": 272000,
+      "sha256": "357101049c9382e90e5e1e896961407d3b465b61b78de9750b852c05ea4d1023",
+      "source_url": "https://raw.githubusercontent.com/mwt5345/class_ede/5a131c91d657dd9a7c6364cc45b038710f8d0d97/external/HyRec2020/Alpha_inf.dat",
+      "access": "VERIFIED_BYTES",
+      "role": "frozen primary source/input or inherited source-real parameter/certificate context"
+    },
+    {
+      "path_relative_to_workspace": "q049_v2/inputs/R_inf.dat",
+      "size_bytes": 1700,
+      "sha256": "ce914f4b552ba55ba00f7916f36b0986f19adfdb638e5aefae91f7b2d05a8112",
+      "source_url": "https://raw.githubusercontent.com/mwt5345/class_ede/5a131c91d657dd9a7c6364cc45b038710f8d0d97/external/HyRec2020/R_inf.dat",
+      "access": "VERIFIED_BYTES",
+      "role": "frozen primary source/input or inherited source-real parameter/certificate context"
+    },
+    {
+      "path_relative_to_workspace": "q049_v2/inputs/background.c",
+      "size_bytes": 122355,
+      "sha256": "84871d25c0a29391edf8d08b4826bd3ca3b33c638dae306375c0a681bb87d451",
+      "source_url": "https://raw.githubusercontent.com/mwt5345/class_ede/5a131c91d657dd9a7c6364cc45b038710f8d0d97/source/background.c",
+      "access": "VERIFIED_BYTES",
+      "role": "frozen primary source/input or inherited source-real parameter/certificate context"
+    },
+    {
+      "path_relative_to_workspace": "q049_v2/inputs/background.h",
+      "size_bytes": 27411,
+      "sha256": "b329b21bce11705eed64aa242a06272a7d9554ad1fe1de8eda870b6cfb3f2397",
+      "source_url": "https://raw.githubusercontent.com/mwt5345/class_ede/5a131c91d657dd9a7c6364cc45b038710f8d0d97/include/background.h",
+      "access": "VERIFIED_BYTES",
+      "role": "frozen primary source/input or inherited source-real parameter/certificate context"
+    },
+    {
+      "path_relative_to_workspace": "q049_v2/inputs/common.h",
+      "size_bytes": 22631,
+      "sha256": "410ea60e5ca1de7fc501d644711fc21023fa2cbdd56dd8daede1637a3b9e900c",
+      "source_url": "https://raw.githubusercontent.com/mwt5345/class_ede/5a131c91d657dd9a7c6364cc45b038710f8d0d97/include/common.h",
+      "access": "VERIFIED_BYTES",
+      "role": "frozen primary source/input or inherited source-real parameter/certificate context"
+    },
+    {
+      "path_relative_to_workspace": "q049_v2/inputs/fit_swift.dat",
+      "size_bytes": 17797,
+      "sha256": "46a644d7d2633b8f13080f9062df9b72a2e5adfa956d70d32ad1d7f4ec0a4641",
+      "source_url": "https://raw.githubusercontent.com/mwt5345/class_ede/5a131c91d657dd9a7c6364cc45b038710f8d0d97/external/HyRec2020/fit_swift.dat",
+      "access": "VERIFIED_BYTES",
+      "role": "frozen primary source/input or inherited source-real parameter/certificate context"
+    },
+    {
+      "path_relative_to_workspace": "q049_v2/inputs/q048_p3_scaled_raw_result_v2.json",
+      "size_bytes": 699697,
+      "sha256": "fe9070d5054a4aac84cd342332dcec4b4895cc95d316ef527ad6a4a012c4c44c",
+      "source_url": "https://raw.githubusercontent.com/Morfindien/Bubbleverse/dc647a7975193b8ce3ad7a84564dd61c7317ccea/q048_p3_scaled_raw_result_v2.json",
+      "access": "VERIFIED_BYTES",
+      "role": "frozen primary source/input or inherited source-real parameter/certificate context"
+    },
+    {
+      "path_relative_to_workspace": "q049_v2/inputs/q048_p3_scaled_validated_result_v2.json",
+      "size_bytes": 6328,
+      "sha256": "f053064f6c8e7ec6395928db9708ed3e5a572dd81e33f122e70d25a314e02f7a",
+      "source_url": "https://raw.githubusercontent.com/Morfindien/Bubbleverse/dc647a7975193b8ce3ad7a84564dd61c7317ccea/q048_p3_scaled_validated_result_v2.json",
+      "access": "VERIFIED_BYTES",
+      "role": "frozen primary source/input or inherited source-real parameter/certificate context"
+    },
+    {
+      "path_relative_to_workspace": "q049_v2/inputs/thermodynamics.h",
+      "size_bytes": 34104,
+      "sha256": "f000e372c0db60663cc49f4bb95ab9f1d63238201ee7b3b51ca791c0f45ba0f0",
+      "source_url": "https://raw.githubusercontent.com/mwt5345/class_ede/5a131c91d657dd9a7c6364cc45b038710f8d0d97/include/thermodynamics.h",
+      "access": "VERIFIED_BYTES",
+      "role": "frozen primary source/input or inherited source-real parameter/certificate context"
+    },
+    {
+      "path_relative_to_workspace": "q049/inputs/q048_prefix_config_v1.json",
+      "size_bytes": 105567,
+      "sha256": "2514e250d20c456530be63e790a079176293a87a82c927b1e748d1eec405da9b",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "q049/library_inputs/Q048_V151_ACCEPTED_CHECKPOINT_V1.json",
+      "size_bytes": 8071,
+      "sha256": "60dcd23a315a28be2ef84c4c5353c783e88eb73c4199d43b7f5640a16db2eb96",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "q049/inputs/q048_p3_scaled_config_v2.json",
+      "size_bytes": 2591,
+      "sha256": "cba637c080bfbe5c4b729224f0cddc7c38ca8ea62663f91f7a3c03dd0ba4ea8d",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "q049/inputs/frozen_source/hydrogen.c",
+      "size_bytes": 46627,
+      "sha256": "734800ccd69b41d60b519f200003ce27c3b7640f76a70353499424842ba19616",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "q049/inputs/frozen_source/thermodynamics.c",
+      "size_bytes": 208514,
+      "sha256": "d17657c1cbd9fd4b70d62d1c6eb102a128ee1ed4cbc5dae439254af91bc45fb6",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "q049/inputs/frozen_source/wrap_hyrec.c",
+      "size_bytes": 7489,
+      "sha256": "4747baba37424f05f168bb68d4b9bccb2c0f003bdba95ccf56fe0a4c30cc01bd",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "q049/inputs/hydrogen.h",
+      "size_bytes": 11868,
+      "sha256": "1b2c64d108078722dd546f4e8b9bddca2cbe6abdf4b63e44e76fe0e9d58f4e52",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "q049_ingestion/output/Q047_SAMLET_JOURNAL_Q049_V1_INGESTED_V1.md",
+      "size_bytes": 14865746,
+      "sha256": "3b6fe7db368bc23a8bb17f19988e83ba9c2abcad241f8669706a34a3c920ebb2",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "q049_ingestion/output/Q049_QUESTION_BUDGET_LEDGER_V3.json",
+      "size_bytes": 7532,
+      "sha256": "199eefec82477268b7fa15387575d318c60b1e7842990013c3aa71d66e346bc3",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "q049_ingestion/output/Q049_V2_NEXT_MATHEMATICS_TASK.json",
+      "size_bytes": 7944,
+      "sha256": "c53ddfe7e637090e7ab138e8087e201027ea0679d8a7a25a0531de9b9c029bdc",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    },
+    {
+      "path_relative_to_workspace": "upload/Bubbleverse_Matematikmotor_2.2.0-9.md",
+      "size_bytes": 72905,
+      "sha256": "1303901b6bacd0c3115e4a3e166699f161c56e9d87cd21b5ac67e9a6b1db8bd2",
+      "access": "VERIFIED_LOCAL_PRESERVED_BYTES",
+      "role": "same-Q incoming authority or reused frozen material"
+    }
+  ],
+  "checkpoint_library_file_id": "libfile_28a4e36f5aac8191801ee0b81aabacc9",
+  "incoming_full_journal_library_file_id": "libfile_e9af0f710b1c8191b7469b98434580cd",
+  "incoming_ledgerV3_library_file_id": "libfile_3966f7870f408191995a75565f3edd61",
+  "incoming_task_library_file_id": "libfile_c07768d4b89881919b0bd4defb8d4c6c",
+  "source_interpretation": "source-real decimal/binary64 input enclosures; no complete native parser/libm/trajectory identity certificate",
+  "inherited_parameter_qualification": "P3 initialized source-real intervals reused; N_eff native export not newly obtained",
+  "claims": [
+    {
+      "claim_id": "LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2",
+      "basis": "INFERRED/MATHEMATICALLY_DERIVED",
+      "source_ids": [
+        "frozen background.c/h",
+        "frozen thermodynamics.c/h",
+        "frozen hydrogen.c/h and wrap_hyrec.c",
+        "frozen atomic/fit tables",
+        "captured config",
+        "V151 checkpoint",
+        "P3 initialized intervals"
+      ],
+      "result_refs": [
+        "Q049_V2_GLOBAL_BOUND_RESULT.json",
+        "Q049_V2_INDEPENDENT_VERIFICATION.json",
+        "Q049_V2_MATEMATISK_RESULTAT.md"
+      ],
+      "strength": "finite global upper cap under inherited conditional continuum scope, no smallness/physical robustness conclusion"
+    }
+  ]
+}

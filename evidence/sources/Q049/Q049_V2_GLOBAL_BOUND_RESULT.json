@@ -1,0 +1,141 @@
+{
+  "schema_version": "UNVALIDATED_LOCAL_CONTRACT",
+  "run_id": "LOCAL-Q049-MATH-GLOBAL-INVARIANT-20261024-V2",
+  "target_q": "Q049",
+  "result_id": "LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2",
+  "bound_status": "CERTIFIED_CONDITIONAL_SOURCE_REAL_CONTINUUM",
+  "scientific_scope": "all existing admitted source-real paired continuations reachingz0; no existence/uniqueness/native-table certificate",
+  "domain_z": [
+    0,
+    810
+  ],
+  "absolute_delta_tau_upper_exact": "213484853088369914692171230355906758454311708143638927451049560073528807770668923809437630611539/4574299233912472592612366443870029405758558384130457924377965046670893691606603860541440000000",
+  "bound_formula_enclosure_lo": "74355626308594013906265585569050543707760496046248172281503105767596276796804155499/1593203824721430828119370737588918819426769825414785327148437500000000000000000000",
+  "bound_formula_enclosure_hi": "213484853088369914692171230355906758454311708143638927451049560073528807770668923809437630611539/4574299233912472592612366443870029405758558384130457924377965046670893691606603860541440000000",
+  "safe_decimal_upper": "4667050453/100000000",
+  "safe_decimal_upper_display": 46.67050453,
+  "formula": "(1+eps)*2*sigma_T*nH0*Mpc/(3*H0_CLASS*sqrt(Omega_b+Omega_cdm))*(811*sqrt(811)-1)",
+  "pointwise_delta_xe_cap": "1000001/1000000",
+  "thermal_ratio_lower_global": "49/40550",
+  "thermal_ratio_upper_global": "1000001/1000000",
+  "swift_denominator_global_lower": "280544452647807040299219554935398540067275255718902552286929787599564107022915210279203833835331901631892508022158660507055107219872627838402217/360287970189639680000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "fit_norm_certificates": [
+    {
+      "x_interval": [
+        -1,
+        0
+      ],
+      "bernstein": [
+        "1",
+        "2",
+        "5/3",
+        "1"
+      ]
+    },
+    {
+      "x_interval": [
+        0,
+        1
+      ],
+      "bernstein": [
+        "1",
+        "4/3",
+        "4/3",
+        "1"
+      ]
+    },
+    {
+      "x_interval": [
+        1,
+        2
+      ],
+      "bernstein": [
+        "1",
+        "5/3",
+        "2",
+        "1"
+      ]
+    }
+  ],
+  "input_scalars": {
+    "H0_CLASS": "1056978299230155/4611686018427387904",
+    "Omega_bc": "22248216948918149/72057594037927936",
+    "nH0_SI": "3387831132279865/18014398509481984",
+    "sigma_T_interval": [
+      "8315577/125000000000000000000000000000000000",
+      "2967097021692187/44601490397061246283071436545296723011960832"
+    ],
+    "Mpc_interval": [
+      "30856775812820000000000",
+      "30856775812820001357824"
+    ]
+  },
+  "checks": {
+    "pin:q049/inputs/q048_prefix_config_v1.json": true,
+    "pin:q049/library_inputs/Q048_V151_ACCEPTED_CHECKPOINT_V1.json": true,
+    "pin:q049/inputs/frozen_source/hydrogen.c": true,
+    "pin:q049/inputs/frozen_source/thermodynamics.c": true,
+    "pin:q049/inputs/frozen_source/wrap_hyrec.c": true,
+    "pin:q049_v2/inputs/background.c": true,
+    "pin:q049_v2/inputs/fit_swift.dat": true,
+    "pin:q049_v2/inputs/Alpha_inf.dat": true,
+    "pin:q049_v2/inputs/R_inf.dat": true,
+    "pin:q049_v2/inputs/q048_p3_scaled_raw_result_v2.json": true,
+    "prospective_contract": true,
+    "git_object:q049_v2/inputs/background.h": true,
+    "git_object:q049_v2/inputs/thermodynamics.h": true,
+    "frontier810": true,
+    "same_source": true,
+    "budget176_824": true,
+    "flat_curvature": true,
+    "background_enabled": true,
+    "no_negative_extra_components": true,
+    "positive_matter_radiation": true,
+    "positive_scalar_potential": true,
+    "positive_neutrino_quadrature:0": true,
+    "no_thermal_extra_forcing": true,
+    "strict_initial_h": true,
+    "strict_initial_T": true,
+    "global_thermal_barrier": true,
+    "active_lookup_ratio_domain": true,
+    "active_radiation_temperature_upper": true,
+    "positive_finite_atomic_nodes:Alpha_inf.dat": true,
+    "positive_finite_atomic_nodes:R_inf.dat": true,
+    "P3_config_binding": true,
+    "P3_capture_binding:T0": true,
+    "P3_capture_binding:nH0_SI": true,
+    "P3_capture_binding:YHe": true,
+    "P3_capture_binding:fHe": true,
+    "fit_grid265": true,
+    "positive_swift_fit_denominator": true,
+    "active_swift_fit_range": true,
+    "fit_cardinal_norm_region:-1": true,
+    "fit_cardinal_norm_region:0": true,
+    "fit_cardinal_norm_region:1": true,
+    "radical:22248216948918149/72057594037927936": true,
+    "radical:811": true,
+    "finite_positive_bound": true,
+    "safe_display_upper": true,
+    "within300s": true
+  },
+  "check_count": 46,
+  "input_pins": {
+    "q049/inputs/q048_prefix_config_v1.json": "2514e250d20c456530be63e790a079176293a87a82c927b1e748d1eec405da9b",
+    "q049/library_inputs/Q048_V151_ACCEPTED_CHECKPOINT_V1.json": "60dcd23a315a28be2ef84c4c5353c783e88eb73c4199d43b7f5640a16db2eb96",
+    "q049/inputs/frozen_source/hydrogen.c": "734800ccd69b41d60b519f200003ce27c3b7640f76a70353499424842ba19616",
+    "q049/inputs/frozen_source/thermodynamics.c": "d17657c1cbd9fd4b70d62d1c6eb102a128ee1ed4cbc5dae439254af91bc45fb6",
+    "q049/inputs/frozen_source/wrap_hyrec.c": "4747baba37424f05f168bb68d4b9bccb2c0f003bdba95ccf56fe0a4c30cc01bd",
+    "q049_v2/inputs/background.c": "84871d25c0a29391edf8d08b4826bd3ca3b33c638dae306375c0a681bb87d451",
+    "q049_v2/inputs/fit_swift.dat": "46a644d7d2633b8f13080f9062df9b72a2e5adfa956d70d32ad1d7f4ec0a4641",
+    "q049_v2/inputs/Alpha_inf.dat": "357101049c9382e90e5e1e896961407d3b465b61b78de9750b852c05ea4d1023",
+    "q049_v2/inputs/R_inf.dat": "ce914f4b552ba55ba00f7916f36b0986f19adfdb638e5aefae91f7b2d05a8112",
+    "q049_v2/inputs/q048_p3_scaled_raw_result_v2.json": "fe9070d5054a4aac84cd342332dcec4b4895cc95d316ef527ad6a4a012c4c44c"
+  },
+  "elapsed_seconds": 0.07161538999980621,
+  "producer_code_sha256": "f825e00dce241fa1485cd8eb0997b09dd75170dc7dac9b24332190ba6dc2cf60",
+  "no_IVP": true,
+  "no_native": true,
+  "frontier_unchanged": true,
+  "V154_consumed": false,
+  "informativeness": "coarse O(1) electron envelope, does not establish epsilon-scale sensitivity or complete parentQ048 result"
+}

@@ -1,5 +1,5 @@
 {
-  "q_access_end": "Q048",
+  "q_access_end": "Q049",
   "schema_version": 1,
   "uncertainties": [
     {
@@ -226,6 +226,22 @@
       "statement": "The accepted unconsumed 810->800 conditional connected proof is mathematical evidence only and does not advance the accepted actual trajectory beyond frontier810.",
       "status": "OPEN_METHOD_UNCERTAINTY",
       "type": "conditional_proof_vs_actual_state"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "UNC-Q049-CONDITIONAL-ENVELOPE",
+      "origin_q": "Q049",
+      "statement": "The exact narrow arithmetic enclosure belongs to the cap formula, not the actual effect. Its magnitude, sign, tightness and existence/uniqueness/native realization remain unestablished.",
+      "status": "UNRESOLVED",
+      "type": "structural_uncertainty"
     }
   ]
 }

@@ -1,5 +1,5 @@
 # Bubbleverse formal model
 
-Current formal layer: **v0.10-formalization-1 / R000010 through Q048**.
+Current formal layer: **v0.11-formalization-1 / R000011 through Q049**.
 
-Q048 adds terminal-unsolved evidence, scope limitations and uncertainty records only. The inherited physical model, public operations and numerical benchmarks are unchanged.
+Q049 adds the closed conditional dimensionless cap 46.67050453 and its assumptions, equation, uncertainty and validity limits. No smallness, existence, uniqueness, native fidelity or Q048 completion follows. Physical quantities and public operations are preserved.

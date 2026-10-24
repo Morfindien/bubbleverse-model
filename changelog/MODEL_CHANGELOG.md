@@ -126,3 +126,8 @@ Admit Q047 epistemic closure, official new reconstruction evidence and scoped M1
 ## v0.10 / Q048 — R000010
 
 Admit Q048 as terminal UNSOLVED / UNRESOLVED after effective budget exhaustion. Preserve the validated partial actual state (hillipop-ede_n3 actual127/frontier810; other tracked frontiers 1440) and the 810→800 connected proof as accepted but unconsumed. Complete four-configuration x_e(z)/tau_T(z) bounds, NativeP6, physical/native trajectory identity, exact selector existence/uniqueness and a native error certificate remain unresolved. The final continuation failure is technical, not physical. No new observation, model preference, EDE viability claim, opacity correction, physical model change or production restart is admitted.
+
+
+## v0.11 / R000011 / Q049
+
+Admit the closed conditional dimensionless cap 46.67050453. No smallness, existence, uniqueness, native fidelity or Q048 completion follows. Physical quantities and historical records are preserved.

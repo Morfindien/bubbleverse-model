@@ -39,5 +39,6 @@
     "contextualize-result",
     "astronomy-catalog-context"
   ],
+  "q_access_end": "Q049",
   "schema_version": 1
 }

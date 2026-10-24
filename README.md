@@ -13,17 +13,13 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-- Accepted state: **v0.10 / R000010 through Q048**.
-- Q047: **CLOSED EPISTEMICALLY INCONCLUSIVE / INSUFFICIENT_EVIDENCE**.
-- Four new reconstructions reproduce eight archived outputs; historical identity and event gates remain unresolved.
-- Scoped M15 finite input/regularity qualifications and deterministic diagnostics do not establish physical error bars.
-- Admission covers the documented assessment and qualification limitations only.
-- Source canonical CASE/RESULT identities remain unspecified; model-record IDs do not confer them.
-- Physical agreement, disagreement and materiality remain **UNKNOWN**.
-- The reported conditional event counterexample is not certified for the actual cosmological configurations.
-- All inherited physical parameters, observations, predictions, contradictions, equations and public operations are preserved.
-- No production restart authorized. Frozen accepted snapshot: `versions/accepted/v0.9/`.
-- One-time installations are complete. Use the permanent **BUBBLEVERSE MODEL — START** workflow with operation `test` for current read-only validation. Historical installation files remain until workflow-aware cleanup is authorized.
+**v0.11 / R000011 through Q049.**
+
+Q049: CLOSED / CONDITIONALLY SUPPORTED. For existing admitted frozen hillipop-ede_n3 source-real paired continuations reaching z=0, |Delta tau_T,tail| <= 46.67050453 over 0<=z<=810. This is a coarse deterministic cap, not a measurement or small-effect result. Existence, uniqueness, native trajectory/table fidelity and Q048 completion remain unresolved.
+
+Q048 remains UNSOLVED; actual127/frontier810 and other three frontiers 1440 are unchanged. V154 remains ACCEPTED_UNCONSUMED. No physical parameter, H0 inference, likelihood verdict or production restart follows.
+
+Frozen accepted snapshot: `versions/accepted/v0.11/`.
 
 ---
 
@@ -346,7 +342,7 @@ For the current baseline:
 
 ```text
 AUTHORIZED:
-Q001–Q048
+Q001–Q049
 ```
 
 Evidence beyond the authorized boundary must not influence:

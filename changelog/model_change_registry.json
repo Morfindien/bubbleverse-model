@@ -241,6 +241,19 @@
       "source_bubbleverse_commit": "b99a5c78058b624c8d5847bed582df4ea816358a",
       "status": "ACCEPTED_MODEL_PROMOTED",
       "update_class": "MULTI_LAYER_UPDATE"
+    },
+    {
+      "accepted_after": "v0.11",
+      "candidate": "v0.11",
+      "current_q": "Q049",
+      "date": "2026-10-24T21:55:44.648770+00:00",
+      "model_revision": "R000011",
+      "physical_model_change": false,
+      "q_access_end": "Q049",
+      "q_access_start": "Q001",
+      "result": "CLOSED_CONDITIONAL_CAP",
+      "source_repository_commit": "d397732f65da2d1566089b9153a4145a605f8557",
+      "update_class": "CONSTRAINT_UPDATE"
     }
   ],
   "schema_version": 1

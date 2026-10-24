@@ -232,8 +232,36 @@
       "q_introduced": "Q048",
       "statement": "Q048 does not establish a new cosmological observation, model preference, EDE viability claim, completed opacity correction, physical exclusion, null detection or production authorization. The terminal continuation failure is technical, not physical.",
       "status": "NOT_ESTABLISHED"
+    },
+    {
+      "assumption_refs": [
+        "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
+        "ASSUMP-Q049-EXISTING-CONTINUATIONS"
+      ],
+      "epistemic_type": "DERIVED",
+      "equation_refs": [
+        "EQ-Q049-TAIL-CAP"
+      ],
+      "evidence_grade": "CONDITIONAL",
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "CON-Q049-CONDITIONAL-TAIL-CAP",
+      "model_dependent": true,
+      "origin_q": "Q049",
+      "statement": "For every existing admitted source-real paired continuation reaching z=0 under frozen hillipop-ede_n3 inputs and common reionization, |Delta tau_T,tail| <= 46.67050453 over 0<=z<=810; this coarse deterministic cap does not establish a small effect, existence, uniqueness, native fidelity or Q048 completion.",
+      "status": "CONSTRAINED",
+      "units": "dimensionless",
+      "validity_ref": "DOM-Q049-CONDITIONAL-CONTINUUM",
+      "value": "46.67050453"
     }
   ],
-  "q_access_end": "Q048",
+  "q_access_end": "Q049",
   "schema_version": 1
 }

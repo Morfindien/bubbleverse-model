@@ -1,83 +1,68 @@
 {
   "added": [
     {
+      "affected_tests": [
+        "Q049 admission and mutation guards"
+      ],
       "category": "CONSTRAINT_UPDATE",
-      "evidence_refs": [
-        "EVD-Q048-QJOURNAL",
-        "EVD-Q048-APPENDICES",
-        "EVD-Q048-MAINBOOK",
-        "EVD-Q048-TERMINAL",
-        "EVD-Q048-CHECKPOINT"
+      "dependencies": [
+        "DOM-Q049-CONDITIONAL-CONTINUUM",
+        "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
+        "EQ-Q049-TAIL-CAP"
       ],
-      "id": "CON-Q048-UNSOLVED-COMPLETION"
-    },
-    {
-      "category": "CONSTRAINT_UPDATE",
       "evidence_refs": [
-        "EVD-Q048-QJOURNAL",
-        "EVD-Q048-APPENDICES",
-        "EVD-Q048-MAINBOOK",
-        "EVD-Q048-TERMINAL",
-        "EVD-Q048-CHECKPOINT"
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
       ],
-      "id": "CON-Q048-NO-PHYSICAL-VERDICT"
-    },
-    {
-      "category": "ROBUSTNESS_UPDATE",
-      "evidence_refs": [
-        "EVD-Q048-QJOURNAL",
-        "EVD-Q048-APPENDICES",
-        "EVD-Q048-MAINBOOK",
-        "EVD-Q048-TERMINAL",
-        "EVD-Q048-CHECKPOINT"
-      ],
-      "id": "ROB-Q048-PARTIAL-STATE"
-    },
-    {
-      "category": "ROBUSTNESS_UPDATE",
-      "evidence_refs": [
-        "EVD-Q048-QJOURNAL",
-        "EVD-Q048-APPENDICES",
-        "EVD-Q048-MAINBOOK",
-        "EVD-Q048-TERMINAL",
-        "EVD-Q048-CHECKPOINT"
-      ],
-      "id": "ROB-Q048-TECHNICAL-FAILURE-SCOPE"
+      "id": "CON-Q049-CONDITIONAL-TAIL-CAP",
+      "origin_q": "Q049",
+      "rationale": "Closed conditional finite-cap endpoint; no physical model parameter is revised.",
+      "status": "CONDITIONALLY_SUPPORTED",
+      "uncertainty": "coarse deterministic envelope conditional on existing admitted continuations"
     }
   ],
-  "from_version": "v0.9",
+  "from_version": "v0.10",
   "future_handoff_ingested": false,
   "modified": [
-    "Accepted evidence boundary advances to Q048 after successful promotion; no physical model quantity changes."
+    "Evidence boundary and metadata advance only after validated promotion."
   ],
-  "new_assumptions": [],
+  "new_assumptions": [
+    "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
+    "ASSUMP-Q049-EXISTING-CONTINUATIONS"
+  ],
   "new_benchmarks": [],
   "new_calculations": [],
   "new_domains": [],
-  "new_equations": [],
+  "new_equations": [
+    "EQ-Q049-TAIL-CAP"
+  ],
   "new_limitations": [
-    "LIM-Q048-COMPLETE-HISTORY",
-    "LIM-Q048-NATIVE-FIDELITY"
+    "LIM-Q049-COARSE-CONDITIONAL-CAP"
   ],
   "new_mechanisms": [],
   "new_parameters": [],
   "new_predictions": [],
   "new_uncertainties": [
-    "UNC-Q048-COMPLETION-SENSITIVITY",
-    "UNC-Q048-ACTUAL-CONTINUATION"
+    "UNC-Q049-CONDITIONAL-ENVELOPE"
   ],
   "new_validity_domains": [
-    "DOM-Q048-PARTIAL-STATE"
+    "DOM-Q049-CONDITIONAL-CONTINUUM"
   ],
   "physical_model_change": false,
   "preserved": [
-    "All Q001-Q047 accepted physical parameters, observations, equations, benchmarks, mechanisms, predictions, contradictions, public operations and immutable snapshots",
-    "Q048 historical/conditional evidence identities and unconsumed-proof status"
+    "All preexisting scientific entries and frozen snapshots",
+    "Q048 UNSOLVED, actual127/frontier810, V154 ACCEPTED_UNCONSUMED",
+    "All physical parameters, benchmarks, observations, public operations and unresolved contradictions"
   ],
   "resolved_contradictions": [],
   "schema_version": 1,
   "superseded": [],
-  "target_q": "Q048",
-  "to_candidate_version": "v0.10",
-  "update_class": "MULTI_LAYER_UPDATE"
+  "target_q": "Q049",
+  "to_candidate_version": "v0.11",
+  "update_class": "CONSTRAINT_UPDATE"
 }

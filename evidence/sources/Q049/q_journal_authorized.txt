@@ -1,0 +1,59 @@
+PDF page 143
+Q049 — closed conditional-bound investigation
+Q049: CLOSED / CONDITIONALLY SUPPORTED. Separate later record; Q001–Q048
+historical entries are unchanged.
+Case: LOCAL-Q049-FOCUSED-LOWZ-TAUTAIL-V1
+Result: LOCAL-Q049-GLOBAL-INVARIANT-TAUTAIL-CAP-V2
+Closure intake: LOCAL-Q049-V2-INGESTION-20261024-V1, 24 October 2026.
+Scientific identity: local Q049 identity; canonical registry writeback remains unverified.
+Research question
+Under the frozen Q048 source/capture and fixed accepted z_reio, what rigorous upper bound can be
+placed on the remaining low-redshift contribution to |Δtau_T| over 0 <= z <= 810 for the
+hillipop-ede_n3 configuration between the event-resolved latch q=xHeII=10^-6 and the same-event
+reset q=0, using a correlation-preserving global stability/envelope analysis anchored at the validated
+z=810 frontier rather than reconstructing the full low-z x_e(z) trajectory cell by cell?
+Documented answer
+For every existing admitted source-real paired continuation reaching z = 0 under the frozen
+assumptions, the remaining low-redshift contribution obeys the deterministic bound below. The
+accepted task requested one finite rigorous global cap, with no smallness threshold. This endpoint was
+met within its explicit conditional scope.
+|ΔτT,tail| ≤ 46.67050453   (dimensionless),   0 ≤ z ≤ 810
+Development and method
+V1 supplied a direct-adjoint specification and found a source-coverage gap: an inherited
+HMLA/SWIFT-only certificate did not include low-redshift Peebles fallback. It also warned that projected z
+= 810 radii were broad, not a verified ε-small paired initial state.
+V2 established source-complete inward hydrogen barriers and a simultaneous positive thermal domain.
+A common affine reionization map yields |Δxe| ≤ 1.000001. A positive matter-only lower background
+envelope then gives an analytically integrable global kernel bound. The result does not reconstruct
+low-z xe(z) cell by cell, consume V154, or advance actual127/frontier810.
+Scientific limitations and consequence
+The cap is highly conservative and does not establish ε-scale sensitivity, a small physical effect, its sign
+or a positive lower bound. Existing continuations, rather than their global existence or uniqueness, are
+assumed. Source-derived common reionization settings retain their linkage caveat. Native trajectory,
+table/spline accuracy and the full four-configuration Q048 comparison remain unqualified.
+Q049 closes only its conditional finite-bound endpoint. Q048 remains UNSOLVED. No new observation,
+H0 estimate, EDE preference, likelihood-portability classification, physical falsification or
+accepted-model promotion follows.
+
+PDF page 144
+Q049 provenance and current-status index
+Original validation and source chain
+The source run is LOCAL-Q049-MATH-GLOBAL-INVARIANT-20261024-V2. Stored evidence records 46
+producer checks and 33 separate-verifier checks under shared source/analyst premises. Repeated
+executions and later intake do not create additional independent evidence. This publication run does not
+re-execute those scientific checks.
+Frozen source: 5a131c91d657dd9a7c6364cc45b038710f8d0d97
+Capture/config SHA-256: 2514e250d20c456530be63e790a079176293a87a82c927b1e748d1eec405da9b
+Validated checkpoint SHA-256: 60dcd23a315a28be2ef84c4c5353c783e88eb73c4199d43b7f5640a16db2eb96
+Q049 primary report; frozen CLASS_EDE source. Raw certificate: Q049_V2_GLOBAL_BOUND_RESULT.json, SHA-256
+c7b32ce22a1b61063d6c5e936df15d0b8d97579037fd1bb167ca0ac62d5455e8. Separate verification:
+Q049_V2_INDEPENDENT_VERIFICATION.json, SHA-256
+830ba5beeec0693f3aa08ea7f441abf41777933a99f11f29be434cd8914cf9e1.
+Current-status index — later interpretation, not rewritten history
+Record
+Current interpretation at this publication boundary
+Q048 · pp. 141–142
+UNSOLVED. Original partial results and successor proposal remain historical.
+Q049 · pp. 143–144
+CLOSED / CONDITIONALLY SUPPORTED. Finite whole-tail cap; no smallness, existence or
+native-fidelity conclusion.

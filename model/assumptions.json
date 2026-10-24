@@ -101,8 +101,40 @@
       "scope": "EQ-Q044-SUPPORT-ADJOINT",
       "statement": "The target is the exact-real native-plus functional at decoded fixed inputs, under the stated outward elementary-operation and MPFR source-enclosure assumptions; it is not a uniform original-executable binary64 error theorem.",
       "status": "ACCEPTED_MODEL_SCOPE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
+      "origin_q": "Q049",
+      "scope": "Q049 source-real continuum only",
+      "statement": "Frozen source/capture, accepted common z_reio and source-derived reionization prescription; latch q=10^-6 and reset q=0 use the same event and background. Linkage is SOURCE_DERIVED_NOT_DIRECTLY_CAPTURED.",
+      "status": "EXPLICIT_COMPUTATIONAL_ASSUMPTION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "ASSUMP-Q049-EXISTING-CONTINUATIONS",
+      "origin_q": "Q049",
+      "scope": "Q049 conditional theorem domain",
+      "statement": "Admitted absolutely continuous source-real paired continuations exist and reach z=0 from the validated z=810 domain; global existence and uniqueness are not established by this cap.",
+      "status": "EXPLICIT_COMPUTATIONAL_ASSUMPTION"
     }
   ],
-  "q_access_end": "Q048",
+  "q_access_end": "Q049",
   "schema_version": 1
 }

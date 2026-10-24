@@ -1,0 +1,247 @@
+{
+  "q_access_end": "Q049",
+  "schema_version": 1,
+  "uncertainties": [
+    {
+      "benchmark_ref": "BENCH-H0-LOCAL",
+      "id": "UNC-BENCH-H0-LOCAL",
+      "sigma": 0.81,
+      "status": "ACCEPTED_BENCHMARK_UNCERTAINTY",
+      "type": "inference_uncertainty",
+      "units": "km s^-1 Mpc^-1"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-CMB",
+      "id": "UNC-BENCH-H0-CMB",
+      "sigma": 0.35,
+      "status": "ACCEPTED_BENCHMARK_UNCERTAINTY",
+      "type": "inference_uncertainty",
+      "units": "km s^-1 Mpc^-1"
+    },
+    {
+      "benchmark_ref": "BENCH-H0-BAOBBN",
+      "id": "UNC-BENCH-H0-BAOBBN",
+      "sigma": 0.58,
+      "status": "ACCEPTED_BENCHMARK_UNCERTAINTY",
+      "type": "inference_uncertainty",
+      "units": "km s^-1 Mpc^-1"
+    },
+    {
+      "id": "UNC-EDE-GLOBALITY",
+      "source_constraint_id": "CON-GLOBALITY-001",
+      "statement": "Corrected high-H0 EDE basins are best-observed finite-search solutions, not proven global minima.",
+      "status": "OPEN_METHOD_UNCERTAINTY",
+      "type": "optimization_globality"
+    },
+    {
+      "id": "UNC-EDE-LIKELIHOOD",
+      "source_robustness_id": "ROB-EDE-LIKE-001",
+      "statement": "High-H0 EDE viability depends materially on experiment, likelihood, basin, and implementation.",
+      "status": "ACTIVE_MODEL_DEPENDENCE",
+      "type": "likelihood_implementation_dependence"
+    },
+    {
+      "id": "UNC-Q039-STRUCTURAL",
+      "source_robustness_id": "ROB-Q039-001",
+      "statement": "Single tested implementation blocks do not remove the Planck likelihood geometry discrepancy; deeper coupled differences remain unresolved.",
+      "status": "OPEN_STRUCTURAL_UNCERTAINTY",
+      "type": "likelihood_implementation_dependence"
+    },
+    {
+      "id": "UNC-Q040-MARGINAL-NUMERIC",
+      "statement": "Tested finite representations fail mandatory stability validation; marginalized endpoint geometry is not established.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "numerical_integration_and_compression"
+    },
+    {
+      "id": "UNC-Q040-CAUSAL",
+      "statement": "The causal origin of the CamSpec-HiLLiPoP fitted-geometry difference remains unresolved.",
+      "status": "OPEN_STRUCTURAL_UNCERTAINTY",
+      "type": "likelihood_implementation_dependence"
+    },
+    {
+      "id": "UNC-Q041-POSTERIOR-CONVERGENCE",
+      "q_introduced": "Q041",
+      "statement": "Under the frozen Q041 V19 sampler and compute budget, the complete converged posterior matrix required for downstream portability classification was not obtained. This blocks physical classification but is not physical falsification.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "finite_sampling_and_convergence"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "UNC-Q042-REFERENCE-QUALIFICATION",
+      "q_introduced": "Q042",
+      "statement": "Original binary arithmetic, upstream physical/table accuracy, original switched-RHS solution properties and downstream prediction/likelihood error budget remain unresolved or not documented. Reference truth is BLOCKED.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "structural_and_numerical_qualification"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "UNC-Q042-KILLED-TAIL",
+      "q_introduced": "Q042",
+      "statement": "V31 histories are partial. Final committed endpoints, counters and peak RSS after the parent kill are NOT DOCUMENTED; no complete tau value exists.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "incomplete_execution_reporting"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-INGESTION",
+        "EVD-Q044-COMPONENT"
+      ],
+      "id": "UNC-Q044-NATIVE-ROUNDING",
+      "q_introduced": "Q044",
+      "statement": "Uniform original-binary rounding and prediction-to-likelihood/posterior error budget are not certified. No justified inference tolerance is supplied.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "native_binary_arithmetic_and_downstream_transport"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-COMPONENT",
+        "EVD-Q044-INGESTION"
+      ],
+      "id": "UNC-Q044-PHYSICAL-CORRELATION",
+      "q_introduced": "Q044",
+      "statement": "Conditional rails and independent-box extrema do not qualify complete physical histories or establish attainability of component bounds.",
+      "status": "OPEN_METHOD_UNCERTAINTY",
+      "type": "source_rail_and_correlated_history_uncertainty"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-APPENDICES"
+      ],
+      "id": "UNC-Q045-REFINEMENT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "Joint refinement, accepted-redshift calibration and support selection drift are not an isolated error estimate. Complete-history continuum remainder and applicable physical error budget remain unqualified.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "coupled_solver_grid_calibration_and_selector_uncertainty"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES"
+      ],
+      "id": "UNC-Q045-MATERIALITY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "No isolated 10/01/11 response or original qualified inference margins were computed; baseline starts are not optimized minima. Physical materiality remains unresolved.",
+      "status": "OPEN_METHOD_UNCERTAINTY",
+      "type": "downstream_likelihood_and_optimization_uncertainty"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "UNC-Q046-EVENT-APPLICABILITY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "Actual cutoff crossing, local rate sign, reachable neighborhood, well-defined continuation and complete EDE post-shooting realization/enclosure remain uncertified.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "structural_and_event_continuation_qualification",
+      "value": null,
+      "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "UNC-Q047-HISTORICAL-LINKAGE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "Attributable historical state/equivalence linkage, or a complete validated inverse with justified historical forward-error relations and a common certified event verdict, is not supplied. Uniqueness is not required unnecessarily; impossibility of future recovery is not proved.",
+      "status": "OPEN_STRUCTURAL_UNCERTAINTY",
+      "type": "historical_identity_and_inverse_qualification",
+      "value": null,
+      "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "UNC-Q047-COUPLED-HISTORY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "The direct helium boundary scale alone does not bound the complete coupled electron-fraction history or cumulative physical Thomson optical-depth difference. Hydrogen, temperature, mode transitions, smoothing and reionization can respond.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "coupled_history_response",
+      "value": null,
+      "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "UNC-Q048-COMPLETION-SENSITIVITY",
+      "q_introduced": "Q048",
+      "statement": "The uncomputed portions of the four latch/reset histories leave the complete coupled x_e(z) and cumulative tau_T(z) differences unresolved.",
+      "status": "OPEN_NUMERICAL_UNCERTAINTY",
+      "type": "coupled_history_completion_sensitivity",
+      "value": null,
+      "value_status": "NOT_ESTABLISHED_THROUGH_AUTHORIZED_Q"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "UNC-Q048-ACTUAL-CONTINUATION",
+      "q_introduced": "Q048",
+      "statement": "The accepted unconsumed 810->800 conditional connected proof is mathematical evidence only and does not advance the accepted actual trajectory beyond frontier810.",
+      "status": "OPEN_METHOD_UNCERTAINTY",
+      "type": "conditional_proof_vs_actual_state"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "UNC-Q049-CONDITIONAL-ENVELOPE",
+      "origin_q": "Q049",
+      "statement": "The exact narrow arithmetic enclosure belongs to the cap formula, not the actual effect. Its magnitude, sign, tightness and existence/uniqueness/native realization remain unestablished.",
+      "status": "UNRESOLVED",
+      "type": "structural_uncertainty"
+    }
+  ]
+}

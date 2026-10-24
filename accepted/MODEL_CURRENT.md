@@ -1,5 +1,7 @@
 # Current accepted model
 
-**v0.10 / R000010 through Q048.**
+**v0.11 / R000011 through Q049.**
 
-Q048 is admitted as a terminal **UNSOLVED / UNRESOLVED** result. The accepted partial state preserves hillipop-ede_n3 at actual127/frontier810, the other tracked frontiers at 1440, and the later 810→800 proof as accepted but unconsumed. Complete four-configuration x_e(z)/tau_T(z) bounds, NativeP6, physical/native trajectory identity, exact selector existence/uniqueness, and a native error certificate remain unresolved. The final continuation failure is technical, not physical. No physical model change, cosmological verdict, or production restart is established.
+Q049: CLOSED / CONDITIONALLY SUPPORTED. For existing admitted frozen hillipop-ede_n3 source-real paired continuations reaching z=0, |Delta tau_T,tail| <= 46.67050453 over 0<=z<=810. This is a coarse deterministic cap, not a measurement or small-effect result. Existence, uniqueness, native trajectory/table fidelity and Q048 completion remain unresolved.
+
+Q048 remains UNSOLVED; actual127/frontier810 and other three frontiers 1440 are unchanged. V154 remains ACCEPTED_UNCONSUMED. No physical parameter, H0 inference, likelihood verdict or production restart follows.

@@ -85,8 +85,39 @@
       ],
       "units": "dimensionless",
       "validity": "Fixed knots and inherited source boxes only; not a physical optical-depth reference or inference likelihood."
+    },
+    {
+      "assumption_refs": [
+        "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
+        "ASSUMP-Q049-EXISTING-CONTINUATIONS"
+      ],
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "expression": "|Delta tau_T,tail| <= B = (1+epsilon)*2*sigma_T*nH0*Mpc/(3*H0_CLASS*sqrt(Omega_b+Omega_c))*(811*sqrt(811)-1) <= 46.67050453",
+      "id": "EQ-Q049-TAIL-CAP",
+      "implementation_operation": null,
+      "name": "Documented conditional global Thomson-tail cap",
+      "origin_q": "Q049",
+      "status": "DOCUMENTED_CONDITIONAL_EQUATION_NOT_PUBLIC_OPERATION",
+      "symbols": {
+        "Delta tau_T,tail": "dimensionless continuum paired tail difference",
+        "H0_CLASS": "frozen CLASS background input in inverse megaparsecs",
+        "Mpc": "metres per megaparsec conversion",
+        "Omega_b+Omega_c": "frozen baryon plus CDM fraction",
+        "epsilon": "10^-6 residual HeII per hydrogen atom",
+        "nH0": "frozen hydrogen number density, m^-3",
+        "sigma_T": "frozen Thomson cross section, m^2"
+      },
+      "units": "dimensionless; no additional c factor in CLASS convention"
     }
   ],
-  "q_access_end": "Q048",
+  "q_access_end": "Q049",
   "schema_version": 1
 }

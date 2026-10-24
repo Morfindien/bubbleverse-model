@@ -1,0 +1,267 @@
+{
+  "constraints": [
+    {
+      "id": "CON-H0-001",
+      "statement": "The H0 conflict must be preserved as disagreement among distinct inference chains, not averaged into one raw measurement.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-H0-002",
+      "statement": "The H0 Distance Network versus combined CMB benchmark differs by about 7.1 sigma under the manuscript's simple marginal Gaussian comparison; this is not a 7.1 sigma detection of new physics.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-H0-003",
+      "statement": "DESI DR2 + BBN supplies a separate lower-H0 route without CMB anisotropy data, while retaining early-universe and sound-horizon model dependence.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-SYSTEMATICS-001",
+      "statement": "No tested ordinary single systematic in the authorized state reconciles the complete local, CMB, and BAO+BBN evidence by itself.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-EDE-001",
+      "statement": "Moving H0 upward is insufficient; n=3 EDE must satisfy the complete likelihood structure and its viability is experiment- and likelihood-dependent.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-GLOBALITY-001",
+      "statement": "Corrected high-H0 EDE basins are best-observed finite-search solutions, not proven mathematical global minima.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q039-001",
+      "statement": "Relative-calibration neutralization, removal of native off-diagonal precision coupling, their tested combination, and native foreground profiling freedom do not individually remove the CamSpec-HiLLiPoP geometry discrepancy under the locked Q039 conditions.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q039-002",
+      "statement": "Q039 does not identify a physical Planck calibration error, foreground contamination, covariance defect, instrumental failure, likelihood superiority, EDE preference/falsification, or new physics.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-DM-IDENTITY-001",
+      "statement": "The microscopic identity of dark matter remains unresolved through Q040.",
+      "status": "OPEN"
+    },
+    {
+      "id": "CON-ACCEL-ORIGIN-001",
+      "statement": "The physical origin of late-time acceleration remains unresolved through Q040.",
+      "status": "OPEN"
+    },
+    {
+      "id": "CON-Q040-001",
+      "statement": "The Q040 common-CMB nuisance-marginalization bridge cannot establish whether the CamSpec-HiLLiPoP discrepancy disappears or survives physically because numerical validation failed before endpoint geometry was produced.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q040-002",
+      "statement": "Q040 does not establish likelihood defect or superiority, calibration, foreground, covariance or instrumental failure, n=3 EDE preference/falsification, or new physics.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q041-001",
+      "q_introduced": "Q041",
+      "statement": "No MATERIAL_DOWNSTREAM_DIFFERENCE, SCIENTIFICALLY_EQUIVALENT_CONSTRAINTS, or CONSTRAINED_MIXED conclusion may be assigned from V19 because the chain-completeness, hard-Rhat, and both-arms/all-combinations science gates were not satisfied.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q041-002",
+      "q_introduced": "Q041",
+      "statement": "Q041 non-convergence and a green workflow terminal state are not physical evidence for CamSpec-HiLLiPoP agreement or disagreement, likelihood superiority, EDE preference or falsification, or new physics.",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "CON-Q041-003",
+      "q_introduced": "Q041",
+      "statement": "Q041 conclusions are restricted to the preregistered V19 EDE-only campaign and must not be generalized to the broader original downstream contract.",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "CON-Q042-001",
+      "q_introduced": "Q042",
+      "statement": "No posterior portability class, model preference, physical falsification, pipeline superiority or new physics follows from Q042. The original 20-cell scientific comparison remains unqualified.",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q042-QJOURNAL-PDF",
+        "EVD-Q042-INGESTION-V31",
+        "EVD-Q042-CAP-CERTIFICATE"
+      ],
+      "id": "CON-Q042-002",
+      "production_restart_authorized": false,
+      "q_introduced": "Q042",
+      "statement": "Unchanged V31 reruns, more time alone and retrospective cap increases are not a sufficient qualified repair. A materially different design requires a new-case or explicit reopening decision; none is authorized here.",
+      "status": "ACTIVE"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q044-INGESTION",
+        "EVD-Q044-ENDPOINT-AUDIT"
+      ],
+      "id": "CON-Q044-NO-DOWNSTREAM-001",
+      "q_introduced": "Q044",
+      "statement": "Q044 closes epistemically INCONCLUSIVE / INSUFFICIENT_SCIENTIFIC_QUALIFICATION. Neither material H0/EDE portability, equivalence nor dataset-conditional behavior is established. The original scientific classifier is NOT_AVAILABLE.",
+      "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL",
+        "EVD-Q045-APPENDICES",
+        "EVD-Q045-MAINBOOK"
+      ],
+      "id": "CON-Q045-NO-PHYSICAL-VERDICT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "Q045 closes with inconclusive physical materiality. No sign or magnitude of physical optical-depth bias, isolated TT/TE/EE or native-likelihood response, H0 shift, EDE preference or portability classification is established.",
+      "status": "NOT_ESTABLISHED"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q045-RECOVERY",
+        "EVD-Q045-QJOURNAL"
+      ],
+      "id": "CON-Q045-NO-PRODUCTION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q045",
+      "statement": "Technical offline recovery does not authorize production, native reruns or the unmodified full-matrix plan; reference truth remains UNQUALIFIED and final physical result UNRESOLVED.",
+      "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "CON-Q046-QUALIFICATION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "Q046 assessment is completed with INSUFFICIENT QUALIFICATION. Agreement, disagreement and physical materiality for the four frozen configurations remain UNKNOWN.",
+      "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q046-QJOURNAL",
+        "EVD-Q046-APPENDICES",
+        "EVD-Q046-MAINBOOK"
+      ],
+      "id": "CON-Q046-EVENT-SCOPE",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q046",
+      "statement": "Reported conditional strict-guard counterexample does not establish event reachability, nonexistence of the actual cosmological trajectories, or a physical CLASS_EDE bias.",
+      "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "CON-Q047-HISTORICAL-EVENT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "Q047 closes epistemically INCONCLUSIVE / INSUFFICIENT_EVIDENCE. All four historical PT01/PT03, full PT04, first-hit and final-result gates remain UNRESOLVED. Neither qualified reachability nor certified nonreachability is established.",
+      "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q047-QJOURNAL",
+        "EVD-Q047-APPENDICES",
+        "EVD-Q047-MAINBOOK",
+        "EVD-Q047-RECONSTRUCTION",
+        "EVD-Q047-M15",
+        "EVD-Q047-CLOSURE"
+      ],
+      "id": "CON-Q047-OUTPUT-IDENTITY",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q047",
+      "statement": "The four new reconstruction objects reproduce eight archived output tables exactly. Output equality does not establish historical internal-state identity, a complete inverse enclosure, or applicability of the conditional strict-guard theorem.",
+      "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "CON-Q048-UNSOLVED-COMPLETION",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "statement": "Q048 is UNSOLVED: no complete controlled four-configuration latch-versus-reset x_e(z) and cumulative tau_T(z) comparison is established. The accepted hillipop-ede_n3 actual checkpoint is actual127/frontier810; the other tracked frontiers remain at 1440.",
+      "status": "ACTIVE_LIMITATION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q048-QJOURNAL",
+        "EVD-Q048-APPENDICES",
+        "EVD-Q048-MAINBOOK",
+        "EVD-Q048-TERMINAL",
+        "EVD-Q048-CHECKPOINT"
+      ],
+      "id": "CON-Q048-NO-PHYSICAL-VERDICT",
+      "new_scientific_inference": false,
+      "physical_falsification": false,
+      "production_restart_authorized": false,
+      "q_introduced": "Q048",
+      "statement": "Q048 does not establish a new cosmological observation, model preference, EDE viability claim, completed opacity correction, physical exclusion, null detection or production authorization. The terminal continuation failure is technical, not physical.",
+      "status": "NOT_ESTABLISHED"
+    },
+    {
+      "assumption_refs": [
+        "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
+        "ASSUMP-Q049-EXISTING-CONTINUATIONS"
+      ],
+      "epistemic_type": "DERIVED",
+      "equation_refs": [
+        "EQ-Q049-TAIL-CAP"
+      ],
+      "evidence_grade": "CONDITIONAL",
+      "evidence_refs": [
+        "EVD-Q049-MAINBOOK",
+        "EVD-Q049-APPENDICES",
+        "EVD-Q049-QJOURNAL",
+        "EVD-Q049-CAP",
+        "EVD-Q049-VERIFIER",
+        "EVD-Q049-INPUTS",
+        "EVD-Q049-REPORT"
+      ],
+      "id": "CON-Q049-CONDITIONAL-TAIL-CAP",
+      "model_dependent": true,
+      "origin_q": "Q049",
+      "statement": "For every existing admitted source-real paired continuation reaching z=0 under frozen hillipop-ede_n3 inputs and common reionization, |Delta tau_T,tail| <= 46.67050453 over 0<=z<=810; this coarse deterministic cap does not establish a small effect, existence, uniqueness, native fidelity or Q048 completion.",
+      "status": "CONSTRAINED",
+      "units": "dimensionless",
+      "validity_ref": "DOM-Q049-CONDITIONAL-CONTINUUM",
+      "value": "46.67050453"
+    }
+  ],
+  "q_access_end": "Q049",
+  "schema_version": 1
+}
