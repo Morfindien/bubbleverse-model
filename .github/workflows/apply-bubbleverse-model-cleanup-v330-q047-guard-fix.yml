@@ -1,0 +1,173 @@
+name: Apply Bubbleverse Model Cleanup v3.3.0
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "PREVIEW validates only; APPLY runs cleanup locally and uploads the staged result"
+        required: true
+        default: PREVIEW
+        type: choice
+        options:
+          - PREVIEW
+          - APPLY
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bubbleverse-model-cleanup-v330-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    if: github.repository == 'Morfindien/bubbleverse-model'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      AUDITED_BASE_SHA: 458d6c33ec95b641baa8c9a3c10ba0185d1ed9ee
+      CLEANUP_RUN_ID: BV-CLEANUP-BM-20261024-458d6c33-v330
+      Q047_GUARD_REPAIR_SHA256: 7548a7859d9b670b6c065ece2f51d2e15fffa966f39e54b899eb87843dda375f
+
+    steps:
+      - name: Checkout current main with complete history
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify audited lineage and bootstrap-only changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test "$GITHUB_REPOSITORY" = "Morfindien/bubbleverse-model"
+          test "$GITHUB_REF_NAME" = "main"
+          test -z "$(git status --porcelain --untracked-files=all)"
+
+          git merge-base --is-ancestor "$AUDITED_BASE_SHA" HEAD
+
+          unexpected="$(
+            git diff --name-only "$AUDITED_BASE_SHA..HEAD" |
+            grep -v -E '^(APPLY_CLEANUP\.py|\.github/workflows/apply-bubbleverse-model-cleanup-v330\.yml|tests/programs/test_q047_model_guard\.py)$' || true
+          )"
+
+          if [ -n "$unexpected" ]; then
+            echo "Repository changed outside the audited bootstrap/repair surface:"
+            echo "$unexpected"
+            echo "Re-audit required."
+            exit 1
+          fi
+
+          if git diff --name-only "$AUDITED_BASE_SHA..HEAD" | grep -qx 'tests/programs/test_q047_model_guard.py'; then
+            observed="$(sha256sum tests/programs/test_q047_model_guard.py | awk '{print $1}')"
+            if [ "$observed" != "$Q047_GUARD_REPAIR_SHA256" ]; then
+              echo "Q047 guard repair hash mismatch."
+              echo "Expected: $Q047_GUARD_REPAIR_SHA256"
+              echo "Observed: $observed"
+              exit 1
+            fi
+          fi
+
+          echo "Audited base: $AUDITED_BASE_SHA"
+          echo "Current bootstrap HEAD: $(git rev-parse HEAD)"
+          echo "Only cleanup bootstrap files and the pinned Q047 historical-guard repair changed since the audit."
+
+      - name: Verify self-contained cleanup installer
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f APPLY_CLEANUP.py
+          python3 -m py_compile APPLY_CLEANUP.py
+          python3 APPLY_CLEANUP.py --self-test
+
+      - name: Preview cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 APPLY_CLEANUP.py --repo . --preview
+
+      - name: Apply cleanup locally
+        if: ${{ inputs.mode == 'APPLY' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 APPLY_CLEANUP.py --repo . --apply
+
+      - name: Verify staged result
+        if: ${{ inputs.mode == 'APPLY' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --cached --check
+          git status --short
+          git diff --cached --stat
+
+          test -f "provenance/cleanup/$CLEANUP_RUN_ID/RUN_MANIFEST.json"
+          test -f "provenance/cleanup/$CLEANUP_RUN_ID/VALIDATION_RESULTS.json"
+          test -f "provenance/cleanup/$CLEANUP_RUN_ID/REPORT.md"
+          test -f "provenance/cleanup/$CLEANUP_RUN_ID/APPLIED.patch"
+
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          state = json.loads(Path("accepted/model_state.json").read_text())
+          assert state["current_q"] == "Q048", state
+          assert state["accepted_model_version"] == "v0.10", state
+          assert state["candidate_revision"] == "R000010", state
+          print("SCIENTIFIC_STATE_PROTECTION=PASS")
+          PY
+
+      - name: Export staged patch and cleanup memory
+        if: ${{ inputs.mode == 'APPLY' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/bubbleverse-model-cleanup-v330"
+          mkdir -p "$OUT"
+
+          git diff --cached --binary > "$OUT/BUBBLEVERSE_MODEL_CLEANUP_APPLIED.patch"
+          git diff --cached --name-status > "$OUT/CHANGED_PATHS.txt"
+          git diff --cached --stat > "$OUT/DIFF_STAT.txt"
+          cp -a "provenance/cleanup/$CLEANUP_RUN_ID/." "$OUT/"
+
+          (
+            cd "$OUT"
+            sha256sum * > SHA256SUMS.txt || true
+          )
+
+      - name: Upload cleanup result
+        if: ${{ inputs.mode == 'APPLY' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: bubbleverse-model-cleanup-v330-${{ github.run_id }}
+          path: ${{ runner.temp }}/bubbleverse-model-cleanup-v330/
+          if-no-files-found: error
+
+      - name: Summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## Bubbleverse Model Cleanup v3.3.0"
+            echo
+            echo "- Audited base: \`$AUDITED_BASE_SHA\`"
+            echo "- Bootstrap HEAD: \`$(git rev-parse HEAD)\`"
+            echo "- Mode: \`${{ inputs.mode }}\`"
+            echo "- Remote push: **DISABLED**"
+            echo
+            if [ "${{ inputs.mode }}" = "APPLY" ]; then
+              echo "Cleanup was executed only in the runner checkout."
+              echo "Verified staged patch and cleanup memory were uploaded as an artifact."
+              echo "No commit or push was performed."
+            else
+              echo "Preview only. No repository mutation was made."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
