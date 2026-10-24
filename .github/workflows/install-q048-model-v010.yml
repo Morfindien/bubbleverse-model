@@ -1,0 +1,71 @@
+name: Install Q048 model v0.10 candidate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: q048-model-v010-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate-and-install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify installer identity
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          expected='3342ce4ffc33b918765310b81b216d83387a7e38ef8e4cdde8751020994a9c61'
+          got=hashlib.sha256(Path('q048_model_update.py').read_bytes()).hexdigest()
+          assert got==expected,(got,expected)
+          PY
+      - name: Build bounded Q048 release tree
+        run: python q048_model_update.py --apply
+      - name: Run complete current model campaign
+        run: python tests/programs/model_campaign.py validate
+      - name: Run explicit Q048 validator
+        run: python tests/programs/q048_model_validate.py
+      - name: Commit validated Q048 release tree to current branch
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          def git(*a): return subprocess.check_output(['git',*a],text=True).strip()
+          paths=json.loads(Path('run-output/Q048_CHANGED_PATHS.json').read_text())
+          assert paths and all(not Path(p).is_absolute() and '..' not in Path(p).parts and not p.startswith('.github/') and p!='q048_model_update.py' for p in paths)
+          subprocess.run(['git','config','user.name','github-actions[bot]'],check=True)
+          subprocess.run(['git','config','user.email','41898282+github-actions[bot]@users.noreply.github.com'],check=True)
+          subprocess.run(['git','add','--',*paths],check=True)
+          subprocess.run(['git','commit','-m','Admit bounded Q048 UNSOLVED state as model v0.10'],check=True)
+          subprocess.run(['git','push','origin','HEAD:refs/heads/'+os.environ['BRANCH_NAME']],check=True)
+          local=git('rev-parse','HEAD')
+          subprocess.run(['git','fetch','origin',os.environ['BRANCH_NAME']],check=True)
+          remote=git('rev-parse','origin/'+os.environ['BRANCH_NAME'])
+          assert local==remote,(local,remote)
+          print('validated_commit='+local)
+          print('remote_write_verified=true')
+          PY
+      - name: Upload validation package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: q048-model-v010-validation
+          path: |
+            run-output/
+            tests/results/Q048_CANDIDATE_VALIDATION.json
+            provenance/Q048_*.json
+            provenance/Q048_*.md
+          if-no-files-found: warn
