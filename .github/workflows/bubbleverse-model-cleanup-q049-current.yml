@@ -1,0 +1,174 @@
+name: Bubbleverse Model - Current Repository Cleanup
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "AUDIT validates only; CLEAN performs verified structural cleanup and pushes it"
+        required: true
+        default: AUDIT
+        type: choice
+        options:
+          - AUDIT
+          - CLEAN
+  schedule:
+    - cron: "17 4 * * 0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bubbleverse-model-current-cleanup-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    if: github.repository == 'Morfindien/bubbleverse-model'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout current default branch with full history
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify repository and clean working tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = "Morfindien/bubbleverse-model"
+          test "$(git branch --show-current)" = "${{ github.event.repository.default_branch }}"
+          test -z "$(git status --porcelain --untracked-files=all)"
+          test -f repository_cleanup.py
+          python3 -m py_compile repository_cleanup.py
+          echo "BASE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Read current accepted scientific identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          state = json.loads(Path("accepted/model_state.json").read_text(encoding="utf-8"))
+          q = state.get("current_q") or state.get("q_access_end")
+          version = state.get("accepted_model_version")
+          revision = state.get("candidate_revision")
+          if not q or not version:
+              raise SystemExit("Current accepted scientific identity cannot be resolved")
+          print(f"CURRENT_Q={q}")
+          print(f"ACCEPTED_VERSION={version}")
+          print(f"CANDIDATE_REVISION={revision}")
+          with open(Path(__import__('os').environ['GITHUB_ENV']), 'a', encoding='utf-8') as f:
+              f.write(f"CURRENT_Q={q}\n")
+              f.write(f"ACCEPTED_VERSION={version}\n")
+              f.write(f"CANDIDATE_REVISION={revision or ''}\n")
+          PY
+
+      - name: Baseline audit and validation
+        shell: bash
+        env:
+          BV_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          python3 repository_cleanup.py \
+            --repo . \
+            --mode AUDIT \
+            --report "$RUNNER_TEMP/bubbleverse-cleanup-before.json"
+
+      - name: Execute current cleanup
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'CLEAN' }}
+        shell: bash
+        env:
+          BV_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          python3 repository_cleanup.py \
+            --repo . \
+            --mode CLEAN \
+            --report "$RUNNER_TEMP/bubbleverse-cleanup-clean.json"
+
+      - name: Verify scientific identity was not changed
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'CLEAN' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+
+          state = json.loads(Path("accepted/model_state.json").read_text(encoding="utf-8"))
+          observed_q = state.get("current_q") or state.get("q_access_end")
+          observed_version = state.get("accepted_model_version")
+          observed_revision = state.get("candidate_revision") or ""
+          assert observed_q == os.environ["CURRENT_Q"], (observed_q, os.environ["CURRENT_Q"])
+          assert observed_version == os.environ["ACCEPTED_VERSION"], (observed_version, os.environ["ACCEPTED_VERSION"])
+          assert observed_revision == os.environ.get("CANDIDATE_REVISION", ""), (observed_revision, os.environ.get("CANDIDATE_REVISION", ""))
+          print("SCIENTIFIC_IDENTITY_PROTECTION=PASS")
+          PY
+
+      - name: Verify cleanup commit and repository state
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'CLEAN' }}
+        shell: bash
+        env:
+          BV_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          test -z "$(git status --porcelain --untracked-files=all)"
+          git diff --check "$BASE_SHA..HEAD"
+          python3 repository_cleanup.py \
+            --repo . \
+            --mode AUDIT \
+            --report "$RUNNER_TEMP/bubbleverse-cleanup-after.json"
+          git log --oneline "$BASE_SHA..HEAD"
+
+      - name: Push verified structural cleanup
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'CLEAN' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          local_head="$(git rev-parse HEAD)"
+          if [ "$local_head" = "$BASE_SHA" ]; then
+            echo "No cleanup changes were required."
+            exit 0
+          fi
+          git push origin "HEAD:refs/heads/${{ github.event.repository.default_branch }}"
+          remote_head="$(git ls-remote origin "refs/heads/${{ github.event.repository.default_branch }}" | cut -f1)"
+          test "$local_head" = "$remote_head"
+          echo "REMOTE_PUBLICATION_VERIFIED=$remote_head"
+
+      - name: Upload cleanup audit records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bubbleverse-model-current-cleanup-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/bubbleverse-cleanup-before.json
+            ${{ runner.temp }}/bubbleverse-cleanup-clean.json
+            ${{ runner.temp }}/bubbleverse-cleanup-after.json
+          if-no-files-found: warn
+
+      - name: Summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## Bubbleverse Model — Current Repository Cleanup"
+            echo
+            echo "- Repository: \`$GITHUB_REPOSITORY\`"
+            echo "- Baseline: \`$BASE_SHA\`"
+            echo "- Accepted Q: \`$CURRENT_Q\`"
+            echo "- Accepted version: \`$ACCEPTED_VERSION\`"
+            echo "- Mode: \`${{ inputs.mode || 'CLEAN (scheduled)' }}\`"
+            echo "- Cleanup engine: \`repository_cleanup.py\`"
+            echo
+            echo "The action discovers the current scientific identity dynamically; it is not pinned to Q048/v0.10 or an obsolete audited SHA."
+          } >> "$GITHUB_STEP_SUMMARY"
