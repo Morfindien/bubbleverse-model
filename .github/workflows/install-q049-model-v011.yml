@@ -1,0 +1,92 @@
+name: Install Q049 model v0.11
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "install: validate and commit to the selected branch; validate: checks only"
+        required: true
+        type: choice
+        default: install
+        options:
+          - install
+          - validate
+
+permissions:
+  contents: write
+
+concurrency:
+  group: q049-model-v011-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate-and-install:
+    if: github.repository == 'Morfindien/bubbleverse-model' && github.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out selected branch with history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify self-contained installer
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          path = Path("q049_model_update.py")
+          if not path.is_file():
+              raise SystemExit("Upload q049_model_update.py to the repository root first.")
+          expected = "627e58d2a20f6fc87920d687dd99f22cbd1a5b21274a307d408e345bb8e57ae3"
+          actual = hashlib.sha256(path.read_bytes()).hexdigest()
+          if actual != expected:
+              raise SystemExit(f"Installer checksum mismatch: {actual}")
+          print("INSTALLER_IDENTITY=PASS")
+          PY
+
+      - name: Stage the embedded bounded Q049 candidate
+        run: python q049_model_update.py --apply
+
+      - name: Validate Q049, inherited model, full suite and non-destructive healthcheck
+        run: python q049_model_update.py --validate
+
+      - name: Publish one validated commit and verify remote tree
+        if: inputs.mode == 'install'
+        env:
+          TARGET_BRANCH: ${{ github.ref_name }}
+        run: python q049_model_update.py --publish --branch "$TARGET_BRANCH"
+
+      - name: Write run summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          directory = Path("run-output/q049-model-v011")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+              summary.write("## Q049 / model v0.11\n\n")
+              for filename in ("PLAN.json", "VALIDATION.json", "PUBLICATION_RECEIPT.json"):
+                  path = directory / filename
+                  if path.is_file():
+                      record = json.loads(path.read_text())
+                      summary.write(f"- {filename}: **{record.get('status', 'UNKNOWN')}**\n")
+                      if record.get("promotion_commit"):
+                          summary.write(f"  - Commit: {record['promotion_commit']}\n")
+              summary.write("\nThe cap is conditional and coarse. Q048 remains UNSOLVED. "
+                            "The original 46/33 scientific checks are not rerun.\n")
+          PY
+
+      - name: Upload logs, validation and publication receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: q049-model-v011-${{ github.run_id }}-${{ github.run_attempt }}
+          path: run-output/q049-model-v011/
+          if-no-files-found: warn
+          retention-days: 30
