@@ -1,0 +1,20 @@
+Q-ID: Q050
+Status: CLOSED / RESOLVED_WITHIN_SCOPE / PASS
+Question
+For the frozen hillipop-ede_n3 configuration and each fixed admitted common background on 0 <= z <= 810, do
+the exact source-real low-redshift hydrogen/temperature branch-selection rules admit an absolutely continuous
+continuation to z=0 from every state in the validated z=810 domain, separately for q=xHeII=10^-6 and q=0, without
+changing or convexifying the selector?
+Final answer
+YES within the exact conditional scope. At least one literal-selector source-real Caratheodory continuation reaches
+z=0 from every validated theorem-domain start for both q values on each fixed admitted common background.
+Key proof record
+Local selector existence was established at the Pion HMLA/SWIFT interface and at the PEEBLES temperature-ratio
+interface, including the exact tangent case with the equality-assigned PEEBLES arm satisfying v_uu < -1/10. The
+inherited invariant tube prevents blow-up/source-domain loss. Uniform branch bounds make any finite
+selector-switch accumulation Lipschitz-continuable through its endpoint. Fixed-time SWIFT/TR_MIN/reionization
+boundaries concatenate in the Caratheodory sense.
+Limits
+No uniqueness, common-background existence, cosmological reachability of every theorem-domain state,
+native/P6 identity, table/spline error certificate or empirical model confirmation is claimed. Q048 remains
+UNSOLVED.

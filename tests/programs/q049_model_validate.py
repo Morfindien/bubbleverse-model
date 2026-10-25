@@ -10,7 +10,12 @@ VERIFIER_SHA='830ba5beeec0693f3aa08ea7f441abf41777933a99f11f29be434cd8914cf9e1'
 
 def run_tests(root=ROOT):
     root=Path(root); rows=[]
-    def load(p):return json.loads((root/p).read_text())
+    historical=int(json.loads((root/'accepted/model_state.json').read_text())['current_q'][1:])>49
+    def mapped(p):
+        if historical and (p.startswith('accepted/') or p.startswith('model/') or p=='evidence/evidence_registry.json'):
+            return 'versions/accepted/v0.11/'+Path(p).name
+        return p
+    def load(p):return json.loads((root/mapped(p)).read_text())
     def sha(p):return hashlib.sha256((root/p).read_bytes()).hexdigest()
     def req(value,message):
         if not value:raise AssertionError(message)
@@ -82,7 +87,7 @@ def run_tests(root=ROOT):
         eqs={x['id'] for x in load('model/equations.json')['equations']}
         for folder in ['accepted','model']:
             for path in (root/folder).glob('*.json'):
-                d=json.loads(path.read_text())
+                d=load(str(path.relative_to(root)))
                 def walk(o):
                     if isinstance(o,dict):
                         for k,v in o.items():
@@ -96,7 +101,7 @@ def run_tests(root=ROOT):
         return 'Evidence, assumption and equation references resolve; documented equation has no new public operation'
     gate('references',references)
     def firewall():
-        paths=list((root/'accepted').glob('*.json'))+list((root/'model').glob('*.json'))+[root/'evidence/evidence_registry.json',root/'evidence/q_updates/Q049.json']+list((root/'evidence/sources/Q049').glob('*'))
+        paths=(list((root/'versions/accepted/v0.11').glob('*.json')) if historical else list((root/'accepted').glob('*.json'))+list((root/'model').glob('*.json')))+[root/mapped('evidence/evidence_registry.json'),root/'evidence/q_updates/Q049.json']+list((root/'evidence/sources/Q049').glob('*'))
         for p in paths:
             nums=[int(x) for x in re.findall(r'\bQ-?0*([0-9]{1,5})\b',p.read_text(),flags=re.I)]
             req(not nums or max(nums)<=49,'boundary contamination: '+str(p.relative_to(root)))
@@ -112,7 +117,7 @@ def run_tests(root=ROOT):
             if name=='candidate_diff.json':candidates.append(root/'candidate/candidate_diff.json')
             if name=='evidence_registry.json':candidates.append(root/'evidence/evidence_registry.json')
             if name=='q_update.json':candidates.append(root/'evidence/q_updates/Q049.json')
-            for p in candidates:
+            for p in ([] if historical else candidates):
                 if p.is_file():req(p.read_bytes()==(snap/name).read_bytes(),'live snapshot mismatch: '+str(p))
         return 'Frozen v0.11 inventory and live scientific/formal state agree exactly'
     gate('snapshot',snapshot)

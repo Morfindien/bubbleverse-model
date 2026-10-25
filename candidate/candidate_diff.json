@@ -1,68 +1,66 @@
 {
   "added": [
     {
-      "affected_tests": [
-        "Q049 admission and mutation guards"
+      "assumption_refs": [
+        "ASSUMP-Q050-FROZEN-LITERAL-EXISTENCE"
       ],
-      "category": "CONSTRAINT_UPDATE",
-      "dependencies": [
-        "DOM-Q049-CONDITIONAL-CONTINUUM",
-        "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
-        "EQ-Q049-TAIL-CAP"
-      ],
+      "epistemic_type": "DERIVED",
+      "equation_refs": [],
+      "evidence_grade": "CONDITIONAL",
       "evidence_refs": [
-        "EVD-Q049-MAINBOOK",
-        "EVD-Q049-APPENDICES",
-        "EVD-Q049-QJOURNAL",
-        "EVD-Q049-CAP",
-        "EVD-Q049-VERIFIER",
-        "EVD-Q049-INPUTS",
-        "EVD-Q049-REPORT"
+        "EVD-Q050-01",
+        "EVD-Q050-02",
+        "EVD-Q050-03",
+        "EVD-Q050-04",
+        "EVD-Q050-05",
+        "EVD-Q050-06",
+        "EVD-Q050-07",
+        "EVD-Q050-08",
+        "EVD-Q050-09",
+        "EVD-Q050-10",
+        "EVD-Q050-11"
       ],
-      "id": "CON-Q049-CONDITIONAL-TAIL-CAP",
-      "origin_q": "Q049",
-      "rationale": "Closed conditional finite-cap endpoint; no physical model parameter is revised.",
-      "status": "CONDITIONALLY_SUPPORTED",
-      "uncertainty": "coarse deterministic envelope conditional on existing admitted continuations"
+      "id": "CON-Q050-LITERAL-CONTINUATION-EXISTENCE",
+      "limitations": [
+        "No uniqueness, background existence or general cosmological reachability",
+        "No native/P6 fidelity, small-effect claim, new observation or Q048 completion",
+        "Model-side checker validates explicit proof-contract statements; no independent mathematical proof asserted"
+      ],
+      "model_dependent": true,
+      "origin_q": "Q050",
+      "statement": "For each fixed admitted common background and each q in {10^-6,0}, every state in the validated z=810 domain admits at least one absolutely continuous Caratheodory continuation of the exact literal source selector through the full interval to z=0.",
+      "status": "SUPPORTED",
+      "units": "not applicable; existence theorem",
+      "validity_ref": "DOM-Q050-LITERAL-CONTINUATION",
+      "value": null,
+      "value_status": "NON_NUMERIC_THEOREM"
     }
   ],
-  "from_version": "v0.10",
-  "future_handoff_ingested": false,
+  "dependency_impact": [
+    {
+      "from": "CON-Q050-LITERAL-CONTINUATION-EXISTENCE",
+      "statement": "The declared source-real existence premise is now documented within Q050 scope. No historical Q049 statement is rewritten and its cap still proves no small effect.",
+      "status": "SCOPED_CURRENT_INTERPRETATION_ADDENDUM_ONLY",
+      "to": "ASSUMP-Q049-EXISTING-CONTINUATIONS"
+    }
+  ],
+  "from_version": "v0.11",
   "modified": [
-    "Evidence boundary and metadata advance only after validated promotion."
+    "Current evidence boundary and operational version metadata"
   ],
-  "new_assumptions": [
-    "ASSUMP-Q049-FROZEN-COMMON-INPUTS",
-    "ASSUMP-Q049-EXISTING-CONTINUATIONS"
-  ],
-  "new_benchmarks": [],
   "new_calculations": [],
-  "new_domains": [],
-  "new_equations": [
-    "EQ-Q049-TAIL-CAP"
-  ],
-  "new_limitations": [
-    "LIM-Q049-COARSE-CONDITIONAL-CAP"
-  ],
-  "new_mechanisms": [],
+  "new_equations": [],
   "new_parameters": [],
-  "new_predictions": [],
-  "new_uncertainties": [
-    "UNC-Q049-CONDITIONAL-ENVELOPE"
-  ],
-  "new_validity_domains": [
-    "DOM-Q049-CONDITIONAL-CONTINUUM"
-  ],
   "physical_model_change": false,
   "preserved": [
-    "All preexisting scientific entries and frozen snapshots",
-    "Q048 UNSOLVED, actual127/frontier810, V154 ACCEPTED_UNCONSUMED",
-    "All physical parameters, benchmarks, observations, public operations and unresolved contradictions"
+    "All original case records, evidence and accepted snapshots",
+    "Every original Q049 assumption/limitation/cap entry",
+    "All Q048 state, native frontier and V154 unconsumed status",
+    "All physical parameters, benchmarks, observations, mechanisms, equations, predictions, contradictions and public operations"
   ],
   "resolved_contradictions": [],
   "schema_version": 1,
-  "superseded": [],
-  "target_q": "Q049",
-  "to_candidate_version": "v0.11",
-  "update_class": "CONSTRAINT_UPDATE"
+  "target_q": "Q050",
+  "to_candidate_version": "v0.12",
+  "update_class": "EVIDENCE_ONLY_UPDATE"
 }

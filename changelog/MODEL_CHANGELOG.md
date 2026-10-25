@@ -131,3 +131,7 @@ Admit Q048 as terminal UNSOLVED / UNRESOLVED after effective budget exhaustion. 
 ## v0.11 / R000011 / Q049
 
 Admit the closed conditional dimensionless cap 46.67050453. No smallness, existence, uniqueness, native fidelity or Q048 completion follows. Physical quantities and historical records are preserved.
+
+## v0.12 / Q050
+
+Conditional literal-selector existence documented. Original certificate recovered with manifest-identical hash. Separate proof-contract addendum enforces five components and executes seven mutations. No uniqueness, native fidelity, small-effect or physical-parameter claim.

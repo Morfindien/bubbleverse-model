@@ -1,0 +1,108 @@
+{
+  "authorized_q_range": [
+    "Q001",
+    "Q050"
+  ],
+  "continuation": "Install via manual GitHub Action; it revalidates the exact candidate, checks branch HEAD, commits atomically and verifies the published ref/tree.",
+  "core_mode": "STANDALONE_CORE_FALLBACK",
+  "core_version": "2.0.0",
+  "execution_mode": "UPDATE",
+  "github_memory": {
+    "intended_installer": "q050_model_update.py",
+    "intended_workflow": ".github/workflows/install-q050-model-v012.yml",
+    "reason": "Prior Git object create returned403; not retried identically or bypassed",
+    "repository": "Morfindien/bubbleverse-model",
+    "status": "PENDING_UPLOAD"
+  },
+  "historical_integrity": "Original source checker, journal and all 253 older snapshot files preserved byte-for-byte.",
+  "historical_solver_work_repeated": false,
+  "new_calculations": [],
+  "new_equations": [],
+  "new_parameters": [],
+  "next_q_authorized": false,
+  "observed_live_state": {
+    "head": "1092fb2133d4e1b272f925c3d6931b9a41185384",
+    "integrated_through": "Q049",
+    "model_version": "v0.11",
+    "revision": "R000011"
+  },
+  "physical_model_change": false,
+  "previous_blockers_resolved": [
+    "Original certificate recovered; hash matches manifest and newly uploaded source blob",
+    "Five-component coverage enforced by separate model-side checker",
+    "Seven mutation fixtures actually changed, checked and rejected"
+  ],
+  "promotion": {
+    "attempted": false,
+    "commit": null,
+    "promoted": false,
+    "remote_verified": false
+  },
+  "prompt_id": "BUBBLEVERSE.MODEL_UPDATER",
+  "prompt_sha256": "6fe2b3f9d9e37d31a8021edc52b2a625f97a4d184f0e3a386458ea11279d68a0",
+  "prompt_version": "2.1.0",
+  "proposed_state": {
+    "integrated_through": "Q050",
+    "model_version": "v0.12",
+    "projection_semantics": "Intended post-installation tree only",
+    "revision": "R000012"
+  },
+  "reproducibility": {
+    "grade": "RG1_FOR_CONTRACT_AND_ADMISSION_CHECKS; RG2_FOR_ORIGINAL_THEOREM_ARGUMENT",
+    "limitations": "Contract checker and reviewer do not independently prove underlying analytical premises."
+  },
+  "review": {
+    "conclusion": "Scientific admission approved within conditional scope; operational projections explicitly labeled proposed.",
+    "independent_theorem_reproduction": false,
+    "reviewer": "separate /root/q050_review",
+    "status": "INDEPENDENT_ADMISSION_AND_CODE_REVIEW_COMPLETED"
+  },
+  "run_id": "BV-MODEL-Q050-20261025-REPAIRED-002",
+  "runtime": {
+    "adequacy": "SUFFICIENT",
+    "capability_recommendation": "Deep scientific integration and deterministic validation, tier 2",
+    "mode": "Default",
+    "model_identity": "UNKNOWN",
+    "reasoning_setting": "UNKNOWN",
+    "switches": []
+  },
+  "schema_version": 1,
+  "source_case_status": "CLOSED / RESOLVED_WITHIN_SCOPE",
+  "source_input_commit": "3d0998c5ef93d5b972cda9141b17063bc4646e81",
+  "source_repository": "Morfindien/Bubbleverse",
+  "source_repository_writes_performed": false,
+  "stop_reason": "WRITE_NOT_PERFORMED: ready for guarded GitHub Actions installation",
+  "stop_state": "CANDIDATE_BLOCKED",
+  "target_q": "Q050",
+  "test_evidence": {
+    "actual_mutations": {
+      "executed": 7,
+      "rejected": 7
+    },
+    "contract_checks": {
+      "passed": 13,
+      "total": 13
+    },
+    "formal_model": {
+      "passed": 13,
+      "total": 13
+    },
+    "model_campaign": {
+      "passed": 19,
+      "total": 19
+    },
+    "public_engine_self_test": {
+      "passed": 20,
+      "total": 20
+    },
+    "q050_admission": {
+      "passed": 8,
+      "total": 8
+    },
+    "unittest": {
+      "failed": 0,
+      "run": 121,
+      "skipped": 8
+    }
+  }
+}

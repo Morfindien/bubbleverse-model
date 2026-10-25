@@ -241,8 +241,27 @@
       "origin_q": "Q049",
       "statement": "Finite cap 46.67050453 is very conservative, permits an order-unity electron envelope, and does not establish smallness, sign, a positive lower effect, global existence, uniqueness, native accuracy or Q048 completion. Local case/result identities retain unverified canonical source writeback.",
       "status": "SCOPE_LIMIT"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q050-01",
+        "EVD-Q050-02",
+        "EVD-Q050-03",
+        "EVD-Q050-04",
+        "EVD-Q050-05",
+        "EVD-Q050-06",
+        "EVD-Q050-07",
+        "EVD-Q050-08",
+        "EVD-Q050-09",
+        "EVD-Q050-10",
+        "EVD-Q050-11"
+      ],
+      "id": "LIM-Q050-EXISTENCE-ONLY",
+      "origin_q": "Q050",
+      "statement": "Conditional existence only. Uniqueness, common-background existence, general cosmological reachability, native/P6 fidelity, table/spline error and epsilon-small sensitivity remain unestablished. The historical Q049 cap and all historical Q048 limitations are preserved.",
+      "status": "SCOPE_LIMIT"
     }
   ],
-  "q_access_end": "Q049",
+  "q_access_end": "Q050",
   "schema_version": 1
 }

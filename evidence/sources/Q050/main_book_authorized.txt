@@ -1,0 +1,18 @@
+What Q050 establishes
+The exact low-redshift source-real hydrogen/temperature selector now has a global existence theorem in the
+declared fixed-background domain. For each admitted common background, both held-helium values q=10^-6 and
+q=0, and every validated z=810 theorem-domain start, at least one absolutely continuous Caratheodory continuation
+reaches z=0 without changing or convexifying the selector.
+The proof closes the previously isolated PEEBLES and Pion selector gates, keeps the inherited
+hydrogen/temperature invariant region, handles fixed-time dispatch and reionization, and shows that even a
+finite-time accumulation of selector switches cannot terminate existence: bounded branch fields give an endpoint
+limit from which the local literal solution can restart.
+What Q050 does not establish
+Q050 is an existence result, not a uniqueness result. It does not prove the admitted background itself, identify every
+theorem-domain state as cosmologically reachable, certify the native/P6 floating-point trajectory or establish a new
+observation. The full four-configuration Q048 electron-history and optical-depth comparison therefore remains
+unresolved.
+Why Q049 is still not a small-effect result
+Q049's finite bound |Delta tau_T,tail| <= 46.67050453 remains deliberately coarse. Q050 removes the open
+existence premise, but the bound still allows order-unity electron-history differences and therefore does not show
+that the actual residual-helium effect is small.

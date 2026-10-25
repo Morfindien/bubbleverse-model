@@ -13,13 +13,13 @@ The model represents the best current compression of validated Bubbleverse evide
 
 ## Current State
 
-**v0.11 / R000011 through Q049.**
+**v0.12 / R000012 through Q050.**
 
-Q049: CLOSED / CONDITIONALLY SUPPORTED. For existing admitted frozen hillipop-ede_n3 source-real paired continuations reaching z=0, |Delta tau_T,tail| <= 46.67050453 over 0<=z<=810. This is a coarse deterministic cap, not a measurement or small-effect result. Existence, uniqueness, native trajectory/table fidelity and Q048 completion remain unresolved.
+Q050: CLOSED / RESOLVED_WITHIN_SCOPE. For every fixed admitted common background, both held-helium arms and every validated z=810 theorem-domain state, at least one AC Caratheodory continuation of the unchanged literal source-real selector reaches z=0.
 
-Q048 remains UNSOLVED; actual127/frontier810 and other three frontiers 1440 are unchanged. V154 remains ACCEPTED_UNCONSUMED. No physical parameter, H0 inference, likelihood verdict or production restart follows.
+Existence only: no uniqueness, background-existence, general reachability, native/P6 fidelity or epsilon-small effect. Q049 remains a coarse finite cap; its original record is preserved. Q048 remains UNSOLVED and its native frontier and unconsumed certificate are unchanged. No physical parameter, observation, H0/likelihood verdict or production restart follows.
 
-Frozen accepted snapshot: `versions/accepted/v0.11/`.
+Frozen accepted snapshot: `versions/accepted/v0.12/`.
 
 ---
 
@@ -342,7 +342,7 @@ For the current baseline:
 
 ```text
 AUTHORIZED:
-Q001–Q049
+Q001–Q050
 ```
 
 Evidence beyond the authorized boundary must not influence:

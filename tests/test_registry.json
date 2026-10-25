@@ -1,10 +1,10 @@
 {
-  "accepted_model_version": "v0.9",
-  "campaign_id": "BV-MODEL-v0.9-CAMPAIGN-0009",
-  "candidate_model_version": "v0.9",
-  "current_q": "Q047",
+  "accepted_model_version": "v0.12",
+  "campaign_id": "BV-MODEL-v0.12-CAMPAIGN-0012",
+  "candidate_model_version": "v0.12",
+  "current_q": "Q050",
   "mode": "CURRENT_STATE_VALIDATION",
-  "q_access_end": "Q047",
+  "q_access_end": "Q050",
   "q_access_start": "Q001",
   "schema_version": 1,
   "tests": [
@@ -135,6 +135,14 @@
       "target_component": "Q047 scope-limited assessment and source identity",
       "test_id": "T-BV-016",
       "why_test_matters": "Rejects invented physical qualification, CASE/RESULT identity, production restart, altered sources, unreviewed additions, future-origin science or snapshot mutation."
+    },
+    {
+      "category": "MANDATORY_PROMOTION",
+      "mandatory_for_current_validation": true,
+      "mandatory_for_promotion": true,
+      "target_component": "Q050 certificate identity, actual contract mutations and preserved history",
+      "test_id": "T-BV-019",
+      "why_test_matters": "Rejects missing premises, unproven stronger claims, changed evidence and snapshot corruption."
     }
   ]
 }

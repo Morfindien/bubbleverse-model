@@ -1,0 +1,74 @@
+{
+  "accepted_model": "v0.12",
+  "base_commit": "4efd9fc7b226eafb4512005de0d614322c2cc90e",
+  "candidate_digest": "030b91900865c9279c61ed3bbbc45de03e2df2c3a930a0d600a7185b782165a3",
+  "dispatch_attempt": "1",
+  "dispatch_run_id": "40204713611",
+  "payload_sha256": "3de9886620e7849fc75d75d0c228988be4edb7eadeb72bacf84e7d234502de69",
+  "promotion_commit": null,
+  "publication_state": "VALIDATED_RELEASE_TRANSACTION; actual remote result is in the Actions artifact PUBLICATION_RECEIPT.json",
+  "schema_version": 1,
+  "scientific_base_commit": "1092fb2133d4e1b272f925c3d6931b9a41185384",
+  "target_q": "Q050",
+  "time_utc": "2026-10-25T14:59:33.384622+00:00",
+  "validation": {
+    "candidate_digest": "030b91900865c9279c61ed3bbbc45de03e2df2c3a930a0d600a7185b782165a3",
+    "checks": [
+      {
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+          "tests/programs/q050_model_validate.py"
+        ],
+        "exit_code": 0,
+        "log": "run-output/q050-model-v012/q050.log",
+        "log_sha256": "7a4e0f4f49193870b356b780d3eca2bd15a08715a422fafafacc0f5b3076c6bb",
+        "name": "q050"
+      },
+      {
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+          "tests/programs/model_campaign.py",
+          "validate"
+        ],
+        "exit_code": 0,
+        "log": "run-output/q050-model-v012/campaign.log",
+        "log_sha256": "b650f225cf8596220a1e7f50c75ec76cd678fb9c767a1a67e6dfd8f9d582ee08",
+        "name": "campaign"
+      },
+      {
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-v",
+          "-s",
+          "tests/programs"
+        ],
+        "exit_code": 0,
+        "log": "run-output/q050-model-v012/unittest.log",
+        "log_sha256": "c9c46c02bdeeb8f2300e416b2438c8cf337fb331a5d3124aa0a94549985e4e50",
+        "name": "unittest"
+      },
+      {
+        "command": [
+          "/opt/hostedtoolcache/Python/3.11.17/x64/bin/python",
+          "tests/programs/model_campaign.py",
+          "test"
+        ],
+        "exit_code": 0,
+        "log": "run-output/q050-model-v012/healthcheck.log",
+        "log_sha256": "b650f225cf8596220a1e7f50c75ec76cd678fb9c767a1a67e6dfd8f9d582ee08",
+        "name": "healthcheck"
+      }
+    ],
+    "head": "4efd9fc7b226eafb4512005de0d614322c2cc90e",
+    "historical_scientific_checks_rerun": false,
+    "protected_files": 551,
+    "remote_write_performed": false,
+    "schema_version": 1,
+    "scientific_state_unchanged_by_checks": true,
+    "status": "PASS",
+    "time_utc": "2026-10-25T14:59:32.750729+00:00"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "q_access_end": "Q049",
+  "q_access_end": "Q050",
   "schema_version": 1,
   "uncertainties": [
     {
@@ -240,6 +240,26 @@
       "id": "UNC-Q049-CONDITIONAL-ENVELOPE",
       "origin_q": "Q049",
       "statement": "The exact narrow arithmetic enclosure belongs to the cap formula, not the actual effect. Its magnitude, sign, tightness and existence/uniqueness/native realization remain unestablished.",
+      "status": "UNRESOLVED",
+      "type": "structural_uncertainty"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q050-01",
+        "EVD-Q050-02",
+        "EVD-Q050-03",
+        "EVD-Q050-04",
+        "EVD-Q050-05",
+        "EVD-Q050-06",
+        "EVD-Q050-07",
+        "EVD-Q050-08",
+        "EVD-Q050-09",
+        "EVD-Q050-10",
+        "EVD-Q050-11"
+      ],
+      "id": "UNC-Q050-EXISTENCE-NOT-STABILITY",
+      "origin_q": "Q050",
+      "statement": "Existence is documented within the declared source-real domain; nonuniqueness and residual-helium sensitivity remain unresolved. Contract verification and code review are not independent theorem reproduction.",
       "status": "UNRESOLVED",
       "type": "structural_uncertainty"
     }

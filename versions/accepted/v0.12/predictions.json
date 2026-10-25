@@ -1,0 +1,43 @@
+{
+  "predictions": [
+    {
+      "future_q_evidence_used": false,
+      "id": "PRED-H0-INDEPENDENT-001",
+      "statement": "A future roughly one-percent H0 determination nearly independent of both stellar distance-ladder calibration and early-universe sound-horizon calibration would strongly discriminate among current inference chains.",
+      "status": "OPEN"
+    },
+    {
+      "future_q_evidence_used": false,
+      "history": [
+        {
+          "note": "V19 reached a valid controlled no-science terminal state because convergence and completeness gates were not met; no portability class was issued.",
+          "q": "Q041",
+          "status": "INCONCLUSIVE_COMPUTATIONAL_ATTEMPT"
+        },
+        {
+          "note": "Q042 closed without a qualified 20-cell comparison; physical prediction remains open.",
+          "q": "Q042",
+          "status": "INCONCLUSIVE_FEASIBILITY_INVESTIGATION"
+        }
+      ],
+      "id": "PRED-EDE-PORTABILITY-001",
+      "statement": "A robust high-H0 n=3 EDE explanation should remain scientifically viable across genuinely matched likelihood implementations rather than only within one favorable construction.",
+      "status": "OPEN"
+    },
+    {
+      "future_q_evidence_used": false,
+      "history": [
+        {
+          "note": "A deeper common-latent nuisance-marginalization route was defined, but numerical validation failed before endpoint geometry.",
+          "q": "Q040",
+          "status": "INCONCLUSIVE_PREREQUISITE_ATTEMPT"
+        }
+      ],
+      "id": "PRED-Q039-COUPLED-001",
+      "statement": "A future preregistered coupled likelihood/data-vector harmonization test can discriminate whether the residual CamSpec-HiLLiPoP geometry difference is removed only by jointly changing multiple implementation layers.",
+      "status": "OPEN"
+    }
+  ],
+  "q_access_end": "Q050",
+  "schema_version": 1
+}

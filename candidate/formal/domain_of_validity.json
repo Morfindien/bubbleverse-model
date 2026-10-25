@@ -146,8 +146,28 @@
       "q_access_end": "Q049",
       "q_access_start": "Q049",
       "statement": "Frozen hillipop-ede_n3, 0<=z<=810, common source-derived reionization, existing admitted source-real paired continuations reaching z=0. Does not include native floating-point trajectories, table/spline certification, existence/uniqueness or the full four-configuration Q048 endpoint."
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q050-01",
+        "EVD-Q050-02",
+        "EVD-Q050-03",
+        "EVD-Q050-04",
+        "EVD-Q050-05",
+        "EVD-Q050-06",
+        "EVD-Q050-07",
+        "EVD-Q050-08",
+        "EVD-Q050-09",
+        "EVD-Q050-10",
+        "EVD-Q050-11"
+      ],
+      "id": "DOM-Q050-LITERAL-CONTINUATION",
+      "origin_q": "Q050",
+      "q_access_end": "Q050",
+      "q_access_start": "Q050",
+      "statement": "Each fixed admitted common background over 0<=z<=810, both q=1e-6 and q=0, every validated z=810 theorem-domain start. Does not include general reachability or native/P6 numerical fidelity."
     }
   ],
-  "q_access_end": "Q049",
+  "q_access_end": "Q050",
   "schema_version": 1
 }

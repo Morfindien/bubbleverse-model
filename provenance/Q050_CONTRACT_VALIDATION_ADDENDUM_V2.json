@@ -1,0 +1,127 @@
+{
+  "checker_sha256": "dc1e8ad84c1013409512f9be633676624ac2ebdf172b66c2bd547a53e9cd6db9",
+  "checks": [
+    {
+      "id": "identity",
+      "status": "PASS"
+    },
+    {
+      "id": "closure",
+      "status": "PASS"
+    },
+    {
+      "id": "exact_five_components",
+      "status": "PASS"
+    },
+    {
+      "id": "regularity_and_denominators",
+      "status": "PASS"
+    },
+    {
+      "id": "pion_local_gate",
+      "status": "PASS"
+    },
+    {
+      "id": "peebles_tangent",
+      "status": "PASS"
+    },
+    {
+      "id": "hydrogen_and_thermal_safety",
+      "status": "PASS"
+    },
+    {
+      "id": "bounded_zeno_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "maximal_endpoint_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "fixed_time_dispatch",
+      "status": "PASS"
+    },
+    {
+      "id": "threshold_order",
+      "status": "PASS"
+    },
+    {
+      "id": "initial_domain_and_two_arms",
+      "status": "PASS"
+    },
+    {
+      "id": "claim_firewall",
+      "status": "PASS"
+    }
+  ],
+  "created_at": "2026-10-25T14:43:42.218619+00:00",
+  "historical_receipt_preserved": true,
+  "limited_semantics": "Checks explicit proof-contract coverage and scope. Does not establish underlying analytical premises or independently prove the theorem.",
+  "mutation_controls": [
+    {
+      "failed_checks": [
+        "exact_five_components",
+        "regularity_and_denominators"
+      ],
+      "id": "drop_global1_regular",
+      "input_changed": true,
+      "status": "REJECTED"
+    },
+    {
+      "failed_checks": [
+        "pion_local_gate"
+      ],
+      "id": "drop_pion_local_gate",
+      "input_changed": true,
+      "status": "REJECTED"
+    },
+    {
+      "failed_checks": [
+        "peebles_tangent"
+      ],
+      "id": "drop_peebles_tangent",
+      "input_changed": true,
+      "status": "REJECTED"
+    },
+    {
+      "failed_checks": [
+        "bounded_zeno_restart"
+      ],
+      "id": "allow_unbounded_field_at_zeno",
+      "input_changed": true,
+      "status": "REJECTED"
+    },
+    {
+      "failed_checks": [
+        "maximal_endpoint_restart"
+      ],
+      "id": "remove_endpoint_restart",
+      "input_changed": true,
+      "status": "REJECTED"
+    },
+    {
+      "failed_checks": [
+        "hydrogen_and_thermal_safety"
+      ],
+      "id": "allow_h_to_reach_native_singularity",
+      "input_changed": true,
+      "status": "REJECTED"
+    },
+    {
+      "failed_checks": [
+        "claim_firewall"
+      ],
+      "id": "convexify_selector",
+      "input_changed": true,
+      "status": "REJECTED"
+    }
+  ],
+  "mutations_executed": 7,
+  "mutations_rejected": 7,
+  "original_certificate_sha256": "14f281a158e57cf2052ec05b5af6685e341155a9a09d90c241476c746556dacb",
+  "original_validator_sha256": "3ec8de46dc890e5da97af3dbaac7d34e343e6b7312ed8cb72e497956c95f7cf9",
+  "schema_version": 2,
+  "status": "PASS",
+  "supersession_scope": "Replaces only the unsupported mutation/coverage validation claim for model admission; no historical scientific verdict rewritten.",
+  "target_q": "Q050"
+}

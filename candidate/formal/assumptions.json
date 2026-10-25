@@ -133,8 +133,28 @@
       "scope": "Q049 conditional theorem domain",
       "statement": "Admitted absolutely continuous source-real paired continuations exist and reach z=0 from the validated z=810 domain; global existence and uniqueness are not established by this cap.",
       "status": "EXPLICIT_COMPUTATIONAL_ASSUMPTION"
+    },
+    {
+      "evidence_refs": [
+        "EVD-Q050-01",
+        "EVD-Q050-02",
+        "EVD-Q050-03",
+        "EVD-Q050-04",
+        "EVD-Q050-05",
+        "EVD-Q050-06",
+        "EVD-Q050-07",
+        "EVD-Q050-08",
+        "EVD-Q050-09",
+        "EVD-Q050-10",
+        "EVD-Q050-11"
+      ],
+      "id": "ASSUMP-Q050-FROZEN-LITERAL-EXISTENCE",
+      "origin_q": "Q050",
+      "scope": "Frozen hillipop-ede_n3, fixed admitted background, validated z=810 theorem-domain states",
+      "statement": "Uses the unchanged literal selector/equality rules, inherited local Pion/PEEBLES certificates and source-defined invariant tube. Common-background existence is assumed, not established.",
+      "status": "EXPLICIT_COMPUTATIONAL_ASSUMPTION"
     }
   ],
-  "q_access_end": "Q049",
+  "q_access_end": "Q050",
   "schema_version": 1
 }

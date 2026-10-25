@@ -1,0 +1,16 @@
+{
+  "accepted_model_version": "v0.12",
+  "calculator_dependency_profile": "PYTHON_STANDARD_LIBRARY_ONLY",
+  "historical_scientific_execution_rerun": false,
+  "model_repository": "Morfindien/bubbleverse-model",
+  "model_repository_commit": "1092fb2133d4e1b272f925c3d6931b9a41185384",
+  "model_repository_commit_semantics": "Q050 accepted base; actual publication SHA is bound by the subsequent Actions installation record/receipt",
+  "public_workflow": ".github/workflows/00-bubbleverse-model-start-public.yml",
+  "q_access_end": "Q050",
+  "runtime_family": "Python 3.11 GitHub Actions",
+  "schema_version": 1,
+  "source_bubbleverse_commit": "3d0998c5ef93d5b972cda9141b17063bc4646e81",
+  "source_repository": "Morfindien/Bubbleverse",
+  "validated_local_python": "3.12.14",
+  "validated_runtime": "Python standard-library Q050 admission, explicit proof-contract checks and executed mutations; not independent theorem proving"
+}

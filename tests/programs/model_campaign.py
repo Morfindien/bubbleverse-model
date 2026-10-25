@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 19)]
+MANDATORY_IDS = [f"T-BV-{i:03d}" for i in range(1, 20)]
 
 
 def load(rel):
@@ -273,6 +273,12 @@ def audit():
         q49_detail = 'Q049 conditional cap, exact certificates, scope, history and snapshot gates: ' + ('PASS' if q49_ok else ', '.join(failures))
     results['T-BV-018'] = passfail(q49_ok, q49_detail)
 
+    if qmax >= 50:
+        from q050_model_validate import run_tests as q050_tests
+        q50 = q050_tests(ROOT)
+        results["T-BV-019"] = passfail(q50["all_green"], "Q050 original certificate, contract mutations, scope and snapshot")
+    else:
+        results["T-BV-019"] = passfail(True, "Q050 not yet applicable")
     return results
 
 

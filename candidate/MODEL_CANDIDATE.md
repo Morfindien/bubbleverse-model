@@ -1,3 +1,7 @@
-# Q048 candidate
+# Current accepted model
 
-v0.10 / R000010: terminal **UNSOLVED / UNRESOLVED** Q048 admission. Partial actual state and conditional proof provenance are retained without promoting them into complete native histories. No physical model change, cosmological inference, or production restart.
+**v0.12 / R000012 through Q050.**
+
+Q050: CLOSED / RESOLVED_WITHIN_SCOPE. For every fixed admitted common background, both held-helium arms and every validated z=810 theorem-domain state, at least one AC Caratheodory continuation of the unchanged literal source-real selector reaches z=0.
+
+Existence only: no uniqueness, background-existence, general reachability, native/P6 fidelity or epsilon-small effect. Q049 remains a coarse finite cap; its original record is preserved. Q048 remains UNSOLVED and its native frontier and unconsumed certificate are unchanged. No physical parameter, observation, H0/likelihood verdict or production restart follows.

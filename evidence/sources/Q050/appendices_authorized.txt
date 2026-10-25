@@ -1,0 +1,33 @@
+Theorem scope
+For every fixed admitted common background on 0 <= z <= 810, each q in {10^-6,0}, and every validated z=810
+theorem-domain start, the exact literal source selector admits at least one absolutely continuous Caratheodory
+continuation to z=0.
+Five closure components
+G1
+Away from interfaces
+Active PEEBLES/HMLA/SWIFT fields are finite and locally state-Lipschitz on the inherited safe tube;
+source denominators and lookup domains remain controlled.
+G2
+All local gates
+Pion and PEEBLES ratio interfaces, including exact PEEBLES tangency, have literal local existence;
+fixed-time boundaries concatenate a.e.
+G3
+Invariant continuation
+Inherited hydrogen barriers and 0.98 exp(-t) <= v <= 1.000001 are used non-circularly as a-priori
+bounds on each local segment.
+G4
+Zeno accumulation
+Uniformly bounded branch fields make solutions Lipschitz; any finite switch accumulation has an
+admissible endpoint limit and can restart.
+G5
+Reionization/time dispatch
+Hydrogen uses x_noreio=h+q; the frozen reio_camb map is bounded/measurable and state-Lipschitz,
+so fixed-time concatenation is valid.
+Scientific consequence
+The earlier Q049 statement was conditional on existing admitted continuations. Q050 now establishes existence
+within the declared theorem domain, so the existence premise is cleared. This does not choose a unique
+continuation and does not certify the native numerical realization.
+Remaining mathematical/physical debt
+The dominant remaining low-z question is stability, not mere existence. The current rigorous opacity cap is O(1) and
+therefore cannot establish that changing q by epsilon=10^-6 causes an epsilon-scale response. Standalone
+uniqueness is secondary unless it proves material to that stability question.

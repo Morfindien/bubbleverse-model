@@ -254,6 +254,18 @@
       "result": "CLOSED_CONDITIONAL_CAP",
       "source_repository_commit": "d397732f65da2d1566089b9153a4145a605f8557",
       "update_class": "CONSTRAINT_UPDATE"
+    },
+    {
+      "accepted_after": "v0.12",
+      "accepted_before": "v0.11",
+      "current_q": "Q050",
+      "date": "2026-10-25T14:43:42.218619+00:00",
+      "model_revision": "R000012",
+      "physical_model_change": false,
+      "scientific_scope": "Original closed conditional source-real existence only",
+      "source_repository_commit": "3d0998c5ef93d5b972cda9141b17063bc4646e81",
+      "status": "VALIDATED_CANDIDATE_PENDING_INSTALLATION",
+      "update_class": "EVIDENCE_ONLY_UPDATE"
     }
   ],
   "schema_version": 1

@@ -1,0 +1,47 @@
+{
+  "background_existence_proved": false,
+  "case_id": "LOCAL-Q050-LOWZ-SELECTOR-EXISTENCE-V1",
+  "certificate_sha256": "14f281a158e57cf2052ec05b5af6685e341155a9a09d90c241476c746556dacb",
+  "conditional_on_fixed_admitted_background": true,
+  "configuration": "hillipop-ede_n3",
+  "cosmological_reachability_proved": false,
+  "domain_z": [
+    0,
+    810
+  ],
+  "evidence_refs": [
+    "EVD-Q050-01",
+    "EVD-Q050-02",
+    "EVD-Q050-03",
+    "EVD-Q050-04",
+    "EVD-Q050-05",
+    "EVD-Q050-06",
+    "EVD-Q050-07",
+    "EVD-Q050-08",
+    "EVD-Q050-09",
+    "EVD-Q050-10",
+    "EVD-Q050-11"
+  ],
+  "existence_proved_within_scope": true,
+  "held_helium_q": [
+    "1/1000000",
+    "0"
+  ],
+  "integration_status": "CONDITIONAL_EXISTENCE_THEOREM",
+  "native_fidelity_proved": false,
+  "new_observation": false,
+  "next_q_authorized": false,
+  "physical_model_change": false,
+  "production_restart_authorized": false,
+  "publication_status": "CLOSED",
+  "q_id": "Q050",
+  "question": "For the frozen hillipop-ede_n3 configuration and each fixed admitted common background on 0 <= z <= 810, do the exact source-real low-redshift hydrogen/temperature branch-selection rules admit an absolutely continuous continuation to z=0 from every state in the validated z=810 domain, separately for q=xHeII=10^-6 and q=0, without changing or convexifying the selector?",
+  "result_id": "LOCAL-Q050-MATHEMATICS-GLOBAL-LITERAL-SELECTOR-CLOSURE-20261025-V1",
+  "schema_version": 1,
+  "scientific_status": "RESOLVED_WITHIN_SCOPE",
+  "small_effect_established": false,
+  "source_repository_commit": "3d0998c5ef93d5b972cda9141b17063bc4646e81",
+  "uniqueness_proved": false,
+  "validation_addendum": "provenance/Q050_CONTRACT_VALIDATION_ADDENDUM_V2.json",
+  "validation_role": "Limited proof-contract and provenance validation, not independent theorem proving"
+}
