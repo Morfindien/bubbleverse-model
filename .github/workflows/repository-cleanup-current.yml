@@ -11,6 +11,7 @@ on:
       - 'versions/accepted/**'
       - 'bubbleverse_model_program_registry.json'
       - 'repository_cleanup.py'
+      - 'tools/maintenance/**'
       - 'tests/programs/test_repository_cleanup*.py'
       - '.github/workflows/repository-cleanup-current.yml'
   schedule:
@@ -49,24 +50,42 @@ jobs:
         with:
           python-version: '3.11'
       - name: Verify supplied cleanup engine
+        id: verify
         shell: bash
         run: |
-          sha256sum --check <<'HASHES'
-          7412717b64c32d5225ee8c614341a86d9ccbb31975a5046220ea4695c5bd09b1  repository_cleanup.py
-          b94bd8aedc78b99e850a21e019546ad5cce7fa394b661519535e390dbe1ee481  tests/programs/test_repository_cleanup.py
-          41eafb3f3968883bdea39ba56144aee01d9c28b518caa1cb4daf2aa5bff35498  tests/programs/test_repository_cleanup_guards.py
-          HASHES
+          python - <<'PYVERIFY'
+          import hashlib, os
+          from pathlib import Path
+          old = "7412717b64c32d5225ee8c614341a86d9ccbb31975a5046220ea4695c5bd09b1"
+          alias = "04840356044359970b803e02b595a7bf8a5cc854546d76ade83ee80dda268acc"
+          def sha(p):
+              return hashlib.sha256(p.read_bytes()).hexdigest() if p.is_file() and not p.is_symlink() else None
+          root = Path("repository_cleanup.py")
+          canonical = Path("tools/maintenance/repository_cleanup.py")
+          installed = sha(root) == alias and sha(canonical) == old
+          legacy = sha(root) == old and not canonical.exists()
+          if not (installed or legacy):
+              raise SystemExit("Unrecognized or partial cleanup layout")
+          for name, expected in {
+              "tests/programs/test_repository_cleanup.py": "b94bd8aedc78b99e850a21e019546ad5cce7fa394b661519535e390dbe1ee481",
+              "tests/programs/test_repository_cleanup_guards.py": "41eafb3f3968883bdea39ba56144aee01d9c28b518caa1cb4daf2aa5bff35498",
+          }.items():
+              if sha(Path(name)) != expected:
+                  raise SystemExit("Unrecognized cleanup guard: " + name)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write("installed=" + str(installed).lower() + "\n")
+          PYVERIFY
       - name: Discover current state, audit, validate and clean
         shell: bash
         env:
-          CLEANUP_MODE: ${{ inputs.mode || 'CLEAN' }}
+          CLEANUP_MODE: ${{ steps.verify.outputs.installed == 'true' && (inputs.mode || 'CLEAN') || 'AUDIT' }}
           BV_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
           python repository_cleanup.py --repo . --mode "$CLEANUP_MODE" --report "$RUNNER_TEMP/bubbleverse-cleanup-report.json"
       - name: Publish structural cleanup
         env:
           BV_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
-        if: github.event_name != 'workflow_dispatch' || inputs.mode == 'CLEAN'
+        if: steps.verify.outputs.installed == 'true' && (github.event_name != 'workflow_dispatch' || inputs.mode == 'CLEAN')
         shell: bash
         run: |
           git push origin "HEAD:refs/heads/$BV_DEFAULT_BRANCH"
